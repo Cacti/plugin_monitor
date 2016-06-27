@@ -602,6 +602,14 @@ function render_template() {
 	$ctemp = -1;
 	$ptemp = -1;
 
+	if (get_request_var('view') == 'tiles') {
+		$offset  = 0;
+		$offset2 = 0;
+	}else{
+		$offset  = 52;
+		$offset2 = 38;
+	}
+
 	if (sizeof($hosts)) {
 		foreach($hosts as $host) {
 			$ctemp = $host['host_template_id'];
@@ -611,7 +619,7 @@ function render_template() {
 			}
 
 			if ($ctemp != $ptemp) {
-				$result .= "<div style='vertical-align:top;margin-left:auto;margin-right:auto;display:table-row;height:" . intval(get_request_var('size') + 52) . "px;position:relative;padding:3px;margin:4px;'><div style='float:left;display:table-cell;'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center' style='height:" . intval(get_request_var('size') + 38) . "px;'>\n";
+				$result .= "<div style='vertical-align:top;margin-left:auto;margin-right:auto;display:table-row;height:" . intval(get_request_var('size') + $offset) . "px;position:relative;padding:3px;margin:4px;'><div style='float:left;display:table-cell;'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center' style='height:" . intval(get_request_var('size') + $offset2) . "px;'>\n";
 			}
 
 			$result .= render_host($host, true);
@@ -813,9 +821,9 @@ function render_host($host, $float = true) {
 		$result = $function($host);
 	}else{
 		if ($host['status'] < 2 || $host['status'] == 5) {
-			$result = "<div " . ($host['status'] != 3 ? 'class="flash"':'') . "' style='font-size:-2em;min-width:100px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='width:100px;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "<br><font style='font-size:10px;padding:2px;' class='deviceDown'>$dt</font></a></div>\n";
+			$result = "<div " . ($host['status'] != 3 ? 'class="flash"':'') . "' style='width:" . max(get_request_var('size'), 80) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='width:100px;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "<br><font style='font-size:10px;padding:2px;' class='deviceDown'>$dt</font></a></div>\n";
 		} else {
-			$result = "<div style='text-align:center;display:block;min-width:100px;" . ($float ? 'float:left;':'') . "padding:3px;;'><a style='font-size:-2em;width:100px;' href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<div style='width:" . max(get_request_var('size'), 80) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;;'><a style='width:100px;' href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
 		}
 	}
 
@@ -1011,21 +1019,21 @@ function ajax_status() {
 }
 
 function render_host_tiles($host) {
-	return "<div style='float:left;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i></a></div>";
+	return "<div style='padding:2px;float:left;text-align:center;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i></a></div>";
 }
 
 function render_host_tilesadt($host) {
 	$dt = '';
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = monitor_print_host_time($host['status_fail_date']);
-		return "<div style='margin:2px;float:left;width:" . max(get_request_var('size'), 55) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><font style='font-size:10px;padding:2px;' class='deviceDown'>$dt</font></a></div>\n";
+		return "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><font style='font-size:10px;padding:2px;' class='deviceDown'>$dt</font></a></div>\n";
 	}else{
 		if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
 			$dt = monitor_print_host_time($host['status_rec_date']);
 		}else{
 			$dt = __('Never');
 		}
-		return "<div style='margin:2px;float:left;width:" . max(get_request_var('size'), 55) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><font style='font-size:10px;padding:2px;' class='deviceUp'>$dt</font></a></div>\n";
+		return "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><font style='font-size:10px;padding:2px;' class='deviceUp'>$dt</font></a></div>\n";
 	}
 
 }
