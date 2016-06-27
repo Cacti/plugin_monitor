@@ -242,13 +242,15 @@ print '</select></td>' . "\n";
 $critical_hosts = db_fetch_cell('SELECT count(*) FROM host WHERE monitor_criticality > 0');
 if ($critical_hosts) {
 	print '<td><select id="crit" title="' . __('Select Minimum Criticality') . '">' . "\n";
-	print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All') . '</option>';
+	print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All Criticalities') . '</option>';
 	foreach($criticalities as $key => $value) {
 		if ($key > 0) {
 			print "<option value='" . $key . "'" . (get_nfilter_request_var('crit') == $key ? ' selected':'') . '>' . $value . '</option>';
 		}
 	}
 	print '</select></td>' . "\n";
+}else{
+	print "<input type='hidden' id='crit' value='" . get_request_var('crit') . "'>\n";
 }
 
 print '<td><select id="size" title="' . __('Device Icon Size') . '">' . "\n";
@@ -272,8 +274,9 @@ print '</tr></table>' . "\n";
 print '</form></center>' . "\n";
 
 // Display the Current Time
-print '<center><span id="text" style="display:none;">Filter Settings Saved</span><br></center>';
-print '<center>' . __('Last Refresh : %s', date('g:i:s a', time())) . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh')):'') . '</center>';
+print '<center style="padding-bottom:4px;"><span id="text" style="display:none;">Filter Settings Saved</span><br></center>';
+print '<center style="padding-bottom:4px;">' . __('Last Refresh : %s', date('g:i:s a', time())) . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh')):'') . '</center>';
+print '<center style="padding-bottom:4px;font-weight:bold;">' . get_filter_text() . '</center>';
 
 if (!$sound && $host_down) {
 	print '<br><center><b>' . __('Alerting has been disabled by the client!') . '</b></center>';
@@ -364,6 +367,7 @@ function applyFilter() {
 	strURL += '&grouping='+$('#grouping').val();
 	strURL += '&tree='+$('#tree').val();
 	strURL += '&view='+$('#view').val();
+	strURL += '&crit='+$('#crit').val();
 	strURL += '&size='+$('#size').val();
 	strURL += '&mute='+$('#mute').val();
 	strURL += '&status='+$('#status').val();
@@ -372,12 +376,13 @@ function applyFilter() {
 
 function saveFilter() {
     url='monitor.php?action=save' +
-        '&refresh='     + $('#refresh').val() +
+        '&refresh='  + $('#refresh').val() +
         '&grouping=' + $('#grouping').val() +
-        '&tree=' + $('#tree').val() +
-        '&view='   + $('#view').val() +
-        '&size=' + $('#size').val() +
-        '&status=' + $('#status').val();
+        '&tree='     + $('#tree').val() +
+        '&view='     + $('#view').val() +
+        '&crit='     + $('#crit').val() +
+        '&size='     + $('#size').val() +
+        '&status='   + $('#status').val();
 
     $.get(url, function(data) {
         $('#text').show().text('Filter Settings Saved').fadeOut(2000);
@@ -403,7 +408,7 @@ $('#sound').click(function() {
 	applyFilter();
 });
 
-$('#refresh, #view, #grouping, #size, #status, #tree').change(function() {
+$('#refresh, #view, #crit, #grouping, #size, #status, #tree').change(function() {
 	applyFilter();
 });
 
@@ -457,6 +462,42 @@ bottom_footer();
 
 exit;
 
+function get_filter_text() {
+	$filter = '';
+
+	switch(get_request_var('status')) {
+	case '-1':
+		$filter = __('All Monitored Devices');
+		break;
+	case '0':
+		$filter = __('Monitored Devices either Down or Recovering');;
+		break;
+	case '1':
+		$filter = __('Monitored Devices either Down, Recovering, of with Breached Thresholds');;
+		break;
+	}
+
+	switch(get_request_var('crit')) {
+	case '0':
+		$filter .= __(', and All Criticalities');
+		break;
+	case '1':
+		$filter .= __(', and of Low Criticality or Higher');
+		break;
+	case '2':
+		$filter .= __(', and of Medium Criticality or Higher');
+		break;
+	case '3':
+		$filter .= __(', and of High Criticality or Higher');
+		break;
+	case '4':
+		$filter .= __(', and of Mission Critical Status');
+		break;
+	}
+
+	return $filter;
+}
+
 function save_settings() {
     validate_request_vars();
 
@@ -471,6 +512,9 @@ function save_settings() {
             break;
         case 'view':
             set_user_setting('monitor_view', get_request_var('view'));
+            break;
+        case 'crit':
+            set_user_setting('monitor_crit', get_request_var('crit'));
             break;
         case 'mute':
             set_user_setting('monitor_mute', get_request_var('mute'));
@@ -517,6 +561,10 @@ function validate_request_vars($force = false) {
             'filter' => FILTER_VALIDATE_INT,
             'default' => read_user_setting('monitor_size', '40', $force)
 			),
+        'crit' => array(
+            'filter' => FILTER_VALIDATE_INT,
+            'default' => read_user_setting('monitor_crit', '-1', $force)
+			),
         'status' => array(
             'filter' => FILTER_VALIDATE_INT,
             'default' => read_user_setting('monitor_status', '-1', $force)
@@ -532,15 +580,20 @@ function validate_request_vars($force = false) {
 }
 
 function render_where_join(&$sql_where, &$sql_join) {
+	if (get_request_var('crit') > 0) {
+		$crit = ' AND h.monitor_criticality>' . get_request_var('crit');
+	}else{
+		$crit = '';
+	}
 	if (get_request_var('status') == '0') {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND h.status < 3 OR (td.thold_enabled="on" AND td.thold_alert>0)';
+		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND h.status < 3 OR (td.thold_enabled="on" AND td.thold_alert>0)' . $crit;
 	}elseif (get_request_var('status') == '1') {
 		$sql_join  = '';
-		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND h.status < 3 AND (availability_method>0 || snmp_version>0)';
+		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND h.status < 3 AND (availability_method>0 || snmp_version>0)' . $crit;
 	}else{
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND ((availability_method>0 OR snmp_version>0) OR (td.thold_enabled="on" AND td.thold_alert>0))';
+		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND ((availability_method>0 OR snmp_version>0) OR (td.thold_enabled="on" AND td.thold_alert>0))' . $crit;
 	}
 }
 
@@ -924,16 +977,16 @@ function ajax_status() {
 				$links .= '<a class="hyperLink" href="' . $host_link . '">' . __('Edit Device') . '</a>';
 			}
 			if (isset($graph_link)) {
-				$links .= ($links != '' ? '<br>':'') . '<a class="hyperLink" href="' . $graph_link . '">' . __('View Graphs') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $graph_link . '">' . __('View Graphs') . '</a>';
 			}
 			if (isset($thold_link)) {
-				$links .= ($links != '' ? '<br>':'') . '<a class="hyperLink" href="' . $thold_link . '">' . __('View Thresholds') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $thold_link . '">' . __('View Thresholds') . '</a>';
 			}
 			if (isset($syslog_log_link)) {
-				$links .= ($links != '' ? '<br>':'') . '<a class="hyperLink" href="' . $syslog_log_link . '">' . __('View Syslog Alerts') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $syslog_log_link . '">' . __('View Syslog Alerts') . '</a>';
 			}
 			if (isset($syslog_link)) {
-				$links .= ($links != '' ? '<br>':'') . '<a class="hyperLink" href="' . $syslog_link . '">' . __('View Syslog Messages') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $syslog_link . '">' . __('View Syslog Messages') . '</a>';
 			}
 
 			$icolor   = $icolors[$host['status']];
@@ -966,24 +1019,16 @@ function ajax_status() {
 				 	</td>
 				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Current Ping:') . "</td>
-					<td style='vertical-align:top;'>" . __('%d ms', $host['cur_time']) . "</td>
-				</tr>
-				<tr>
-					<td style='vertical-align:top;'>" . __('Average Ping:') . "</td>
-					<td style='vertical-align:top;'>" . __('%d ms', $host['avg_time']) . "</td>
+					<td style='white-space:nowrap;vertical-align:top;'>" . __('Curr/Avg Ping:') . "</td>
+					<td style='vertical-align:top;'>" . __('%d ms', $host['cur_time']) . ' / ' .  __('%d ms', $host['avg_time']) . "</td>
 				</tr>" . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? "
 				<tr>
 					<td style='vertical-align:top;'>" . __('Criticality:') . "</td>
 					<td style='vertical-align:top;'>" . $criticalities[$host['monitor_criticality']] . "</td>
 				</tr>":"") . (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0) ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Ping Warning:') . "</td>
-					<td style='vertical-align:top;'>" . __('%0.2d ms', $host['monitor_warn']) . "</td>
-				</tr>
-				<tr>
-					<td style='vertical-align:top;'>" . __('Ping Alert:') . "</td>
-					<td style='vertical-align:top;'>" . __('%0.2d ms', $host['monitor_alert']) . "</td>
+					<td style='white-space:nowrap;vertical-align:top;'>" . __('Ping Warn/Alert:') . "</td>
+					<td style='vertical-align:top;'>" . __('%0.2d ms', $host['monitor_warn']) . ' / ' . __('%0.2d ms', $host['monitor_alert']) . "</td>
 				</tr>":"") . "
 				<tr>
 					<td style='vertical-align:top;'>" . __('Last Fail:') . "</td>
@@ -1002,7 +1047,7 @@ function ajax_status() {
 					<td style='vertical-align:top;'>" . ($host['status'] == 3 || $host['status'] == 5 ? monitor_print_host_time($host['snmp_sysUpTimeInstance']):'N/A') . "</td>
 				</tr>
 				<tr>
-					<td style='vertical-align:top;'>" . __('System Description:') . "</td>
+					<td style='white-space:nowrap;vertical-align:top;'>" . __('Sys Description:') . "</td>
 					<td style='vertical-align:top;'>" . $host['snmp_sysDescr'] . "</td>
 				</tr>
 				<tr>
