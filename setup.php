@@ -116,7 +116,7 @@ function plugin_monitor_version () {
 }
 
 function monitor_device_action_execute($action) {
-	global $config;
+	global $config, $fields_host_edit;
 
 	if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
 		return $action;
@@ -139,7 +139,6 @@ function monitor_device_action_execute($action) {
 				while (list($field_name, $field_array) = each($fields_host_edit)) {
 					if (isset_request_var("t_$field_name")) {
 						db_execute_prepared("UPDATE host SET $field_name = ? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
-						cacti_log(sprintf("UPDATE host SET $field_name = %s WHERE id = %s", get_nfilter_request_var($field_name), $selected_items[$i]));
 					}
 				}
 			}
@@ -363,7 +362,7 @@ function monitor_config_form () {
 				'description' => __('What is the Criticality of this Device.'),
 				'method' => 'drop_array',
 				'array' => $criticalities,
-				'value' => '|arg1:monitor_criticalities|',
+				'value' => '|arg1:monitor_criticality|',
 				'default' => '0',
 			);
 			$fields_host_edit3['monitor_warn'] = array(
@@ -373,7 +372,7 @@ function monitor_config_form () {
 				'size' => '10',
 				'max_length' => '5',
 				'placeholder' => 'milliseconds',
-				'value' => '|arg1:monitor_criticalities|',
+				'value' => '|arg1:monitor_warn|',
 				'default' => '',
 			);
 			$fields_host_edit3['monitor_alert'] = array(
@@ -383,7 +382,7 @@ function monitor_config_form () {
 				'size' => '10',
 				'max_length' => '5',
 				'placeholder' => 'milliseconds',
-				'value' => '|arg1:monitor_criticalities|',
+				'value' => '|arg1:monitor_alert|',
 				'default' => '',
 			);
 			$fields_host_edit3['monitor_text'] = array(
@@ -415,19 +414,19 @@ function monitor_api_device_save ($save) {
 	}
 
 	if (isset_request_var('monitor_criticality')) {
-		$save['monitor_criticality'] = form_input_validate(get_nfilter_request_var('monitor_criticality'), 'monitor_criticality', '', true, 3);
+		$save['monitor_criticality'] = form_input_validate(get_nfilter_request_var('monitor_criticality'), 'monitor_criticality', '^[0-9]+$', true, 3);
 	} else {
 		$save['monitor_criticality'] = form_input_validate('', 'monitor_criticality', '', true, 3);
 	}
 
 	if (isset_request_var('monitor_warn')) {
-		$save['monitor_warn'] = form_input_validate(get_nfilter_request_var('monitor_warn'), 'monitor_warn', '', true, 3);
+		$save['monitor_warn'] = form_input_validate(get_nfilter_request_var('monitor_warn'), 'monitor_warn', '^[0-9]+$', true, 3);
 	} else {
 		$save['monitor_warn'] = form_input_validate('', 'monitor_warn', '', true, 3);
 	}
 
 	if (isset_request_var('monitor_alert')) {
-		$save['monitor_alert'] = form_input_validate(get_nfilter_request_var('monitor_alert'), 'monitor_alert', '', true, 3);
+		$save['monitor_alert'] = form_input_validate(get_nfilter_request_var('monitor_alert'), 'monitor_alert', '^[0-9]+$', true, 3);
 	} else {
 		$save['monitor_alert'] = form_input_validate('', 'monitor_alert', '', true, 3);
 	}
