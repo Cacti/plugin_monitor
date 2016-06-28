@@ -227,7 +227,11 @@ function monitor_scan_dir() {
 }
 
 function monitor_config_settings() {
-	global $tabs, $settings, $criticalities, $page_refresh_interval;
+	global $tabs, $settings, $criticalities, $page_refresh_interval, $config;
+
+	include_once($config['base_path'] . '/lib/reports.php');
+ 
+	$formats = reports_get_format_files();
 
 	$criticalities = array(
 		0 => __('Disabled'),
@@ -235,6 +239,16 @@ function monitor_config_settings() {
 		2 => __('Medium'),
 		3 => __('High'),
 		4 => __('Mission Critical')
+	);
+
+	$log_retentions = array(
+		'-1'  => __('Indefinately'),
+		'31'  => __('%d Month', 1),
+		'62'  => __('%d Months', 2),
+		'93'  => __('%d Months', 3),
+		'124' => __('%d Months', 4),
+		'186' => __('%d Months', 6),
+		'365' => __('%d Year', 1)
 	);
 
 	if (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) != 'settings.php') {
@@ -245,8 +259,15 @@ function monitor_config_settings() {
 
 	$temp = array(
 		'monitor_header' => array(
-			'friendly_name' => __('Monitor'),
+			'friendly_name' => __('Monitor Settings'),
 			'method' => 'spacer',
+		),
+		'monitor_log_storage' => array(
+			'friendly_name' => __('Notification/Reboot Log Retention'),
+			'description' => __('Keep Notification and Reboot Logs for this number of days.'),
+			'method' => 'drop_array',
+			'default' => '31',
+			'array' => $log_retentions
 		),
 		'monitor_sound' => array(
 			'friendly_name' => __('Alarm Sound'),
@@ -257,17 +278,39 @@ function monitor_config_settings() {
 		),
 		'monitor_warn_criticality' => array(
 			'friendly_name' => __('Warning Latency Notification'),
-			'description' => __('If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.'),
+			'description' => __('If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.'),
 			'method' => 'drop_array',
 			'default' => '0',
 			'array' => $criticalities
 		),
 		'monitor_alert_criticality' => array(
 			'friendly_name' => __('Alert Latency Notification'),
-			'description' => __('If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.'),
+			'description' => __('If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.'),
 			'method' => 'drop_array',
 			'default' => '0',
 			'array' => $criticalities
+		),
+		'monitor_format_file' => array(
+			'friendly_name' => __('Format File to Use'),
+			'method' => 'drop_array',
+			'default' => 'default.format',
+			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.
+			These files are located in the \'formats\' directory.'),
+			'array' => $formats
+		),
+		'monitor_resend_frequency' => array(
+			'friendly_name' => __('How Often to Resend Emails'),
+			'description' => __('How often should emails notifications be sent to subscribers for these hosts if they are exceeding their latency thresholds'),
+			'method' => 'drop_array',
+			'default' => '0',
+			'array' => array(
+				'0'   => __('Every Occurance'),
+				'20'  => __('Every %d Minutes', 20),
+				'30'  => __('Every %d Minutes', 30),
+				'60'  => __('Every Hour'),
+				'120' => __('Every %d Hours', 2),
+				'240' => __('Every %d Hours', 4)
+			)
 		),
 		'monitor_refresh' => array(
 			'friendly_name' => __('Refresh Interval'),
@@ -367,7 +410,7 @@ function monitor_config_form () {
 			);
 			$fields_host_edit3['monitor_warn'] = array(
 				'friendly_name' => __('Ping Warning Threshold'),
-				'description' => __('If the round trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables.'),
+				'description' => __('If the round trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.'),
 				'method' => 'textbox',
 				'size' => '10',
 				'max_length' => '5',
@@ -377,7 +420,7 @@ function monitor_config_form () {
 			);
 			$fields_host_edit3['monitor_alert'] = array(
 				'friendly_name' => __('Ping Alert Threshold'),
-				'description' => __('If the round trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables.'),
+				'description' => __('If the round trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.'),
 				'method' => 'textbox',
 				'size' => '10',
 				'max_length' => '5',
@@ -441,6 +484,28 @@ function monitor_draw_navigation_text ($nav) {
 }
 
 function monitor_setup_table() {
+	db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
+		id int(10) unsigned NOT NULL AUTO_INCREMENT,
+		host_id int(10) unsigned DEFAULT NULL,
+		notify_type tinyint(3) unsigned DEFAULT NULL,
+		ping_time double DEFAULT NULL,
+		notification_list int(10) unsigned DEFAULT NULL,
+		notification_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+		emails varchar(256) DEFAULT NULL,
+		PRIMARY KEY (id),
+		KEY notification_list (notification_list)) 
+		ENGINE=InnoDB COMMENT='Stores Notification Event History'");
+
+	db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_reboot_history (
+		id int(10) unsigned NOT NULL AUTO_INCREMENT,
+		host_id int(10) unsigned DEFAULT NULL,
+		reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+		PRIMARY KEY (id),
+		KEY host_id (host_id),
+		KEY reboot_time (reboot_time)) 
+		ENGINE=InnoDB 
+		COMMENT='Keeps Track of Device Reboot Times'");
+
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on', 'after' => 'disabled'));
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_text', 'type' => 'text', 'NULL' => false, 'after' => 'monitor'));
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text'));
