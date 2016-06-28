@@ -387,11 +387,35 @@ function monitor_show_tab() {
 function monitor_config_form () {
 	global $fields_host_edit, $criticalities;
 
+	$baselines = array(
+		'0'   => __('Dont Change'),
+		'0.20'  => __('%d Percent Above Average', 20),
+		'0.30'  => __('%d Percent Above Average', 30),
+		'0.40'  => __('%d Percent Above Average', 40),
+		'0.50'  => __('%d Percent Above Average', 50),
+		'0.60'  => __('%d Percent Above Average', 60),
+		'0.70'  => __('%d Percent Above Average', 70),
+		'0.80'  => __('%d Percent Above Average', 80),
+		'0.90'  => __('%d Percent Above Average', 90),
+		'1.00'  => __('%d Percent Above Average', 100),
+		'1.20'  => __('%d Percent Above Average', 120),
+		'1.40'  => __('%d Percent Above Average', 140),
+		'1.50'  => __('%d Percent Above Average', 150),
+		'2.00'  => __('%d Percent Above Average', 200),
+		'3.00'  => __('%d Percent Above Average', 300),
+		'4.00'  => __('%d Percent Above Average', 400),
+		'5.00'  => __('%d Percent Above Average', 500)
+	);
+
 	$fields_host_edit2 = $fields_host_edit;
 	$fields_host_edit3 = array();
 	foreach ($fields_host_edit2 as $f => $a) {
 		$fields_host_edit3[$f] = $a;
 		if ($f == 'disabled') {
+			$fields_host_edit3['monitor_header'] = array(
+				'friendly_name' => __('Device Monitoring Settings'),
+				'method' => 'spacer',
+			);
 			$fields_host_edit3['monitor'] = array(
 				'method' => 'checkbox',
 				'friendly_name' => __('Monitor Device'),
@@ -427,6 +451,22 @@ function monitor_config_form () {
 				'placeholder' => 'milliseconds',
 				'value' => '|arg1:monitor_alert|',
 				'default' => '',
+			);
+			$fields_host_edit3['monitor_warn_baseline'] = array(
+				'friendly_name' => __('Re-Baseline Warning'),
+				'description' => __('The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold.'),
+				'method' => 'drop_array',
+				'default' => '0',
+				'value' => '0',
+				'array' => $baselines
+			);
+			$fields_host_edit3['monitor_alert_baseline'] = array(
+				'friendly_name' => __('Re-Baseline Alert'),
+				'description' => __('The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold.'),
+				'method' => 'drop_array',
+				'default' => '0',
+				'value' => '0',
+				'array' => $baselines
 			);
 			$fields_host_edit3['monitor_text'] = array(
 				'friendly_name' => __('Down Device Message'),
@@ -472,6 +512,20 @@ function monitor_api_device_save ($save) {
 		$save['monitor_alert'] = form_input_validate(get_nfilter_request_var('monitor_alert'), 'monitor_alert', '^[0-9]+$', true, 3);
 	} else {
 		$save['monitor_alert'] = form_input_validate('', 'monitor_alert', '', true, 3);
+	}
+
+	if (!isempty_request_var('monitor_alert_baseline') && !empty($save['id'])) {
+		$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($save['id']));
+		if ($cur_time > 0) {
+			$save['monitor_alert'] = $cur_time * get_nfilter_request_var('monitor_alert_baseline');
+		}
+	}
+
+	if (!isempty_request_var('monitor_warn_baseline') && !empty($save['id'])) {
+		$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($save['id']));
+		if ($cur_time > 0) {
+			$save['monitor_warn'] = $cur_time * get_nfilter_request_var('monitor_alert_baseline');
+		}
 	}
 
 	return $save;

@@ -64,11 +64,11 @@ $icolorsdisplay = array(
 	1 => __('Down'),
 	2 => __('Recovering'), 
 	3 => __('Up'), 
-	4 => __('Threshold Breached'), 
+	4 => __('Thold Triggered/Breached'), 
 	5 => __('Down (Muted)'),
 	6 => __('Unmonitored'),
-	7 => __('Warning Ping Threshold'),
-	8 => __('Alert Ping Threshold'),
+	7 => __('Above Warning Threshold'),
+	8 => __('Above Alert Threshold'),
 );
 
 $iconsizes = array(
@@ -581,7 +581,7 @@ function validate_request_vars($force = false) {
 
 function render_where_join(&$sql_where, &$sql_join) {
 	if (get_request_var('crit') > 0) {
-		$crit = ' AND h.monitor_criticality>' . get_request_var('crit');
+		$crit = ' AND h.monitor_criticality>=' . get_request_var('crit');
 	}else{
 		$crit = '';
 	}
@@ -828,6 +828,12 @@ function get_host_status($host) {
 	/* If the host has been muted, show the muted Icon */
 	if (in_array($host['id'], $muted_hosts) && $host['status'] == 1) {
 		$host['status'] = 5;
+	}elseif ($host['status'] == 3) {
+		if ($host['cur_time'] > $host['monitor_alert']) {
+			$host['status'] = 8;
+		}elseif ($host['cur_time'] > $host['monitor_warn']) {
+			$host['status'] = 7;
+		}
 	}
 
 	return $host['status'];
@@ -933,6 +939,8 @@ function ajax_status() {
 			$host['status'] = 6;
 		}
 
+		$host['status'] = get_host_status($host);
+
 		if (sizeof($host)) {
 			if (api_plugin_user_realm_auth('host.php')) {
 				$host_link = htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']);
@@ -1000,6 +1008,10 @@ function ajax_status() {
 				<tr>
 					<td style='vertical-align:top;'>" . __('Device:') . "</td>
 					<td style='vertical-align:top;'><a href='" . $host['anchor'] . "'><span>" . $host['description'] . "</span></a></td>
+				</tr>" . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? "
+				<tr>
+					<td style='vertical-align:top;'>" . __('Criticality:') . "</td>
+					<td style='vertical-align:top;'>" . $criticalities[$host['monitor_criticality']] . "</td>
 				</tr>
 				<tr>
 					<td style='vertical-align:top;'>" . __('Status:') . "</td>
@@ -1019,15 +1031,11 @@ function ajax_status() {
 				 	</td>
 				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
-					<td style='white-space:nowrap;vertical-align:top;'>" . __('Curr/Avg Ping:') . "</td>
+					<td style='white-space:nowrap;vertical-align:top;'>" . __('Curr/Avg:') . "</td>
 					<td style='vertical-align:top;'>" . __('%d ms', $host['cur_time']) . ' / ' .  __('%d ms', $host['avg_time']) . "</td>
-				</tr>" . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? "
-				<tr>
-					<td style='vertical-align:top;'>" . __('Criticality:') . "</td>
-					<td style='vertical-align:top;'>" . $criticalities[$host['monitor_criticality']] . "</td>
 				</tr>":"") . (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0) ? "
 				<tr>
-					<td style='white-space:nowrap;vertical-align:top;'>" . __('Ping Warn/Alert:') . "</td>
+					<td style='white-space:nowrap;vertical-align:top;'>" . __('Warn/Alert:') . "</td>
 					<td style='vertical-align:top;'>" . __('%0.2d ms', $host['monitor_warn']) . ' / ' . __('%0.2d ms', $host['monitor_alert']) . "</td>
 				</tr>":"") . "
 				<tr>
@@ -1128,8 +1136,7 @@ function get_host_non_tree_array() {
 
 	$heirarchy = db_fetch_assoc("SELECT DISTINCT
 		gti.title, gti.host_id, gti.host_grouping_type, gti.graph_tree_id,
-		h.id, h.description, h.status, h.hostname, h.cur_time, h.status_rec_date,
-		h.status_fail_date, h.availability
+		h.*
 		FROM host AS h
 		LEFT JOIN graph_tree_items AS gti 
 		ON h.id=gti.host_id
