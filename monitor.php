@@ -1012,7 +1012,7 @@ function ajax_status() {
 				<tr>
 					<td style='vertical-align:top;'>" . __('Criticality:') . "</td>
 					<td style='vertical-align:top;'>" . $criticalities[$host['monitor_criticality']] . "</td>
-				</tr>
+				</tr>":"") . "
 				<tr>
 					<td style='vertical-align:top;'>" . __('Status:') . "</td>
 					<td class='$iclass' style='vertical-align:top;'>$sdisplay</td>
@@ -1049,7 +1049,7 @@ function ajax_status() {
 				<tr>
 					<td style='vertical-align:top;'>" . __('Availability:') . "</td>
 					<td style='vertical-align:top;'>" . round($host['availability'],2) . " %</td>
-				</tr>":"") . ($host['snmp_version'] > 0 ? "
+				</tr>" . ($host['snmp_version'] > 0 ? "
 				<tr>
 					<td style='vertical-align:top;'>" . __('Agent Uptime:') . "</td>
 					<td style='vertical-align:top;'>" . ($host['status'] == 3 || $host['status'] == 5 ? monitor_print_host_time($host['snmp_sysUpTimeInstance']):'N/A') . "</td>
