@@ -125,7 +125,7 @@ if (isset_request_var('action')) {
 }
 
 /* Record Start Time */
-list($micro,$seconds) = split(" ", microtime());
+list($micro,$seconds) = explode(" ", microtime());
 $start = $seconds + $micro;
 
 $sound = true;
