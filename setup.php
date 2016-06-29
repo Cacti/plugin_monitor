@@ -167,19 +167,28 @@ function monitor_device_action_prepare($save) {
 		print "<tr>
 			<td colspan='2' class='even'>
 				<p>" . __('Click \'Continue\' to %s monitoring on these Device(s)', $action_description) . "</p>
-				<p><ul>" . $save['host_list'] . "</ul></p>
+				<p><div class='itemlist'><ul>" . $save['host_list'] . "</ul></div></p>
 			</td>
 		</tr>";
 	} else {
 		print "<tr>
 			<td colspan='2' class='even'>
-				<p>" . __('Click \'Continue\' to Change the Monitoring settings for the following Device(s)') . "</p>
-				<p><ul>" . $save['host_list'] . "</ul></p>
+				<p>" . __('Click \'Continue\' to Change the Monitoring settings for the following Device(s). Remember to check \'Update this Field\' to indicate which columns to update.') . "</p>
+				<p><div class='itemlist'><ul>" . $save['host_list'] . "</ul></div></p>
 			</td>
 		</tr>";
 
 		$form_array = array();
-		$fields = array('monitor', 'monitor_text', 'monitor_criticality', 'monitor_warn', 'monitor_alert');
+		$fields = array(
+			'monitor', 
+			'monitor_text', 
+			'monitor_criticality', 
+			'monitor_warn', 
+			'monitor_alert', 
+			'monitor_warn_baseline', 
+			'monitor_alert_baseline'
+		);
+
 		foreach($fields as $field) {
 			$form_array += array($field => $fields_host_edit[$field]);
 
