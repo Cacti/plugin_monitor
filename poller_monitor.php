@@ -113,6 +113,7 @@ if ($warning_criticality > 0 || $alert_criticality > 0) {
 }
 
 function process_email($email, $lists, $global_list, $notify_list) {
+	monitor_debug("Into Processing");
 	$alert_hosts = array();
 	$warn_hosts  = array();
 
@@ -146,6 +147,8 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		}
 	}
 
+	monitor_debug("Lists Processed");
+
 	if (sizeof($alert_hosts)) {
 		$alert_hosts = array_unique($alert_hosts, SORT_NUMERIC);
 	}
@@ -154,26 +157,29 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$warn_hosts = array_unique($warn_hosts, SORT_NUMERIC);
 	}
 
+	monitor_debug("Found " . sizeof($alert_hosts) . " Alert Hosts, and " . sizeof($warn_hosts) . " Warn Hosts");
+
 	if (sizeof($alert_hosts) || sizeof($warn_hosts)) {
+		monitor_debug("Formatting Email");
 		$freq    = read_config_option('monitor_resend_frequency');
 		$subject = __('Cacti Monitor Plugin Ping Threshold Notification');
 
 		$body  = "<h1>" . __('Cacti Monitor Plugin Ping Threshold Notication') . "</h1>";
 
 		$body .= "<p>" . __('The following report will identify Devices that have eclipsed their ping
-			latency thresholds.  You are receiving this report in that you are subscribed
-			to a Cacti Device associated with the Cacti system located at the following URL.') . "</p>";
+			latency thresholds.  You are receiving this report due to that you are subscribed for notification
+			to a Device associated with the Cacti system located at the following URL below.') . "</p>";
 
 		$body .= "<h2>" . read_config_option('base_url') . "</h2>";
 
 		if ($freq > 0) {
-			$body .= "<p>" . __('You will receive notifications from every %d minutes if the Device is above threshold.', $freq) . "</p><br>";
+			$body .= "<p>" . __('You will receive notifications every %d minutes if the Device is above its threshold.', $freq) . "</p>";
 		}else{
-			$body .= "<p>" . __('You will receive notifications from every time the Device is above threshold.') . "</p><br>";
+			$body .= "<p>" . __('You will receive notifications every time the Device is above its threshold.') . "</p>";
 		}
 
 		if (sizeof($alert_hosts)) {
-			$body .= "<p>" . __('The following Devices have breached either Alert Notification Threshold.') . "</p><br>";
+			$body .= "<p>" . __('The following Devices have breached their Alert Notification Threshold.') . "</p>";
 			$body .= "<table style='width:100%;border:1px solid black;padding:4px;margin:2px;><tr>";
 			$body .= "<th>Hostname</th><th>Criticality</th><th>Alert Ping</th><th>Cur Ping</th>";
 			$body .= "</tr>";
@@ -182,10 +188,10 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
 					$body .= "<tr>";
-					$body .= "<td>" . $host['description']  . "</td>";
-					$body .= "<td>" . $criticalities[$host['monitor_criticality']]  . "</td>";
-					$body .= "<td>" . $host['monitor_alert']  . " ms</td>";
-					$body .= "<td>" . $host['cur_time']  . " ms</td>";
+					$body .= "<td style='text-align:left;'>" . $host['description']  . "</td>";
+					$body .= "<td style='text-align:left;'>" . $criticalities[$host['monitor_criticality']]  . "</td>";
+					$body .= "<td style='text-align:right;'>" . $host['monitor_alert']  . " ms</td>";
+					$body .= "<td style='text-align:right;'>" . round($host['cur_time'],2)  . " ms</td>";
 					$body .= "</tr>";
 				}
 			}
@@ -193,7 +199,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		}
 
 		if (sizeof($warn_hosts)) {
-			$body .= "<p>" . __('The following Devices have breached either Warning Notification Threshold.') . "</p><br>";
+			$body .= "<p>" . __('The following Devices have breached their Warning Notification Threshold.') . "</p><br>";
 
 			$body .= "<table style='width:100%;border:1px solid black;padding:4px;margin:2px;><tr>";
 			$body .= "<th>Hostname</th><th>Criticality</th><th>Alert Ping</th><th>Cur Ping</th>";
@@ -203,10 +209,10 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
 					$body .= "<tr>";
-					$body .= "<td>" . $host['description']  . "</td>";
-					$body .= "<td>" . $criticalities[$host['monitor_criticality']]  . "</td>";
-					$body .= "<td>" . $host['monitor_warn']  . " ms</td>";
-					$body .= "<td>" . $host['cur_time']  . " ms</td>";
+					$body .= "<td style='text-align:left;'>" . $host['description']  . "</td>";
+					$body .= "<td style='text-align:left;'>" . $criticalities[$host['monitor_criticality']]  . "</td>";
+					$body .= "<td style='text-align:right;'>" . $host['monitor_warn']  . " ms</td>";
+					$body .= "<td style='text-align:right;'>" . round($host['cur_time'],2)  . " ms</td>";
 					$body .= "</tr>";
 				}
 			}
@@ -217,16 +223,23 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$report_tag = '';
 		$theme      = 'modern';
 
+		monitor_debug("Loading Format File");
+
 		$format_ok = reports_load_format_file(read_config_option('monitor_format_file'), $output, $report_tag, $theme);
+
+		monitor_debug("Format File Loaded, Format is " . ($format_ok ? 'Ok':'Not Ok') . ", Report Tag is $report_tag");
+
 		if ($format_ok) {
 			if ($report_tag) {
-				return str_replace('<REPORT>', $body, $output);
+				$output = str_replace('<REPORT>', $body, $output);
 			} else {
-				return $output . "\n" . $body;
+				$output = $output . "\n" . $body;
 			}
 		} else {
-			return $body;
+			$output = $body;
 		}
+
+		monitor_debug("HTML Processed");
 
 		$v = db_fetch_cell('SELECT cacti FROM version');
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
@@ -255,6 +268,8 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			'',
 			$headers
 	    );
+
+		monitor_debug("The return from the mailer was '$error'");
 
 		if (strlen($error)) {
             cacti_log("WARNING: Monitor had problems sending Notification Report to '$email'.  The error was '$error'", false, 'MONITOR');
