@@ -295,6 +295,16 @@ if (function_exists($function)) {
 
 print '</center>';
 
+//if (read_config_option('monitor_legend')) {
+//	global $iclasses, $icolorsdisplay;
+
+//	print "<div class='lazy'><table class='center' style='padding:2px;width:100%'><tr>\n";
+//	foreach($iclasses as $index => $class) {
+//		print "<td class='center $class'>" . $icolorsdisplay[$index] . "</td>\n";
+//	}
+//	print "</tr></table></div>\n";
+//}
+
 if ($host_down) {
 	$render_down_host_message = 0;
 	$down_host_message = '';
@@ -315,19 +325,6 @@ if ($host_down) {
 	if ($render_down_host_message) {
 		print $down_host_message;
 	}
-}
-
-if (read_config_option('monitor_legend')) {
-	print "<br><br><br><table class='center' style='padding:2px;background-color:#000000'><tr><td>&nbsp;<font style='color:#FFFFFF;'><b>" . __('Legend') . "</b></font></td></tr><tr><td bgcolor='#000000'>\n";
-	print "<table cellspacing=10 bgcolor='#FFFFFF' id=legend>\n";
-	if ($thold) {
-		print "<tr align=center><td><img src='" . $config['url_path'] . "plugins/monitor/images/green.gif'></td><td><img src='" . $config['url_path'] . "plugins/monitor/images/blue.gif'></td><td><img src='" . $config['url_path'] . "plugins/monitor/images/orange.gif'></td><td><img src='" . $config['url_path'] . "plugins/monitor/images/red.gif'></td></tr>\n";
-		print "<tr valign=top align=center><td width='25%'>" . __('Normal') . "</td><td width='25%'>" . __('Recovering') . "</td><td width='25%'>" . __('Threshold Breached') . "</td><td width='25%'>" . __('Down') . "</td></tr>";
-	} else {
-		print "<tr align=center><td><img src='" . $config['url_path'] . "plugins/monitor/images/green.gif'></td><td><img src='" . $config['url_path'] . "plugins/monitor/images/blue.gif'></td><td><img src='" . $config['url_path'] . "plugins/monitor/images/red.gif'></td></tr>\n";
-		print "<tr valign=top align=center><td width='33%'>" . __('Normal') . "</td><td width='33%'>" . __('Recovering') . "</td><td width='33%'>" . __('Down') . "</td></tr>";
-	}
-	print "</table></td></tr></table>\n";
 }
 
 // If the host is down, we need to insert the embedded wav file

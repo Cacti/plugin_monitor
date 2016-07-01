@@ -33,6 +33,7 @@ function plugin_monitor_install () {
 	api_plugin_register_hook('monitor', 'device_action_array', 'monitor_device_action_array', 'setup.php');
 	api_plugin_register_hook('monitor', 'device_action_execute', 'monitor_device_action_execute', 'setup.php');
 	api_plugin_register_hook('monitor', 'device_action_prepare', 'monitor_device_action_prepare', 'setup.php');
+	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
 
 	api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring', 1);
 	monitor_setup_table();
@@ -138,7 +139,19 @@ function monitor_device_action_execute($action) {
 				reset($fields_host_edit);
 				while (list($field_name, $field_array) = each($fields_host_edit)) {
 					if (isset_request_var("t_$field_name")) {
-						db_execute_prepared("UPDATE host SET $field_name = ? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
+						if ($field_name == 'monitor_alert_baseline') {
+							$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($selected_items[$i]));
+							if ($cur_time > 0) {
+								db_execute_prepared("UPDATE host SET monitor_alert = avg_time*? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
+							}
+						}elseif ($field_name == 'monitor_warn_baseline') {
+							$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($selected_items[$i]));
+							if ($cur_time > 0) {
+								db_execute_prepared("UPDATE host SET monitor_warn = avg_time*? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
+							}
+						}else{
+							db_execute_prepared("UPDATE host SET $field_name = ? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
+						}
 					}
 				}
 			}
@@ -398,22 +411,22 @@ function monitor_config_form () {
 
 	$baselines = array(
 		'0'   => __('Dont Change'),
-		'0.20'  => __('%d Percent Above Average', 20),
-		'0.30'  => __('%d Percent Above Average', 30),
-		'0.40'  => __('%d Percent Above Average', 40),
-		'0.50'  => __('%d Percent Above Average', 50),
-		'0.60'  => __('%d Percent Above Average', 60),
-		'0.70'  => __('%d Percent Above Average', 70),
-		'0.80'  => __('%d Percent Above Average', 80),
-		'0.90'  => __('%d Percent Above Average', 90),
-		'1.00'  => __('%d Percent Above Average', 100),
-		'1.20'  => __('%d Percent Above Average', 120),
-		'1.40'  => __('%d Percent Above Average', 140),
-		'1.50'  => __('%d Percent Above Average', 150),
-		'2.00'  => __('%d Percent Above Average', 200),
-		'3.00'  => __('%d Percent Above Average', 300),
-		'4.00'  => __('%d Percent Above Average', 400),
-		'5.00'  => __('%d Percent Above Average', 500)
+		'1.20'  => __('%d Percent Above Average', 20),
+		'1.30'  => __('%d Percent Above Average', 30),
+		'1.40'  => __('%d Percent Above Average', 40),
+		'1.50'  => __('%d Percent Above Average', 50),
+		'1.60'  => __('%d Percent Above Average', 60),
+		'1.70'  => __('%d Percent Above Average', 70),
+		'1.80'  => __('%d Percent Above Average', 80),
+		'1.90'  => __('%d Percent Above Average', 90),
+		'2.00'  => __('%d Percent Above Average', 100),
+		'2.20'  => __('%d Percent Above Average', 120),
+		'2.40'  => __('%d Percent Above Average', 140),
+		'2.50'  => __('%d Percent Above Average', 150),
+		'3.00'  => __('%d Percent Above Average', 200),
+		'4.00'  => __('%d Percent Above Average', 300),
+		'5.00'  => __('%d Percent Above Average', 400),
+		'6.00'  => __('%d Percent Above Average', 500)
 	);
 
 	$fields_host_edit2 = $fields_host_edit;
@@ -547,27 +560,30 @@ function monitor_draw_navigation_text ($nav) {
 }
 
 function monitor_setup_table() {
-	db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
-		id int(10) unsigned NOT NULL AUTO_INCREMENT,
-		host_id int(10) unsigned DEFAULT NULL,
-		notify_type tinyint(3) unsigned DEFAULT NULL,
-		ping_time double DEFAULT NULL,
-		notification_list int(10) unsigned DEFAULT NULL,
-		notification_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-		emails varchar(256) DEFAULT NULL,
-		PRIMARY KEY (id),
-		KEY notification_list (notification_list)) 
-		ENGINE=InnoDB COMMENT='Stores Notification Event History'");
+	if (!db_table_exists('plugin_monitor_notify_history')) {
+		db_execute("CREATE TABLE plugin_monitor_notify_history (
+			id int(10) unsigned NOT NULL AUTO_INCREMENT,
+			host_id int(10) unsigned DEFAULT NULL,
+			notify_type tinyint(3) unsigned DEFAULT NULL,
+			ping_time double DEFAULT NULL,
+			notification_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+			PRIMARY KEY (id),
+			UNIQUE KEY unique_key (host_id,notify_type,notification_time)) 
+			ENGINE=InnoDB 
+			COMMENT='Stores Notification Event History'");
+	}
 
-	db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_reboot_history (
-		id int(10) unsigned NOT NULL AUTO_INCREMENT,
-		host_id int(10) unsigned DEFAULT NULL,
-		reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-		PRIMARY KEY (id),
-		KEY host_id (host_id),
-		KEY reboot_time (reboot_time)) 
-		ENGINE=InnoDB 
-		COMMENT='Keeps Track of Device Reboot Times'");
+	if (!db_table_exists('plugin_monitor_reboot_history')) {
+		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_reboot_history (
+			id int(10) unsigned NOT NULL AUTO_INCREMENT,
+			host_id int(10) unsigned DEFAULT NULL,
+			reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+			PRIMARY KEY (id),
+			KEY host_id (host_id),
+			KEY reboot_time (reboot_time)) 
+			ENGINE=InnoDB 
+			COMMENT='Keeps Track of Device Reboot Times'");
+	}
 
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on', 'after' => 'disabled'));
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_text', 'type' => 'text', 'NULL' => false, 'after' => 'monitor'));
@@ -576,3 +592,18 @@ function monitor_setup_table() {
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn'));
 }
 
+function monitor_poller_bottom() {
+	global $config;
+
+	include_once($config['library_path'] . '/poller.php');
+
+    $command_string = trim(read_config_option('path_php_binary'));
+
+    if (trim($command_string) == '') {
+        $command_string = 'php';
+	}
+
+    $extra_args = ' -q ' . $config['base_path'] . '/plugins/monitor/poller_monitor.php > /tmp/monitor.php';
+
+    exec_background($command_string, $extra_args);
+}
