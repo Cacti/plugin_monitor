@@ -27,6 +27,14 @@ $guest_account = true;
 chdir('../../');
 include_once('./include/auth.php');
 
+define('NL', "\n");
+
+set_default_action();
+
+/* Record Start Time */
+list($micro,$seconds) = explode(" ", microtime());
+$start = $seconds + $micro;
+
 $criticalities = array(
 	0 => __('Disabled'),
 	1 => __('Low'),
@@ -36,39 +44,23 @@ $criticalities = array(
 );
 
 $iclasses = array(
-	0 => 'deviceError',
 	1 => 'deviceDown',
 	2 => 'deviceRecovering',
 	3 => 'deviceUp',
-	4 => 'deviceThrehold',
+	4 => 'deviceThreshold',
 	5 => 'deviceDownMuted',
-	6 => 'deviceUnmonitored',
 	7 => 'deviceWarning',
 	8 => 'deviceAlert',
 );
 
-$icolors = array(
-	0 => 'red', 
-	1 => 'red', 
-	2 => 'blue', 
-	3 => 'green', 
-	4 => 'orange', 
-	5 => 'grey',
-	6 => 'grey',
-	7 => 'yellow',
-	8 => 'maroon'
-);
-
 $icolorsdisplay = array(
-	0 => __('Unknown'), 
 	1 => __('Down'),
 	2 => __('Recovering'), 
 	3 => __('Up'), 
-	4 => __('Thold Triggered/Breached'), 
-	5 => __('Down (Muted)'),
-	6 => __('Unmonitored'),
-	7 => __('Above Warning Threshold'),
-	8 => __('Above Alert Threshold'),
+	4 => __('Triggered'), 
+	5 => __('Down (Muted/Acked)'),
+	7 => __('Warning Ping'),
+	8 => __('Alert Ping'),
 );
 
 $iconsizes = array(
@@ -78,386 +70,294 @@ $iconsizes = array(
 	80 => __('Large')
 );
 
-validate_request_vars();
+global $thold_alerts, $thold_hosts; 
 
-if (in_array('thold',$plugins)) {
-	$thold_alerts = array();
-	$thold_hosts = array();
-
-	$result = db_fetch_assoc('SELECT rra_id FROM thold_data WHERE thold_alert > 0 AND thold_enabled = "on"', FALSE);
-
-	if (count($result)) {
-		foreach ($result as $row) {
-			$thold_alerts[] = $row['rra_id'];
-		}
-
-		if (count($thold_alerts) > 0) {
-			$result = db_fetch_assoc('SELECT id, host_id FROM data_local');
-
-			foreach ($result as $h) {
-				if (in_array($h['id'], $thold_alerts)) {
-					$thold_hosts[] = $h['host_id'];
-				}
-			}
-		}
-	}
+if (!isset($_SESSION['muted_hosts'])) {
+	$_SESSION['muted_hosts'] = array();
 }
 
-$thold = (in_array('thold',$plugins) ? true : false);
+validate_request_vars(true);
 
-// Default = default
-$muted_hosts = array();
-if (isset($_SESSION['muted_hosts'])) {
-	$muted_hosts = explode(',',$_SESSION['muted_hosts']);
+check_tholds();
+
+switch(get_nfilter_request_var('action')) {
+case 'ajax_status':
+	ajax_status();
+	break;
+case 'ajax_mute_all':
+	mute_all_hosts();
+	draw_page();
+	break;
+case 'ajax_unmute_all':
+	unmute_all_hosts();
+	draw_page();
+	break;
+case 'save':
+	save_settings();
+	break;
+default:
+	draw_page();
 }
-
-if (isset_request_var('action')) {
-	switch(get_nfilter_request_var('action')) {
-	case 'ajax_status':
-		ajax_status();
-		break;
-	case 'save':
-		save_settings();
-		break;
-	}
-
-	exit;
-}
-
-/* Record Start Time */
-list($micro,$seconds) = explode(" ", microtime());
-$start = $seconds + $micro;
-
-$sound = true;
-// Check to see if we just turned on/off the sound via the button
-if (isset_request_var('sound')) {
-	if (get_nfilter_request_var('sound') == 'off') {
-		$_SESSION['sound'] = 'off';
-		$sound = false;
-	} else {
-		$_SESSION['sound'] = 'on';
-		$sound = true;
-	}
-}
-
-// Check to see if we turned off the sound before
-if (isset($_SESSION['sound']) && $_SESSION['sound'] == 'off' && $_SESSION['sound'] != '') {
-	$sound = false;
-}
-
-// Check to see if a host is down
-$host_down = false;
-$dhosts = array();
-$chosts = array();
-
-$chosts = get_host_down_by_permission();
-
-if (sizeof($chosts) > 0){
-	$host_down = true;
-}
-
-if (!$host_down) {
-	$sound = true;
-	$_SESSION['sound'] = 'on';
-	$_SESSION['hosts_down'] = '';
-	$_SESSION['muted_hosts'] = '';
-} else {
-	// Check the session to see if we had any down hosts before
-	if (isset($_SESSION['hosts_down'])) {
-		$dhosts = explode(',',$_SESSION['hosts_down']);
-		$x = count($dhosts);
-		$y = count($chosts);
-
-		if (!$sound) {
-			$muted_hosts = $dhosts;
-			$_SESSION['muted_hosts'] = implode(',',$dhosts);
-		}
-
-		if ($x != $y && $x < $y) {
-			// We have more down hosts than before
-			$sound = true;
-			$_SESSION['sound'] = 'on';
-			$_SESSION['hosts_down'] = implode(',',$chosts);
-		} elseif ($x > $y) {
-			// We have less down hosts than before
-			// Need to check here to make sure that one didn't come on line and others go off
-			$_SESSION['hosts_down'] = implode(',',$chosts);
-		} else {
-			// We have the same number of hosts, so loop through and make sure they are the same ones
-			// These arrays are already sorted, so we don't need to worry about doing a real compare
-			for ($a = 0; $a < $x; $a++) {
-				if ($dhosts[$a] != $chosts[$a]) {
-					$sound = true;
-					$_SESSION['sound'] = 'on';
-					$_SESSION['hosts_down'] = implode(',',$chosts);
-					break;
-				}
-			}
-		}
-	} else {
-		$_SESSION['hosts_down'] = implode(',',$chosts);
-	}
-}
-$_SESSION['custom']=false;
-
-general_header();
-
-print '<center><form><table><tr><td>' . "\n";
-
-print '<td><select id="view" title="' . __('View Type') . '">' . "\n";
-print '<option value="default"' . (get_nfilter_request_var('view') == 'default' ? ' selected':'') . '>' . __('Default') . '</option>';
-print '<option value="tiles"' . (get_nfilter_request_var('view') == 'tiles' ? ' selected':'') . '>' . __('Tiles') . '</option>';
-print '<option value="tilesadt"' . (get_nfilter_request_var('view') == 'tilesadt' ? ' selected':'') . '>' . __('Tiles & Downtime') . '</option>';
-print '</select></td>' . "\n";
-
-print '<td><select id="grouping" title="' . __('Device Grouping') . '">' . "\n";
-print '<option value="default"' . (get_nfilter_request_var('grouping') == 'default' ? ' selected':'') . '>' . __('Default') . '</option>';
-print '<option value="tree"' . (get_nfilter_request_var('grouping') == 'tree' ? ' selected':'') . '>' . __('Tree') . '</option>';
-print '<option value="template"' . (get_nfilter_request_var('grouping') == 'template' ? ' selected':'') . '>' . __('Device Template') . '</option>';
-print '</select></td>' . "\n";
-
-if (get_request_var('grouping') == 'tree') {
-	$trees = get_allowed_trees();
-	if (sizeof($trees)) {
-		print '<td><select id="tree" title="' . __('Select Tree') . '">' . "\n";
-		print '<option value="-1"' . (get_nfilter_request_var('tree') == '-1' ? ' selected':'') . '>' . __('All Trees') . '</option>';
-		foreach($trees as $tree) {
-			print "<option value='" . $tree['id'] . "'" . (get_nfilter_request_var('tree') == $tree['id'] ? ' selected':'') . '>' . $tree['name'] . '</option>';
-		}
-		print '<option value="-2"' . (get_nfilter_request_var('tree') == '-2' ? ' selected':'') . '>' . __('Non Tree Hosts') . '</option>';
-		print '</select></td>' . "\n";
-	}else{
-		print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
-	}
-}else{
-	print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
-}
-
-print '<td><select id="refresh" title="' . __('Refresh Frequency') . '">' . "\n";
-foreach($page_refresh_interval as $id => $value) {
-	print "<option value='$id'" . (get_nfilter_request_var('refresh') == $id ? ' selected':'') . '>' . $value . '</option>';
-}
-print '</select></td>' . "\n";
-
-$critical_hosts = db_fetch_cell('SELECT count(*) FROM host WHERE monitor_criticality > 0');
-if ($critical_hosts) {
-	print '<td><select id="crit" title="' . __('Select Minimum Criticality') . '">' . "\n";
-	print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All Criticalities') . '</option>';
-	foreach($criticalities as $key => $value) {
-		if ($key > 0) {
-			print "<option value='" . $key . "'" . (get_nfilter_request_var('crit') == $key ? ' selected':'') . '>' . $value . '</option>';
-		}
-	}
-	print '</select></td>' . "\n";
-}else{
-	print "<input type='hidden' id='crit' value='" . get_request_var('crit') . "'>\n";
-}
-
-print '<td><select id="size" title="' . __('Device Icon Size') . '">' . "\n";
-foreach($iconsizes as $id => $value) {
-	print "<option value='$id'" . (get_nfilter_request_var('size') == $id ? ' selected':'') . '>' . $value . '</option>';
-}
-print '</select></td>' . "\n";
-
-print '<td><select id="status" title="' . __('Device Status') . '">' . "\n";
-print '<option value="-1"' . (get_nfilter_request_var('status') == '-1' ? ' selected':'') . '>' . __('All Monitored Devices') . '</option>';
-print '<option value="0"' . (get_nfilter_request_var('status') == '0' ? ' selected':'') . '>' . __('Down Only') . '</option>';
-print '<option value="1"' . (get_nfilter_request_var('status') == '1' ? ' selected':'') . '>' . __('Down or Triggered') . '</option>';
-print '</select></td>' . "\n";
-
-print '<td><input type="button" value="' . __('Refresh') . '" id="go" title="' . __('Refresh the Device List') . '"></td>' . "\n";
-print '<td><input type="button" value="' . __('Save') . '" id="save" title="' . __('Save Filter Settings') . '"></td>' . "\n";
-print '<td><input type="button" value="' . (get_request_var('mute') == 'false' ? __('Mute'):__('Un-mute')) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('Mute Sounds for Newly Downed Devices'):__('Un-mute Sounds for Newly Downed Devices')) . '"></td>' . "\n";
-print '<td><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . "\n";
-
-print '</tr></table>' . "\n";
-print '</form></center>' . "\n";
-
-// Display the Current Time
-print '<center style="padding-bottom:4px;"><span id="text" style="display:none;">Filter Settings Saved</span><br></center>';
-print '<center style="padding-bottom:4px;">' . __('Last Refresh : %s', date('g:i:s a', time())) . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh')):'') . '</center>';
-print '<center style="padding-bottom:4px;font-weight:bold;">' . get_filter_text() . '</center>';
-
-if (!$sound && $host_down) {
-	print '<br><center><b>' . __('Alerting has been disabled by the client!') . '</b></center>';
-}
-
-print "<center>\n";
-
-// Default with permissions = default_by_permissions
-// Tree  = group_by_tree
-$function = 'render_' . get_request_var('grouping');
-if (function_exists($function)) {
-	print $function();
-}else{
-	print render_default();
-}
-
-print '</center>';
-
-//if (read_config_option('monitor_legend')) {
-//	global $iclasses, $icolorsdisplay;
-
-//	print "<div class='lazy'><table class='center' style='padding:2px;width:100%'><tr>\n";
-//	foreach($iclasses as $index => $class) {
-//		print "<td class='center $class'>" . $icolorsdisplay[$index] . "</td>\n";
-//	}
-//	print "</tr></table></div>\n";
-//}
-
-if ($host_down) {
-	$render_down_host_message = 0;
-	$down_host_message = '';
-	$down_host_message .= '<br><br><center><h2>' . __('Down Device Messages') . '</h2><table class="center" style="background-color:black;"><tr><td><table style="background-color:while;width:100%;">';
-
-	foreach ($chosts as $id) {
-		$message = db_fetch_row_prepared('SELECT hostname, description, monitor_text FROM host WHERE id = ?' , array($id));
-
-		$message['monitor_text'] = str_replace("\n", '<br>', $message['monitor_text']);
-
-		if ($message['monitor_text'] != '') {
-			$render_down_host_message = 1;
-			$down_host_message .= '<tr><td><b>' . $message['description'] . ' (' . $message['hostname'] . ')</b> - </td><td>' . $message['monitor_text'] . '</td></tr>';
-		}
-	}
-
-	$down_host_message .= '</table></td></tr></table></center>';
-	if ($render_down_host_message) {
-		print $down_host_message;
-	}
-}
-
-// If the host is down, we need to insert the embedded wav file
-if ($host_down && $sound) {
-	$monitor_sound = read_config_option('monitor_sound');
-	if ($monitor_sound != '' && $monitor_sound != __('None')) {
-		print "<audio loop><source src='" . $config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound . "' type='auto/mpeg'></audio>\n";
-	}
-}
-
-?>
-<script type='text/javascript'>
-var myTimer;
-
-function timeStep() {
-	value = $('#timer').html() - 1;
-
-	if (value <= 0) {
-		applyFilter();
-	}else{
-		$('#timer').html(value);
-		myTimer = setTimeout(timeStep, 1000);
-	}
-}
-
-function closeTip() {
-	console.log('wtf');
-	$(document).tooltip('close');
-}
-
-function applyFilter() {
-	clearTimeout(myTimer);
-	$('.fa-server').unbind();
-
-	strURL  = 'monitor.php?header=false';
-	strURL += '&refresh='+$('#refresh').val();
-	strURL += '&grouping='+$('#grouping').val();
-	strURL += '&tree='+$('#tree').val();
-	strURL += '&view='+$('#view').val();
-	strURL += '&crit='+$('#crit').val();
-	strURL += '&size='+$('#size').val();
-	strURL += '&mute='+$('#mute').val();
-	strURL += '&status='+$('#status').val();
-	loadPageNoHeader(strURL);
-}
-
-function saveFilter() {
-    url='monitor.php?action=save' +
-        '&refresh='  + $('#refresh').val() +
-        '&grouping=' + $('#grouping').val() +
-        '&tree='     + $('#tree').val() +
-        '&view='     + $('#view').val() +
-        '&crit='     + $('#crit').val() +
-        '&size='     + $('#size').val() +
-        '&status='   + $('#status').val();
-
-    $.get(url, function(data) {
-        $('#text').show().text('Filter Settings Saved').fadeOut(2000);
-    });
-}
-
-function setupTooltips() {
-}
-
-$('#go').click(function() {
-	applyFilter();
-});
-
-$('#sound').click(function() {
-	if ($('#mute').val() == 'false') {
-		$('#mute').val('true');
-		$('#sound').val('<?php print __('Un-mute');?>');
-	}else{
-		$('#mute').val('false');
-		$('#sound').val('<?php print __('Mute');?>');
-	}
-
-	applyFilter();
-});
-
-$('#refresh, #view, #crit, #grouping, #size, #status, #tree').change(function() {
-	applyFilter();
-});
-
-$('#save').click(function() {
-	saveFilter();
-});
-
-$(function() {
-	$(document).tooltip({
-		items: '.fa-server',
-		open: function(event, ui) {
-			if (typeof(event.originalEvent) == 'undefined') {
-				return false;
-			}
-
-			var $id = $(ui.tooltip).attr('id');
-
-			$('div.ui-tooltip').not('#'+ $id).remove();
-		},
-		close: function(event, ui) {
-			ui.tooltip.hover(
-			function () {
-				$(this).stop(true).fadeTo(400, 1);
-			},
-			function() {
-				$(this).fadeOut('400', function() {
-					$(this).remove();
-				});
-			});
-		},
-		position: {my: "left:15 top", at: "right center"},
-		content: function(callback) {
-			var id = $(this).attr('id');
-			$.get('monitor.php?action=ajax_status&id='+id, function(data) {
-				callback(data);
-			})
-		}
-	});
-
-	myTimer = setTimeout(timeStep, 1000);
-
-	$(window).resize(function() {
-		$(document).tooltip('option', 'position', {my: "1eft:15 top", at: "right center"});
-	});
-});
-
-</script>
-<?php
-
-bottom_footer();
 
 exit;
+
+function draw_page() {
+	global $config, $iclasses, $icolorsdisplay;
+
+	find_down_hosts();
+
+	general_header();
+
+	draw_filter_and_status();
+
+	print "<div class='center' style='display:table;margin-left:auto;margin-right:auto;'>\n";
+
+	// Default with permissions = default_by_permissions
+	// Tree  = group_by_tree
+	$function = 'render_' . get_request_var('grouping');
+	if (function_exists($function)) {
+		print $function();
+	}else{
+		print render_default();
+	}
+
+	print '</div>';
+
+	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
+		print "<div class='center' style='position:fixed;left:0;bottom:0;display:table;margin-left:auto;margin-right:auto;width:100%;'><table class='center' style='padding:2px;width:100%'><tr>\n";
+		foreach($iclasses as $index => $class) {
+			print "<td class='center $class" . "Bg' style='width:11%;'>" . $icolorsdisplay[$index] . "</td>\n";
+		}
+		print "</tr></table></div>\n";
+	}
+
+	// If the host is down, we need to insert the embedded wav file
+	$monitor_sound = get_monitor_sound();
+	if (is_monitor_audible()) {
+		print "<audio id='audio' loop src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
+	}
+
+	?>
+	<script type='text/javascript'>
+	var refreshMSeconds=99999999;
+	var myTimer;
+
+	function timeStep() {
+		value = $('#timer').html() - 1;
+
+		if (value <= 0) {
+			applyFilter();
+		}else{
+			$('#timer').html(value);
+			// What is a second, well if you are an 
+			// emperial storm tropper, it's just a little more than a second.
+			myTimer = setTimeout(timeStep, 1284);
+		}
+	}
+
+	function muteUnmuteAudio(mute) {
+		if (mute) {
+			$('audio').each(function(){
+				this.pause(); 
+				this.currentTime = 0; 
+			}); 
+		}else{
+			$('audio').each(function(){
+				this.play(); 
+			}); 
+		}
+	}
+
+	function closeTip() {
+		$(document).tooltip('close');
+	}
+
+	function applyFilter() {
+		clearTimeout(myTimer);
+		$('.fa-server, .fa-first-order').unbind();
+
+		strURL  = 'monitor.php?header=false';
+		strURL += '&refresh='+$('#refresh').val();
+		strURL += '&grouping='+$('#grouping').val();
+		strURL += '&tree='+$('#tree').val();
+		strURL += '&view='+$('#view').val();
+		strURL += '&crit='+$('#crit').val();
+		strURL += '&size='+$('#size').val();
+		strURL += '&mute='+$('#mute').val();
+		strURL += '&status='+$('#status').val();
+
+		loadPageNoHeader(strURL);
+	}
+
+	function saveFilter() {
+		url='monitor.php?action=save' +
+			'&refresh='  + $('#refresh').val() +
+			'&grouping=' + $('#grouping').val() +
+			'&tree='     + $('#tree').val() +
+			'&view='     + $('#view').val() +
+			'&crit='     + $('#crit').val() +
+			'&size='     + $('#size').val() +
+			'&status='   + $('#status').val();
+
+		$.get(url, function(data) {
+			$('#text').show().text('Filter Settings Saved').fadeOut(2000);
+		});
+	}
+
+	function setupTooltips() {
+	}
+
+	$('#go').click(function() {
+		applyFilter();
+	});
+
+	$('#sound').click(function() {
+		if ($('#mute').val() == 'false') {
+			$('#mute').val('true');
+			muteUnmuteAudio(true);
+			$('#sound').val('<?php print get_unmute_text();?>');
+			loadPageNoHeader('monitor.php?header=false&action=ajax_mute_all');
+		}else{
+			$('#mute').val('false');
+			muteUnmuteAudio(false);
+			$('#sound').val('<?php print get_mute_text();?>');
+			loadPageNoHeader('monitor.php?header=false&action=ajax_unmute_all');
+		}
+	});
+
+	$('#refresh, #view, #crit, #grouping, #size, #status, #tree').change(function() {
+		applyFilter();
+	});
+
+	$('#save').click(function() {
+		saveFilter();
+	});
+
+	$(function() {
+		// Clear the timeout to keep countdown accurate
+		clearTimeout(myTimer);
+
+		// Servers need tooltips
+		$(document).tooltip({
+			items: '.fa-server, .fa-first-order',
+			open: function(event, ui) {
+				if (typeof(event.originalEvent) == 'undefined') {
+					return false;
+				}
+
+				var $id = $(ui.tooltip).attr('id');
+
+				$('div.ui-tooltip').not('#'+ $id).remove();
+			},
+			close: function(event, ui) {
+				ui.tooltip.hover(
+				function () {
+					$(this).stop(true).fadeTo(400, 1);
+				},
+				function() {
+					$(this).fadeOut('400', function() {
+						$(this).remove();
+					});
+				});
+			},
+			position: {my: "left:15 top", at: "right center"},
+			content: function(callback) {
+				var id = $(this).attr('id');
+				$.get('monitor.php?action=ajax_status&id='+id, function(data) {
+					callback(data);
+				});
+			}
+		});
+
+		// Start the countdown
+		myTimer = setTimeout(timeStep, 1000);
+
+		// Attempt to reposition the tooltips on resize
+		$(window).resize(function() {
+			$(document).tooltip('option', 'position', {my: "1eft:15 top", at: "right center"});
+		});
+
+		if ($('#mute').val() == 'true') {
+			muteUnmuteAudio(true);
+		}else{
+			muteUnmuteAudio(false);
+		}
+
+		$('#main').css('margin-right', '15px');
+	});
+
+	</script>
+	<?php
+
+	bottom_footer();
+}
+
+function is_monitor_audible() {
+	$sound = get_monitor_sound();
+
+	if ($sound != '' && $sound != __('None')) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function get_monitor_sound() {
+	return read_user_setting('monitor_sound', read_config_option('monitor_sound'));
+}
+
+function find_down_hosts() {
+	$dhosts = get_hosts_down_by_permission();
+	if (sizeof($dhosts)) {
+		if (isset($_SESSION['muted_hosts'])) {
+			$unmuted_hosts = array_diff($dhosts, $_SESSION['muted_hosts']);
+
+			if (sizeof($unmuted_hosts)) {
+				set_request_var('mute', 'false');
+			}
+		}else{
+			set_request_var('mute', 'false');
+		}
+	}else{
+		$_SESSION['muted_hosts'] = array();
+	}
+}
+
+function mute_all_hosts() {
+	$_SESSION['muted_hosts'] = get_hosts_down_by_permission();
+	set_request_var('mute', 'true');
+}
+
+function unmute_all_hosts() {
+	$_SESSION['muted_hosts'] = array();
+}
+
+function check_tholds() {
+	global $thold_alerts, $thold_hosts;
+
+	if (api_plugin_is_enabled('thold')) {
+		$thold_alerts = array();
+		$thold_hosts  = array();
+
+		$result = db_fetch_assoc('SELECT rra_id FROM thold_data WHERE thold_alert > 0 AND thold_enabled = "on"', FALSE);
+
+		if (count($result)) {
+			foreach ($result as $row) {
+				$thold_alerts[] = $row['rra_id'];
+			}
+
+			if (count($thold_alerts) > 0) {
+				$result = db_fetch_assoc('SELECT id, host_id FROM data_local');
+
+				foreach ($result as $h) {
+					if (in_array($h['id'], $thold_alerts)) {
+						$thold_hosts[] = $h['host_id'];
+					}
+				}
+			}
+		}
+	}
+}
 
 function get_filter_text() {
 	$filter = '';
@@ -470,7 +370,7 @@ function get_filter_text() {
 		$filter = __('Monitored Devices either Down or Recovering');;
 		break;
 	case '1':
-		$filter = __('Monitored Devices either Down, Recovering, of with Breached Thresholds');;
+		$filter = __('Monitored Devices either Down, Recovering, with Breached Thresholds');;
 		break;
 	}
 
@@ -495,85 +395,185 @@ function get_filter_text() {
 	return $filter;
 }
 
-function save_settings() {
-    validate_request_vars();
+function draw_filter_and_status() {
+	global $criticalities, $page_refresh_interval, $iconsizes;
 
-    if (sizeof($_REQUEST)) {
-    foreach($_REQUEST as $var => $value) {
-        switch($var) {
-        case 'refresh':
-            set_user_setting('monitor_refresh', get_request_var('refresh'));
-            break;
-        case 'grouping':
-            set_user_setting('monitor_grouping', get_request_var('grouping'));
-            break;
-        case 'view':
-            set_user_setting('monitor_view', get_request_var('view'));
-            break;
-        case 'crit':
-            set_user_setting('monitor_crit', get_request_var('crit'));
-            break;
-        case 'mute':
-            set_user_setting('monitor_mute', get_request_var('mute'));
-            break;
-        case 'size':
-            set_user_setting('monitor_size', get_request_var('size'));
-            break;
-        case 'status':
-            set_user_setting('monitor_status', get_request_var('status'));
-            break;
-        case 'tree':
-            set_user_setting('monitor_tree', get_request_var('tree'));
-            break;
+	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;"><form>' . NL;
+
+	print '<select id="view" title="' . __('View Type') . '">' . NL;
+	print '<option value="default"' . (get_nfilter_request_var('view') == 'default' ? ' selected':'') . '>' . __('Default') . '</option>';
+	print '<option value="tiles"' . (get_nfilter_request_var('view') == 'tiles' ? ' selected':'') . '>' . __('Tiles') . '</option>';
+	print '<option value="tilesadt"' . (get_nfilter_request_var('view') == 'tilesadt' ? ' selected':'') . '>' . __('Tiles & Time') . '</option>';
+	print '</select>' . NL;
+
+	print '<select id="grouping" title="' . __('Device Grouping') . '">' . NL;
+	print '<option value="default"' . (get_nfilter_request_var('grouping') == 'default' ? ' selected':'') . '>' . __('Default') . '</option>';
+	print '<option value="tree"' . (get_nfilter_request_var('grouping') == 'tree' ? ' selected':'') . '>' . __('Tree') . '</option>';
+	print '<option value="template"' . (get_nfilter_request_var('grouping') == 'template' ? ' selected':'') . '>' . __('Device Template') . '</option>';
+	print '</select>' . NL;
+
+	if (get_request_var('grouping') == 'tree') {
+		$trees = get_allowed_trees();
+		if (sizeof($trees)) {
+			print '<select id="tree" title="' . __('Select Tree') . '">' . NL;
+			print '<option value="-1"' . (get_nfilter_request_var('tree') == '-1' ? ' selected':'') . '>' . __('All Trees') . '</option>';
+			foreach($trees as $tree) {
+				print "<option value='" . $tree['id'] . "'" . (get_nfilter_request_var('tree') == $tree['id'] ? ' selected':'') . '>' . $tree['name'] . '</option>';
+			}
+			print '<option value="-2"' . (get_nfilter_request_var('tree') == '-2' ? ' selected':'') . '>' . __('Non Tree Devices') . '</option>';
+			print '</select>' . NL;
+		}else{
+			print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
 		}
-    }
-    }
+	}else{
+		print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
+	}
 
-    validate_request_vars(true);
+	print '<select id="refresh" title="' . __('Refresh Frequency') . '">' . NL;
+	foreach($page_refresh_interval as $id => $value) {
+		print "<option value='$id'" . (get_nfilter_request_var('refresh') == $id ? ' selected':'') . '>' . $value . '</option>';
+	}
+	print '</select>' . NL;
+
+	$critical_hosts = db_fetch_cell('SELECT count(*) FROM host WHERE monitor_criticality > 0');
+	if ($critical_hosts) {
+		print '<select id="crit" title="' . __('Select Minimum Criticality') . '">' . NL;
+		print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All Criticalities') . '</option>';
+		foreach($criticalities as $key => $value) {
+			if ($key > 0) {
+				print "<option value='" . $key . "'" . (get_nfilter_request_var('crit') == $key ? ' selected':'') . '>' . $value . '</option>';
+			}
+		}
+		print '</select>' . NL;
+	}else{
+		print "<input type='hidden' id='crit' value='" . get_request_var('crit') . "'>\n";
+	}
+
+	print '<select id="size" title="' . __('Device Icon Size') . '">' . NL;
+	foreach($iconsizes as $id => $value) {
+		print "<option value='$id'" . (get_nfilter_request_var('size') == $id ? ' selected':'') . '>' . $value . '</option>';
+	}
+	print '</select>' . NL;
+
+	print '<select id="status" title="' . __('Device Status') . '">' . NL;
+	print '<option value="-1"' . (get_nfilter_request_var('status') == '-1' ? ' selected':'') . '>' . __('All Monitored') . '</option>';
+	print '<option value="0"' . (get_nfilter_request_var('status') == '0' ? ' selected':'') . '>' . __('Not Up') . '</option>';
+	print '<option value="1"' . (get_nfilter_request_var('status') == '1' ? ' selected':'') . '>' . __('Not Up or Triggered') . '</option>';
+	print '</select>' . NL;
+
+	print '<span style="white-space:nowrap;"><input type="button" value="' . __('Refresh') . '" id="go" title="' . __('Refresh the Device List') . '">' . NL;
+	print '<input type="button" value="' . __('Save') . '" id="save" title="' . __('Save Filter Settings') . '">' . NL;
+
+	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text()):__('%s Alerts for downed Devices', get_unmute_text())) . '">' . NL;
+	print '<input id="mute" type="hidden" value="' . get_request_var('mute') . '"></span>' . NL;
+
+	print '</form></div>' . NL;
+
+	// Display the Current Time
+	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;"><span id="text" style="display:none;">Filter Settings Saved</span><br></div>';
+	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . __('Last Refresh : %s', date('g:i:s a', time())) . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh')):'') . '</div>';
+	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . get_filter_text() . '</div>';
+}
+
+function get_mute_text() {
+	if (is_monitor_audible()) {
+		return __('Mute');
+	}else{
+		return __('Acknowledge');
+	}
+}
+
+function get_unmute_text() {
+	if (is_monitor_audible()) {
+		return __('Un-Mute');
+	}else{
+		return __('Reset');
+	}
+}
+
+function save_settings() {
+	validate_request_vars();
+
+	if (sizeof($_REQUEST)) {
+		foreach($_REQUEST as $var => $value) {
+			switch($var) {
+			case 'refresh':
+				set_user_setting('monitor_refresh', get_request_var('refresh'));
+				break;
+			case 'grouping':
+				set_user_setting('monitor_grouping', get_request_var('grouping'));
+				break;
+			case 'view':
+				set_user_setting('monitor_view', get_request_var('view'));
+				break;
+			case 'crit':
+				set_user_setting('monitor_crit', get_request_var('crit'));
+				break;
+			case 'mute':
+				set_user_setting('monitor_mute', get_request_var('mute'));
+				break;
+			case 'size':
+				set_user_setting('monitor_size', get_request_var('size'));
+				break;
+			case 'status':
+				set_user_setting('monitor_status', get_request_var('status'));
+				break;
+			case 'tree':
+				set_user_setting('monitor_tree', get_request_var('tree'));
+				break;
+			}
+		}
+	}
+
+	validate_request_vars(true);
 }
 
 function validate_request_vars($force = false) {
-    /* ================= input validation and session storage ================= */
-    $filters = array(
-        'refresh' => array(
-            'filter' => FILTER_VALIDATE_INT,
-            'default' => read_user_setting('monitor_refresh', read_config_option('monitor_refresh'), $force)
-            ),
-        'mute' => array(
-            'filter' => FILTER_CALLBACK,
-            'options' => array('options' => 'sanitize_search_string'),
-            'default' => read_user_setting('monitor_mute', 'false', $force)
-			),
-        'grouping' => array(
-            'filter' => FILTER_CALLBACK,
-            'options' => array('options' => 'sanitize_search_string'),
-            'default' => read_user_setting('monitor_grouping', read_config_option('monitor_grouping'), $force)
-            ),
-        'view' => array(
-            'filter' => FILTER_CALLBACK,
-            'options' => array('options' => 'sanitize_search_string'),
-            'default' => read_user_setting('monitor_view', read_config_option('monitor_view'), $force)
-			),
-        'size' => array(
-            'filter' => FILTER_VALIDATE_INT,
-            'default' => read_user_setting('monitor_size', '40', $force)
-			),
-        'crit' => array(
-            'filter' => FILTER_VALIDATE_INT,
-            'default' => read_user_setting('monitor_crit', '-1', $force)
-			),
-        'status' => array(
-            'filter' => FILTER_VALIDATE_INT,
-            'default' => read_user_setting('monitor_status', '-1', $force)
-			),
-        'tree' => array(
-            'filter' => FILTER_VALIDATE_INT,
-            'default' => read_user_setting('monitor_tree', '-1', $force)
-			)
+	/* ================= input validation and session storage ================= */
+	$filters = array(
+		'refresh' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_refresh', read_config_option('monitor_refresh'), $force)
+		),
+		'mute' => array(
+			'filter' => FILTER_CALLBACK,
+			'options' => array('options' => 'sanitize_search_string'),
+			'default' => read_user_setting('monitor_mute', 'false', $force)
+		),
+		'grouping' => array(
+			'filter' => FILTER_CALLBACK,
+			'options' => array('options' => 'sanitize_search_string'),
+			'default' => read_user_setting('monitor_grouping', read_config_option('monitor_grouping'), $force)
+		),
+		'view' => array(
+			'filter' => FILTER_CALLBACK,
+			'options' => array('options' => 'sanitize_search_string'),
+			'default' => read_user_setting('monitor_view', read_config_option('monitor_view'), $force)
+		),
+		'size' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_size', '40', $force)
+		),
+		'crit' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_crit', '-1', $force)
+		),
+		'status' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_status', '-1', $force)
+		),
+		'tree' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_tree', '-1', $force)
+		),
+		'id' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '-1'
+		)
 	);
 
-    validate_store_request_vars($filters, 'sess_monitor');
-    /* ================= input validation ================= */
+	validate_store_request_vars($filters, 'sess_monitor');
+	/* ================= input validation ================= */
 }
 
 function render_where_join(&$sql_where, &$sql_join) {
@@ -582,15 +582,36 @@ function render_where_join(&$sql_where, &$sql_join) {
 	}else{
 		$crit = '';
 	}
+
 	if (get_request_var('status') == '0') {
-		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND h.status < 3 OR (td.thold_enabled="on" AND td.thold_alert>0)' . $crit;
-	}elseif (get_request_var('status') == '1') {
 		$sql_join  = '';
-		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND h.status < 3 AND (availability_method>0 || snmp_version>0)' . $crit;
+		$sql_where = 'WHERE h.disabled = "" 
+			AND h.monitor = "on" 
+			AND h.status < 3 
+			AND (availability_method>0 
+				OR snmp_version>0 
+				OR (cur_time >= monitor_warn 
+					AND monitor_warn > 0) 
+				OR (cur_time >= monitor_alert 
+					AND monitor_alert > 0)
+			)' . $crit;
+	}elseif (get_request_var('status') == '1') {
+		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
+		$sql_where = 'WHERE h.disabled = "" 
+			AND h.monitor = "on" 
+			AND h.status < 3 
+			OR (td.thold_enabled="on" AND td.thold_alert>0) 
+			OR ((availability_method>0 OR snmp_version>0) 
+				AND ((cur_time > monitor_warn AND monitor_warn > 0) 
+				OR (cur_time > monitor_alert AND monitor_alert > 0))
+			)' . $crit;
 	}else{
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-		$sql_where = 'WHERE h.disabled = "" AND h.monitor = "on" AND ((availability_method>0 OR snmp_version>0) OR (td.thold_enabled="on" AND td.thold_alert>0))' . $crit;
+		$sql_where = 'WHERE h.disabled = "" 
+			AND h.monitor = "on" 
+			AND (availability_method>0 OR snmp_version>0 
+				OR (td.thold_enabled="on" AND td.thold_alert>0)
+			)' . $crit;
 	}
 }
 
@@ -608,11 +629,15 @@ function render_default() {
 		$sql_where
 		ORDER BY description");
 
-	cacti_log("SELECT * FROM host AS h $sql_join $sql_where ORDER BY description");
-
 	if (sizeof($hosts)) {
+		// Determine the correct width of the cell
+		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+			FROM host AS h
+			$sql_join 
+			$sql_where");
+
 		foreach($hosts as $host) {
-			$result .= render_host($host);
+			$result .= render_host($host, true, $maxlen);
 		}
 	}
 
@@ -622,11 +647,33 @@ function render_default() {
 function render_perms() {
 	global $row_stripe;
 
+	// Get the list of allowed devices first
 	$hosts = get_allowed_devices();
 
-	if (sizeof($hosts) > 0) {
+	if (sizeof($hosts)) {
+		foreach($hosts as $host) {
+			$host_ids[] = $host['id'];
+		}
+
+		$sql_where = '';
+		$sql_join  = '';
+		render_where_join($sql_where, $sql_join);
+
+		// Now query for the hosts in that list that should be displayed
+		$hosts  = db_fetch_assoc("SELECT DISTINCT h.*
+			FROM host AS h
+			$sql_join
+			$sql_where
+			AND h.id IN(" . implode(',', $host_ids) . ")
+			ORDER BY description");
+
+		// Determine the correct width of the cell
+		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+			FROM host AS h
+			WHERE id IN (" . implode(',', $host_ids) . ")");
+
 		foreach ($host as $host) {
-			$result .= render_host($host);
+			$result .= render_host($host, true, $maxlen);
 		}
 	}
 
@@ -662,6 +709,15 @@ function render_template() {
 
 	if (sizeof($hosts)) {
 		foreach($hosts as $host) {
+			$host_ids[] = $host['id'];
+		}
+
+		// Determine the correct width of the cell
+		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+			FROM host AS h
+			WHERE id IN (" . implode(',', $host_ids) . ")");
+
+		foreach($hosts as $host) {
 			$ctemp = $host['host_template_id'];
 
 			if ($ctemp != $ptemp && $ptemp > 0) {
@@ -672,7 +728,7 @@ function render_template() {
 				$result .= "<div style='vertical-align:top;margin-left:auto;margin-right:auto;display:table-row;height:" . intval(get_request_var('size') + $offset) . "px;position:relative;padding:3px;margin:4px;'><div style='float:left;display:table-cell;'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center' style='height:" . intval(get_request_var('size') + $offset2) . "px;'>\n";
 			}
 
-			$result .= render_host($host, true);
+			$result .= render_host($host, true, $maxlen);
 
 			if ($ctemp != $ptemp) {
 				$ptemp = $ctemp;
@@ -744,9 +800,18 @@ function render_tree() {
 					ON h.id=gti.host_id 
 					$sql_join
 					$sql_where
-					AND parent = ? AND h.disabled = '' AND h.monitor = 'on' AND (h.availability_method>0 OR h.snmp_version>0)", array($oid));
+					AND parent = ?", array($oid));
 
 				if (sizeof($hosts)) {
+					foreach($hosts as $host) {
+						$host_ids[] = $host['id'];
+					}
+
+					// Determine the correct width of the cell
+					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+						FROM host AS h
+						WHERE id IN (" . implode(',', $host_ids) . ")");
+
 					$tree_name = db_fetch_cell_prepared('SELECT name FROM graph_tree WHERE id = ?', array($b['graph_tree_id']));
 					if ($ptree != $tree_name) {
 						if ($ptree != '') {
@@ -760,7 +825,7 @@ function render_tree() {
 
 					$result .= '<div style="vertical-align:top;float:left;position:relative;height:' . intval(get_request_var('size') + 52) . 'px;padding:3px;margin:4px;white-space:nowrap;"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
 					foreach($hosts as $host) {
-						$result .= render_host($host);
+						$result .= render_host($host, true, $maxlen);
 					}
 
 					$result .= '</div></td></tr></table></div>';
@@ -773,14 +838,23 @@ function render_tree() {
 
 	/* begin others - lets get the monitor items that are not associated with any tree */
 	if (get_request_var('tree') < 0) {
-		$heirarchy = get_host_non_tree_array();
-		if (sizeof($heirarchy)) {
-			$result .= '<div style="padding:3px;margin:4px;width:100%;display:table;"><table class="odd" style="width:100%;margin-left:auto;margin-right:auto;"><tr class="tableHeader"><th>Non Tree Hosts</th></tr><tr><td><div style="width:100%">';
-			foreach($heirarchy as $leaf) {
-				$result .= render_host($leaf);
+		$hosts = get_host_non_tree_array();
+		if (sizeof($hosts)) {
+			foreach($hosts as $host) {
+				$host_ids[] = $host['id'];
 			}
 
-			$result .= '</td></tr></table></div></div>';
+			// Determine the correct width of the cell
+			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+				FROM host AS h
+				WHERE id IN (" . implode(',', $host_ids) . ")");
+
+			$result .= '<div style="padding:2px;margin:2px;width:100%;"><table class="odd" style="width:100%;"><tr class="tableHeader"><th>Non Tree Devices</th></tr><tr><td><div style="width:100%">';
+			foreach($hosts as $leaf) {
+				$result .= render_host($leaf, true, $maxlen);
+			}
+
+			$result .= '</div></td></tr></table></div>';
 		}
 	}
 
@@ -820,10 +894,8 @@ function render_branch($leafs, $title = '') {
 }
 
 function get_host_status($host) {
-	global $muted_hosts;
-
 	/* If the host has been muted, show the muted Icon */
-	if (in_array($host['id'], $muted_hosts) && $host['status'] == 1) {
+	if (in_array($host['id'], $_SESSION['muted_hosts']) && $host['status'] == 1) {
 		$host['status'] = 5;
 	}elseif ($host['status'] == 3) {
 		if ($host['cur_time'] > $host['monitor_alert']) {
@@ -837,8 +909,8 @@ function get_host_status($host) {
 }
 
 /*Single host  rendering */
-function render_host($host, $float = true) {
-	global $thold, $thold_hosts, $config, $muted_hosts, $icolorsdisplay, $icolors, $iclasses;
+function render_host($host, $float = true, $maxlen = 0) {
+	global $thold, $thold_hosts, $config, $icolorsdisplay, $iclasses;
 
 	//throw out tree root items
 	if (array_key_exists('name', $host))  {
@@ -862,7 +934,6 @@ function render_host($host, $float = true) {
 	}
 
 	$host['status'] = get_host_status($host);
-	$host['icolor'] = $icolors[$host['status']];
 	$host['iclass'] = $iclasses[$host['status']];
 
 	$dt = '';
@@ -876,14 +947,24 @@ function render_host($host, $float = true) {
 		/* Call the custom render_host_ function */
 		$result = $function($host);
 	}else{
-		if ($host['status'] < 2 || $host['status'] == 5) {
-			$result = "<div " . ($host['status'] != 3 ? 'class="flash"':'') . "' style='width:" . max(get_request_var('size'), 80) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='width:100px;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "<br><font style='font-size:10px;padding:2px;' class='deviceDown'>$dt</font></a></div>\n";
+		$class = get_status_icon($host['status']);
+
+		if ($host['status'] <= 2 || $host['status'] == 5) {
+			$result = "<div " . ($host['status'] == 1 ? 'class="flash"':'') . " style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 		} else {
-			$result = "<div style='width:" . max(get_request_var('size'), 80) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;;'><a style='width:100px;' href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<div style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
 		}
 	}
 
 	return $result;
+}
+
+function get_status_icon($status) {
+	if ($status == 1 && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
+		return 'fa-first-order fa-spin';
+	}else{
+		return 'fa-server';
+	}
 }
 
 function monitor_print_host_time($status_time, $seconds = false) {
@@ -913,7 +994,7 @@ function monitor_print_host_time($status_time, $seconds = false) {
 }
 
 function ajax_status() {
-	global $thold, $thold_hosts, $config, $muted_hosts, $icolorsdisplay, $icolors, $iclasses, $criticalities;
+	global $thold, $thold_hosts, $config, $icolorsdisplay, $iclasses, $criticalities;
 
 	if (isset_request_var('id') && get_filter_request_var('id')) {
 		$id = get_request_var('id');
@@ -994,13 +1075,12 @@ function ajax_status() {
 				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $syslog_link . '">' . __('View Syslog Messages') . '</a>';
 			}
 
-			$icolor   = $icolors[$host['status']];
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = $icolorsdisplay[$host['status']];
 
-			print "<table class='monitorHover' style='padding:2px;margin:0px;width:overflow:hidden;max-width:400px;max-height:600px;vertical-align:top;'>
+			print "<table class='monitorHover' style='padding:2px;margin:0px;width:overflow:hidden;max-width:500px;max-height:600px;vertical-align:top;'>
 				<tr class='tableHeader'>
-					<th colspan='2'>Device Status Information</th>
+					<th class='left' colspan='2'>Device Status Information</th>
 				</tr>
 				<tr>
 					<td style='vertical-align:top;'>" . __('Device:') . "</td>
@@ -1013,7 +1093,11 @@ function ajax_status() {
 				<tr>
 					<td style='vertical-align:top;'>" . __('Status:') . "</td>
 					<td class='$iclass' style='vertical-align:top;'>$sdisplay</td>
-				</tr>" . ($host['availability_method'] > 0 ? "
+				</tr>" . ($host['status'] < 3 || $host['status'] == 5 ? "
+				<tr>
+					<td style='vertical-align:top;'>" . __('Admin Note:') . "</td>
+					<td class='$iclass' style='vertical-align:top;'>" . $host['monitor_text'] . "</td>
+				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
 					<td style='vertical-align:top;'>" . __('IP/Hostname:') . "</td>
 					<td style='vertical-align:top;'>" . $host['hostname'] . "</td>
@@ -1046,7 +1130,7 @@ function ajax_status() {
 				<tr>
 					<td style='vertical-align:top;'>" . __('Availability:') . "</td>
 					<td style='vertical-align:top;'>" . round($host['availability'],2) . " %</td>
-				</tr>" . ($host['snmp_version'] > 0 ? "
+				</tr>" . ($host['snmp_version'] > 0 && ($host['status'] == 3 || $host['status'] == 2) ? "
 				<tr>
 					<td style='vertical-align:top;'>" . __('Agent Uptime:') . "</td>
 					<td style='vertical-align:top;'>" . ($host['status'] == 3 || $host['status'] == 5 ? monitor_print_host_time($host['snmp_sysUpTimeInstance']):'N/A') . "</td>
@@ -1069,31 +1153,44 @@ function ajax_status() {
 }
 
 function render_host_tiles($host) {
-	return "<div style='padding:2px;float:left;text-align:center;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i></a></div>";
+	$class = get_status_icon($host['status']);
+
+	$result = "<div style='padding:2px;float:left;text-align:center;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i></a></div>";
+
+	return $result;
 }
 
 function render_host_tilesadt($host) {
 	$dt = '';
+
+	$class = get_status_icon($host['status']);
+
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = monitor_print_host_time($host['status_fail_date']);
-		return "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><font style='font-size:10px;padding:2px;' class='deviceDown'>$dt</font></a></div>\n";
+
+		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+
+		return $result;
 	}else{
 		if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
 			$dt = monitor_print_host_time($host['status_rec_date']);
 		}else{
 			$dt = __('Never');
 		}
-		return "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa fa-server " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><font style='font-size:10px;padding:2px;' class='deviceUp'>$dt</font></a></div>\n";
+
+		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceUp'>$dt</span></a></div>\n";
+
+		return $result;
 	}
 
 }
 
-function get_host_down_by_permission() {
+function get_hosts_down_by_permission() {
 	$result = array();
 
 	global $render_style;
 	if ($render_style == 'default') {
-		$hosts = get_allowed_devices("h.monitor='on' AND h.status < 2 AND h.disabled='' AND (h.availability_method>0 OR h.snmp_version>0)");
+		$hosts = get_allowed_devices("h.monitor='on' AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
 		// do a quick loop through to pull the hosts that are down
 		if (sizeof($hosts)) {
 			foreach($hosts as $host) {
@@ -1104,7 +1201,7 @@ function get_host_down_by_permission() {
 		}
 	} else {
 		/* Only get hosts */
-		$hosts = get_allowed_devices("h.monitor='on' AND h.status < 2 AND h.disabled='' AND (h.availability_method>0 OR h.snmp_version>0)");
+		$hosts = get_allowed_devices("h.monitor='on' AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
 		if (sizeof($hosts) > 0) {
 			foreach ($hosts as $host) {
 				$host_down = true;
@@ -1132,8 +1229,7 @@ function get_host_non_tree_array() {
 	//$sql_where .= " AND ((host.disabled = '' AND host.monitor = 'on' AND (host.availability_method>0 OR host.snmp_version>0)) OR (title != ''))";
 
 	$heirarchy = db_fetch_assoc("SELECT DISTINCT
-		gti.title, gti.host_id, gti.host_grouping_type, gti.graph_tree_id,
-		h.*
+		h.*, gti.title, gti.host_id, gti.host_grouping_type, gti.graph_tree_id
 		FROM host AS h
 		LEFT JOIN graph_tree_items AS gti 
 		ON h.id=gti.host_id

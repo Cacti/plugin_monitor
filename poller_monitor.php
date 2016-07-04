@@ -76,13 +76,16 @@ foreach ($parms as $parameter) {
 
 monitor_debug('Monitor Starting Checks');
 
+list($reboots, $recent_down) = monitor_uptime_checker();
+
 $warning_criticality = read_config_option('monitor_warn_criticality');
 $alert_criticality   = read_config_option('monitor_alert_criticality');
 
-$lists       = array();
-$global_list = array();
-$notify_list = array();
-$last_time   = date("Y-m-d H:i:s", time() - read_config_option('monitor_resend_frequency') * 60);
+$lists               = array();
+$notifications       = 0;
+$global_list         = array();
+$notify_list         = array();
+$last_time           = date("Y-m-d H:i:s", time() - read_config_option('monitor_resend_frequency') * 60);
 
 if ($warning_criticality > 0 || $alert_criticality > 0) {
 	monitor_debug('Monitor Notification Enabled for Devices');
@@ -113,7 +116,10 @@ if ($warning_criticality > 0 || $alert_criticality > 0) {
 		if (sizeof($notification_emails)) {
 			foreach($notification_emails as $email => $lists) {
 				monitor_debug('Processing the email address: ' . $email);
+
 				process_email($email, $lists, $global_list, $notify_list);
+
+				$notifications++;
 			}
 		}
 	}
@@ -121,11 +127,53 @@ if ($warning_criticality > 0 || $alert_criticality > 0) {
 	monitor_debug('Both Warning and Alert Notification are Disabled.');
 }
 
+list($purge_n, $purge_r) = purge_event_records();
+
 $poller_end = microtime(true);
 
-cacti_log('MONITOR STATS: Time:' . round($poller_end-$poller_start, 2), false, 'SYSTEM');
+cacti_log('MONITOR STATS: Time:' . round($poller_end-$poller_start, 2) . ' Reboots:' . $reboots . ' DownDevices:' . $recent_down . ' Notifications:' . $notifications . ' Purges:' . ($purge_n + $purge_r), false, 'SYSTEM');
+
+exit;
+
+function monitor_uptime_checker() {
+	monitor_debug('Checking for Uptime of Devices');
+
+	$start = date('Y-m-d H:i:s');
+
+	// Get the rebooted devices
+	$rebooted_hosts = db_fetch_assoc("SELECT h.id, h.snmp_sysUpTimeInstance, mu.uptime
+		FROM host AS h
+		LEFT JOIN plugin_monitor_uptime AS mu
+		ON h.id=mu.host_id
+		WHERE h.snmp_version>0 AND status IN (2,3)
+		AND (mu.uptime IS NULL OR mu.uptime > h.snmp_sysUpTimeInstance)");
+
+	if (sizeof($rebooted_hosts)) {
+		foreach($rebooted_hosts as $host) {
+			db_execute_prepared('INSERT INTO plugin_monitor_reboot_history (host_id, reboot_time) VALUES (?, ?)', 
+				array($host['id'], date('Y-m-d H:i:s', time()-$host['snmp_sysUpTimeInstance'])));
+		}
+	}
+
+	// Freshen the uptimes
+	db_execute("REPLACE INTO plugin_monitor_uptime (host_id, uptime) 
+		SELECT id, snmp_sysUpTimeInstance FROM host WHERE snmp_version>0 AND status IN(2,3)");
+
+	// Log Recently Down
+	db_execute("INSERT IGNORE INTO plugin_monitor_notify_history 
+		(host_id, notify_type, notification_time, notes) 
+		SELECT h.id, '3' AS notify_type, status_fail_date AS notification_time, status_last_error AS notes
+		FROM host AS h
+		WHERE status=1 AND status_event_count=1");
+
+	$recent = db_affected_rows();
+
+	return array(sizeof($rebooted_hosts), $recent);
+}
 
 function process_email($email, $lists, $global_list, $notify_list) {
+	define('BR', "\n");
+
 	monitor_debug('Into Processing');
 	$alert_hosts = array();
 	$warn_hosts  = array();
@@ -181,60 +229,61 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$freq    = read_config_option('monitor_resend_frequency');
 		$subject = __('Cacti Monitor Plugin Ping Threshold Notification');
 
-		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notication') . '</h1>';
+		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notication') . '</h1>' . BR;
 
 		$body .= '<p>' . __('The following report will identify Devices that have eclipsed their ping
-			latency thresholds.  You are receiving this report due to that you are subscribed for notification
-			to a Device associated with the Cacti system located at the following URL below.') . '</p>';
+			latency thresholds.  You are receiving this report since you are subscribed to a Device 
+			associated with the Cacti system located at the following URL below.') . '</p>' . BR;
 
-		$body .= '<h2>' . read_config_option('base_url') . '</h2>';
+		$body .= '<h2><a href="' . read_config_option('base_url') . '">Cacti Monitoring Site</a></h2>' . BR;
 
 		if ($freq > 0) {
-			$body .= '<p>' . __('You will receive notifications every %d minutes if the Device is above its threshold.', $freq) . '</p>';
+			$body .= '<p>' . __('You will receive notifications every %d minutes if the Device is above its threshold.', $freq) . '</p>' . BR;
 		}else{
-			$body .= '<p>' . __('You will receive notifications every time the Device is above its threshold.') . '</p>';
+			$body .= '<p>' . __('You will receive notifications every time the Device is above its threshold.') . '</p>' . BR;
 		}
 
 		if (sizeof($alert_hosts)) {
-			$body .= '<p>' . __('The following Devices have breached their Alert Notification Threshold.') . '</p>';
-			$body .= '<table style="width:100%;border:1px solid black;padding:4px;margin:2px;text-align:left;"><tr>';
-			$body .= '<th style="text-align:left;">Hostname</th><th style="text-align:left;">Criticality</th><th style="text-align:right;">Alert Ping</th><th style="text-align:right;">Cur Ping</th>';
-			$body .= '</tr>';
+			$body .= '<p>' . __('The following Devices have breached their Alert Notification Threshold.') . '</p>' . BR;
+			$body .= '<table class="report_table">' . BR;
+			$body .= '<tr class="header_row">' . BR;
+			$body .= '<th class="left">Hostname</th><th class="left">Criticality</th><th class="right">Alert Ping</th><th class="right">Current Ping</th>' . BR;
+			$body .= '</tr>' . BR;
 
 			$hosts = db_fetch_assoc('SELECT * FROM host WHERE id IN(' . implode(',', $alert_hosts) . ')');
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
-					$body .= '<tr>';
-					$body .= '<td style="text-align:left;">' . $host['description']  . '</td>';
-					$body .= '<td style="text-align:left;">' . $criticalities[$host['monitor_criticality']]  . '</td>';
-					$body .= '<td style="text-align:right;">' . round($host['monitor_alert'],2)  . ' ms</td>';
-					$body .= '<td style="text-align:right;">' . round($host['cur_time'],2)  . ' ms</td>';
-					$body .= '</tr>';
+					$body .= '<tr>' . BR;
+					$body .= '<td class="left">' . $host['description']  . '</td>' . BR;
+					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . BR;
+					$body .= '<td class="right">' . round($host['monitor_alert'],2)  . ' ms</td>' . BR;
+					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . BR;
+					$body .= '</tr>' . BR;
 				}
 			}
-			$body .= '</table>';
+			$body .= '</table>' . BR;
 		}
 
 		if (sizeof($warn_hosts)) {
-			$body .= '<p>' . __('The following Devices have breached their Warning Notification Threshold.') . '</p><br>';
+			$body .= '<p>' . __('The following Devices have breached their Warning Notification Threshold.') . '</p>' . BR;
 
-			$body .= '<table style="width:100%;border:1px solid black;padding:4px;margin:2px;text-align:left;">';
-			$body .= '<tr>';
-			$body .= '<th>Hostname</th><th>Criticality</th><th>Alert Ping</th><th>Cur Ping</th>';
-			$body .= '</tr>';
+			$body .= '<table class="report_table">' . BR;
+			$body .= '<tr class="header_row">' . BR;
+			$body .= '<th class="left">Hostname</th><th class="left">Criticality</th><th class="right">Alert Ping</th><th class="right">Current Ping</th>' . BR;
+			$body .= '</tr>' . BR;
 
 			$hosts = db_fetch_assoc('SELECT * FROM host WHERE id IN(' . implode(',', $warn_hosts) . ')');
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
-					$body .= '<tr>';
-					$body .= '<td style="text-align:left;">' . $host['description']  . '</td>';
-					$body .= '<td style="text-align:left;">' . $criticalities[$host['monitor_criticality']]  . '</td>';
-					$body .= '<td style="text-align:right;">' . round($host['monitor_warn'],2)  . ' ms</td>';
-					$body .= '<td style="text-align:right;">' . round($host['cur_time'],2)  . ' ms</td>';
-					$body .= '</tr>';
+					$body .= '<tr>' . BR;
+					$body .= '<td class="left">' . $host['description']  . '</td>' . BR;
+					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . BR;
+					$body .= '<td class="right">' . round($host['monitor_warn'],2)  . ' ms</td>' . BR;
+					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . BR;
+					$body .= '</tr>' . BR;
 				}
 			}
-			$body .= '</table>';
+			$body .= '</table>' . BR;
 		}
 
 		$output     = '';
@@ -281,7 +330,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			'',
 			'',
 			$subject,
-			$body,
+			$output,
 			'Cacti Monitor Plugin requires an html based e-mail client',
 			'',
 			$headers
@@ -305,16 +354,18 @@ function log_messages($type, $alert_hosts) {
 	static $processed = array();
 
 	if ($type == 'warn') {
-		$type = '0';
+		$type   = '0';
+		$column = 'monitor_warn';
 	}elseif ($type == 'alert') {
 		$type = '1';
+		$column = 'monitor_alert';
 	}
 
 	foreach($alert_hosts as $id) {
 		if (!isset($processed[$id])) {
 			db_execute_prepared('INSERT INTO plugin_monitor_notify_history 
-				(host_id, notify_type, ping_time, notification_time) 
-				SELECT id, ?, cur_time, ? FROM host WHERE id = ?', array($type, $start_date, $id));
+				(host_id, notify_type, ping_time, ping_threshold, notification_time) 
+				SELECT id, ?, cur_time, ?, ? FROM host WHERE id = ?', array($type, $column, $start_date, $id));
 		}
 
 		$processed[$id] = true;
@@ -434,15 +485,21 @@ function get_emails_and_lists($lists) {
 
 function purge_event_records() {
 	// Purge old records
-	db_execute('DELETE FROM plugin_monitor_notify_history 
-		WHERE notification_time<FROM_UNIXTIME(UNIX_TIMESTAMP()-(? * 86400)', 
-		array(read_config_option('monitor_log_storage')));
+	$days = read_config_option('monitor_log_storage');
+
+	if (empty($days)) {
+		$days = 120;
+	}
+
+	db_execute_prepared('DELETE FROM plugin_monitor_notify_history 
+		WHERE notification_time<FROM_UNIXTIME(UNIX_TIMESTAMP()-(? * 86400))', array($days));
 	$purge_n = db_affected_rows();
 
-	db_execute('DELETE FROM plugin_monitor_reboot_history 
-		WHERE notification_time<FROM_UNIXTIME(UNIX_TIMESTAMP()-(? * 86400)', 
-		array(read_config_option('monitor_log_storage')));
+	db_execute_prepared('DELETE FROM plugin_monitor_reboot_history 
+		WHERE log_time<FROM_UNIXTIME(UNIX_TIMESTAMP()-(? * 86400))', array($days));
 	$purge_r = db_affected_rows();
+
+	return(array($purge_n, $purge_r));
 }
 
 function monitor_debug($message) {

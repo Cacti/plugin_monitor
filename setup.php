@@ -34,18 +34,23 @@ function plugin_monitor_install () {
 	api_plugin_register_hook('monitor', 'device_action_execute', 'monitor_device_action_execute', 'setup.php');
 	api_plugin_register_hook('monitor', 'device_action_prepare', 'monitor_device_action_prepare', 'setup.php');
 	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_remove', 'monitor_device_remove', 'setup.php');
 
-	api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring', 1);
+	api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring Dashboard', 1);
+
 	monitor_setup_table();
 }
 
 function plugin_monitor_uninstall () {
-	db_remove_column('monitor');
-	db_remove_column('monitor_text');
-	db_remove_column('monitor_criticality');
-	db_remove_column('monitor_warn');
-	db_remove_column('monitor_alert');
-	// Do any extra Uninstall stuff here
+	db_remove_column('host', 'monitor');
+	db_remove_column('host', 'monitor_text');
+	db_remove_column('host', 'monitor_criticality');
+	db_remove_column('host', 'monitor_warn');
+	db_remove_column('host', 'monitor_alert');
+
+	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
+	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
+	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
 }
 
 function plugin_monitor_check_config () {
@@ -161,6 +166,14 @@ function monitor_device_action_execute($action) {
 	return $action;
 }
 
+function monitor_device_remove($devices) {
+	db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
+	db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
+	db_execute('DELETE FROM plugin_monitor_uptime WHERE host_id IN(' . implode(',', $devices) . ')');
+
+	return $devices;
+}
+
 function monitor_device_action_prepare($save) {
 	global $host_list, $fields_host_edit;
 
@@ -249,7 +262,7 @@ function monitor_scan_dir() {
 }
 
 function monitor_config_settings() {
-	global $tabs, $settings, $criticalities, $page_refresh_interval, $config;
+	global $tabs, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
 	include_once($config['base_path'] . '/lib/reports.php');
  
@@ -273,11 +286,30 @@ function monitor_config_settings() {
 		'365' => __('%d Year', 1)
 	);
 
+	$tabs_graphs += array('monitor' => 'Monitor Settings');
+
+	$settings_user += array(
+		'monitor' => array(
+			'monitor_sound' => array(
+				'friendly_name' => __('Alarm Sound'),
+				'description' => __('This is the sound file that will be played when a Device goes down.'),
+				'method' => 'drop_array',
+				'array' => monitor_scan_dir(),
+				'default' => 'attn-noc.wav',
+			),
+			'monitor_legend' => array(
+				'friendly_name' => __('Show Icon Legend'),
+				'description' => __('Check this to show an icon legend on the Monitor display'),
+				'method' => 'checkbox',
+			)
+		)
+	);
+
 	if (isset($_SERVER['PHP_SELF']) && basename($_SERVER['PHP_SELF']) != 'settings.php') {
 		return;
 	}
 
-	$tabs['misc'] = 'Misc';
+	$tabs['monitor'] = 'Monitor';
 
 	$temp = array(
 		'monitor_header' => array(
@@ -371,10 +403,10 @@ function monitor_config_settings() {
 		)
 	);
 
-	if (isset($settings['misc'])) {
-		$settings['misc'] = array_merge($settings['misc'], $temp);
+	if (isset($settings['monitor'])) {
+		$settings['monitor'] = array_merge($settings['monitor'], $temp);
 	} else {
-		$settings['misc']=$temp;
+		$settings['monitor'] = $temp;
 	}
 }
 
@@ -539,14 +571,14 @@ function monitor_api_device_save ($save) {
 	if (!isempty_request_var('monitor_alert_baseline') && !empty($save['id'])) {
 		$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($save['id']));
 		if ($cur_time > 0) {
-			$save['monitor_alert'] = $cur_time * get_nfilter_request_var('monitor_alert_baseline');
+			$save['monitor_alert'] = round($cur_time * get_nfilter_request_var('monitor_alert_baseline'),0);
 		}
 	}
 
 	if (!isempty_request_var('monitor_warn_baseline') && !empty($save['id'])) {
 		$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($save['id']));
 		if ($cur_time > 0) {
-			$save['monitor_warn'] = $cur_time * get_nfilter_request_var('monitor_alert_baseline');
+			$save['monitor_warn'] = round($cur_time * get_nfilter_request_var('monitor_alert_baseline'),0);
 		}
 	}
 
@@ -566,7 +598,9 @@ function monitor_setup_table() {
 			host_id int(10) unsigned DEFAULT NULL,
 			notify_type tinyint(3) unsigned DEFAULT NULL,
 			ping_time double DEFAULT NULL,
+			ping_threshold int(10) unsigned DEFAULT NULL,
 			notification_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+			notes varchar(255) DEFAULT NULL,
 			PRIMARY KEY (id),
 			UNIQUE KEY unique_key (host_id,notify_type,notification_time)) 
 			ENGINE=InnoDB 
@@ -578,11 +612,23 @@ function monitor_setup_table() {
 			id int(10) unsigned NOT NULL AUTO_INCREMENT,
 			host_id int(10) unsigned DEFAULT NULL,
 			reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+			log_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 			PRIMARY KEY (id),
 			KEY host_id (host_id),
-			KEY reboot_time (reboot_time)) 
+			KEY log_time (log_time),
+			KEY reboot_time (reboot_time))
 			ENGINE=InnoDB 
 			COMMENT='Keeps Track of Device Reboot Times'");
+	}
+
+	if (!db_table_exists('plugin_monitor_uptime')) {
+		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_uptime (
+			host_id int(10) unsigned DEFAULT '0',
+			uptime int(10) unsigned DEFAULT '0',
+			PRIMARY KEY (host_id),
+			KEY uptime (uptime)) 
+			ENGINE=InnoDB 
+			COMMENT='Keeps Track of the Devices last uptime to track agent restarts and reboots'");
 	}
 
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on', 'after' => 'disabled'));

@@ -15,6 +15,10 @@
     This plugin allows you to view at a glance all your Cacti hosts, and will alert you audibly when something is down.
 	In addition, you may receive notification if any critical host becomes unreachable.
 
+	Some audio clips courtesy of SoundBible.com and licensed under Creative Common and other Free to use Licenses.
+	If you create an MP3 file called 'First Order Chorus.mp3' and place it in the sound folder, you may get a surprise
+	if you choose to use it.
+
 ----[ Features
 
     Audible alert
@@ -30,7 +34,6 @@
 ----[ Possible Bugs?
    
     If you figure out this problem, let me know!!!
-
 
 ----[ Future Changes
     
