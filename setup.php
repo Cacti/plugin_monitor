@@ -147,12 +147,12 @@ function monitor_device_action_execute($action) {
 						if ($field_name == 'monitor_alert_baseline') {
 							$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($selected_items[$i]));
 							if ($cur_time > 0) {
-								db_execute_prepared("UPDATE host SET monitor_alert = avg_time*? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
+								db_execute_prepared("UPDATE host SET monitor_alert = CEIL(avg_time*?) WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
 							}
 						}elseif ($field_name == 'monitor_warn_baseline') {
 							$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($selected_items[$i]));
 							if ($cur_time > 0) {
-								db_execute_prepared("UPDATE host SET monitor_warn = avg_time*? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
+								db_execute_prepared("UPDATE host SET monitor_warn = CEIL(avg_time*?) WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
 							}
 						}else{
 							db_execute_prepared("UPDATE host SET $field_name = ? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
@@ -537,7 +537,7 @@ function monitor_config_form () {
 	$fields_host_edit = $fields_host_edit3;
 }
 
-function monitor_api_device_save ($save) {
+function monitor_api_device_save($save) {
 	if (isset_request_var('monitor')) {
 		$save['monitor'] = form_input_validate(get_nfilter_request_var('monitor'), 'monitor', '', true, 3);
 	} else {
@@ -571,14 +571,14 @@ function monitor_api_device_save ($save) {
 	if (!isempty_request_var('monitor_alert_baseline') && !empty($save['id'])) {
 		$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($save['id']));
 		if ($cur_time > 0) {
-			$save['monitor_alert'] = round($cur_time * get_nfilter_request_var('monitor_alert_baseline'),0);
+			$save['monitor_alert'] = ceil($cur_time * get_nfilter_request_var('monitor_alert_baseline'));
 		}
 	}
 
 	if (!isempty_request_var('monitor_warn_baseline') && !empty($save['id'])) {
 		$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($save['id']));
 		if ($cur_time > 0) {
-			$save['monitor_warn'] = round($cur_time * get_nfilter_request_var('monitor_alert_baseline'),0);
+			$save['monitor_warn'] = ceil($cur_time * get_nfilter_request_var('monitor_alert_baseline'));
 		}
 	}
 
