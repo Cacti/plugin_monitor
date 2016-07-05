@@ -898,9 +898,9 @@ function get_host_status($host) {
 	if (in_array($host['id'], $_SESSION['muted_hosts']) && $host['status'] == 1) {
 		$host['status'] = 5;
 	}elseif ($host['status'] == 3) {
-		if ($host['cur_time'] > $host['monitor_alert']) {
+		if ($host['cur_time'] > $host['monitor_alert'] && !empty($host['monitor_alert'])) {
 			$host['status'] = 8;
-		}elseif ($host['cur_time'] > $host['monitor_warn']) {
+		}elseif ($host['cur_time'] > $host['monitor_warn'] && !empty($host['monitor_warn'])) {
 			$host['status'] = 7;
 		}
 	}
