@@ -51,26 +51,33 @@ $force    = FALSE;
 $purged_r = 0;
 $purged_n = 0;
 
-foreach ($parms as $parameter) {
-	@list ($arg, $value) = @explode('=', $parameter);
+if (sizeof($parms)) {
+	foreach ($parms as $parameter) {
+		if (strpos($parameter, '=')) {
+			list($arg, $value) = explode('=', $parameter);
+		} else {
+			$arg = $parameter;
+			$value = '';
+		}
 
-	switch ($arg) {
-		case '-h' :
-		case '-v' :
-		case '--version' :
-		case '--help' :
-			display_help();
-			exit;
-		case '--force' :
-			$force = true;
-			break;
-		case '--debug' :
-			$debug = true;
-			break;
-		default :
-			print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
-			display_help();
-			exit;
+		switch ($arg) {
+			case '-h' :
+			case '-v' :
+			case '--version' :
+			case '--help' :
+				display_help();
+				exit;
+			case '--force' :
+				$force = true;
+				break;
+			case '--debug' :
+				$debug = true;
+				break;
+			default :
+				print 'ERROR: Invalid Parameter ' . $parameter . "\n\n";
+				display_help();
+				exit;
+		}
 	}
 }
 
