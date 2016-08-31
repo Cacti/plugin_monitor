@@ -315,6 +315,7 @@ function monitor_config_settings() {
 		'monitor_header' => array(
 			'friendly_name' => __('Monitor Settings'),
 			'method' => 'spacer',
+			'collapsible' => 'true'
 		),
 		'monitor_log_storage' => array(
 			'friendly_name' => __('Notification/Reboot Log Retention'),
@@ -469,6 +470,7 @@ function monitor_config_form () {
 			$fields_host_edit3['monitor_header'] = array(
 				'friendly_name' => __('Device Monitoring Settings'),
 				'method' => 'spacer',
+				'collapsible' => 'true'
 			);
 			$fields_host_edit3['monitor'] = array(
 				'method' => 'checkbox',
@@ -612,7 +614,7 @@ function monitor_setup_table() {
 			id int(10) unsigned NOT NULL AUTO_INCREMENT,
 			host_id int(10) unsigned DEFAULT NULL,
 			reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-			log_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			log_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 			PRIMARY KEY (id),
 			KEY host_id (host_id),
 			KEY log_time (log_time),
