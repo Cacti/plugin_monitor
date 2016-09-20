@@ -81,22 +81,22 @@ validate_request_vars(true);
 check_tholds();
 
 switch(get_nfilter_request_var('action')) {
-case 'ajax_status':
-	ajax_status();
-	break;
-case 'ajax_mute_all':
-	mute_all_hosts();
-	draw_page();
-	break;
-case 'ajax_unmute_all':
-	unmute_all_hosts();
-	draw_page();
-	break;
-case 'save':
-	save_settings();
-	break;
-default:
-	draw_page();
+	case 'ajax_status':
+		ajax_status();
+		break;
+	case 'ajax_mute_all':
+		mute_all_hosts();
+		draw_page();
+		break;
+	case 'ajax_unmute_all':
+		unmute_all_hosts();
+		draw_page();
+		break;
+	case 'save':
+		save_settings();
+		break;
+	default:
+		draw_page();
 }
 
 exit;
@@ -117,7 +117,7 @@ function draw_page() {
 	$function = 'render_' . get_request_var('grouping');
 	if (function_exists($function)) {
 		print $function();
-	}else{
+	} else {
 		print render_default();
 	}
 
@@ -134,7 +134,7 @@ function draw_page() {
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
-		print "<audio id='audio' loop src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
+		print "<audio id='audio' loop autostart='0' src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
 	}
 
 	?>
@@ -147,7 +147,7 @@ function draw_page() {
 
 		if (value <= 0) {
 			applyFilter();
-		}else{
+		} else {
 			$('#timer').html(value);
 			// What is a second, well if you are an 
 			// emperial storm tropper, it's just a little more than a second.
@@ -161,7 +161,7 @@ function draw_page() {
 				this.pause(); 
 				this.currentTime = 0; 
 			}); 
-		}else{
+		} else if ($('#downhosts').val() == 'true') {
 			$('audio').each(function(){
 				this.play(); 
 			}); 
@@ -217,7 +217,7 @@ function draw_page() {
 			muteUnmuteAudio(true);
 			$('#sound').val('<?php print get_unmute_text();?>');
 			loadPageNoHeader('monitor.php?header=false&action=ajax_mute_all');
-		}else{
+		} else {
 			$('#mute').val('false');
 			muteUnmuteAudio(false);
 			$('#sound').val('<?php print get_mute_text();?>');
@@ -279,7 +279,7 @@ function draw_page() {
 
 		if ($('#mute').val() == 'true') {
 			muteUnmuteAudio(true);
-		}else{
+		} else {
 			muteUnmuteAudio(false);
 		}
 
@@ -294,10 +294,9 @@ function draw_page() {
 
 function is_monitor_audible() {
 	$sound = get_monitor_sound();
-
 	if ($sound != '' && $sound != __('None')) {
 		return true;
-	}else{
+	} else {
 		return false;
 	}
 }
@@ -309,17 +308,18 @@ function get_monitor_sound() {
 function find_down_hosts() {
 	$dhosts = get_hosts_down_by_permission();
 	if (sizeof($dhosts)) {
+		set_request_var('downhosts', 'true');
 		if (isset($_SESSION['muted_hosts'])) {
 			$unmuted_hosts = array_diff($dhosts, $_SESSION['muted_hosts']);
-
 			if (sizeof($unmuted_hosts)) {
 				set_request_var('mute', 'false');
 			}
-		}else{
+		} else {
 			set_request_var('mute', 'false');
 		}
-	}else{
+	} else {
 		$_SESSION['muted_hosts'] = array();
+		set_request_var('downhosts', 'false');
 	}
 }
 
@@ -330,6 +330,7 @@ function mute_all_hosts() {
 
 function unmute_all_hosts() {
 	$_SESSION['muted_hosts'] = array();
+	set_request_var('mute', 'false');
 }
 
 function check_tholds() {
@@ -422,10 +423,10 @@ function draw_filter_and_status() {
 			}
 			print '<option value="-2"' . (get_nfilter_request_var('tree') == '-2' ? ' selected':'') . '>' . __('Non Tree Devices') . '</option>';
 			print '</select>' . NL;
-		}else{
+		} else {
 			print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
 		}
-	}else{
+	} else {
 		print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
 	}
 
@@ -445,7 +446,7 @@ function draw_filter_and_status() {
 			}
 		}
 		print '</select>' . NL;
-	}else{
+	} else {
 		print "<input type='hidden' id='crit' value='" . get_request_var('crit') . "'>\n";
 	}
 
@@ -465,7 +466,7 @@ function draw_filter_and_status() {
 	print '<input type="button" value="' . __('Save') . '" id="save" title="' . __('Save Filter Settings') . '">' . NL;
 
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text()):__('%s Alerts for downed Devices', get_unmute_text())) . '">' . NL;
-	print '<input id="mute" type="hidden" value="' . get_request_var('mute') . '"></span>' . NL;
+	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '"></span>' . NL;
 
 	print '</form></div>' . NL;
 
@@ -478,7 +479,7 @@ function draw_filter_and_status() {
 function get_mute_text() {
 	if (is_monitor_audible()) {
 		return __('Mute');
-	}else{
+	} else {
 		return __('Acknowledge');
 	}
 }
@@ -486,7 +487,7 @@ function get_mute_text() {
 function get_unmute_text() {
 	if (is_monitor_audible()) {
 		return __('Un-Mute');
-	}else{
+	} else {
 		return __('Reset');
 	}
 }
@@ -579,7 +580,7 @@ function validate_request_vars($force = false) {
 function render_where_join(&$sql_where, &$sql_join) {
 	if (get_request_var('crit') > 0) {
 		$crit = ' AND h.monitor_criticality>=' . get_request_var('crit');
-	}else{
+	} else {
 		$crit = '';
 	}
 
@@ -605,7 +606,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 				AND ((cur_time > monitor_warn AND monitor_warn > 0) 
 				OR (cur_time > monitor_alert AND monitor_alert > 0))
 			)' . $crit;
-	}else{
+	} else {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 		$sql_where = 'WHERE h.disabled = "" 
 			AND h.monitor = "on" 
@@ -702,7 +703,7 @@ function render_template() {
 	if (get_request_var('view') == 'tiles') {
 		$offset  = 0;
 		$offset2 = 0;
-	}else{
+	} else {
 		$offset  = 52;
 		$offset2 = 38;
 	}
@@ -750,13 +751,13 @@ function render_tree() {
 
 	if (get_request_var('tree') > 0) {
 		$sql_where = 'gt.id=' . get_request_var('tree');
-	}else{
+	} else {
 		$sql_where = '';
 	}
 
 	if (get_request_var('tree') != -2) {
 		$tree_list = get_allowed_trees(false, false, $sql_where);
-	}else{
+	} else {
 		$tree_list = array();
 	}
 
@@ -782,10 +783,10 @@ function render_tree() {
 						$title = $branch['title'] . ($title != '' ? ' > ' . $title:'');
 						if ($branch['parent'] == 0) {
 							break;
-						}else{
+						} else {
 							$b['parent'] = $branch['parent'];
 						}
-					}else{
+					} else {
 						break;
 					}
 				}
@@ -888,7 +889,7 @@ function render_branch($leafs, $title = '') {
 	if (function_exists($function)) {
 		/* Call the custom render_branch_ function */
 		return $function($leafs, $title);
-	}else{
+	} else {
 		return render_branch_tree($leafs, $title);
 	}
 }
@@ -946,7 +947,7 @@ function render_host($host, $float = true, $maxlen = 0) {
 	if (function_exists($function)) {
 		/* Call the custom render_host_ function */
 		$result = $function($host);
-	}else{
+	} else {
 		$class = get_status_icon($host['status']);
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
@@ -962,7 +963,7 @@ function render_host($host, $float = true, $maxlen = 0) {
 function get_status_icon($status) {
 	if ($status == 1 && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
 		return 'fa-first-order fa-spin';
-	}else{
+	} else {
 		return 'fa-server';
 	}
 }
@@ -972,7 +973,7 @@ function monitor_print_host_time($status_time, $seconds = false) {
 	$dt   = '';
 	if (is_numeric($status_time)) {
 		$sfd  = round($status_time / 100,0);
-	}else{
+	} else {
 		$sfd  = time() - strtotime($status_time);
 	}
 	$dt_d = floor($sfd/86400);
@@ -1036,7 +1037,7 @@ function ajax_status() {
 				if ($tholds > 0) {
 					$thold_link = htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=1&status=-1&host_id=' . $host['id']);
 				}
-			}else{
+			} else {
 				$tholds = 0;
 			}
 
@@ -1053,7 +1054,7 @@ function ajax_status() {
 				if ($syslog_host) {
 					$syslog_link = htmlspecialchars($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=syslog&host_id=' . $syslog_host);
 				}
-			}else{
+			} else {
 				$syslog_logs  = 0;
 				$syslog_host  = 0;
 			}
@@ -1171,10 +1172,10 @@ function render_host_tilesadt($host) {
 		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 
 		return $result;
-	}else{
+	} else {
 		if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
 			$dt = monitor_print_host_time($host['status_rec_date']);
-		}else{
+		} else {
 			$dt = __('Never');
 		}
 
