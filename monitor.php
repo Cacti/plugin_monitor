@@ -319,6 +319,7 @@ function find_down_hosts() {
 		}
 	} else {
 		$_SESSION['muted_hosts'] = array();
+		set_request_var('mute', 'false');
 		set_request_var('downhosts', 'false');
 	}
 }
