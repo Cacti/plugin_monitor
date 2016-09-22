@@ -614,7 +614,7 @@ function monitor_setup_table() {
 			id int(10) unsigned NOT NULL AUTO_INCREMENT,
 			host_id int(10) unsigned DEFAULT NULL,
 			reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-			log_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+			log_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			PRIMARY KEY (id),
 			KEY host_id (host_id),
 			KEY log_time (log_time),
