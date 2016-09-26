@@ -87,10 +87,6 @@ function plugin_monitor_upgrade () {
 	return false;
 }
 
-function monitor_version () {
-	return plugin_monitor_version();
-}
-
 function monitor_check_upgrade () {
 	$version = plugin_monitor_version ();
 	$current = $version['version'];
@@ -104,21 +100,15 @@ function monitor_check_upgrade () {
 			version='" . $version['version'] . "', 
 			name='"    . $version['longname'] . "', 
 			author='"  . $version['author'] . "', 
-			webpage='" . $version['url'] . "' 
+			webpage='" . $version['homepage'] . "' 
 			WHERE directory='" . $version['name'] . "' ");
 	}
 }
 
 function plugin_monitor_version () {
-	return array(
-		'name'     => 'monitor',
-		'version'  => '2.0',
-		'longname' => 'Device Monitoring',
-		'author'   => 'Jimmy Conner',
-		'homepage' => 'http://cactiusers.org',
-		'email'    => 'jimmy@sqmail.org',
-		'url'      => 'http://versions.cactiusers.org/'
-	);
+	global $config;
+	$info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);
+	return $info['info'];
 }
 
 function monitor_device_action_execute($action) {
