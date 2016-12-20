@@ -519,8 +519,8 @@ function monitor_config_form () {
 				'description' => __('This is the message that will be displayed when this Device is reported as down.'),
 				'method' => 'textarea',
 				'max_length' => 1000,
-				'textarea_rows' => 3,
-				'textarea_cols' => 30,
+				'textarea_rows' => 2,
+				'textarea_cols' => 80,
 				'value' => '|arg1:monitor_text|',
 				'default' => '',
 			);
