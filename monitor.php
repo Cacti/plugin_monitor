@@ -369,10 +369,10 @@ function get_filter_text() {
 		$filter = __('All Monitored Devices');
 		break;
 	case '0':
-		$filter = __('Monitored Devices either Down or Recovering');;
+		$filter = __('Monitored Devices either Down or Recovering');
 		break;
 	case '1':
-		$filter = __('Monitored Devices either Down, Recovering, with Breached Thresholds');;
+		$filter = __('Monitored Devices either Down, Recovering, with Breached Thresholds');
 		break;
 	}
 
@@ -393,6 +393,8 @@ function get_filter_text() {
 		$filter .= __(', and of Mission Critical Status');
 		break;
 	}
+
+	$filter .= __('<br><b>Remember to first select eligable Devices to be Monitored from the Devices page!</b>');
 
 	return $filter;
 }
@@ -437,19 +439,14 @@ function draw_filter_and_status() {
 	}
 	print '</select>' . NL;
 
-	$critical_hosts = db_fetch_cell('SELECT count(*) FROM host WHERE monitor_criticality > 0');
-	if ($critical_hosts) {
-		print '<select id="crit" title="' . __('Select Minimum Criticality') . '">' . NL;
-		print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All Criticalities') . '</option>';
-		foreach($criticalities as $key => $value) {
-			if ($key > 0) {
-				print "<option value='" . $key . "'" . (get_nfilter_request_var('crit') == $key ? ' selected':'') . '>' . $value . '</option>';
-			}
+	print '<select id="crit" title="' . __('Select Minimum Criticality') . '">' . NL;
+	print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All Criticalities') . '</option>';
+	foreach($criticalities as $key => $value) {
+		if ($key > 0) {
+			print "<option value='" . $key . "'" . (get_nfilter_request_var('crit') == $key ? ' selected':'') . '>' . $value . '</option>';
 		}
-		print '</select>' . NL;
-	} else {
-		print "<input type='hidden' id='crit' value='" . get_request_var('crit') . "'>\n";
 	}
+	print '</select>' . NL;
 
 	print '<select id="size" title="' . __('Device Icon Size') . '">' . NL;
 	foreach($iconsizes as $id => $value) {
@@ -601,12 +598,12 @@ function render_where_join(&$sql_where, &$sql_join) {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 		$sql_where = 'WHERE h.disabled = "" 
 			AND h.monitor = "on" 
-			AND h.status < 3 
+			AND (h.status < 3 
 			OR (td.thold_enabled="on" AND td.thold_alert>0) 
 			OR ((availability_method>0 OR snmp_version>0) 
 				AND ((cur_time > monitor_warn AND monitor_warn > 0) 
 				OR (cur_time > monitor_alert AND monitor_alert > 0))
-			)' . $crit;
+			))' . $crit;
 	} else {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 		$sql_where = 'WHERE h.disabled = "" 
@@ -1188,11 +1185,18 @@ function render_host_tilesadt($host) {
 }
 
 function get_hosts_down_by_permission() {
+	global $render_style;
+
 	$result = array();
 
-	global $render_style;
+	if (get_request_var('crit') > 0) {
+		$sql_add_where = ' AND monitor_criticality >= ' . get_request_var('crit');
+	}else{
+		$sql_add_where = '';
+	}
+
 	if ($render_style == 'default') {
-		$hosts = get_allowed_devices("h.monitor='on' AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
+		$hosts = get_allowed_devices("h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
 		// do a quick loop through to pull the hosts that are down
 		if (sizeof($hosts)) {
 			foreach($hosts as $host) {
@@ -1203,7 +1207,7 @@ function get_hosts_down_by_permission() {
 		}
 	} else {
 		/* Only get hosts */
-		$hosts = get_allowed_devices("h.monitor='on' AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
+		$hosts = get_allowed_devices("h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
 		if (sizeof($hosts) > 0) {
 			foreach ($hosts as $host) {
 				$host_down = true;

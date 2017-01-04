@@ -42,12 +42,6 @@ function plugin_monitor_install () {
 }
 
 function plugin_monitor_uninstall () {
-	db_remove_column('host', 'monitor');
-	db_remove_column('host', 'monitor_text');
-	db_remove_column('host', 'monitor_criticality');
-	db_remove_column('host', 'monitor_warn');
-	db_remove_column('host', 'monitor_alert');
-
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
