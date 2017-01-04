@@ -1192,6 +1192,18 @@ function get_hosts_down_by_permission() {
 		$sql_add_where = '';
 	}
 
+	if (get_request_var('grouping') == 'tree') {
+		if (get_request_var('tree') > 0) {
+			$devices = db_fetch_cell_prepared('SELECT GROUP_CONCAT(host_id) AS hosts 
+				FROM graph_tree_items 
+				WHERE host_id > 0 
+				AND graph_tree_id = ?', 
+				array(get_request_var('tree')));
+
+			$sql_add_where .= ' AND h.id IN(' . $devices . ')';
+		}
+	}
+
 	if ($render_style == 'default') {
 		$hosts = get_allowed_devices("h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
 		// do a quick loop through to pull the hosts that are down
