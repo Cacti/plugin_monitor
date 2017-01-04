@@ -394,7 +394,7 @@ function get_filter_text() {
 		break;
 	}
 
-	$filter .= __('<br><b>Remember to first select eligable Devices to be Monitored from the Devices page!</b>');
+	$filter .= __('<br><b>Remember to first select eligible Devices to be Monitored from the Devices page!</b>');
 
 	return $filter;
 }
@@ -767,27 +767,24 @@ function render_tree() {
 
 		$branchWhost = db_fetch_assoc("SELECT DISTINCT gti.graph_tree_id, gti.parent
 			FROM graph_tree_items AS gti
-			WHERE gti.host_id>0 AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ") ORDER BY gti.graph_tree_id");
+			WHERE gti.host_id>0 
+			AND gti.parent > 0
+			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ") 
+			ORDER BY gti.graph_tree_id");
 
 		if (sizeof($branchWhost)) {
 			foreach($branchWhost as $b) {
-				$oid   = $b['parent'];
-				$title = '';
+				$titles[$b['graph_tree_id'] . ':' . $b['parent']] = db_fetch_cell_prepared('SELECT title 
+					FROM graph_tree_items 
+					WHERE id = ? AND graph_tree_id = ?',
+					array($b['parent'], $b['graph_tree_id']));
+			}
+			asort($titles);
 
-				while (true) {
-					$branch = db_fetch_row_prepared('SELECT * FROM graph_tree_items WHERE id = ?', array($b['parent']));
+			foreach($titles as $index => $title) {
+				list($graph_tree_id, $parent) = explode(':', $index);
 
-					if (sizeof($branch)) {
-						$title = $branch['title'] . ($title != '' ? ' > ' . $title:'');
-						if ($branch['parent'] == 0) {
-							break;
-						} else {
-							$b['parent'] = $branch['parent'];
-						}
-					} else {
-						break;
-					}
-				}
+				$oid   = $parent;
 
 				$sql_where = '';
 				$sql_join  = '';
