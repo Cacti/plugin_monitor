@@ -261,7 +261,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
 					$body .= '<tr>' . BR;
-					$body .= '<td class="left">' . $host['description']  . '</td>' . BR;
+					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . BR;
 					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . BR;
 					$body .= '<td class="right">' . round($host['monitor_alert'],2)  . ' ms</td>' . BR;
 					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . BR;
@@ -283,7 +283,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
 					$body .= '<tr>' . BR;
-					$body .= '<td class="left">' . $host['description']  . '</td>' . BR;
+					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . BR;
 					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . BR;
 					$body .= '<td class="right">' . round($host['monitor_warn'],2)  . ' ms</td>' . BR;
 					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . BR;
