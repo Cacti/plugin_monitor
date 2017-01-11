@@ -23,22 +23,104 @@
 */
 
 function plugin_monitor_install () {
+	/* core plugin functionality */
 	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitor_show_tab', 'setup.php');
 	api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitor_show_tab', 'setup.php');
+	api_plugin_register_hook('monitor', 'top_graph_refresh', 'monitor_top_graph_refresh', 'setup.php');
+
 	api_plugin_register_hook('monitor', 'draw_navigation_text', 'monitor_draw_navigation_text', 'setup.php');
 	api_plugin_register_hook('monitor', 'config_form', 'monitor_config_form', 'setup.php');
-	api_plugin_register_hook('monitor', 'api_device_save', 'monitor_api_device_save', 'setup.php');
-	api_plugin_register_hook('monitor', 'top_graph_refresh', 'monitor_top_graph_refresh', 'setup.php');
 	api_plugin_register_hook('monitor', 'config_settings', 'monitor_config_settings', 'setup.php');
+	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
+
+	/* device actions and interaction */
+	api_plugin_register_hook('monitor', 'api_device_save', 'monitor_api_device_save', 'setup.php');
 	api_plugin_register_hook('monitor', 'device_action_array', 'monitor_device_action_array', 'setup.php');
 	api_plugin_register_hook('monitor', 'device_action_execute', 'monitor_device_action_execute', 'setup.php');
 	api_plugin_register_hook('monitor', 'device_action_prepare', 'monitor_device_action_prepare', 'setup.php');
-	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
 	api_plugin_register_hook('monitor', 'device_remove', 'monitor_device_remove', 'setup.php');
+
+	/* add new filter for device */
+	api_plugin_register_hook('monitor', 'device_filters', 'monitor_device_filters', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_sql_where', 'monitor_device_sql_where', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_table_bottom', 'monitor_device_table_bottom', 'setup.php');
 
 	api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring Dashboard', 1);
 
 	monitor_setup_table();
+}
+
+function monitor_device_filters($filters) {
+
+	$filters['criticality'] = array(
+		'filter' => FILTER_VALIDATE_INT,
+		'pageset' => true,
+		'default' => '-1'
+	);
+
+	return $filters;
+}
+
+function monitor_device_sql_where($sql_where) {
+	if (get_request_var('criticality') >= 0) {
+		$sql_where .= ($sql_where != '' ? ' AND ':'WHERE ') . ' monitor_criticality = ' . get_request_var('criticality');
+	}
+
+	return $sql_where;
+}
+
+function monitor_device_table_bottom() {
+	$criticalities = array(
+		'-1' => __('Any'),
+		'0'  => __('None'),
+		'1'  => __('Low'),
+		'2'  => __('Medium'),
+		'3'  => __('High'),
+		'4'  => __('Mission Critical')
+	);
+
+	$select = '<td>' . __('Criticality') . '</td><td><select id="criticality">';
+	foreach($criticalities as $index => $crit) {
+		if ($index == get_request_var('criticality')) {
+			$select .= '<option selected value="' . $index . '">' . $crit . '</option>';
+		}else{
+			$select .= '<option value="' . $index . '">' . $crit . '</option>';
+		}
+	}
+	$select .= '</select></td>';
+
+    ?>
+    <script type='text/javascript'>
+	$(function() {
+		$('#rows').parent().after('<?php print $select;?>');
+		<?php if (get_selected_theme() != 'classic') {?>
+		$('#criticality').selectmenu({
+			change: function() { 
+				applyFilter(); 
+			}
+		});
+		<?php } else { ?>
+		$('#criticality').change(function() {
+			applyFilter(); 
+		});
+		<?php } ?>
+	});
+
+	applyFilter = function() {
+		strURL  = 'host.php?host_status=' + $('#host_status').val();
+		strURL += '&host_template_id=' + $('#host_template_id').val();
+		strURL += '&site_id=' + $('#site_id').val();
+		strURL += '&criticality=' + $('#criticality').val();
+		strURL += '&poller_id=' + $('#poller_id').val();
+		strURL += '&rows=' + $('#rows').val();
+		strURL += '&filter=' + $('#filter').val();
+		strURL += '&page=' + $('#page').val();
+		strURL += '&header=false';
+		loadPageNoHeader(strURL);
+	};
+
+	</script>
+	<?php
 }
 
 function plugin_monitor_uninstall () {
