@@ -338,7 +338,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			'',
 			$subject,
 			$output,
-			'Cacti Monitor Plugin requires an html based e-mail client',
+			'Cacti Monitor Plugin requires an html based Email client',
 			'',
 			$headers
 	    );
