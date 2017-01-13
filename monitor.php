@@ -424,7 +424,7 @@ function draw_filter_and_status() {
 			foreach($trees as $tree) {
 				print "<option value='" . $tree['id'] . "'" . (get_nfilter_request_var('tree') == $tree['id'] ? ' selected':'') . '>' . $tree['name'] . '</option>';
 			}
-			print '<option value="-2"' . (get_nfilter_request_var('tree') == '-2' ? ' selected':'') . '>' . __('Non Tree Devices') . '</option>';
+			print '<option value="-2"' . (get_nfilter_request_var('tree') == '-2' ? ' selected':'') . '>' . __('Non-Tree Devices') . '</option>';
 			print '</select>' . NL;
 		} else {
 			print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
@@ -470,7 +470,7 @@ function draw_filter_and_status() {
 
 	// Display the Current Time
 	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;"><span id="text" style="display:none;">Filter Settings Saved</span><br></div>';
-	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . __('Last Refresh : %s', date('g:i:s a', time())) . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh')):'') . '</div>';
+	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . __('Last Refresh: %s', date('g:i:s a', time())) . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh')):'') . '</div>';
 	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . get_filter_text() . '</div>';
 }
 
@@ -845,7 +845,7 @@ function render_tree() {
 				FROM host AS h
 				WHERE id IN (" . implode(',', $host_ids) . ")");
 
-			$result .= '<div style="padding:2px;margin:2px;width:100%;"><table class="odd" style="width:100%;"><tr class="tableHeader"><th>Non Tree Devices</th></tr><tr><td><div style="width:100%">';
+			$result .= '<div style="padding:2px;margin:2px;width:100%;"><table class="odd" style="width:100%;"><tr class="tableHeader"><th>' . __('Non-Tree Devices') . '</th></tr><tr><td><div style="width:100%">';
 			foreach($hosts as $leaf) {
 				$result .= render_host($leaf, true, $maxlen);
 			}

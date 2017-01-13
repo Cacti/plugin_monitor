@@ -425,7 +425,7 @@ function monitor_config_settings() {
 			'method' => 'drop_array',
 			'default' => '0',
 			'array' => array(
-				'0'   => __('Every Occurance'),
+				'0'   => __('Every Occurrence'),
 				'20'  => __('Every %d Minutes', 20),
 				'30'  => __('Every %d Minutes', 30),
 				'60'  => __('Every Hour'),
@@ -509,7 +509,7 @@ function monitor_config_form () {
 	global $fields_host_edit, $criticalities;
 
 	$baselines = array(
-		'0'   => __('Dont Change'),
+		'0'   => __('Do not Change'),
 		'1.20'  => __('%d Percent Above Average', 20),
 		'1.30'  => __('%d Percent Above Average', 30),
 		'1.40'  => __('%d Percent Above Average', 40),
@@ -556,7 +556,7 @@ function monitor_config_form () {
 			);
 			$fields_host_edit3['monitor_warn'] = array(
 				'friendly_name' => __('Ping Warning Threshold'),
-				'description' => __('If the round trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.'),
+				'description' => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.'),
 				'method' => 'textbox',
 				'size' => '10',
 				'max_length' => '5',
@@ -566,7 +566,7 @@ function monitor_config_form () {
 			);
 			$fields_host_edit3['monitor_alert'] = array(
 				'friendly_name' => __('Ping Alert Threshold'),
-				'description' => __('If the round trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.'),
+				'description' => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.'),
 				'method' => 'textbox',
 				'size' => '10',
 				'max_length' => '5',

@@ -236,7 +236,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$freq    = read_config_option('monitor_resend_frequency');
 		$subject = __('Cacti Monitor Plugin Ping Threshold Notification');
 
-		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notication') . '</h1>' . BR;
+		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notification') . '</h1>' . BR;
 
 		$body .= '<p>' . __('The following report will identify Devices that have eclipsed their ping
 			latency thresholds.  You are receiving this report since you are subscribed to a Device 
