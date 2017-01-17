@@ -1,18 +1,18 @@
 # monitor
 
-This plugin allows you to view at a glance all your Cacti hosts, and will alert you audibly when something is down.  In addition, you may receive notification if any critical host becomes unreachable.
+This plugin allows you to view at a glance all your critical Cacti hosts, and will alert you audibly and via Email when a Device or Devices go down.
 
-Some audio clips courtesy of SoundBible.com and licensed under Creative Common and other Free to use Licenses.	If you create an MP3 file called 'First Order Chorus.mp3' and place it in the sound folder, you may get a surprise if you choose to use it.
+Some audio clips have been added to this plugin courtesy of SoundBible.com and are licensed under Creative Commons and other Free to use Licenses.  If you create an MP3 file called 'First Order Chorus.mp3' and place it in the sound folder, you may get a surprise if you choose to use it.
 
 The Monitor plugin has been around for well over a decade.  This very old plugin has recently gone through major recent enhancements through it's lifetime.  The version of Monitor included with Cacti 1.0 is almost unrecognizable from earlier versions of the plugin.  It's is essentially a finished project, though if there are any feature requests, we won't push them away.
 
 ## Features
 
 * Data Center Dashboard
-* Audible alert
+* Audible and Visual Alerting
 * Respects Cacti's user permissions
 * Monitoring can be enabled or disabled at the Device level
-* Supports Monitoring Device Criticalities
+* Supports Monitoring Devices by Criticality
 
 ## Installation
 
