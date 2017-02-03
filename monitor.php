@@ -49,6 +49,7 @@ $iclasses = array(
 	3 => 'deviceUp',
 	4 => 'deviceThreshold',
 	5 => 'deviceDownMuted',
+	6 => 'deviceUnmonitored',
 	7 => 'deviceWarning',
 	8 => 'deviceAlert',
 );
@@ -59,6 +60,7 @@ $icolorsdisplay = array(
 	3 => __('Up'), 
 	4 => __('Triggered'), 
 	5 => __('Down (Muted/Acked)'),
+	6 => __('No Availability Check'),
 	7 => __('Warning Ping'),
 	8 => __('Alert Ping'),
 );
