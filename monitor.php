@@ -44,6 +44,7 @@ $criticalities = array(
 );
 
 $iclasses = array(
+	0 => 'deviceUnknown',
 	1 => 'deviceDown',
 	2 => 'deviceRecovering',
 	3 => 'deviceUp',
@@ -55,6 +56,7 @@ $iclasses = array(
 );
 
 $icolorsdisplay = array(
+	0 => __('Unknown'),
 	1 => __('Down'),
 	2 => __('Recovering'), 
 	3 => __('Up'), 
