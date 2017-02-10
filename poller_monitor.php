@@ -61,10 +61,14 @@ if (sizeof($parms)) {
 		}
 
 		switch ($arg) {
-			case '-h' :
-			case '-v' :
 			case '--version' :
+			case '-V' :
+			case '-v' :
+				display_version();
+				exit;
 			case '--help' :
+			case '-H' :
+			case '-h' :
 				display_help();
 				exit;
 			case '--force' :
@@ -517,14 +521,25 @@ function monitor_debug($message) {
 	}
 }
 
+function display_version() {
+	global $config;
+
+	if (!function_exists('plugin_monitor_version')) {
+		include_once($config['base_path'] . '/plugins/monitor/setup.php');
+	}
+
+	$info = plugin_monitor_version();
+	print "Cacti Monitor Poller, Version " . $info['version'] . ", " . COPYRIGHT_YEARS . "\n";
+}
+
 /*
  * display_help
  * displays the usage of the function
  */
 function display_help() {
-	$version = db_fetch_cell('SELECT cacti FROM version');
-	print "Cacti Monitor Poller, Version $version, " . COPYRIGHT_YEARS . "\n\n";
-	print "usage: poller_monitor.php [--force] [--debug] [--help] [--version]\n\n";
+	display_version();
+
+	print "\nusage: poller_monitor.php [--force] [--debug] [--help] [--version]\n\n";
 	print "--force       - force execution, e.g. for testing\n";
 	print "--debug       - debug execution, e.g. for testing\n\n";
 	print "-v --version  - Display this help message\n";
