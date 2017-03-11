@@ -114,7 +114,13 @@ function draw_page() {
 
 	draw_filter_and_status();
 
-	print "<div class='center' style='display:table;margin-left:auto;margin-right:auto;'>\n";
+	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
+		print "<link href='" . $config['url_path'] . "plugins/monitor/themes/" . get_selected_theme() . "/monitor.css' type='text/css' rel='stylesheet' />\n";
+	}else{
+		print "<link href='" . $config['url_path'] . "plugins/monitor/monitor.css' type='text/css' rel='stylesheet' />\n";
+	}
+
+	print "<div class='center monitor'>\n";
 
 	// Default with permissions = default_by_permissions
 	// Tree  = group_by_tree
@@ -128,7 +134,7 @@ function draw_page() {
 	print '</div>';
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
-		print "<div class='center' style='position:fixed;left:0;bottom:0;display:table;margin-left:auto;margin-right:auto;width:100%;'><table class='center' style='padding:2px;width:100%'><tr>\n";
+		print "<div class='center monitor_legend'><table class='center'><tr>\n";
 		foreach($iclasses as $index => $class) {
 			print "<td class='center $class" . "Bg' style='width:11%;'>" . $icolorsdisplay[$index] . "</td>\n";
 		}
@@ -728,7 +734,7 @@ function render_template() {
 			}
 
 			if ($ctemp != $ptemp) {
-				$result .= "<div style='vertical-align:top;margin-left:auto;margin-right:auto;display:table-row;height:" . intval(get_request_var('size') + $offset) . "px;position:relative;padding:3px;margin:4px;'><div style='float:left;display:table-cell;'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center' style='height:" . intval(get_request_var('size') + $offset2) . "px;'>\n";
+				$result .= "<div class='monitor_main' style='height:" . intval(get_request_var('size') + $offset) . "px;'><div class='monitor_frame'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center' style='height:" . intval(get_request_var('size') + $offset2) . "px;'>\n";
 			}
 
 			$result .= render_host($host, true, $maxlen);
@@ -817,13 +823,13 @@ function render_tree() {
 						if ($ptree != '') {
 							$result .= '</div></td></tr></table></div>';
 						}
-						$result .= '<div style="padding:3px;margin:4px;width:100%;"><table class="odd" style="width:100%;margin-left:auto;margin-right:auto;"><tr class="tableHeader"><th>' . $tree_name . '</th></tr><tr><td><div style="width:100%">';
+						$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . $tree_name . '</th></tr><tr><td><div style="width:100%">';
 						$ptree = $tree_name;
 					}
 
 					$title = $title !='' ? $title:'Root Folder';
 
-					$result .= '<div style="vertical-align:top;float:left;position:relative;height:' . intval(get_request_var('size') + 52) . 'px;padding:3px;margin:4px;white-space:nowrap;"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
+					$result .= '<div class="monitor_tree_frame" style="height:' . intval(get_request_var('size') + 52) . 'px;"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
 					foreach($hosts as $host) {
 						$result .= render_host($host, true, $maxlen);
 					}
@@ -853,7 +859,7 @@ function render_tree() {
 				$maxlen = 100;
 			}
 
-			$result .= '<div style="padding:2px;margin:2px;width:100%;"><table class="odd" style="width:100%;"><tr class="tableHeader"><th>' . __('Non-Tree Devices') . '</th></tr><tr><td><div style="width:100%">';
+			$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . __('Non-Tree Devices') . '</th></tr><tr><td><div style="width:100%">';
 			foreach($hosts as $leaf) {
 				$result .= render_host($leaf, true, $maxlen);
 			}
@@ -958,9 +964,9 @@ function render_host($host, $float = true, $maxlen = 0) {
 		$class = get_status_icon($host['status']);
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			$result = "<div " . ($host['status'] == 1 ? 'class="flash"':'') . " style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+			$result = "<div " . ($host['status'] == 1 ? 'class="flash monitor_device_frame"':'class="monitor_device_frame"') . " style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 		} else {
-			$result = "<div style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<div class='monitor_device_frame' style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
 		}
 	}
 
@@ -1167,7 +1173,7 @@ function render_host_tiles($host) {
 		return;
 	}
 
-	$result = "<div style='padding:2px;float:left;text-align:center;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i></a></div>";
+	$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i></a></div>";
 
 	return $result;
 }
@@ -1184,7 +1190,7 @@ function render_host_tilesadt($host) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = monitor_print_host_time($host['status_fail_date']);
 
-		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame' style='width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 
 		return $result;
 	} else {
@@ -1194,7 +1200,7 @@ function render_host_tilesadt($host) {
 			$dt = __('Never');
 		}
 
-		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceUp'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame' style='width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceUp'>$dt</span></a></div>\n";
 
 		return $result;
 	}

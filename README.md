@@ -26,7 +26,10 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 
 ## Changelog
 
----  2.0 ---
+--- 2.1 ---
+* feature: Convert Monitor to use CSS for skin developers
+
+--- 2.0 ---
 * feature: Support for Cacti 1.0
 * feature: Complete redesign using font awesome
 * feature: Allow specification of device criticality
@@ -38,10 +41,10 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 * feature: Generalized code cleanup
 * feature: Integrate better with Thold and Syslog
 
----  1.3 ---
+--- 1.3 ---
 * compat: Fix general header
 
----  1.2 ---
+--- 1.2 ---
 * bug#0001654: a little update for monitor plugin 
 * bug: Correct some undefined offset errors
 
