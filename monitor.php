@@ -845,9 +845,13 @@ function render_tree() {
 			}
 
 			// Determine the correct width of the cell
-			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
-				FROM host AS h
-				WHERE id IN (" . implode(',', $host_ids) . ")");
+			if (sizeof($host_ids)) {
+				$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+					FROM host AS h
+					WHERE id IN (" . implode(',', $host_ids) . ")");
+			}else{
+				$maxlen = 100;
+			}
 
 			$result .= '<div style="padding:2px;margin:2px;width:100%;"><table class="odd" style="width:100%;"><tr class="tableHeader"><th>' . __('Non-Tree Devices') . '</th></tr><tr><td><div style="width:100%">';
 			foreach($hosts as $leaf) {
@@ -917,6 +921,10 @@ function render_host($host, $float = true, $maxlen = 0) {
 		return;
 	}
 
+	if (!is_device_allowed($host['id'])) {
+		return;
+	}
+
 	if ($host['id'] <= 0) {
 		return;
 	}
@@ -950,9 +958,9 @@ function render_host($host, $float = true, $maxlen = 0) {
 		$class = get_status_icon($host['status']);
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			$result = "<div " . ($host['status'] == 1 ? 'class="flash"':'') . " style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+			$result = "<div " . ($host['status'] == 1 ? 'class="flash"':'') . " style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 		} else {
-			$result = "<div style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<div style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;text-align:center;display:block;" . ($float ? 'float:left;':'') . "padding:3px;'><a style='display:block;' href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
 		}
 	}
 
@@ -1155,7 +1163,11 @@ function ajax_status() {
 function render_host_tiles($host) {
 	$class = get_status_icon($host['status']);
 
-	$result = "<div style='padding:2px;float:left;text-align:center;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i></a></div>";
+	if (!is_device_allowed($host['id'])) {
+		return;
+	}
+
+	$result = "<div style='padding:2px;float:left;text-align:center;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i></a></div>";
 
 	return $result;
 }
@@ -1163,12 +1175,16 @@ function render_host_tiles($host) {
 function render_host_tilesadt($host) {
 	$dt = '';
 
+	if (!is_device_allowed($host['id'])) {
+		return;
+	}
+
 	$class = get_status_icon($host['status']);
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = monitor_print_host_time($host['status_fail_date']);
 
-		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 
 		return $result;
 	} else {
@@ -1178,7 +1194,7 @@ function render_host_tilesadt($host) {
 			$dt = __('Never');
 		}
 
-		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceUp'>$dt</span></a></div>\n";
+		$result = "<div style='margin:2px;float:left;text-align:center;width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' style='display:block;' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceUp'>$dt</span></a></div>\n";
 
 		return $result;
 	}
