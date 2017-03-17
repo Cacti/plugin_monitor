@@ -17,6 +17,7 @@
 .monitor_frame {
 	float: left;
 	display: table-cell;
+	height: float;
 }
 
 .monitor_tree_title {
@@ -50,6 +51,7 @@
 
 .monitor_device_frame a {
 	display: block;
+	width: 80px;
 }
 
 .monitor_legend {
@@ -67,3 +69,23 @@
 	width: 100%;
 }
 
+.monitor_exsmall {
+	font-size: 10px;
+}
+
+.monitor_small {
+	font-size: 20px;
+}
+
+.monitor_medium {
+	font-size: 40px;
+}
+
+.monitor_large {
+	font-size: 80px;
+}
+
+.monitor_device {
+	font-size: 10px;
+	padding: 2px;
+}

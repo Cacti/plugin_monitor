@@ -67,11 +67,11 @@ $icolorsdisplay = array(
 	8 => __('Alert Ping'),
 );
 
-$iconsizes = array(
-	10 => __('Extra Small'),
-	20 => __('Small'),
-	40 => __('Medium'),
-	80 => __('Large')
+$classes = array(
+	'monitor_exsmall' => __('Extra Small'),
+	'monitor_small'   => __('Small'),
+	'monitor_medium'  => __('Medium'),
+	'monitor_large'   => __('Large')
 );
 
 global $thold_alerts, $thold_hosts; 
@@ -410,7 +410,7 @@ function get_filter_text() {
 }
 
 function draw_filter_and_status() {
-	global $criticalities, $page_refresh_interval, $iconsizes;
+	global $criticalities, $page_refresh_interval, $classes;
 
 	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;"><form>' . NL;
 
@@ -459,7 +459,7 @@ function draw_filter_and_status() {
 	print '</select>' . NL;
 
 	print '<select id="size" title="' . __('Device Icon Size') . '">' . NL;
-	foreach($iconsizes as $id => $value) {
+	foreach($classes as $id => $value) {
 		print "<option value='$id'" . (get_nfilter_request_var('size') == $id ? ' selected':'') . '>' . $value . '</option>';
 	}
 	print '</select>' . NL;
@@ -560,8 +560,9 @@ function validate_request_vars($force = false) {
 			'default' => read_user_setting('monitor_view', read_config_option('monitor_view'), $force)
 		),
 		'size' => array(
-			'filter' => FILTER_VALIDATE_INT,
-			'default' => read_user_setting('monitor_size', '40', $force)
+			'filter' => FILTER_CALLBACK,
+			'options' => array('options' => 'sanitize_search_string'),
+			'default' => read_user_setting('monitor_size', 'monior_medium', $force)
 		),
 		'crit' => array(
 			'filter' => FILTER_VALIDATE_INT,
@@ -726,6 +727,8 @@ function render_template() {
 			FROM host AS h
 			WHERE id IN (" . implode(',', $host_ids) . ")");
 
+		$class = get_request_var('size');
+
 		foreach($hosts as $host) {
 			$ctemp = $host['host_template_id'];
 
@@ -734,7 +737,7 @@ function render_template() {
 			}
 
 			if ($ctemp != $ptemp) {
-				$result .= "<div class='monitor_main' style='height:" . intval(get_request_var('size') + $offset) . "px;'><div class='monitor_frame'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center' style='height:" . intval(get_request_var('size') + $offset2) . "px;'>\n";
+				$result .= "<div class='monitor_main $class'><div class='monitor_frame'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center $class'>\n";
 			}
 
 			$result .= render_host($host, true, $maxlen);
@@ -813,6 +816,8 @@ function render_tree() {
 						$host_ids[] = $host['id'];
 					}
 
+					$class = get_request_var('size');
+
 					// Determine the correct width of the cell
 					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
 						FROM host AS h
@@ -829,7 +834,7 @@ function render_tree() {
 
 					$title = $title !='' ? $title:'Root Folder';
 
-					$result .= '<div class="monitor_tree_frame" style="height:' . intval(get_request_var('size') + 52) . 'px;"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
+					$result .= '<div class="monitor_tree_frame ' . $class . '"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
 					foreach($hosts as $host) {
 						$result .= render_host($host, true, $maxlen);
 					}
@@ -920,7 +925,7 @@ function get_host_status($host) {
 
 /*Single host  rendering */
 function render_host($host, $float = true, $maxlen = 0) {
-	global $thold, $thold_hosts, $config, $icolorsdisplay, $iclasses;
+	global $thold, $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes;
 
 	//throw out tree root items
 	if (array_key_exists('name', $host))  {
@@ -961,12 +966,13 @@ function render_host($host, $float = true, $maxlen = 0) {
 		/* Call the custom render_host_ function */
 		$result = $function($host);
 	} else {
-		$class = get_status_icon($host['status']);
+		$iclass = get_status_icon($host['status']);
+		$fclass = get_request_var('size');
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			$result = "<div " . ($host['status'] == 1 ? 'class="flash monitor_device_frame"':'class="monitor_device_frame"') . " style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+			$result = "<div " . ($host['status'] == 1 ? 'class="' . $fclass . ' flash monitor_device_frame"':'class="' . $fclass . ' monitor_device_frame"') . " style='width:" . max(80, $maxlen*6) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $fclass $iclass " . $host['iclass'] . "'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 		} else {
-			$result = "<div class='monitor_device_frame' style='height:" . min(get_request_var('size')+30, 110) . "px;width:" . max(get_request_var('size'), 80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<div class='monitor_device_frame fclass' style='width:" . max(80, $maxlen*6) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $fclass $iclass " . $host['iclass'] . "'></i><br>" . trim($host['description']) . "</a></div>\n";
 		}
 	}
 
@@ -1167,13 +1173,14 @@ function ajax_status() {
 }
 
 function render_host_tiles($host) {
-	$class = get_status_icon($host['status']);
+	$class  = get_status_icon($host['status']);
+	$fclass = get_request_var('size');
 
 	if (!is_device_allowed($host['id'])) {
 		return;
 	}
 
-	$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i></a></div>";
+	$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class $fclass " . $host['iclass'] . "'></i></a></div>";
 
 	return $result;
 }
@@ -1185,12 +1192,13 @@ function render_host_tilesadt($host) {
 		return;
 	}
 
-	$class = get_status_icon($host['status']);
+	$class  = get_status_icon($host['status']);
+	$fclass = get_request_var('size');
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = monitor_print_host_time($host['status_fail_date']);
 
-		$result = "<div class='monitor_device_frame' style='width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class $fclass " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></div>\n";
 
 		return $result;
 	} else {
@@ -1200,7 +1208,7 @@ function render_host_tilesadt($host) {
 			$dt = __('Never');
 		}
 
-		$result = "<div class='monitor_device_frame' style='width:" . max(get_request_var('size'), 80) . "px;'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "' style='width:" . (get_request_var('size') * 1.2) . "px;font-size:" . get_request_var('size') . "px;'></i><br><span style='font-size:10px;padding:2px;' class='deviceUp'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class $fclass " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></div>\n";
 
 		return $result;
 	}
