@@ -41,6 +41,11 @@
 	white-space: nowrap;
 }
 
+.monitorHover td:first-child {
+	padding-right: 5px;
+	white-space: nowrap;
+}
+
 .monitor_device_frame {
 	text-align:center;
 	display: block;

@@ -26,6 +26,11 @@
 	width: 100%;
 }
 
+.monitorHover td:first-child {
+	padding-right: 5px;
+	white-space: nowrap;
+}
+
 .monitor_tree_title table:first-child {
 	width: 100%;
 	margin-left: auto;
@@ -51,7 +56,7 @@
 
 .monitor_device_frame a {
 	display: block;
-	width: 80px;
+	height: 28px;
 }
 
 .monitor_legend {

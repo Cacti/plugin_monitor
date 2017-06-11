@@ -951,7 +951,7 @@ function render_host($host, $float = true, $maxlen = 0) {
 
 	$dt = '';
 	if ($host['status'] < 2 || $host['status'] == 5) {
-		$dt = monitor_print_host_time($host['status_fail_date']);
+		$dt = get_timeinstate($host);
 	}
 
 	$function = 'render_host_' . get_request_var('view');
@@ -1146,7 +1146,7 @@ function ajax_status() {
 				</tr>":"") . "
 				<tr>
 					<td style='vertical-align:top;'>" . __('Last Fail:') . "</td>
-					<td style='vertical-align:top;'>" . $host['status_fail_date'] . "</td>
+					<td style='vertical-align:top;'>" . ($host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never'):$host['status_fail_date']) . "</td>
 				</tr>
 				<tr>
 					<td style='vertical-align:top;'>" . __('Time In State:') . "</td>
@@ -1201,14 +1201,14 @@ function render_host_tilesadt($host) {
 	$fclass = get_request_var('size');
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
-		$dt = monitor_print_host_time($host['status_fail_date']);
+		$dt = get_timeinstate($host);
 
 		$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class $fclass " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></div>\n";
 
 		return $result;
 	} else {
 		if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
-			$dt = monitor_print_host_time($host['status_rec_date']);
+			$dt = get_timeinstate($host);
 		} else {
 			$dt = __('Never');
 		}
