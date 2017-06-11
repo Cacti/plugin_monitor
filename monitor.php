@@ -58,9 +58,9 @@ $iclasses = array(
 $icolorsdisplay = array(
 	0 => __('Unknown'),
 	1 => __('Down'),
-	2 => __('Recovering'), 
-	3 => __('Up'), 
-	4 => __('Triggered'), 
+	2 => __('Recovering'),
+	3 => __('Up'),
+	4 => __('Triggered'),
 	5 => __('Down (Muted/Acked)'),
 	6 => __('No Availability Check'),
 	7 => __('Warning Ping'),
@@ -74,7 +74,7 @@ $classes = array(
 	'monitor_large'   => __('Large')
 );
 
-global $thold_alerts, $thold_hosts; 
+global $thold_hosts;
 
 if (!isset($_SESSION['muted_hosts'])) {
 	$_SESSION['muted_hosts'] = array();
@@ -82,7 +82,7 @@ if (!isset($_SESSION['muted_hosts'])) {
 
 validate_request_vars(true);
 
-check_tholds();
+$thold_hosts = check_tholds();
 
 switch(get_nfilter_request_var('action')) {
 	case 'ajax_status':
@@ -116,7 +116,7 @@ function draw_page() {
 
 	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
 		print "<link href='" . $config['url_path'] . "plugins/monitor/themes/" . get_selected_theme() . "/monitor.css' type='text/css' rel='stylesheet' />\n";
-	}else{
+	} else {
 		print "<link href='" . $config['url_path'] . "plugins/monitor/monitor.css' type='text/css' rel='stylesheet' />\n";
 	}
 
@@ -159,7 +159,7 @@ function draw_page() {
 			applyFilter();
 		} else {
 			$('#timer').html(value);
-			// What is a second, well if you are an 
+			// What is a second, well if you are an
 			// emperial storm tropper, it's just a little more than a second.
 			myTimer = setTimeout(timeStep, 1284);
 		}
@@ -168,13 +168,13 @@ function draw_page() {
 	function muteUnmuteAudio(mute) {
 		if (mute) {
 			$('audio').each(function(){
-				this.pause(); 
-				this.currentTime = 0; 
-			}); 
+				this.pause();
+				this.currentTime = 0;
+			});
 		} else if ($('#downhosts').val() == 'true') {
 			$('audio').each(function(){
-				this.play(); 
-			}); 
+				this.play();
+			});
 		}
 	}
 
@@ -345,30 +345,21 @@ function unmute_all_hosts() {
 }
 
 function check_tholds() {
-	global $thold_alerts, $thold_hosts;
+	$thold_hosts  = array();
 
 	if (api_plugin_is_enabled('thold')) {
-		$thold_alerts = array();
-		$thold_hosts  = array();
-
-		$result = db_fetch_assoc('SELECT rra_id FROM thold_data WHERE thold_alert > 0 AND thold_enabled = "on"', FALSE);
-
-		if (count($result)) {
-			foreach ($result as $row) {
-				$thold_alerts[] = $row['rra_id'];
-			}
-
-			if (count($thold_alerts) > 0) {
-				$result = db_fetch_assoc('SELECT id, host_id FROM data_local');
-
-				foreach ($result as $h) {
-					if (in_array($h['id'], $thold_alerts)) {
-						$thold_hosts[] = $h['host_id'];
-					}
-				}
-			}
-		}
+		return array_rekey(
+			db_fetch_assoc('SELECT DISTINCT dl.host_id
+				FROM thold_data AS td
+				INNER JOIN data_local AS dl
+				ON td.local_data_id=dl.id
+				WHERE thold_alert > 0
+				AND thold_enabled = "on"'),
+			'host_id', 'host_id'
+		);
 	}
+
+	return $thold_hosts;
 }
 
 function get_filter_text() {
@@ -595,31 +586,31 @@ function render_where_join(&$sql_where, &$sql_join) {
 
 	if (get_request_var('status') == '0') {
 		$sql_join  = '';
-		$sql_where = 'WHERE h.disabled = "" 
-			AND h.monitor = "on" 
-			AND h.status < 3 
-			AND (availability_method>0 
-				OR snmp_version>0 
-				OR (cur_time >= monitor_warn 
-					AND monitor_warn > 0) 
-				OR (cur_time >= monitor_alert 
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.monitor = "on"
+			AND h.status < 3
+			AND (availability_method>0
+				OR snmp_version>0
+				OR (cur_time >= monitor_warn
+					AND monitor_warn > 0)
+				OR (cur_time >= monitor_alert
 					AND monitor_alert > 0)
 			)' . $crit;
-	}elseif (get_request_var('status') == '1') {
+	} elseif (get_request_var('status') == '1') {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-		$sql_where = 'WHERE h.disabled = "" 
-			AND h.monitor = "on" 
-			AND (h.status < 3 
-			OR (td.thold_enabled="on" AND td.thold_alert>0) 
-			OR ((availability_method>0 OR snmp_version>0) 
-				AND ((cur_time > monitor_warn AND monitor_warn > 0) 
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.monitor = "on"
+			AND (h.status < 3
+			OR (td.thold_enabled="on" AND td.thold_alert>0)
+			OR ((availability_method>0 OR snmp_version>0)
+				AND ((cur_time > monitor_warn AND monitor_warn > 0)
 				OR (cur_time > monitor_alert AND monitor_alert > 0))
 			))' . $crit;
 	} else {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-		$sql_where = 'WHERE h.disabled = "" 
-			AND h.monitor = "on" 
-			AND (availability_method>0 OR snmp_version>0 
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.monitor = "on"
+			AND (availability_method>0 OR snmp_version>0
 				OR (td.thold_enabled="on" AND td.thold_alert>0)
 			)' . $crit;
 	}
@@ -641,9 +632,9 @@ function render_default() {
 
 	if (sizeof($hosts)) {
 		// Determine the correct width of the cell
-		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 			FROM host AS h
-			$sql_join 
+			$sql_join
 			$sql_where");
 
 		foreach($hosts as $host) {
@@ -678,7 +669,7 @@ function render_perms() {
 			ORDER BY description");
 
 		// Determine the correct width of the cell
-		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 			FROM host AS h
 			WHERE id IN (" . implode(',', $host_ids) . ")");
 
@@ -723,7 +714,7 @@ function render_template() {
 		}
 
 		// Determine the correct width of the cell
-		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 			FROM host AS h
 			WHERE id IN (" . implode(',', $host_ids) . ")");
 
@@ -780,15 +771,15 @@ function render_tree() {
 
 		$branchWhost = db_fetch_assoc("SELECT DISTINCT gti.graph_tree_id, gti.parent
 			FROM graph_tree_items AS gti
-			WHERE gti.host_id>0 
+			WHERE gti.host_id>0
 			AND gti.parent > 0
-			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ") 
+			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ")
 			ORDER BY gti.graph_tree_id");
 
 		if (sizeof($branchWhost)) {
 			foreach($branchWhost as $b) {
-				$titles[$b['graph_tree_id'] . ':' . $b['parent']] = db_fetch_cell_prepared('SELECT title 
-					FROM graph_tree_items 
+				$titles[$b['graph_tree_id'] . ':' . $b['parent']] = db_fetch_cell_prepared('SELECT title
+					FROM graph_tree_items
 					WHERE id = ? AND graph_tree_id = ?',
 					array($b['parent'], $b['graph_tree_id']));
 			}
@@ -803,10 +794,10 @@ function render_tree() {
 				$sql_join  = '';
 				render_where_join($sql_where, $sql_join);
 
-				$hosts = db_fetch_assoc_prepared("SELECT DISTINCT h.* 
-					FROM host AS h 
-					INNER JOIN graph_tree_items AS gti 
-					ON h.id=gti.host_id 
+				$hosts = db_fetch_assoc_prepared("SELECT DISTINCT h.*
+					FROM host AS h
+					INNER JOIN graph_tree_items AS gti
+					ON h.id=gti.host_id
 					$sql_join
 					$sql_where
 					AND parent = ?", array($oid));
@@ -819,7 +810,7 @@ function render_tree() {
 					$class = get_request_var('size');
 
 					// Determine the correct width of the cell
-					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 						FROM host AS h
 						WHERE id IN (" . implode(',', $host_ids) . ")");
 
@@ -857,10 +848,10 @@ function render_tree() {
 
 			// Determine the correct width of the cell
 			if (sizeof($host_ids)) {
-				$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description)) 
+				$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 					FROM host AS h
 					WHERE id IN (" . implode(',', $host_ids) . ")");
-			}else{
+			} else {
 				$maxlen = 100;
 			}
 
@@ -909,13 +900,17 @@ function render_branch($leafs, $title = '') {
 }
 
 function get_host_status($host) {
+	global $thold_hosts;
+
 	/* If the host has been muted, show the muted Icon */
-	if (in_array($host['id'], $_SESSION['muted_hosts']) && $host['status'] == 1) {
+	if (array_key_exists($host['id'], $thold_hosts)) {
+		$host['status'] = 4;
+	} elseif (in_array($host['id'], $_SESSION['muted_hosts']) && $host['status'] == 1) {
 		$host['status'] = 5;
-	}elseif ($host['status'] == 3) {
+	} elseif ($host['status'] == 3) {
 		if ($host['cur_time'] > $host['monitor_alert'] && !empty($host['monitor_alert'])) {
 			$host['status'] = 8;
-		}elseif ($host['cur_time'] > $host['monitor_warn'] && !empty($host['monitor_warn'])) {
+		} elseif ($host['cur_time'] > $host['monitor_warn'] && !empty($host['monitor_warn'])) {
 			$host['status'] = 7;
 		}
 	}
@@ -925,7 +920,7 @@ function get_host_status($host) {
 
 /*Single host  rendering */
 function render_host($host, $float = true, $maxlen = 0) {
-	global $thold, $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes;
+	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes;
 
 	//throw out tree root items
 	if (array_key_exists('name', $host))  {
@@ -941,14 +936,13 @@ function render_host($host, $float = true, $maxlen = 0) {
 	}
 
 	$host['anchor'] = $config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id'];
-	if ($thold) {
-		if ($host['status'] == 3 && in_array($host['id'], $thold_hosts)) {
-			$host['status'] = 4;
-			if (file_exists($config['base_path'] . '/plugins/thold/thold_graph.php')) {
-				$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php';
-			} else {
-				$host['anchor'] = $config['url_path'] . 'plugins/thold/graph_thold.php';
-			}
+
+	if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
+		$host['status'] = 4;
+		if (file_exists($config['base_path'] . '/plugins/thold/thold_graph.php')) {
+			$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php';
+		} else {
+			$host['anchor'] = $config['url_path'] . 'plugins/thold/graph_thold.php';
 		}
 	}
 
@@ -1014,7 +1008,9 @@ function monitor_print_host_time($status_time, $seconds = false) {
 }
 
 function ajax_status() {
-	global $thold, $thold_hosts, $config, $icolorsdisplay, $iclasses, $criticalities;
+	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $criticalities;
+
+	$tholds = 0;
 
 	if (isset_request_var('id') && get_filter_request_var('id')) {
 		$id = get_request_var('id');
@@ -1022,14 +1018,13 @@ function ajax_status() {
 		$host = db_fetch_row_prepared('SELECT * FROM host WHERE id = ?', array($id));
 
 		$host['anchor'] = $config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id'];
-		if ($thold) {
-			if ($host['status'] == 3 && in_array($host['id'], $thold_hosts)) {
-				$host['status'] = 4;
-				if (file_exists($config['base_path'] . '/plugins/thold/thold_graph.php')) {
-					$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php';
-				} else {
-					$host['anchor'] = $config['url_path'] . 'plugins/thold/graph_thold.php';
-				}
+
+		if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
+			$host['status'] = 4;
+			if (file_exists($config['base_path'] . '/plugins/thold/thold_graph.php')) {
+				$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php';
+			} else {
+				$host['anchor'] = $config['url_path'] . 'plugins/thold/graph_thold.php';
 			}
 		}
 
@@ -1052,24 +1047,34 @@ function ajax_status() {
 
 			// Get the number of thresholds
 			if (api_plugin_is_enabled('thold')) {
-				$tholds     = db_fetch_cell_prepared('SELECT count(*) FROM thold_data WHERE host_id = ?', array($host['id']));
-				if ($tholds > 0) {
+				$tholds = db_fetch_cell_prepared('SELECT count(*)
+					FROM thold_data
+					WHERE host_id = ?',
+					array($host['id']));
+
+				if ($tholds) {
 					$thold_link = htmlspecialchars($config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=1&status=-1&host_id=' . $host['id']);
 				}
-			} else {
-				$tholds = 0;
 			}
 
 			// Get the number of syslogs
 			if (api_plugin_is_enabled('syslog') && api_plugin_user_realm_auth('syslog.php')) {
 				include($config['base_path'] . '/plugins/syslog/config.php');
 				include_once($config['base_path'] . '/plugins/syslog/functions.php');
-				$syslog_logs = syslog_db_fetch_cell_prepared('SELECT count(*) FROM syslog_logs WHERE host = ?', array($host['hostname']));
-				$syslog_host = syslog_db_fetch_cell_prepared('SELECT host_id FROM syslog_hosts WHERE host = ?', array($host['hostname']));
+				$syslog_logs = syslog_db_fetch_cell_prepared('SELECT count(*)
+					FROM syslog_logs
+					WHERE host = ?',
+					array($host['hostname']));
+
+				$syslog_host = syslog_db_fetch_cell_prepared('SELECT host_id
+					FROM syslog_hosts
+					WHERE host = ?',
+					array($host['hostname']));
 
 				if ($syslog_logs && $syslog_host) {
 					$syslog_log_link = htmlspecialchars($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=alerts&host_id=' . $syslog_host);
 				}
+
 				if ($syslog_host) {
 					$syslog_link = htmlspecialchars($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=syslog&host_id=' . $syslog_host);
 				}
@@ -1222,16 +1227,16 @@ function get_hosts_down_by_permission() {
 
 	if (get_request_var('crit') > 0) {
 		$sql_add_where = ' AND monitor_criticality >= ' . get_request_var('crit');
-	}else{
+	} else {
 		$sql_add_where = '';
 	}
 
 	if (get_request_var('grouping') == 'tree') {
 		if (get_request_var('tree') > 0) {
-			$devices = db_fetch_cell_prepared('SELECT GROUP_CONCAT(host_id) AS hosts 
-				FROM graph_tree_items 
-				WHERE host_id > 0 
-				AND graph_tree_id = ?', 
+			$devices = db_fetch_cell_prepared('SELECT GROUP_CONCAT(host_id) AS hosts
+				FROM graph_tree_items
+				WHERE host_id > 0
+				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
 			$sql_add_where .= ' AND h.id IN(' . $devices . ')';
@@ -1280,7 +1285,7 @@ function get_host_non_tree_array() {
 	$heirarchy = db_fetch_assoc("SELECT DISTINCT
 		h.*, gti.title, gti.host_id, gti.host_grouping_type, gti.graph_tree_id
 		FROM host AS h
-		LEFT JOIN graph_tree_items AS gti 
+		LEFT JOIN graph_tree_items AS gti
 		ON h.id=gti.host_id
 		$sql_join
 		$sql_where
@@ -1328,41 +1333,47 @@ function get_status_color($status=3) {
 }
 
 function leafs_status_min($leafs) {
-	global $thold;
 	global $thold_hosts;
-	$thold_breached = 0;
-	$result = 3;
+
+	$breached = false;
+	$result   = 3;
+
 	foreach ($leafs as $row) {
 		$status = intval($row['status']);
 		if ($result > $status) {
 			$result = $status;
 		}
-		if ($thold) {
-			if ($status == 3 && in_array($row['id'], $thold_hosts)) {
-				$thold_breached = 1;
-			}
+
+		if ($status == 3 && array_key_exists($row['id'], $thold_hosts)) {
+			$breached = true;
 		}
 	}
-	if ($result == 3 && $thold_breached) {
+
+	if ($result == 3 && $breached) {
 		$result = 4;
 	}
+
 	return $result;
 }
 
 function leafs_percentup($leafs) {
-	$result = 0;
+	$result  = 0;
 	$countup = 0;
-	$count = sizeof($leafs);
+	$count   = sizeof($leafs);
+
 	foreach ($leafs as $row) {
 		$status = intval($row['status']);
 		if ($status >= 3) {
 			$countup++;
 		}
 	}
+
 	if ($countup>=$count){
 		return 100;
 	}
+
 	$result = round($countup/$count*100,0);
+
 	return $result;
 }
 

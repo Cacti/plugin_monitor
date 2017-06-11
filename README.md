@@ -28,6 +28,7 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 
 --- 2.1 ---
 * feature: Convert Monitor to use CSS for skin developers
+* issue#26: Monitor is not showing triggered colors
 
 --- 2.0 ---
 * feature: Support for Cacti 1.0
