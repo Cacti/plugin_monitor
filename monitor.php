@@ -1085,19 +1085,19 @@ function ajax_status() {
 
 			$links = '';
 			if (isset($host_link)) {
-				$links .= '<a class="hyperLink" href="' . $host_link . '">' . __('Edit Device') . '</a>';
+				$links .= '<a class="hyperLink monitor_link" href="' . $host_link . '">' . __('Edit Device') . '</a>';
 			}
 			if (isset($graph_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $graph_link . '">' . __('View Graphs') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $graph_link . '">' . __('View Graphs') . '</a>';
 			}
 			if (isset($thold_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $thold_link . '">' . __('View Thresholds') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $thold_link . '">' . __('View Thresholds') . '</a>';
 			}
 			if (isset($syslog_log_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $syslog_log_link . '">' . __('View Syslog Alerts') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_log_link . '">' . __('View Syslog Alerts') . '</a>';
 			}
 			if (isset($syslog_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink" href="' . $syslog_link . '">' . __('View Syslog Messages') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_link . '">' . __('View Syslog Messages') . '</a>';
 			}
 
 			$iclass   = $iclasses[$host['status']];
