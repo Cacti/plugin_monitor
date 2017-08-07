@@ -95,13 +95,13 @@ function monitor_device_table_bottom() {
 		$('#rows').parent().after('<?php print $select;?>');
 		<?php if (get_selected_theme() != 'classic') {?>
 		$('#criticality').selectmenu({
-			change: function() { 
-				applyFilter(); 
+			change: function() {
+				applyFilter();
 			}
 		});
 		<?php } else { ?>
 		$('#criticality').change(function() {
-			applyFilter(); 
+			applyFilter();
 		});
 		<?php } ?>
 	});
@@ -164,20 +164,22 @@ function plugin_monitor_upgrade () {
 }
 
 function monitor_check_upgrade () {
-	$version = plugin_monitor_version ();
-	$current = $version['version'];
+	$info    = plugin_monitor_version ();
+	$current = $info['version'];
 	$old     = read_config_option('plugin_monitor_version');
+
 	if ($current != $old) {
 		monitor_setup_table ();
 
 		// Set the new version
 		db_execute("UPDATE plugin_config SET version='$current' WHERE directory='monitor'");
-		db_execute("UPDATE plugin_config SET 
-			version='" . $version['version'] . "', 
-			name='"    . $version['longname'] . "', 
-			author='"  . $version['author'] . "', 
-			webpage='" . $version['homepage'] . "' 
-			WHERE directory='" . $version['name'] . "' ");
+
+		db_execute("UPDATE plugin_config SET
+			version='" . $info['version']  . "',
+			name='"    . $info['longname'] . "',
+			author='"  . $info['author']   . "',
+			webpage='" . $info['homepage'] . "'
+			WHERE directory='" . $info['name'] . "' ");
 	}
 }
 
@@ -272,12 +274,12 @@ function monitor_device_action_prepare($save) {
 
 		$form_array = array();
 		$fields = array(
-			'monitor', 
-			'monitor_text', 
-			'monitor_criticality', 
-			'monitor_warn', 
-			'monitor_alert', 
-			'monitor_warn_baseline', 
+			'monitor',
+			'monitor_text',
+			'monitor_criticality',
+			'monitor_warn',
+			'monitor_alert',
+			'monitor_warn_baseline',
 			'monitor_alert_baseline'
 		);
 
@@ -331,7 +333,7 @@ function monitor_config_settings() {
 	global $tabs, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
 	include_once($config['base_path'] . '/lib/reports.php');
- 
+
 	$formats = reports_get_format_files();
 
 	$criticalities = array(
@@ -670,8 +672,8 @@ function monitor_setup_table() {
 			notification_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
 			notes varchar(255) DEFAULT NULL,
 			PRIMARY KEY (id),
-			UNIQUE KEY unique_key (host_id,notify_type,notification_time)) 
-			ENGINE=InnoDB 
+			UNIQUE KEY unique_key (host_id,notify_type,notification_time))
+			ENGINE=InnoDB
 			COMMENT='Stores Notification Event History'");
 	}
 
@@ -685,7 +687,7 @@ function monitor_setup_table() {
 			KEY host_id (host_id),
 			KEY log_time (log_time),
 			KEY reboot_time (reboot_time))
-			ENGINE=InnoDB 
+			ENGINE=InnoDB
 			COMMENT='Keeps Track of Device Reboot Times'");
 	}
 
@@ -694,8 +696,8 @@ function monitor_setup_table() {
 			host_id int(10) unsigned DEFAULT '0',
 			uptime int(10) unsigned DEFAULT '0',
 			PRIMARY KEY (host_id),
-			KEY uptime (uptime)) 
-			ENGINE=InnoDB 
+			KEY uptime (uptime))
+			ENGINE=InnoDB
 			COMMENT='Keeps Track of the Devices last uptime to track agent restarts and reboots'");
 	}
 
