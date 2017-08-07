@@ -461,7 +461,7 @@ function draw_filter_and_status() {
 	print '<option value="1"' . (get_nfilter_request_var('status') == '1' ? ' selected':'') . '>' . __('Not Up or Triggered') . '</option>';
 	print '</select>' . NL;
 
-	print '<span style="white-space:nowrap;"><input type="button" value="' . __('Refresh') . '" id="go" title="' . __('Refresh the Device List') . '">' . NL;
+	print '<span class="nowrap"><input type="button" value="' . __('Refresh') . '" id="go" title="' . __('Refresh the Device List') . '">' . NL;
 	print '<input type="button" value="' . __('Save') . '" id="save" title="' . __('Save Filter Settings') . '">' . NL;
 
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text()):__('%s Alerts for downed Devices', get_unmute_text())) . '">' . NL;
@@ -919,7 +919,7 @@ function get_host_status($host) {
 }
 
 /*Single host  rendering */
-function render_host($host, $float = true, $maxlen = 0) {
+function render_host($host, $float = true, $maxlen = 120) {
 	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes;
 
 	//throw out tree root items
@@ -964,9 +964,9 @@ function render_host($host, $float = true, $maxlen = 0) {
 		$fclass = get_request_var('size');
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			$result = "<div " . ($host['status'] == 1 ? 'class="' . $fclass . ' flash monitor_device_frame"':'class="' . $fclass . ' monitor_device_frame"') . " style='width:" . max(80, $maxlen*6) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $fclass $iclass " . $host['iclass'] . "'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+			$result = "<div class='$fclass flash monitor_device_frame' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $iclass " . $host['iclass'] . "'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 		} else {
-			$result = "<div class='monitor_device_frame fclass' style='width:" . max(80, $maxlen*6) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $fclass $iclass " . $host['iclass'] . "'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<div class='monitor_device_frame $fclass' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $iclass " . $host['iclass'] . "'></i><br>" . trim($host['description']) . "</a></div>\n";
 		}
 	}
 
@@ -1103,74 +1103,74 @@ function ajax_status() {
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = $icolorsdisplay[$host['status']];
 
-			print "<table class='monitorHover' style='padding:2px;margin:0px;width:overflow:hidden;max-width:500px;max-height:600px;vertical-align:top;'>
+			print "<table class='monitorHover'>
 				<tr class='tableHeader'>
 					<th class='left' colspan='2'>Device Status Information</th>
 				</tr>
 				<tr>
-					<td style='vertical-align:top;'>" . __('Device:') . "</td>
-					<td style='vertical-align:top;'><a href='" . $host['anchor'] . "'><span>" . $host['description'] . "</span></a></td>
+					<td>" . __('Device:') . "</td>
+					<td><a href='" . $host['anchor'] . "'><span>" . $host['description'] . "</span></a></td>
 				</tr>" . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Criticality:') . "</td>
-					<td style='vertical-align:top;'>" . $criticalities[$host['monitor_criticality']] . "</td>
+					<td>" . __('Criticality:') . "</td>
+					<td>" . $criticalities[$host['monitor_criticality']] . "</td>
 				</tr>":"") . "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Status:') . "</td>
-					<td class='$iclass' style='vertical-align:top;'>$sdisplay</td>
+					<td>" . __('Status:') . "</td>
+					<td class='$iclass'>$sdisplay</td>
 				</tr>" . ($host['status'] < 3 || $host['status'] == 5 ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Admin Note:') . "</td>
-					<td class='$iclass' style='vertical-align:top;'>" . $host['monitor_text'] . "</td>
+					<td>" . __('Admin Note:') . "</td>
+					<td class='$iclass'>" . $host['monitor_text'] . "</td>
 				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('IP/Hostname:') . "</td>
-					<td style='vertical-align:top;'>" . $host['hostname'] . "</td>
+					<td>" . __('IP/Hostname:') . "</td>
+					<td>" . $host['hostname'] . "</td>
 				</tr>":"") . ($host['notes'] != '' ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Notes:') . "</td>
-					<td style='vertical-align:top;'>" . $host['notes'] . "</td>
+					<td>" . __('Notes:') . "</td>
+					<td>" . $host['notes'] . "</td>
 				</tr>":"") . (($graphs || $syslog_logs || $syslog_host || $tholds) ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Links:') . "</td>
-					<td style='vertical-align:top;'>" . $links . "
+					<td>" . __('Links:') . "</td>
+					<td>" . $links . "
 				 	</td>
 				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
-					<td style='white-space:nowrap;vertical-align:top;'>" . __('Curr/Avg:') . "</td>
-					<td style='vertical-align:top;'>" . __('%d ms', $host['cur_time']) . ' / ' .  __('%d ms', $host['avg_time']) . "</td>
+					<td class='nowrap'>" . __('Curr/Avg:') . "</td>
+					<td>" . __('%d ms', $host['cur_time']) . ' / ' .  __('%d ms', $host['avg_time']) . "</td>
 				</tr>":"") . (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0) ? "
 				<tr>
-					<td style='white-space:nowrap;vertical-align:top;'>" . __('Warn/Alert:') . "</td>
-					<td style='vertical-align:top;'>" . __('%0.2d ms', $host['monitor_warn']) . ' / ' . __('%0.2d ms', $host['monitor_alert']) . "</td>
+					<td class='nowrap'>" . __('Warn/Alert:') . "</td>
+					<td>" . __('%0.2d ms', $host['monitor_warn']) . ' / ' . __('%0.2d ms', $host['monitor_alert']) . "</td>
 				</tr>":"") . "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Last Fail:') . "</td>
-					<td style='vertical-align:top;'>" . ($host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never'):$host['status_fail_date']) . "</td>
+					<td>" . __('Last Fail:') . "</td>
+					<td>" . ($host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never'):$host['status_fail_date']) . "</td>
 				</tr>
 				<tr>
-					<td style='vertical-align:top;'>" . __('Time In State:') . "</td>
-					<td style='vertical-align:top;'>" . get_timeinstate($host) . "</td>
+					<td>" . __('Time In State:') . "</td>
+					<td>" . get_timeinstate($host) . "</td>
 				</tr>
 				<tr>
-					<td style='vertical-align:top;'>" . __('Availability:') . "</td>
-					<td style='vertical-align:top;'>" . round($host['availability'],2) . " %</td>
+					<td>" . __('Availability:') . "</td>
+					<td>" . round($host['availability'],2) . " %</td>
 				</tr>" . ($host['snmp_version'] > 0 && ($host['status'] == 3 || $host['status'] == 2) ? "
 				<tr>
-					<td style='vertical-align:top;'>" . __('Agent Uptime:') . "</td>
-					<td style='vertical-align:top;'>" . ($host['status'] == 3 || $host['status'] == 5 ? monitor_print_host_time($host['snmp_sysUpTimeInstance']):'N/A') . "</td>
+					<td>" . __('Agent Uptime:') . "</td>
+					<td>" . ($host['status'] == 3 || $host['status'] == 5 ? monitor_print_host_time($host['snmp_sysUpTimeInstance']):'N/A') . "</td>
 				</tr>
 				<tr>
-					<td style='white-space:nowrap;vertical-align:top;'>" . __('Sys Description:') . "</td>
-					<td style='vertical-align:top;'>" . $host['snmp_sysDescr'] . "</td>
+					<td class='nowrap'>" . __('Sys Description:') . "</td>
+					<td>" . $host['snmp_sysDescr'] . "</td>
 				</tr>
 				<tr>
-					<td style='vertical-align:top;'>" . __('Location:') . "</td>
-					<td style='vertical-align:top;'>" . $host['snmp_sysLocation'] . "</td>
+					<td>" . __('Location:') . "</td>
+					<td>" . $host['snmp_sysLocation'] . "</td>
 				</tr>
 				<tr>
-					<td style='vertical-align:top;'>" . __('Contact:') . "</td>
-					<td style='vertical-align:top;'>" . $host['snmp_sysContact'] . "</td>
+					<td>" . __('Contact:') . "</td>
+					<td>" . $host['snmp_sysContact'] . "</td>
 				</tr>":"") . "
 				</table>\n";
 		}
@@ -1185,7 +1185,7 @@ function render_host_tiles($host) {
 		return;
 	}
 
-	$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class $fclass " . $host['iclass'] . "'></i></a></div>";
+	$result = "<div class='monitor_device_frame $fclass ${fclass}_tiles'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "'></i></a></div>";
 
 	return $result;
 }
@@ -1203,7 +1203,7 @@ function render_host_tilesadt($host) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
 
-		$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class $fclass " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></div>\n";
 
 		return $result;
 	} else {
@@ -1213,7 +1213,7 @@ function render_host_tilesadt($host) {
 			$dt = __('Never');
 		}
 
-		$result = "<div class='monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class $fclass " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></div>\n";
 
 		return $result;
 	}
