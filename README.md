@@ -26,6 +26,10 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 
 ## Changelog
 
+--- 2.2 ---
+* issue#31: Tree rendering not functioning as expected
+* issue: Properly handle text domain for internationalization
+
 --- 2.1 ---
 * feature: Convert Monitor to use CSS for skin developers
 * issue#26: Monitor is not showing triggered colors

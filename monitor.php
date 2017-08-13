@@ -36,11 +36,11 @@ list($micro,$seconds) = explode(" ", microtime());
 $start = $seconds + $micro;
 
 $criticalities = array(
-	0 => __('Disabled'),
-	1 => __('Low'),
-	2 => __('Medium'),
-	3 => __('High'),
-	4 => __('Mission Critical')
+	0 => __('Disabled', 'monitor'),
+	1 => __('Low', 'monitor'),
+	2 => __('Medium', 'monitor'),
+	3 => __('High', 'monitor'),
+	4 => __('Mission Critical', 'monitor')
 );
 
 $iclasses = array(
@@ -56,22 +56,22 @@ $iclasses = array(
 );
 
 $icolorsdisplay = array(
-	0 => __('Unknown'),
-	1 => __('Down'),
-	2 => __('Recovering'),
-	3 => __('Up'),
-	4 => __('Triggered'),
-	5 => __('Down (Muted/Acked)'),
-	6 => __('No Availability Check'),
-	7 => __('Warning Ping'),
-	8 => __('Alert Ping'),
+	0 => __('Unknown', 'monitor'),
+	1 => __('Down', 'monitor'),
+	2 => __('Recovering', 'monitor'),
+	3 => __('Up', 'monitor'),
+	4 => __('Triggered', 'monitor'),
+	5 => __('Down (Muted/Acked)', 'monitor'),
+	6 => __('No Availability Check', 'monitor'),
+	7 => __('Warning Ping', 'monitor'),
+	8 => __('Alert Ping', 'monitor'),
 );
 
 $classes = array(
-	'monitor_exsmall' => __('Extra Small'),
-	'monitor_small'   => __('Small'),
-	'monitor_medium'  => __('Medium'),
-	'monitor_large'   => __('Large')
+	'monitor_exsmall' => __('Extra Small', 'monitor'),
+	'monitor_small'   => __('Small', 'monitor'),
+	'monitor_medium'  => __('Medium', 'monitor'),
+	'monitor_large'   => __('Large', 'monitor')
 );
 
 global $thold_hosts;
@@ -304,7 +304,7 @@ function draw_page() {
 
 function is_monitor_audible() {
 	$sound = get_monitor_sound();
-	if ($sound != '' && $sound != __('None')) {
+	if ($sound != '' && $sound != __('None', 'monitor')) {
 		return true;
 	} else {
 		return false;
@@ -367,35 +367,35 @@ function get_filter_text() {
 
 	switch(get_request_var('status')) {
 	case '-1':
-		$filter = __('All Monitored Devices');
+		$filter = __('All Monitored Devices', 'monitor');
 		break;
 	case '0':
-		$filter = __('Monitored Devices either Down or Recovering');
+		$filter = __('Monitored Devices either Down or Recovering', 'monitor');
 		break;
 	case '1':
-		$filter = __('Monitored Devices either Down, Recovering, with Breached Thresholds');
+		$filter = __('Monitored Devices either Down, Recovering, with Breached Thresholds', 'monitor');
 		break;
 	}
 
 	switch(get_request_var('crit')) {
 	case '0':
-		$filter .= __(', and All Criticalities');
+		$filter .= __(', and All Criticalities', 'monitor');
 		break;
 	case '1':
-		$filter .= __(', and of Low Criticality or Higher');
+		$filter .= __(', and of Low Criticality or Higher', 'monitor');
 		break;
 	case '2':
-		$filter .= __(', and of Medium Criticality or Higher');
+		$filter .= __(', and of Medium Criticality or Higher', 'monitor');
 		break;
 	case '3':
-		$filter .= __(', and of High Criticality or Higher');
+		$filter .= __(', and of High Criticality or Higher', 'monitor');
 		break;
 	case '4':
-		$filter .= __(', and of Mission Critical Status');
+		$filter .= __(', and of Mission Critical Status', 'monitor');
 		break;
 	}
 
-	$filter .= __('<br><b>Remember to first select eligible Devices to be Monitored from the Devices page!</b>');
+	$filter .= __('<br><b>Remember to first select eligible Devices to be Monitored from the Devices page!</b>', 'monitor');
 
 	return $filter;
 }
@@ -405,27 +405,27 @@ function draw_filter_and_status() {
 
 	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;"><form>' . NL;
 
-	print '<select id="view" title="' . __('View Type') . '">' . NL;
-	print '<option value="default"' . (get_nfilter_request_var('view') == 'default' ? ' selected':'') . '>' . __('Default') . '</option>';
-	print '<option value="tiles"' . (get_nfilter_request_var('view') == 'tiles' ? ' selected':'') . '>' . __('Tiles') . '</option>';
-	print '<option value="tilesadt"' . (get_nfilter_request_var('view') == 'tilesadt' ? ' selected':'') . '>' . __('Tiles & Time') . '</option>';
+	print '<select id="view" title="' . __esc('View Type', 'monitor') . '">' . NL;
+	print '<option value="default"' . (get_nfilter_request_var('view') == 'default' ? ' selected':'') . '>' . __('Default', 'monitor') . '</option>';
+	print '<option value="tiles"' . (get_nfilter_request_var('view') == 'tiles' ? ' selected':'') . '>' . __('Tiles', 'monitor') . '</option>';
+	print '<option value="tilesadt"' . (get_nfilter_request_var('view') == 'tilesadt' ? ' selected':'') . '>' . __('Tiles & Time', 'monitor') . '</option>';
 	print '</select>' . NL;
 
-	print '<select id="grouping" title="' . __('Device Grouping') . '">' . NL;
-	print '<option value="default"' . (get_nfilter_request_var('grouping') == 'default' ? ' selected':'') . '>' . __('Default') . '</option>';
-	print '<option value="tree"' . (get_nfilter_request_var('grouping') == 'tree' ? ' selected':'') . '>' . __('Tree') . '</option>';
-	print '<option value="template"' . (get_nfilter_request_var('grouping') == 'template' ? ' selected':'') . '>' . __('Device Template') . '</option>';
+	print '<select id="grouping" title="' . __esc('Device Grouping') . '">' . NL;
+	print '<option value="default"' . (get_nfilter_request_var('grouping') == 'default' ? ' selected':'') . '>' . __('Default', 'monitor') . '</option>';
+	print '<option value="tree"' . (get_nfilter_request_var('grouping') == 'tree' ? ' selected':'') . '>' . __('Tree', 'monitor') . '</option>';
+	print '<option value="template"' . (get_nfilter_request_var('grouping') == 'template' ? ' selected':'') . '>' . __('Device Template', 'monitor') . '</option>';
 	print '</select>' . NL;
 
 	if (get_request_var('grouping') == 'tree') {
 		$trees = get_allowed_trees();
 		if (sizeof($trees)) {
-			print '<select id="tree" title="' . __('Select Tree') . '">' . NL;
-			print '<option value="-1"' . (get_nfilter_request_var('tree') == '-1' ? ' selected':'') . '>' . __('All Trees') . '</option>';
+			print '<select id="tree" title="' . __('Select Tree', 'monitor') . '">' . NL;
+			print '<option value="-1"' . (get_nfilter_request_var('tree') == '-1' ? ' selected':'') . '>' . __('All Trees', 'monitor') . '</option>';
 			foreach($trees as $tree) {
 				print "<option value='" . $tree['id'] . "'" . (get_nfilter_request_var('tree') == $tree['id'] ? ' selected':'') . '>' . $tree['name'] . '</option>';
 			}
-			print '<option value="-2"' . (get_nfilter_request_var('tree') == '-2' ? ' selected':'') . '>' . __('Non-Tree Devices') . '</option>';
+			print '<option value="-2"' . (get_nfilter_request_var('tree') == '-2' ? ' selected':'') . '>' . __('Non-Tree Devices', 'monitor') . '</option>';
 			print '</select>' . NL;
 		} else {
 			print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
@@ -434,14 +434,14 @@ function draw_filter_and_status() {
 		print "<input type='hidden' id='tree' value='" . get_request_var('tree') . "'>\n";
 	}
 
-	print '<select id="refresh" title="' . __('Refresh Frequency') . '">' . NL;
+	print '<select id="refresh" title="' . __esc('Refresh Frequency', 'monitor') . '">' . NL;
 	foreach($page_refresh_interval as $id => $value) {
 		print "<option value='$id'" . (get_nfilter_request_var('refresh') == $id ? ' selected':'') . '>' . $value . '</option>';
 	}
 	print '</select>' . NL;
 
-	print '<select id="crit" title="' . __('Select Minimum Criticality') . '">' . NL;
-	print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All Criticalities') . '</option>';
+	print '<select id="crit" title="' . __esc('Select Minimum Criticality', 'monitor') . '">' . NL;
+	print '<option value="-1"' . (get_nfilter_request_var('crit') == '-1' ? ' selected':'') . '>' . __('All Criticalities', 'monitor') . '</option>';
 	foreach($criticalities as $key => $value) {
 		if ($key > 0) {
 			print "<option value='" . $key . "'" . (get_nfilter_request_var('crit') == $key ? ' selected':'') . '>' . $value . '</option>';
@@ -449,45 +449,45 @@ function draw_filter_and_status() {
 	}
 	print '</select>' . NL;
 
-	print '<select id="size" title="' . __('Device Icon Size') . '">' . NL;
+	print '<select id="size" title="' . __esc('Device Icon Size', 'monitor') . '">' . NL;
 	foreach($classes as $id => $value) {
 		print "<option value='$id'" . (get_nfilter_request_var('size') == $id ? ' selected':'') . '>' . $value . '</option>';
 	}
 	print '</select>' . NL;
 
-	print '<select id="status" title="' . __('Device Status') . '">' . NL;
-	print '<option value="-1"' . (get_nfilter_request_var('status') == '-1' ? ' selected':'') . '>' . __('All Monitored') . '</option>';
-	print '<option value="0"' . (get_nfilter_request_var('status') == '0' ? ' selected':'') . '>' . __('Not Up') . '</option>';
-	print '<option value="1"' . (get_nfilter_request_var('status') == '1' ? ' selected':'') . '>' . __('Not Up or Triggered') . '</option>';
+	print '<select id="status" title="' . __esc('Device Status', 'monitor') . '">' . NL;
+	print '<option value="-1"' . (get_nfilter_request_var('status') == '-1' ? ' selected':'') . '>' . __('All Monitored', 'monitor') . '</option>';
+	print '<option value="0"' . (get_nfilter_request_var('status') == '0' ? ' selected':'') . '>' . __('Not Up', 'monitor') . '</option>';
+	print '<option value="1"' . (get_nfilter_request_var('status') == '1' ? ' selected':'') . '>' . __('Not Up or Triggered', 'monitor') . '</option>';
 	print '</select>' . NL;
 
-	print '<span class="nowrap"><input type="button" value="' . __('Refresh') . '" id="go" title="' . __('Refresh the Device List') . '">' . NL;
-	print '<input type="button" value="' . __('Save') . '" id="save" title="' . __('Save Filter Settings') . '">' . NL;
+	print '<span class="nowrap"><input type="button" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . NL;
+	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . NL;
 
-	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text()):__('%s Alerts for downed Devices', get_unmute_text())) . '">' . NL;
+	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . NL;
 	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '"></span>' . NL;
 
 	print '</form></div>' . NL;
 
 	// Display the Current Time
 	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;"><span id="text" style="display:none;">Filter Settings Saved</span><br></div>';
-	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . __('Last Refresh: %s', date('g:i:s a', time())) . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh')):'') . '</div>';
+	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . __('Last Refresh: %s', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? ', ' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh'), 'monitor'):'') . '</div>';
 	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . get_filter_text() . '</div>';
 }
 
 function get_mute_text() {
 	if (is_monitor_audible()) {
-		return __('Mute');
+		return __('Mute', 'monitor');
 	} else {
-		return __('Acknowledge');
+		return __('Acknowledge', 'monitor');
 	}
 }
 
 function get_unmute_text() {
 	if (is_monitor_audible()) {
-		return __('Un-Mute');
+		return __('Un-Mute', 'monitor');
 	} else {
-		return __('Reset');
+		return __('Reset', 'monitor');
 	}
 }
 
@@ -771,36 +771,53 @@ function render_tree() {
 
 		$branchWhost = db_fetch_assoc("SELECT DISTINCT gti.graph_tree_id, gti.parent
 			FROM graph_tree_items AS gti
-			WHERE gti.host_id>0
-			AND gti.parent > 0
+			WHERE gti.host_id > 0
+			AND gti.parent >= 0
 			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ")
-			ORDER BY gti.graph_tree_id");
+			ORDER BY gti.graph_tree_id, position");
 
 		if (sizeof($branchWhost)) {
 			foreach($branchWhost as $b) {
-				$titles[$b['graph_tree_id'] . ':' . $b['parent']] = db_fetch_cell_prepared('SELECT title
+				$titles[$b['graph_tree_id'] . ':' . $b['parent']] = ($b['parent'] > 0 ? db_fetch_cell_prepared('SELECT title
 					FROM graph_tree_items
-					WHERE id = ? AND graph_tree_id = ?',
-					array($b['parent'], $b['graph_tree_id']));
+					WHERE id = ?
+					AND graph_tree_id = ?
+					ORDER BY graph_tree_id',
+					array($b['parent'], $b['graph_tree_id'])) : __('Root Branch', 'monitor'));
 			}
-			asort($titles);
 
 			foreach($titles as $index => $title) {
 				list($graph_tree_id, $parent) = explode(':', $index);
 
-				$oid   = $parent;
+				$oid = $parent;
 
 				$sql_where = '';
 				$sql_join  = '';
+
 				render_where_join($sql_where, $sql_join);
 
-				$hosts = db_fetch_assoc_prepared("SELECT DISTINCT h.*
+				$hosts = db_fetch_assoc_prepared("SELECT h.*
 					FROM host AS h
 					INNER JOIN graph_tree_items AS gti
 					ON h.id=gti.host_id
 					$sql_join
 					$sql_where
-					AND parent = ?", array($oid));
+					AND parent = ?
+					GROUP BY h.id",
+					array($oid));
+
+				$tree_name = db_fetch_cell_prepared('SELECT name
+					FROM graph_tree
+					WHERE id = ?',
+					array($graph_tree_id));
+
+				if ($ptree != $tree_name) {
+					if ($ptree != '') {
+						$result .= '</div></td></tr></table></div>';
+					}
+					$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . __('Tree:', 'monitor') . '&nbsp;' . $tree_name . '</th></tr><tr><td><div style="width:100%">';
+					$ptree = $tree_name;
+				}
 
 				if (sizeof($hosts)) {
 					foreach($hosts as $host) {
@@ -813,17 +830,6 @@ function render_tree() {
 					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 						FROM host AS h
 						WHERE id IN (" . implode(',', $host_ids) . ")");
-
-					$tree_name = db_fetch_cell_prepared('SELECT name FROM graph_tree WHERE id = ?', array($b['graph_tree_id']));
-					if ($ptree != $tree_name) {
-						if ($ptree != '') {
-							$result .= '</div></td></tr></table></div>';
-						}
-						$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . $tree_name . '</th></tr><tr><td><div style="width:100%">';
-						$ptree = $tree_name;
-					}
-
-					$title = $title !='' ? $title:'Root Folder';
 
 					$result .= '<div class="monitor_tree_frame ' . $class . '"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
 					foreach($hosts as $host) {
@@ -855,7 +861,7 @@ function render_tree() {
 				$maxlen = 100;
 			}
 
-			$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . __('Non-Tree Devices') . '</th></tr><tr><td><div style="width:100%">';
+			$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . __('Non-Tree Devices', 'monitor') . '</th></tr><tr><td><div style="width:100%">';
 			foreach($hosts as $leaf) {
 				$result .= render_host($leaf, true, $maxlen);
 			}
@@ -1001,7 +1007,7 @@ function monitor_print_host_time($status_time, $seconds = false) {
 	} else if ($dt_m > 0 ) {
 		$dt .= $dt_m . 'm' . ($seconds ? ':' . $dt_s . 's':'');;
 	} else {
-		$dt .= ($seconds ? $dt_s . 's':__('Just Up'));
+		$dt .= ($seconds ? $dt_s . 's':__('Just Up', 'monitor'));
 	}
 
 	return $dt;
@@ -1085,19 +1091,19 @@ function ajax_status() {
 
 			$links = '';
 			if (isset($host_link)) {
-				$links .= '<a class="hyperLink monitor_link" href="' . $host_link . '">' . __('Edit Device') . '</a>';
+				$links .= '<a class="hyperLink monitor_link" href="' . $host_link . '">' . __('Edit Device', 'monitor') . '</a>';
 			}
 			if (isset($graph_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $graph_link . '">' . __('View Graphs') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $graph_link . '">' . __('View Graphs', 'monitor') . '</a>';
 			}
 			if (isset($thold_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $thold_link . '">' . __('View Thresholds') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $thold_link . '">' . __('View Thresholds', 'monitor') . '</a>';
 			}
 			if (isset($syslog_log_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_log_link . '">' . __('View Syslog Alerts') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_log_link . '">' . __('View Syslog Alerts', 'monitor') . '</a>';
 			}
 			if (isset($syslog_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_link . '">' . __('View Syslog Messages') . '</a>';
+				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_link . '">' . __('View Syslog Messages', 'monitor') . '</a>';
 			}
 
 			$iclass   = $iclasses[$host['status']];
@@ -1108,68 +1114,68 @@ function ajax_status() {
 					<th class='left' colspan='2'>Device Status Information</th>
 				</tr>
 				<tr>
-					<td>" . __('Device:') . "</td>
+					<td>" . __('Device:', 'monitor') . "</td>
 					<td><a href='" . $host['anchor'] . "'><span>" . $host['description'] . "</span></a></td>
 				</tr>" . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? "
 				<tr>
-					<td>" . __('Criticality:') . "</td>
+					<td>" . __('Criticality:', 'monitor') . "</td>
 					<td>" . $criticalities[$host['monitor_criticality']] . "</td>
 				</tr>":"") . "
 				<tr>
-					<td>" . __('Status:') . "</td>
+					<td>" . __('Status:', 'monitor') . "</td>
 					<td class='$iclass'>$sdisplay</td>
 				</tr>" . ($host['status'] < 3 || $host['status'] == 5 ? "
 				<tr>
-					<td>" . __('Admin Note:') . "</td>
+					<td>" . __('Admin Note:', 'monitor') . "</td>
 					<td class='$iclass'>" . $host['monitor_text'] . "</td>
 				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
-					<td>" . __('IP/Hostname:') . "</td>
+					<td>" . __('IP/Hostname:', 'monitor') . "</td>
 					<td>" . $host['hostname'] . "</td>
 				</tr>":"") . ($host['notes'] != '' ? "
 				<tr>
-					<td>" . __('Notes:') . "</td>
+					<td>" . __('Notes:', 'monitor') . "</td>
 					<td>" . $host['notes'] . "</td>
 				</tr>":"") . (($graphs || $syslog_logs || $syslog_host || $tholds) ? "
 				<tr>
-					<td>" . __('Links:') . "</td>
+					<td>" . __('Links:', 'monitor') . "</td>
 					<td>" . $links . "
 				 	</td>
 				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
-					<td class='nowrap'>" . __('Curr/Avg:') . "</td>
-					<td>" . __('%d ms', $host['cur_time']) . ' / ' .  __('%d ms', $host['avg_time']) . "</td>
+					<td class='nowrap'>" . __('Curr/Avg:', 'monitor') . "</td>
+					<td>" . __('%d ms', $host['cur_time'], 'monitor') . ' / ' .  __('%d ms', $host['avg_time'], 'monitor') . "</td>
 				</tr>":"") . (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0) ? "
 				<tr>
-					<td class='nowrap'>" . __('Warn/Alert:') . "</td>
-					<td>" . __('%0.2d ms', $host['monitor_warn']) . ' / ' . __('%0.2d ms', $host['monitor_alert']) . "</td>
+					<td class='nowrap'>" . __('Warn/Alert:', 'monitor') . "</td>
+					<td>" . __('%0.2d ms', $host['monitor_warn'], 'monitor') . ' / ' . __('%0.2d ms', $host['monitor_alert'], 'monitor') . "</td>
 				</tr>":"") . "
 				<tr>
-					<td>" . __('Last Fail:') . "</td>
-					<td>" . ($host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never'):$host['status_fail_date']) . "</td>
+					<td>" . __('Last Fail:', 'monitor') . "</td>
+					<td>" . ($host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never', 'monitor'):$host['status_fail_date']) . "</td>
 				</tr>
 				<tr>
-					<td>" . __('Time In State:') . "</td>
+					<td>" . __('Time In State:', 'monitor') . "</td>
 					<td>" . get_timeinstate($host) . "</td>
 				</tr>
 				<tr>
-					<td>" . __('Availability:') . "</td>
+					<td>" . __('Availability:', 'monitor') . "</td>
 					<td>" . round($host['availability'],2) . " %</td>
 				</tr>" . ($host['snmp_version'] > 0 && ($host['status'] == 3 || $host['status'] == 2) ? "
 				<tr>
-					<td>" . __('Agent Uptime:') . "</td>
+					<td>" . __('Agent Uptime:', 'monitor') . "</td>
 					<td>" . ($host['status'] == 3 || $host['status'] == 5 ? monitor_print_host_time($host['snmp_sysUpTimeInstance']):'N/A') . "</td>
 				</tr>
 				<tr>
-					<td class='nowrap'>" . __('Sys Description:') . "</td>
+					<td class='nowrap'>" . __('Sys Description:', 'monitor') . "</td>
 					<td>" . $host['snmp_sysDescr'] . "</td>
 				</tr>
 				<tr>
-					<td>" . __('Location:') . "</td>
+					<td>" . __('Location:', 'monitor') . "</td>
 					<td>" . $host['snmp_sysLocation'] . "</td>
 				</tr>
 				<tr>
-					<td>" . __('Contact:') . "</td>
+					<td>" . __('Contact:', 'monitor') . "</td>
 					<td>" . $host['snmp_sysContact'] . "</td>
 				</tr>":"") . "
 				</table>\n";
@@ -1210,7 +1216,7 @@ function render_host_tilesadt($host) {
 		if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
 			$dt = get_timeinstate($host);
 		} else {
-			$dt = __('Never');
+			$dt = __('Never', 'monitor');
 		}
 
 		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></div>\n";
@@ -1233,7 +1239,7 @@ function get_hosts_down_by_permission() {
 
 	if (get_request_var('grouping') == 'tree') {
 		if (get_request_var('tree') > 0) {
-			$devices = db_fetch_cell_prepared('SELECT GROUP_CONCAT(host_id) AS hosts
+			$devices = db_fetch_cell_prepared('SELECT GROUP_CONCAT(DISTINCT host_id) AS hosts
 				FROM graph_tree_items
 				WHERE host_id > 0
 				AND graph_tree_id = ?',
@@ -1248,7 +1254,6 @@ function get_hosts_down_by_permission() {
 		// do a quick loop through to pull the hosts that are down
 		if (sizeof($hosts)) {
 			foreach($hosts as $host) {
-				$host_down = true;
 				$result[] = $host['id'];
 				sort($result);
 			}
@@ -1258,7 +1263,6 @@ function get_hosts_down_by_permission() {
 		$hosts = get_allowed_devices("h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
 		if (sizeof($hosts) > 0) {
 			foreach ($hosts as $host) {
-				$host_down = true;
 				$result[] = $host['id'];
 				sort($result);
 			}
