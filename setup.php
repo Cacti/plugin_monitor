@@ -404,41 +404,6 @@ function monitor_config_settings() {
 			'array' => monitor_scan_dir(),
 			'default' => 'attn-noc.wav',
 		),
-		'monitor_warn_criticality' => array(
-			'friendly_name' => __('Warning Latency Notification', 'monitor'),
-			'description' => __('If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
-			'method' => 'drop_array',
-			'default' => '0',
-			'array' => $criticalities
-		),
-		'monitor_alert_criticality' => array(
-			'friendly_name' => __('Alert Latency Notification', 'monitor'),
-			'description' => __('If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
-			'method' => 'drop_array',
-			'default' => '0',
-			'array' => $criticalities
-		),
-		'monitor_format_file' => array(
-			'friendly_name' => __('Format File to Use', 'monitor'),
-			'method' => 'drop_array',
-			'default' => 'default.format',
-			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'monitor'),
-			'array' => $formats
-		),
-		'monitor_resend_frequency' => array(
-			'friendly_name' => __('How Often to Resend Emails', 'monitor'),
-			'description' => __('How often should emails notifications be sent to subscribers for these hosts if they are exceeding their latency thresholds', 'monitor'),
-			'method' => 'drop_array',
-			'default' => '0',
-			'array' => array(
-				'0'   => __('Every Occurrence', 'monitor'),
-				'20'  => __('Every %d Minutes', 20, 'monitor'),
-				'30'  => __('Every %d Minutes', 30, 'monitor'),
-				'60'  => __('Every Hour', 'monitor'),
-				'120' => __('Every %d Hours', 2, 'monitor'),
-				'240' => __('Every %d Hours', 4, 'monitor')
-			)
-		),
 		'monitor_refresh' => array(
 			'friendly_name' => __('Refresh Interval', 'monitor'),
 			'description' => __('This is the time in seconds before the page refreshes.  (1 - 300)', 'monitor'),
@@ -473,6 +438,94 @@ function monitor_config_settings() {
 				'tiles'    => __('Tiles', 'monitor'),
 				'tilesadt' => __('Tiles & Downtime', 'monitor')
 			)
+		),
+		'monitor_format_header' => array(
+			'friendly_name' => __('Notification Report Format', 'monitor'),
+			'method' => 'spacer',
+			'collapsible' => 'true'
+		),
+		'monitor_format_file' => array(
+			'friendly_name' => __('Format File to Use', 'monitor'),
+			'method' => 'drop_array',
+			'default' => 'default.format',
+			'description' => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'monitor'),
+			'array' => $formats
+		),
+		'monitor_threshold' => array(
+			'friendly_name' => __('Ping Threshold Notifications', 'monitor'),
+			'method' => 'spacer',
+			'collapsible' => 'true'
+		),
+		'monitor_warn_criticality' => array(
+			'friendly_name' => __('Warning Latency Notification', 'monitor'),
+			'description' => __('If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
+			'method' => 'drop_array',
+			'default' => '0',
+			'array' => $criticalities
+		),
+		'monitor_alert_criticality' => array(
+			'friendly_name' => __('Alert Latency Notification', 'monitor'),
+			'description' => __('If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
+			'method' => 'drop_array',
+			'default' => '0',
+			'array' => $criticalities
+		),
+		'monitor_resend_frequency' => array(
+			'friendly_name' => __('How Often to Resend Emails', 'monitor'),
+			'description' => __('How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds', 'monitor'),
+			'method' => 'drop_array',
+			'default' => '0',
+			'array' => array(
+				'0'   => __('Every Occurrence', 'monitor'),
+				'20'  => __('Every %d Minutes', 20, 'monitor'),
+				'30'  => __('Every %d Minutes', 30, 'monitor'),
+				'60'  => __('Every Hour', 'monitor'),
+				'120' => __('Every %d Hours', 2, 'monitor'),
+				'240' => __('Every %d Hours', 4, 'monitor')
+			)
+		),
+		'monitor_reboot' => array(
+			'friendly_name' => __('Reboot Notifications', 'monitor'),
+			'method' => 'spacer',
+			'collapsible' => 'true'
+		),
+		'monitor_reboot_notify' => array(
+			'friendly_name' => __('Send Reboot Notifications', 'monitor'),
+			'method' => 'checkbox',
+			'description' => __('Should Device Reboot Notifications be sent to users?', 'monitor'),
+			'default' => 'on',
+		),
+		'monitor_subject' => array(
+			'friendly_name' => __('Subject', 'monitor'),
+			'description' => __('Enter a Reboot message subject for the Reboot Nofication.', 'monitor'),
+			'method' => 'textbox',
+			'default' => __('Cacti Device Reboot Nofication', 'monitor'),
+			'size' => 60,
+			'max_length' => 60
+		),
+		'monitor_body' => array(
+			'friendly_name' => __('Email Body', 'monitor'),
+			'description' => __('Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;', 'monitor'),
+			'method' => 'textarea',
+			'textarea_rows' => 4,
+			'textarea_cols' => 80,
+			'default' => __('<h1>Monitor Reboot Notification</h1><p>The following Device\'s were Rebooted.  See details below for additional information.</p><br><DETAILS>', 'monitor')
+		),
+		'monitor_list' => array(
+			'friendly_name' => __('Notification List', 'thold'),
+			'description' => __('Select a Notification List below.  All Emails subscribed to the notification list will be notified.', 'thold'),
+			'method' => 'drop_sql',
+			'sql' => 'SELECT id, name FROM plugin_notification_lists ORDER BY name',
+			'default' => '',
+			'none_value' => __('None', 'monitor')
+		),
+		'monitor_emails' => array(
+			'friendly_name' => __('Email Addresses', 'monitor'),
+			'description' => __('Enter a comma delimited list of Email addresses to inform of a reboot event.', 'monitor'),
+			'method' => 'textarea',
+			'textarea_rows' => 2,
+			'textarea_cols' => 80,
+			'default' => ''
 		)
 	);
 

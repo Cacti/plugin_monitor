@@ -27,6 +27,7 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 ## Changelog
 
 --- 2.2 ---
+* issue#23: Notify admins on a system reboot detection
 * issue#31: Tree rendering not functioning as expected
 * issue: Properly handle text domain for internationalization
 
