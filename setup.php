@@ -784,7 +784,7 @@ function monitor_poller_bottom() {
         $command_string = 'php';
 	}
 
-    $extra_args = ' -q ' . $config['base_path'] . '/plugins/monitor/poller_monitor.php > /tmp/monitor.php';
+    $extra_args = ' -q ' . $config['base_path'] . '/plugins/monitor/poller_monitor.php';
 
     exec_background($command_string, $extra_args);
 }
