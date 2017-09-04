@@ -30,6 +30,7 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 * issue#23: Notify admins on a system reboot detection
 * issue#31: Tree rendering not functioning as expected
 * issue: Properly handle text domain for internationalization
+* feature: Update Spanish Translation
 
 --- 2.1 ---
 * feature: Convert Monitor to use CSS for skin developers
