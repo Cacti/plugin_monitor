@@ -330,11 +330,11 @@ function process_email($email, $lists, $global_list, $notify_list) {
 	$warn_hosts  = array();
 
 	$criticalities = array(
-		0 => __('Disabled'),
-		1 => __('Low'),
-		2 => __('Medium'),
-		3 => __('High'),
-		4 => __('Mission Critical')
+		0 => __('Disabled', 'monnitor'),
+		1 => __('Low', 'monnitor'),
+		2 => __('Medium', 'monnitor'),
+		3 => __('High', 'monnitor'),
+		4 => __('Mission Critical', 'monnitor')
 	);
 
 	foreach($lists as $list) {
@@ -378,9 +378,9 @@ function process_email($email, $lists, $global_list, $notify_list) {
 	if (sizeof($alert_hosts) || sizeof($warn_hosts)) {
 		monitor_debug('Formatting Email');
 		$freq    = read_config_option('monitor_resend_frequency');
-		$subject = __('Cacti Monitor Plugin Ping Threshold Notification');
+		$subject = __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor');
 
-		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notification') . '</h1>' . BR;
+		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor') . '</h1>' . BR;
 
 		$body .= '<p>' . __('The following report will identify Devices that have eclipsed their ping
 			latency thresholds.  You are receiving this report since you are subscribed to a Device
@@ -389,16 +389,16 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$body .= '<h2><a href="' . read_config_option('base_url') . '">Cacti Monitoring Site</a></h2>' . BR;
 
 		if ($freq > 0) {
-			$body .= '<p>' . __('You will receive notifications every %d minutes if the Device is above its threshold.', $freq) . '</p>' . BR;
+			$body .= '<p>' . __('You will receive notifications every %d minutes if the Device is above its threshold.', $freq, 'monitor') . '</p>' . BR;
 		}else{
-			$body .= '<p>' . __('You will receive notifications every time the Device is above its threshold.') . '</p>' . BR;
+			$body .= '<p>' . __('You will receive notifications every time the Device is above its threshold.', 'monitor') . '</p>' . BR;
 		}
 
 		if (sizeof($alert_hosts)) {
-			$body .= '<p>' . __('The following Devices have breached their Alert Notification Threshold.') . '</p>' . BR;
+			$body .= '<p>' . __('The following Devices have breached their Alert Notification Threshold.', 'monitor') . '</p>' . BR;
 			$body .= '<table class="report_table">' . BR;
 			$body .= '<tr class="header_row">' . BR;
-			$body .= '<th class="left">Hostname</th><th class="left">Criticality</th><th class="right">Alert Ping</th><th class="right">Current Ping</th>' . BR;
+			$body .= '<th class="left">' . __('Hostname', 'monitor') . '</th><th class="left">' . __('Criticality', 'monitor') . '</th><th class="right">' . __('Alert Ping', 'monitor') . '</th><th class="right">' . __('Current Ping', 'monitor') . '</th>' . BR;
 			$body .= '</tr>' . BR;
 
 			$hosts = db_fetch_assoc('SELECT * FROM host WHERE id IN(' . implode(',', $alert_hosts) . ')');
@@ -416,11 +416,11 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		}
 
 		if (sizeof($warn_hosts)) {
-			$body .= '<p>' . __('The following Devices have breached their Warning Notification Threshold.') . '</p>' . BR;
+			$body .= '<p>' . __('The following Devices have breached their Warning Notification Threshold.', 'monitor') . '</p>' . BR;
 
 			$body .= '<table class="report_table">' . BR;
 			$body .= '<tr class="header_row">' . BR;
-			$body .= '<th class="left">Hostname</th><th class="left">Criticality</th><th class="right">Alert Ping</th><th class="right">Current Ping</th>' . BR;
+			$body .= '<th class="left">' . __('Hostname', 'monitor') . '</th><th class="left">' . __('Criticality', 'monitor') . '</th><th class="right">' . __('Alert Ping', 'monitor') . '</th><th class="right">' . __('Current Ping', 'monitor') . '</th>' . BR;
 			$body .= '</tr>' . BR;
 
 			$hosts = db_fetch_assoc('SELECT * FROM host WHERE id IN(' . implode(',', $warn_hosts) . ')');

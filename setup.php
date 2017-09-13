@@ -619,7 +619,7 @@ function monitor_config_form () {
 				'method' => 'textbox',
 				'size' => '10',
 				'max_length' => '5',
-				'placeholder' => 'milliseconds',
+				'placeholder' => __('milliseconds', 'monitor'),
 				'value' => '|arg1:monitor_warn|',
 				'default' => '',
 			);
@@ -629,7 +629,7 @@ function monitor_config_form () {
 				'method' => 'textbox',
 				'size' => '10',
 				'max_length' => '5',
-				'placeholder' => 'milliseconds',
+				'placeholder' => __('milliseconds', 'monitor'),
 				'value' => '|arg1:monitor_alert|',
 				'default' => '',
 			);
