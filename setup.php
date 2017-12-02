@@ -322,7 +322,7 @@ function monitor_scan_dir() {
 
 	$ext   = array('.wav', '.mp3');
 	$d     = dir($config['base_path'] . '/plugins/monitor/sounds/');
-	$files = array('None' => __('None', 'monitor'));
+	$files = array();
 
 	while (false !== ($entry = $d->read())) {
 		if ($entry != '.' && $entry != '..' && in_array(strtolower(substr($entry,-4)),$ext)) {
@@ -330,7 +330,9 @@ function monitor_scan_dir() {
 		}
 	}
 	$d->close();
-
+	asort($files); // sort the files
+	array_unshift($files, 'None'); // prepend the None option
+	
 	return $files;
 }
 
