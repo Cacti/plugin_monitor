@@ -162,7 +162,7 @@ function monitor_uptime_checker() {
 		LEFT JOIN plugin_monitor_uptime AS mu
 		ON h.id=mu.host_id
 		WHERE h.snmp_version>0 AND status IN (2,3)
-		AND (mu.uptime IS NULL OR mu.uptime > h.snmp_sysUpTimeInstance)');
+		AND (mu.uptime IS NULL OR mu.uptime > h.snmp_sysUpTimeInstance) AND h.snmp_sysUpTimeInstance > 0');
 
 	if (sizeof($rebooted_hosts)) {
 		$nofitication_lists = array_rekey(
@@ -243,7 +243,7 @@ function monitor_uptime_checker() {
 
 	// Freshen the uptimes
 	db_execute('REPLACE INTO plugin_monitor_uptime (host_id, uptime)
-		SELECT id, snmp_sysUpTimeInstance FROM host WHERE snmp_version>0 AND status IN(2,3)');
+		SELECT id, snmp_sysUpTimeInstance FROM host WHERE snmp_version>0 AND status IN(2,3) AND snmp_sysUpTimeInstance > 0');
 
 	// Log Recently Down
 	db_execute('INSERT IGNORE INTO plugin_monitor_notify_history
