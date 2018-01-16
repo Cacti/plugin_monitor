@@ -905,8 +905,8 @@ function render_branch($leafs, $title = '') {
 	}
 }
 
-function get_host_status($host) {
-	global $thold_hosts;
+function get_host_status($host,$real=false) {
+	global $thold_hosts, $iclasses;
 
 	/* If the host has been muted, show the muted Icon */
 	if (array_key_exists($host['id'], $thold_hosts)) {
@@ -921,7 +921,19 @@ function get_host_status($host) {
 		}
 	}
 
-	return $host['status'];
+	// If wanting the real status, or the status is already known
+	// return the real status, otherwise default to unknown
+	return ($real || array_key_exists($host['status'], $iclasses)) ? $host['status'] : 0;
+}
+
+function get_host_status_description($status) {
+	global $icolorsdisplay;
+
+	if (array_key_exists($status, $icolorsdisplay)) {
+		return $icolorsdisplay[$status];
+	} else {
+		return __('Unknown', 'monitor') . " ($status)";
+	}
 }
 
 /*Single host  rendering */
@@ -952,6 +964,7 @@ function render_host($host, $float = true, $maxlen = 120) {
 		}
 	}
 
+	$host['real_status'] = get_host_status($host,true);
 	$host['status'] = get_host_status($host);
 	$host['iclass'] = $iclasses[$host['status']];
 
@@ -1038,6 +1051,7 @@ function ajax_status() {
 			$host['status'] = 6;
 		}
 
+		$host['real_status'] = get_host_status($host,true);
 		$host['status'] = get_host_status($host);
 
 		if (sizeof($host)) {
@@ -1106,9 +1120,9 @@ function ajax_status() {
 				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_link . '">' . __('View Syslog Messages', 'monitor') . '</a>';
 			}
 
-			$iclass   = $iclasses[$host['status']];
-			$sdisplay = $icolorsdisplay[$host['status']];
 
+			$iclass   = $iclasses[$host['status']];
+			$sdisplay = get_host_status_description($host['real_status']);
 			print "<table class='monitorHover'>
 				<tr class='tableHeader'>
 					<th class='left' colspan='2'>Device Status Information</th>
