@@ -332,7 +332,7 @@ function monitor_scan_dir() {
 	$d->close();
 	asort($files); // sort the files
 	array_unshift($files, 'None'); // prepend the None option
-	
+
 	return $files;
 }
 
@@ -391,6 +391,11 @@ function monitor_config_settings() {
 			'friendly_name' => __('Monitor Settings', 'monitor'),
 			'method' => 'spacer',
 			'collapsible' => 'true'
+		),
+		'monitor_new_enabled' => array(
+			'friendly_name' => __('Enable on new devices', 'monitor'),
+			'description' => __('Check this to automatically enable monitoring when creating new devices', 'monitor'),
+			'method' => 'checkbox',
 		),
 		'monitor_log_storage' => array(
 			'friendly_name' => __('Notification/Reboot Log Retention', 'monitor'),
@@ -604,9 +609,14 @@ function monitor_config_form () {
 				'friendly_name' => __('Monitor Device', 'monitor'),
 				'description' => __('Check this box to monitor this Device on the Monitor Tab.', 'monitor'),
 				'value' => '|arg1:monitor|',
-				'default' => '',
 				'form_id' => false
 			);
+
+			$host_id = form_input_validate(get_nfilter_request_var('id'), 'id', 0, true, 3);
+			if (!($host_id > 0)) {
+				$fields_host_edit3['monitor']['default'] = monitor_get_default($host_id);
+			}
+
 			$fields_host_edit3['monitor_criticality'] = array(
 				'friendly_name' => __('Device Criticality', 'monitor'),
 				'description' => __('What is the Criticality of this Device.', 'monitor'),
@@ -666,11 +676,25 @@ function monitor_config_form () {
 	$fields_host_edit = $fields_host_edit3;
 }
 
+function monitor_get_default($host_id) {
+	$monitor_new_device = '';
+	if ($host_id <= 0) {
+		$monitor_new_device = db_fetch_cell('SELECT value
+						     FROM settings
+						     WHERE name = \'monitor_new_enabled\'');
+	}
+	//file_put_contents('/tmp/monitor.log',"monitor_get_default($host_id) retured ".var_export($monitor_new_device,true)."\n",FILE_APPEND);
+	return $monitor_new_device;
+}
+
 function monitor_api_device_save($save) {
+	$monitor_default = monitor_get_default($save['id']);
 	if (isset_request_var('monitor')) {
-		$save['monitor'] = form_input_validate(get_nfilter_request_var('monitor'), 'monitor', '', true, 3);
+		//file_put_contents('/tmp/monitor.log',"monitor_api_device_save_var(".$save['id'].") retured ".var_export($monitor_default,true)."\n",FILE_APPEND);
+		$save['monitor'] = form_input_validate(get_nfilter_request_var('monitor'), 'monitor', $monitor_default, true, 3);
 	} else {
-		$save['monitor'] = form_input_validate('', 'monitor', '', true, 3);
+		//file_put_contents('/tmp/monitor.log',"monitor_api_device_save(".$save['id'].") retured ".var_export($monitor_default,true)."\n",FILE_APPEND);
+		$save['monitor'] = form_input_validate($monitor_default, 'monitor', '', true, 3);
 	}
 
 	if (isset_request_var('monitor_text')) {
