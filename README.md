@@ -31,6 +31,8 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 * issue#31: Tree rendering not functioning as expected
 * issue: Properly handle text domain for internationalization
 * feature: Update Spanish Translation
+* issue: List of plugin_monitor's, sound files, in setup, is now sorted
+* issue#43: Modified plugin_monitor reporting and updating behavior when cacti host table indicates device uptime values of 0
 
 --- 2.1 ---
 * feature: Convert Monitor to use CSS for skin developers
