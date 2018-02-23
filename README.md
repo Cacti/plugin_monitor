@@ -25,6 +25,10 @@ It would be advisable to view Monitors email notification settings under Setting
 Bug and feature enhancements for the webseer plugin are handled in GitHub. If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## Changelog
+--- 2.3 ---
+* feature: improved header/filter layout for more consistent view
+* feature: Added List View mode
+* issue: fixed issue where hosts where not always evaluated properly in render_perms()
 
 --- 2.2 ---
 * issue#23: Notify admins on a system reboot detection
