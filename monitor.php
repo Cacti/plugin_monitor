@@ -851,6 +851,8 @@ function render_tree() {
 
 	$function = 'render_header_' . get_request_var('view');
 	if (function_exists($function)) {
+		$hosts = array();
+
 		/* Call the custom render_header_ function */
 		$result .= $function($hosts);
 	}
@@ -1328,7 +1330,7 @@ function render_header_list($hosts) {
 	$output .= html_nav_bar('monitor.php', 1, 1, sizeof($hosts), sizeof($hosts), 4, 'Monitor');
 	$output .= html_header_sort($display_text, '', '', false);
 
-	return $ouptut;
+	return $output;
 }
 
 function render_suppressgroups_list($hosts) {
