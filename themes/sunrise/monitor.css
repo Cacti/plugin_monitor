@@ -145,8 +145,6 @@
 }
 
 .monitorFilterCell .ui-button {
-	min-width: 75px ! important;
-	max-width: 75px ! important;
 	margin: 2px ! important;
 }
 
