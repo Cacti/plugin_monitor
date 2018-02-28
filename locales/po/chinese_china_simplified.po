@@ -1,0 +1,679 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: monitor on cacti 1.1.34\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-22 00:48+0800\n"
+"PO-Revision-Date: 2018-02-26 17:53+0800\n"
+"Last-Translator: ASD\n"
+"Language-Team: sfqas <sfqas@163.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+
+#: ../monitor.php:39
+#: ../poller_monitor.php:193
+#: ../setup.php:338
+msgid "Disabled"
+msgstr "已禁用"
+
+#: ../monitor.php:40
+#: ../poller_monitor.php:194
+#: ../setup.php:76
+#: ../setup.php:339
+msgid "Low"
+msgstr "低"
+
+#: ../monitor.php:41
+#: ../monitor.php:73
+#: ../poller_monitor.php:195
+#: ../setup.php:77
+#: ../setup.php:340
+msgid "Medium"
+msgstr "中"
+
+#: ../monitor.php:42
+#: ../poller_monitor.php:196
+#: ../setup.php:78
+#: ../setup.php:341
+msgid "High"
+msgstr "高"
+
+#: ../monitor.php:43
+#: ../poller_monitor.php:197
+#: ../setup.php:79
+#: ../setup.php:342
+msgid "Mission Critical"
+msgstr "关键任务"
+
+#: ../monitor.php:59
+msgid "Unknown"
+msgstr "未知"
+
+#: ../monitor.php:60
+msgid "Down"
+msgstr "宕机"
+
+#: ../monitor.php:61
+msgid "Recovering"
+msgstr "恢复"
+
+#: ../monitor.php:62
+msgid "Up"
+msgstr "起来"
+
+#: ../monitor.php:63
+msgid "Triggered"
+msgstr "触发"
+
+#: ../monitor.php:64
+msgid "Down (Muted/Acked)"
+msgstr "宕机（静音/确认）"
+
+#: ../monitor.php:65
+msgid "No Availability Check"
+msgstr "没有可用性检查"
+
+#: ../monitor.php:66
+msgid "Warning Ping"
+msgstr "警告Ping"
+
+#: ../monitor.php:67
+msgid "Alert Ping"
+msgstr "警报 Ping"
+
+#: ../monitor.php:71
+msgid "Extra Small"
+msgstr "超小"
+
+#: ../monitor.php:72
+msgid "Small"
+msgstr "小"
+
+#: ../monitor.php:74
+msgid "Large"
+msgstr "大"
+
+#: ../monitor.php:307
+#: ../setup.php:75
+msgid "None"
+msgstr "没有"
+
+#: ../monitor.php:379
+msgid "All Monitored Devices"
+msgstr "所有受监控的设备"
+
+#: ../monitor.php:382
+msgid "Monitored Devices either Down or Recovering"
+msgstr "受监控的设备处于关闭或恢复状态"
+
+#: ../monitor.php:385
+msgid "Monitored Devices either Down, Recovering, with Breached Thresholds"
+msgstr "受监控的设备处于关闭状态，恢复，违反阈值"
+
+#: ../monitor.php:391
+msgid ", and All Criticalities"
+msgstr "，和所有严重性"
+
+#: ../monitor.php:394
+msgid ", and of Low Criticality or Higher"
+msgstr "，低关键或更高"
+
+#: ../monitor.php:397
+msgid ", and of Medium Criticality or Higher"
+msgstr "，中等或更高"
+
+#: ../monitor.php:400
+msgid ", and of High Criticality or Higher"
+msgstr "，高危等级或更高"
+
+#: ../monitor.php:403
+msgid ", and of Mission Critical Status"
+msgstr "，以及任务关键状态"
+
+#: ../monitor.php:407
+msgid "<br><b>Remember to first select eligible Devices to be Monitored from the Devices page!</b>"
+msgstr "<br><b>请记得首先从设备页面选择要监控的设备！</b>"
+
+#: ../monitor.php:417
+msgid "View Type"
+msgstr "查看类型"
+
+#: ../monitor.php:418
+#: ../monitor.php:424
+#: ../setup.php:452
+#: ../setup.php:454
+#: ../setup.php:464
+#: ../setup.php:466
+msgid "Default"
+msgstr "默认"
+
+#: ../monitor.php:419
+#: ../setup.php:467
+msgid "Tiles"
+msgstr "图块"
+
+#: ../monitor.php:420
+msgid "Tiles & Time"
+msgstr "图块和时间"
+
+#: ../monitor.php:423
+msgid "Device Grouping"
+msgstr "设备分组"
+
+#: ../monitor.php:425
+#: ../setup.php:456
+msgid "Tree"
+msgstr "树"
+
+#: ../monitor.php:426
+#: ../setup.php:457
+msgid "Device Template"
+msgstr "设备模板"
+
+#: ../monitor.php:432
+msgid "Select Tree"
+msgstr "选择树"
+
+#: ../monitor.php:433
+msgid "All Trees"
+msgstr "所有树"
+
+#: ../monitor.php:437
+#: ../monitor.php:867
+msgid "Non-Tree Devices"
+msgstr "非树设备"
+
+#: ../monitor.php:446
+msgid "Refresh Frequency"
+msgstr "刷新频率"
+
+#: ../monitor.php:452
+msgid "Select Minimum Criticality"
+msgstr "选择最小重要性"
+
+#: ../monitor.php:453
+msgid "All Criticalities"
+msgstr "所有严重性"
+
+#: ../monitor.php:461
+msgid "Device Icon Size"
+msgstr "设备图标大小"
+
+#: ../monitor.php:467
+msgid "Device Status"
+msgstr "设备状态"
+
+#: ../monitor.php:468
+msgid "All Monitored"
+msgstr "全部监控"
+
+#: ../monitor.php:469
+msgid "Not Up"
+msgstr "不起来"
+
+#: ../monitor.php:470
+msgid "Not Up or Triggered"
+msgstr "不起来或触发"
+
+#: ../monitor.php:473
+msgid "Refresh"
+msgstr "刷新"
+
+#: ../monitor.php:473
+msgid "Refresh the Device List"
+msgstr "刷新设备列表"
+
+#: ../monitor.php:474
+msgid "Save"
+msgstr "保存"
+
+#: ../monitor.php:474
+msgid "Save Filter Settings"
+msgstr "保存过滤器设置"
+
+#: ../monitor.php:476
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s 宕机设备的警报"
+
+#: ../monitor.php:476
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s 宕机设备的警报"
+
+#: ../monitor.php:483
+#, php-format
+msgid "Last Refresh: %s"
+msgstr "上次刷新：%s"
+
+#: ../monitor.php:483
+#, php-format
+msgid "Refresh Again in <i id=\"timer\">%d</i> Seconds"
+msgstr "在 <i id=\"timer\">%d</i>秒内再次刷新"
+
+#: ../monitor.php:489
+msgid "Mute"
+msgstr "静音"
+
+#: ../monitor.php:491
+msgid "Acknowledge"
+msgstr "确认"
+
+#: ../monitor.php:497
+msgid "Un-Mute"
+msgstr "取消静音"
+
+#: ../monitor.php:499
+msgid "Reset"
+msgstr "重置"
+
+#: ../monitor.php:1010
+msgid "Just Up"
+msgstr "刚起来"
+
+#: ../monitor.php:1083
+msgid "Edit Device"
+msgstr "编辑设备"
+
+#: ../monitor.php:1086
+msgid "View Graphs"
+msgstr "查看图表"
+
+#: ../monitor.php:1089
+msgid "View Thresholds"
+msgstr "查看阈值"
+
+#: ../monitor.php:1092
+msgid "View Syslog Alerts"
+msgstr "查看Syslog警报"
+
+#: ../monitor.php:1095
+msgid "View Syslog Messages"
+msgstr "查看 Syslog 消息"
+
+#: ../monitor.php:1106
+msgid "Device:"
+msgstr "设备："
+
+#: ../monitor.php:1110
+msgid "Criticality:"
+msgstr "重要性："
+
+#: ../monitor.php:1114
+msgid "Status:"
+msgstr "状态："
+
+#: ../monitor.php:1118
+msgid "Admin Note:"
+msgstr "管理员注意："
+
+#: ../monitor.php:1122
+msgid "IP/Hostname:"
+msgstr "IP/主机名："
+
+#: ../monitor.php:1126
+msgid "Notes:"
+msgstr "记录："
+
+#: ../monitor.php:1130
+msgid "Links:"
+msgstr "链接："
+
+#: ../monitor.php:1135
+msgid "Curr/Avg:"
+msgstr "当前/平均："
+
+#: ../monitor.php:1136
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: ../monitor.php:1139
+msgid "Warn/Alert:"
+msgstr "警告/警报："
+
+#: ../monitor.php:1140
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: ../monitor.php:1143
+msgid "Last Fail:"
+msgstr "最后失败："
+
+#: ../monitor.php:1147
+msgid "Time In State:"
+msgstr "时间状态："
+
+#: ../monitor.php:1151
+msgid "Availability:"
+msgstr "可用性："
+
+#: ../monitor.php:1155
+msgid "Agent Uptime:"
+msgstr "代理运行时间："
+
+#: ../monitor.php:1159
+msgid "Sys Description:"
+msgstr "系统描述："
+
+#: ../monitor.php:1163
+msgid "Location:"
+msgstr "位置："
+
+#: ../monitor.php:1167
+msgid "Contact:"
+msgstr "联系："
+
+#: ../monitor.php:1208
+msgid "Never"
+msgstr "从不"
+
+#: ../poller_monitor.php:241
+#: ../poller_monitor.php:243
+msgid "Cacti Monitor Plugin Ping Threshold Notification"
+msgstr "Cacti监控插件Ping阈值通知"
+
+#: ../poller_monitor.php:245
+msgid ""
+"The following report will identify Devices that have eclipsed their ping\n"
+"\t\t\tlatency thresholds.  You are receiving this report since you are subscribed to a Device \n"
+"\t\t\tassociated with the Cacti system located at the following URL below."
+msgstr ""
+"下报告将标识重叠ping的设备性能阈值。\n"
+"\t\t\t 由于您订阅了设备 ，您正在收到此报告\n"
+"\t\t\t与下面的URL中的Cacti系统关联。"
+
+#: ../poller_monitor.php:252
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "如果设备超过其阈值，您将每隔 %d分钟收到一次通知。"
+
+#: ../poller_monitor.php:254
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "每当设备超过其阈值时，您都会收到通知。"
+
+#: ../poller_monitor.php:258
+msgid "The following Devices have breached their Alert Notification Threshold."
+msgstr "以下设备违反了其警报通知阈值。"
+
+#: ../poller_monitor.php:279
+msgid "The following Devices have breached their Warning Notification Threshold."
+msgstr "以下设备违反了其警告通知阈值。"
+
+#: ../setup.php:74
+msgid "Any"
+msgstr "所有"
+
+#: ../setup.php:82
+msgid "Criticality"
+msgstr "临界"
+
+#: ../setup.php:261
+#, php-format
+msgid "Click 'Continue' to %s monitoring on these Device(s)"
+msgstr "点击“继续”即可在这些设备上进行 %s监控"
+
+#: ../setup.php:268
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "点击“继续”更改以下设备的监控设置。 请记住检查“更新此字段”以指示要更新哪些列。"
+
+#: ../setup.php:291
+msgid "Update this Field"
+msgstr "更新此字段"
+
+#: ../setup.php:306
+msgid "Change Monitoring Options"
+msgstr "更改监视选项"
+
+#: ../setup.php:307
+msgid "Enable Monitoring"
+msgstr "启用监控"
+
+#: ../setup.php:308
+msgid "Disable Monitoring"
+msgstr "禁用监视"
+
+#: ../setup.php:346
+msgid "Indefinately"
+msgstr "无限期"
+
+#: ../setup.php:347
+#, php-format
+msgid "%d Month"
+msgstr "%d 月"
+
+#: ../setup.php:348
+#: ../setup.php:349
+#: ../setup.php:350
+#: ../setup.php:351
+#, php-format
+msgid "%d Months"
+msgstr "%d 月"
+
+#: ../setup.php:352
+#, php-format
+msgid "%d Year"
+msgstr "%d 年"
+
+#: ../setup.php:360
+#: ../setup.php:394
+msgid "Alarm Sound"
+msgstr "报警声音"
+
+#: ../setup.php:361
+#: ../setup.php:395
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "这是当设备宕机时将播放的声音文件。"
+
+#: ../setup.php:367
+#: ../setup.php:444
+msgid "Show Icon Legend"
+msgstr "显示图标图例"
+
+#: ../setup.php:368
+#: ../setup.php:445
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "选中此项可在监视器显示屏上显示图标图例"
+
+#: ../setup.php:382
+msgid "Monitor Settings"
+msgstr "监视器设置"
+
+#: ../setup.php:387
+msgid "Notification/Reboot Log Retention"
+msgstr "通知/重新启动日志保留"
+
+#: ../setup.php:388
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "保持通知并重新启动日志的天数。"
+
+#: ../setup.php:401
+msgid "Warning Latency Notification"
+msgstr "警告延迟通知"
+
+#: ../setup.php:402
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "如果设备的往返Ping延迟高于警告阈值且高于下面的严重性，则订阅到设备的电子邮件将收到电子邮件通知。 选择“禁用”为禁用。 Thold插件需要启用此功能。"
+
+#: ../setup.php:408
+msgid "Alert Latency Notification"
+msgstr "警报延迟通知"
+
+#: ../setup.php:409
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "如果设备的往返延迟高于警报阈值且高于下面的严重性，则订阅到设备的电子邮件将收到电子邮件通知。 选择“禁用”为禁用。 Thold插件需要启用此功能。"
+
+#: ../setup.php:415
+msgid "Format File to Use"
+msgstr "格式化文件以使用"
+
+#: ../setup.php:418
+msgid ""
+"Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.\n"
+"\t\t\tThese files are located in the 'formats' directory."
+msgstr ""
+"选择要使用的自定义html包装器和CSS文件。 这个文件包含html和CSS来环绕你的报告。 如果它包含的不仅仅是CSS，则需要在文件中放置一个特殊的<REPORT>标记。 此格式标记将被报告内容替换。\n"
+"\t\t\t这些文件位于“格式”目录中。"
+
+#: ../setup.php:423
+msgid "How Often to Resend Emails"
+msgstr "多久重新发送电子邮件"
+
+#: ../setup.php:424
+msgid "How often should emails notifications be sent to subscribers for these hosts if they are exceeding their latency thresholds"
+msgstr "如果这些主机超出延迟阈值，应该多长时间向这些主机的用户发送电子邮件通知"
+
+#: ../setup.php:428
+msgid "Every Occurrence"
+msgstr "每次发生"
+
+#: ../setup.php:429
+#: ../setup.php:430
+#, php-format
+msgid "Every %d Minutes"
+msgstr "每 %d 分钟"
+
+#: ../setup.php:431
+msgid "Every Hour"
+msgstr "每隔一小时"
+
+#: ../setup.php:432
+#: ../setup.php:433
+#, php-format
+msgid "Every %d Hours"
+msgstr "每隔%d小时"
+
+#: ../setup.php:437
+msgid "Refresh Interval"
+msgstr "刷新间隔"
+
+#: ../setup.php:438
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "这是页面刷新前的几秒钟时间。 （1 - 300）"
+
+#: ../setup.php:449
+msgid "Grouping"
+msgstr "分组"
+
+#: ../setup.php:450
+msgid "This is how monitor will Group Devices."
+msgstr "这是监视器将如何分组设备。"
+
+#: ../setup.php:455
+msgid "Default with permissions"
+msgstr "具有权限的默认"
+
+#: ../setup.php:461
+msgid "View"
+msgstr "显示"
+
+#: ../setup.php:462
+msgid "This is how monitor will render Devices."
+msgstr "这是监视器如何呈现设备。"
+
+#: ../setup.php:468
+msgid "Tiles & Downtime"
+msgstr "图块和停机时间"
+
+#: ../setup.php:501
+#: ../setup.php:503
+msgid "Monitor"
+msgstr "监控"
+
+#: ../setup.php:512
+msgid "Do not Change"
+msgstr "没有变"
+
+#: ../setup.php:513
+#: ../setup.php:514
+#: ../setup.php:515
+#: ../setup.php:516
+#: ../setup.php:517
+#: ../setup.php:518
+#: ../setup.php:519
+#: ../setup.php:520
+#: ../setup.php:521
+#: ../setup.php:522
+#: ../setup.php:523
+#: ../setup.php:524
+#: ../setup.php:525
+#: ../setup.php:526
+#: ../setup.php:527
+#: ../setup.php:528
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d百分比高于平均水平 "
+
+#: ../setup.php:537
+msgid "Device Monitoring Settings"
+msgstr "设备监控设置"
+
+#: ../setup.php:543
+msgid "Monitor Device"
+msgstr "监视设备"
+
+#: ../setup.php:544
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "选中此框以在监视器选项卡上监视此设备。"
+
+#: ../setup.php:550
+msgid "Device Criticality"
+msgstr "设备严重性"
+
+#: ../setup.php:551
+msgid "What is the Criticality of this Device."
+msgstr "这个设备的重要性是什么。"
+
+#: ../setup.php:558
+msgid "Ping Warning Threshold"
+msgstr "Ping警告阈值"
+
+#: ../setup.php:559
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "如果通过任何预定义的Cacti ping方法的往返延迟超过此阈值，请根据设备严重性和监视器设置记录警告或发送电子邮件。 单位以毫秒为单位。 设置为0禁用。 Thold插件需要利用此功能。"
+
+#: ../setup.php:568
+msgid "Ping Alert Threshold"
+msgstr "Ping警报阈值"
+
+#: ../setup.php:569
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "如果通过任何预定义的Cacti ping方法的往返延迟高于此阈值，请根据设备严重性和监视器设置记录警报或发送电子邮件。 单位以毫秒为单位。 设置为0禁用。 Thold插件需要利用此功能。"
+
+#: ../setup.php:578
+msgid "Re-Baseline Warning"
+msgstr "重新基线警告"
+
+#: ../setup.php:579
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "超过当前平均ping时间的百分比来考虑警告阈值。 如果更新，这将自动调整Ping警告阈值。"
+
+#: ../setup.php:586
+msgid "Re-Baseline Alert"
+msgstr "重新基准警报"
+
+#: ../setup.php:587
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "超过当前平均ping时间的百分比来考虑警报阈值。 如果更新，这将自动调整Ping警报阈值。"
+
+#: ../setup.php:594
+msgid "Down Device Message"
+msgstr "设备宕机消息"
+
+#: ../setup.php:595
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "这是在此设备报告为关闭时将显示的消息。"
+
+#: ../setup.php:657
+msgid "Monitoring"
+msgstr "监控"
+
