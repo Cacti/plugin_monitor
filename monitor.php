@@ -1354,6 +1354,7 @@ function render_footer_list($hosts) {
 }
 
 function render_host_list($host) {
+	global $criticalities;
 	if (!is_device_allowed($host['id'])) {
 		return ;
 	}
