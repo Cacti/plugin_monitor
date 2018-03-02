@@ -519,6 +519,25 @@ function monitor_config_settings() {
 			'textarea_cols' => 80,
 			'default' => __('<h1>Monitor Reboot Notification</h1><p>The following Device\'s were Rebooted.  See details below for additional information.</p><br><DETAILS>', 'monitor')
 		),
+		'monitor_email_header' => array(
+			'friendly_name' => __('Notification Email Addresses', 'monitor'),
+			'method' => 'spacer',
+			'collapsible' => 'true'
+		),
+		'monitor_fromname' => array(
+			'friendly_name' => __('From Name', 'monitor'),
+			'description' => __('Enter the Email Name to send the notifications form', 'monitor'),
+			'method' => 'textbox',
+			'size' => '60',
+			'max_length' => '255'
+		),
+		'monitor_fromemail' => array(
+			'friendly_name' => __('From Address', 'monitor'),
+			'description' => __('Enter the Email Address to send the notification from', 'monitor'),
+			'method' => 'textbox',
+			'size' => '60',
+			'max_length' => '255'
+		),
 		'monitor_list' => array(
 			'friendly_name' => __('Notification List', 'thold'),
 			'description' => __('Select a Notification List below.  All Emails subscribed to the notification list will be notified.', 'thold'),

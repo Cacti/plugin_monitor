@@ -462,14 +462,20 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$v = get_cacti_version();
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
-		$from_email = read_config_option('settings_from_email');
+		$from_email = read_config_option('monitor_formemail');
 		if ($from_email == '') {
-			$from_email = 'root@localhost';
+			$from_email = read_config_option('settings_from_email');
+			if ($from_email == '') {
+				$from_email = 'root@localhost';
+			}
 		}
 
-		$from_name  = read_config_option('settings_from_name');
-		if ($from_name == '') {
-			$from_name = 'Cacti Reporting';
+		$from_name = read_config_option('monitor_fromname');
+		if ($from_name != '') {
+			$from_name  = read_config_option('settings_from_name');
+			if ($from_name == '') {
+				$from_name = 'Cacti Reporting';
+			}
 		}
 
 		monitor_debug("Sending Email to '$email'");
@@ -490,7 +496,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		monitor_debug("The return from the mailer was '$error'");
 
 		if (strlen($error)) {
-            cacti_log("WARNING: Monitor had problems sending Notification Report to '$email'.  The error was '$error'", false, 'MONITOR');
+			cacti_log("WARNING: Monitor had problems sending Notification Report to '$email'.  The error was '$error'", false, 'MONITOR');
 		}else{
 			cacti_log("NOTICE: Email Notification Sent to '$email' for " .
 				(sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notificaitons':'') .
