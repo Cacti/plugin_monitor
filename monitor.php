@@ -598,6 +598,31 @@ function validate_request_vars($force = false) {
 		'id' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '-1'
+		),
+		'rows' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'pageset' => true,
+			'default' => '-1'
+		),
+		'page' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => '1'
+		),
+		'filter' => array(
+			'filter' => FILTER_CALLBACK,
+			'pageset' => true,
+			'default' => '',
+			'options' => array('options' => 'sanitize_search_string')
+		),
+		'sort_column' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'status',
+			'options' => array('options' => 'sanitize_search_string')
+		),
+		'sort_direction' => array(
+			'filter' => FILTER_CALLBACK,
+			'default' => 'ASC',
+			'options' => array('options' => 'sanitize_search_string')
 		)
 	);
 
@@ -1328,7 +1353,7 @@ function render_header_list($hosts) {
 
 	$output = html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
 	$output .= html_nav_bar('monitor.php', 1, 1, sizeof($hosts), sizeof($hosts), 4, 'Monitor');
-	$output .= html_header_sort($display_text, '', '', false);
+	$output .= html_header($display_text, '', '', false);
 
 	return $output;
 }
