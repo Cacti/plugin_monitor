@@ -14,6 +14,22 @@
 	margin: 4px;
 }
 
+.monitorFooter {
+	display: table;
+	width: 100%;
+	border-top: 1px solid;
+	margin-top: 15px;
+	padding-top: 5px;
+}
+
+.monitorFooterText {
+	color: gray;
+}
+
+.monitorFooterTextBold {
+	color: black;
+}
+
 .monitor_frame {
 	float: left;
 	display: table-cell;
@@ -67,6 +83,60 @@
 	width: 100%;
 }
 
+.monitor_exsmall {
+	height: 25px;
+}
+
+.monitor_exsmall_tiles {
+	height: 20px;
+}
+
+.monitor_exsmall_tilesadt {
+	height: 25px;
+	width: 70px;
+}
+
+.monitor_exsmall i {
+	font-size: 10px;
+}
+
+.monitor_small {
+	height: 40px;
+}
+
+.monitor_small i {
+	font-size: 20px;
+}
+
+.monitor_medium {
+	height: 80px;
+}
+
+.monitor_medium i {
+	font-size: 40px;
+}
+
+.monitor_large {
+	height: 100px;
+}
+
+.monitor_large i {
+	font-size: 80px;
+}
+
+.monitor_device {
+	font-size: 10px; padding: 2px;
+}
+
+.monitorHover {
+	font-size: 10px;
+}
+
+.monitorHover td:first-child {
+	padding-right: 5px;
+	white-space: nowrap;
+}
+
 .monitorFilterTable {
 	display: table;
 	margin-left: auto;
@@ -84,11 +154,11 @@
 	display: table-cell;
 }
 
-.monitorFilterCell .ui-button {
+.monitorFilterCell .ui-button, .monitorFilterCell button {
 	margin: 2px ! important;
 }
 
-.monitorFilterCell .ui-selectmenu-button {
+.monitorFilterCell .ui-selectmenu-button, .monitorFilterCell select {
 	min-width: 150px ! important;
 	max-width: 150px ! important;
 	margin: 2px ! important;
@@ -105,3 +175,12 @@
 	padding-right: 5px;
 }
 
+.deviceAlertBg,
+.deviceDownBg,
+.deviceUnknownBg {
+	color: gray;
+}
+
+.cactiPageBottom {
+	z-index: -1;
+}

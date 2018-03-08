@@ -131,12 +131,12 @@ function draw_page() {
 
 	general_header();
 
-	draw_filter_and_status();
-
 	print get_md5_include_css('plugins/monitor/monitor.css') . NL;
 	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
 		print get_md5_include_css('plugins/monitor/themes/' . get_selected_theme() . '/monitor.css') . NL;
 	}
+
+	draw_filter_and_status();
 
 	// Default with permissions = default_by_permissions
 	// Tree  = group_by_tree
@@ -146,8 +146,6 @@ function draw_page() {
 	} else {
 		print render_default();
 	}
-
-	print '</div>';
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
 		print "<div class='center monitor_legend'><table class='center'><tr>\n";
@@ -160,7 +158,7 @@ function draw_page() {
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
-		print "<audio id='audio' loop autostart='0' src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
+		print "<audio id='audio' loop autoplay src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
 	}
 
 	?>
@@ -317,9 +315,7 @@ function draw_page() {
 	</script>
 	<?php
 
-	print '<div style="display:table;width:100%;border-top: 1px solid;margin-top: 15px;padding-top: 5px;">';
-	print '<div class="center" style="display:table;margin-left:auto;margin-right:auto;">' . get_filter_text() . '</div>';
-	print '</div>';
+	print '<div class="center monitorFooter">' . get_filter_text() . '</div>';
 
 	bottom_footer();
 }
@@ -385,18 +381,20 @@ function check_tholds() {
 }
 
 function get_filter_text() {
-	$filter = '';
+	$filter = '<div class="center monitorFooterText">';
 
 	switch(get_request_var('status')) {
 	case '-1':
-		$filter = __('All Monitored Devices', 'monitor');
+		$filter .= __('All Monitored Devices', 'monitor');
 		break;
 	case '0':
-		$filter = __('Monitored Devices either Down or Recovering', 'monitor');
+		$filter .= __('Monitored Devices either Down or Recovering', 'monitor');
 		break;
 	case '1':
-		$filter = __('Monitored Devices either Down, Recovering, with Breached Thresholds', 'monitor');
+		$filter .= __('Monitored Devices either Down, Recovering, with Breached Thresholds', 'monitor');
 		break;
+	default:
+		$filter .= __('Unknown monitoring status (%s)', get_request_var('status'), 'monitor');
 	}
 
 	switch(get_request_var('crit')) {
@@ -417,7 +415,7 @@ function get_filter_text() {
 		break;
 	}
 
-	$filter .= __('<br><b>Remember to first select eligible Devices to be Monitored from the Devices page!</b>', 'monitor');
+	$filter .= __('</div><div class="center monitorFooterTextBold">Remember to first select eligible Devices to be Monitored from the Devices page!</div>', 'monitor');
 
 	return $filter;
 }
@@ -447,7 +445,7 @@ function draw_filter_and_status() {
 	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status;
 
 	print '<form class="monitorFilterForm"><div class="monitorFilterTable"><div class="monitorFilterRow">' . NL;
-	print '<div clas="monitorFilterCell"><div class="monitorFilterTable"><div class="monitorFilterRow">' . NL;
+	print '<div class="monitorFilterCell"><div class="monitorFilterTable"><div class="monitorFilterRow">' . NL;
 
 	draw_filter_dropdown('status', __esc('Device Status', 'monitor'), $monitor_status);
 	draw_filter_dropdown('view', __esc('View Type', 'monitor'), $monitor_view_type);
@@ -491,7 +489,7 @@ function draw_filter_and_status() {
 	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . NL;
 	print '</div><div class="monitorFilterCell">' . NL;
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . NL;
-	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '"></span>' . NL;
+	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . NL;
 	print '</div></div><div class="monitorFilterRow"><div class="monitorFilterCell">' . NL;
 	print '<div class="monitorFilterText">' . __('Last Refresh: %s', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? '<br/>' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh'), 'monitor'):'') . '</div>';
 
@@ -1256,7 +1254,7 @@ function ajax_status() {
 				</tr>
 				<tr>
 					<td>" . __('Device:', 'monitor') . "</td>
-					<td><a href='" . $host['anchor'] . "'><span>" . $host['description'] . "</span></a></td>
+					<td><a class='hyperLink monitor_link' href='" . $host['anchor'] . "'>" . $host['description'] . "</a></td>
 				</tr>" . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? "
 				<tr>
 					<td>" . __('Criticality:', 'monitor') . "</td>
