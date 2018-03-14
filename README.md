@@ -25,6 +25,9 @@ It would be advisable to view Monitors email notification settings under Setting
 Bug and feature enhancements for the webseer plugin are handled in GitHub. If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## Changelog
+--- 2.3.3 ---
+* issue: correct issue with themes
+
 --- 2.3.2 ---
 * feature: Allow "from" email address/name to be set
 * feature: Requires a minimum of Cacti 1.1.36
