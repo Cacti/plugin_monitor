@@ -26,7 +26,10 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 
 ## Changelog
 --- 2.3.3 ---
-* issue: correct issue with themes
+* issue#60: Fixed issue with themes
+* issue#57: Fixed issue with mute not working
+* issue: Fixed issue with audio constantly playing
+* issue: Fixed issue with audio attempting to play files that do not exist
 
 --- 2.3.2 ---
 * feature: Allow "from" email address/name to be set

@@ -158,7 +158,7 @@ function draw_page() {
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
-		print "<audio id='audio' loop autoplay src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
+		print "<audio id='audio' loop src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
 	}
 
 	?>
@@ -196,11 +196,14 @@ function draw_page() {
 		$(document).tooltip('close');
 	}
 
-	function applyFilter() {
+	function applyFilter(action = '') {
 		clearTimeout(myTimer);
 		$('.fa-server, .fa-first-order').unbind();
 
 		strURL  = 'monitor.php?header=false';
+		if (action >= '') {
+			strURL += '&action='+action;
+		}
 		strURL += '&refresh='+$('#refresh').val();
 		strURL += '&grouping='+$('#grouping').val();
 		strURL += '&tree='+$('#tree').val();
@@ -241,13 +244,11 @@ function draw_page() {
 		if ($('#mute').val() == 'false') {
 			$('#mute').val('true');
 			muteUnmuteAudio(true);
-			$('#sound').val('<?php print get_unmute_text();?>');
-			loadPageNoHeader('monitor.php?header=false&action=ajax_mute_all');
+			applyFilter('ajax_mute_all');
 		} else {
 			$('#mute').val('false');
 			muteUnmuteAudio(false);
-			$('#sound').val('<?php print get_mute_text();?>');
-			loadPageNoHeader('monitor.php?header=false&action=ajax_unmute_all');
+			applyFilter('ajax_unmute_all');
 		}
 	});
 
@@ -308,7 +309,6 @@ function draw_page() {
 		} else {
 			muteUnmuteAudio(false);
 		}
-
 		$('#main').css('margin-right', '15px');
 	});
 
@@ -321,16 +321,15 @@ function draw_page() {
 }
 
 function is_monitor_audible() {
-	$sound = get_monitor_sound();
-	if ($sound != '' && $sound != __('None', 'monitor')) {
-		return true;
-	} else {
-		return false;
-	}
+	return get_monitor_sound() != '';
 }
 
 function get_monitor_sound() {
-	return read_user_setting('monitor_sound', read_config_option('monitor_sound'));
+	$sound = read_user_setting('monitor_sound', read_config_option('monitor_sound'));
+	clearstatcache();
+	$file = dirname(__FILE__) . '/sounds/' . $sound;
+	$exists = file_exists($file);
+	return $exists ? $sound : '';
 }
 
 function find_down_hosts() {
@@ -340,26 +339,35 @@ function find_down_hosts() {
 		if (isset($_SESSION['muted_hosts'])) {
 			$unmuted_hosts = array_diff($dhosts, $_SESSION['muted_hosts']);
 			if (sizeof($unmuted_hosts)) {
-				set_request_var('mute', 'false');
+				unmute_user();
 			}
 		} else {
 			set_request_var('mute', 'false');
 		}
 	} else {
-		$_SESSION['muted_hosts'] = array();
-		set_request_var('mute', 'false');
+		unmute_all_hosts();
 		set_request_var('downhosts', 'false');
 	}
 }
 
 function mute_all_hosts() {
 	$_SESSION['muted_hosts'] = get_hosts_down_by_permission();
-	set_request_var('mute', 'true');
+	mute_user();
 }
 
 function unmute_all_hosts() {
 	$_SESSION['muted_hosts'] = array();
+	unmute_user();
+}
+
+function mute_user() {
+	set_request_var('mute', 'true');
+	set_user_setting('monitor_mute','true');
+}
+
+function unmute_user() {
 	set_request_var('mute', 'false');
+	set_user_setting('monitor_mute','false');
 }
 
 function check_tholds() {
@@ -1500,26 +1508,16 @@ function get_hosts_down_by_permission() {
 		}
 	}
 
-	if ($render_style == 'default') {
-		$hosts = get_allowed_devices("h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
-		// do a quick loop through to pull the hosts that are down
-		if (sizeof($hosts)) {
-			foreach($hosts as $host) {
-				$result[] = $host['id'];
-				sort($result);
-			}
-		}
-	} else {
-		/* Only get hosts */
-		$hosts = get_allowed_devices("h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)");
-		if (sizeof($hosts) > 0) {
-			foreach ($hosts as $host) {
-				$result[] = $host['id'];
-				sort($result);
-			}
+	$sql_where = "h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)";
+
+	// do a quick loop through to pull the hosts that are down
+	$hosts = get_allowed_devices($sql_where);
+	if (sizeof($hosts)) {
+		foreach($hosts as $host) {
+			$result[] = $host['id'];
+			sort($result);
 		}
 	}
-
 	return $result;
 }
 
