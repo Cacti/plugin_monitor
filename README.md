@@ -26,7 +26,7 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 
 ## Changelog
 --- 2.3.4 ---
-* issue#60: Fixed issue with overlapping rows in tree view
+* issue#64: Fixed issue with overlapping rows in tree view
 
 --- 2.3.3 ---
 * issue#60: Fixed issue with themes
