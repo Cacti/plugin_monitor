@@ -31,7 +31,6 @@
 }
 
 .monitor_frame {
-	float: left;
 	display: table-cell;
 }
 
@@ -48,8 +47,8 @@
 }
 
 .monitor_tree_frame {
+	display: inline-block;
 	vertical-align: top;
-	float: left;
 	position: relative;
 	padding: 3px;
 	margin: 4px;
@@ -61,7 +60,6 @@
 	display: block;
 	padding: 3px;
 	margin: 2px;
-	float: left;
 }
 
 .monitor_device_frame a {
@@ -109,7 +107,7 @@
 }
 
 .monitor_medium {
-	height: 80px;
+	height: 60px;
 }
 
 .monitor_medium i {
