@@ -147,6 +147,23 @@ cacti_log('MONITOR STATS: Time:' . round($poller_end-$poller_start, 2) . ' Reboo
 
 exit;
 
+function monitor_addemails(&$reboot_emails, $alert_emails, $host_id) {
+	if (sizeof($alert_emails)) {
+		foreach($alert_emails as $email) {
+			$reboot_emails[trim(strtolower($email))][$host_id] = $host_id;
+		}
+	}
+}
+
+function monitor_addnotificationlist(&$reboot_emails, $notify_list, $host_id, $notification_lists) {
+	if ($notify_list > 0) {
+		if (isset($notification_lists[$notify_list])) {
+			$emails = explode(',', $notification_lists[$notify_list]);
+			monitor_addemails($reboot_emails, $emails, $host_id);
+		}
+	}
+}
+
 function monitor_uptime_checker() {
 	monitor_debug('Checking for Uptime of Devices');
 
@@ -165,69 +182,46 @@ function monitor_uptime_checker() {
 		AND (mu.uptime IS NULL OR mu.uptime > h.snmp_sysUpTimeInstance) AND h.snmp_sysUpTimeInstance > 0');
 
 	if (sizeof($rebooted_hosts)) {
-		$nofitication_lists = array_rekey(
+		$notification_lists = array_rekey(
 			db_fetch_assoc('SELECT id, emails
 				FROM plugin_notification_lists
 				ORDER BY id'),
 			'id', 'emails'
 		);
 
+		$monitor_list = read_config_option('monitor_list');
+		$monitor_thold = read_config_option('monitor_reboot_thold');
+
 		foreach($rebooted_hosts as $host) {
 			db_execute_prepared('INSERT INTO plugin_monitor_reboot_history (host_id, reboot_time) VALUES (?, ?)',
 				array($host['id'], date('Y-m-d H:i:s', time()-$host['snmp_sysUpTimeInstance'])));
 
-			$notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
-				FROM host
-				WHERE id = ?',
-				array($host['id']));
+			monitor_addnotificationlist($reboot_emails, $monitor_list, $host['id'], $notification_lists);
 
-			if (sizeof($notify)) {
-				switch($notify['thold_send_email']) {
-				case '0': // Disabled
+			if ($monitor_thold == 'on') {
+				$notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
+					FROM host
+					WHERE id = ?',
+					array($host['id']));
 
-					break;
-				case '1': // Global List
-					if (sizeof($alert_emails)) {
-						foreach($alert_emails as $email) {
-							$reboot_emails[trim($email)][$host['id']] = $host['id'];
-						}
+				if (sizeof($notify)) {
+					switch($notify['thold_send_email']) {
+						case '0': // Disabled
+
+							break;
+						case '1': // Global List
+							monitor_addemails($reboot_emails, $alert_emails, $host['id']);
+							break;
+						case '2': // Nofitication List
+							monitor_addnotificationlist($reboot_emails, $notify['thold_host_email'],
+								$host['id'], $notification_lists);
+							break;
+						case '3': // Both Global and Nofication list
+							monitor_addemails($reboot_emails, $alert_emails, $host['id']);
+							monitor_addnotificationlist($reboot_emails, $notify['thold_host_email'],
+								$host['id'], $notification_lists);
+							break;
 					}
-
-					break;
-				case '2': // Nofitication List
-					if ($notify['thold_host_email'] > 0) {
-						if (isset($nofitication_lists[$notify['thold_host_email']])) {
-							$emails = explode(',', $nofitication_lists[$notify['thold_host_email']]);
-
-							if (sizeof($emails)) {
-								foreach($emails as $email) {
-									$reboot_emails[trim($email)][$host['id']] = $host['id'];
-								}
-							}
-						}
-					}
-
-					break;
-				case '3': // Both Global and Nofication list
-					if (sizeof($alert_emails)) {
-						foreach($alert_emails as $email) {
-							$reboot_emails[trim($email)][$host['id']] = $host['id'];
-						}
-					}
-
-					if ($notify['thold_host_email'] > 0) {
-						if (isset($nofitication_lists[$notify['thold_host_email']])) {
-							$emails = explode(',', $nofitication_lists[$notify['thold_host_email']]);
-
-							if (sizeof($emails)) {
-								foreach($emails as $email) {
-									$reboot_emails[trim($email)][$host['id']] = $host['id'];
-								}
-							}
-						}
-					}
-
-					break;
 				}
 			}
 		}
