@@ -503,6 +503,12 @@ function monitor_config_settings() {
 			'description' => __('Should Device Reboot Notifications be sent to users?', 'monitor'),
 			'default' => 'on',
 		),
+		'monitor_reboot_thold' => array(
+			'friendly_name' => __('Include Threshold Alert Lists', 'monitor'),
+			'method' => 'checkbox',
+			'description' => __('Should Threshold Alert Lists also receive notification', 'monitor'),
+			'default' => 'on',
+		),
 		'monitor_subject' => array(
 			'friendly_name' => __('Subject', 'monitor'),
 			'description' => __('Enter a Reboot message subject for the Reboot Nofication.', 'monitor'),

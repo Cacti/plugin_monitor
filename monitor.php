@@ -956,7 +956,7 @@ function render_tree() {
 						FROM host AS h
 						WHERE id IN (" . implode(',', $host_ids) . ")");
 
-					$result .= '<div class="monitor_tree_frame ' . $class . '"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
+					$result .= '<div class="monitor_tree_frame"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
 
 					foreach($hosts as $host) {
 						$result .= render_host($host, true, $maxlen);

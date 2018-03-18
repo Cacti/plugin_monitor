@@ -25,6 +25,11 @@ It would be advisable to view Monitors email notification settings under Setting
 Bug and feature enhancements for the webseer plugin are handled in GitHub. If you find a first search the Cacti forums for a solution before creating an issue in GitHub.
 
 ## Changelog
+--- 2.3.4 ---
+* issue#64: Fixed issue with overlapping rows in tree view
+* issue#61: Fixed issue where monitor_list was not being used
+* feature: Added option to disable inclusion of Threshold alert lists
+
 --- 2.3.3 ---
 * issue#60: Fixed issue with themes
 * issue#57: Fixed issue with mute not working
