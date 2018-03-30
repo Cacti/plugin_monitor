@@ -199,13 +199,13 @@ function monitor_uptime_checker() {
 			monitor_addnotificationlist($reboot_emails, $monitor_list, $host['id'], $notification_lists);
 
 			if ($monitor_thold == 'on') {
-				$notify = db_fetch_row_prepared('SELECT thold_process_send_email, thold_host_email
+				$notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
 					FROM host
 					WHERE id = ?',
 					array($host['id']));
 
 				if (sizeof($notify)) {
-					switch($notify['thold_process_send_email']) {
+					switch($notify['thold_send_email']) {
 						case '0': // Disabled
 
 							break;
@@ -523,7 +523,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 	$hosts = db_fetch_cell_prepared("SELECT count(*)
 		FROM host
 		WHERE status=3
-		AND thold_process_send_email>0
+		AND thold_send_email>0
 		AND monitor_criticality >= ?
 		AND cur_time > monitor_$type", array($criticality));
 
@@ -535,7 +535,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 
 	if ($hosts > 0) {
 		$groups = db_fetch_assoc_prepared("SELECT
-			thold_process_send_email, thold_host_email, GROUP_CONCAT(host.id) AS id
+			thold_send_email, thold_host_email, GROUP_CONCAT(host.id) AS id
 			FROM host
 			LEFT JOIN (
 				SELECT host_id, MAX(notification_time) AS notification_time
@@ -545,16 +545,16 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 			) AS nh
 			ON host.id=nh.host_id
 			WHERE status=3
-			AND thold_process_send_email>0
+			AND thold_send_email>0
 			AND monitor_criticality >= ?
 			AND cur_time > monitor_$type " . ($type == "warn" ? " AND cur_time < monitor_alert":"") ."
 			AND (notification_time < ? OR notification_time IS NULL)
-			GROUP BY thold_host_email, thold_process_send_email
-			ORDER BY thold_host_email, thold_process_send_email", array($htype, $criticality, $last_time));
+			GROUP BY thold_host_email, thold_send_email
+			ORDER BY thold_host_email, thold_send_email", array($htype, $criticality, $last_time));
 
 		if (sizeof($groups)) {
 			foreach($groups as $entry) {
-				switch($entry['thold_process_send_email']) {
+				switch($entry['thold_send_email']) {
 				case '1': // Global List
 					$global_list[$type][] = $entry;
 					break;
