@@ -199,13 +199,13 @@ function monitor_uptime_checker() {
 			monitor_addnotificationlist($reboot_emails, $monitor_list, $host['id'], $notification_lists);
 
 			if ($monitor_thold == 'on') {
-				$notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
+				$notify = db_fetch_row_prepared('SELECT thold_process_send_email, thold_host_email
 					FROM host
 					WHERE id = ?',
 					array($host['id']));
 
 				if (sizeof($notify)) {
-					switch($notify['thold_send_email']) {
+					switch($notify['thold_process_send_email']) {
 						case '0': // Disabled
 
 							break;
@@ -302,19 +302,7 @@ function process_reboot_email($email, $hosts) {
 		$v = get_cacti_version();
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
-		$from_email = read_config_option('settings_from_email');
-		if ($from_email == '') {
-			$from_email = 'root@localhost';
-		}
-
-		$from_name  = read_config_option('settings_from_name');
-		if ($from_name == '') {
-			$from_name = 'Cacti Reporting';
-		}
-
-		monitor_debug("Sending Email to '$email'");
-
-		mailer(array($from_email, $from_name), $email, '', '', '', $email_subject, $email_body);
+		process_send_email($email, $email_subject, $email_body, $headers);
 	}
 }
 
@@ -456,47 +444,51 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$v = get_cacti_version();
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
-		$from_email = read_config_option('monitor_formemail');
+		process_send_email($email, $subject, $output, $headers);
+	}
+}
+
+function process_send_email($email, $subject, $output, $headers) {
+	$from_email = read_config_option('monitor_formemail');
+	if ($from_email == '') {
+		$from_email = read_config_option('settings_from_email');
 		if ($from_email == '') {
-			$from_email = read_config_option('settings_from_email');
-			if ($from_email == '') {
-				$from_email = 'root@localhost';
-			}
+			$from_email = 'root@localhost';
 		}
+	}
 
-		$from_name = read_config_option('monitor_fromname');
-		if ($from_name != '') {
-			$from_name  = read_config_option('settings_from_name');
-			if ($from_name == '') {
-				$from_name = 'Cacti Reporting';
-			}
+	$from_name = read_config_option('monitor_fromname');
+	if ($from_name != '') {
+		$from_name  = read_config_option('settings_from_name');
+		if ($from_name == '') {
+			$from_name = 'Cacti Reporting';
 		}
+	}
 
-		monitor_debug("Sending Email to '$email'");
+	monitor_debug("Sending Email to '$email'");
 
-		$error = mailer(
-			array($from_email, $from_name),
-			$email,
-			'',
-			'',
-			'',
-			$subject,
-			$output,
-			'Cacti Monitor Plugin requires an html based Email client',
-			'',
-			$headers
-	    );
+	$error = mailer(
+		array($from_email, $from_name),
+		$email,
+		'',
+		'',
+		'',
+		$subject,
+		$output,
+		'Cacti Monitor Plugin requires an html based Email client',
+		'',
+		$headers
+	);
 
-		monitor_debug("The return from the mailer was '$error'");
+	monitor_debug("The return from the mailer was '$error'");
 
-		if (strlen($error)) {
-			cacti_log("WARNING: Monitor had problems sending Notification Report to '$email'.  The error was '$error'", false, 'MONITOR');
-		}else{
-			cacti_log("NOTICE: Email Notification Sent to '$email' for " .
-				(sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notificaitons':'') .
-				(sizeof($warn_hosts) ? (sizeof($alert_hosts) ? ', and ':'') .
-					sizeof($warn_hosts) . ' Warning Notifications':''). '.', false, 'MONITOR');
-		}
+	if (strlen($error)) {
+		cacti_log("WARNING: Monitor had problems sending to '$email'.  The error was '$error'", false, 'MONITOR');
+	} else {
+		cacti_log("NOTICE: Email Notification Sent to '$email' for " .
+			(sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notifications':'') .
+			(sizeof($warn_hosts) ? (sizeof($alert_hosts) ? ', and ':'') .
+				sizeof($warn_hosts) . ' Warning Notifications':''). '.', false, 'MONITOR');
 	}
 }
 
@@ -507,7 +499,7 @@ function log_messages($type, $alert_hosts) {
 	if ($type == 'warn') {
 		$type   = '0';
 		$column = 'monitor_warn';
-	}elseif ($type == 'alert') {
+	} elseif ($type == 'alert') {
 		$type = '1';
 		$column = 'monitor_alert';
 	}
@@ -531,7 +523,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 	$hosts = db_fetch_cell_prepared("SELECT count(*)
 		FROM host
 		WHERE status=3
-		AND thold_send_email>0
+		AND thold_process_send_email>0
 		AND monitor_criticality >= ?
 		AND cur_time > monitor_$type", array($criticality));
 
@@ -543,7 +535,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 
 	if ($hosts > 0) {
 		$groups = db_fetch_assoc_prepared("SELECT
-			thold_send_email, thold_host_email, GROUP_CONCAT(host.id) AS id
+			thold_process_send_email, thold_host_email, GROUP_CONCAT(host.id) AS id
 			FROM host
 			LEFT JOIN (
 				SELECT host_id, MAX(notification_time) AS notification_time
@@ -553,16 +545,16 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 			) AS nh
 			ON host.id=nh.host_id
 			WHERE status=3
-			AND thold_send_email>0
+			AND thold_process_send_email>0
 			AND monitor_criticality >= ?
 			AND cur_time > monitor_$type " . ($type == "warn" ? " AND cur_time < monitor_alert":"") ."
 			AND (notification_time < ? OR notification_time IS NULL)
-			GROUP BY thold_host_email, thold_send_email
-			ORDER BY thold_host_email, thold_send_email", array($htype, $criticality, $last_time));
+			GROUP BY thold_host_email, thold_process_send_email
+			ORDER BY thold_host_email, thold_process_send_email", array($htype, $criticality, $last_time));
 
 		if (sizeof($groups)) {
 			foreach($groups as $entry) {
-				switch($entry['thold_send_email']) {
+				switch($entry['thold_process_send_email']) {
 				case '1': // Global List
 					$global_list[$type][] = $entry;
 					break;
