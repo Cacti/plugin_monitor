@@ -449,7 +449,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 }
 
 function process_send_email($email, $subject, $output, $headers) {
-	$from_email = read_config_option('monitor_formemail');
+	$from_email = read_config_option('monitor_fromemail');
 	if ($from_email == '') {
 		$from_email = read_config_option('settings_from_email');
 		if ($from_email == '') {
