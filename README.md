@@ -27,6 +27,7 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 ## Changelog
 --- 2.3.5 ---
 * issue#48: Reboot notifications did not properly use Monitor sender settings
+* issue#66: Correct missing variable warnings when sending emails
 
 --- 2.3.4 ---
 * issue#64: Fixed issue with overlapping rows in tree view

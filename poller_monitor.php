@@ -302,7 +302,8 @@ function process_reboot_email($email, $hosts) {
 		$v = get_cacti_version();
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
-		process_send_email($email, $email_subject, $email_body, $headers);
+		$status = 'Reboot Notifications';
+		process_send_email($email, $email_subject, $email_body, $headers, $status);
 	}
 }
 
@@ -444,11 +445,14 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$v = get_cacti_version();
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
-		process_send_email($email, $subject, $output, $headers);
+		$status = (sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notifications' : '') .
+			(sizeof($warn_hosts) ? (sizeof($alert_hosts) ? ', and ' : '') .
+				sizeof($warn_hosts) . ' Warning Notifications' : '');
+		process_send_email($email, $subject, $output, $headers, $status);
 	}
 }
 
-function process_send_email($email, $subject, $output, $headers) {
+function process_send_email($email, $subject, $output, $headers, $status) {
 	$from_email = read_config_option('monitor_fromemail');
 	if ($from_email == '') {
 		$from_email = read_config_option('settings_from_email');
@@ -465,7 +469,7 @@ function process_send_email($email, $subject, $output, $headers) {
 		}
 	}
 
-	monitor_debug("Sending Email to '$email'");
+	monitor_debug("Sending Email to '$email' for $status");
 
 	$error = mailer(
 		array($from_email, $from_name),
@@ -483,12 +487,9 @@ function process_send_email($email, $subject, $output, $headers) {
 	monitor_debug("The return from the mailer was '$error'");
 
 	if (strlen($error)) {
-		cacti_log("WARNING: Monitor had problems sending to '$email'.  The error was '$error'", false, 'MONITOR');
+		cacti_log("WARNING: Monitor had problems sending to '$email' for $status.  The error was '$error'", false, 'MONITOR');
 	} else {
-		cacti_log("NOTICE: Email Notification Sent to '$email' for " .
-			(sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notifications':'') .
-			(sizeof($warn_hosts) ? (sizeof($alert_hosts) ? ', and ':'') .
-				sizeof($warn_hosts) . ' Warning Notifications':''). '.', false, 'MONITOR');
+		cacti_log("NOTICE: Email Notification Sent to '$email' for $status.", false, 'MONITOR');
 	}
 }
 
