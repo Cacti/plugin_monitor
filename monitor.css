@@ -57,7 +57,7 @@
 
 .monitor_device_frame {
 	text-align:center;
-	display: block;
+	display: table-cell;
 	padding: 3px;
 	margin: 2px;
 }
@@ -181,4 +181,8 @@
 
 .cactiPageBottom {
 	z-index: -1;
+}
+
+table {
+	width: 100%;
 }
