@@ -38,7 +38,6 @@ $poller_start = microtime(true);
 $start_date   = date('Y-m-d H:i:s');
 
 include('../../include/global.php');
-include_once($config['base_path'] . '/lib/reports.php');
 
 define('BR', "\n");
 
