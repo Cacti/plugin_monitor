@@ -339,6 +339,8 @@ function monitor_scan_dir() {
 function monitor_config_settings() {
 	global $tabs, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
+	include_once($config['base_path'] . '/lib/reports.php');
+
 	$formats = reports_get_format_files();
 
 	$criticalities = array(
