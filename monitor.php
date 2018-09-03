@@ -196,7 +196,11 @@ function draw_page() {
 		$(document).tooltip('close');
 	}
 
-	function applyFilter(action = '') {
+	function applyFilter(action) {
+		if (typeof action == 'undefined') {
+			action = '';
+		}
+
 		clearTimeout(myTimer);
 		$('.fa-server, .fa-first-order').unbind();
 

@@ -29,6 +29,7 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 * issue#48: Reboot notifications did not properly use Monitor sender settings
 * issue#66: Correct missing variable warnings when sending emails
 * issue#71: Only one tile being displayed per row being displayed #71
+* issue#72: Internet Explorer fails to apply filters
 
 --- 2.3.4 ---
 * issue#64: Fixed issue with overlapping rows in tree view
