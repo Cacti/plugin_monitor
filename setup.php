@@ -32,6 +32,7 @@ function plugin_monitor_install () {
 	api_plugin_register_hook('monitor', 'config_form', 'monitor_config_form', 'setup.php');
 	api_plugin_register_hook('monitor', 'config_settings', 'monitor_config_settings', 'setup.php');
 	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
+	api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php');
 
 	/* device actions and interaction */
 	api_plugin_register_hook('monitor', 'api_device_save', 'monitor_api_device_save', 'setup.php');
@@ -83,7 +84,7 @@ function monitor_device_table_bottom() {
 	foreach($criticalities as $index => $crit) {
 		if ($index == get_request_var('criticality')) {
 			$select .= '<option selected value="' . $index . '">' . $crit . '</option>';
-		}else{
+		} else {
 			$select .= '<option value="' . $index . '">' . $crit . '</option>';
 		}
 	}
@@ -123,13 +124,22 @@ function monitor_device_table_bottom() {
 	<?php
 }
 
-function plugin_monitor_uninstall () {
+function plugin_monitor_uninstall() {
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
 }
 
-function plugin_monitor_check_config () {
+function plugin_monitor_page_head() {
+	global $config;
+
+	print get_md5_include_css('plugins/monitor/monitor.css') . PHP_EOL;
+	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
+		print get_md5_include_css('plugins/monitor/themes/' . get_selected_theme() . '/monitor.css') . PHP_EOL;
+	}
+}
+
+function plugin_monitor_check_config() {
 	global $config;
 	// Here we will check to ensure everything is configured
 	monitor_check_upgrade ();
@@ -157,21 +167,23 @@ function plugin_monitor_check_config () {
 	return true;
 }
 
-function plugin_monitor_upgrade () {
+function plugin_monitor_upgrade() {
 	// Here we will upgrade to the newest version
 	monitor_check_upgrade ();
 	return false;
 }
 
-function monitor_check_upgrade () {
+function monitor_check_upgrade() {
     $files = array('plugins.php', 'monitor.php');
     if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files)) {
         return;
     }
 
-	$info    = plugin_monitor_version ();
+	$info    = plugin_monitor_version();
 	$current = $info['version'];
 	$old     = read_config_option('plugin_monitor_version');
+
+	api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php', 1);
 
 	if ($current != $old) {
 		monitor_setup_table ();
@@ -188,7 +200,7 @@ function monitor_check_upgrade () {
 	}
 }
 
-function plugin_monitor_version () {
+function plugin_monitor_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);
 	return $info['info'];
@@ -208,11 +220,11 @@ function monitor_device_action_execute($action) {
 			for ($i = 0; ($i < count($selected_items)); $i++) {
 				if ($action == 'monitor_enable') {
 					db_execute("UPDATE host SET monitor='on' WHERE id='" . $selected_items[$i] . "'");
-				}else if ($action == 'monitor_disable') {
+				} else if ($action == 'monitor_disable') {
 					db_execute("UPDATE host SET monitor='' WHERE id='" . $selected_items[$i] . "'");
 				}
 			}
-		}else{
+		} else {
 			for ($i = 0; ($i < count($selected_items)); $i++) {
 				reset($fields_host_edit);
 				while (list($field_name, $field_array) = each($fields_host_edit)) {
@@ -222,12 +234,12 @@ function monitor_device_action_execute($action) {
 							if ($cur_time > 0) {
 								db_execute_prepared("UPDATE host SET monitor_alert = CEIL(avg_time*?) WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
 							}
-						}elseif ($field_name == 'monitor_warn_baseline') {
+						} elseif ($field_name == 'monitor_warn_baseline') {
 							$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($selected_items[$i]));
 							if ($cur_time > 0) {
 								db_execute_prepared("UPDATE host SET monitor_warn = CEIL(avg_time*?) WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
 							}
-						}else{
+						} else {
 							db_execute_prepared("UPDATE host SET $field_name = ? WHERE id = ?", array(get_nfilter_request_var($field_name), $selected_items[$i]));
 						}
 					}
@@ -591,7 +603,7 @@ function monitor_show_tab() {
 	if (api_user_realm_auth('monitor.php')) {
 		if (substr_count($_SERVER['REQUEST_URI'], 'monitor.php')) {
 			print '<a href="' . $config['url_path'] . 'plugins/monitor/monitor.php"><img src="' . $config['url_path'] . 'plugins/monitor/images/tab_monitor_down.gif" alt="' . __('Monitor', 'monitor') . '"></a>';
-		}else{
+		} else {
 			print '<a href="' . $config['url_path'] . 'plugins/monitor/monitor.php"><img src="' . $config['url_path'] . 'plugins/monitor/images/tab_monitor.gif" alt="' . __('Monitor', 'monitor') . '"></a>';
 		}
 	}

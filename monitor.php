@@ -27,8 +27,6 @@ $guest_account = true;
 chdir('../../');
 include_once('./include/auth.php');
 
-define('NL', "\n");
-
 set_default_action();
 
 /* Record Start Time */
@@ -130,11 +128,6 @@ function draw_page() {
 	find_down_hosts();
 
 	general_header();
-
-	print get_md5_include_css('plugins/monitor/monitor.css') . NL;
-	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
-		print get_md5_include_css('plugins/monitor/themes/' . get_selected_theme() . '/monitor.css') . NL;
-	}
 
 	draw_filter_and_status();
 
@@ -438,26 +431,26 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 	}
 
 	if (sizeof($settings)) {
-		print '<div class="monitorFilterCell"><select id="' . $id . '" title="' . $title . '">' . NL;
+		print '<div class="monitorFilterCell"><select id="' . $id . '" title="' . $title . '">' . PHP_EOL;
 		foreach ($settings as $setting_value => $setting_name) {
 			if ($value == null || $value == '') {
 				$value = $setting_value;
 			}
 
 			$setting_selected = ($value == $setting_value) ? ' selected' : '';
-			print '<option value="' . $setting_value . '"' . $setting_selected . '>' . $setting_name . '</option>' . NL;
+			print '<option value="' . $setting_value . '"' . $setting_selected . '>' . $setting_name . '</option>' . PHP_EOL;
 		}
-		print '</select></div>' . NL;
+		print '</select></div>' . PHP_EOL;
 	} else {
-		print "<input type='hidden' id='$id' value='$value'>" . NL;
+		print "<input type='hidden' id='$id' value='$value'>" . PHP_EOL;
 	}
 }
 
 function draw_filter_and_status() {
 	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status;
 
-	print '<form class="monitorFilterForm"><div class="monitorFilterTable"><div class="monitorFilterRow">' . NL;
-	print '<div class="monitorFilterCell"><div class="monitorFilterTable"><div class="monitorFilterRow">' . NL;
+	print '<form class="monitorFilterForm"><div class="monitorFilterTable"><div class="monitorFilterRow">' . PHP_EOL;
+	print '<div class="monitorFilterCell"><div class="monitorFilterTable"><div class="monitorFilterRow">' . PHP_EOL;
 
 	draw_filter_dropdown('status', __esc('Device Status', 'monitor'), $monitor_status);
 	draw_filter_dropdown('view', __esc('View Type', 'monitor'), $monitor_view_type);
@@ -491,21 +484,21 @@ function draw_filter_and_status() {
 	}
 	draw_filter_dropdown('template', __esc('Select Template', 'monitor'), $templates);
 
-	print '</div></div></div>' . NL;
+	print '</div></div></div>' . PHP_EOL;
 	draw_filter_dropdown('refresh', __esc('Refresh Frequency', 'monitor'), $page_refresh_interval);
-	print '<div class="monitorFilterCell">' . NL;
-	print '<div class="monitorFilterTable"><div class="monitorFilerRow">' .NL;
-	print '<div class="monitorFilterCell">' . NL;
-	print '<input type="button" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . NL;
-	print '</div><div class="monitorFilterCell">' . NL;
-	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . NL;
-	print '</div><div class="monitorFilterCell">' . NL;
-	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . NL;
-	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . NL;
-	print '</div></div><div class="monitorFilterRow"><div class="monitorFilterCell">' . NL;
+	print '<div class="monitorFilterCell">' . PHP_EOL;
+	print '<div class="monitorFilterTable"><div class="monitorFilerRow">' .PHP_EOL;
+	print '<div class="monitorFilterCell">' . PHP_EOL;
+	print '<input type="button" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
+	print '</div><div class="monitorFilterCell">' . PHP_EOL;
+	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . PHP_EOL;
+	print '</div><div class="monitorFilterCell">' . PHP_EOL;
+	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
+	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
+	print '</div></div><div class="monitorFilterRow"><div class="monitorFilterCell">' . PHP_EOL;
 	print '<div class="monitorFilterText">' . __('Last Refresh: %s', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? '<br/>' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh'), 'monitor'):'') . '</div>';
 
-	print '</div></div></div></div></div></div></form>' . NL;
+	print '</div></div></div></div></div></div></form>' . PHP_EOL;
 	// Display the Current Time
 }
 

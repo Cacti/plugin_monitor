@@ -26,6 +26,7 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If yo
 
 ## Changelog
 --- 2.3.5 ---
+* feature: Support for Cacti 1.2
 * issue#48: Reboot notifications did not properly use Monitor sender settings
 * issue#66: Correct missing variable warnings when sending emails
 * issue#71: Only one tile being displayed per row being displayed #71
