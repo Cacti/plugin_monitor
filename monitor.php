@@ -262,7 +262,7 @@ function draw_page() {
 		clearTimeout(myTimer);
 
 		// Servers need tooltips
-		$(document).tooltip({
+		$('.monitor_device_frame').find('i').tooltip({
 			items: '.fa-server, .fa-first-order',
 			open: function(event, ui) {
 				if (typeof(event.originalEvent) == 'undefined') {
