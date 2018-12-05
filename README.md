@@ -50,6 +50,7 @@ in GitHub.
 * issue#71: Only one tile being displayed per row being displayed #71
 * issue#72: Internet Explorer fails to apply filters
 * issue#76: Monitor attempts to get status for non-server elements
+* issue#78: Arranging hosts by Device Template is not working
 
 --- 2.3.4 ---
 

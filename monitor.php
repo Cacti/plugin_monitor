@@ -645,12 +645,12 @@ function render_where_join(&$sql_where, &$sql_join) {
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
 			AND h.status < 3
-			AND (availability_method>0
-				OR snmp_version>0
-				OR (cur_time >= monitor_warn
+			AND (h.availability_method>0
+				OR h.snmp_version>0
+				OR (h.cur_time >= h.monitor_warn
 					AND monitor_warn > 0)
-				OR (cur_time >= monitor_alert
-					AND monitor_alert > 0)
+				OR (h.cur_time >= h.monitor_alert
+					AND h.monitor_alert > 0)
 			)' . $crit;
 	} elseif (get_request_var('status') == '1') {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
@@ -658,15 +658,15 @@ function render_where_join(&$sql_where, &$sql_join) {
 			AND h.monitor = "on"
 			AND (h.status < 3
 			OR (td.thold_enabled="on" AND td.thold_alert>0)
-			OR ((availability_method>0 OR snmp_version>0)
-				AND ((cur_time > monitor_warn AND monitor_warn > 0)
-				OR (cur_time > monitor_alert AND monitor_alert > 0))
+			OR ((h.availability_method>0 OR h.snmp_version>0)
+				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
+				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0))
 			))' . $crit;
 	} else {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
-			AND (availability_method>0 OR snmp_version>0
+			AND (h.availability_method>0 OR h.snmp_version>0
 				OR (td.thold_enabled="on" AND td.thold_alert>0)
 			)' . $crit;
 	}
