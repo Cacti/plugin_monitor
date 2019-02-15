@@ -172,12 +172,12 @@ function monitor_uptime_checker() {
 	$reboot_emails = array();
 	$alert_emails  = explode(',', read_config_option('alert_email'));
 
-	// Remove unneeded devices
+	// Remove unneeded device records in associated tables
 	$removed_hosts = db_fetch_assoc('SELECT mu.id
 		FROM plugin_monitor_uptime AS mu
 		LEFT JOIN host AS h
 		ON h.id=mu.host_id
-		WHERE mu.id IS NOT NULL AND h.id IS NULL');
+		WHERE h.id IS NULL');
 
 	if (sizeof($removed_hosts)) {
 		db_execute('DELETE FROM plugin_monitor_uptime
@@ -185,7 +185,22 @@ function monitor_uptime_checker() {
 			FROM plugin_monitor_uptime AS mu
 			LEFT JOIN host AS h
 			ON h.id=mu.host_id
-			WHERE mu.id IS NOT NULL AND h.id IS NULL)');
+			WHERE h.id IS NULL)');
+	}
+
+	$removed_hosts = db_fetch_assoc('SELECT mu.id
+		FROM plugin_monitor_reboot_history AS mu
+		LEFT JOIN host AS h
+		ON h.id=mu.host_id
+		WHERE h.id IS NULL');
+
+	if (sizeof($removed_hosts)) {
+		db_execute('DELETE FROM plugin_monitor_reboot_history
+			WHERE id IN (SELECT mu.id
+			FROM plugin_monitor_reboot_history AS mu
+			LEFT JOIN host AS h
+			ON h.id=mu.host_id
+			WHERE h.id IS NULL)');
 	}
 
 	// Get the rebooted devices
