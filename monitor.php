@@ -1165,6 +1165,10 @@ function ajax_status() {
 		$id = get_request_var('id');
 
 		$host = db_fetch_row_prepared('SELECT * FROM host WHERE id = ?', array($id));
+		if (empty($host)) {
+			cacti_log('Attempted to retrieve status for missing host id ' . $id, false, 'MONITOR', POLLER_VERBOSITY_ERROR);
+			return false;
+		}
 
 		$host['anchor'] = $config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id'];
 
