@@ -1166,7 +1166,7 @@ function ajax_status() {
 
 		$host = db_fetch_row_prepared('SELECT * FROM host WHERE id = ?', array($id));
 		if (empty($host)) {
-			cacti_log('Attempted to retrieve status for missing host id ' . $id, false, 'MONITOR', POLLER_VERBOSITY_ERROR);
+			cacti_log('Attempted to retrieve status for missing host id ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
 			return false;
 		}
 
