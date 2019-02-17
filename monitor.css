@@ -39,6 +39,11 @@
 	width: 100%;
 }
 
+.monitor_ul {
+	padding: 2px;
+	margin: 0px;
+}
+
 .monitor_tree_title table:first-child {
 	width: 100%;
 	margin-left: auto;
@@ -55,13 +60,15 @@
 }
 
 .monitor_device_frame {
-	text-align:center;
+	text-align: center;
 	display: table-cell;
+	float: left;
 	padding: 3px;
 	margin: 2px;
 }
 
 .monitor_device_frame a {
+	padding: 3px;
 	display: block;
 }
 
@@ -97,24 +104,12 @@
 	font-size: 10px;
 }
 
-.monitor_small {
-	height: 40px;
-}
-
 .monitor_small i {
 	font-size: 20px;
 }
 
-.monitor_medium {
-	height: 60px;
-}
-
 .monitor_medium i {
 	font-size: 40px;
-}
-
-.monitor_large {
-	height: 100px;
 }
 
 .monitor_large i {

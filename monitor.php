@@ -92,7 +92,9 @@ $monitor_grouping = array(
 	'template' => __('Device Template', 'monitor')
 );
 
-global $thold_hosts;
+global $thold_hosts, $maxchars;
+
+$maxchars = 12;
 
 if (!isset($_SESSION['muted_hosts'])) {
 	$_SESSION['muted_hosts'] = array();
@@ -136,19 +138,24 @@ function draw_page() {
 
 	draw_filter_and_status();
 
-	html_start_box(__('Devices', 'monitor'), '100%', '', '3', 'center', '');
 	print '<tr><td>';
 
 	// Default with permissions = default_by_permissions
 	// Tree  = group_by_tree
 	$function = 'render_' . get_request_var('grouping');
-	if (function_exists($function)) {
+	if (function_exists($function) && get_request_var('view') != 'list') {
+		if (get_request_var('grouping') == 'default') {
+			html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
+		} else {
+			html_start_box(__('', 'monitor'), '100%', '', '3', 'center', '');
+		}
 		print $function();
 	} else {
 		print render_default();
 	}
 
 	print '</td></tr>';
+
 	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
@@ -164,7 +171,7 @@ function draw_page() {
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
-		print "<audio id='audio' loop src='" . htmlspecialchars($config['url_path'] . "plugins/monitor/sounds/" . $monitor_sound) . "'></audio>\n";
+		print "<audio id='audio' loop src='" . htmlspecialchars($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>\n";
 	}
 
 	?>
@@ -282,9 +289,9 @@ function draw_page() {
 					return false;
 				}
 
-				var $id = $(ui.tooltip).attr('id');
+				var id = $(ui.tooltip).attr('id');
 
-				$('div.ui-tooltip').not('#'+ $id).remove();
+				$('div.ui-tooltip').not('#'+ id).remove();
 			},
 			close: function(event, ui) {
 				ui.tooltip.hover(
@@ -345,7 +352,7 @@ function get_monitor_sound() {
 function find_down_hosts() {
 	$dhosts = get_hosts_down_by_permission();
 
-	if (sizeof($dhosts)) {
+	if (cacti_sizeof($dhosts)) {
 		set_request_var('downhosts', 'true');
 
 		if (isset($_SESSION['muted_hosts'])) {
@@ -353,7 +360,7 @@ function find_down_hosts() {
 
 			$unmuted_hosts = array_diff($dhosts, $_SESSION['muted_hosts']);
 
-			if (sizeof($unmuted_hosts)) {
+			if (cacti_sizeof($unmuted_hosts)) {
 				unmute_user();
 			}
 		} else {
@@ -469,7 +476,7 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 		$value = get_nfilter_request_var($id);
 	}
 
-	if (sizeof($settings)) {
+	if (cacti_sizeof($settings)) {
 		print '<td>' . $title . '</td>';
 		print '<td><select id="' . $id . '" title="' . $title . '">' . PHP_EOL;
 
@@ -504,7 +511,10 @@ function draw_filter_and_status() {
 	print '<tr>' . PHP_EOL;
 	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status);
 	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
-	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
+
+	if (get_request_var('view') != 'list') {
+		draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
+	}
 
 	// Buttons
 	print '<td><span>' . PHP_EOL;
@@ -526,7 +536,7 @@ function draw_filter_and_status() {
 		$trees = array();
 		if (get_request_var('grouping') == 'tree') {
 			$trees_allowed = array_rekey(get_allowed_trees(), 'id', 'name');
-			if (sizeof($trees_allowed)) {
+			if (cacti_sizeof($trees_allowed)) {
 				$trees_prefix = array(-1 => __('All Trees', 'monitor'));
 				$trees_suffix = array(-2 => __('Non-Tree Devices', 'monitor'));
 
@@ -541,7 +551,7 @@ function draw_filter_and_status() {
 		$templates = array();
 		$templates_allowed = array_rekey(db_fetch_assoc('SELECT id, name FROM host_template'), 'id', 'name');
 
-		if (sizeof($templates_allowed)) {
+		if (cacti_sizeof($templates_allowed)) {
 			$templates_prefix = array(-1 => __('All Templates', 'monitor'));
 			$templates_suffix = array(-2 => __('Non-Templated Devices', 'monitor'));
 
@@ -554,11 +564,15 @@ function draw_filter_and_status() {
 	draw_filter_dropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
 
 	if (get_request_var('grouping') != 'tree') {
-		print '<td><input type="hidden" id="tree" value=""></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'template') {
-		print '<td><input type="hidden" id="template" value=""></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="template" value="' . get_request_var('template') . '"></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('view') == 'list') {
+		print '<td><input type="hidden" id="grouping" value="' . get_request_var('grouping') . '"></td>' . PHP_EOL;
 	}
 
 	print '</tr>';
@@ -587,7 +601,7 @@ function get_unmute_text() {
 function save_settings() {
 	validate_request_vars();
 
-	if (sizeof($_REQUEST)) {
+	if (cacti_sizeof($_REQUEST)) {
 		foreach($_REQUEST as $var => $value) {
 			switch($var) {
 			case 'refresh':
@@ -740,24 +754,34 @@ function render_where_join(&$sql_where, &$sql_join) {
 
 /* Render functions */
 function render_default() {
+	global $maxchars;
+
 	$result = '';
 
 	$sql_where = '';
 	$sql_join  = '';
 	render_where_join($sql_where, $sql_join);
 
-	$hosts  = db_fetch_assoc("SELECT DISTINCT h.*
+	$hosts = db_fetch_assoc("SELECT DISTINCT h.*
 		FROM host AS h
 		$sql_join
 		$sql_where
 		ORDER BY description");
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		// Determine the correct width of the cell
-		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
-			FROM host AS h
-			$sql_join
-			$sql_where");
+		if (get_request_var('view') == 'default') {
+			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+				FROM host AS h
+				$sql_join
+				$sql_where");
+
+			if ($maxlen > $maxchars || get_request_var('view') != 'default') {
+				$maxlen = $maxchars;
+			}
+		} else {
+			$maxlen = 10;
+		}
 
 		$function = 'render_header_' . get_request_var('view');
 		if (function_exists($function)) {
@@ -780,12 +804,12 @@ function render_default() {
 }
 
 function render_perms() {
-	global $row_stripe;
+	global $row_stripe, $maxchars;
 
 	// Get the list of allowed devices first
 	$hosts = get_allowed_devices();
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		$function = 'render_header_' . get_request_var('view');
 		if (function_exists($function)) {
 			/* Call the custom render_header_ function */
@@ -809,9 +833,17 @@ function render_perms() {
 			ORDER BY description");
 
 		// Determine the correct width of the cell
-		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
-			FROM host AS h
-			WHERE id IN (" . implode(',', $host_ids) . ")");
+		if (get_request_var('view') == 'default') {
+			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+				FROM host AS h
+				WHERE id IN (" . implode(',', $host_ids) . ")");
+
+			if ($maxlen > $maxchars) {
+				$maxlen = $maxchars;
+			}
+		} else {
+			$maxlen = 10;
+		}
 
 		foreach ($hosts as $host) {
 			$result .= render_host($host, true, $maxlen);
@@ -828,6 +860,8 @@ function render_perms() {
 }
 
 function render_template() {
+	global $maxchars;
+
 	$result = '';
 
 	$sql_where = '';
@@ -866,7 +900,7 @@ function render_template() {
 		$offset2 = 38;
 	}
 
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		$suppressGroups = false;
 		$function = 'render_suppressgroups_'. get_request_var('view');
 		if (function_exists($function)) {
@@ -885,9 +919,17 @@ function render_template() {
 		}
 
 		// Determine the correct width of the cell
-		$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
-			FROM host AS h
-			WHERE id IN (" . implode(',', $host_ids) . ")");
+		if (get_request_var('view') == 'default') {
+			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+				FROM host AS h
+				WHERE id IN (" . implode(',', $host_ids) . ")");
+
+			if ($maxlen > $maxchars) {
+				$maxlen = $maxchars;
+			}
+		} else {
+			$maxlen = 10;
+		}
 
 		$class = get_request_var('size');
 
@@ -896,11 +938,11 @@ function render_template() {
 
 			if (!$suppressGroups) {
 				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= "</td></tr></table></div></div>\n";
+					$result .= "</ul></td></tr></table>\n";
 				}
 
 				if ($ctemp != $ptemp) {
-					$result .= "<div class='monitor_main $class'><div class='monitor_frame'><table class='odd'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center $class'>\n";
+					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center $class'><ul class='monitor_ul'>\n";
 				}
 			}
 
@@ -912,7 +954,7 @@ function render_template() {
 		}
 
 		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= "</td></tr></table></div></div>\n";
+			$result .= "</ul></td></tr></table>\n";
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
@@ -920,13 +962,14 @@ function render_template() {
 			/* Call the custom render_footer_ function */
 			$result .= $function($hosts);
 		}
-
 	}
 
 	return $result;
 }
 
 function render_tree() {
+	global $maxchars;
+
 	$result = '';
 
 	$leafs = array();
@@ -938,7 +981,7 @@ function render_tree() {
 	}
 
 	if (get_request_var('tree') != -2) {
-		$tree_list = get_allowed_trees(false, false, $sql_where);
+		$tree_list = get_allowed_trees(false, false, $sql_where, 'sequence');
 	} else {
 		$tree_list = array();
 	}
@@ -951,28 +994,59 @@ function render_tree() {
 		$result .= $function($hosts);
 	}
 
-	if (sizeof($tree_list)) {
+	if (cacti_sizeof($tree_list)) {
 		$ptree = '';
 		foreach($tree_list as $tree) {
 			$tree_ids[$tree['id']] = $tree['id'];
 		}
 
+		render_where_join($sql_where, $sql_join);
+
 		$branchWhost = db_fetch_assoc("SELECT DISTINCT gti.graph_tree_id, gti.parent
 			FROM graph_tree_items AS gti
-			WHERE gti.host_id > 0
-			AND gti.parent >= 0
+			INNER JOIN graph_tree AS gt
+			ON gt.id = gti.graph_tree_id
+			INNER JOIN host AS h
+			ON h.id=gti.host_id
+			$sql_join
+			$sql_where
+			AND gti.host_id > 0
 			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ")
-			ORDER BY gti.graph_tree_id, position");
+			ORDER BY gt.sequence, gti.position");
 
-		if (sizeof($branchWhost)) {
-			foreach($branchWhost as $b) {
-				$titles[$b['graph_tree_id'] . ':' . $b['parent']] = ($b['parent'] > 0 ? db_fetch_cell_prepared('SELECT title
-					FROM graph_tree_items
-					WHERE id = ?
-					AND graph_tree_id = ?
-					ORDER BY graph_tree_id',
-					array($b['parent'], $b['graph_tree_id'])) : __('Root Branch', 'monitor'));
+		// Determine the correct width of the cell
+		if (get_request_var('view') == 'default') {
+			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+				FROM host AS h
+				INNER JOIN graph_tree_items AS gti
+				ON gti.host_id = h.id
+				WHERE disabled = ''");
+
+			if ($maxlen > $maxchars) {
+				$maxlen = $maxchars;
 			}
+		} else {
+			$maxlen = 10;
+		}
+
+		if (cacti_sizeof($branchWhost)) {
+			foreach($branchWhost as $b) {
+				if ($ptree != $b['graph_tree_id']) {
+					$titles[$b['graph_tree_id'] . ':0'] = __('Root Branch', 'monitor');
+					$ptree = $b['graph_tree_id'];
+				}
+
+				if ($b['parent'] > 0) {
+					$titles[$b['graph_tree_id'] . ':' . $b['parent']] = db_fetch_cell_prepared('SELECT title
+						FROM graph_tree_items
+						WHERE id = ?
+						AND graph_tree_id = ?
+						ORDER BY position',
+						array($b['parent'], $b['graph_tree_id']));
+				}
+			}
+
+			$ptree = '';
 
 			foreach($titles as $index => $title) {
 				list($graph_tree_id, $parent) = explode(':', $index);
@@ -1001,61 +1075,66 @@ function render_tree() {
 
 				if ($ptree != $tree_name) {
 					if ($ptree != '') {
-						$result .= '</div></td></tr></table></div>';
+						$result .= '</td></tr></table></td></tr></table>';
 					}
-					$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . __('Tree:', 'monitor') . '&nbsp;' . $tree_name . '</th></tr><tr><td><div style="width:100%">';
+
+					$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Tree: %s', $tree_name, 'monitor') . '</th></tr><tr><td><table class="cactiTable"><tr><td>';
+
 					$ptree = $tree_name;
 				}
 
-				if (sizeof($hosts)) {
+				if (cacti_sizeof($hosts)) {
 					foreach($hosts as $host) {
 						$host_ids[] = $host['id'];
 					}
 
 					$class = get_request_var('size');
 
-					// Determine the correct width of the cell
-					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
-						FROM host AS h
-						WHERE id IN (" . implode(',', $host_ids) . ")");
-
-					$result .= '<div class="monitor_tree_frame"><table class="odd"><tr class="tableHeader"><th>' . $title . '</th></tr><tr><td class="center"><div>';
+					$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Branch: %s', $title, 'monitor') . '</th></tr><tr><td class="center"><table class="cactiTable"><tr><td><ul class="monitor_ul">';
 
 					foreach($hosts as $host) {
 						$result .= render_host($host, true, $maxlen);
 					}
 
-					$result .= '</div></td></tr></table></div>';
+					$result .= '</ul></td></tr></table></td></tr></table></div>';
 				}
 			}
 		}
 
-		$result .= '</div></td></tr></table></div>';
+		$result .= '</td></tr></table></td></tr></table></div>';
 	}
 
 	/* begin others - lets get the monitor items that are not associated with any tree */
 	if (get_request_var('tree') < 0) {
 		$hosts = get_host_non_tree_array();
-		if (sizeof($hosts)) {
+		if (cacti_sizeof($hosts)) {
 			foreach($hosts as $host) {
 				$host_ids[] = $host['id'];
 			}
 
 			// Determine the correct width of the cell
-			if (sizeof($host_ids)) {
-				$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
-					FROM host AS h
-					WHERE id IN (" . implode(',', $host_ids) . ")");
+			if (get_request_var('view') == 'default') {
+				if (cacti_sizeof($host_ids)) {
+					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+						FROM host AS h
+						WHERE id IN (" . implode(',', $host_ids) . ")");
+				} else {
+					$maxlen = $maxchars;
+				}
 			} else {
-				$maxlen = 100;
+				$maxlen = 10;
 			}
 
-			$result .= '<div class="monitor_tree_title"><table class="odd"><tr class="tableHeader"><th>' . __('Non-Tree Devices', 'monitor') . '</th></tr><tr><td><div style="width:100%">';
+			if ($maxlen > $maxchars) {
+				$maxlen = $maxchars;
+			}
+
+			$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Non-Tree Devices', 'monitor') . '</th></tr><tr><td><table class="cactiTable"><tr><td><ul class="monitor_ul">';
 			foreach($hosts as $leaf) {
 				$result .= render_host($leaf, true, $maxlen);
 			}
 
-			$result .= '</div></td></tr></table></div>';
+			$result .= '</ul></td></tr></table></td></tr></table></div>';
 		}
 	}
 
@@ -1133,8 +1212,8 @@ function get_host_status_description($status) {
 }
 
 /*Single host  rendering */
-function render_host($host, $float = true, $maxlen = 120) {
-	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes;
+function render_host($host, $float = true, $maxlen = 10) {
+	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes, $maxchars;
 
 	//throw out tree root items
 	if (array_key_exists('name', $host))  {
@@ -1161,9 +1240,7 @@ function render_host($host, $float = true, $maxlen = 120) {
 		}
 	}
 
-	$host['real_status'] = get_host_status($host, true);
-	$host['status'] = get_host_status($host);
-	$host['iclass'] = $iclasses[$host['status']];
+	$host['real_status'] = get_host_status($host, true); $host['status'] = get_host_status($host); $host['iclass'] = $iclasses[$host['status']];
 
 	$dt = '';
 	if ($host['status'] < 2 || $host['status'] == 5) {
@@ -1180,9 +1257,9 @@ function render_host($host, $float = true, $maxlen = 120) {
 		$fclass = get_request_var('size');
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			$result = "<div class='$fclass flash monitor_device_frame' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+			$result = "<li class='$fclass flash monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></li>\n";
 		} else {
-			$result = "<div class='monitor_device_frame $fclass' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<li class='monitor_device_frame $fclass' style='width:" . max(70, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</a></li>\n";
 		}
 	}
 
@@ -1259,7 +1336,7 @@ function ajax_status() {
 		$host['real_status'] = get_host_status($host, true);
 		$host['status'] = get_host_status($host);
 
-		if (sizeof($host)) {
+		if (cacti_sizeof($host)) {
 			if (api_plugin_user_realm_auth('host.php')) {
 				$host_link = htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']);
 			}
@@ -1409,7 +1486,7 @@ function ajax_status() {
 }
 
 function render_header_default($hosts) {
-	return "<div class='center monitor'>\n";
+	return "<table class='cactiTable monitor'><tr><td>\n";
 }
 
 function render_header_tiles($hosts) {
@@ -1436,7 +1513,7 @@ function render_header_list($hosts) {
 	);
 
 	$output  = html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
-	$output .= html_nav_bar('monitor.php', 1, 1, sizeof($hosts), sizeof($hosts), 4, 'Monitor');
+	$output .= html_nav_bar('monitor.php', 1, 1, sizeof($hosts), sizeof($hosts), cacti_sizeof($display_text), __('Devices', 'monitor'));
 	$output .= html_header($display_text, '', '', false);
 
 	return $output;
@@ -1520,7 +1597,7 @@ function render_host_list($host) {
 	return $result;
 }
 
-function render_host_tiles($host) {
+function render_host_tiles($host, $maxlen = 10) {
 	$class  = get_status_icon($host['status']);
 	$fclass = get_request_var('size');
 
@@ -1528,12 +1605,12 @@ function render_host_tiles($host) {
 		return;
 	}
 
-	$result = "<div class='monitor_device_frame $fclass ${fclass}_tiles'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
+	$result = "<li class='monitor_device_frame $fclass ${fclass}_tiles' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></li>";
 
 	return $result;
 }
 
-function render_host_tilesadt($host) {
+function render_host_tilesadt($host, $maxlen = 10) {
 	$dt = '';
 
 	if (!is_device_allowed($host['id'])) {
@@ -1546,7 +1623,7 @@ function render_host_tilesadt($host) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
 
-		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></div>\n";
+		$result = "<li class='monitor_device_frame $fclass ${fclass}_tilesadt' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></li>\n";
 
 		return $result;
 	} else {
@@ -1556,11 +1633,10 @@ function render_host_tilesadt($host) {
 			$dt = __('Never', 'monitor');
 		}
 
-		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></div>\n";
+		$result = "<li class='monitor_device_frame $fclass ${fclass}_tilesadt' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></li>\n";
 
 		return $result;
 	}
-
 }
 
 function get_hosts_down_by_permission() {
@@ -1590,7 +1666,7 @@ function get_hosts_down_by_permission() {
 
 	// do a quick loop through to pull the hosts that are down
 	$hosts = get_allowed_devices($sql_where);
-	if (sizeof($hosts)) {
+	if (cacti_sizeof($hosts)) {
 		foreach($hosts as $host) {
 			$result[] = $host['id'];
 			sort($result);
@@ -1623,7 +1699,7 @@ function get_host_non_tree_array() {
 		AND gti.graph_tree_id IS NULL
 		ORDER BY h.description");
 
-	if (sizeof($heirarchy) > 0) {
+	if (cacti_sizeof($heirarchy) > 0) {
 		$leafs = array();
 		$branchleafs = 0;
 		foreach ($heirarchy as $leaf) {

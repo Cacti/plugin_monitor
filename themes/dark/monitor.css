@@ -20,6 +20,11 @@
 }
 
 .monitorFooterTextBold {
-	color: white;
+	color: snow;
+}
+
+.monitor_legend td {
+	font-weight: 600;
+	font-size: 12px;
 }
 
