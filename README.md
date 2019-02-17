@@ -45,6 +45,8 @@ in GitHub.
 --- 2.3.5 ---
 
 * feature: Support for Cacti 1.2
+* feature: Align Status with Thold Status
+* feature: Implement Cacti Responsive Filter for Mobile
 * issue#48: Reboot notifications did not properly use Monitor sender settings
 * issue#66: Correct missing variable warnings when sending emails
 * issue#71: Only one tile being displayed per row being displayed #71

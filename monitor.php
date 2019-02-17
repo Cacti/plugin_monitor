@@ -75,7 +75,8 @@ $classes = array(
 $monitor_status = array(
 	-1 => __('All Monitored', 'monitor'),
 	0  => __('Not Up', 'monitor'),
-	1  => __('Not Up or Triggered', 'monitor')
+	1  => __('Not Up or Triggered', 'monitor'),
+	2  => __('Not Up, Triggered or Breached', 'monitor')
 );
 
 $monitor_view_type = array(
@@ -135,6 +136,9 @@ function draw_page() {
 
 	draw_filter_and_status();
 
+	html_start_box(__('Devices', 'monitor'), '100%', '', '3', 'center', '');
+	print '<tr><td>';
+
 	// Default with permissions = default_by_permissions
 	// Tree  = group_by_tree
 	$function = 'render_' . get_request_var('grouping');
@@ -143,6 +147,9 @@ function draw_page() {
 	} else {
 		print render_default();
 	}
+
+	print '</td></tr>';
+	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
 		print "<div class='center monitor_legend'><table class='center'><tr>\n";
@@ -232,7 +239,7 @@ function draw_page() {
 			'&status='   + $('#status').val();
 
 		$.get(url, function(data) {
-			$('#text').show().text('Filter Settings Saved').fadeOut(2000);
+			$('#text').show().text('<?php print __(' [ Filter Settings Saved ]', 'monitor');?>').fadeOut(2000);
 		});
 	}
 
@@ -388,17 +395,25 @@ function unmute_user() {
 	set_user_setting('monitor_mute','false');
 }
 
+function get_thold_where() {
+	if (get_request_var('status') == '2') { /* breached */
+		return "(td.thold_enabled = 'on' AND (td.thold_alert != 0 OR td.bl_alert > 0))";
+	} else { /* triggered */
+		return "(td.thold_enabled='on' AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))";
+	}
+}
+
 function check_tholds() {
 	$thold_hosts  = array();
 
 	if (api_plugin_is_enabled('thold')) {
+
 		return array_rekey(
-			db_fetch_assoc('SELECT DISTINCT dl.host_id
+			db_fetch_assoc("SELECT DISTINCT dl.host_id
 				FROM thold_data AS td
 				INNER JOIN data_local AS dl
 				ON td.local_data_id=dl.id
-				WHERE thold_alert > 0
-				AND thold_enabled = "on"'),
+				WHERE " . get_thold_where()),
 			'host_id', 'host_id'
 		);
 	}
@@ -417,7 +432,10 @@ function get_filter_text() {
 		$filter .= __('Monitored Devices either Down or Recovering', 'monitor');
 		break;
 	case '1':
-		$filter .= __('Monitored Devices either Down, Recovering, with Breached Thresholds', 'monitor');
+		$filter .= __('Monitored Devices either Down, Recovering, or with Triggered Thresholds', 'monitor');
+		break;
+	case '2':
+		$filter .= __('Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds', 'monitor');
 		break;
 	default:
 		$filter .= __('Unknown monitoring status (%s)', get_request_var('status'), 'monitor');
@@ -452,76 +470,102 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 	}
 
 	if (sizeof($settings)) {
-		print '<div class="monitorFilterCell"><select id="' . $id . '" title="' . $title . '">' . PHP_EOL;
+		print '<td>' . $title . '</td>';
+		print '<td><select id="' . $id . '" title="' . $title . '">' . PHP_EOL;
+
 		foreach ($settings as $setting_value => $setting_name) {
 			if ($value == null || $value == '') {
 				$value = $setting_value;
 			}
 
 			$setting_selected = ($value == $setting_value) ? ' selected' : '';
+
 			print '<option value="' . $setting_value . '"' . $setting_selected . '>' . $setting_name . '</option>' . PHP_EOL;
 		}
-		print '</select></div>' . PHP_EOL;
+
+		print '</select></td>' . PHP_EOL;
 	} else {
-		print "<input type='hidden' id='$id' value='$value'>" . PHP_EOL;
+		print "<td style='display:none;'><input type='hidden' id='$id' value='$value'></td>" . PHP_EOL;
 	}
 }
 
 function draw_filter_and_status() {
 	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status;
 
-	print '<form class="monitorFilterForm"><div class="monitorFilterTable"><div class="monitorFilterRow">' . PHP_EOL;
-	print '<div class="monitorFilterCell"><div class="monitorFilterTable"><div class="monitorFilterRow">' . PHP_EOL;
+	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
 
-	draw_filter_dropdown('status', __esc('Device Status', 'monitor'), $monitor_status);
-	draw_filter_dropdown('view', __esc('View Type', 'monitor'), $monitor_view_type);
-	draw_filter_dropdown('grouping', __esc('Device Grouping', 'monitor'), $monitor_grouping);
+	html_start_box($header, '100%', '', '3', 'center', '');
 
-	print '</div><div class="monitorFilterRow">';
+	print '<tr><td>' . PHP_EOL;
+	print '<form class="monitorFilterForm">' . PHP_EOL;
 
-	draw_filter_dropdown('crit', __esc('Select Minimum Criticality', 'monitor'), $criticalities);
-	draw_filter_dropdown('size', __esc('Device Icon Size', 'monitor'), $classes);
+	// First line of filter
+	print '<table class="filterTable">' . PHP_EOL;
+	print '<tr>' . PHP_EOL;
+	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status);
+	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
+	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
 
-	$trees = array();
-	if (get_request_var('grouping') == 'tree') {
-		$trees_allowed = array_rekey(get_allowed_trees(), 'id', 'name');
-		if (sizeof($trees_allowed)) {
-			$trees_prefix = array(-1 => __('All Trees', 'monitor'));
-			$trees_suffix = array(-2 => __('Non-Tree Devices', 'monitor'));
+	// Buttons
+	print '<td><span>' . PHP_EOL;
+	print '<input type="button" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
+	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . PHP_EOL;
+	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
+	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
+	print '</span></td>';
+	print '</tr>';
+	print '</table>';
 
-			$trees = $trees_prefix + $trees_allowed + $trees_suffix;
+	// Second line of filter
+	print '<table class="filterTable">' . PHP_EOL;
+	print '<tr>' . PHP_EOL;
+	draw_filter_dropdown('crit', __('Criticality', 'monitor'), $criticalities);
+	draw_filter_dropdown('size', __('Size', 'monitor'), $classes);
+
+	if (get_nfilter_request_var('grouping') == 'tree') {
+		$trees = array();
+		if (get_request_var('grouping') == 'tree') {
+			$trees_allowed = array_rekey(get_allowed_trees(), 'id', 'name');
+			if (sizeof($trees_allowed)) {
+				$trees_prefix = array(-1 => __('All Trees', 'monitor'));
+				$trees_suffix = array(-2 => __('Non-Tree Devices', 'monitor'));
+
+				$trees = $trees_prefix + $trees_allowed + $trees_suffix;
+			}
 		}
-	}
-	draw_filter_dropdown('tree', __esc('Select Tree', 'monitor'), $trees);
 
-	$templates = array();
+		draw_filter_dropdown('tree', __('Tree', 'monitor'), $trees);
+	}
+
 	if (get_request_var('grouping') == 'template') {
+		$templates = array();
 		$templates_allowed = array_rekey(db_fetch_assoc('SELECT id, name FROM host_template'), 'id', 'name');
+
 		if (sizeof($templates_allowed)) {
 			$templates_prefix = array(-1 => __('All Templates', 'monitor'));
 			$templates_suffix = array(-2 => __('Non-Templated Devices', 'monitor'));
 
 			$templates = $templates_prefix + $templates_allowed + $templates_suffix;
 		}
+
+		draw_filter_dropdown('template', __('Template', 'monitor'), $templates);
 	}
-	draw_filter_dropdown('template', __esc('Select Template', 'monitor'), $templates);
 
-	print '</div></div></div>' . PHP_EOL;
-	draw_filter_dropdown('refresh', __esc('Refresh Frequency', 'monitor'), $page_refresh_interval);
-	print '<div class="monitorFilterCell">' . PHP_EOL;
-	print '<div class="monitorFilterTable"><div class="monitorFilerRow">' .PHP_EOL;
-	print '<div class="monitorFilterCell">' . PHP_EOL;
-	print '<input type="button" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
-	print '</div><div class="monitorFilterCell">' . PHP_EOL;
-	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . PHP_EOL;
-	print '</div><div class="monitorFilterCell">' . PHP_EOL;
-	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
-	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
-	print '</div></div><div class="monitorFilterRow"><div class="monitorFilterCell">' . PHP_EOL;
-	print '<div class="monitorFilterText">' . __('Last Refresh: %s', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? '<br/>' . __('Refresh Again in <i id="timer">%d</i> Seconds', get_request_var('refresh'), 'monitor'):'') . '</div>';
+	draw_filter_dropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
 
-	print '</div></div></div></div></div></div></form>' . PHP_EOL;
-	// Display the Current Time
+	if (get_request_var('grouping') != 'tree') {
+		print '<td><input type="hidden" id="tree" value=""></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('grouping') != 'template') {
+		print '<td><input type="hidden" id="template" value=""></td>' . PHP_EOL;
+	}
+
+	print '</tr>';
+	print '</table>';
+	print '</form></td></tr>' . PHP_EOL;
+
+	html_end_box();
 }
 
 function get_mute_text() {
@@ -657,7 +701,7 @@ function validate_request_vars($force = false) {
 
 function render_where_join(&$sql_where, &$sql_join) {
 	if (get_request_var('crit') > 0) {
-		$crit = ' AND h.monitor_criticality>=' . get_request_var('crit');
+		$crit = ' AND h.monitor_criticality >= ' . get_request_var('crit');
 	} else {
 		$crit = '';
 	}
@@ -672,18 +716,20 @@ function render_where_join(&$sql_where, &$sql_join) {
 				OR (h.cur_time >= h.monitor_warn AND monitor_warn > 0)
 				OR (h.cur_time >= h.monitor_alert AND h.monitor_alert > 0)
 			)' . $crit;
-	} elseif (get_request_var('status') == '1') {
+	} elseif (get_request_var('status') == '1' || get_request_var('status') == 2) {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
+
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
 			AND (h.status < 3
-			OR (td.thold_enabled = "on" AND td.thold_alert > 0)
+			OR ' . get_thold_where() . '
 			OR ((h.availability_method > 0 OR h.snmp_version > 0)
 				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
 				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0))
 			))' . $crit;
 	} else {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
+
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
 			AND (h.availability_method > 0 OR h.snmp_version > 0
@@ -1389,7 +1435,7 @@ function render_header_list($hosts) {
 		'notes'       => array('display' => __('Notes', 'monitor'),            'align' => 'left')
 	);
 
-	$output = html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
+	$output  = html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
 	$output .= html_nav_bar('monitor.php', 1, 1, sizeof($hosts), sizeof($hosts), 4, 'Monitor');
 	$output .= html_header($display_text, '', '', false);
 
@@ -1540,7 +1586,7 @@ function get_hosts_down_by_permission() {
 		}
 	}
 
-	$sql_where = "h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method>0 OR h.snmp_version>0)";
+	$sql_where = "h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method > 0 OR h.snmp_version > 0)";
 
 	// do a quick loop through to pull the hosts that are down
 	$hosts = get_allowed_devices($sql_where);

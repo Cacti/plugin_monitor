@@ -17,7 +17,6 @@
 .monitorFooter {
 	display: table;
 	width: 100%;
-	border-top: 1px solid;
 	margin-top: 15px;
 	padding-top: 5px;
 }
@@ -164,7 +163,6 @@
 
 .monitorFilterForm {
 	padding-bottom: 2px;
-	border-bottom: 1px solid;
 	width: 100%;
 }
 
