@@ -1413,7 +1413,7 @@ function ajax_status() {
 
 			print "<table class='monitorHover'>
 				<tr class='tableHeader'>
-					<th class='left' colspan='2'>Device Status Information</th>
+					<th class='left' colspan='2'>" . __('Device Status Information', 'monitor') . "</th>
 				</tr>
 				<tr>
 					<td>" . __('Device:', 'monitor') . "</td>

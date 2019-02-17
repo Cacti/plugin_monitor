@@ -122,6 +122,7 @@
 
 .monitorHover {
 	font-size: 10px;
+	max-width: 300px;
 }
 
 .monitorHover td:first-child {
