@@ -1,8 +1,7 @@
 <?php
-
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2004-2017 The Cacti Group                                 |
+ | Copyright (C) 2008-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -16,31 +15,27 @@
  +-------------------------------------------------------------------------+
  | Cacti: The Complete RRDTool-based Graphing Solution                     |
  +-------------------------------------------------------------------------+
+ | This code is designed, written, and maintained by the Cacti Group. See  |
+ | about.php and/or the AUTHORS file for specific developer information.   |
+ +-------------------------------------------------------------------------+
+ | http://www.cacti.net/                                                   |
+ +-------------------------------------------------------------------------+
 */
 
-/* we are not talking to the browser */
-$no_http_headers = true;
+$dir = dirname(__FILE__);
+chdir($dir);
 
-/* do NOT run this script through a web browser */
-if (!isset ($_SERVER['argv'][0]) || isset ($_SERVER['REQUEST_METHOD']) || isset ($_SERVER['REMOTE_ADDR'])) {
-	die('<br><strong>This script is only meant to run at the command line.</strong>');
-}
+include('../../include/cli_check.php');
+include_once($config['base_path'] . '/lib/reports.php');
 
 /* let PHP run just as long as it has to */
 ini_set('max_execution_time', '0');
 
 error_reporting(E_ALL);
-$dir = dirname(__FILE__);
-chdir($dir);
 
 /* record the start time */
 $poller_start = microtime(true);
 $start_date   = date('Y-m-d H:i:s');
-
-include('../../include/global.php');
-include_once($config['base_path'] . '/lib/reports.php');
-
-define('BR', "\n");
 
 global $config, $database_default, $purged_r, $purged_n;
 
@@ -173,7 +168,7 @@ function monitor_uptime_checker() {
 	$alert_emails  = explode(',', read_config_option('alert_email'));
 
 	// Remove unneeded device records in associated tables
-	$removed_hosts = db_fetch_assoc('SELECT mu.id
+	$removed_hosts = db_fetch_assoc('SELECT mu.host_id
 		FROM plugin_monitor_uptime AS mu
 		LEFT JOIN host AS h
 		ON h.id=mu.host_id
@@ -181,14 +176,14 @@ function monitor_uptime_checker() {
 
 	if (sizeof($removed_hosts)) {
 		db_execute('DELETE FROM plugin_monitor_uptime
-			WHERE id IN (SELECT mu.id
+			WHERE id IN (SELECT mu.host_id
 			FROM plugin_monitor_uptime AS mu
 			LEFT JOIN host AS h
 			ON h.id=mu.host_id
 			WHERE h.id IS NULL)');
 	}
 
-	$removed_hosts = db_fetch_assoc('SELECT mu.id
+	$removed_hosts = db_fetch_assoc('SELECT mu.host_id
 		FROM plugin_monitor_reboot_history AS mu
 		LEFT JOIN host AS h
 		ON h.id=mu.host_id
@@ -196,7 +191,7 @@ function monitor_uptime_checker() {
 
 	if (sizeof($removed_hosts)) {
 		db_execute('DELETE FROM plugin_monitor_reboot_history
-			WHERE id IN (SELECT mu.id
+			WHERE id IN (SELECT mu.host_id
 			FROM plugin_monitor_reboot_history AS mu
 			LEFT JOIN host AS h
 			ON h.id=mu.host_id
@@ -285,10 +280,10 @@ function monitor_uptime_checker() {
 function process_reboot_email($email, $hosts) {
 	monitor_debug("Reboot Processing for $email starting");
 
-	$details = '<table class="report_table">' . BR;
-	$details .= '<tr class="header_row">' . BR;
-	$details .= '<th class="left">' . __('Description', 'monitor') . '</th><th class="left">' . __('Hostname', 'monitor') . '</th>' . BR;
-	$details .= '</tr>' . BR;
+	$details = '<table class="report_table">' . PHP_EOL;
+	$details .= '<tr class="header_row">' . PHP_EOL;
+	$details .= '<th class="left">' . __('Description', 'monitor') . '</th><th class="left">' . __('Hostname', 'monitor') . '</th>' . PHP_EOL;
+	$details .= '</tr>' . PHP_EOL;
 
 	foreach($hosts as $host) {
 		$host = db_fetch_row_prepared('SELECT description, hostname
@@ -297,11 +292,11 @@ function process_reboot_email($email, $hosts) {
 			array($host));
 
 		if (sizeof($host)) {
-			$details .= '<tr><td class="left">' . $host['description'] . '</td><td class="left">' . $host['hostname'] . '</td></tr>' . BR;
+			$details .= '<tr><td class="left">' . $host['description'] . '</td><td class="left">' . $host['hostname'] . '</td></tr>' . PHP_EOL;
 		}
 	}
 
-	$details .= '</table>' . BR;
+	$details .= '</table>' . PHP_EOL;
 
 	$email_subject = read_config_option('monitor_subject');
 	$email_body    = read_config_option('monitor_body');
@@ -394,61 +389,61 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$freq    = read_config_option('monitor_resend_frequency');
 		$subject = __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor');
 
-		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor') . '</h1>' . BR;
+		$body  = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor') . '</h1>' . PHP_EOL;
 
 		$body .= '<p>' . __('The following report will identify Devices that have eclipsed their ping
 			latency thresholds.  You are receiving this report since you are subscribed to a Device
-			associated with the Cacti system located at the following URL below.') . '</p>' . BR;
+			associated with the Cacti system located at the following URL below.') . '</p>' . PHP_EOL;
 
-		$body .= '<h2><a href="' . read_config_option('base_url') . '">Cacti Monitoring Site</a></h2>' . BR;
+		$body .= '<h2><a href="' . read_config_option('base_url') . '">Cacti Monitoring Site</a></h2>' . PHP_EOL;
 
 		if ($freq > 0) {
-			$body .= '<p>' . __('You will receive notifications every %d minutes if the Device is above its threshold.', $freq, 'monitor') . '</p>' . BR;
+			$body .= '<p>' . __('You will receive notifications every %d minutes if the Device is above its threshold.', $freq, 'monitor') . '</p>' . PHP_EOL;
 		}else{
-			$body .= '<p>' . __('You will receive notifications every time the Device is above its threshold.', 'monitor') . '</p>' . BR;
+			$body .= '<p>' . __('You will receive notifications every time the Device is above its threshold.', 'monitor') . '</p>' . PHP_EOL;
 		}
 
 		if (sizeof($alert_hosts)) {
-			$body .= '<p>' . __('The following Devices have breached their Alert Notification Threshold.', 'monitor') . '</p>' . BR;
-			$body .= '<table class="report_table">' . BR;
-			$body .= '<tr class="header_row">' . BR;
-			$body .= '<th class="left">' . __('Hostname', 'monitor') . '</th><th class="left">' . __('Criticality', 'monitor') . '</th><th class="right">' . __('Alert Ping', 'monitor') . '</th><th class="right">' . __('Current Ping', 'monitor') . '</th>' . BR;
-			$body .= '</tr>' . BR;
+			$body .= '<p>' . __('The following Devices have breached their Alert Notification Threshold.', 'monitor') . '</p>' . PHP_EOL;
+			$body .= '<table class="report_table">' . PHP_EOL;
+			$body .= '<tr class="header_row">' . PHP_EOL;
+			$body .= '<th class="left">' . __('Hostname', 'monitor') . '</th><th class="left">' . __('Criticality', 'monitor') . '</th><th class="right">' . __('Alert Ping', 'monitor') . '</th><th class="right">' . __('Current Ping', 'monitor') . '</th>' . PHP_EOL;
+			$body .= '</tr>' . PHP_EOL;
 
 			$hosts = db_fetch_assoc('SELECT * FROM host WHERE id IN(' . implode(',', $alert_hosts) . ')');
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
-					$body .= '<tr>' . BR;
-					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . BR;
-					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . BR;
-					$body .= '<td class="right">' . round($host['monitor_alert'],2)  . ' ms</td>' . BR;
-					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . BR;
-					$body .= '</tr>' . BR;
+					$body .= '<tr>' . PHP_EOL;
+					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . PHP_EOL;
+					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . PHP_EOL;
+					$body .= '<td class="right">' . round($host['monitor_alert'],2)  . ' ms</td>' . PHP_EOL;
+					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . PHP_EOL;
+					$body .= '</tr>' . PHP_EOL;
 				}
 			}
-			$body .= '</table>' . BR;
+			$body .= '</table>' . PHP_EOL;
 		}
 
 		if (sizeof($warn_hosts)) {
-			$body .= '<p>' . __('The following Devices have breached their Warning Notification Threshold.', 'monitor') . '</p>' . BR;
+			$body .= '<p>' . __('The following Devices have breached their Warning Notification Threshold.', 'monitor') . '</p>' . PHP_EOL;
 
-			$body .= '<table class="report_table">' . BR;
-			$body .= '<tr class="header_row">' . BR;
-			$body .= '<th class="left">' . __('Hostname', 'monitor') . '</th><th class="left">' . __('Criticality', 'monitor') . '</th><th class="right">' . __('Alert Ping', 'monitor') . '</th><th class="right">' . __('Current Ping', 'monitor') . '</th>' . BR;
-			$body .= '</tr>' . BR;
+			$body .= '<table class="report_table">' . PHP_EOL;
+			$body .= '<tr class="header_row">' . PHP_EOL;
+			$body .= '<th class="left">' . __('Hostname', 'monitor') . '</th><th class="left">' . __('Criticality', 'monitor') . '</th><th class="right">' . __('Alert Ping', 'monitor') . '</th><th class="right">' . __('Current Ping', 'monitor') . '</th>' . PHP_EOL;
+			$body .= '</tr>' . PHP_EOL;
 
 			$hosts = db_fetch_assoc('SELECT * FROM host WHERE id IN(' . implode(',', $warn_hosts) . ')');
 			if (sizeof($hosts)) {
 				foreach($hosts as $host) {
-					$body .= '<tr>' . BR;
-					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . BR;
-					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . BR;
-					$body .= '<td class="right">' . round($host['monitor_warn'],2)  . ' ms</td>' . BR;
-					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . BR;
-					$body .= '</tr>' . BR;
+					$body .= '<tr>' . PHP_EOL;
+					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . PHP_EOL;
+					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>' . PHP_EOL;
+					$body .= '<td class="right">' . round($host['monitor_warn'],2)  . ' ms</td>' . PHP_EOL;
+					$body .= '<td class="right">' . round($host['cur_time'],2)  . ' ms</td>' . PHP_EOL;
+					$body .= '</tr>' . PHP_EOL;
 				}
 			}
-			$body .= '</table>' . BR;
+			$body .= '</table>' . PHP_EOL;
 		}
 
 		$output     = '';

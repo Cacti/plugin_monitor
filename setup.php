@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2008-2017 The Cacti Group                                 |
+ | Copyright (C) 2008-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -22,7 +22,7 @@
  +-------------------------------------------------------------------------+
 */
 
-function plugin_monitor_install () {
+function plugin_monitor_install() {
 	/* core plugin functionality */
 	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitor_show_tab', 'setup.php');
 	api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitor_show_tab', 'setup.php');
@@ -142,7 +142,7 @@ function plugin_monitor_page_head() {
 function plugin_monitor_check_config() {
 	global $config;
 	// Here we will check to ensure everything is configured
-	monitor_check_upgrade ();
+	monitor_check_upgrade();
 
 	include_once($config['library_path'] . '/database.php');
 	$r = read_config_option('monitor_refresh');
@@ -169,7 +169,7 @@ function plugin_monitor_check_config() {
 
 function plugin_monitor_upgrade() {
 	// Here we will upgrade to the newest version
-	monitor_check_upgrade ();
+	monitor_check_upgrade();
 	return false;
 }
 
@@ -598,7 +598,7 @@ function monitor_top_graph_refresh($refresh) {
 function monitor_show_tab() {
 	global $config;
 
-	monitor_check_upgrade ();
+	monitor_check_upgrade();
 
 	if (api_user_realm_auth('monitor.php')) {
 		if (substr_count($_SERVER['REQUEST_URI'], 'monitor.php')) {

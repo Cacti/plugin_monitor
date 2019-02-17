@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2008-2017 The Cacti Group                                 |
+ | Copyright (C) 2008-2019 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -104,17 +104,21 @@ $thold_hosts = check_tholds();
 switch(get_nfilter_request_var('action')) {
 	case 'ajax_status':
 		ajax_status();
+
 		break;
 	case 'ajax_mute_all':
 		mute_all_hosts();
 		draw_page();
+
 		break;
 	case 'ajax_unmute_all':
 		unmute_all_hosts();
 		draw_page();
+
 		break;
 	case 'save':
 		save_settings();
+
 		break;
 	default:
 		draw_page();
@@ -142,9 +146,11 @@ function draw_page() {
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
 		print "<div class='center monitor_legend'><table class='center'><tr>\n";
+
 		foreach($iclasses as $index => $class) {
 			print "<td class='center $class" . "Bg' style='width:11%;'>" . $icolorsdisplay[$index] . "</td>\n";
 		}
+
 		print "</tr></table></div>\n";
 	}
 
@@ -331,10 +337,15 @@ function get_monitor_sound() {
 
 function find_down_hosts() {
 	$dhosts = get_hosts_down_by_permission();
+
 	if (sizeof($dhosts)) {
 		set_request_var('downhosts', 'true');
+
 		if (isset($_SESSION['muted_hosts'])) {
+			unmute_up_hosts($dhosts);
+
 			$unmuted_hosts = array_diff($dhosts, $_SESSION['muted_hosts']);
+
 			if (sizeof($unmuted_hosts)) {
 				unmute_user();
 			}
@@ -344,6 +355,16 @@ function find_down_hosts() {
 	} else {
 		unmute_all_hosts();
 		set_request_var('downhosts', 'false');
+	}
+}
+
+function unmute_up_hosts($dhosts) {
+	if (isset($_SESSION['muted_hosts'])) {
+		foreach($_SESSION['muted_hosts'] AS $index => $host_id) {
+			if (array_search($host_id, $dhosts) === false) {
+				unset($_SESSION['muted_hosts'][$index]);
+			}
+		}
 	}
 }
 
@@ -457,6 +478,7 @@ function draw_filter_and_status() {
 	draw_filter_dropdown('grouping', __esc('Device Grouping', 'monitor'), $monitor_grouping);
 
 	print '</div><div class="monitorFilterRow">';
+
 	draw_filter_dropdown('crit', __esc('Select Minimum Criticality', 'monitor'), $criticalities);
 	draw_filter_dropdown('size', __esc('Device Icon Size', 'monitor'), $classes);
 
@@ -645,20 +667,18 @@ function render_where_join(&$sql_where, &$sql_join) {
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
 			AND h.status < 3
-			AND (h.availability_method>0
-				OR h.snmp_version>0
-				OR (h.cur_time >= h.monitor_warn
-					AND monitor_warn > 0)
-				OR (h.cur_time >= h.monitor_alert
-					AND h.monitor_alert > 0)
+			AND (h.availability_method > 0
+				OR h.snmp_version > 0
+				OR (h.cur_time >= h.monitor_warn AND monitor_warn > 0)
+				OR (h.cur_time >= h.monitor_alert AND h.monitor_alert > 0)
 			)' . $crit;
 	} elseif (get_request_var('status') == '1') {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
 			AND (h.status < 3
-			OR (td.thold_enabled="on" AND td.thold_alert>0)
-			OR ((h.availability_method>0 OR h.snmp_version>0)
+			OR (td.thold_enabled = "on" AND td.thold_alert > 0)
+			OR ((h.availability_method > 0 OR h.snmp_version > 0)
 				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
 				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0))
 			))' . $crit;
@@ -666,8 +686,8 @@ function render_where_join(&$sql_where, &$sql_join) {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
-			AND (h.availability_method>0 OR h.snmp_version>0
-				OR (td.thold_enabled="on" AND td.thold_alert>0)
+			AND (h.availability_method > 0 OR h.snmp_version > 0
+				OR (td.thold_enabled="on" AND td.thold_alert > 0)
 			)' . $crit;
 	}
 }
@@ -1035,11 +1055,11 @@ function render_branch($leafs, $title = '') {
 	}
 }
 
-function get_host_status($host,$real=false) {
+function get_host_status($host, $real = false) {
 	global $thold_hosts, $iclasses;
 
 	/* If the host has been muted, show the muted Icon */
-	if (array_key_exists($host['id'], $thold_hosts)) {
+	if ($host['status'] != 1 && array_key_exists($host['id'], $thold_hosts)) {
 		$host['status'] = 4;
 	} elseif (in_array($host['id'], $_SESSION['muted_hosts']) && $host['status'] == 1) {
 		$host['status'] = 5;
@@ -1087,6 +1107,7 @@ function render_host($host, $float = true, $maxlen = 120) {
 
 	if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
 		$host['status'] = 4;
+
 		if (file_exists($config['base_path'] . '/plugins/thold/thold_graph.php')) {
 			$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php';
 		} else {
@@ -1094,7 +1115,7 @@ function render_host($host, $float = true, $maxlen = 120) {
 		}
 	}
 
-	$host['real_status'] = get_host_status($host,true);
+	$host['real_status'] = get_host_status($host, true);
 	$host['status'] = get_host_status($host);
 	$host['iclass'] = $iclasses[$host['status']];
 
@@ -1113,9 +1134,9 @@ function render_host($host, $float = true, $maxlen = 120) {
 		$fclass = get_request_var('size');
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			$result = "<div class='$fclass flash monitor_device_frame' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $iclass " . $host['iclass'] . "'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
+			$result = "<div class='$fclass flash monitor_device_frame' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . trim($host['description']) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></div>\n";
 		} else {
-			$result = "<div class='monitor_device_frame $fclass' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='fa $iclass " . $host['iclass'] . "'></i><br>" . trim($host['description']) . "</a></div>\n";
+			$result = "<div class='monitor_device_frame $fclass' style='width:" . max(120, $maxlen*7) . 'px;' . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . trim($host['description']) . "</a></div>\n";
 		}
 	}
 
@@ -1124,9 +1145,9 @@ function render_host($host, $float = true, $maxlen = 120) {
 
 function get_status_icon($status) {
 	if ($status == 1 && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
-		return 'fa-first-order fa-spin';
+		return 'fab fa-first-order fa-spin';
 	} else {
-		return 'fa-server';
+		return 'fa fa-server';
 	}
 }
 
@@ -1164,9 +1185,13 @@ function ajax_status() {
 	if (isset_request_var('id') && get_filter_request_var('id')) {
 		$id = get_request_var('id');
 
-		$host = db_fetch_row_prepared('SELECT * FROM host WHERE id = ?', array($id));
-		if (empty($host)) {
-			cacti_log('Attempted to retrieve status for missing host id ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
+		$host = db_fetch_row_prepared('SELECT *
+			FROM host
+			WHERE id = ?',
+			array($id));
+
+		if (!cacti_sizeof($host)) {
+			cacti_log('Attempted to retrieve status for missing Device ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
 			return false;
 		}
 
@@ -1185,7 +1210,7 @@ function ajax_status() {
 			$host['status'] = 6;
 		}
 
-		$host['real_status'] = get_host_status($host,true);
+		$host['real_status'] = get_host_status($host, true);
 		$host['status'] = get_host_status($host);
 
 		if (sizeof($host)) {
@@ -1194,7 +1219,11 @@ function ajax_status() {
 			}
 
 			// Get the number of graphs
-			$graphs   = db_fetch_cell_prepared('SELECT count(*) FROM graph_local WHERE host_id = ?', array($host['id']));
+			$graphs = db_fetch_cell_prepared('SELECT COUNT(*)
+				FROM graph_local
+				WHERE host_id = ?',
+				array($host['id']));
+
 			if ($graphs > 0) {
 				$graph_link = htmlspecialchars($config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id']);
 			}
@@ -1215,6 +1244,7 @@ function ajax_status() {
 			if (api_plugin_is_enabled('syslog') && api_plugin_user_realm_auth('syslog.php')) {
 				include($config['base_path'] . '/plugins/syslog/config.php');
 				include_once($config['base_path'] . '/plugins/syslog/functions.php');
+
 				$syslog_logs = syslog_db_fetch_cell_prepared('SELECT count(*)
 					FROM syslog_logs
 					WHERE host = ?',
@@ -1257,6 +1287,7 @@ function ajax_status() {
 
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = get_host_status_description($host['real_status']);
+
 			print "<table class='monitorHover'>
 				<tr class='tableHeader'>
 					<th class='left' colspan='2'>Device Status Information</th>
@@ -1451,7 +1482,7 @@ function render_host_tiles($host) {
 		return;
 	}
 
-	$result = "<div class='monitor_device_frame $fclass ${fclass}_tiles'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "'></i></a></div>";
+	$result = "<div class='monitor_device_frame $fclass ${fclass}_tiles'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
 
 	return $result;
 }
@@ -1469,7 +1500,7 @@ function render_host_tilesadt($host) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
 
-		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></div>\n";
 
 		return $result;
 	} else {
@@ -1479,7 +1510,7 @@ function render_host_tilesadt($host) {
 			$dt = __('Never', 'monitor');
 		}
 
-		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='fa $class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></div>\n";
+		$result = "<div class='monitor_device_frame $fclass ${fclass}_tilesadt'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></div>\n";
 
 		return $result;
 	}
