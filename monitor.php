@@ -51,6 +51,7 @@ $iclasses = array(
 	6 => 'deviceUnmonitored',
 	7 => 'deviceWarning',
 	8 => 'deviceAlert',
+	9 => 'deviceThresholdMuted',
 );
 
 $icolorsdisplay = array(
@@ -59,6 +60,7 @@ $icolorsdisplay = array(
 	2 => __('Recovering', 'monitor'),
 	3 => __('Up', 'monitor'),
 	4 => __('Triggered', 'monitor'),
+	9 => __('Triggered (Muted/Acked)', 'monitor'),
 	5 => __('Down (Muted/Acked)', 'monitor'),
 	6 => __('No Availability Check', 'monitor'),
 	7 => __('Warning Ping', 'monitor'),
@@ -96,8 +98,8 @@ global $thold_hosts, $maxchars;
 
 $maxchars = 12;
 
-if (!isset($_SESSION['muted_hosts'])) {
-	$_SESSION['muted_hosts'] = array();
+if (!isset($_SESSION['monitor_muted_hosts'])) {
+	$_SESSION['monitor_muted_hosts'] = array();
 }
 
 validate_request_vars(true);
@@ -140,7 +142,7 @@ function draw_page() {
 
 	print '<tr><td>';
 
-	// Default with permissions = default_by_permissions
+	// Default with permissions = default_by_permission
 	// Tree  = group_by_tree
 	$function = 'render_' . get_request_var('grouping');
 	if (function_exists($function) && get_request_var('view') != 'list') {
@@ -159,13 +161,13 @@ function draw_page() {
 	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
-		print "<div class='center monitor_legend'><table class='center'><tr>\n";
+		print "<div class='center monitor_legend'><table class='cactiTable'><tr><td><ul class='monitor_ul'>\n";
 
 		foreach($iclasses as $index => $class) {
-			print "<td class='center $class" . "Bg' style='width:11%;'>" . $icolorsdisplay[$index] . "</td>\n";
+			print "<li class='monitor_legend_cell center $class" . "Bg' style='width:10%;'>" . $icolorsdisplay[$index] . "</li>\n";
 		}
 
-		print "</tr></table></div>\n";
+		print "</td></tr></table></div>\n";
 	}
 
 	// If the host is down, we need to insert the embedded wav file
@@ -350,15 +352,15 @@ function get_monitor_sound() {
 }
 
 function find_down_hosts() {
-	$dhosts = get_hosts_down_by_permission();
+	$dhosts = get_hosts_down_or_triggered_by_permission();
 
 	if (cacti_sizeof($dhosts)) {
 		set_request_var('downhosts', 'true');
 
-		if (isset($_SESSION['muted_hosts'])) {
-			unmute_up_hosts($dhosts);
+		if (isset($_SESSION['monitor_muted_hosts'])) {
+			unmute_up_non_triggered_hosts($dhosts);
 
-			$unmuted_hosts = array_diff($dhosts, $_SESSION['muted_hosts']);
+			$unmuted_hosts = array_diff($dhosts, $_SESSION['monitor_muted_hosts']);
 
 			if (cacti_sizeof($unmuted_hosts)) {
 				unmute_user();
@@ -372,23 +374,23 @@ function find_down_hosts() {
 	}
 }
 
-function unmute_up_hosts($dhosts) {
-	if (isset($_SESSION['muted_hosts'])) {
-		foreach($_SESSION['muted_hosts'] AS $index => $host_id) {
+function unmute_up_non_triggered_hosts($dhosts) {
+	if (isset($_SESSION['monitor_muted_hosts'])) {
+		foreach($_SESSION['monitor_muted_hosts'] AS $index => $host_id) {
 			if (array_search($host_id, $dhosts) === false) {
-				unset($_SESSION['muted_hosts'][$index]);
+				unset($_SESSION['monitor_muted_hosts'][$index]);
 			}
 		}
 	}
 }
 
 function mute_all_hosts() {
-	$_SESSION['muted_hosts'] = get_hosts_down_by_permission();
+	$_SESSION['monitor_muted_hosts'] = get_hosts_down_or_triggered_by_permission();
 	mute_user();
 }
 
 function unmute_all_hosts() {
-	$_SESSION['muted_hosts'] = array();
+	$_SESSION['monitor_muted_hosts'] = array();
 	unmute_user();
 }
 
@@ -1184,10 +1186,14 @@ function get_host_status($host, $real = false) {
 	global $thold_hosts, $iclasses;
 
 	/* If the host has been muted, show the muted Icon */
-	if ($host['status'] != 1 && array_key_exists($host['id'], $thold_hosts)) {
+	if ($host['status'] != 1 && in_array($host['id'], $thold_hosts)) {
 		$host['status'] = 4;
-	} elseif (in_array($host['id'], $_SESSION['muted_hosts']) && $host['status'] == 1) {
+	}
+
+	if (in_array($host['id'], $_SESSION['monitor_muted_hosts']) && $host['status'] == 1) {
 		$host['status'] = 5;
+	} elseif (in_array($host['id'], $_SESSION['monitor_muted_hosts']) && $host['status'] == 4) {
+		$host['status'] = 9;
 	} elseif ($host['status'] == 3) {
 		if ($host['cur_time'] > $host['monitor_alert'] && !empty($host['monitor_alert'])) {
 			$host['status'] = 8;
@@ -1267,7 +1273,7 @@ function render_host($host, $float = true, $maxlen = 10) {
 }
 
 function get_status_icon($status) {
-	if ($status == 1 && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
+	if (($status == 1 || ($status == 4 && get_request_var('status') > 0)) && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
 		return 'fab fa-first-order fa-spin';
 	} else {
 		return 'fa fa-server';
@@ -1639,13 +1645,13 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	}
 }
 
-function get_hosts_down_by_permission() {
+function get_hosts_down_or_triggered_by_permission() {
 	global $render_style;
 
 	$result = array();
 
 	if (get_request_var('crit') > 0) {
-		$sql_add_where = ' AND monitor_criticality >= ' . get_request_var('crit');
+		$sql_add_where = 'monitor_criticality >= ' . get_request_var('crit');
 	} else {
 		$sql_add_where = '';
 	}
@@ -1658,11 +1664,33 @@ function get_hosts_down_by_permission() {
 				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
-			$sql_add_where .= ' AND h.id IN(' . $devices . ')';
+			$sql_add_where .= ($sql_add_where != '' ? ' OR ':'') . '(h.id IN(' . $devices . ') AND h.status < 2)';
 		}
 	}
 
-	$sql_where = "h.monitor='on' $sql_add_where AND h.disabled='' AND h.status < 2 AND (h.availability_method > 0 OR h.snmp_version > 0)";
+	if (get_request_var('status') > 0) {
+		$triggered = db_fetch_cell('SELECT GROUP_CONCAT(DISTINCT host_id) AS hosts
+			FROM host AS h
+			INNER JOIN thold_data AS td
+			ON td.host_id = h.id
+			WHERE ' . get_thold_where());
+
+		if ($triggered != '') {
+			$sql_add_where .= ($sql_add_where != '' ? ' OR ':'') . '(h.id IN(' . $triggered . ') AND h.status > 1)';
+
+			$_SESSION['monitor_triggered'] = array_rekey(
+				db_fetch_assoc('SELECT td.host_id, COUNT(DISTINCT td.id) AS triggered
+					FROM thold_data AS td
+					INNER JOIN host AS h
+					ON td.host_id = h.id
+					WHERE ' . get_thold_where() . '
+					GROUP BY td.host_id'),
+				'host_id', 'triggered'
+			);
+		}
+	}
+
+	$sql_where = "h.monitor = 'on' AND h.disabled = '' AND ((h.status < 2 AND (h.availability_method > 0 OR h.snmp_version > 0)) " . ($sql_add_where != '' ? ' OR (' . $sql_add_where . '))':')');
 
 	// do a quick loop through to pull the hosts that are down
 	$hosts = get_allowed_devices($sql_where);
@@ -1672,6 +1700,7 @@ function get_hosts_down_by_permission() {
 			sort($result);
 		}
 	}
+
 	return $result;
 }
 
@@ -1686,8 +1715,6 @@ function get_host_non_tree_array() {
 	$sql_join  = '';
 
 	render_where_join($sql_where, $sql_join);
-
-	//$sql_where .= " AND ((host.disabled = '' AND host.monitor = 'on' AND (host.availability_method>0 OR host.snmp_version>0)) OR (title != ''))";
 
 	$heirarchy = db_fetch_assoc("SELECT DISTINCT
 		h.*, gti.title, gti.host_id, gti.host_grouping_type, gti.graph_tree_id

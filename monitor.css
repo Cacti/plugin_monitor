@@ -76,10 +76,18 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	display: table;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
+}
+
+.monitor_legend_cell {
+	text-align: center;
+	display: table-cell;
+	white-space: nowrap;
+	float: left;
+	padding: 0px;
+	margin: 0px;
 }
 
 .monitor_legend table {
@@ -175,5 +183,14 @@
 
 .cactiPageBottom {
 	z-index: -1;
+}
+
+.deviceThesholdMuted {
+	color: #F0E68C !important;
+}
+
+.deviceThresholdMutedBg {
+	background-color: #F0E68C !important;
+	color: #161616;
 }
 
