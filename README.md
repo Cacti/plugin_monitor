@@ -48,6 +48,7 @@ in GitHub.
 * feature: Align Status with Thold Status
 * feature: Implement Cacti Responsive Filter for Mobile
 * feature: Allow Alert sounds on Threshold Breach or Triggers
+* feature: Support text based email generation
 * issue#48: Reboot notifications did not properly use Monitor sender settings
 * issue#66: Correct missing variable warnings when sending emails
 * issue#71: Only one tile being displayed per row being displayed #71

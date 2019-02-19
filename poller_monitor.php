@@ -113,7 +113,6 @@ if ($warning_criticality > 0 || $alert_criticality > 0) {
 	if (strlen(read_config_option('alert_email')) == 0) {
 		monitor_debug('WARNING: No Global List Defined.  Please set under Settings -> Thresholds');
 		cacti_log('WARNING: No Global Notification List defined.  Please set under Settings -> Thresholds', false, 'MONITOR');
-
 	}
 
 	if (sizeof($global_list) || sizeof($notify_list)) {
@@ -474,6 +473,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$status = (sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notifications' : '') .
 			(sizeof($warn_hosts) ? (sizeof($alert_hosts) ? ', and ' : '') .
 				sizeof($warn_hosts) . ' Warning Notifications' : '');
+
 		process_send_email($email, $subject, $output, $headers, $status);
 	}
 }
@@ -505,9 +505,10 @@ function process_send_email($email, $subject, $output, $headers, $status) {
 		'',
 		$subject,
 		$output,
-		'Cacti Monitor Plugin requires an html based Email client',
+		monitor_text($output),
 		'',
-		$headers
+		$headers,
+		(read_config_option('thold_send_text_only') == 'on' ? false : true)
 	);
 
 	monitor_debug("The return from the mailer was '$error'");
@@ -517,6 +518,23 @@ function process_send_email($email, $subject, $output, $headers, $status) {
 	} else {
 		cacti_log("NOTICE: Email Notification Sent to '$email' for $status.", false, 'MONITOR');
 	}
+}
+
+function monitor_text($output) {
+	$output = explode(PHP_EOL, $output);
+
+	$new_output = '';
+
+	if (sizeof($output)) {
+		foreach($output as $line) {
+			$line = trim(strip_tags($line));
+			if ($line != '') {
+				$new_output .= $line . PHP_EOL;
+			}
+		}
+	}
+
+	return $new_output;
 }
 
 function log_messages($type, $alert_hosts) {
