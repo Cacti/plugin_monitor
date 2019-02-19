@@ -17,8 +17,6 @@
 .monitorFooter {
 	display: table;
 	width: 100%;
-	margin-top: 15px;
-	padding-top: 5px;
 }
 
 .monitorFooterText {
@@ -63,8 +61,6 @@
 	text-align: center;
 	display: table-cell;
 	float: left;
-	padding: 3px;
-	margin: 2px;
 }
 
 .monitor_device_frame a {
@@ -96,31 +92,77 @@
 }
 
 .monitor_exsmall {
-	height: 25px;
+	height: 55px;
+	width: 35px;
 }
 
 .monitor_exsmall_tiles {
 	height: 20px;
+	min-width: 20px;
 }
 
 .monitor_exsmall_tilesadt {
-	height: 25px;
-	width: 70px;
+	height: 35px;
 }
 
-.monitor_exsmall i {
+.monitor_exsmall i, .monitor_exsmall_tiles i, .monitor_exsmall_tilesadt i {
 	font-size: 10px;
 }
 
-.monitor_small i {
+.monitor_small {
+	height: 58px;
+	min-width: 28px;
+}
+
+.monitor_small_tiles {
+	height: 28px;
+	min-width: 28px;
+}
+
+.monitor_small_tilesadt {
+	height: 45px;
+	min-width: 28px;
+}
+
+.monitor_small i, .monitor_small_tiles i, .monitor_small_tilesadt i {
 	font-size: 20px;
 }
 
-.monitor_medium i {
+.monitor_medium {
+	height: 78px;
+	min-width: 48px;
+}
+
+.monitor_medium_tiles {
+	height: 48px;
+	min-width: 48px;
+}
+
+.monitor_medium_tilesadt {
+	height: 65px;
+	min-width: 48px;
+}
+
+.monitor_medium i, .monitor_medium_tiles i, .monitor_medium_tilesadt i {
 	font-size: 40px;
 }
 
-.monitor_large i {
+.monitor_large {
+	height: 118px;
+	min-width: 88px;
+}
+
+.monitor_large_tiles {
+	height: 88px;
+	min-width: 88px;
+}
+
+.monitor_large_tilesadt {
+	height: 102px;
+	min-width: 88px;
+}
+
+.monitor_large i, .monitor_large_tiles i, .monitor_large_tilesadt i {
 	font-size: 80px;
 }
 

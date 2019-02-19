@@ -1265,7 +1265,7 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$result = "<li class='$fclass flash monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></li>\n";
 		} else {
-			$result = "<li class='monitor_device_frame $fclass' style='width:" . max(70, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</a></li>\n";
+			$result = "<li class='$fclass monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</a></li>\n";
 		}
 	}
 
@@ -1611,7 +1611,7 @@ function render_host_tiles($host, $maxlen = 10) {
 		return;
 	}
 
-	$result = "<li class='monitor_device_frame $fclass ${fclass}_tiles' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></li>";
+	$result = "<li class='${fclass}_tiles monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></li>";
 
 	return $result;
 }
@@ -1629,7 +1629,7 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
 
-		$result = "<li class='monitor_device_frame $fclass ${fclass}_tilesadt' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></li>\n";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></li>\n";
 
 		return $result;
 	} else {
@@ -1639,7 +1639,7 @@ function render_host_tilesadt($host, $maxlen = 10) {
 			$dt = __('Never', 'monitor');
 		}
 
-		$result = "<li class='monitor_device_frame $fclass ${fclass}_tilesadt' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></li>\n";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></li>\n";
 
 		return $result;
 	}
