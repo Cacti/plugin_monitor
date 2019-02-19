@@ -279,10 +279,10 @@ function monitor_uptime_checker() {
 function process_reboot_email($email, $hosts) {
 	monitor_debug("Reboot Processing for $email starting");
 
-	$details = '<table class="report_table">' . PHP_EOL;
-	$details .= '<tr class="header_row">' . PHP_EOL;
-	$details .= '<th class="left">' . __('Description', 'monitor') . '</th><th class="left">' . __('Hostname', 'monitor') . '</th>' . PHP_EOL;
-	$details .= '</tr>' . PHP_EOL;
+	$body = '<table class="report_table">' . PHP_EOL;
+	$body .= '<tr class="header_row">' . PHP_EOL;
+	$body .= '<th class="left">' . __('Description', 'monitor') . '</th><th class="left">' . __('Hostname', 'monitor') . '</th>' . PHP_EOL;
+	$body .= '</tr>' . PHP_EOL;
 
 	foreach($hosts as $host) {
 		$host = db_fetch_row_prepared('SELECT description, hostname
@@ -291,18 +291,19 @@ function process_reboot_email($email, $hosts) {
 			array($host));
 
 		if (sizeof($host)) {
-			$details .= '<tr><td class="left">' . $host['description'] . '</td><td class="left">' . $host['hostname'] . '</td></tr>' . PHP_EOL;
+			$body .= '<tr><td class="left">' . $host['description'] . '</td><td class="left">' . $host['hostname'] . '</td></tr>' . PHP_EOL;
 		}
 	}
 
-	$details .= '</table>' . PHP_EOL;
+	$body .= '</table>' . PHP_EOL;
 
-	$email_subject = read_config_option('monitor_subject');
-	$email_body    = read_config_option('monitor_body');
-	$email_body = str_replace('<DETAILS>', $details, $email_body);
+	$subject = read_config_option('monitor_subject');
+	$output  = read_config_option('monitor_body');
+	$output  = str_replace('<DETAILS>', $body, $output);
 
 	if (read_config_option('monitor_reboot_notify') == 'on') {
 		$output     = '';
+		$toutput    = $output;
 		$report_tag = '';
 		$theme      = 'modern';
 
@@ -314,12 +315,12 @@ function process_reboot_email($email, $hosts) {
 
 		if ($format_ok) {
 			if ($report_tag) {
-				$email_body = str_replace('<REPORT>', $email_body, $output);
+				$output = str_replace('<REPORT>', $body, $output);
 			} else {
-				$email_body = $output . "\n" . $email_body;
+				$output = $output . PHP_EOL . $body;
 			}
 		} else {
-			$email_body;
+			$output = $body;
 		}
 
 		monitor_debug('HTML Processed');
@@ -328,7 +329,7 @@ function process_reboot_email($email, $hosts) {
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
 		$status = 'Reboot Notifications';
-		process_send_email($email, $email_subject, $email_body, $headers, $status);
+		process_send_email($email, $subject, $output, $toutput, $headers, $status);
 	}
 }
 
@@ -446,6 +447,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		}
 
 		$output     = '';
+		$toutput    = $body;
 		$report_tag = '';
 		$theme      = 'modern';
 
@@ -459,7 +461,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			if ($report_tag) {
 				$output = str_replace('<REPORT>', $body, $output);
 			} else {
-				$output = $output . "\n" . $body;
+				$output = $output . PHP_EOL . $body;
 			}
 		} else {
 			$output = $body;
@@ -474,11 +476,11 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			(sizeof($warn_hosts) ? (sizeof($alert_hosts) ? ', and ' : '') .
 				sizeof($warn_hosts) . ' Warning Notifications' : '');
 
-		process_send_email($email, $subject, $output, $headers, $status);
+		process_send_email($email, $subject, $output, $toutput, $headers, $status);
 	}
 }
 
-function process_send_email($email, $subject, $output, $headers, $status) {
+function process_send_email($email, $subject, $output, $toutput, $headers, $status) {
 	$from_email = read_config_option('monitor_fromemail');
 	if ($from_email == '') {
 		$from_email = read_config_option('settings_from_email');
@@ -505,7 +507,7 @@ function process_send_email($email, $subject, $output, $headers, $status) {
 		'',
 		$subject,
 		$output,
-		monitor_text($output),
+		monitor_text($toutput),
 		'',
 		$headers,
 		(read_config_option('thold_send_text_only') == 'on' ? false : true)
