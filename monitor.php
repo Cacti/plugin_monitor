@@ -252,9 +252,6 @@ function draw_page() {
 		});
 	}
 
-	function setupTooltips() {
-	}
-
 	$('#go').click(function() {
 		applyFilter();
 	});
@@ -406,9 +403,12 @@ function unmute_user() {
 
 function get_thold_where() {
 	if (get_request_var('status') == '2') { /* breached */
-		return "(td.thold_enabled = 'on' AND (td.thold_alert != 0 OR td.bl_alert > 0))";
+		return "(td.thold_enabled = 'on'
+			AND (td.thold_alert != 0 OR td.bl_alert > 0))";
 	} else { /* triggered */
-		return "(td.thold_enabled='on' AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger) OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))";
+		return "(td.thold_enabled='on'
+			AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger)
+			OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))";
 	}
 }
 
@@ -416,7 +416,6 @@ function check_tholds() {
 	$thold_hosts  = array();
 
 	if (api_plugin_is_enabled('thold')) {
-
 		return array_rekey(
 			db_fetch_assoc("SELECT DISTINCT dl.host_id
 				FROM thold_data AS td
@@ -1109,6 +1108,7 @@ function render_tree() {
 	/* begin others - lets get the monitor items that are not associated with any tree */
 	if (get_request_var('tree') < 0) {
 		$hosts = get_host_non_tree_array();
+
 		if (cacti_sizeof($hosts)) {
 			foreach($hosts as $host) {
 				$host_ids[] = $host['id'];
@@ -1146,7 +1146,6 @@ function render_tree() {
 		$result .= $function($hosts);
 	}
 
-
 	return $result;
 }
 
@@ -1164,15 +1163,13 @@ function render_branch($leafs, $title = '') {
 			break;
 		}
 	}
+
 	if ($title == '') {
 		/* Insert a default title */
 		$title = 'Items';
 		$title .= ' (' . sizeof($leafs) . ')';
 	}
-	//$branch_percentup = '%' . leafs_percentup($leafs);
-	//$title .= " - $branch_percentup";
 
-	/* select function to render here */
 	$function = "render_branch_$render_style";
 	if (function_exists($function)) {
 		/* Call the custom render_branch_ function */
@@ -1547,41 +1544,45 @@ function render_footer_list($hosts) {
 
 function render_host_list($host) {
 	global $criticalities;
+
 	if (!is_device_allowed($host['id'])) {
 		return ;
 	}
 
-	$dt = '';
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
+	} elseif ($host['status_rec_date'] != '0000-00-00 00:00:00') {
+		$dt = get_timeinstate($host);
 	} else {
-		if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
-			$dt = get_timeinstate($host);
-		} else {
-			$dt = __('Never', 'monitor');
-		}
+		$dt = __('Never', 'monitor');
 	}
 
-	$host_admin = '';
 	if ($host['status'] < 3 || $host['status'] == 5 ) {
 		$host_admin = $host['monitor_text'];
+	} else {
+		$host_admin = '';
 	}
 
-	$host_crit = '';
 	if (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0) {
 		$host_crit = $criticalities[$host['monitor_criticality']];
+	} else {
+		$host_crit = '';
 	}
 
-	$host_address = '';
 	if ($host['availability_method'] > 0) {
 		$host_address = $host['hostname'];
 		$host_avg     =	__('%d ms', $host['cur_time'], 'monitor') . ' / ' .  __('%d ms', $host['avg_time'], 'monitor');
+	} else {
+		$host_address = '';
+		$host_avg     = __('N/A', 'monitor');
 	}
 
-	$host_warn = '';
 	if (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0)) {
 		$host_warn = __('%0.2d ms', $host['monitor_warn'], 'monitor') . ' / ' . __('%0.2d ms', $host['monitor_alert'], 'monitor');
+	} else {
+		$host_warn = '';
 	}
+
 	$host_datefail = $host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never', 'monitor'):$host['status_fail_date'];
 
 	$sdisplay = get_host_status_description($host['real_status']);
@@ -1690,7 +1691,10 @@ function get_hosts_down_or_triggered_by_permission() {
 		}
 	}
 
-	$sql_where = "h.monitor = 'on' AND h.disabled = '' AND ((h.status < 2 AND (h.availability_method > 0 OR h.snmp_version > 0)) " . ($sql_add_where != '' ? ' OR (' . $sql_add_where . '))':')');
+	$sql_where = "h.monitor = 'on'
+		AND h.disabled = ''
+		AND ((h.status < 2 AND (h.availability_method > 0 OR h.snmp_version > 0)) " .
+		($sql_add_where != '' ? ' OR (' . $sql_add_where . '))':')');
 
 	// do a quick loop through to pull the hosts that are down
 	$hosts = get_allowed_devices($sql_where);
@@ -1729,85 +1733,13 @@ function get_host_non_tree_array() {
 	if (cacti_sizeof($heirarchy) > 0) {
 		$leafs = array();
 		$branchleafs = 0;
+
 		foreach ($heirarchy as $leaf) {
 			$leafs[$branchleafs] = $leaf;
 			$branchleafs++;
 		}
 	}
+
 	return $leafs;
-}
-
-/* Supporting functions */
-function get_status_color($status=3) {
-	$color = '#183C8F';
-	switch ($status) {
-		case 0: //error
-			$color = '#993333';
-			break;
-		case 1: //error
-			$color = '#993333';
-			break;
-		case 2: //recovering
-			$color = '#7293B9';
-			break;
-		case 3: //ok
-			$color = '#669966';
-			break;
-		case 4: //threshold
-			$color = '#c56500';
-			break;
-		case 5: //muted
-			$color = '#996666';
-			break;
-		default: //unknown
-			$color = '#999999';
-			break;
-		}
-	return $color;
-}
-
-function leafs_status_min($leafs) {
-	global $thold_hosts;
-
-	$breached = false;
-	$result   = 3;
-
-	foreach ($leafs as $row) {
-		$status = intval($row['status']);
-		if ($result > $status) {
-			$result = $status;
-		}
-
-		if ($status == 3 && array_key_exists($row['id'], $thold_hosts)) {
-			$breached = true;
-		}
-	}
-
-	if ($result == 3 && $breached) {
-		$result = 4;
-	}
-
-	return $result;
-}
-
-function leafs_percentup($leafs) {
-	$result  = 0;
-	$countup = 0;
-	$count   = sizeof($leafs);
-
-	foreach ($leafs as $row) {
-		$status = intval($row['status']);
-		if ($status >= 3) {
-			$countup++;
-		}
-	}
-
-	if ($countup>=$count){
-		return 100;
-	}
-
-	$result = round($countup/$count*100,0);
-
-	return $result;
 }
 
