@@ -534,7 +534,10 @@ function draw_filter_and_status() {
 	print '<table class="filterTable">' . PHP_EOL;
 	print '<tr>' . PHP_EOL;
 	draw_filter_dropdown('crit', __('Criticality', 'monitor'), $criticalities);
-	draw_filter_dropdown('size', __('Size', 'monitor'), $classes);
+
+	if (get_request_var('view') != 'list') {
+		draw_filter_dropdown('size', __('Size', 'monitor'), $classes);
+	}
 
 	if (get_nfilter_request_var('grouping') == 'tree') {
 		$trees = array();
@@ -601,7 +604,7 @@ function draw_filter_and_status() {
 	}
 
 	if (get_request_var('view') == 'list') {
-		print '<td><input type="hidden" id="grouping" value="' . get_request_var('grouping') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="size" value="' . get_request_var('size') . '"></td>' . PHP_EOL;
 	}
 
 	print '</tr>';
@@ -761,6 +764,30 @@ function render_where_join(&$sql_where, &$sql_join) {
 			$awhere .= ' AND h.site_id = ' . get_request_var('site');
 		} elseif (get_request_var('site') == -2) {
 			$awhere .= ' AND h.site_id = 0';
+		}
+	}
+
+	if (get_request_var('grouping') == 'tree') {
+		if (get_request_var('tree') > 0) {
+			$hlist = db_fetch_cell_prepared('SELECT GROUP_CONCAT(DISTINCT host_id)
+				FROM graph_tree_items
+				WHERE host_id > 0
+				AND graph_tree_id = ?',
+				array(get_request_var('tree')));
+
+			if ($hlist != '') {
+				$awhere .= ' AND h.id IN(' . $hlist . ')';
+			}
+		} elseif (get_request_var('tree') == -2) {
+			$hlist = db_fetch_cell('SELECT GROUP_CONCAT(DISTINCT h.id)
+				FROM host AS h
+				LEFT JOIN (SELECT DISTINCT host_id FROM graph_tree_items WHERE host_id > 0) AS gti
+				ON h.id = gti.host_id
+				WHERE gti.host_id IS NULL');
+
+			if ($hlist != '') {
+				$awhere .= ' AND h.id IN(' . $hlist . ')';
+			}
 		}
 	}
 
@@ -1472,19 +1499,22 @@ function ajax_status() {
 			if (isset($host_link)) {
 				$links .= '<a class="hyperLink monitor_link" href="' . $host_link . '">' . __('Edit Device', 'monitor') . '</a>';
 			}
+
 			if (isset($graph_link)) {
 				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $graph_link . '">' . __('View Graphs', 'monitor') . '</a>';
 			}
+
 			if (isset($thold_link)) {
 				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $thold_link . '">' . __('View Thresholds', 'monitor') . '</a>';
 			}
+
 			if (isset($syslog_log_link)) {
 				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_log_link . '">' . __('View Syslog Alerts', 'monitor') . '</a>';
 			}
+
 			if (isset($syslog_link)) {
 				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_link . '">' . __('View Syslog Messages', 'monitor') . '</a>';
 			}
-
 
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = get_host_status_description($host['real_status']);
@@ -1662,7 +1692,7 @@ function render_host_list($host) {
 
 	$sdisplay = get_host_status_description($host['real_status']);
 
-	$result = form_alternate_row('liine' . $host['id'], true);
+	$result = form_alternate_row('line' . $host['id'], true);
 	$result .= form_selectable_cell('<a class="linkEditMain" href="' . $host['anchor'] . '">' . $host['hostname'] .'</a>', $host['id']);
 	$result .= form_selectable_cell($host['description'], $host['id']);
 	$result .= form_selectable_cell($host_crit, $host['id']);
