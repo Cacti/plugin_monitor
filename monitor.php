@@ -71,7 +71,8 @@ $classes = array(
 	'monitor_exsmall' => __('Extra Small', 'monitor'),
 	'monitor_small'   => __('Small', 'monitor'),
 	'monitor_medium'  => __('Medium', 'monitor'),
-	'monitor_large'   => __('Large', 'monitor')
+	'monitor_large'   => __('Large', 'monitor'),
+	'monitor_exlarge' => __('Extra Large', 'monitor')
 );
 
 $monitor_status = array(
@@ -91,6 +92,7 @@ $monitor_view_type = array(
 $monitor_grouping = array(
 	'default'  => __('Default', 'monitor'),
 	'tree'     => __('Tree', 'monitor'),
+	'site'     => __('Site', 'monitor'),
 	'template' => __('Device Template', 'monitor')
 );
 
@@ -146,11 +148,12 @@ function draw_page() {
 	// Tree  = group_by_tree
 	$function = 'render_' . get_request_var('grouping');
 	if (function_exists($function) && get_request_var('view') != 'list') {
-		if (get_request_var('grouping') == 'default') {
+		if (get_request_var('grouping') == 'default' || get_request_var('grouping') == 'site') {
 			html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
 		} else {
 			html_start_box(__('', 'monitor'), '100%', '', '3', 'center', '');
 		}
+
 		print $function();
 	} else {
 		print render_default();
@@ -223,9 +226,11 @@ function draw_page() {
 		if (action >= '') {
 			strURL += '&action='+action;
 		}
+
 		strURL += '&refresh='+$('#refresh').val();
 		strURL += '&grouping='+$('#grouping').val();
 		strURL += '&tree='+$('#tree').val();
+		strURL += '&site='+$('#site').val();
 		strURL += '&template='+$('#template').val();
 		strURL += '&view='+$('#view').val();
 		strURL += '&crit='+$('#crit').val();
@@ -241,6 +246,7 @@ function draw_page() {
 			'&refresh='  + $('#refresh').val() +
 			'&grouping=' + $('#grouping').val() +
 			'&tree='     + $('#tree').val() +
+			'&site='     + $('#site').val() +
 			'&template=' + $('#template').val() +
 			'&view='     + $('#view').val() +
 			'&crit='     + $('#crit').val() +
@@ -268,7 +274,7 @@ function draw_page() {
 		}
 	});
 
-	$('#refresh, #view, #crit, #grouping, #size, #status, #tree, #template').change(function() {
+	$('#refresh, #view, #crit, #grouping, #size, #status, #tree, #site, #template').change(function() {
 		applyFilter();
 	});
 
@@ -512,10 +518,7 @@ function draw_filter_and_status() {
 	print '<tr>' . PHP_EOL;
 	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status);
 	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
-
-	if (get_request_var('view') != 'list') {
-		draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
-	}
+	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
 
 	// Buttons
 	print '<td><span>' . PHP_EOL;
@@ -548,6 +551,27 @@ function draw_filter_and_status() {
 		draw_filter_dropdown('tree', __('Tree', 'monitor'), $trees);
 	}
 
+	if (get_nfilter_request_var('grouping') == 'site') {
+		$sites = array();
+		if (get_request_var('grouping') == 'site') {
+			$sites = array_rekey(
+				db_fetch_assoc('SELECT id, name
+					FROM sites
+					ORDER BY name'),
+				'id', 'name'
+			);
+
+			if (cacti_sizeof($sites)) {
+				$sites_prefix = array(-1 => __('All Sites', 'monitor'));
+				$sites_suffix = array(-2 => __('Non-Site Devices', 'monitor'));
+
+				$sites = $sites_prefix + $sites + $sites_suffix;
+			}
+		}
+
+		draw_filter_dropdown('site', __('Sites', 'monitor'), $sites);
+	}
+
 	if (get_request_var('grouping') == 'template') {
 		$templates = array();
 		$templates_allowed = array_rekey(db_fetch_assoc('SELECT id, name FROM host_template'), 'id', 'name');
@@ -566,6 +590,10 @@ function draw_filter_and_status() {
 
 	if (get_request_var('grouping') != 'tree') {
 		print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('grouping') != 'site') {
+		print '<td><input type="hidden" id="site" value="' . get_request_var('site') . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'template') {
@@ -629,6 +657,9 @@ function save_settings() {
 			case 'tree':
 				set_user_setting('monitor_tree', get_request_var('tree'));
 				break;
+			case 'site':
+				set_user_setting('monitor_site', get_request_var('site'));
+				break;
 			}
 		}
 	}
@@ -675,6 +706,10 @@ function validate_request_vars($force = false) {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => read_user_setting('monitor_tree', '-1', $force)
 		),
+		'site' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_site', '-1', $force)
+		),
 		'template' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => read_user_setting('monitor_template', '-1', $force)
@@ -716,9 +751,17 @@ function validate_request_vars($force = false) {
 
 function render_where_join(&$sql_where, &$sql_join) {
 	if (get_request_var('crit') > 0) {
-		$crit = ' AND h.monitor_criticality >= ' . get_request_var('crit');
+		$awhere = ' AND h.monitor_criticality >= ' . get_request_var('crit');
 	} else {
-		$crit = '';
+		$awhere = '';
+	}
+
+	if (get_request_var('grouping') == 'site') {
+		if (get_request_var('site') > 0) {
+			$awhere .= ' AND h.site_id = ' . get_request_var('site');
+		} elseif (get_request_var('site') == -2) {
+			$awhere .= ' AND h.site_id = 0';
+		}
 	}
 
 	if (get_request_var('status') == '0') {
@@ -730,7 +773,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 				OR h.snmp_version > 0
 				OR (h.cur_time >= h.monitor_warn AND monitor_warn > 0)
 				OR (h.cur_time >= h.monitor_alert AND h.monitor_alert > 0)
-			)' . $crit;
+			)' . $awhere;
 	} elseif (get_request_var('status') == '1' || get_request_var('status') == 2) {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
@@ -741,7 +784,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 			OR ((h.availability_method > 0 OR h.snmp_version > 0)
 				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
 				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0))
-			))' . $crit;
+			))' . $awhere;
 	} else {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
@@ -749,7 +792,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 			AND h.monitor = "on"
 			AND (h.availability_method > 0 OR h.snmp_version > 0
 				OR (td.thold_enabled="on" AND td.thold_alert > 0)
-			)' . $crit;
+			)' . $awhere;
 	}
 }
 
@@ -761,6 +804,7 @@ function render_default() {
 
 	$sql_where = '';
 	$sql_join  = '';
+
 	render_where_join($sql_where, $sql_join);
 
 	$hosts = db_fetch_assoc("SELECT DISTINCT h.*
@@ -804,63 +848,7 @@ function render_default() {
 	return $result;
 }
 
-function render_perms() {
-	global $row_stripe, $maxchars;
-
-	// Get the list of allowed devices first
-	$hosts = get_allowed_devices();
-
-	if (cacti_sizeof($hosts)) {
-		$function = 'render_header_' . get_request_var('view');
-		if (function_exists($function)) {
-			/* Call the custom render_header_ function */
-			$result .= $function($hosts);
-		}
-
-		foreach($hosts as $host) {
-			$host_ids[] = $host['id'];
-		}
-
-		$sql_where = '';
-		$sql_join  = '';
-		render_where_join($sql_where, $sql_join);
-
-		// Now query for the hosts in that list that should be displayed
-		$hosts  = db_fetch_assoc("SELECT DISTINCT h.*
-			FROM host AS h
-			$sql_join
-			$sql_where
-			AND h.id IN(" . implode(',', $host_ids) . ")
-			ORDER BY description");
-
-		// Determine the correct width of the cell
-		if (get_request_var('view') == 'default') {
-			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
-				FROM host AS h
-				WHERE id IN (" . implode(',', $host_ids) . ")");
-
-			if ($maxlen > $maxchars) {
-				$maxlen = $maxchars;
-			}
-		} else {
-			$maxlen = 10;
-		}
-
-		foreach ($hosts as $host) {
-			$result .= render_host($host, true, $maxlen);
-		}
-
-		$function = 'render_footer_' . get_request_var('view');
-		if (function_exists($function)) {
-			/* Call the custom render_footer_ function */
-			$result .= $function($hosts);
-		}
-	}
-
-	return $result;
-}
-
-function render_template() {
+function render_site() {
 	global $maxchars;
 
 	$result = '';
@@ -870,36 +858,16 @@ function render_template() {
 
 	render_where_join($sql_where, $sql_join);
 
-	if (get_request_var('template') > 0) {
-		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id = ' . get_request_var('template');
-	}
-
-	$sql_template  = 'INNER JOIN host_template AS ht ON h.host_template_id=ht.id ';
-	if (get_request_var('template') == -2) {
-		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id IS NULL';
-		$sql_template = 'LEFT JOIN host_template AS ht ON h.host_template_id=ht.id ';
-	}
-
-	$sql = "SELECT DISTINCT
-		h.*, ht.name AS host_template_name
+	$hosts = db_fetch_assoc("SELECT DISTINCT h.*, s.name AS site_name
 		FROM host AS h
-		$sql_template
+		INNER JOIN sites AS s
+		ON s.id = h.site_id
 		$sql_join
 		$sql_where
-		ORDER BY ht.name, h.description";
-
-	$hosts  = db_fetch_assoc($sql);
+		ORDER BY s.name, description");
 
 	$ctemp = -1;
 	$ptemp = -1;
-
-	if (get_request_var('view') == 'tiles') {
-		$offset  = 0;
-		$offset2 = 0;
-	} else {
-		$offset  = 52;
-		$offset2 = 38;
-	}
 
 	if (cacti_sizeof($hosts)) {
 		$suppressGroups = false;
@@ -933,6 +901,114 @@ function render_template() {
 		}
 
 		$class = get_request_var('size');
+		$csuffix = get_request_var('view');
+
+		if ($csuffix == 'default') {
+			$csuffix = '';
+		}
+
+		foreach($hosts as $host) {
+			$ctemp = $host['site_id'];
+
+			if (!$suppressGroups) {
+				if ($ctemp != $ptemp && $ptemp > 0) {
+					$result .= "</ul></td></tr></table>\n";
+				}
+
+				if ($ctemp != $ptemp) {
+					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['site_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><ul class='monitor_ul'>\n";
+				}
+			}
+
+			$result .= render_host($host, true, $maxlen);
+
+			if ($ctemp != $ptemp) {
+				$ptemp = $ctemp;
+			}
+		}
+
+		if ($ptemp == $ctemp && !$suppressGroups) {
+			$result .= "</ul></td></tr></table>\n";
+		}
+
+		$function = 'render_footer_' . get_request_var('view');
+		if (function_exists($function)) {
+			/* Call the custom render_footer_ function */
+			$result .= $function($hosts);
+		}
+	}
+
+	return $result;
+}
+
+function render_template() {
+	global $maxchars;
+
+	$result = '';
+
+	$sql_where = '';
+	$sql_join = '';
+
+	render_where_join($sql_where, $sql_join);
+
+	if (get_request_var('template') > 0) {
+		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id = ' . get_request_var('template');
+	}
+
+	$sql_template  = 'INNER JOIN host_template AS ht ON h.host_template_id=ht.id ';
+	if (get_request_var('template') == -2) {
+		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id IS NULL';
+		$sql_template = 'LEFT JOIN host_template AS ht ON h.host_template_id=ht.id ';
+	}
+
+	$hosts = db_fetch_assoc("SELECT DISTINCT
+		h.*, ht.name AS host_template_name
+		FROM host AS h
+		$sql_template
+		$sql_join
+		$sql_where
+		ORDER BY ht.name, h.description");
+
+	$ctemp = -1;
+	$ptemp = -1;
+
+	if (cacti_sizeof($hosts)) {
+		$suppressGroups = false;
+		$function = 'render_suppressgroups_'. get_request_var('view');
+		if (function_exists($function)) {
+			$suppressGroups = $function($hosts);
+		}
+
+		$function = 'render_header_' . get_request_var('view');
+		if (function_exists($function)) {
+			/* Call the custom render_header_ function */
+			$result .= $function($hosts);
+			$suppresGroups = true;
+		}
+
+		foreach($hosts as $host) {
+			$host_ids[] = $host['id'];
+		}
+
+		// Determine the correct width of the cell
+		if (get_request_var('view') == 'default') {
+			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+				FROM host AS h
+				WHERE id IN (" . implode(',', $host_ids) . ")");
+
+			if ($maxlen > $maxchars) {
+				$maxlen = $maxchars;
+			}
+		} else {
+			$maxlen = 10;
+		}
+
+		$class   = get_request_var('size');
+		$csuffix = get_request_var('view');
+
+		if ($csuffix == 'default') {
+			$csuffix = '';
+		}
 
 		foreach($hosts as $host) {
 			$ctemp = $host['host_template_id'];
@@ -943,7 +1019,7 @@ function render_template() {
 				}
 
 				if ($ctemp != $ptemp) {
-					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center $class'><ul class='monitor_ul'>\n";
+					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center ${class}_${csufix}'><ul class='monitor_ul'>\n";
 				}
 			}
 
@@ -1245,11 +1321,6 @@ function render_host($host, $float = true, $maxlen = 10) {
 
 	$host['real_status'] = get_host_status($host, true); $host['status'] = get_host_status($host); $host['iclass'] = $iclasses[$host['status']];
 
-	$dt = '';
-	if ($host['status'] < 2 || $host['status'] == 5) {
-		$dt = get_timeinstate($host);
-	}
-
 	$function = 'render_host_' . get_request_var('view');
 
 	if (function_exists($function)) {
@@ -1260,9 +1331,13 @@ function render_host($host, $float = true, $maxlen = 10) {
 		$fclass = get_request_var('size');
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			$result = "<li class='$fclass flash monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span style='font-size:10px;padding:2px;' class='deviceDown'>$dt</span></a></li>\n";
+			$tis = get_timeinstate($host);
+
+			$result = "<li class='$fclass flash monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>\n";
 		} else {
-			$result = "<li class='$fclass monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</a></li>\n";
+			$tis = get_uptime($host);
+
+			$result = "<li class='$fclass monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>\n";
 		}
 	}
 
@@ -1618,7 +1693,7 @@ function render_host_tiles($host, $maxlen = 10) {
 }
 
 function render_host_tilesadt($host, $maxlen = 10) {
-	$dt = '';
+	$tis = '';
 
 	if (!is_device_allowed($host['id'])) {
 		return;
@@ -1628,19 +1703,15 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	$fclass = get_request_var('size');
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
-		$dt = get_timeinstate($host);
+		$tis = get_timeinstate($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceDown'>$dt</span></a></li>\n";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></li>\n";
 
 		return $result;
 	} else {
-		if ($host['status_rec_date'] != '0000-00-00 00:00:00') {
-			$dt = get_timeinstate($host);
-		} else {
-			$dt = __('Never', 'monitor');
-		}
+		$tis = get_uptime($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(70, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(70, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device deviceUp'>$dt</span></a></li>\n";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></li>\n";
 
 		return $result;
 	}

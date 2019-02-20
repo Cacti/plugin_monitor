@@ -109,6 +109,11 @@
 	font-size: 10px;
 }
 
+.monitor_device_exsmall {
+	font-size: 10px;
+	padding: 2px;
+}
+
 .monitor_small {
 	height: 58px;
 	min-width: 28px;
@@ -126,25 +131,43 @@
 
 .monitor_small i, .monitor_small_tiles i, .monitor_small_tilesadt i {
 	font-size: 20px;
+	min-width: 28px;
+}
+
+.monitor_device_small {
+	font-size: 10px;
+	padding: 2px;
+	min-width: 28px;
 }
 
 .monitor_medium {
 	height: 78px;
-	min-width: 48px;
+	min-width: 58px;
 }
 
 .monitor_medium_tiles {
 	height: 48px;
-	min-width: 48px;
+	min-width: 58px;
 }
 
 .monitor_medium_tilesadt {
 	height: 65px;
-	min-width: 48px;
+	min-width: 58px;
 }
 
 .monitor_medium i, .monitor_medium_tiles i, .monitor_medium_tilesadt i {
 	font-size: 40px;
+	min-width: 58px;
+}
+
+.monitor_medium a, .monitor_medium_tiles a, .monitor_medium_tilesadt a {
+	min-width: 58px;
+}
+
+.monitor_device_medium {
+	font-size: 10px;
+	min-width: 58px;
+	padding: 2px;
 }
 
 .monitor_large {
@@ -164,10 +187,47 @@
 
 .monitor_large i, .monitor_large_tiles i, .monitor_large_tilesadt i {
 	font-size: 80px;
+	min-width: 88px;
 }
 
-.monitor_device {
-	font-size: 10px; padding: 2px;
+.monitor_large a, .monitor_large_tiles a, .monitor_large_tilesadt a {
+	min-width: 88px;
+}
+
+.monitor_device_large {
+	font-size: 10px;
+	padding: 2px;
+	min-width: 88px;
+}
+
+.monitor_exlarge {
+	height: 168px;
+	min-width: 128px;
+}
+
+.monitor_exlarge_tiles {
+	height: 128px;
+	min-width: 128px;
+}
+
+.monitor_exlarge_tilesadt {
+	height: 148px;
+	min-width: 128px;
+}
+
+.monitor_exlarge i, .monitor_exlarge_tiles i, .monitor_exlarge_tilesadt i {
+	font-size: 120px;
+	min-width: 128px;
+}
+
+.monitor_exlarge a, .monitor_exlarge_tiles a, .monitor_exlarge_tilesadt a {
+	font-size: 18px;
+	min-width: 128px;
+}
+
+.monitor_device_exlarge {
+	font-size: 10px;
+	padding: 2px;
 }
 
 .monitorHover {
