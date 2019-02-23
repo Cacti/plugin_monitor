@@ -1578,19 +1578,23 @@ function ajax_status() {
 				</tr>
 				<tr>
 					<td class='nowrap'>" . __('Sys Description:', 'monitor') . "</td>
-					<td>" . $host['snmp_sysDescr'] . "</td>
+					<td>" . monitor_trim($host['snmp_sysDescr']) . "</td>
 				</tr>
 				<tr>
 					<td>" . __('Location:', 'monitor') . "</td>
-					<td>" . $host['snmp_sysLocation'] . "</td>
+					<td>" . monitor_trim($host['snmp_sysLocation']) . "</td>
 				</tr>
 				<tr>
 					<td>" . __('Contact:', 'monitor') . "</td>
-					<td>" . $host['snmp_sysContact'] . "</td>
+					<td>" . monitor_trim($host['snmp_sysContact']) . "</td>
 				</tr>":"") . "
 				</table>\n";
 		}
 	}
+}
+
+function monitor_trim($string) {
+	return trim($string, "\"'\\ \n\t\r");
 }
 
 function render_header_default($hosts) {
