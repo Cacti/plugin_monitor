@@ -1046,7 +1046,7 @@ function render_template() {
 				}
 
 				if ($ctemp != $ptemp) {
-					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center ${class}_${csufix}'><ul class='monitor_ul'>\n";
+					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><ul class='monitor_ul'>\n";
 				}
 			}
 
