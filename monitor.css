@@ -172,32 +172,33 @@
 
 .monitor_large {
 	height: 118px;
-	min-width: 88px;
+	min-width: 98px;
 }
 
 .monitor_large_tiles {
 	height: 88px;
-	min-width: 88px;
+	min-width: 98px;
 }
 
 .monitor_large_tilesadt {
 	height: 102px;
-	min-width: 88px;
+	min-width: 98px;
 }
 
 .monitor_large i, .monitor_large_tiles i, .monitor_large_tilesadt i {
 	font-size: 80px;
-	min-width: 88px;
+	min-width: 98px;
 }
 
 .monitor_large a, .monitor_large_tiles a, .monitor_large_tilesadt a {
-	min-width: 88px;
+	font-size: 16px;
+	min-width: 98px;
 }
 
 .monitor_device_large {
 	font-size: 10px;
 	padding: 2px;
-	min-width: 88px;
+	min-width: 98px;
 }
 
 .monitor_exlarge {
