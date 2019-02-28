@@ -56,6 +56,7 @@ in GitHub.
 * issue#76: Monitor attempts to get status for non-server elements
 * issue#77: Device status information in popup window may contains quotes
 * issue#78: Arranging hosts by Device Template is not working
+* issue#89: When there are no group level items, SQL filters can become badly formatted
 
 --- 2.3.4 ---
 

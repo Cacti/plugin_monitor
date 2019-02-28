@@ -775,7 +775,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
-			if ($hlist != '') {
+			if (!empty($hlist)) {
 				$awhere .= ' AND h.id IN(' . $hlist . ')';
 			}
 		} elseif (get_request_var('tree') == -2) {
@@ -785,7 +785,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 				ON h.id = gti.host_id
 				WHERE gti.host_id IS NULL');
 
-			if ($hlist != '') {
+			if (!empty($hlist)) {
 				$awhere .= ' AND h.id IN(' . $hlist . ')';
 			}
 		}
