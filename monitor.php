@@ -903,7 +903,7 @@ function render_site() {
 
 	render_where_join($sql_where, $sql_join);
 
-	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' Non-Site Devices ') AS site_name
+	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Devices', 'monitor') . " ') AS site_name
 		FROM host AS h
 		LEFT JOIN sites AS s
 		ON s.id = h.site_id
