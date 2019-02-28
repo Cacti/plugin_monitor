@@ -752,18 +752,32 @@ function validate_request_vars($force = false) {
 	/* ================= input validation ================= */
 }
 
+function render_group_concat(&$sql_where, $sql_join, $sql_field, $sql_data, $sql_suffix = '') {
+	//cacti_log("render_group_concat($sql_where, $sql_join, $sql_field, $sql_data, $sql_suffix = '')");
+
+	// Remove empty entries if something was returned
+	if (!empty($sql_data)) {
+		$sql_data = trim(str_replace(',,',',',$sql_data), ',');
+
+		if (!empty($sql_data)) {
+			$sql_where .= ($sql_where != '' ? $sql_join : '') . "($sql_field IN($sql_data) $sql_suffix)";
+			//cacti_log('render_group_concat: ' . $sql_where);
+		}
+	}
+}
+
 function render_where_join(&$sql_where, &$sql_join) {
 	if (get_request_var('crit') > 0) {
-		$awhere = ' AND h.monitor_criticality >= ' . get_request_var('crit');
+		$awhere = 'h.monitor_criticality >= ' . get_request_var('crit');
 	} else {
 		$awhere = '';
 	}
 
 	if (get_request_var('grouping') == 'site') {
 		if (get_request_var('site') > 0) {
-			$awhere .= ' AND h.site_id = ' . get_request_var('site');
+			$awhere .= ($awhere == '' ? '' : ' AND ') . 'h.site_id = ' . get_request_var('site');
 		} elseif (get_request_var('site') == -2) {
-			$awhere .= ' AND h.site_id = 0';
+			$awhere .= ($awhere == '' ? '' : ' AND ') . ' h.site_id = 0';
 		}
 	}
 
@@ -775,9 +789,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
-			if (!empty($hlist)) {
-				$awhere .= ' AND h.id IN(' . $hlist . ')';
-			}
+			render_group_concat($awhere, ' AND ', 'h.id', $hlist);
 		} elseif (get_request_var('tree') == -2) {
 			$hlist = db_fetch_cell('SELECT GROUP_CONCAT(DISTINCT h.id)
 				FROM host AS h
@@ -785,10 +797,12 @@ function render_where_join(&$sql_where, &$sql_join) {
 				ON h.id = gti.host_id
 				WHERE gti.host_id IS NULL');
 
-			if (!empty($hlist)) {
-				$awhere .= ' AND h.id IN(' . $hlist . ')';
-			}
+			render_group_concat($ahwere, ' AND ', 'h.id', $hlist);
 		}
+	}
+
+	if (!empty($awhere)) {
+		$awhere = ' AND ' . $awhere;
 	}
 
 	if (get_request_var('status') == '0') {
@@ -821,6 +835,8 @@ function render_where_join(&$sql_where, &$sql_join) {
 				OR (td.thold_enabled="on" AND td.thold_alert > 0)
 			)' . $awhere;
 	}
+
+	//cacti_log("render_where_join($sql_where, $sql_join)");
 }
 
 /* Render functions */
@@ -834,11 +850,13 @@ function render_default() {
 
 	render_where_join($sql_where, $sql_join);
 
-	$hosts = db_fetch_assoc("SELECT DISTINCT h.*
+	$hosts_sql = ("SELECT DISTINCT h.*
 		FROM host AS h
 		$sql_join
 		$sql_where
 		ORDER BY description");
+	//cacti_log($hosts_sql);
+	$hosts = db_fetch_assoc($hosts_sql);
 
 	if (cacti_sizeof($hosts)) {
 		// Determine the correct width of the cell
@@ -885,13 +903,16 @@ function render_site() {
 
 	render_where_join($sql_where, $sql_join);
 
-	$hosts = db_fetch_assoc("SELECT DISTINCT h.*, s.name AS site_name
+	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' None Site Devices ') AS site_name
 		FROM host AS h
-		INNER JOIN sites AS s
+		LEFT JOIN sites AS s
 		ON s.id = h.site_id
 		$sql_join
 		$sql_where
-		ORDER BY s.name, description");
+		ORDER BY site_name, description");
+
+	//cacti_log($hosts_sql);
+	$hosts = db_fetch_assoc($hosts_sql);
 
 	$ctemp = -1;
 	$ptemp = -1;
@@ -1106,7 +1127,7 @@ function render_tree() {
 
 		render_where_join($sql_where, $sql_join);
 
-		$branchWhost = db_fetch_assoc("SELECT DISTINCT gti.graph_tree_id, gti.parent
+		$branchWhost_SQL = ("SELECT DISTINCT gti.graph_tree_id, gti.parent
 			FROM graph_tree_items AS gti
 			INNER JOIN graph_tree AS gt
 			ON gt.id = gti.graph_tree_id
@@ -1117,6 +1138,8 @@ function render_tree() {
 			AND gti.host_id > 0
 			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ")
 			ORDER BY gt.sequence, gti.position");
+		//cacti_log('branchWhost(' . implode(', ', $tree_ids) . '): ' . $branchWhost_SQL);
+		$branchWhost = db_fetch_assoc($branchWhost_SQL);
 
 		// Determine the correct width of the cell
 		if (get_request_var('view') == 'default') {
@@ -1134,6 +1157,7 @@ function render_tree() {
 		}
 
 		if (cacti_sizeof($branchWhost)) {
+			//cacti_log(var_export($branchWhost, true));
 			foreach($branchWhost as $b) {
 				if ($ptree != $b['graph_tree_id']) {
 					$titles[$b['graph_tree_id'] . ':0'] = __('Root Branch', 'monitor');
@@ -1162,15 +1186,16 @@ function render_tree() {
 
 				render_where_join($sql_where, $sql_join);
 
-				$hosts = db_fetch_assoc_prepared("SELECT h.*
+				$hosts_sql = "SELECT h.*
 					FROM host AS h
 					INNER JOIN graph_tree_items AS gti
 					ON h.id=gti.host_id
 					$sql_join
 					$sql_where
 					AND parent = ?
-					GROUP BY h.id",
-					array($oid));
+					AND graph_tree_id = ?
+					GROUP BY h.id";
+				$hosts = db_fetch_assoc_prepared($hosts_sql, array($oid, $graph_tree_id));
 
 				$tree_name = db_fetch_cell_prepared('SELECT name
 					FROM graph_tree
@@ -1770,7 +1795,7 @@ function get_hosts_down_or_triggered_by_permission() {
 				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
-			$sql_add_where .= ($sql_add_where != '' ? ' OR ':'') . '(h.id IN(' . $devices . ') AND h.status < 2)';
+			render_group_concat($sql_add_where, ' OR ', 'h.id', 'AND h.status < 2');
 		}
 	}
 
@@ -1781,19 +1806,17 @@ function get_hosts_down_or_triggered_by_permission() {
 			ON td.host_id = h.id
 			WHERE ' . get_thold_where());
 
-		if ($triggered != '') {
-			$sql_add_where .= ($sql_add_where != '' ? ' OR ':'') . '(h.id IN(' . $triggered . ') AND h.status > 1)';
+		render_group_concat($sql_add_where, ' OR ', 'h.id', 'AND h.status > 1');
 
-			$_SESSION['monitor_triggered'] = array_rekey(
-				db_fetch_assoc('SELECT td.host_id, COUNT(DISTINCT td.id) AS triggered
-					FROM thold_data AS td
-					INNER JOIN host AS h
-					ON td.host_id = h.id
-					WHERE ' . get_thold_where() . '
-					GROUP BY td.host_id'),
-				'host_id', 'triggered'
-			);
-		}
+		$_SESSION['monitor_triggered'] = array_rekey(
+			db_fetch_assoc('SELECT td.host_id, COUNT(DISTINCT td.id) AS triggered
+				FROM thold_data AS td
+				INNER JOIN host AS h
+				ON td.host_id = h.id
+				WHERE ' . get_thold_where() . '
+				GROUP BY td.host_id'),
+			'host_id', 'triggered'
+		);
 	}
 
 	$sql_where = "h.monitor = 'on'

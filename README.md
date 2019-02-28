@@ -57,6 +57,9 @@ in GitHub.
 * issue#77: Device status information in popup window may contains quotes
 * issue#78: Arranging hosts by Device Template is not working
 * issue#89: When there are no group level items, SQL filters can become badly formatted
+* issue#94: When grouping by tree, Devices added to the root of a tree appear on
+  every tree
+* issue#95: When grouping by site, devices with no site never appear
 
 --- 2.3.4 ---
 
