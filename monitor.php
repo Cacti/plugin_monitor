@@ -312,7 +312,8 @@ function draw_page() {
 			position: {my: "left:15 top", at: "right center"},
 			content: function(callback) {
 				var id = $(this).attr('id');
-				$.get('monitor.php?action=ajax_status&id='+id, function(data) {
+				var size = $('#size').val();
+				$.get('monitor.php?action=ajax_status&size='+size+'&id='+id, function(data) {
 					callback(data);
 				});
 			}
@@ -948,7 +949,7 @@ function render_site() {
 			$maxlen = 10;
 		}
 
-		$class = get_request_var('size');
+		$class   = get_request_var('size');
 		$csuffix = get_request_var('view');
 
 		if ($csuffix == 'default') {
@@ -1385,11 +1386,11 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$tis = get_timeinstate($host);
 
-			$result = "<li class='$fclass flash monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>\n";
+			$result = "<li class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>\n";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<li class='$fclass monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px;" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>\n";
+			$result = "<li class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a href='" . $host['anchor'] . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>\n";
 		}
 	}
 
@@ -1435,8 +1436,11 @@ function ajax_status() {
 
 	$tholds = 0;
 
+	validate_request_vars();
+
 	if (isset_request_var('id') && get_filter_request_var('id')) {
-		$id = get_request_var('id');
+		$id   = get_request_var('id');
+		$size = get_request_var('size');
 
 		$host = db_fetch_row_prepared('SELECT *
 			FROM host
@@ -1522,35 +1526,35 @@ function ajax_status() {
 
 			$links = '';
 			if (isset($host_link)) {
-				$links .= '<a class="hyperLink monitor_link" href="' . $host_link . '">' . __('Edit Device', 'monitor') . '</a>';
+				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $host_link . '"><i class="fas fa-pen-square deviceUp monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($graph_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $graph_link . '">' . __('View Graphs', 'monitor') . '</a>';
+				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $graph_link . '"><i class="fa fa-chart-line deviceUp monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($thold_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $thold_link . '">' . __('View Thresholds', 'monitor') . '</a>';
+				$links .= '<div><a class="hyperLink monitorLink" href="' . $thold_link . '"><i class="fas fa-tasks deviceRecovering monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($syslog_log_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_log_link . '">' . __('View Syslog Alerts', 'monitor') . '</a>';
+				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $syslog_log_link . '"><i class="fas fa-life-ring deviceDown monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($syslog_link)) {
-				$links .= ($links != '' ? ', ':'') . '<a class="hyperLink monitor_link" href="' . $syslog_link . '">' . __('View Syslog Messages', 'monitor') . '</a>';
+				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $syslog_link . '"><i class="fas fa-life-ring deviceUp monitorLinkIcon"></i></a></div>';
 			}
 
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = get_host_status_description($host['real_status']);
 
-			print "<table class='monitorHover'>
+			print "<table class='monitorHover $size'>
 				<tr class='tableHeader'>
 					<th class='left' colspan='2'>" . __('Device Status Information', 'monitor') . "</th>
 				</tr>
 				<tr>
 					<td>" . __('Device:', 'monitor') . "</td>
-					<td><a class='hyperLink monitor_link' href='" . $host['anchor'] . "'>" . $host['description'] . "</a></td>
+					<td><a class='hyperLink monitorLink' href='" . $host['anchor'] . "'>" . $host['description'] . "</a></td>
 				</tr>" . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? "
 				<tr>
 					<td>" . __('Criticality:', 'monitor') . "</td>
@@ -1567,15 +1571,6 @@ function ajax_status() {
 				<tr>
 					<td>" . __('IP/Hostname:', 'monitor') . "</td>
 					<td>" . $host['hostname'] . "</td>
-				</tr>":"") . ($host['notes'] != '' ? "
-				<tr>
-					<td>" . __('Notes:', 'monitor') . "</td>
-					<td>" . $host['notes'] . "</td>
-				</tr>":"") . (($graphs || $syslog_logs || $syslog_host || $tholds) ? "
-				<tr>
-					<td>" . __('Links:', 'monitor') . "</td>
-					<td>" . $links . "
-				 	</td>
 				</tr>":"") . ($host['availability_method'] > 0 ? "
 				<tr>
 					<td class='nowrap'>" . __('Curr/Avg:', 'monitor') . "</td>
@@ -1612,7 +1607,13 @@ function ajax_status() {
 				<tr>
 					<td>" . __('Contact:', 'monitor') . "</td>
 					<td>" . monitor_trim($host['snmp_sysContact']) . "</td>
+				</tr>":"") . ($host['notes'] != '' ? "
+				<tr>
+					<td>" . __('Notes:', 'monitor') . "</td>
+					<td>" . $host['notes'] . "</td>
 				</tr>":"") . "
+				<tr><td colspan='2' style='width:100%'><hr></td></tr>
+				<tr><td colspan='2' style='width:100%'><div style='display:flex;justify-content:space-around;'>$links</div></td></tr>
 				</table>\n";
 		}
 	}
@@ -1764,13 +1765,13 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$tis = get_timeinstate($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></li>\n";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></li>\n";
 
 		return $result;
 	} else {
 		$tis = get_uptime($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame' style='width:" . max(80, $maxlen*7) . "px'><a class='textSubHeaderDark' href='" . $host['anchor'] . "' style='width:" . max(80, $maxlen*7) . "px'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></li>\n";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='textSubHeaderDark' href='" . $host['anchor'] . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></li>\n";
 
 		return $result;
 	}

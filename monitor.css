@@ -27,6 +27,12 @@
 	color: black;
 }
 
+.monitorLinkIcon {
+	vertical-align: middle;
+	padding: 3px;
+	font-size: 20px;
+}
+
 .monitor_frame {
 	display: table-cell;
 }
@@ -91,6 +97,7 @@
 	width: 100%;
 }
 
+// Extra Small Classification
 .monitor_exsmall {
 	height: 55px;
 	width: 35px;
@@ -105,6 +112,14 @@
 	height: 35px;
 }
 
+.monitor_exsmall td {
+	font-size: 12px;
+}
+
+.monitor_exsmall .monitorLinkIcon {
+	font-size: 20px;
+}
+
 .monitor_exsmall i, .monitor_exsmall_tiles i, .monitor_exsmall_tilesadt i {
 	font-size: 10px;
 }
@@ -114,6 +129,7 @@
 	padding: 2px;
 }
 
+// Small Classification
 .monitor_small {
 	height: 58px;
 	min-width: 28px;
@@ -134,12 +150,21 @@
 	min-width: 28px;
 }
 
+.monitor_small .monitorLinkIcon {
+	font-size: 20px;
+}
+
+.monitor_small td {
+	font-size: 12px;
+}
+
 .monitor_device_small {
 	font-size: 10px;
 	padding: 2px;
 	min-width: 28px;
 }
 
+// Medium Classification
 .monitor_medium {
 	height: 78px;
 	min-width: 58px;
@@ -160,24 +185,38 @@
 	min-width: 58px;
 }
 
+.monitor_medium td {
+	font-size: 13px;
+}
+
 .monitor_medium a, .monitor_medium_tiles a, .monitor_medium_tilesadt a {
+	font-size: 13px;
 	min-width: 58px;
 }
 
+.monitor_medium .monitorLinkIcon {
+	font-size: 20px;
+}
+
+.monitor_medium .monitorLinkIcon {
+	font-size: 20px;
+}
+
 .monitor_device_medium {
-	font-size: 10px;
+	font-size: 13px;
 	min-width: 58px;
 	padding: 2px;
 }
 
+// Large Classification
 .monitor_large {
 	height: 118px;
-	min-width: 98px;
+	width: 128px !important;
 }
 
 .monitor_large_tiles {
 	height: 88px;
-	min-width: 98px;
+	min-width: 88px;
 }
 
 .monitor_large_tilesadt {
@@ -190,17 +229,26 @@
 	min-width: 98px;
 }
 
+.monitor_large td {
+	font-size: 15px;
+}
+
 .monitor_large a, .monitor_large_tiles a, .monitor_large_tilesadt a {
-	font-size: 16px;
+	font-size: 15px;
 	min-width: 98px;
+}
+
+.monitor_large .monitorLinkIcon {
+	font-size: 28px;
 }
 
 .monitor_device_large {
 	font-size: 10px;
 	padding: 2px;
-	min-width: 98px;
+	min-width: 148px;
 }
 
+// Ex-Large Classification
 .monitor_exlarge {
 	height: 168px;
 	min-width: 128px;
@@ -221,8 +269,21 @@
 	min-width: 128px;
 }
 
+.monitor_exlarge td {
+	font-size: 16px;
+}
+
+.monitor_exlarge, .monitor_exlarge .monitorLinkIcon {
+	font-size: 16px;
+}
+
+.monitor_exlarge .monitorLinkIcon {
+	font-size: 38px;
+}
+
+
 .monitor_exlarge a, .monitor_exlarge_tiles a, .monitor_exlarge_tilesadt a {
-	font-size: 18px;
+	font-size: 16px;
 	min-width: 128px;
 }
 
@@ -232,12 +293,13 @@
 }
 
 .monitorHover {
-	font-size: 10px;
-	max-width: 300px;
+	min-width: 400px;
+	max-width: 1000px;
 }
 
 .monitorHover td:first-child {
 	padding-right: 5px;
+	vertical-align: text-top;
 	white-space: nowrap;
 }
 
