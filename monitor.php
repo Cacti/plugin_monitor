@@ -1795,7 +1795,7 @@ function get_hosts_down_or_triggered_by_permission() {
 				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
-			render_group_concat($sql_add_where, ' OR ', 'h.id', 'AND h.status < 2');
+			render_group_concat($sql_add_where, ' OR ', 'h.id', $devices, 'AND h.status < 2');
 		}
 	}
 
@@ -1806,7 +1806,7 @@ function get_hosts_down_or_triggered_by_permission() {
 			ON td.host_id = h.id
 			WHERE ' . get_thold_where());
 
-		render_group_concat($sql_add_where, ' OR ', 'h.id', 'AND h.status > 1');
+		render_group_concat($sql_add_where, ' OR ', 'h.id', $triggered, 'AND h.status > 1');
 
 		$_SESSION['monitor_triggered'] = array_rekey(
 			db_fetch_assoc('SELECT td.host_id, COUNT(DISTINCT td.id) AS triggered
