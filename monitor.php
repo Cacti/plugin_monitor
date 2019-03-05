@@ -227,16 +227,17 @@ function draw_page() {
 			strURL += '&action='+action;
 		}
 
-		strURL += '&refresh='+$('#refresh').val();
-		strURL += '&grouping='+$('#grouping').val();
-		strURL += '&tree='+$('#tree').val();
-		strURL += '&site='+$('#site').val();
-		strURL += '&template='+$('#template').val();
-		strURL += '&view='+$('#view').val();
-		strURL += '&crit='+$('#crit').val();
-		strURL += '&size='+$('#size').val();
-		strURL += '&mute='+$('#mute').val();
-		strURL += '&status='+$('#status').val();
+		strURL += '&refresh='  + $('#refresh').val();
+		strURL += '&grouping=' + $('#grouping').val();
+		strURL += '&tree='     + $('#tree').val();
+		strURL += '&site='     + $('#site').val();
+		strURL += '&template=' + $('#template').val();
+		strURL += '&view='     + $('#view').val();
+		strURL += '&crit='     + $('#crit').val();
+		strURL += '&size='     + $('#size').val();
+		strURL += '&mute='     + $('#mute').val();
+		strURL += '&rfilter='  + base64_encode($('#rfilter').val());
+		strURL += '&status='   + $('#status').val();
 
 		loadPageNoHeader(strURL);
 	}
@@ -250,6 +251,7 @@ function draw_page() {
 			'&template=' + $('#template').val() +
 			'&view='     + $('#view').val() +
 			'&crit='     + $('#crit').val() +
+			'&rfilter='  + base64_encode($('#rfilter').val()) +
 			'&size='     + $('#size').val() +
 			'&status='   + $('#status').val();
 
@@ -517,6 +519,7 @@ function draw_filter_and_status() {
 	// First line of filter
 	print '<table class="filterTable">' . PHP_EOL;
 	print '<tr>' . PHP_EOL;
+
 	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status);
 	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
 	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
@@ -534,6 +537,9 @@ function draw_filter_and_status() {
 	// Second line of filter
 	print '<table class="filterTable">' . PHP_EOL;
 	print '<tr>' . PHP_EOL;
+	print '<td>' . __('Search', 'monitor') . '</td>';
+	print '<td><input type="text" size="30" id="rfilter" value="' . html_escape_request_var('rfilter') . '"></input></td>';
+
 	draw_filter_dropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
 	if (get_request_var('view') != 'list') {
@@ -637,6 +643,9 @@ function save_settings() {
 	if (cacti_sizeof($_REQUEST)) {
 		foreach($_REQUEST as $var => $value) {
 			switch($var) {
+			case 'rfilter':
+				set_user_setting('monitor_rfilter', get_request_var('rfilter'));
+				break;
 			case 'refresh':
 				set_user_setting('monitor_refresh', get_request_var('refresh'));
 				break;
@@ -677,6 +686,10 @@ function validate_request_vars($force = false) {
 		'refresh' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => read_user_setting('monitor_refresh', read_config_option('monitor_refresh'), $force)
+		),
+		'rfilter' => array(
+			'filter' => FILTER_VALIDATE_IS_REGEX,
+			'default' => read_user_setting('monitor_rfilter', '', $force)
 		),
 		'mute' => array(
 			'filter' => FILTER_CALLBACK,
@@ -780,6 +793,10 @@ function render_where_join(&$sql_where, &$sql_join) {
 		} elseif (get_request_var('site') == -2) {
 			$awhere .= ($awhere == '' ? '' : ' AND ') . ' h.site_id = 0';
 		}
+	}
+
+	if (get_request_var('rfilter') != '') {
+		$awhere .= ($awhere == '' ? '' : ' AND ') . " h.description RLIKE '" . get_request_var('rfilter') . "'";
 	}
 
 	if (get_request_var('grouping') == 'tree') {
@@ -1796,7 +1813,7 @@ function get_hosts_down_or_triggered_by_permission() {
 				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
-			render_group_concat($sql_add_where, ' OR ', 'h.id', $devices, 'AND h.status < 2');
+			render_group_concat($sql_add_where, ' OR ', 'h.id', $devices,'AND h.status < 2');
 		}
 	}
 
