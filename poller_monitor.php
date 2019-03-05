@@ -137,7 +137,15 @@ list($purge_n, $purge_r) = purge_event_records();
 
 $poller_end = microtime(true);
 
-cacti_log('MONITOR STATS: Time:' . round($poller_end-$poller_start, 2) . ' Reboots:' . $reboots . ' DownDevices:' . $recent_down . ' Notifications:' . $notifications . ' Purges:' . ($purge_n + $purge_r), false, 'SYSTEM');
+$stats =
+	'Time:'           . round($poller_end-$poller_start, 4) .
+	' Reboots:'       . $reboots .
+	' DownDevices:'   . $recent_down .
+	' Notifications:' . $notifications .
+	' Purges:'        . ($purge_n + $purge_r);
+
+cacti_log('MONITOR STATS: ' . $stats, false, 'SYSTEM');
+set_config_option('stats_monitor', $stats);
 
 exit;
 
@@ -689,11 +697,12 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 				GROUP BY host_id
 			) AS nh
 			ON host.id=nh.host_id
-			WHERE status=3
-			AND thold_send_email>0
+			WHERE status = 3
+			AND thold_send_email > 0
 			AND monitor_criticality >= ?
 			AND cur_time > monitor_$type " . ($type == 'warn' ? ' AND cur_time < monitor_alert':'') . '
 			AND (notification_time < ? OR notification_time IS NULL)
+			AND host.total_polls > 1
 			GROUP BY thold_host_email, thold_send_email
 			ORDER BY thold_host_email, thold_send_email',
 			array($htype, $criticality, $last_time));
