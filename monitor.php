@@ -1118,8 +1118,10 @@ function render_default() {
 
 	render_where_join($sql_where, $sql_join);
 
-	$hosts_sql = ("SELECT DISTINCT h.*
+	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Device', 'monitor') . " ') AS site_name
 		FROM host AS h
+		LEFT JOIN sites AS s
+		ON h.site_id = s.id
 		$sql_join
 		$sql_where
 		ORDER BY description");
@@ -1454,8 +1456,10 @@ function render_tree() {
 
 				render_where_join($sql_where, $sql_join);
 
-				$hosts_sql = "SELECT h.*
+				$hosts_sql = "SELECT h.*, IFNULL(s.name,' " . __('Non-Site Device', 'monitor') . " ') AS site_name
 					FROM host AS h
+					LEFT JOIN sites AS s
+					ON h.site_id=s.id
 					INNER JOIN graph_tree_items AS gti
 					ON h.id=gti.host_id
 					$sql_join
@@ -1463,6 +1467,7 @@ function render_tree() {
 					AND parent = ?
 					AND graph_tree_id = ?
 					GROUP BY h.id";
+
 				$hosts = db_fetch_assoc_prepared($hosts_sql, array($oid, $graph_tree_id));
 
 				$tree_name = db_fetch_cell_prepared('SELECT name
@@ -1906,8 +1911,9 @@ function render_header_list($hosts) {
 	$display_text = array(
 		'hostname'    => array('display' => __('Hostname', 'monitor'),         'align' => 'left', 'tip' => __('Hostname of device', 'monitor')),
 		'description' => array('display' => __('Description', 'monitor'),      'align' => 'left'),
+		'site_name'   => array('display' => __('Site', 'monitor'),             'align' => 'left'),
 		'criticality' => array('display' => __('Criticality', 'monitor'),      'align' => 'left'),
-		'avail'       => array('display' => __('Up %', 'monitor'),             'align' => 'right'),
+		'avail'       => array('display' => __('Availability', 'monitor'),     'align' => 'right'),
 		'status'      => array('display' => __('Status', 'monitor'),           'align' => 'center'),
 		'duration'    => array('display' => __('Length in status', 'monitor'), 'align' => 'center'),
 		'average'     => array('display' => __('Averages', 'monitor'),         'align' => 'left'),
@@ -1992,6 +1998,7 @@ function render_host_list($host) {
 	$result = form_alternate_row('line' . $host['id'], true);
 	$result .= form_selectable_cell('<a class="linkEditMain" href="' . $host['anchor'] . '">' . $host['hostname'] .'</a>', $host['id']);
 	$result .= form_selectable_cell($host['description'], $host['id']);
+	$result .= form_selectable_cell($host['site_name'], $host['id']);
 	$result .= form_selectable_cell($host_crit, $host['id']);
 	$result .= form_selectable_cell(round($host['availability'],2) . " %", $host['id'], '', 'text-align:right;');
 	$result .= form_selectable_cell($sdisplay, $host['id'], '', 'text-align:center;');
