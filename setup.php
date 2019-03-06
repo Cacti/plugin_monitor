@@ -186,7 +186,7 @@ function monitor_check_upgrade() {
 	api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php', 1);
 
 	if ($current != $old) {
-		monitor_setup_table ();
+		monitor_setup_table();
 
 		// Set the new version
 		db_execute("UPDATE plugin_config SET version='$current' WHERE directory='monitor'");
@@ -792,7 +792,7 @@ function monitor_draw_navigation_text ($nav) {
 
 function monitor_setup_table() {
 	if (!db_table_exists('plugin_monitor_notify_history')) {
-		db_execute("CREATE TABLE plugin_monitor_notify_history (
+		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
 			id int(10) unsigned NOT NULL AUTO_INCREMENT,
 			host_id int(10) unsigned DEFAULT NULL,
 			notify_type tinyint(3) unsigned DEFAULT NULL,
@@ -828,6 +828,18 @@ function monitor_setup_table() {
 			KEY uptime (uptime))
 			ENGINE=InnoDB
 			COMMENT='Keeps Track of the Devices last uptime to track agent restarts and reboots'");
+	}
+
+	if (!db_table_exists('plugin_monitor_dashboards')) {
+		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_dashboards (
+			id int(10) unsigned auto_increment,
+			user_id int(10) unsigned DEFAULT '0',
+			name varchar(128) DEFAULT '',
+			url varchar(1024) DEFAULT '',
+			PRIMARY KEY (id),
+			KEY user_id (user_id))
+			ENGINE=InnoDB
+			COMMENT='Stores predefined dashboard information for a user or users'");
 	}
 
 	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on', 'after' => 'disabled'));

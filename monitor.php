@@ -123,6 +123,21 @@ switch(get_nfilter_request_var('action')) {
 		draw_page();
 
 		break;
+	case 'dbchange':
+		load_dashboard_settings();
+		draw_page();
+
+		break;
+	case 'remove':
+		remove_dashboard();
+		draw_page();
+
+		break;
+	case 'saveDb':
+		save_settings();
+		draw_page();
+
+		break;
 	case 'save':
 		save_settings();
 
@@ -132,6 +147,30 @@ switch(get_nfilter_request_var('action')) {
 }
 
 exit;
+
+function load_dashboard_settings() {
+	$dashboard = get_filter_request_var('dashboard');
+
+	if ($dashboard > 0) {
+		$db_settings = db_fetch_cell_prepared('SELECT url
+			FROM plugin_monitor_dashboards
+			WHERE id = ?',
+			array($dashboard));
+
+		if ($db_settings != '') {
+			$db_settings = str_replace('monitor.php?', '', $db_settings);
+			$settings = explode('&', $db_settings);
+
+			if (sizeof($settings)) {
+				foreach($settings as $setting) {
+					list($name, $value) = explode('=', $setting);
+
+					set_request_var($name, $value);
+				}
+			}
+		}
+	}
+}
 
 function draw_page() {
 	global $config, $iclasses, $icolorsdisplay;
@@ -173,6 +212,18 @@ function draw_page() {
 		print "</td></tr></table></div>\n";
 	}
 
+	$name = db_fetch_cell_prepared('SELECT name
+		FROM plugin_monitor_dashboards
+		WHERE id = ?',
+		array(get_request_var('dashboard')));
+
+	if ($name == '') {
+		$name = __('New Dashboard', 'monitor');
+	}
+
+	$new_form  = "<form id='new_dashboard'><table class='cactiTable'><tr><td colspan='2'><p>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</p></td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form>";
+	$new_title = __('Create New Dashboard', 'monitor');
+
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
@@ -188,7 +239,7 @@ function draw_page() {
 		value = $('#timer').html() - 1;
 
 		if (value <= 0) {
-			applyFilter();
+			applyFilter('refresh');
 		} else {
 			$('#timer').html(value);
 			// What is a second, well if you are an
@@ -222,71 +273,159 @@ function draw_page() {
 		clearTimeout(myTimer);
 		$('.fa-server, .fa-first-order').unbind();
 
-		strURL  = 'monitor.php?header=false';
-		if (action >= '') {
-			strURL += '&action='+action;
-		}
+		if (action != 'dashboard') {
+			strURL  = 'monitor.php?header=false';
+			if (action >= '') {
+				strURL += '&action='+action;
+			}
 
-		strURL += '&refresh='  + $('#refresh').val();
-		strURL += '&grouping=' + $('#grouping').val();
-		strURL += '&tree='     + $('#tree').val();
-		strURL += '&site='     + $('#site').val();
-		strURL += '&template=' + $('#template').val();
-		strURL += '&view='     + $('#view').val();
-		strURL += '&crit='     + $('#crit').val();
-		strURL += '&size='     + $('#size').val();
-		strURL += '&mute='     + $('#mute').val();
-		strURL += '&rfilter='  + base64_encode($('#rfilter').val());
-		strURL += '&status='   + $('#status').val();
+			strURL += '&refresh='  + $('#refresh').val();
+			strURL += '&grouping=' + $('#grouping').val();
+			strURL += '&tree='     + $('#tree').val();
+			strURL += '&site='     + $('#site').val();
+			strURL += '&template=' + $('#template').val();
+			strURL += '&view='     + $('#view').val();
+			strURL += '&crit='     + $('#crit').val();
+			strURL += '&size='     + $('#size').val();
+			strURL += '&mute='     + $('#mute').val();
+			strURL += '&rfilter='  + base64_encode($('#rfilter').val());
+			strURL += '&status='   + $('#status').val();
+		} else {
+			strURL  = 'monitor.php?action=dbchange&header=false';
+			strURL += '&dashboard=' + $('#dashboard').val();
+		}
 
 		loadPageNoHeader(strURL);
 	}
 
 	function saveFilter() {
-		url='monitor.php?action=save' +
-			'&refresh='  + $('#refresh').val() +
-			'&grouping=' + $('#grouping').val() +
-			'&tree='     + $('#tree').val() +
-			'&site='     + $('#site').val() +
-			'&template=' + $('#template').val() +
-			'&view='     + $('#view').val() +
-			'&crit='     + $('#crit').val() +
-			'&rfilter='  + base64_encode($('#rfilter').val()) +
-			'&size='     + $('#size').val() +
-			'&status='   + $('#status').val();
+		url =
+			'monitor.php?action=save&header=false' +
+			'&dashboard=' + $('#dashboard').val() +
+			'&refresh='   + $('#refresh').val() +
+			'&grouping='  + $('#grouping').val() +
+			'&tree='      + $('#tree').val() +
+			'&site='      + $('#site').val() +
+			'&template='  + $('#template').val() +
+			'&view='      + $('#view').val() +
+			'&crit='      + $('#crit').val() +
+			'&rfilter='   + base64_encode($('#rfilter').val()) +
+			'&size='      + $('#size').val() +
+			'&status='    + $('#status').val();
 
 		$.get(url, function(data) {
 			$('#text').show().text('<?php print __(' [ Filter Settings Saved ]', 'monitor');?>').fadeOut(2000);
 		});
 	}
 
-	$('#go').click(function() {
-		applyFilter();
-	});
-
-	$('#sound').click(function() {
-		if ($('#mute').val() == 'false') {
-			$('#mute').val('true');
-			muteUnmuteAudio(true);
-			applyFilter('ajax_mute_all');
+	function saveNewDashboard(action) {
+		if (action == 'new') {
+			dashboard = '-1';
 		} else {
-			$('#mute').val('false');
-			muteUnmuteAudio(false);
-			applyFilter('ajax_unmute_all');
+			dashboard = $('#dashboard').val();
 		}
-	});
 
-	$('#refresh, #view, #crit, #grouping, #size, #status, #tree, #site, #template').change(function() {
-		applyFilter();
-	});
+		url = 'monitor.php?action=saveDb&header=false' +
+			'&dashboard=' + dashboard +
+			'&name='      + $('#name').val() +
+			'&refresh='   + $('#refresh').val() +
+			'&grouping='  + $('#grouping').val() +
+			'&tree='      + $('#tree').val() +
+			'&site='      + $('#site').val() +
+			'&template='  + $('#template').val() +
+			'&view='      + $('#view').val() +
+			'&crit='      + $('#crit').val() +
+			'&rfilter='   + base64_encode($('#rfilter').val()) +
+			'&size='      + $('#size').val() +
+			'&status='    + $('#status').val();
 
-	$('#save').click(function() {
-		saveFilter();
-	});
+		loadPageNoHeader(url);
+	}
+
+	function removeDashboard() {
+		url = 'monitor.php?action=remove&header=false&dashboard=' + $('#dashboard').val();
+		loadPageNoHeader(url);
+	}
+
+	function saveDashboard(action) {
+		var btnDialog = {
+			'Cancel': {
+				text: '<?php print __('Cancel', 'monitor');?>',
+				id: 'btnCancel',
+				click: function() {
+					$(this).dialog('close');
+				}
+			},
+			'Save': {
+				text: '<?php print __('Save', 'monitor');?>',
+				id: 'btnSave',
+				click: function() {
+					saveNewDashboard(action);
+				}
+			}
+		};
+
+		$('body').remove('#newdialog').append("<div id='newdialog'><?php print $new_form;?></div>");
+
+		$('#newdialog').dialog({
+			title: '<?php print $new_title;?>',
+			minHeight: 80,
+			minWidth: 500,
+			buttons: btnDialog,
+			open: function() {
+				$('#btnSave').focus();
+			}
+		});
+	}
 
 	$(function() {
 		// Clear the timeout to keep countdown accurate
 		clearTimeout(myTimer);
+
+		$('#go').click(function() {
+			applyFilter('go');
+		});
+
+		$('#sound').click(function() {
+			if ($('#mute').val() == 'false') {
+				$('#mute').val('true');
+				muteUnmuteAudio(true);
+				applyFilter('ajax_mute_all');
+			} else {
+				$('#mute').val('false');
+				muteUnmuteAudio(false);
+				applyFilter('ajax_unmute_all');
+			}
+		});
+
+		$('#refresh, #view, #crit, #grouping, #size, #status, #tree, #site, #template').change(function() {
+			applyFilter('change');
+		});
+
+		$('#dashboard').change(function() {
+			applyFilter('dashboard');
+		});
+
+		$('#save').click(function() {
+			saveFilter();
+		});
+
+		$('#new').click(function() {
+			saveDashboard('new');
+		});
+
+		$('#rename').click(function() {
+			saveDashboard('rename');
+		});
+
+		$('#delete').click(function() {
+			removeDashboard();
+		});
+
+		$('.monitorFilterForm').submit(function(event) {
+			event.preventDefault();
+			applyFilter('change');
+		});
 
 		// Servers need tooltips
 		$('.monitor_device_frame').find('i').tooltip({
@@ -520,14 +659,43 @@ function draw_filter_and_status() {
 	print '<table class="filterTable">' . PHP_EOL;
 	print '<tr>' . PHP_EOL;
 
+	$dashboards[0] = __('Unsaved', 'monitor');
+	$dashboards += array_rekey(
+		db_fetch_assoc_prepared('SELECT id, name
+			FROM plugin_monitor_dashboards
+			WHERE user_id = 0 OR user_id = ?
+			ORDER BY name',
+			array($_SESSION['sess_user_id'])),
+		'id', 'name'
+	);
+
+	$name = db_fetch_cell_prepared('SELECT name
+		FROM plugin_monitor_dashboards
+		WHERE id = ?',
+		array(get_request_var('dashboard')));
+
+	draw_filter_dropdown('dashboard', __esc('Dashboard', 'monitor'), $dashboards);
 	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status);
 	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
 	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
 
 	// Buttons
 	print '<td><span>' . PHP_EOL;
-	print '<input type="button" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
+
+	print '<input type="submit" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
+
 	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . PHP_EOL;
+
+	print '<input type="button" value="' . __esc('New', 'monitor') . '" id="new" title="' . __esc('Save New Dashboard', 'monitor') . '">' . PHP_EOL;
+
+	if (get_request_var('dashboard') > 0) {
+		print '<input type="button" value="' . __esc('Rename', 'monitor') . '" id="rename" title="' . __esc('Rename Dashboard', 'monitor') . '">' . PHP_EOL;
+	}
+
+	if (get_request_var('dashboard') > 0) {
+		print '<input type="button" value="' . __esc('Delete', 'monitor') . '" id="delete" title="' . __esc('Delete Dashboard', 'monitor') . '">' . PHP_EOL;
+	}
+
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
 	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
 	print '</span></td>';
@@ -637,43 +805,116 @@ function get_unmute_text() {
 	}
 }
 
+function remove_dashboard() {
+	$dashboard = get_filter_request_var('dashboard');
+
+	$name = db_fetch_cell_prepared('SELECT name
+		FROM plugin_monitor_dashboards
+		WHERE id = ?
+		AND user_id = ?',
+		array($dashboard, $_SESSION['sess_user_id']));
+
+	if ($name != '') {
+		db_execute_prepared('DELETE FROM plugin_monitor_dashboards
+			WHERE id = ?',
+			array($dashboard));
+
+		raise_message('removed', __('Dashboard \'%s\' Removed.', $name, 'monitor'), MESSAGE_LEVEL_INFO);
+	} else {
+		$name = db_fetch_cell_prepared('SELECT name
+			FROM plugin_monitor_dashboards
+			WHERE id = ?',
+			array($dashboard));
+
+		raise_message('notremoved', __('Dashboard \'%s\' is not owned by you.', $name, 'monitor'), MESSAGE_LEVEL_ERROR);
+	}
+
+	set_request_var('dashboard', '0');
+}
+
 function save_settings() {
+	if (isset_request_var('dashboard') && get_filter_request_var('dashboard') != 0) {
+		$save_db = true;
+	} else {
+		$save_db = false;
+	}
+
 	validate_request_vars();
 
-	if (cacti_sizeof($_REQUEST)) {
-		foreach($_REQUEST as $var => $value) {
-			switch($var) {
-			case 'rfilter':
-				set_user_setting('monitor_rfilter', get_request_var('rfilter'));
-				break;
-			case 'refresh':
-				set_user_setting('monitor_refresh', get_request_var('refresh'));
-				break;
-			case 'grouping':
-				set_user_setting('monitor_grouping', get_request_var('grouping'));
-				break;
-			case 'view':
-				set_user_setting('monitor_view', get_request_var('view'));
-				break;
-			case 'crit':
-				set_user_setting('monitor_crit', get_request_var('crit'));
-				break;
-			case 'mute':
-				set_user_setting('monitor_mute', get_request_var('mute'));
-				break;
-			case 'size':
-				set_user_setting('monitor_size', get_request_var('size'));
-				break;
-			case 'status':
-				set_user_setting('monitor_status', get_request_var('status'));
-				break;
-			case 'tree':
-				set_user_setting('monitor_tree', get_request_var('tree'));
-				break;
-			case 'site':
-				set_user_setting('monitor_site', get_request_var('site'));
-				break;
+	if (!$save_db) {
+		if (cacti_sizeof($_REQUEST)) {
+			foreach($_REQUEST as $var => $value) {
+				switch($var) {
+				case 'dashboard':
+					set_user_setting('monitor_rfilter', get_request_var('dashboard'));
+					break;
+				case 'rfilter':
+					set_user_setting('monitor_rfilter', get_request_var('rfilter'));
+					break;
+				case 'refresh':
+					set_user_setting('monitor_refresh', get_request_var('refresh'));
+					break;
+				case 'grouping':
+					set_user_setting('monitor_grouping', get_request_var('grouping'));
+					break;
+				case 'view':
+					set_user_setting('monitor_view', get_request_var('view'));
+					break;
+				case 'crit':
+					set_user_setting('monitor_crit', get_request_var('crit'));
+					break;
+				case 'mute':
+					set_user_setting('monitor_mute', get_request_var('mute'));
+					break;
+				case 'size':
+					set_user_setting('monitor_size', get_request_var('size'));
+					break;
+				case 'status':
+					set_user_setting('monitor_status', get_request_var('status'));
+					break;
+				case 'tree':
+					set_user_setting('monitor_tree', get_request_var('tree'));
+					break;
+				case 'site':
+					set_user_setting('monitor_site', get_request_var('site'));
+					break;
+				}
 			}
+		}
+	} else {
+		$url = 'monitor.php' .
+			'?refresh='   . get_request_var('refresh') .
+			'&grouping='  . get_request_var('grouping') .
+			'&view='      . get_request_var('view') .
+			'&crit='      . get_request_var('crit') .
+			'&size='      . get_request_var('size') .
+			'&status='    . get_request_var('status') .
+			'&tree='      . get_request_var('tree') .
+			'&site='      . get_request_var('site');
+
+		if (!isset_request_var('user')) {
+			$user = $_SESSION['sess_user_id'];
+		} else {
+			$user = get_request_var('user');
+		}
+
+		$id   = get_request_var('dashboard');
+		$name = get_nfilter_request_var('name');
+
+		$save = array();
+		$save['id']      = $id;
+		$save['name']    = $name;
+		$save['user_id'] = $user;
+		$save['url']     = $url;
+
+		$id = sql_save($save, 'plugin_monitor_dashboards');
+
+		if (!empty($id)) {
+			raise_message('monitorsaved', __('Dashboard \'%s\' has been Saved!', $name, 'monitor'), MESSAGE_LEVEL_INFO);
+			set_request_var('dashboard', $id);
+		} else {
+			raise_message('monitornotsaved', __('Dashboard \'%s\' could not be Saved!', $name, 'monitor'), MESSAGE_LEVEL_INFO);
+			set_request_var('dashboard', '0');
 		}
 	}
 
@@ -687,9 +928,18 @@ function validate_request_vars($force = false) {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => read_user_setting('monitor_refresh', read_config_option('monitor_refresh'), $force)
 		),
+		'dashboard' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_dashboard', read_config_option('monitor_dashboard'), $force)
+		),
 		'rfilter' => array(
 			'filter' => FILTER_VALIDATE_IS_REGEX,
 			'default' => read_user_setting('monitor_rfilter', '', $force)
+		),
+		'name' => array(
+			'filter' => FILTER_CALLBACK,
+			'options' => array('options' => 'sanitize_search_string'),
+			'default' => ''
 		),
 		'mute' => array(
 			'filter' => FILTER_CALLBACK,
