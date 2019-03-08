@@ -110,6 +110,7 @@
 
 .monitor_exsmall_tilesadt {
 	height: 35px;
+	min-width: 74px;
 }
 
 .monitor_exsmall td {
@@ -142,7 +143,7 @@
 
 .monitor_small_tilesadt {
 	height: 45px;
-	min-width: 28px;
+	min-width: 74px;
 }
 
 .monitor_small i, .monitor_small_tiles i, .monitor_small_tilesadt i {
@@ -177,7 +178,7 @@
 
 .monitor_medium_tilesadt {
 	height: 65px;
-	min-width: 58px;
+	min-width: 88px;
 }
 
 .monitor_medium i, .monitor_medium_tiles i, .monitor_medium_tilesadt i {

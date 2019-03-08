@@ -930,7 +930,7 @@ function validate_request_vars($force = false) {
 		),
 		'dashboard' => array(
 			'filter' => FILTER_VALIDATE_INT,
-			'default' => read_user_setting('monitor_dashboard', read_config_option('monitor_dashboard'), $force)
+			'default' => read_user_setting('monitor_dashboard', '0', $force)
 		),
 		'rfilter' => array(
 			'filter' => FILTER_VALIDATE_IS_REGEX,
