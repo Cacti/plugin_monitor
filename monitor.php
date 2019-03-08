@@ -190,7 +190,7 @@ function draw_page() {
 		if (get_request_var('grouping') == 'default' || get_request_var('grouping') == 'site') {
 			html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
 		} else {
-			html_start_box(__('', 'monitor'), '100%', '', '3', 'center', '');
+			html_start_box('', '100%', '', '3', 'center', '');
 		}
 
 		print $function();
