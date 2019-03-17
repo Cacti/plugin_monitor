@@ -1,18 +1,18 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developer@cacti.net\n"
 "POT-Creation-Date: 2019-03-17 00:00+0000\n"
-"PO-Revision-Date: 2019-03-17 00:00+0000\n"
+"PO-Revision-Date: 2019-03-17 11:52-0400\n"
 "Last-Translator: Larry Adams <thewitness@cacti.net>\n"
-"Language-Team: Spanish <http://translate.cacti.net/projects/cacti/monitor/"
-"es-ES/>\n"
-"Language: es-ES\n"
+"Language-Team: Spanish <http://translate.cacti.net/projects/cacti/monitor/es-"
+"ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: monitor.php:37 poller_monitor.php:342 setup.php:359
 msgid "Disabled"
@@ -105,8 +105,11 @@ msgid "Default"
 msgstr "Por defecto"
 
 #: monitor.php:84 setup.php:457
+#, fuzzy
 msgid "List"
 msgstr ""
+" - Una lista de puertos que NO deberían ser escaneados para dispositivos de "
+"usuario"
 
 #: monitor.php:85 setup.php:458
 msgid "Tiles"
@@ -129,31 +132,10 @@ msgstr "Plantilla de Dispositivo"
 msgid "Monitored Devices"
 msgstr "Monitorear dispositivo"
 
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-#: monitor.php:150
-msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-17 18:08-0500\n"
-"PO-Revision-Date: 2017-09-05 15:28+1200\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: es_ES\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
 #: monitor.php:249
 #, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "Guardar opciones de filtro"
+msgstr "Opciones de filtro guardadas"
 
 #: monitor.php:436
 msgid "All Monitored Devices"
@@ -180,9 +162,9 @@ msgstr ""
 "supereados"
 
 #: monitor.php:448
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown monitoring status (%s)"
-msgstr ""
+msgstr "Estado de monitoreo desconocido (%s)"
 
 #: monitor.php:453
 msgid ", and All Criticalities"
@@ -267,8 +249,9 @@ msgid "Criticality"
 msgstr "Criticidad"
 
 #: monitor.php:533
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 #: monitor.php:540
 msgid "All Trees"
@@ -281,7 +264,7 @@ msgstr "Dispositivos sin árbol"
 #: monitor.php:555
 #, fuzzy
 msgid "All Templates"
-msgstr "Todos los Arboles"
+msgstr "Todas las plantillas"
 
 #: monitor.php:556
 #, fuzzy
@@ -291,7 +274,7 @@ msgstr "Dispositivos sin árbol"
 #: monitor.php:561
 #, fuzzy
 msgid "Template"
-msgstr "Plantilla de Dispositivo"
+msgstr "Plantilla"
 
 #: monitor.php:587
 msgid "Mute"
@@ -319,9 +302,9 @@ msgid "Tree: %s"
 msgstr "Arbol:"
 
 #: monitor.php:1093
-#, php-format
+#, fuzzy, php-format
 msgid "Branch: %s"
-msgstr ""
+msgstr "Rama: %s"
 
 #: monitor.php:1297
 msgid "Just Up"
@@ -434,33 +417,37 @@ msgstr "Contacto:"
 #: poller_monitor.php:432
 #, fuzzy
 msgid "Hostname"
-msgstr "IP/Nombre de equipo:"
+msgstr "Nombre de equipo"
 
 #: monitor.php:1502
+#, fuzzy
 msgid "Hostname of device"
-msgstr ""
+msgstr "Nombre de host del dispositivo"
 
 #: monitor.php:1503 poller_monitor.php:285
 #, fuzzy
 msgid "Description"
-msgstr "Descripción de Sistema:"
+msgstr "Descripción"
 
 #: monitor.php:1505
+#, fuzzy
 msgid "Up %"
-msgstr ""
+msgstr "Up"
 
 #: monitor.php:1507
+#, fuzzy
 msgid "Length in status"
-msgstr ""
+msgstr "Longitud en estado"
 
 #: monitor.php:1508
+#, fuzzy
 msgid "Averages"
-msgstr ""
+msgstr "Promedios"
 
 #: monitor.php:1509
 #, fuzzy
 msgid "Warning"
-msgstr "Ping de advertencia"
+msgstr "Advertencia"
 
 #: monitor.php:1510
 #, fuzzy
@@ -470,17 +457,17 @@ msgstr "Ultima falla:"
 #: monitor.php:1511
 #, fuzzy
 msgid "Admin"
-msgstr "Nota de Admin:"
+msgstr "Notificar al Administrador principal si hay problemas"
 
 #: monitor.php:1512
 #, fuzzy
 msgid "Notes"
-msgstr "Notas:"
+msgstr "Notas"
 
 #: monitor.php:1516
 #, fuzzy
 msgid "Devices"
-msgstr "Dispositivo:"
+msgstr "Dispositivos"
 
 #: poller_monitor.php:390 poller_monitor.php:392
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
@@ -616,12 +603,16 @@ msgid "Monitor"
 msgstr "Monitor"
 
 #: setup.php:408
+#, fuzzy
 msgid "Enable on new devices"
-msgstr ""
+msgstr "Habilitar en nuevos dispositivos"
 
 #: setup.php:409
+#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr ""
+"Compruébelo para habilitar automáticamente la monitorización al crear nuevos "
+"dispositivos."
 
 #: setup.php:413
 msgid "Notification/Reboot Log Retention"
@@ -760,64 +751,91 @@ msgid "Send Reboot Notifications"
 msgstr "Notificación de alerta de latencia"
 
 #: setup.php:515
+#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr ""
+"¿Deben enviarse las notificaciones de reinicio de dispositivos a los "
+"usuarios?"
 
 #: setup.php:519
+#, fuzzy
 msgid "Include Threshold Alert Lists"
-msgstr ""
+msgstr "Incluir Listas de Alerta de Umbral"
 
 #: setup.php:521
+#, fuzzy
 msgid "Should Threshold Alert Lists also receive notification"
 msgstr ""
+"En caso de que las listas de alerta de umbral también reciban notificación"
 
 #: setup.php:525
+#, fuzzy
 msgid "Subject"
-msgstr ""
+msgstr "Asunto"
 
 #: setup.php:526
+#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Nofication."
 msgstr ""
+"Introduzca un asunto del mensaje de reinicio para la noficación de reinicio."
 
 #: setup.php:528
+#, fuzzy
 msgid "Cacti Device Reboot Nofication"
-msgstr ""
+msgstr "Noficación de reinicio de dispositivos Cacti"
 
 #: setup.php:533
+#, fuzzy
 msgid "Email Body"
-msgstr ""
+msgstr "Contenido del correo"
 
 #: setup.php:534
+#, fuzzy
 msgid ""
 "Enter an Email body to include in the Reboot Notification message.  "
 "Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr ""
+"Introduzca un cuerpo de correo electrónico para incluirlo en el mensaje de "
+"notificación de reinicio.  Actualmente, la única etiqueta de reemplazo "
+"aceptada es &#060;DETALLES&#062;"
 
 #: setup.php:538
+#, fuzzy
 msgid ""
 "<h1>Monitor Reboot Notification</h1><p>The following Device's were "
 "Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr ""
+"<h1>Notificación de reinicio del monitor </h1><p>Los siguientes dispositivos "
+"fueron reiniciados.  Vea los detalles a continuación para información "
+"adicional.</p><br><DETAILS>"
 
 #: setup.php:541
+#, fuzzy
 msgid "Notification Email Addresses"
-msgstr ""
+msgstr "Direcciones de correo electrónico de notificación"
 
 #: setup.php:546
+#, fuzzy
 msgid "From Name"
-msgstr ""
+msgstr "Nombre del remitente"
 
 #: setup.php:547
+#, fuzzy
 msgid "Enter the Email Name to send the notifications form"
 msgstr ""
+"Introduzca el nombre de correo electrónico para enviar el formulario de "
+"notificaciones"
 
 #: setup.php:553
+#, fuzzy
 msgid "From Address"
-msgstr ""
+msgstr "De la Dirección"
 
 #: setup.php:554
+#, fuzzy
 msgid "Enter the Email Address to send the notification from"
 msgstr ""
+"Ingrese la dirección de correo electrónico para enviar la notificación desde"
 
 #: setup.php:560
 #, fuzzy
@@ -825,19 +843,26 @@ msgid "Notification List"
 msgstr "Retención de notificaciones/reinicios"
 
 #: setup.php:561
+#, fuzzy
 msgid ""
 "Select a Notification List below.  All Emails subscribed to the notification "
 "list will be notified."
 msgstr ""
+"Seleccione una lista de notificaciones a continuación.  Todos los correos "
+"electrónicos suscritos a la lista de notificación serán notificados."
 
 #: setup.php:568
+#, fuzzy
 msgid "Email Addresses"
-msgstr ""
+msgstr "Direcciones de correo"
 
 #: setup.php:569
+#, fuzzy
 msgid ""
 "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr ""
+"Introduzca una lista delimitada por comas de direcciones de correo "
+"electrónico para informar de un evento de reinicio."
 
 #: setup.php:616
 msgid "Do not Change"
@@ -892,8 +917,9 @@ msgstr ""
 "Plugin Thold es requerido para aprovechar esta funcionalidad."
 
 #: setup.php:672 setup.php:682
+#, fuzzy
 msgid "milliseconds"
-msgstr ""
+msgstr "milisegundos"
 
 #: setup.php:677
 msgid "Ping Alert Threshold"

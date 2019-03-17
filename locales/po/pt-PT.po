@@ -1,627 +1,757 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-16 03:31+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: pt-PT\n"
+"PO-Revision-Date: 2019-03-17 12:06-0400\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
-"X-Generator: Translate Toolkit 2.3.1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 
 #: monitor.php:37 poller_monitor.php:342 setup.php:359
+#, fuzzy
 msgid "Disabled"
-msgstr ""
+msgstr "Desativado"
 
 #: monitor.php:38 poller_monitor.php:343 setup.php:77 setup.php:360
+#, fuzzy
 msgid "Low"
-msgstr ""
+msgstr "Baixa"
 
 #: monitor.php:39 monitor.php:71 poller_monitor.php:344 setup.php:78
 #: setup.php:361
+#, fuzzy
 msgid "Medium"
-msgstr ""
+msgstr "Média"
 
 #: monitor.php:40 poller_monitor.php:345 setup.php:79 setup.php:362
+#, fuzzy
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 #: monitor.php:41 poller_monitor.php:346 setup.php:80 setup.php:363
+#, fuzzy
 msgid "Mission Critical"
-msgstr ""
+msgstr "Missão Crítica"
 
 #: monitor.php:57 monitor.php:1210
+#, fuzzy
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: monitor.php:58
+#, fuzzy
 msgid "Down"
-msgstr ""
+msgstr "Widget movido para baixo"
 
 #: monitor.php:59
+#, fuzzy
 msgid "Recovering"
-msgstr ""
+msgstr "Recuperando"
 
 #: monitor.php:60
+#, fuzzy
 msgid "Up"
-msgstr ""
+msgstr "Procure"
 
 #: monitor.php:61
+#, fuzzy
 msgid "Triggered"
-msgstr ""
+msgstr "Acionado"
 
 #: monitor.php:62
+#, fuzzy
 msgid "Down (Muted/Acked)"
-msgstr ""
+msgstr "Abaixo (Muted/Acked)"
 
 #: monitor.php:63
+#, fuzzy
 msgid "No Availability Check"
-msgstr ""
+msgstr "Sem verificação de disponibilidade"
 
 #: monitor.php:64
+#, fuzzy
 msgid "Warning Ping"
-msgstr ""
+msgstr "Ping de Aviso"
 
 #: monitor.php:65 poller_monitor.php:410 poller_monitor.php:432
+#, fuzzy
 msgid "Alert Ping"
-msgstr ""
+msgstr "Ping de alerta"
 
 #: monitor.php:69
+#, fuzzy
 msgid "Extra Small"
-msgstr ""
+msgstr "Muito pequeno"
 
 #: monitor.php:70
+#, fuzzy
 msgid "Small"
-msgstr ""
+msgstr "Pequeno"
 
 #: monitor.php:72
+#, fuzzy
 msgid "Large"
-msgstr ""
+msgstr "Grande"
 
 #: monitor.php:76
+#, fuzzy
 msgid "All Monitored"
-msgstr ""
+msgstr "Todos Monitorados"
 
 #: monitor.php:77
+#, fuzzy
 msgid "Not Up"
-msgstr ""
+msgstr "Não Up"
 
 #: monitor.php:78
+#, fuzzy
 msgid "Not Up or Triggered"
-msgstr ""
+msgstr "Não ativada ou acionada"
 
 #: monitor.php:79
+#, fuzzy
 msgid "Not Up, Triggered or Breached"
-msgstr ""
+msgstr "Não Ativado, Ativado ou Quebrado"
 
 #: monitor.php:83 monitor.php:90 setup.php:444 setup.php:456
+#, fuzzy
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #: monitor.php:84 setup.php:457
+#, fuzzy
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: monitor.php:85 setup.php:458
+#, fuzzy
 msgid "Tiles"
-msgstr ""
+msgstr "Ladrilhos"
 
 #: monitor.php:86
+#, fuzzy
 msgid "Tiles & Time"
-msgstr ""
+msgstr "Azulejos e Tempo"
 
 #: monitor.php:91 monitor.php:547 setup.php:446
+#, fuzzy
 msgid "Tree"
-msgstr ""
+msgstr "Árvore"
 
 #: monitor.php:92 setup.php:447
+#, fuzzy
 msgid "Device Template"
-msgstr ""
+msgstr "Modelo do dispositivo"
 
 #: monitor.php:148 monitor.php:1515
-msgid "Monitored Devices"
-msgstr ""
-
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#: monitor.php:150
 #, fuzzy
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-17 18:08-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8bit\n"
+msgid "Monitored Devices"
+msgstr "Dispositivos Monitorados"
 
 #: monitor.php:249
+#, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr ""
+msgstr " Definições de Filtro Guardadas"
 
 #: monitor.php:436
+#, fuzzy
 msgid "All Monitored Devices"
-msgstr ""
+msgstr "Todos os dispositivos monitorados"
 
 #: monitor.php:439
+#, fuzzy
 msgid "Monitored Devices either Down or Recovering"
-msgstr ""
+msgstr "Dispositivos Monitorados em Baixa ou em Recuperação"
 
 #: monitor.php:442
+#, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr ""
+msgstr "Dispositivos monitorados em Down, Recovering ou com Limiares acionados"
 
 #: monitor.php:445
+#, fuzzy
 msgid ""
 "Monitored Devices either Down, Recovering, or with Breached or Triggered "
 "Thresholds"
 msgstr ""
+"Dispositivos Monitorados em Baixa, Recuperação ou com Limiares Violados ou "
+"Acionados"
 
 #: monitor.php:448
-#, php-format
+#, fuzzy, php-format
 msgid "Unknown monitoring status (%s)"
-msgstr ""
+msgstr "Status de monitoramento desconhecido (%s)"
 
 #: monitor.php:453
+#, fuzzy
 msgid ", and All Criticalities"
-msgstr ""
+msgstr "e Todas as Críticas"
 
 #: monitor.php:456
+#, fuzzy
 msgid ", and of Low Criticality or Higher"
-msgstr ""
+msgstr "e de Baixa Crítica ou Superior"
 
 #: monitor.php:459
+#, fuzzy
 msgid ", and of Medium Criticality or Higher"
-msgstr ""
+msgstr "e de Crítica Média ou Superior"
 
 #: monitor.php:462
+#, fuzzy
 msgid ", and of High Criticality or Higher"
-msgstr ""
+msgstr "e de Alta Crítica ou Superior"
 
 #: monitor.php:465
+#, fuzzy
 msgid ", and of Mission Critical Status"
-msgstr ""
+msgstr "e de Estado Crítico de Missão"
 
 #: monitor.php:469
+#, fuzzy
 msgid ""
 "</div><div class=\"center monitorFooterTextBold\">Remember to first select "
 "eligible Devices to be Monitored from the Devices page!</div>"
 msgstr ""
+"</div><div class=\"center monitorFooterTextBold\">Lembrar-se de primeiro "
+"selecionar Dispositivos elegíveis para serem Monitorados na página "
+"Dispositivos!</div>"
 
 #: monitor.php:502
-#, php-format
+#, fuzzy, php-format
 msgid " [ Refresh Again in <i id=\"timer\">%d</i> Seconds ]"
-msgstr ""
+msgstr " [Refresque Novamente em <i id=\"timer\">%d</i> Segundos]"
 
 #: monitor.php:502
-#, php-format
+#, fuzzy, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr ""
+msgstr "Filtro do Monitor [ Última Atualização: %s ]"
 
 #: monitor.php:512 monitor.php:1506
+#, fuzzy
 msgid "Status"
-msgstr ""
+msgstr "Estado"
 
 #: monitor.php:513 setup.php:451
+#, fuzzy
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 #: monitor.php:516 setup.php:439
+#, fuzzy
 msgid "Grouping"
-msgstr ""
+msgstr "Agrupamento"
 
 #: monitor.php:521 monitor.php:564
+#, fuzzy
 msgid "Refresh"
-msgstr ""
+msgstr "Atualizar"
 
 #: monitor.php:521
+#, fuzzy
 msgid "Refresh the Device List"
-msgstr ""
+msgstr "Atualizar a lista de dispositivos"
 
 #: monitor.php:522
+#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: monitor.php:522
+#, fuzzy
 msgid "Save Filter Settings"
-msgstr ""
+msgstr "Salvar configurações de filtro"
 
 #: monitor.php:523
-#, php-format
+#, fuzzy, php-format
 msgid "%s Alert for downed Devices"
-msgstr ""
+msgstr "Alerta para dispositivos downed"
 
 #: monitor.php:523
-#, php-format
+#, fuzzy, php-format
 msgid "%s Alerts for downed Devices"
-msgstr ""
+msgstr "Alertas para dispositivos desactivados"
 
 #: monitor.php:532 monitor.php:1504 poller_monitor.php:410
 #: poller_monitor.php:432 setup.php:83
+#, fuzzy
 msgid "Criticality"
-msgstr ""
+msgstr "Criticidade"
 
 #: monitor.php:533
+#, fuzzy
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: monitor.php:540
+#, fuzzy
 msgid "All Trees"
-msgstr ""
+msgstr "Todas as árvores"
 
 #: monitor.php:541 monitor.php:1132
+#, fuzzy
 msgid "Non-Tree Devices"
-msgstr ""
+msgstr "Dispositivos não árvores"
 
 #: monitor.php:555
+#, fuzzy
 msgid "All Templates"
-msgstr ""
+msgstr "Todos os modelos"
 
 #: monitor.php:556
+#, fuzzy
 msgid "Non-Templated Devices"
-msgstr ""
+msgstr "Dispositivos Não-Templados"
 
 #: monitor.php:561
+#, fuzzy
 msgid "Template"
-msgstr ""
+msgstr "Modelo"
 
 #: monitor.php:587
+#, fuzzy
 msgid "Mute"
-msgstr ""
+msgstr "Mudo"
 
 #: monitor.php:589
+#, fuzzy
 msgid "Acknowledge"
-msgstr ""
+msgstr "Reconhecimento"
 
 #: monitor.php:595
+#, fuzzy
 msgid "Un-Mute"
-msgstr ""
+msgstr "Un-Mute"
 
 #: monitor.php:597
+#, fuzzy
 msgid "Reset"
-msgstr ""
+msgstr "Repor"
 
 #: monitor.php:1035
+#, fuzzy
 msgid "Root Branch"
-msgstr ""
+msgstr "Ramo de raiz"
 
 #: monitor.php:1081
-#, php-format
+#, fuzzy, php-format
 msgid "Tree: %s"
-msgstr ""
+msgstr "Árvore: %s"
 
 #: monitor.php:1093
-#, php-format
+#, fuzzy, php-format
 msgid "Branch: %s"
-msgstr ""
+msgstr "Ramo: %s"
 
 #: monitor.php:1297
+#, fuzzy
 msgid "Just Up"
-msgstr ""
+msgstr "Só para cima"
 
 #: monitor.php:1395
+#, fuzzy
 msgid "Edit Device"
-msgstr ""
+msgstr "Editar dispositivo"
 
 #: monitor.php:1398
+#, fuzzy
 msgid "View Graphs"
-msgstr ""
+msgstr "Ver gráficos"
 
 #: monitor.php:1401
+#, fuzzy
 msgid "View Thresholds"
-msgstr ""
+msgstr "Ver Limiares"
 
 #: monitor.php:1404
+#, fuzzy
 msgid "View Syslog Alerts"
-msgstr ""
+msgstr "Exibir alertas do Syslog"
 
 #: monitor.php:1407
+#, fuzzy
 msgid "View Syslog Messages"
-msgstr ""
+msgstr "Ver Mensagens Syslog"
 
 #: monitor.php:1416
+#, fuzzy
 msgid "Device Status Information"
-msgstr ""
+msgstr "Informações sobre o status do dispositivo"
 
 #: monitor.php:1419
+#, fuzzy
 msgid "Device:"
-msgstr ""
+msgstr "Dispositivo"
 
 #: monitor.php:1423
+#, fuzzy
 msgid "Criticality:"
-msgstr ""
+msgstr "Criticidade:"
 
 #: monitor.php:1427
+#, fuzzy
 msgid "Status:"
-msgstr ""
+msgstr "Estado"
 
 #: monitor.php:1431
+#, fuzzy
 msgid "Admin Note:"
-msgstr ""
+msgstr "Nota administrativa:"
 
 #: monitor.php:1435
+#, fuzzy
 msgid "IP/Hostname:"
-msgstr ""
+msgstr "IP/Nome do anfitrião:"
 
 #: monitor.php:1439
+#, fuzzy
 msgid "Notes:"
-msgstr ""
+msgstr "Notas"
 
 #: monitor.php:1443
+#, fuzzy
 msgid "Links:"
-msgstr ""
+msgstr "Links"
 
 #: monitor.php:1448
+#, fuzzy
 msgid "Curr/Avg:"
-msgstr ""
+msgstr "Moeda/Avanç:"
 
 #: monitor.php:1449 monitor.php:1572
-#, php-format
+#, fuzzy, php-format
 msgid "%d ms"
-msgstr ""
+msgstr "%d ms"
 
 #: monitor.php:1452
+#, fuzzy
 msgid "Warn/Alert:"
-msgstr ""
+msgstr "Avisar/Alertar:"
 
 #: monitor.php:1453 monitor.php:1577
-#, php-format
+#, fuzzy, php-format
 msgid "%0.2d ms"
-msgstr ""
+msgstr "%0.2d ms"
 
 #: monitor.php:1456
+#, fuzzy
 msgid "Last Fail:"
-msgstr ""
+msgstr "Última falha:"
 
 #: monitor.php:1457 monitor.php:1555 monitor.php:1579 monitor.php:1633
+#, fuzzy
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 #: monitor.php:1460
+#, fuzzy
 msgid "Time In State:"
-msgstr ""
+msgstr "Tempo no Estado:"
 
 #: monitor.php:1464
+#, fuzzy
 msgid "Availability:"
-msgstr ""
+msgstr "Disponibilidade"
 
 #: monitor.php:1468
+#, fuzzy
 msgid "Agent Uptime:"
-msgstr ""
+msgstr "Agente Uptime:"
 
 #: monitor.php:1472
+#, fuzzy
 msgid "Sys Description:"
-msgstr ""
+msgstr "Descrição do Sistema:"
 
 #: monitor.php:1476
+#, fuzzy
 msgid "Location:"
-msgstr ""
+msgstr "Localização:"
 
 #: monitor.php:1480
+#, fuzzy
 msgid "Contact:"
-msgstr ""
+msgstr "Contacto"
 
 #: monitor.php:1502 poller_monitor.php:285 poller_monitor.php:410
 #: poller_monitor.php:432
+#, fuzzy
 msgid "Hostname"
-msgstr ""
+msgstr "Hostname"
 
 #: monitor.php:1502
+#, fuzzy
 msgid "Hostname of device"
-msgstr ""
+msgstr "Nome do host do dispositivo"
 
 #: monitor.php:1503 poller_monitor.php:285
+#, fuzzy
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: monitor.php:1505
+#, fuzzy
 msgid "Up %"
-msgstr ""
+msgstr "Até % (%)"
 
 #: monitor.php:1507
+#, fuzzy
 msgid "Length in status"
-msgstr ""
+msgstr "Comprimento no status"
 
 #: monitor.php:1508
+#, fuzzy
 msgid "Averages"
-msgstr ""
+msgstr "Médias"
 
 #: monitor.php:1509
+#, fuzzy
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #: monitor.php:1510
+#, fuzzy
 msgid "Last Fail"
-msgstr ""
+msgstr "Última falha"
 
 #: monitor.php:1511
+#, fuzzy
 msgid "Admin"
-msgstr ""
+msgstr "Administrador"
 
 #: monitor.php:1512
+#, fuzzy
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 #: monitor.php:1516
+#, fuzzy
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivos"
 
 #: poller_monitor.php:390 poller_monitor.php:392
+#, fuzzy
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
-msgstr ""
+msgstr "Notificação de limiar de limiar de ping-ping do monitor Cacti"
 
 #: poller_monitor.php:394
+#, fuzzy
 msgid ""
 "The following report will identify Devices that have eclipsed their ping\n"
 "\t\t\tlatency thresholds.  You are receiving this report since you are "
 "subscribed to a Device\n"
 "\t\t\tassociated with the Cacti system located at the following URL below."
 msgstr ""
+"O relatório a seguir identificará os dispositivos que eclipsaram seu ping\n"
+"\t\t\tlimiares de latência.  Você está recebendo este relatório desde que "
+"você é subscrito a um dispositivo\n"
+"\t\t\tassociado ao sistema Cacti localizado na seguinte URL abaixo."
 
 #: poller_monitor.php:401
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You will receive notifications every %d minutes if the Device is above its "
 "threshold."
 msgstr ""
+"Você receberá notificações a cada %d minutos se o dispositivo estiver acima "
+"de seu limite."
 
 #: poller_monitor.php:403
+#, fuzzy
 msgid ""
 "You will receive notifications every time the Device is above its threshold."
 msgstr ""
+"Você receberá notificações sempre que o Dispositivo estiver acima de seu "
+"limite."
 
 #: poller_monitor.php:407
+#, fuzzy
 msgid "The following Devices have breached their Alert Notification Threshold."
 msgstr ""
+"Os seguintes Dispositivos violaram seu Limiar de Notificação de Alerta."
 
 #: poller_monitor.php:410 poller_monitor.php:432
+#, fuzzy
 msgid "Current Ping"
-msgstr ""
+msgstr "Ping Corrente"
 
 #: poller_monitor.php:428
+#, fuzzy
 msgid ""
 "The following Devices have breached their Warning Notification Threshold."
 msgstr ""
+"Os seguintes Dispositivos violaram o seu Limiar de Notificação de "
+"Advertência."
 
 #: setup.php:75
+#, fuzzy
 msgid "Any"
-msgstr ""
+msgstr "Qualquer"
 
 #: setup.php:76 setup.php:565
+#, fuzzy
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #: setup.php:280
-#, php-format
+#, fuzzy, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
-msgstr ""
+msgstr "Clique em 'Continuar' para %s de monitoramento nestes Dispositivo(s)"
 
 #: setup.php:287
+#, fuzzy
 msgid ""
 "Click 'Continue' to Change the Monitoring settings for the following "
 "Device(s). Remember to check 'Update this Field' to indicate which columns "
 "to update."
 msgstr ""
+"Clique em 'Continuar' para alterar as configurações de monitoramento para "
+"o(s) seguinte(s) dispositivo(s). Lembre-se de marcar 'Atualizar este campo' "
+"para indicar quais colunas atualizar."
 
 #: setup.php:310
+#, fuzzy
 msgid "Update this Field"
-msgstr ""
+msgstr "Atualizar este campo"
 
 #: setup.php:325
+#, fuzzy
 msgid "Change Monitoring Options"
-msgstr ""
+msgstr "Opções de monitorização de modificações"
 
 #: setup.php:326
+#, fuzzy
 msgid "Enable Monitoring"
-msgstr ""
+msgstr "Habilitar Monitoramento"
 
 #: setup.php:327
+#, fuzzy
 msgid "Disable Monitoring"
-msgstr ""
+msgstr "Desativar Monitoramento"
 
 #: setup.php:367
+#, fuzzy
 msgid "Indefinately"
-msgstr ""
+msgstr "Indefinidamente"
 
 #: setup.php:368
-#, php-format
+#, fuzzy, php-format
 msgid "%d Month"
-msgstr ""
+msgstr "%d Mês"
 
 #: setup.php:369 setup.php:370 setup.php:371 setup.php:372
-#, php-format
+#, fuzzy, php-format
 msgid "%d Months"
-msgstr ""
+msgstr "Meses"
 
 #: setup.php:373
-#, php-format
+#, fuzzy, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "%d Ano"
 
 #: setup.php:376 setup.php:403
+#, fuzzy
 msgid "Monitor Settings"
-msgstr ""
+msgstr "Definições do monitor"
 
 #: setup.php:381 setup.php:420
+#, fuzzy
 msgid "Alarm Sound"
-msgstr ""
+msgstr "Som do alarme"
 
 #: setup.php:382 setup.php:421
+#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr ""
+"Este é o ficheiro de som que será reproduzido quando um Dispositivo descer."
 
 #: setup.php:388 setup.php:434
+#, fuzzy
 msgid "Show Icon Legend"
-msgstr ""
+msgstr "Mostrar Legenda do Ícone"
 
 #: setup.php:389 setup.php:435
+#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr ""
+"Marque esta opção para mostrar uma legenda de ícones no ecrã do Monitor"
 
 #: setup.php:399 setup.php:605 setup.php:607
+#, fuzzy
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: setup.php:408
+#, fuzzy
 msgid "Enable on new devices"
-msgstr ""
+msgstr "Habilitar em novos dispositivos"
 
 #: setup.php:409
+#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr ""
+"Marque esta opção para ativar automaticamente o monitoramento ao criar novos "
+"dispositivos"
 
 #: setup.php:413
+#, fuzzy
 msgid "Notification/Reboot Log Retention"
-msgstr ""
+msgstr "Retenção de Notificação/Reboot Logs"
 
 #: setup.php:414
+#, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr ""
+"Mantenha os registros de notificação e reinicialização por esse número de "
+"dias."
 
 #: setup.php:427
+#, fuzzy
 msgid "Refresh Interval"
-msgstr ""
+msgstr "Intervalo de atualização"
 
 #: setup.php:428
+#, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr ""
+msgstr "Este é o tempo em segundos antes da atualização da página.  (1 - 300)"
 
 #: setup.php:440
+#, fuzzy
 msgid "This is how monitor will Group Devices."
-msgstr ""
+msgstr "É assim que o monitor irá agrupar os dispositivos."
 
 #: setup.php:445
+#, fuzzy
 msgid "Default with permissions"
-msgstr ""
+msgstr "Padrão com permissões"
 
 #: setup.php:452
+#, fuzzy
 msgid "This is how monitor will render Devices."
-msgstr ""
+msgstr "É assim que o monitor irá renderizar os Dispositivos."
 
 #: setup.php:459
+#, fuzzy
 msgid "Tiles & Downtime"
-msgstr ""
+msgstr "Telhas e tempo de inatividade"
 
 #: setup.php:463
+#, fuzzy
 msgid "Notification Report Format"
-msgstr ""
+msgstr "Formato do relatório de notificação"
 
 #: setup.php:468
+#, fuzzy
 msgid "Format File to Use"
-msgstr ""
+msgstr "Formatar arquivo para usar"
 
 #: setup.php:471
+#, fuzzy
 msgid ""
 "Choose the custom html wrapper and CSS file to use.  This file contains both "
 "html and CSS to wrap around your report.  If it contains more than simply "
@@ -629,187 +759,252 @@ msgid ""
 "format tag will be replaced by the report content.  These files are located "
 "in the 'formats' directory."
 msgstr ""
+"Escolha o invólucro html personalizado e o arquivo CSS para usar.  Este "
+"arquivo contém ambos html e CSS para embrulhar o seu relatório.  Se ele "
+"contém mais do que simplesmente CSS, você precisa colocar uma tag especial "
+"<REPORT> dentro do arquivo.  Esta etiqueta de formato será substituída pelo "
+"conteúdo do relatório.  Estes arquivos estão localizados no diretório "
+"'formats'."
 
 #: setup.php:475
+#, fuzzy
 msgid "Ping Threshold Notifications"
-msgstr ""
+msgstr "Notificações Ping Threshold"
 
 #: setup.php:480
+#, fuzzy
 msgid "Warning Latency Notification"
-msgstr ""
+msgstr "Notificação de Latência de Aviso"
 
 #: setup.php:481
+#, fuzzy
 msgid ""
 "If a Device has a Round Trip Ping Latency above the Warning Threshold and "
 "above the Criticality below, subscribing emails to the Device will receive "
 "an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is "
 "required to enable this feature."
 msgstr ""
+"Se um Dispositivo tiver uma Latência de Ping de Ida e Volta acima do Limite "
+"de Aviso e acima da Criticidade abaixo, os e-mails de assinatura do "
+"Dispositivo receberão uma notificação por e-mail.  Selecione 'Desativado' "
+"para Desativar.  O Plugin Thold é necessário para ativar este recurso."
 
 #: setup.php:487
+#, fuzzy
 msgid "Alert Latency Notification"
-msgstr ""
+msgstr "Notificação de Latência de Alerta"
 
 #: setup.php:488
+#, fuzzy
 msgid ""
 "If a Device has a Round Trip Ping Latency above the Alert Threshold and "
 "above the Criticality below, subscribing emails to the Device will receive "
 "an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is "
 "required to enable this feature."
 msgstr ""
+"Se um Dispositivo tiver uma Latência de Ping de Ida e Volta acima do Limite "
+"de Alerta e acima da Criticidade abaixo, os e-mails de inscrição no "
+"Dispositivo receberão uma notificação por e-mail.  Selecione 'Desativado' "
+"para Desativar.  O Plugin Thold é necessário para ativar este recurso."
 
 #: setup.php:494
+#, fuzzy
 msgid "How Often to Resend Emails"
-msgstr ""
+msgstr "Com que frequência reenviar e-mails"
 
 #: setup.php:495
+#, fuzzy
 msgid ""
 "How often should emails notifications be sent to subscribers for these "
 "Devices if they are exceeding their latency thresholds"
 msgstr ""
+"Com que frequência devem ser enviadas notificações por e-mail aos assinantes "
+"desses Dispositivos se eles estiverem excedendo seus limites de latência"
 
 #: setup.php:499
+#, fuzzy
 msgid "Every Occurrence"
-msgstr ""
+msgstr "Cada Ocorrência"
 
 #: setup.php:500 setup.php:501
-#, php-format
+#, fuzzy, php-format
 msgid "Every %d Minutes"
-msgstr ""
+msgstr "A cada %d minutos"
 
 #: setup.php:502
+#, fuzzy
 msgid "Every Hour"
-msgstr ""
+msgstr "Cada Hora"
 
 #: setup.php:503 setup.php:504
-#, php-format
+#, fuzzy, php-format
 msgid "Every %d Hours"
-msgstr ""
+msgstr "Cada %d Horas"
 
 #: setup.php:508
+#, fuzzy
 msgid "Reboot Notifications"
-msgstr ""
+msgstr "Notificações de reinicialização"
 
 #: setup.php:513
+#, fuzzy
 msgid "Send Reboot Notifications"
-msgstr ""
+msgstr "Enviar notificações de reinicialização"
 
 #: setup.php:515
+#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr ""
+"As notificações de reinicialização do dispositivo devem ser enviadas aos "
+"usuários?"
 
 #: setup.php:519
+#, fuzzy
 msgid "Include Threshold Alert Lists"
-msgstr ""
+msgstr "Incluir Listas de Alerta de Limiares"
 
 #: setup.php:521
+#, fuzzy
 msgid "Should Threshold Alert Lists also receive notification"
-msgstr ""
+msgstr "As Listas de Alerta de Limiares também devem ser notificadas"
 
 #: setup.php:525
+#, fuzzy
 msgid "Subject"
-msgstr ""
+msgstr "Assunto"
 
 #: setup.php:526
+#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Nofication."
-msgstr ""
+msgstr "Digite um assunto da mensagem Reboot para a Nofication Reboot."
 
 #: setup.php:528
+#, fuzzy
 msgid "Cacti Device Reboot Nofication"
-msgstr ""
+msgstr "Nofication do Reboot do dispositivo de Cacti"
 
 #: setup.php:533
+#, fuzzy
 msgid "Email Body"
-msgstr ""
+msgstr "Corpo de email"
 
 #: setup.php:534
+#, fuzzy
 msgid ""
 "Enter an Email body to include in the Reboot Notification message.  "
 "Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr ""
+"Digite um corpo de e-mail para incluir na mensagem de notificação de "
+"reinicialização.  Atualmente, a única tag de substituição aceita é &#060;"
+"DETAILS&#062;"
 
 #: setup.php:538
+#, fuzzy
 msgid ""
 "<h1>Monitor Reboot Notification</h1><p>The following Device's were "
 "Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr ""
+"<h1>Notificação de reinicialização do monitor</h1>>p>Os seguintes "
+"dispositivos foram reinicializados.  Veja os detalhes abaixo para obter "
+"informações adicionais.</p><br><DETAILS>"
 
 #: setup.php:541
+#, fuzzy
 msgid "Notification Email Addresses"
-msgstr ""
+msgstr "Endereços de e-mail de notificação"
 
 #: setup.php:546
+#, fuzzy
 msgid "From Name"
-msgstr ""
+msgstr "Nome"
 
 #: setup.php:547
+#, fuzzy
 msgid "Enter the Email Name to send the notifications form"
-msgstr ""
+msgstr "Introduza o Nome de E-mail para enviar o formulário de notificações"
 
 #: setup.php:553
+#, fuzzy
 msgid "From Address"
-msgstr ""
+msgstr "A partir do endereço"
 
 #: setup.php:554
+#, fuzzy
 msgid "Enter the Email Address to send the notification from"
-msgstr ""
+msgstr "Digite o endereço de e-mail para enviar a notificação de"
 
 #: setup.php:560
+#, fuzzy
 msgid "Notification List"
-msgstr ""
+msgstr "Lista de notas"
 
 #: setup.php:561
+#, fuzzy
 msgid ""
 "Select a Notification List below.  All Emails subscribed to the notification "
 "list will be notified."
 msgstr ""
+"Selecione uma Lista de Notificações abaixo.  Todos os e-mails subscritos na "
+"lista de notificação serão notificados."
 
 #: setup.php:568
+#, fuzzy
 msgid "Email Addresses"
-msgstr ""
+msgstr "Apenas endereços de e-mail"
 
 #: setup.php:569
+#, fuzzy
 msgid ""
 "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr ""
+"Insira uma lista delimitada por vírgulas de endereços de e-mail para "
+"informar sobre um evento de reinicialização."
 
 #: setup.php:616
+#, fuzzy
 msgid "Do not Change"
-msgstr ""
+msgstr "Não modificar"
 
 #: setup.php:617 setup.php:618 setup.php:619 setup.php:620 setup.php:621
 #: setup.php:622 setup.php:623 setup.php:624 setup.php:625 setup.php:626
 #: setup.php:627 setup.php:628 setup.php:629 setup.php:630 setup.php:631
 #: setup.php:632
-#, php-format
+#, fuzzy, php-format
 msgid "%d Percent Above Average"
-msgstr ""
+msgstr "%d Percentagem Acima da Média"
 
 #: setup.php:641
+#, fuzzy
 msgid "Device Monitoring Settings"
-msgstr ""
+msgstr "Configurações de Monitoramento do Dispositivo"
 
 #: setup.php:647
+#, fuzzy
 msgid "Monitor Device"
-msgstr ""
+msgstr "Dispositivo de Monitorização"
 
 #: setup.php:648
+#, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr ""
+msgstr "Marque esta caixa para monitorar este dispositivo na guia Monitor."
 
 #: setup.php:659
+#, fuzzy
 msgid "Device Criticality"
-msgstr ""
+msgstr "Criticidade do dispositivo"
 
 #: setup.php:660
+#, fuzzy
 msgid "What is the Criticality of this Device."
-msgstr ""
+msgstr "Qual é a Criticidade deste Dispositivo?"
 
 #: setup.php:667
+#, fuzzy
 msgid "Ping Warning Threshold"
-msgstr ""
+msgstr "Limiar de Aviso de Ping"
 
 #: setup.php:668
+#, fuzzy
 msgid ""
 "If the round-trip latency via any of the predefined Cacti ping methods "
 "raises above this threshold, log a warning or send email based upon the "
@@ -817,16 +1012,24 @@ msgid ""
 "Setting to 0 disables. The Thold Plugin is required to leverage this "
 "functionality."
 msgstr ""
+"Se a latência de ida e volta através de qualquer um dos métodos de ping "
+"Cacti predefinidos ultrapassar este limite, registe um aviso ou envie um e-"
+"mail com base na definição Criticidade dos dispositivos e Monitorização.  A "
+"unidade está em milissegundos.  Definir como 0 desativa. O Plugin Thold é "
+"necessário para alavancar esta funcionalidade."
 
 #: setup.php:672 setup.php:682
+#, fuzzy
 msgid "milliseconds"
-msgstr ""
+msgstr "Milissegundos"
 
 #: setup.php:677
+#, fuzzy
 msgid "Ping Alert Threshold"
-msgstr ""
+msgstr "Limiar de Alerta Ping"
 
 #: setup.php:678
+#, fuzzy
 msgid ""
 "If the round-trip latency via any of the predefined Cacti ping methods "
 "raises above this threshold, log an alert or send an email based upon the "
@@ -834,39 +1037,59 @@ msgid ""
 "Setting to 0 disables. The Thold Plugin is required to leverage this "
 "functionality."
 msgstr ""
+"Se a latência de ida e volta através de qualquer um dos métodos de ping "
+"Cacti predefinidos for superior a este limite, registre um alerta ou envie "
+"um e-mail com base na configuração Criticidade dos dispositivos e "
+"Monitoramento.  A unidade está em milissegundos.  Definir como 0 desativa. O "
+"Plugin Thold é necessário para alavancar esta funcionalidade."
 
 #: setup.php:687
+#, fuzzy
 msgid "Re-Baseline Warning"
-msgstr ""
+msgstr "Aviso de Re-Baseline"
 
 #: setup.php:688
+#, fuzzy
 msgid ""
 "The percentage above the current average ping time to consider a Warning "
 "Threshold.  If updated, this will automatically adjust the Ping Warning "
 "Threshold."
 msgstr ""
+"A porcentagem acima do tempo de ping médio atual para considerar um Limiar "
+"de advertência.  Se atualizado, isto ajustará automaticamente o Limiar de "
+"Aviso de Ping."
 
 #: setup.php:695
+#, fuzzy
 msgid "Re-Baseline Alert"
-msgstr ""
+msgstr "Alerta de Re-Baseline"
 
 #: setup.php:696
+#, fuzzy
 msgid ""
 "The percentage above the current average ping time to consider a Alert "
 "Threshold.  If updated, this will automatically adjust the Ping Alert "
 "Threshold."
 msgstr ""
+"A percentagem acima do tempo de ping médio atual para considerar um Limiar "
+"de alerta.  Se atualizado, isto ajustará automaticamente o Limiar de Alerta "
+"de Ping."
 
 #: setup.php:703
+#, fuzzy
 msgid "Down Device Message"
-msgstr ""
+msgstr "Mensagem do Dispositivo Down"
 
 #: setup.php:704
+#, fuzzy
 msgid ""
 "This is the message that will be displayed when this Device is reported as "
 "down."
 msgstr ""
+"Esta é a mensagem que será indicada quando este dispositivo é relatado como "
+"para baixo."
 
 #: setup.php:788
+#, fuzzy
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitorizar"
