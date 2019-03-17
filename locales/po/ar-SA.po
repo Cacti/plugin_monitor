@@ -1,17 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-16 19:56+0000\n"
-"PO-Revision-Date: 2019-03-17 11:46-0400\n"
-"Language: ar_SA\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-
 #: monitor.php:37 poller_monitor.php:342 setup.php:359
 #, fuzzy
 msgid "Disabled"
@@ -153,6 +139,21 @@ msgstr "قالب الجهاز"
 msgid "Monitored Devices"
 msgstr "أجهزة مراقبة"
 
+#: monitor.php:150
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-17 18:08-0500\n"
+"PO-Revision-Date: 2019-03-17 11:46-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_SA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+
 #: monitor.php:249
 #, fuzzy
 msgid " [ Filter Settings Saved ]"
@@ -276,8 +277,8 @@ msgstr "٪ s تنبيه للأجهزة التي تم إسقاطها"
 msgid "%s Alerts for downed Devices"
 msgstr "٪ s تنبيهات للأجهزة التي تم إسقاطها"
 
-#: monitor.php:532 monitor.php:1504 poller_monitor.php:410 poller_monitor.php:432
-#: setup.php:83
+#: monitor.php:532 monitor.php:1504 poller_monitor.php:410
+#: poller_monitor.php:432 setup.php:83
 #, fuzzy
 msgid "Criticality"
 msgstr "الحرجية"
@@ -546,9 +547,9 @@ msgid ""
 "subscribed to a Device\n"
 "\t\t\tassociated with the Cacti system located at the following URL below."
 msgstr ""
-"سيحدد التقرير التالي الأجهزة التي كسفت عتبات زمن اختبار ping الخاصة بهم. تتلقى "
-"هذا التقرير نظرًا لأنك مشترك في جهاز مرتبط بنظام Cacti الموجود على عنوان URL "
-"التالي أدناه."
+"سيحدد التقرير التالي الأجهزة التي كسفت عتبات زمن اختبار ping الخاصة بهم. "
+"تتلقى هذا التقرير نظرًا لأنك مشترك في جهاز مرتبط بنظام Cacti الموجود على "
+"عنوان URL التالي أدناه."
 
 #: poller_monitor.php:401
 #, fuzzy, php-format
@@ -575,7 +576,8 @@ msgstr "بينغ الحالي"
 
 #: poller_monitor.php:428
 #, fuzzy
-msgid "The following Devices have breached their Warning Notification Threshold."
+msgid ""
+"The following Devices have breached their Warning Notification Threshold."
 msgstr "انتهكت الأجهزة التالية حد إخطار التحذير."
 
 #: setup.php:75
@@ -597,8 +599,8 @@ msgstr "انقر فوق \"متابعة\" لمراقبة٪ s على هذه الأ
 #, fuzzy
 msgid ""
 "Click 'Continue' to Change the Monitoring settings for the following "
-"Device(s). Remember to check 'Update this Field' to indicate which columns to "
-"update."
+"Device(s). Remember to check 'Update this Field' to indicate which columns "
+"to update."
 msgstr ""
 "انقر فوق \"متابعة\" لتغيير إعدادات المراقبة للجهاز (الأجهزة) التالية. تذكر "
 "التحقق من \"تحديث هذا الحقل\" للإشارة إلى الأعمدة المراد تحديثها."
@@ -737,15 +739,15 @@ msgstr "تنسيق الملف للاستخدام"
 #, fuzzy
 msgid ""
 "Choose the custom html wrapper and CSS file to use.  This file contains both "
-"html and CSS to wrap around your report.  If it contains more than simply CSS, "
-"you need to place a special <REPORT> tag inside of the file.  This format tag "
-"will be replaced by the report content.  These files are located in the "
-"'formats' directory."
+"html and CSS to wrap around your report.  If it contains more than simply "
+"CSS, you need to place a special <REPORT> tag inside of the file.  This "
+"format tag will be replaced by the report content.  These files are located "
+"in the 'formats' directory."
 msgstr ""
-"اختر ملف HTML المخصص وملف CSS المراد استخدامه. يحتوي هذا الملف على كل من html "
-"و CSS للالتفاف حول تقريرك. إذا كان يحتوي على أكثر من مجرد CSS ، فأنت بحاجة إلى "
-"وضع خاص <REPORT> علامة داخل الملف. سيتم استبدال علامة التنسيق بمحتوى التقرير. "
-"توجد هذه الملفات في دليل \"التنسيقات\"."
+"اختر ملف HTML المخصص وملف CSS المراد استخدامه. يحتوي هذا الملف على كل من "
+"html و CSS للالتفاف حول تقريرك. إذا كان يحتوي على أكثر من مجرد CSS ، فأنت "
+"بحاجة إلى وضع خاص <REPORT> علامة داخل الملف. سيتم استبدال علامة التنسيق "
+"بمحتوى التقرير. توجد هذه الملفات في دليل \"التنسيقات\"."
 
 #: setup.php:475
 #, fuzzy
@@ -761,8 +763,8 @@ msgstr "تحذير الكمون الإخطار"
 #, fuzzy
 msgid ""
 "If a Device has a Round Trip Ping Latency above the Warning Threshold and "
-"above the Criticality below, subscribing emails to the Device will receive an "
-"email notification.  Select 'Disabled' to Disable.  The Thold Plugin is "
+"above the Criticality below, subscribing emails to the Device will receive "
+"an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is "
 "required to enable this feature."
 msgstr ""
 "إذا كان الجهاز يحتوي على Rounding Ping Latency أعلى من عتبة التحذير وفوق "
@@ -778,10 +780,10 @@ msgstr "تنبيه الكمون تنبيه"
 #: setup.php:488
 #, fuzzy
 msgid ""
-"If a Device has a Round Trip Ping Latency above the Alert Threshold and above "
-"the Criticality below, subscribing emails to the Device will receive an email "
-"notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to "
-"enable this feature."
+"If a Device has a Round Trip Ping Latency above the Alert Threshold and "
+"above the Criticality below, subscribing emails to the Device will receive "
+"an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is "
+"required to enable this feature."
 msgstr ""
 "إذا كان الجهاز يحتوي على رحلة ذهاب وإياب ذهابًا وإيابًا فوق عتبة التنبيه وفوق "
 "الأهمية الحرجة أدناه ، فستتلقى رسائل البريد الإلكتروني للاشتراك في الجهاز "
@@ -796,11 +798,11 @@ msgstr "في كثير من الأحيان لإعادة إرسال رسائل ا�
 #: setup.php:495
 #, fuzzy
 msgid ""
-"How often should emails notifications be sent to subscribers for these Devices "
-"if they are exceeding their latency thresholds"
+"How often should emails notifications be sent to subscribers for these "
+"Devices if they are exceeding their latency thresholds"
 msgstr ""
-"عدد مرات إرسال إشعارات البريد الإلكتروني إلى المشتركين في هذه الأجهزة إذا كانت "
-"تتجاوز عتبات زمن الوصول"
+"عدد مرات إرسال إشعارات البريد الإلكتروني إلى المشتركين في هذه الأجهزة إذا "
+"كانت تتجاوز عتبات زمن الوصول"
 
 #: setup.php:499
 #, fuzzy
@@ -870,8 +872,8 @@ msgstr "هيئة البريد الإلكتروني"
 #: setup.php:534
 #, fuzzy
 msgid ""
-"Enter an Email body to include in the Reboot Notification message.  Currently, "
-"the only supported replacement tag accepted is &#060;DETAILS&#062;"
+"Enter an Email body to include in the Reboot Notification message.  "
+"Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr ""
 "أدخل نص بريد إلكتروني لتضمينه في رسالة Reboot Notification. حاليًا ، علامة "
 "الاستبدال المدعومة الوحيدة المقبولة هي &lt;التفاصيل&gt;"
@@ -879,12 +881,12 @@ msgstr ""
 #: setup.php:538
 #, fuzzy
 msgid ""
-"<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  "
-"See details below for additional information.</p><br><DETAILS>"
+"<h1>Monitor Reboot Notification</h1><p>The following Device's were "
+"Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr ""
-"<h1 style=\";text-align:right;direction:rtl\"> رصد إعادة تشغيل الإعلام </h1><p "
-"style=\";text-align:right;direction:rtl\"> تم إعادة تشغيل الجهاز التالي. انظر "
-"التفاصيل أدناه للحصول على معلومات إضافية. </p><br><DETAILS>"
+"<h1 style=\";text-align:right;direction:rtl\"> رصد إعادة تشغيل الإعلام </"
+"h1><p style=\";text-align:right;direction:rtl\"> تم إعادة تشغيل الجهاز "
+"التالي. انظر التفاصيل أدناه للحصول على معلومات إضافية. </p><br><DETAILS>"
 
 #: setup.php:541
 #, fuzzy
@@ -922,8 +924,8 @@ msgid ""
 "Select a Notification List below.  All Emails subscribed to the notification "
 "list will be notified."
 msgstr ""
-"اختر قائمة الإخطار أدناه. سيتم إخطار جميع رسائل البريد الإلكتروني المشتركة في "
-"قائمة الإشعارات."
+"اختر قائمة الإخطار أدناه. سيتم إخطار جميع رسائل البريد الإلكتروني المشتركة "
+"في قائمة الإشعارات."
 
 #: setup.php:568
 #, fuzzy
@@ -935,7 +937,8 @@ msgstr "عناوين البريد الإلكتروني"
 msgid ""
 "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr ""
-"أدخل قائمة محددة بفواصل لعناوين البريد الإلكتروني للإبلاغ عن حدث إعادة التشغيل."
+"أدخل قائمة محددة بفواصل لعناوين البريد الإلكتروني للإبلاغ عن حدث إعادة "
+"التشغيل."
 
 #: setup.php:616
 #, fuzzy
@@ -983,10 +986,11 @@ msgstr "بينغ تحذير عتبة"
 #: setup.php:668
 #, fuzzy
 msgid ""
-"If the round-trip latency via any of the predefined Cacti ping methods raises "
-"above this threshold, log a warning or send email based upon the Devices "
-"Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 "
-"disables. The Thold Plugin is required to leverage this functionality."
+"If the round-trip latency via any of the predefined Cacti ping methods "
+"raises above this threshold, log a warning or send email based upon the "
+"Devices Criticality and Monitor setting.  The unit is in milliseconds.  "
+"Setting to 0 disables. The Thold Plugin is required to leverage this "
+"functionality."
 msgstr ""
 "إذا ارتفع زمن الانتقال عبر أي من طرق Cacti ping المحددة مسبقًا عن هذا الحد ، "
 "سجّل تحذيرًا أو أرسل بريدًا إلكترونيًا بناءً على إعداد Device Criticality and "
@@ -1006,10 +1010,11 @@ msgstr "تنبيه تنبيه Ping"
 #: setup.php:678
 #, fuzzy
 msgid ""
-"If the round-trip latency via any of the predefined Cacti ping methods raises "
-"above this threshold, log an alert or send an email based upon the Devices "
-"Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 "
-"disables. The Thold Plugin is required to leverage this functionality."
+"If the round-trip latency via any of the predefined Cacti ping methods "
+"raises above this threshold, log an alert or send an email based upon the "
+"Devices Criticality and Monitor setting.  The unit is in milliseconds.  "
+"Setting to 0 disables. The Thold Plugin is required to leverage this "
+"functionality."
 msgstr ""
 "إذا كان زمن الانتقال في رحلة ذهاب وعودة عبر أي من أساليب Cacti ping المحددة "
 "مسبقًا أعلى من هذا الحد ، فقم بتسجيل تنبيه أو إرسال بريد إلكتروني استنادًا إلى "
@@ -1056,7 +1061,8 @@ msgstr "أسفل رسالة الجهاز"
 msgid ""
 "This is the message that will be displayed when this Device is reported as "
 "down."
-msgstr "هذه هي الرسالة التي سيتم عرضها عند الإبلاغ عن هذا الجهاز في حالة تعطله."
+msgstr ""
+"هذه هي الرسالة التي سيتم عرضها عند الإبلاغ عن هذا الجهاز في حالة تعطله."
 
 #: setup.php:788
 #, fuzzy
