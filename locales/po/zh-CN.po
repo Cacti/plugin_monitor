@@ -1,130 +1,13 @@
-#: monitor.php:37 poller_monitor.php:342 setup.php:359
-msgid "Disabled"
-msgstr "已禁用"
-
-#: monitor.php:38 poller_monitor.php:343 setup.php:77 setup.php:360
-msgid "Low"
-msgstr "低"
-
-#: monitor.php:39 monitor.php:71 poller_monitor.php:344 setup.php:78
-#: setup.php:361
-msgid "Medium"
-msgstr "中"
-
-#: monitor.php:40 poller_monitor.php:345 setup.php:79 setup.php:362
-msgid "High"
-msgstr "高"
-
-#: monitor.php:41 poller_monitor.php:346 setup.php:80 setup.php:363
-msgid "Mission Critical"
-msgstr "关键任务"
-
-#: monitor.php:57 monitor.php:1210
-msgid "Unknown"
-msgstr "未知"
-
-#: monitor.php:58
-msgid "Down"
-msgstr "宕机"
-
-#: monitor.php:59
-msgid "Recovering"
-msgstr "恢复"
-
-#: monitor.php:60
-msgid "Up"
-msgstr "起来"
-
-#: monitor.php:61
-msgid "Triggered"
-msgstr "触发"
-
-#: monitor.php:62
-msgid "Down (Muted/Acked)"
-msgstr "宕机（静音/确认）"
-
-#: monitor.php:63
-msgid "No Availability Check"
-msgstr "没有可用性检查"
-
-#: monitor.php:64
-msgid "Warning Ping"
-msgstr "警告Ping"
-
-#: monitor.php:65 poller_monitor.php:410 poller_monitor.php:432
-msgid "Alert Ping"
-msgstr "警报 Ping"
-
-#: monitor.php:69
-msgid "Extra Small"
-msgstr "超小"
-
-#: monitor.php:70
-msgid "Small"
-msgstr "小"
-
-#: monitor.php:72
-msgid "Large"
-msgstr "大"
-
-#: monitor.php:76
-msgid "All Monitored"
-msgstr "全部监控"
-
-#: monitor.php:77
-msgid "Not Up"
-msgstr "不起来"
-
-#: monitor.php:78
-msgid "Not Up or Triggered"
-msgstr "不起来或触发"
-
-#: monitor.php:79
-#, fuzzy
-msgid "Not Up, Triggered or Breached"
-msgstr "不起来或触发"
-
-#: monitor.php:83 monitor.php:90 setup.php:444 setup.php:456
-msgid "Default"
-msgstr "默认"
-
-#: monitor.php:84 setup.php:457
-#, fuzzy
-msgid "List"
-msgstr "自定义图表列表已应用 - 从列表中过滤"
-
-#: monitor.php:85 setup.php:458
-msgid "Tiles"
-msgstr "图块"
-
-#: monitor.php:86
-msgid "Tiles & Time"
-msgstr "图块和时间"
-
-#: monitor.php:91 monitor.php:547 setup.php:446
-msgid "Tree"
-msgstr "树"
-
-#: monitor.php:92 setup.php:447
-msgid "Device Template"
-msgstr "设备模板"
-
-#: monitor.php:148 monitor.php:1515
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "已监控设备"
-
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: monitor.php:150
 msgid ""
 msgstr ""
 "Project-Id-Version: monitor on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-17 18:08-0500\n"
+"POT-Creation-Date: 2019-03-19 09:50+0000\n"
 "PO-Revision-Date: 2019-03-17 11:48-0400\n"
 "Last-Translator: ASD\n"
 "Language-Team: sfqas <sfqas@163.com>\n"
@@ -134,377 +17,598 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: monitor.php:249
+#: monitor.php:37 poller_monitor.php:377 setup.php:359
+msgid "Disabled"
+msgstr "已禁用"
+
+#: monitor.php:38 poller_monitor.php:378 setup.php:77 setup.php:360
+msgid "Low"
+msgstr "低"
+
+#: monitor.php:39 monitor.php:73 poller_monitor.php:379 setup.php:78
+#: setup.php:361
+msgid "Medium"
+msgstr "中"
+
+#: monitor.php:40 poller_monitor.php:380 setup.php:79 setup.php:362
+msgid "High"
+msgstr "高"
+
+#: monitor.php:41 poller_monitor.php:381 setup.php:80 setup.php:363
+msgid "Mission Critical"
+msgstr "关键任务"
+
+#: monitor.php:58 monitor.php:1614
+msgid "Unknown"
+msgstr "未知"
+
+#: monitor.php:59
+msgid "Down"
+msgstr "宕机"
+
+#: monitor.php:60
+msgid "Recovering"
+msgstr "恢复"
+
+#: monitor.php:61
+msgid "Up"
+msgstr "起来"
+
+#: monitor.php:62
+msgid "Triggered"
+msgstr "触发"
+
+#: monitor.php:63
+#, fuzzy
+msgid "Triggered (Muted/Acked)"
+msgstr "宕机（静音/确认）"
+
+#: monitor.php:64
+msgid "Down (Muted/Acked)"
+msgstr "宕机（静音/确认）"
+
+#: monitor.php:65
+msgid "No Availability Check"
+msgstr "没有可用性检查"
+
+#: monitor.php:66
+msgid "Warning Ping"
+msgstr "警告Ping"
+
+#: monitor.php:67 poller_monitor.php:460 poller_monitor.php:466
+#: poller_monitor.php:508 poller_monitor.php:514
+msgid "Alert Ping"
+msgstr "警报 Ping"
+
+#: monitor.php:71
+msgid "Extra Small"
+msgstr "超小"
+
+#: monitor.php:72
+msgid "Small"
+msgstr "小"
+
+#: monitor.php:74
+msgid "Large"
+msgstr "大"
+
+#: monitor.php:75
+#, fuzzy
+msgid "Extra Large"
+msgstr "超小"
+
+#: monitor.php:79
+msgid "All Monitored"
+msgstr "全部监控"
+
+#: monitor.php:80
+msgid "Not Up"
+msgstr "不起来"
+
+#: monitor.php:81
+msgid "Not Up or Triggered"
+msgstr "不起来或触发"
+
+#: monitor.php:82
+#, fuzzy
+msgid "Not Up, Triggered or Breached"
+msgstr "不起来或触发"
+
+#: monitor.php:86 monitor.php:93 setup.php:444 setup.php:456
+msgid "Default"
+msgstr "默认"
+
+#: monitor.php:87 setup.php:457
+#, fuzzy
+msgid "List"
+msgstr "自定义图表列表已应用 - 从列表中过滤"
+
+#: monitor.php:88 setup.php:458
+msgid "Tiles"
+msgstr "图块"
+
+#: monitor.php:89
+msgid "Tiles & Time"
+msgstr "图块和时间"
+
+#: monitor.php:94 monitor.php:729 setup.php:446
+msgid "Tree"
+msgstr "树"
+
+#: monitor.php:95 monitor.php:1914
+msgid "Site"
+msgstr ""
+
+#: monitor.php:96 setup.php:447
+msgid "Device Template"
+msgstr "设备模板"
+
+#: monitor.php:191 monitor.php:1926
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "已监控设备"
+
+#: monitor.php:221
+msgid "New Dashboard"
+msgstr ""
+
+#: monitor.php:224 monitor.php:677
+msgid "Dashboard"
+msgstr ""
+
+#: monitor.php:224
+msgid ""
+"Enter the Dashboard Name and then press 'Save' to continue, else press "
+"'Cancel'"
+msgstr ""
+
+#: monitor.php:225
+msgid "Create New Dashboard"
+msgstr ""
+
+#: monitor.php:317
 #, fuzzy
 msgid " [ Filter Settings Saved ]"
 msgstr "过滤器设置保存"
 
-#: monitor.php:436
+#: monitor.php:353
+msgid "Cancel"
+msgstr ""
+
+#: monitor.php:360 monitor.php:687
+msgid "Save"
+msgstr "保存"
+
+#: monitor.php:585
 msgid "All Monitored Devices"
 msgstr "所有受监控的设备"
 
-#: monitor.php:439
+#: monitor.php:588
 msgid "Monitored Devices either Down or Recovering"
 msgstr "受监控的设备处于关闭或恢复状态"
 
-#: monitor.php:442
+#: monitor.php:591
 #, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
 msgstr "受监控的设备处于关闭状态，恢复，违反阈值"
 
-#: monitor.php:445
+#: monitor.php:594
 #, fuzzy
 msgid ""
 "Monitored Devices either Down, Recovering, or with Breached or Triggered "
 "Thresholds"
 msgstr "受监控的设备处于关闭状态，恢复，违反阈值"
 
-#: monitor.php:448
+#: monitor.php:597
 #, fuzzy, php-format
 msgid "Unknown monitoring status (%s)"
 msgstr "未知监控状态（％s）"
 
-#: monitor.php:453
+#: monitor.php:602
 msgid ", and All Criticalities"
 msgstr "，和所有严重性"
 
-#: monitor.php:456
+#: monitor.php:605
 msgid ", and of Low Criticality or Higher"
 msgstr "，低关键或更高"
 
-#: monitor.php:459
+#: monitor.php:608
 msgid ", and of Medium Criticality or Higher"
 msgstr "，中等或更高"
 
-#: monitor.php:462
+#: monitor.php:611
 msgid ", and of High Criticality or Higher"
 msgstr "，高危等级或更高"
 
-#: monitor.php:465
+#: monitor.php:614
 msgid ", and of Mission Critical Status"
 msgstr "，以及任务关键状态"
 
-#: monitor.php:469
+#: monitor.php:618
 #, fuzzy
 msgid ""
 "</div><div class=\"center monitorFooterTextBold\">Remember to first select "
 "eligible Devices to be Monitored from the Devices page!</div>"
 msgstr "<br><b>请记得首先从设备页面选择要监控的设备！</b>"
 
-#: monitor.php:502
+#: monitor.php:651
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i id=\"timer\">%d</i> Seconds ]"
 msgstr "在 <i id=\"timer\">%d</i>秒内再次刷新"
 
-#: monitor.php:502
+#: monitor.php:651
 #, fuzzy, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
 msgstr "上次刷新：%s"
 
-#: monitor.php:512 monitor.php:1506
+#: monitor.php:662
+msgid "Unsaved"
+msgstr ""
+
+#: monitor.php:678 monitor.php:1917
 #, fuzzy
 msgid "Status"
 msgstr "状态"
 
-#: monitor.php:513 setup.php:451
+#: monitor.php:679 setup.php:451
 msgid "View"
 msgstr "显示"
 
-#: monitor.php:516 setup.php:439
+#: monitor.php:680 setup.php:439
 msgid "Grouping"
 msgstr "分组"
 
-#: monitor.php:521 monitor.php:564
+#: monitor.php:685 monitor.php:767
 msgid "Refresh"
 msgstr "刷新"
 
-#: monitor.php:521
+#: monitor.php:685
 msgid "Refresh the Device List"
 msgstr "刷新设备列表"
 
-#: monitor.php:522
-msgid "Save"
-msgstr "保存"
-
-#: monitor.php:522
+#: monitor.php:687
 msgid "Save Filter Settings"
 msgstr "保存过滤器设置"
 
-#: monitor.php:523
+#: monitor.php:689
+msgid "New"
+msgstr ""
+
+#: monitor.php:689
+msgid "Save New Dashboard"
+msgstr ""
+
+#: monitor.php:692
+msgid "Rename"
+msgstr ""
+
+#: monitor.php:692
+msgid "Rename Dashboard"
+msgstr ""
+
+#: monitor.php:696
+msgid "Delete"
+msgstr ""
+
+#: monitor.php:696
+msgid "Delete Dashboard"
+msgstr ""
+
+#: monitor.php:699
 #, php-format
 msgid "%s Alert for downed Devices"
 msgstr "%s 宕机设备的警报"
 
-#: monitor.php:523
+#: monitor.php:699
 #, php-format
 msgid "%s Alerts for downed Devices"
 msgstr "%s 宕机设备的警报"
 
-#: monitor.php:532 monitor.php:1504 poller_monitor.php:410
-#: poller_monitor.php:432 setup.php:83
+#: monitor.php:708
+msgid "Search"
+msgstr ""
+
+#: monitor.php:711 monitor.php:1915 poller_monitor.php:459
+#: poller_monitor.php:465 poller_monitor.php:507 poller_monitor.php:513
+#: setup.php:83
 msgid "Criticality"
 msgstr "临界"
 
-#: monitor.php:533
+#: monitor.php:714
 #, fuzzy
 msgid "Size"
 msgstr "大小"
 
-#: monitor.php:540
+#: monitor.php:722
 msgid "All Trees"
 msgstr "所有树"
 
-#: monitor.php:541 monitor.php:1132
+#: monitor.php:723 monitor.php:1535
 msgid "Non-Tree Devices"
 msgstr "非树设备"
 
-#: monitor.php:555
+#: monitor.php:743
+#, fuzzy
+msgid "All Sites"
+msgstr "所有树"
+
+#: monitor.php:744 monitor.php:1176
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "非树设备"
+
+#: monitor.php:750
+msgid "Sites"
+msgstr ""
+
+#: monitor.php:758
 #, fuzzy
 msgid "All Templates"
 msgstr "所有模板"
 
-#: monitor.php:556
+#: monitor.php:759
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "非模板设备"
 
-#: monitor.php:561
+#: monitor.php:764
 #, fuzzy
 msgid "Template"
 msgstr "模板"
 
-#: monitor.php:587
+#: monitor.php:794
 msgid "Mute"
 msgstr "静音"
 
-#: monitor.php:589
+#: monitor.php:796
 msgid "Acknowledge"
 msgstr "确认"
 
-#: monitor.php:595
+#: monitor.php:802
 msgid "Un-Mute"
 msgstr "取消静音"
 
-#: monitor.php:597
+#: monitor.php:804
 msgid "Reset"
 msgstr "重置"
 
-#: monitor.php:1035
+#: monitor.php:822
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr ""
+
+#: monitor.php:829
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr ""
+
+#: monitor.php:913
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr ""
+
+#: monitor.php:916
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr ""
+
+#: monitor.php:1121 monitor.php:1459
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "非树设备"
+
+#: monitor.php:1433
 #, fuzzy
 msgid "Root Branch"
 msgstr "添加根分支"
 
-#: monitor.php:1081
+#: monitor.php:1483
 #, fuzzy, php-format
 msgid "Tree: %s"
 msgstr "放在树上 (%s)"
 
-#: monitor.php:1093
+#: monitor.php:1495
 #, fuzzy, php-format
 msgid "Branch: %s"
 msgstr "分支：％s"
 
-#: monitor.php:1297
+#: monitor.php:1700
 msgid "Just Up"
 msgstr "刚起来"
 
-#: monitor.php:1395
-msgid "Edit Device"
-msgstr "编辑设备"
-
-#: monitor.php:1398
-msgid "View Graphs"
-msgstr "查看图表"
-
-#: monitor.php:1401
-msgid "View Thresholds"
-msgstr "查看阈值"
-
-#: monitor.php:1404
-msgid "View Syslog Alerts"
-msgstr "查看Syslog警报"
-
-#: monitor.php:1407
-msgid "View Syslog Messages"
-msgstr "查看 Syslog 消息"
-
-#: monitor.php:1416
+#: monitor.php:1825
 #, fuzzy
 msgid "Device Status Information"
 msgstr "设备状态"
 
-#: monitor.php:1419
+#: monitor.php:1828
 msgid "Device:"
 msgstr "设备："
 
-#: monitor.php:1423
+#: monitor.php:1832
 msgid "Criticality:"
 msgstr "重要性："
 
-#: monitor.php:1427
+#: monitor.php:1836
 msgid "Status:"
 msgstr "状态："
 
-#: monitor.php:1431
+#: monitor.php:1840
 msgid "Admin Note:"
 msgstr "管理员注意："
 
-#: monitor.php:1435
+#: monitor.php:1844
 msgid "IP/Hostname:"
 msgstr "IP/主机名："
 
-#: monitor.php:1439
-msgid "Notes:"
-msgstr "记录："
-
-#: monitor.php:1443
-msgid "Links:"
-msgstr "链接："
-
-#: monitor.php:1448
+#: monitor.php:1848
 msgid "Curr/Avg:"
 msgstr "当前/平均："
 
-#: monitor.php:1449 monitor.php:1572
+#: monitor.php:1849 monitor.php:1982
 #, php-format
 msgid "%d ms"
 msgstr "%d ms"
 
-#: monitor.php:1452
+#: monitor.php:1852
 msgid "Warn/Alert:"
 msgstr "警告/警报："
 
-#: monitor.php:1453 monitor.php:1577
+#: monitor.php:1853 monitor.php:1989
 #, php-format
 msgid "%0.2d ms"
 msgstr "%0.2d ms"
 
-#: monitor.php:1456
+#: monitor.php:1856
 msgid "Last Fail:"
 msgstr "最后失败："
 
-#: monitor.php:1457 monitor.php:1555 monitor.php:1579 monitor.php:1633
+#: monitor.php:1857 monitor.php:1965 monitor.php:1994
 msgid "Never"
 msgstr "从不"
 
-#: monitor.php:1460
+#: monitor.php:1860
 msgid "Time In State:"
 msgstr "时间状态："
 
-#: monitor.php:1464
+#: monitor.php:1864
 msgid "Availability:"
 msgstr "可用性："
 
-#: monitor.php:1468
+#: monitor.php:1868
 msgid "Agent Uptime:"
 msgstr "代理运行时间："
 
-#: monitor.php:1472
+#: monitor.php:1872
 msgid "Sys Description:"
 msgstr "系统描述："
 
-#: monitor.php:1476
+#: monitor.php:1876
 msgid "Location:"
 msgstr "位置："
 
-#: monitor.php:1480
+#: monitor.php:1880
 msgid "Contact:"
 msgstr "联系："
 
-#: monitor.php:1502 poller_monitor.php:285 poller_monitor.php:410
-#: poller_monitor.php:432
+#: monitor.php:1884
+msgid "Notes:"
+msgstr "记录："
+
+#: monitor.php:1912 poller_monitor.php:306 poller_monitor.php:458
+#: poller_monitor.php:464 poller_monitor.php:506 poller_monitor.php:512
 #, fuzzy
 msgid "Hostname"
 msgstr "主机名"
 
-#: monitor.php:1502
+#: monitor.php:1912
 #, fuzzy
 msgid "Hostname of device"
 msgstr "设备主机名"
 
-#: monitor.php:1503 poller_monitor.php:285
+#: monitor.php:1913 poller_monitor.php:305
 #, fuzzy
 msgid "Description"
 msgstr "描述"
 
-#: monitor.php:1505
+#: monitor.php:1916
 #, fuzzy
-msgid "Up %"
-msgstr "Not UP"
+msgid "Availability"
+msgstr "可用性："
 
-#: monitor.php:1507
+#: monitor.php:1918
 #, fuzzy
 msgid "Length in status"
 msgstr "状态长度"
 
-#: monitor.php:1508
+#: monitor.php:1919
 #, fuzzy
 msgid "Averages"
 msgstr "平均值"
 
-#: monitor.php:1509
+#: monitor.php:1920
 #, fuzzy
 msgid "Warning"
 msgstr "警告"
 
-#: monitor.php:1510
+#: monitor.php:1921
 #, fuzzy
 msgid "Last Fail"
 msgstr "最后失败："
 
-#: monitor.php:1511
+#: monitor.php:1922
 #, fuzzy
 msgid "Admin"
 msgstr "插件 - > MikroTik管理"
 
-#: monitor.php:1512
+#: monitor.php:1923
 #, fuzzy
 msgid "Notes"
 msgstr "注释"
 
-#: monitor.php:1516
+#: monitor.php:1927
 #, fuzzy
 msgid "Devices"
 msgstr "设备"
 
-#: poller_monitor.php:390 poller_monitor.php:392
+#: monitor.php:1985
+msgid "N/A"
+msgstr ""
+
+#: poller_monitor.php:323
+#, fuzzy
+msgid "Description: "
+msgstr "描述"
+
+#: poller_monitor.php:324
+#, fuzzy
+msgid "Hostname: "
+msgstr "主机名"
+
+#: poller_monitor.php:426 poller_monitor.php:428 poller_monitor.php:429
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
 msgstr "Cacti监控插件Ping阈值通知"
 
-#: poller_monitor.php:394
+#: poller_monitor.php:431 poller_monitor.php:433
 #, fuzzy
 msgid ""
-"The following report will identify Devices that have eclipsed their ping\n"
-"\t\t\tlatency thresholds.  You are receiving this report since you are "
-"subscribed to a Device\n"
-"\t\t\tassociated with the Cacti system located at the following URL below."
+"The following report will identify Devices that have eclipsed their ping "
+"latency thresholds.  You are receiving this report since you are subscribed "
+"to a Device associated with the Cacti system located at the following URL "
+"below."
 msgstr ""
 "以下报告将会识别已经超出其ping功能的设备\n"
 "\t\t\tl延迟阈值. 您订阅了设备后, 您收到此报告\n"
 "\t\t\tl与 Cacti系统相关联, 位于以下URL."
 
-#: poller_monitor.php:401
+#: poller_monitor.php:437
+#, fuzzy
+msgid "Cacti Monitoring Site"
+msgstr "更改监视选项"
+
+#: poller_monitor.php:440 poller_monitor.php:442
 #, php-format
 msgid ""
 "You will receive notifications every %d minutes if the Device is above its "
 "threshold."
 msgstr "如果设备超过其阈值，您将每隔 %d分钟收到一次通知。"
 
-#: poller_monitor.php:403
+#: poller_monitor.php:444 poller_monitor.php:446
 msgid ""
 "You will receive notifications every time the Device is above its threshold."
 msgstr "每当设备超过其阈值时，您都会收到通知。"
 
-#: poller_monitor.php:407
+#: poller_monitor.php:450 poller_monitor.php:452
 msgid "The following Devices have breached their Alert Notification Threshold."
 msgstr "以下设备违反了其警报通知阈值。"
 
-#: poller_monitor.php:410 poller_monitor.php:432
+#: poller_monitor.php:461 poller_monitor.php:467 poller_monitor.php:509
+#: poller_monitor.php:515
 #, fuzzy
 msgid "Current Ping"
 msgstr "当前到达设备的ping 延迟(以毫秒为单位)."
 
-#: poller_monitor.php:428
+#: poller_monitor.php:498 poller_monitor.php:500
 msgid ""
 "The following Devices have breached their Warning Notification Threshold."
 msgstr "以下设备违反了其警告通知阈值。"
@@ -935,6 +1039,28 @@ msgstr "这是在此设备报告为关闭时将显示的消息。"
 #: setup.php:788
 msgid "Monitoring"
 msgstr "监控"
+
+#~ msgid "Edit Device"
+#~ msgstr "编辑设备"
+
+#~ msgid "View Graphs"
+#~ msgstr "查看图表"
+
+#~ msgid "View Thresholds"
+#~ msgstr "查看阈值"
+
+#~ msgid "View Syslog Alerts"
+#~ msgstr "查看Syslog警报"
+
+#~ msgid "View Syslog Messages"
+#~ msgstr "查看 Syslog 消息"
+
+#~ msgid "Links:"
+#~ msgstr "链接："
+
+#, fuzzy
+#~ msgid "Up %"
+#~ msgstr "Not UP"
 
 #~ msgid "View Type"
 #~ msgstr "查看类型"
