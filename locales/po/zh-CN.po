@@ -6,16 +6,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: monitor on cacti 1.1.34\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developer@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-03-17 11:48-0400\n"
-"Last-Translator: ASD\n"
-"Language-Team: sfqas <sfqas@163.com>\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2019-04-26 10:12+0000\n"
+"Last-Translator: whsir <wh@whsir.com>\n"
+"Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/"
+"cacti/monitor/zh-CN/>\n"
+"Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: monitor.php:37 poller_monitor.php:377 setup.php:359
 msgid "Disabled"
@@ -149,12 +151,14 @@ msgid "Monitored Devices"
 msgstr "已监控设备"
 
 #: monitor.php:221
+#, fuzzy
 msgid "New Dashboard"
-msgstr ""
+msgstr "新的仪表盘"
 
 #: monitor.php:224 monitor.php:677
+#, fuzzy
 msgid "Dashboard"
-msgstr ""
+msgstr "仪表盘"
 
 #: monitor.php:224
 msgid ""
@@ -163,8 +167,9 @@ msgid ""
 msgstr ""
 
 #: monitor.php:225
+#, fuzzy
 msgid "Create New Dashboard"
-msgstr ""
+msgstr "创建新的仪表盘"
 
 #: monitor.php:317
 #, fuzzy
@@ -172,8 +177,9 @@ msgid " [ Filter Settings Saved ]"
 msgstr "过滤器设置保存"
 
 #: monitor.php:353
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: monitor.php:360 monitor.php:687
 msgid "Save"
@@ -271,28 +277,34 @@ msgid "Save Filter Settings"
 msgstr "保存过滤器设置"
 
 #: monitor.php:689
+#, fuzzy
 msgid "New"
-msgstr ""
+msgstr "新的"
 
 #: monitor.php:689
+#, fuzzy
 msgid "Save New Dashboard"
-msgstr ""
+msgstr "保存新的仪表盘"
 
 #: monitor.php:692
+#, fuzzy
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
 #: monitor.php:692
+#, fuzzy
 msgid "Rename Dashboard"
-msgstr ""
+msgstr "仪表盘重命名"
 
 #: monitor.php:696
+#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: monitor.php:696
+#, fuzzy
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "删除仪表盘"
 
 #: monitor.php:699
 #, php-format
@@ -305,8 +317,9 @@ msgid "%s Alerts for downed Devices"
 msgstr "%s 宕机设备的警报"
 
 #: monitor.php:708
+#, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: monitor.php:711 monitor.php:1915 poller_monitor.php:459
 #: poller_monitor.php:465 poller_monitor.php:507 poller_monitor.php:513
@@ -552,8 +565,9 @@ msgid "Devices"
 msgstr "设备"
 
 #: monitor.php:1985
+#, fuzzy
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: poller_monitor.php:323
 #, fuzzy
@@ -618,8 +632,9 @@ msgid "Any"
 msgstr "所有"
 
 #: setup.php:76 setup.php:565
+#, fuzzy
 msgid "None"
-msgstr "没有"
+msgstr "无"
 
 #: setup.php:280
 #, php-format
