@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: monitor on cacti 1.1.34\n"
-"Report-Msgid-Bugs-To: developer@cacti.net\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
 "PO-Revision-Date: 2019-04-26 10:12+0000\n"
 "Last-Translator: whsir <wh@whsir.com>\n"
