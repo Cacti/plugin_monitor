@@ -1653,11 +1653,11 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$tis = get_timeinstate($host);
 
-			$result = "<li class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>";
+			$result = "<li class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<li class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>";
+			$result = "<li class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>";
 		}
 	}
 
@@ -1797,7 +1797,7 @@ function ajax_status() {
 			}
 
 			if (isset($thold_link)) {
-				$links .= '<div><a class="hyperLink monitorLink" href="' . $thold_link . '"><i class="fas fa-tasks deviceRecovering monitorLinkIcon"></i></a></div>';
+				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $thold_link . '"><i class="fas fa-tasks deviceRecovering monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($syslog_log_link)) {
@@ -1817,7 +1817,7 @@ function ajax_status() {
 				</tr>
 				<tr>
 					<td>' . __('Device:', 'monitor') . "</td>
-					<td><a class='hyperLink monitorLink' href='" . html_escape($host['anchor']) . "'>" . html_escape($host['description']) . '</a></td>
+					<td><a class='pic hyperLink monitorLink' href='" . html_escape($host['anchor']) . "'>" . html_escape($host['description']) . '</a></td>
 				</tr>' . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? '
 				<tr>
 					<td>' . __('Criticality:', 'monitor') . '</td>
@@ -1987,7 +1987,7 @@ function render_host_list($host) {
 	$sdisplay = get_host_status_description($host['real_status']);
 
 	$result = form_alternate_row('line' . $host['id'], true);
-	$result .= form_selectable_cell('<a class="linkEditMain" href="' . html_escape($host['anchor']) . '">' . $host['hostname'] .'</a>', $host['id']);
+	$result .= form_selectable_cell('<a class="pic hyperLink linkEditMain" href="' . html_escape($host['anchor']) . '">' . $host['hostname'] .'</a>', $host['id']);
 	$result .= form_selectable_cell($host['description'], $host['id']);
 	$result .= form_selectable_cell($host['site_name'], $host['id']);
 	$result .= form_selectable_cell($host_crit, $host['id']);
@@ -2012,7 +2012,7 @@ function render_host_tiles($host, $maxlen = 10) {
 		return;
 	}
 
-	$result = "<li class='${fclass}_tiles monitor_device_frame'><a class='textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></li>";
+	$result = "<li class='${fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></li>";
 
 	return $result;
 }
@@ -2030,13 +2030,13 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$tis = get_timeinstate($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></li>";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></li>";
 
 		return $result;
 	} else {
 		$tis = get_uptime($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></li>";
+		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></li>";
 
 		return $result;
 	}
