@@ -1,16 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: developer@cacti.net\n"
 "POT-Creation-Date: 2019-03-19 09:50+0000\n"
-"PO-Revision-Date: 2019-03-17 11:53-0400\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: fr_FR\n"
+"PO-Revision-Date: 2019-05-29 15:13+0000\n"
+"Last-Translator: Olivier VOGEL <olivier.vogel@st.com>\n"
+"Language-Team: French <http://translate.cacti.net/projects/cacti/monitor/"
+"fr-FR/>\n"
+"Language: fr-FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: monitor.php:37 poller_monitor.php:377 setup.php:359
 #, fuzzy
@@ -130,7 +132,6 @@ msgid "Not Up, Triggered or Breached"
 msgstr "Pas vers le haut, ni déclenchée, ni brisée"
 
 #: monitor.php:86 monitor.php:93 setup.php:444 setup.php:456
-#, fuzzy
 msgid "Default"
 msgstr "Défaut"
 
@@ -193,7 +194,7 @@ msgstr " Réglages du filtre enregistrés [ Réglages du filtre sauvegardés ]"
 
 #: monitor.php:353
 msgid "Cancel"
-msgstr ""
+msgstr "Abandonner"
 
 #: monitor.php:360 monitor.php:687
 #, fuzzy
@@ -328,7 +329,7 @@ msgstr ""
 
 #: monitor.php:696
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: monitor.php:696
 msgid "Delete Dashboard"
@@ -346,7 +347,7 @@ msgstr "Alertes %s pour les appareils hors service"
 
 #: monitor.php:708
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 #: monitor.php:711 monitor.php:1915 poller_monitor.php:459
 #: poller_monitor.php:465 poller_monitor.php:507 poller_monitor.php:513
@@ -395,7 +396,6 @@ msgid "Non-Templated Devices"
 msgstr "Dispositifs non traités"
 
 #: monitor.php:764
-#, fuzzy
 msgid "Template"
 msgstr "Modèle"
 
@@ -690,7 +690,6 @@ msgstr ""
 "d'avertissement."
 
 #: setup.php:75
-#, fuzzy
 msgid "Any"
 msgstr "N'importe quel"
 
