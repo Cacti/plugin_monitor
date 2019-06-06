@@ -183,7 +183,7 @@ function monitor_uptime_checker() {
 
 	if (sizeof($removed_hosts)) {
 		db_execute('DELETE FROM plugin_monitor_uptime
-			WHERE id IN (SELECT mu.host_id
+			WHERE host_id IN (SELECT mu.host_id
 			FROM plugin_monitor_uptime AS mu
 			LEFT JOIN host AS h
 			ON h.id=mu.host_id
