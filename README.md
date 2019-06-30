@@ -42,6 +42,9 @@ in GitHub.
 
 ## Changelog
 
+--- develop ---
+* issue#109: Reboot history being removed incorrectly for removed devices
+
 --- 2.3.5 ---
 
 * feature: Support for Cacti 1.2
