@@ -1653,23 +1653,15 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$tis = get_timeinstate($host);
 
-			$result = "<li class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . mb_title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>";
+			$result = "<li class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<li class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . mb_title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>";
+			$result = "<li class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>";
 		}
 	}
 
 	return $result;
-}
-
-function mb_title_trim($string, $maxchars) {
-	$pattern = '~.{1,' . $len . '}~u';
-
-	$str = preg_replace($pattern, '$0' . PHP_EOL, $str);
-
-	return rtrim($str, PHP_EOL);
 }
 
 function get_status_icon($status) {
