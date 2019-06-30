@@ -43,6 +43,7 @@ in GitHub.
 ## Changelog
 
 --- develop ---
+* issue#105: Host description contains multibyte character set may cause the garbled text
 * issue#109: Reboot history being removed incorrectly for removed devices
 
 --- 2.3.5 ---
