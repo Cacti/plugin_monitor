@@ -1669,7 +1669,7 @@ function mb_title_trim($string, $maxchars) {
 
 	$str = preg_replace($pattern, '$0' . PHP_EOL, $str);
 
-	return rtrim($str, $end);
+	return rtrim($str, PHP_EOL);
 }
 
 function get_status_icon($status) {
