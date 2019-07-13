@@ -186,6 +186,7 @@ function draw_page() {
 	// Default with permissions = default_by_permission
 	// Tree  = group_by_tree
 	$function = 'render_' . get_request_var('grouping');
+
 	if (function_exists($function) && get_request_var('view') != 'list') {
 		if (get_request_var('grouping') == 'default' || get_request_var('grouping') == 'site') {
 			html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
@@ -221,7 +222,7 @@ function draw_page() {
 		$name = __('New Dashboard', 'monitor');
 	}
 
-	$new_form  = "<form id='new_dashboard'><table class='cactiTable'><tr><td colspan='2'><p>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</p></td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form>";
+	$new_form  = htmlentities("<div id='newdialog'><form id='new_dashboard'><table class='cactiTable'><tr><td colspan='2'><p>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</p></td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form></div>");
 	$new_title = __('Create New Dashboard', 'monitor');
 
 	// If the host is down, we need to insert the embedded wav file
@@ -365,7 +366,7 @@ function draw_page() {
 			}
 		};
 
-		$('body').remove('#newdialog').append("<div id='newdialog'><?php print $new_form;?></div>");
+		$('body').remove('#newdialog').append("<?php print $new_form;?>");
 
 		$('#newdialog').dialog({
 			title: '<?php print $new_title;?>',
@@ -615,7 +616,7 @@ function get_filter_text() {
 		break;
 	}
 
-	$filter .= __('</div><div class="center monitorFooterTextBold">Remember to first select eligible Devices to be Monitored from the Devices page!</div>', 'monitor');
+	$filter .= __('</div><div class="center monitorFooterTextBold">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>', 'monitor');
 
 	return $filter;
 }
@@ -1125,7 +1126,7 @@ function render_default() {
 		$sql_join
 		$sql_where
 		ORDER BY description");
-	//cacti_log($hosts_sql);
+
 	$hosts = db_fetch_assoc($hosts_sql);
 
 	if (cacti_sizeof($hosts)) {
@@ -1887,7 +1888,7 @@ function monitor_trim($string) {
 }
 
 function render_header_default($hosts) {
-	return "<table class='cactiTable monitor'><tr><td>";
+	return "<table class='cactiTable monitor'><tr><td><ul>";
 }
 
 function render_header_tiles($hosts) {
@@ -1926,7 +1927,7 @@ function render_suppressgroups_list($hosts) {
 }
 
 function render_footer_default($hosts) {
-	return '</div>';
+	return '</ul></div>';
 }
 
 function render_footer_tiles($hosts) {
