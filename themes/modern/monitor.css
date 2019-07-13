@@ -1,26 +1,22 @@
-.monitorHover, .ui-tooltip {
-	color: snow !important;
-	background: #1D1F21;
-    background-image: none;
-	background-image: linear-gradient(#1D1F21,#000000);
-	border: 1px solid #161616 !important;
+.monitorHover {
+	color: #030303 !important;
 }
 
 .monitor a, .monitor a:active, .monitor a:visited,
 .monitorHover a, .monitorHover a:active, .monitorHover a:visited {
-	color: snow !important;
+	color: #030303 !important;
 }
 
 .monitor a:hover {
-	color: snow !important;
+	color: #030303 !important;
 }
 
 .monitorHover a:hover {
-	color: snow !important;
+	color: #030303 !important;
 }
 
 .monitorFooterText {
-	color: #E3E3E3;
+	color: #030303;
 	font-size: 10px;
 }
 
@@ -41,5 +37,4 @@
 .deviceAlertBg {
 	color: rgba(255, 255, 255, 0.8);
 }
-
 

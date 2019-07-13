@@ -98,22 +98,20 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
+	display: flex;
+	flex-flow: row wrap;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
 }
 
-.monitor_legend_cell {
-	text-align: center;
+.monitor_legend > * {
+	padding: 0px 2px;
 	white-space: nowrap;
-	float: left;
-	padding: 0px;
-	margin: 0px;
-}
-
-.monitor_legend table {
-	padding: 2px;
-	width: 100%;
+	min-width: 140px;
+	font-size: 11px;
+	flex: 1 10%;
+	font-weight: normal;
 }
 
 // Extra Small Classification

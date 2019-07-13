@@ -17,14 +17,24 @@
 
 .monitorFooterText {
 	color: gray;
+	font-size: 10px;
 }
 
 .monitorFooterTextBold {
 	color: snow;
+	font-size: 10px;
+	padding-bottom: 120px;
 }
 
-.monitor_legend td {
-	font-weight: 600;
-	font-size: 12px;
+.deviceUnknownBg {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.deviceDownBg {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.deviceAlertBg {
+	color: rgba(255, 255, 255, 0.8);
 }
 

@@ -207,7 +207,7 @@ function draw_page() {
 		print "<div class='center monitor_legend'>";
 
 		foreach($iclasses as $index => $class) {
-			print "<div class='monitor_legend_cell center $class" . "Bg' style='width:10%;'>" . $icolorsdisplay[$index] . "</div>";
+			print "<div class='monitor_legend_cell center $class" . "Bg'>" . $icolorsdisplay[$index] . "</div>";
 		}
 
 		print "</div>";
@@ -653,12 +653,12 @@ function draw_filter_and_status() {
 
 	html_start_box($header, '100%', '', '3', 'center', '');
 
-	print '<tr><td>' . PHP_EOL;
+	print '<tr class="even"><td>' . PHP_EOL;
 	print '<form class="monitorFilterForm">' . PHP_EOL;
 
 	// First line of filter
 	print '<table class="filterTable">' . PHP_EOL;
-	print '<tr>' . PHP_EOL;
+	print '<tr class="even">' . PHP_EOL;
 
 	$dashboards[0] = __('Unsaved', 'monitor');
 	$dashboards += array_rekey(

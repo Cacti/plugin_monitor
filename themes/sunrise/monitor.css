@@ -18,3 +18,15 @@
 	color: white;
 }
 
+.deviceUnknownBg {
+	color: rgb(255, 255, 255);
+}
+
+.deviceDownBg {
+	color: rgb(255, 255, 255);
+}
+
+.deviceAlertBg {
+	color: rgb(255, 255, 255);
+}
+
