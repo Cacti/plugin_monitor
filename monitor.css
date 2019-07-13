@@ -108,7 +108,7 @@
 .monitor_exsmall_title {
 	display: inline-block;
 	text-align: center;
-	width: 60px !important;
+	width: 80px !important;
 	word-wrap: break-word;
 	overflow: hidden;
 }
@@ -149,7 +149,7 @@
 .monitor_small_title {
 	display: inline-block;
 	text-align: center;
-	width: 60px !important;
+	width: 80px !important;
 	word-wrap: break-word;
 	overflow: hidden;
 }
