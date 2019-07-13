@@ -45,6 +45,7 @@ in GitHub.
 --- develop ---
 * issue#100: Long names in devices in monitor.php in (title view)
 * issue#102: Doubled footer in monitor page (tile view)
+* issue#104: Broken responsive design
 * issue#105: Host description contains multibyte character set may cause the garbled text
 * issue#109: Reboot history being removed incorrectly for removed devices
 
