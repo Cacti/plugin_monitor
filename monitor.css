@@ -3,7 +3,16 @@
 	flex-wrap: wrap;
 	margin-left: auto;
 	margin-right: auto;
-	justify-content: center;
+	justify-content: space-around;
+}
+
+.monitor_sub_container {
+	display: flex-root;
+	flex: 1;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: space-around;
 }
 
 .monitor_main {
@@ -14,6 +23,16 @@
 	position: relative;
 	padding: 3px;
 	margin: 4px;
+}
+
+.monitorTable {
+	display: table;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: table;
+	line-height: 16px;
+	color: rgb(68, 68, 68);
 }
 
 .monitorFooter {
@@ -67,8 +86,7 @@
 
 .monitor_device_frame {
 	text-align: center;
-	display: table-cell;
-	float: left;
+	display: inline-block;
 }
 
 .monitor_device_frame a {
@@ -87,7 +105,6 @@
 
 .monitor_legend_cell {
 	text-align: center;
-	display: table-cell;
 	white-space: nowrap;
 	float: left;
 	padding: 0px;
@@ -108,7 +125,7 @@
 .monitor_exsmall_title {
 	display: inline-block;
 	text-align: center;
-	width: 80px !important;
+	width: 90px !important;
 	word-wrap: break-word;
 	overflow: hidden;
 }
@@ -120,7 +137,7 @@
 
 .monitor_exsmall_tilesadt {
 	height: 35px;
-	min-width: 74px;
+	width: 94px;
 }
 
 .monitor_exsmall td {
@@ -149,7 +166,7 @@
 .monitor_small_title {
 	display: inline-block;
 	text-align: center;
-	width: 80px !important;
+	width: 90px !important;
 	word-wrap: break-word;
 	overflow: hidden;
 }
@@ -161,7 +178,7 @@
 
 .monitor_small_tilesadt {
 	height: 45px;
-	min-width: 74px;
+	width: 94px;
 }
 
 .monitor_small i, .monitor_small_tiles i, .monitor_small_tilesadt i {
@@ -192,7 +209,7 @@
 .monitor_medium_title {
 	display: inline-block;
 	text-align: center;
-	width: 80px !important;
+	width: 100px !important;
 	word-wrap: break-word;
 	overflow: hidden;
 }
@@ -204,7 +221,7 @@
 
 .monitor_medium_tilesadt {
 	height: 65px;
-	min-width: 88px;
+	width: 108px;
 }
 
 .monitor_medium i, .monitor_medium_tiles i, .monitor_medium_tilesadt i {
@@ -256,7 +273,8 @@
 
 .monitor_large_tilesadt {
 	height: 102px;
-	min-width: 98px;
+	width: 128px;
+	justify-content: center;
 }
 
 .monitor_large i, .monitor_large_tiles i, .monitor_large_tilesadt i {
@@ -304,7 +322,7 @@
 
 .monitor_exlarge_tilesadt {
 	height: 148px;
-	min-width: 128px;
+	width: 128px;
 }
 
 .monitor_exlarge i, .monitor_exlarge_tiles i, .monitor_exlarge_tilesadt i {

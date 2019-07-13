@@ -785,7 +785,7 @@ function monitor_api_device_save($save) {
 }
 
 function monitor_draw_navigation_text ($nav) {
-   $nav['monitor.php:'] = array('title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '1');
+   $nav['monitor.php:'] = array('title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '0');
 
    return $nav;
 }

@@ -204,13 +204,13 @@ function draw_page() {
 	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
-		print "<div class='center monitor_legend'><table class='cactiTable'><tr><td><div class='monitor_ul'>";
+		print "<div class='center monitor_legend'>";
 
 		foreach($iclasses as $index => $class) {
 			print "<div class='monitor_legend_cell center $class" . "Bg' style='width:10%;'>" . $icolorsdisplay[$index] . "</div>";
 		}
 
-		print "</td></tr></table></div>";
+		print "</div>";
 	}
 
 	$name = db_fetch_cell_prepared('SELECT name
@@ -222,7 +222,7 @@ function draw_page() {
 		$name = __('New Dashboard', 'monitor');
 	}
 
-	$new_form  = htmlentities("<div id='newdialog'><form id='new_dashboard'><table class='cactiTable'><tr><td colspan='2'><p>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</p></td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form></div>");
+	$new_form  = htmlentities("<div id='newdialog'><form id='new_dashboard'><table class='monitorTable'><tr><td colspan='2'><p>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</p></td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form></div>");
 	$new_title = __('Create New Dashboard', 'monitor');
 
 	// If the host is down, we need to insert the embedded wav file
@@ -675,7 +675,7 @@ function draw_filter_and_status() {
 		WHERE id = ?',
 		array(get_request_var('dashboard')));
 
-	draw_filter_dropdown('dashboard', __esc('Dashboard', 'monitor'), $dashboards);
+	draw_filter_dropdown('dashboard', __esc('Layout', 'monitor'), $dashboards);
 	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status);
 	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
 	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
@@ -1018,15 +1018,12 @@ function validate_request_vars($force = false) {
 }
 
 function render_group_concat(&$sql_where, $sql_join, $sql_field, $sql_data, $sql_suffix = '') {
-	//cacti_log("render_group_concat($sql_where, $sql_join, $sql_field, $sql_data, $sql_suffix = '')");
-
 	// Remove empty entries if something was returned
 	if (!empty($sql_data)) {
 		$sql_data = trim(str_replace(',,',',',$sql_data), ',');
 
 		if (!empty($sql_data)) {
 			$sql_where .= ($sql_where != '' ? $sql_join : '') . "($sql_field IN($sql_data) $sql_suffix)";
-			//cacti_log('render_group_concat: ' . $sql_where);
 		}
 	}
 }
@@ -1104,8 +1101,6 @@ function render_where_join(&$sql_where, &$sql_join) {
 				OR (td.thold_enabled="on" AND td.thold_alert > 0)
 			)' . $awhere;
 	}
-
-	//cacti_log("render_where_join($sql_where, $sql_join)");
 }
 
 /* Render functions */
@@ -1182,7 +1177,6 @@ function render_site() {
 		$sql_where
 		ORDER BY site_name, description");
 
-	//cacti_log($hosts_sql);
 	$hosts = db_fetch_assoc($hosts_sql);
 
 	$ctemp = -1;
@@ -1231,11 +1225,11 @@ function render_site() {
 
 			if (!$suppressGroups) {
 				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= "</div></td></tr></table>";
+					$result .= "</div>";
 				}
 
 				if ($ctemp != $ptemp) {
-					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['site_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><div class='monitor_ul'>";
+					$result .= "<div class='monitorTable'><div class='navBarNavigation'><div class='navBarNavigationNone'>" . $host['site_name'] . "</div></div></div><div class='monitor_container'>";
 				}
 			}
 
@@ -1247,7 +1241,7 @@ function render_site() {
 		}
 
 		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= "</div></td></tr></table>";
+			$result .= "</div>";
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
@@ -1334,11 +1328,11 @@ function render_template() {
 
 			if (!$suppressGroups) {
 				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= "</div></td></tr></table>";
+					$result .= "</div>";
 				}
 
 				if ($ctemp != $ptemp) {
-					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><div class='monitor_ul'>";
+					$result .= "<div class='monitorTable'><div class='navBarNavigation'><div class='navBarNavigationNone'>" . $host['host_template_name'] . "</div></div></div><div class='monitor_container'>";
 				}
 			}
 
@@ -1350,7 +1344,7 @@ function render_template() {
 		}
 
 		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= "</div></td></tr></table>";
+			$result .= "</div>";
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
@@ -1409,7 +1403,7 @@ function render_tree() {
 			AND gti.host_id > 0
 			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ")
 			ORDER BY gt.sequence, gti.position");
-		//cacti_log('branchWhost(' . implode(', ', $tree_ids) . '): ' . $branchWhost_SQL);
+
 		$branchWhost = db_fetch_assoc($branchWhost_SQL);
 
 		// Determine the correct width of the cell
@@ -1428,7 +1422,6 @@ function render_tree() {
 		}
 
 		if (cacti_sizeof($branchWhost)) {
-			//cacti_log(var_export($branchWhost, true));
 			foreach($branchWhost as $b) {
 				if ($ptree != $b['graph_tree_id']) {
 					$titles[$b['graph_tree_id'] . ':0'] = __('Root Branch', 'monitor');
@@ -1478,10 +1471,10 @@ function render_tree() {
 
 				if ($ptree != $tree_name) {
 					if ($ptree != '') {
-						$result .= '</td></tr></table></td></tr></table>';
+						$result .= '</div>';
 					}
 
-					$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Tree: %s', $tree_name, 'monitor') . '</th></tr><tr><td><table class="cactiTable"><tr><td>';
+					$result .= "<div class='monitorTable'><div class='navBarNavigation'><div class='navBarNavigationNone'>" . __('Tree: %s', $tree_name, 'monitor') . "</div></div></div><div class='monitorTable'><div class='monitor_sub_container'>";
 
 					$ptree = $tree_name;
 				}
@@ -1493,18 +1486,18 @@ function render_tree() {
 
 					$class = get_request_var('size');
 
-					$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Branch: %s', $title, 'monitor') . '</th></tr><tr><td class="center"><table class="cactiTable"><tr><td><div class="monitor_ul">';
+					$result .= "<div class='monitorSubTable'><div class='navBarNavigation'><div class='navBarNavigationNone'>" . __('Branch: %s', $title, 'monitor') . "</div></div><div class='monitor_sub_container'>";
 
 					foreach($hosts as $host) {
 						$result .= render_host($host, true, $maxlen);
 					}
 
-					$result .= '</div></td></tr></table></td></tr></table></div>';
+					$result .= '</div></div>';
 				}
 			}
 		}
 
-		$result .= '</td></tr></table></td></tr></table></div>';
+		$result .= '</div>';
 	}
 
 	/* begin others - lets get the monitor items that are not associated with any tree */
@@ -1533,12 +1526,12 @@ function render_tree() {
 				$maxlen = $maxchars;
 			}
 
-			$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Non-Tree Devices', 'monitor') . '</th></tr><tr><td><table class="cactiTable"><tr><td><div class="monitor_ul">';
+			$result .= "<div><div class='navBarNavigation'><div class='navBarNavigationNone'>" . __('Non-Tree Devices', 'monitor') . "</div></div></div><div class='monitor_container'>";
 			foreach($hosts as $leaf) {
 				$result .= render_host($leaf, true, $maxlen);
 			}
 
-			$result .= '</div></td></tr></table></td></tr></table></div>';
+			$result .= '</div></div>';
 		}
 	}
 
@@ -1549,36 +1542,6 @@ function render_tree() {
 	}
 
 	return $result;
-}
-
-/* Branch rendering */
-function render_branch($leafs, $title = '') {
-	global $render_style;
-	global $row_stripe;
-
-	$row_stripe=false;
-
-	if ($title == '') {
-		foreach ($leafs as $row) {
-			/* get our proper branch title */
-			$title = $row['branch_name'];
-			break;
-		}
-	}
-
-	if ($title == '') {
-		/* Insert a default title */
-		$title = 'Items';
-		$title .= ' (' . sizeof($leafs) . ')';
-	}
-
-	$function = "render_branch_$render_style";
-	if (function_exists($function)) {
-		/* Call the custom render_branch_ function */
-		return $function($leafs, $title);
-	} else {
-		return render_branch_tree($leafs, $title);
-	}
 }
 
 function get_host_status($host, $real = false) {
@@ -1654,11 +1617,11 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$tis = get_timeinstate($host);
 
-			$result = "<div class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
+			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<div class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
+			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
 		}
 	}
 
@@ -1888,7 +1851,7 @@ function monitor_trim($string) {
 }
 
 function render_header_default($hosts) {
-	return "<table class='cactiTable monitor'><tr><td><div class='monitor_container'>";
+	return "<div class='monitorTable monitor'><div class='monitor_container'>";
 }
 
 function render_header_tiles($hosts) {
