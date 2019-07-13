@@ -43,6 +43,7 @@ in GitHub.
 ## Changelog
 
 --- develop ---
+* issue#100: Long names in devices in monitor.php in (title view)
 * issue#102: Doubled footer in monitor page (tile view)
 * issue#105: Host description contains multibyte character set may cause the garbled text
 * issue#109: Reboot history being removed incorrectly for removed devices

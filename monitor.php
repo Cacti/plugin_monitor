@@ -204,10 +204,10 @@ function draw_page() {
 	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
-		print "<div class='center monitor_legend'><table class='cactiTable'><tr><td><ul class='monitor_ul'>";
+		print "<div class='center monitor_legend'><table class='cactiTable'><tr><td><div class='monitor_ul'>";
 
 		foreach($iclasses as $index => $class) {
-			print "<li class='monitor_legend_cell center $class" . "Bg' style='width:10%;'>" . $icolorsdisplay[$index] . "</li>";
+			print "<div class='monitor_legend_cell center $class" . "Bg' style='width:10%;'>" . $icolorsdisplay[$index] . "</div>";
 		}
 
 		print "</td></tr></table></div>";
@@ -1231,11 +1231,11 @@ function render_site() {
 
 			if (!$suppressGroups) {
 				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= "</ul></td></tr></table>";
+					$result .= "</div></td></tr></table>";
 				}
 
 				if ($ctemp != $ptemp) {
-					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['site_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><ul class='monitor_ul'>";
+					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['site_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><div class='monitor_ul'>";
 				}
 			}
 
@@ -1247,7 +1247,7 @@ function render_site() {
 		}
 
 		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= "</ul></td></tr></table>";
+			$result .= "</div></td></tr></table>";
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
@@ -1334,11 +1334,11 @@ function render_template() {
 
 			if (!$suppressGroups) {
 				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= "</ul></td></tr></table>";
+					$result .= "</div></td></tr></table>";
 				}
 
 				if ($ctemp != $ptemp) {
-					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><ul class='monitor_ul'>";
+					$result .= "<table class='cactiTable'><tr class='tableHeader'><th class='left'>" . $host['host_template_name'] . "</th></tr><tr><td class='center ${class}_${csuffix}'><div class='monitor_ul'>";
 				}
 			}
 
@@ -1350,7 +1350,7 @@ function render_template() {
 		}
 
 		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= "</ul></td></tr></table>";
+			$result .= "</div></td></tr></table>";
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
@@ -1493,13 +1493,13 @@ function render_tree() {
 
 					$class = get_request_var('size');
 
-					$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Branch: %s', $title, 'monitor') . '</th></tr><tr><td class="center"><table class="cactiTable"><tr><td><ul class="monitor_ul">';
+					$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Branch: %s', $title, 'monitor') . '</th></tr><tr><td class="center"><table class="cactiTable"><tr><td><div class="monitor_ul">';
 
 					foreach($hosts as $host) {
 						$result .= render_host($host, true, $maxlen);
 					}
 
-					$result .= '</ul></td></tr></table></td></tr></table></div>';
+					$result .= '</div></td></tr></table></td></tr></table></div>';
 				}
 			}
 		}
@@ -1533,12 +1533,12 @@ function render_tree() {
 				$maxlen = $maxchars;
 			}
 
-			$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Non-Tree Devices', 'monitor') . '</th></tr><tr><td><table class="cactiTable"><tr><td><ul class="monitor_ul">';
+			$result .= '<table class="cactiTable"><tr class="tableHeader"><th>' . __('Non-Tree Devices', 'monitor') . '</th></tr><tr><td><table class="cactiTable"><tr><td><div class="monitor_ul">';
 			foreach($hosts as $leaf) {
 				$result .= render_host($leaf, true, $maxlen);
 			}
 
-			$result .= '</ul></td></tr></table></td></tr></table></div>';
+			$result .= '</div></td></tr></table></td></tr></table></div>';
 		}
 	}
 
@@ -1654,11 +1654,11 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$tis = get_timeinstate($host);
 
-			$result = "<li class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='center'>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceDown'>$tis</span></a></li>";
+			$result = "<div class='$fclass flash monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<li class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br>" . title_trim($host['description'], $maxchars) . "</span><br><span class='monitor_device${fclass} deviceUp'>$tis</span></a></li>";
+			$result = "<div class='$fclass monitor_device_frame' style='" . ($float ? 'float:left;':'') . "'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
 		}
 	}
 
@@ -1888,7 +1888,7 @@ function monitor_trim($string) {
 }
 
 function render_header_default($hosts) {
-	return "<table class='cactiTable monitor'><tr><td><ul>";
+	return "<table class='cactiTable monitor'><tr><td><div class='monitor_container'>";
 }
 
 function render_header_tiles($hosts) {
@@ -1927,7 +1927,7 @@ function render_suppressgroups_list($hosts) {
 }
 
 function render_footer_default($hosts) {
-	return '</ul></div>';
+	return '</div></div>';
 }
 
 function render_footer_tiles($hosts) {
@@ -2013,7 +2013,7 @@ function render_host_tiles($host, $maxlen = 10) {
 		return;
 	}
 
-	$result = "<li class='${fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></li>";
+	$result = "<div class='${fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
 
 	return $result;
 }
@@ -2031,13 +2031,13 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$tis = get_timeinstate($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></li>";
+		$result = "<div class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></div>";
 
 		return $result;
 	} else {
 		$tis = get_uptime($host);
 
-		$result = "<li class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></li>";
+		$result = "<div class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></div>";
 
 		return $result;
 	}
