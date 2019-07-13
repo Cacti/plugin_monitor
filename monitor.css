@@ -109,6 +109,8 @@
 	display: inline-block;
 	text-align: center;
 	width: 60px !important;
+	word-wrap: break-word;
+	overflow: hidden;
 }
 
 .monitor_exsmall_tiles {
@@ -148,6 +150,8 @@
 	display: inline-block;
 	text-align: center;
 	width: 60px !important;
+	word-wrap: break-word;
+	overflow: hidden;
 }
 
 .monitor_small_tiles {
@@ -189,6 +193,8 @@
 	display: inline-block;
 	text-align: center;
 	width: 80px !important;
+	word-wrap: break-word;
+	overflow: hidden;
 }
 
 .monitor_medium_tiles {
@@ -239,6 +245,8 @@
 	display: inline-block;
 	text-align: center;
 	width: 128px !important;
+	word-wrap: break-word;
+	overflow: hidden;
 }
 
 .monitor_large_tiles {
@@ -285,6 +293,8 @@
 	display: inline-block;
 	text-align: center;
 	width: 128px !important;
+	word-wrap: break-word;
+	overflow: hidden;
 }
 
 .monitor_exlarge_tiles {
