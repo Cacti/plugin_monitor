@@ -96,6 +96,18 @@ $monitor_grouping = array(
 	'template' => __('Device Template', 'monitor')
 );
 
+$monitor_trim = array(
+	0   => __('Default', 'monitor'),
+	-1  => __('Full', 'monitor'),
+	10  => __('10 Chars', 'monitor'),
+	20  => __('20 Chars', 'monitor'),
+	30  => __('30 Chars', 'monitor'),
+	40  => __('40 Chars', 'monitor'),
+	50  => __('50 Chars', 'monitor'),
+	75  => __('75 Chars', 'monitor'),
+	100 => __('100 Chars', 'monitor'),
+);
+
 global $thold_hosts, $maxchars;
 
 $maxchars = 12;
@@ -288,6 +300,7 @@ function draw_page() {
 			strURL += '&view='     + $('#view').val();
 			strURL += '&crit='     + $('#crit').val();
 			strURL += '&size='     + $('#size').val();
+			strURL += '&trim='     + $('#trim').val();
 			strURL += '&mute='     + $('#mute').val();
 			strURL += '&rfilter='  + base64_encode($('#rfilter').val());
 			strURL += '&status='   + $('#status').val();
@@ -311,7 +324,9 @@ function draw_page() {
 			'&view='      + $('#view').val() +
 			'&crit='      + $('#crit').val() +
 			'&rfilter='   + base64_encode($('#rfilter').val()) +
+			'&trim='      + $('#trim').val() +
 			'&size='      + $('#size').val() +
+			'&trim='      + $('#trim').val() +
 			'&status='    + $('#status').val();
 
 		$.get(url, function(data) {
@@ -337,6 +352,7 @@ function draw_page() {
 			'&view='      + $('#view').val() +
 			'&crit='      + $('#crit').val() +
 			'&rfilter='   + base64_encode($('#rfilter').val()) +
+			'&trim='      + $('#trim').val() +
 			'&size='      + $('#size').val() +
 			'&status='    + $('#status').val();
 
@@ -399,7 +415,7 @@ function draw_page() {
 			}
 		});
 
-		$('#refresh, #view, #crit, #grouping, #size, #status, #tree, #site, #template').change(function() {
+		$('#refresh, #view, #trim, #crit, #grouping, #size, #status, #tree, #site, #template').change(function() {
 			applyFilter('change');
 		});
 
@@ -647,7 +663,7 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 }
 
 function draw_filter_and_status() {
-	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status;
+	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status, $monitor_trim;
 
 	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
 
@@ -713,6 +729,10 @@ function draw_filter_and_status() {
 
 	if (get_request_var('view') != 'list') {
 		draw_filter_dropdown('size', __('Size', 'monitor'), $classes);
+	}
+
+	if (get_request_var('view') == 'default') {
+		draw_filter_dropdown('trim', __('Trim', 'monitor'), $monitor_trim);
 	}
 
 	if (get_nfilter_request_var('grouping') == 'tree') {
@@ -781,6 +801,10 @@ function draw_filter_and_status() {
 
 	if (get_request_var('view') == 'list') {
 		print '<td><input type="hidden" id="size" value="' . get_request_var('size') . '"></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('view') != 'default') {
+		print '<td><input type="hidden" id="trim" value="' . get_request_var('trim') . '"></td>' . PHP_EOL;
 	}
 
 	print '</tr>';
@@ -870,6 +894,9 @@ function save_settings() {
 				case 'size':
 					set_user_setting('monitor_size', get_request_var('size'));
 					break;
+				case 'trim':
+					set_user_setting('monitor_trim', get_request_var('trim'));
+					break;
 				case 'status':
 					set_user_setting('monitor_status', get_request_var('status'));
 					break;
@@ -889,6 +916,7 @@ function save_settings() {
 			'&view='      . get_request_var('view') .
 			'&crit='      . get_request_var('crit') .
 			'&size='      . get_request_var('size') .
+			'&trim='      . get_request_var('trim') .
 			'&status='    . get_request_var('status') .
 			'&tree='      . get_request_var('tree') .
 			'&site='      . get_request_var('site');
@@ -961,6 +989,10 @@ function validate_request_vars($force = false) {
 			'filter' => FILTER_CALLBACK,
 			'options' => array('options' => 'sanitize_search_string'),
 			'default' => read_user_setting('monitor_size', 'monior_medium', $force)
+		),
+		'trim' => array(
+			'filter' => FILTER_VALIDATE_INT,
+			'default' => read_user_setting('monitor_trim', read_config_option('monitor_trim'), $force)
 		),
 		'crit' => array(
 			'filter' => FILTER_VALIDATE_INT,
@@ -1126,18 +1158,14 @@ function render_default() {
 
 	if (cacti_sizeof($hosts)) {
 		// Determine the correct width of the cell
+		$maxlen = 10;
 		if (get_request_var('view') == 'default') {
 			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 				FROM host AS h
 				$sql_join
 				$sql_where");
-
-			if ($maxlen > $maxchars || get_request_var('view') != 'default') {
-				$maxlen = $maxchars;
-			}
-		} else {
-			$maxlen = 10;
 		}
+		$maxlen = get_monitor_trim_length($maxlen);
 
 		$function = 'render_header_' . get_request_var('view');
 		if (function_exists($function)) {
@@ -1201,17 +1229,13 @@ function render_site() {
 		}
 
 		// Determine the correct width of the cell
+		$maxlen = 10;
 		if (get_request_var('view') == 'default') {
 			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 				FROM host AS h
 				WHERE id IN (" . implode(',', $host_ids) . ")");
-
-			if ($maxlen > $maxchars) {
-				$maxlen = $maxchars;
-			}
-		} else {
-			$maxlen = 10;
 		}
+		$maxlen = get_monitor_trim_length($maxlen);
 
 		$class   = get_request_var('size');
 		$csuffix = get_request_var('view');
@@ -1304,17 +1328,13 @@ function render_template() {
 		}
 
 		// Determine the correct width of the cell
+		$maxlen = 10;
 		if (get_request_var('view') == 'default') {
 			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 				FROM host AS h
 				WHERE id IN (" . implode(',', $host_ids) . ")");
-
-			if ($maxlen > $maxchars) {
-				$maxlen = $maxchars;
-			}
-		} else {
-			$maxlen = 10;
 		}
+		$maxlen = get_monitor_trim_length($maxlen);
 
 		$class   = get_request_var('size');
 		$csuffix = get_request_var('view');
@@ -1407,19 +1427,15 @@ function render_tree() {
 		$branchWhost = db_fetch_assoc($branchWhost_SQL);
 
 		// Determine the correct width of the cell
+		$maxlen = 10;
 		if (get_request_var('view') == 'default') {
 			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 				FROM host AS h
 				INNER JOIN graph_tree_items AS gti
 				ON gti.host_id = h.id
 				WHERE disabled = ''");
-
-			if ($maxlen > $maxchars) {
-				$maxlen = $maxchars;
-			}
-		} else {
-			$maxlen = 10;
 		}
+		$maxlen = get_monitor_trim_length($maxlen);
 
 		if (cacti_sizeof($branchWhost)) {
 			foreach($branchWhost as $b) {
@@ -1510,21 +1526,15 @@ function render_tree() {
 			}
 
 			// Determine the correct width of the cell
+			$maxlen = 10;
 			if (get_request_var('view') == 'default') {
 				if (cacti_sizeof($host_ids)) {
 					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 						FROM host AS h
 						WHERE id IN (" . implode(',', $host_ids) . ")");
-				} else {
-					$maxlen = $maxchars;
 				}
-			} else {
-				$maxlen = 10;
 			}
-
-			if ($maxlen > $maxchars) {
-				$maxlen = $maxchars;
-			}
+			$maxlen = get_monitor_trim_length($maxlen);
 
 			$result .= "<div><div class='navBarNavigation'><div class='navBarNavigationNone'>" . __('Non-Tree Devices', 'monitor') . "</div></div></div><div class='monitor_container'>";
 			foreach($hosts as $leaf) {
@@ -1617,11 +1627,11 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$tis = get_timeinstate($host);
 
-			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
+			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim($host['description'], $maxlen) . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . $host['description'] . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
+			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim($host['description'], $maxlen) . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
 		}
 	}
 
@@ -2101,3 +2111,21 @@ function get_host_non_tree_array() {
 	return $leafs;
 }
 
+function get_monitor_trim_length($fieldlen) {
+	global $maxchars;
+
+	if (get_request_var('view') == 'default') {
+		$maxlen = $maxchars;
+		if (get_request_var('trim') < 0) {
+			$maxlen = 4000;
+		} elseif (get_request_var('trim') > 0) {
+			$maxlen = get_request_var('trim');
+		}
+
+		if ($fieldlen > $maxlen) {
+			$fieldlen = $maxlen;
+		}
+	}
+
+	return $fieldlen;
+}
