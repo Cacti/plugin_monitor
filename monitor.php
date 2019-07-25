@@ -1027,12 +1027,6 @@ function validate_request_vars($force = false) {
 			'filter' => FILTER_VALIDATE_INT,
 			'default' => '1'
 		),
-		'filter' => array(
-			'filter' => FILTER_CALLBACK,
-			'pageset' => true,
-			'default' => '',
-			'options' => array('options' => 'sanitize_search_string')
-		),
 		'sort_column' => array(
 			'filter' => FILTER_CALLBACK,
 			'default' => 'status',
