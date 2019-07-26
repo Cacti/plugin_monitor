@@ -108,9 +108,9 @@
 .monitor_legend > * {
 	padding: 0px 2px;
 	white-space: nowrap;
-	min-width: 140px;
+	min-width: 100px;
 	font-size: 11px;
-	flex: 1 10%;
+	flex: 1 9%;
 	font-weight: normal;
 }
 

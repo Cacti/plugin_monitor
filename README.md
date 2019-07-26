@@ -59,6 +59,8 @@ in GitHub.
 
 * issue#109: Reboot history being removed incorrectly for removed devices
 
+* issue#114: Monitor legend can not expand to a single line
+
 --- 2.3.5 ---
 
 * feature: Support for Cacti 1.2
