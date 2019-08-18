@@ -227,7 +227,7 @@ function monitor_device_action_execute($action) {
 		} else {
 			for ($i = 0; ($i < count($selected_items)); $i++) {
 				reset($fields_host_edit);
-				while (list($field_name, $field_array) = each($fields_host_edit)) {
+				foreach ($fields_host_edit as $field_name => $field_array) {
 					if (isset_request_var("t_$field_name")) {
 						if ($field_name == 'monitor_alert_baseline') {
 							$cur_time = db_fetch_cell_prepared('SELECT cur_time FROM host WHERE id = ?', array($selected_items[$i]));

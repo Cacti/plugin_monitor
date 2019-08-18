@@ -61,6 +61,8 @@ in GitHub.
 
 * issue#114: Monitor legend can not expand to a single line
 
+* feature: PHP 7.2 compatibility
+
 --- 2.3.5 ---
 
 * feature: Support for Cacti 1.2
