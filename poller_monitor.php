@@ -359,7 +359,12 @@ function process_reboot_email($email, $hosts) {
 
 		monitor_debug('HTML Processed');
 
-		$v = get_cacti_version();
+		if (defined('CACTI_VERSION')) {
+			$v = CACTI_VERSIN;
+		} else {
+			$v = get_cacti_version();
+		}
+
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
 		$status = 'Reboot Notifications';
