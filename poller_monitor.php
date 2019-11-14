@@ -360,7 +360,7 @@ function process_reboot_email($email, $hosts) {
 		monitor_debug('HTML Processed');
 
 		if (defined('CACTI_VERSION')) {
-			$v = CACTI_VERSIN;
+			$v = CACTI_VERSION;
 		} else {
 			$v = get_cacti_version();
 		}
@@ -374,6 +374,8 @@ function process_reboot_email($email, $hosts) {
 }
 
 function process_email($email, $lists, $global_list, $notify_list) {
+	global $config;
+
 	monitor_debug('Into Processing');
 	$alert_hosts = array();
 	$warn_hosts  = array();

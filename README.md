@@ -61,6 +61,8 @@ in GitHub.
 
 * issue#114: Monitor legend can not expand to a single line
 
+* issue#123: When sending emails, monitor reports config variable not found
+
 * feature: PHP 7.2 compatibility
 
 --- 2.3.5 ---
