@@ -1076,9 +1076,12 @@ function render_where_join(&$sql_where, &$sql_join) {
 	if (get_request_var('grouping') == 'tree') {
 		if (get_request_var('tree') > 0) {
 			$hlist = db_fetch_cell_prepared('SELECT GROUP_CONCAT(DISTINCT host_id)
-				FROM graph_tree_items
+				FROM graph_tree_items AS gti
+				INNER JOIN host AS h
+				ON h.id = gti.host_id
 				WHERE host_id > 0
-				AND graph_tree_id = ?',
+				AND graph_tree_id = ?
+				AND h.deleted = ""',
 				array(get_request_var('tree')));
 
 			render_group_concat($awhere, ' AND ', 'h.id', $hlist);
@@ -1087,7 +1090,8 @@ function render_where_join(&$sql_where, &$sql_join) {
 				FROM host AS h
 				LEFT JOIN (SELECT DISTINCT host_id FROM graph_tree_items WHERE host_id > 0) AS gti
 				ON h.id = gti.host_id
-				WHERE gti.host_id IS NULL');
+				WHERE gti.host_id IS NULL
+				AND h.deleted = ""');
 
 			render_group_concat($ahwere, ' AND ', 'h.id', $hlist);
 		}
@@ -1102,6 +1106,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
 			AND h.status < 3
+			AND h.deleted = ""
 			AND (h.availability_method > 0
 				OR h.snmp_version > 0
 				OR (h.cur_time >= h.monitor_warn AND monitor_warn > 0)
@@ -1112,6 +1117,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
+			AND h.deleted = ""
 			AND (h.status < 3
 			OR ' . get_thold_where() . '
 			OR ((h.availability_method > 0 OR h.snmp_version > 0)
@@ -1123,6 +1129,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
+			AND h.deleted = ""
 			AND (h.availability_method > 0 OR h.snmp_version > 0
 				OR (td.thold_enabled="on" AND td.thold_alert > 0)
 			)' . $awhere;
@@ -1427,7 +1434,8 @@ function render_tree() {
 				FROM host AS h
 				INNER JOIN graph_tree_items AS gti
 				ON gti.host_id = h.id
-				WHERE disabled = ''");
+				WHERE disabled = ''
+				AND deleted = ''");
 		}
 		$maxlen = get_monitor_trim_length($maxlen);
 
@@ -1525,7 +1533,8 @@ function render_tree() {
 				if (cacti_sizeof($host_ids)) {
 					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 						FROM host AS h
-						WHERE id IN (" . implode(',', $host_ids) . ")");
+						WHERE id IN (" . implode(',', $host_ids) . ")
+						AND h.deleted = ''");
 				}
 			}
 			$maxlen = get_monitor_trim_length($maxlen);
@@ -2024,8 +2033,10 @@ function get_hosts_down_or_triggered_by_permission() {
 	if (get_request_var('grouping') == 'tree') {
 		if (get_request_var('tree') > 0) {
 			$devices = db_fetch_cell_prepared('SELECT GROUP_CONCAT(DISTINCT host_id) AS hosts
-				FROM graph_tree_items
+				FROM graph_tree_items AS gti
+				INNER JOIN host AS h
 				WHERE host_id > 0
+				AND h.deleted = ""
 				AND graph_tree_id = ?',
 				array(get_request_var('tree')));
 
@@ -2038,7 +2049,8 @@ function get_hosts_down_or_triggered_by_permission() {
 			FROM host AS h
 			INNER JOIN thold_data AS td
 			ON td.host_id = h.id
-			WHERE ' . get_thold_where());
+			WHERE ' . get_thold_where() . '
+			AND h.deleted = ""');
 
 		render_group_concat($sql_add_where, ' OR ', 'h.id', $triggered, 'AND h.status > 1');
 
@@ -2048,6 +2060,7 @@ function get_hosts_down_or_triggered_by_permission() {
 				INNER JOIN host AS h
 				ON td.host_id = h.id
 				WHERE ' . get_thold_where() . '
+				AND h.deleted = ""
 				GROUP BY td.host_id'),
 			'host_id', 'triggered'
 		);
@@ -2055,6 +2068,7 @@ function get_hosts_down_or_triggered_by_permission() {
 
 	$sql_where = "h.monitor = 'on'
 		AND h.disabled = ''
+		AND h.deleted = ''
 		AND ((h.status < 2 AND (h.availability_method > 0 OR h.snmp_version > 0)) " .
 		($sql_add_where != '' ? ' OR (' . $sql_add_where . '))':')');
 
@@ -2123,3 +2137,4 @@ function get_monitor_trim_length($fieldlen) {
 
 	return $fieldlen;
 }
+

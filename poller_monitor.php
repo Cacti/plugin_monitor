@@ -178,30 +178,30 @@ function monitor_uptime_checker() {
 	$removed_hosts = db_fetch_assoc('SELECT mu.host_id
 		FROM plugin_monitor_uptime AS mu
 		LEFT JOIN host AS h
-		ON h.id=mu.host_id
+		ON h.id = mu.host_id
 		WHERE h.id IS NULL');
 
-	if (sizeof($removed_hosts)) {
+	if (cacti_sizeof($removed_hosts)) {
 		db_execute('DELETE FROM plugin_monitor_uptime
 			WHERE host_id IN (SELECT mu.host_id
 			FROM plugin_monitor_uptime AS mu
 			LEFT JOIN host AS h
-			ON h.id=mu.host_id
+			ON h.id = mu.host_id
 			WHERE h.id IS NULL)');
 	}
 
 	$removed_hosts = db_fetch_assoc('SELECT mu.host_id
 		FROM plugin_monitor_reboot_history AS mu
 		LEFT JOIN host AS h
-		ON h.id=mu.host_id
+		ON h.id = mu.host_id
 		WHERE h.id IS NULL');
 
-	if (sizeof($removed_hosts)) {
+	if (cacti_sizeof($removed_hosts)) {
 		db_execute('DELETE FROM plugin_monitor_reboot_history
 			WHERE host_id IN (SELECT mu.host_id
 			FROM plugin_monitor_reboot_history AS mu
 			LEFT JOIN host AS h
-			ON h.id=mu.host_id
+			ON h.id = mu.host_id
 			WHERE h.id IS NULL)');
 	}
 
@@ -210,11 +210,14 @@ function monitor_uptime_checker() {
 		h.hostname, h.snmp_sysUpTimeInstance, mu.uptime
 		FROM host AS h
 		LEFT JOIN plugin_monitor_uptime AS mu
-		ON h.id=mu.host_id
-		WHERE h.snmp_version>0 AND status IN (2,3)
-		AND (mu.uptime IS NULL OR mu.uptime > h.snmp_sysUpTimeInstance) AND h.snmp_sysUpTimeInstance > 0');
+		ON h.id = mu.host_id
+		WHERE h.snmp_version > 0
+		AND status IN (2,3)
+		AND h.deleted = ""
+		AND (mu.uptime IS NULL OR mu.uptime > h.snmp_sysUpTimeInstance)
+		AND h.snmp_sysUpTimeInstance > 0');
 
-	if (sizeof($rebooted_hosts)) {
+	if (cacti_sizeof($rebooted_hosts)) {
 		$notification_lists = array_rekey(
 			db_fetch_assoc('SELECT id, emails
 				FROM plugin_notification_lists
@@ -222,7 +225,7 @@ function monitor_uptime_checker() {
 			'id', 'emails'
 		);
 
-		$monitor_list = read_config_option('monitor_list');
+		$monitor_list  = read_config_option('monitor_list');
 		$monitor_thold = read_config_option('monitor_reboot_thold');
 
 		foreach ($rebooted_hosts as $host) {
@@ -239,7 +242,7 @@ function monitor_uptime_checker() {
 					WHERE id = ?',
 					array($host['id']));
 
-				if (sizeof($notify)) {
+				if (cacti_sizeof($notify)) {
 					switch($notify['thold_send_email']) {
 						case '0': // Disabled
 
@@ -279,6 +282,7 @@ function monitor_uptime_checker() {
 		FROM host
 		WHERE snmp_version > 0
 		AND status IN(2,3)
+		AND deleted = ""
 		AND snmp_sysUpTimeInstance > 0');
 
 	// Log Recently Down
@@ -286,7 +290,9 @@ function monitor_uptime_checker() {
 		(host_id, notify_type, notification_time, notes)
 		SELECT h.id, "3" AS notify_type, status_fail_date AS notification_time, status_last_error AS notes
 		FROM host AS h
-		WHERE status=1 AND status_event_count=1');
+		WHERE status = 1
+		AND deleted = ""
+		AND status_event_count = 1');
 
 	$recent = db_affected_rows();
 
@@ -377,6 +383,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 	global $config;
 
 	monitor_debug('Into Processing');
+
 	$alert_hosts = array();
 	$warn_hosts  = array();
 
@@ -392,20 +399,25 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		switch($list) {
 		case 'global':
 			$hosts = array();
+
 			if (isset($global_list['alert'])) {
 				$alert_hosts += explode(',', $global_list['alert']);
 			}
+
 			if (isset($global_list['warn'])) {
 				$warn_hosts += explode(',', $global_list['warn']);
 			}
+
 			break;
 		default:
 			if (isset($notify_list[$list]['alert'])) {
 				$alert_hosts = explode(',', $notify_list[$list]['alert']);
 			}
+
 			if (isset($notify_list[$list]['warn'])) {
 				$warn_hosts = explode(',', $notify_list[$list]['warn']);
 			}
+
 			break;
 		}
 	}
@@ -477,7 +489,8 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 			$hosts = db_fetch_assoc('SELECT *
 				FROM host
-				WHERE id IN(' . implode(',', $alert_hosts) . ')');
+				WHERE id IN(' . implode(',', $alert_hosts) . ')
+				AND deleted = ""');
 
 			if (cacti_sizeof($hosts)) {
 				foreach ($hosts as $host) {
@@ -525,7 +538,8 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 			$hosts = db_fetch_assoc('SELECT *
 				FROM host
-				WHERE id IN(' . implode(',', $warn_hosts) . ')');
+				WHERE id IN(' . implode(',', $warn_hosts) . ')
+				AND deleted = ""');
 
 			if (sizeof($hosts)) {
 				foreach ($hosts as $host) {
@@ -586,6 +600,7 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 	$from_email = read_config_option('monitor_fromemail');
 	if ($from_email == '') {
 		$from_email = read_config_option('settings_from_email');
+
 		if ($from_email == '') {
 			$from_email = 'root@localhost';
 		}
@@ -594,6 +609,7 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 	$from_name = read_config_option('monitor_fromname');
 	if ($from_name != '') {
 		$from_name  = read_config_option('settings_from_name');
+
 		if ($from_name == '') {
 			$from_name = 'Cacti Reporting';
 		}
@@ -666,7 +682,8 @@ function log_messages($type, $alert_hosts) {
 				(host_id, notify_type, ping_time, ping_threshold, notification_time)
 				SELECT id, '$type' AS notify_type, cur_time, $column, '$start_date' AS notification_time
 				FROM host
-				WHERE id = ?",
+				WHERE delted = ''
+				AND id = ?",
 				array($id));
 		}
 
@@ -682,6 +699,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 	$hosts = db_fetch_cell_prepared("SELECT COUNT(*)
 		FROM host
 		WHERE status = 3
+		AND deleted = ''
 		AND thold_send_email > 0
 		AND monitor_criticality >= ?
 		AND cur_time > monitor_$type",
@@ -705,6 +723,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 			) AS nh
 			ON host.id=nh.host_id
 			WHERE status = 3
+			AND deleted = ''
 			AND thold_send_email > 0
 			AND monitor_criticality >= ?
 			AND cur_time > monitor_$type " . ($type == 'warn' ? ' AND cur_time < monitor_alert':'') . '
