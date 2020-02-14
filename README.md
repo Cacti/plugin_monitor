@@ -63,6 +63,8 @@ in GitHub.
 
 * issue#123: When sending emails, monitor reports config variable not found
 
+* issue#125: Notification history is not being updated
+
 * issue: Add more checks for removed Device conditions
 
 * feature: PHP 7.2 compatibility

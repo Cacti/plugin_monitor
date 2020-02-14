@@ -682,7 +682,7 @@ function log_messages($type, $alert_hosts) {
 				(host_id, notify_type, ping_time, ping_threshold, notification_time)
 				SELECT id, '$type' AS notify_type, cur_time, $column, '$start_date' AS notification_time
 				FROM host
-				WHERE delted = ''
+				WHERE deleted = ''
 				AND id = ?",
 				array($id));
 		}
