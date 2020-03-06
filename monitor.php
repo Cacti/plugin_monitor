@@ -234,7 +234,8 @@ function draw_page() {
 		$name = __('New Dashboard', 'monitor');
 	}
 
-	$new_form  = htmlentities("<div id='newdialog'><form id='new_dashboard'><table class='monitorTable'><tr><td colspan='2'><p>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</p></td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form></div>");
+	$new_form  = "<div id='newdialog'><form id='new_dashboard'><table class='monitorTable'><tr><td colspan='2'>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form></div>";
+
 	$new_title = __('Create New Dashboard', 'monitor');
 
 	// If the host is down, we need to insert the embedded wav file
