@@ -403,6 +403,10 @@ function monitor_config_settings() {
 		'365' => __('%d Year', 1, 'monitor')
 	);
 
+	if (function_exists('auth_augment_roles')) {
+		auth_augment_roles(__('Normal User'), array('monitor.php'));
+	}
+
 	$tabs_graphs += array('monitor' => __('Monitor Settings', 'monitor'));
 
 	$settings_user += array(
@@ -870,11 +874,11 @@ function monitor_setup_table() {
 			COMMENT='Stores predefined dashboard information for a user or users'");
 	}
 
-	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on', 'after' => 'disabled'));
-	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_text', 'type' => 'varchar(1024)', 'default' => '', 'NULL' => false, 'after' => 'monitor'));
-	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text'));
-	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality'));
-	api_plugin_db_add_column ('monitor', 'host', array('name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn'));
+	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on', 'after' => 'disabled'));
+	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_text', 'type' => 'varchar(1024)', 'default' => '', 'NULL' => false, 'after' => 'monitor'));
+	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text'));
+	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality'));
+	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn'));
 }
 
 function monitor_poller_bottom() {
