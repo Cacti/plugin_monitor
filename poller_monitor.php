@@ -602,7 +602,7 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 		$from_email = read_config_option('settings_from_email');
 
 		if ($from_email == '') {
-			$from_email = 'root@localhost';
+			$from_email = 'Cacti@cacti.net';
 		}
 	}
 
