@@ -108,11 +108,13 @@ function monitor_device_table_bottom() {
 	});
 
 	applyFilter = function() {
-		strURL  = 'host.php?host_status=' + $('#host_status').val();
+		strURL  = 'host.php';
+		strURL += '?host_status=' + $('#host_status').val();
 		strURL += '&host_template_id=' + $('#host_template_id').val();
 		strURL += '&site_id=' + $('#site_id').val();
 		strURL += '&criticality=' + $('#criticality').val();
 		strURL += '&poller_id=' + $('#poller_id').val();
+		strURL += '&location=' + $('#location').val();
 		strURL += '&rows=' + $('#rows').val();
 		strURL += '&filter=' + $('#filter').val();
 		strURL += '&page=' + $('#page').val();
