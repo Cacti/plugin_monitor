@@ -182,8 +182,7 @@ function monitor_uptime_checker() {
 		WHERE h.id IS NULL');
 
 	if (cacti_sizeof($removed_hosts)) {
-		db_execute('DELETE FROM plugin_monitor_uptime
-			WHERE host_id IN (SELECT mu.host_id
+		db_execute('DELETE mu
 			FROM plugin_monitor_uptime AS mu
 			LEFT JOIN host AS h
 			ON h.id = mu.host_id
@@ -197,8 +196,7 @@ function monitor_uptime_checker() {
 		WHERE h.id IS NULL');
 
 	if (cacti_sizeof($removed_hosts)) {
-		db_execute('DELETE FROM plugin_monitor_reboot_history
-			WHERE host_id IN (SELECT mu.host_id
+		db_execute('DELETE mu
 			FROM plugin_monitor_reboot_history AS mu
 			LEFT JOIN host AS h
 			ON h.id = mu.host_id
