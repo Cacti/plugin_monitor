@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2008-2019 The Cacti Group                                 |
+ | Copyright (C) 2008-2020 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -645,7 +645,7 @@ function monitor_show_tab() {
 	}
 }
 
-function monitor_config_form () {
+function monitor_config_form() {
 	global $fields_host_edit, $criticalities;
 
 	$baselines = array(

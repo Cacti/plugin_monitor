@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2008-2019 The Cacti Group                                 |
+ | Copyright (C) 2008-2020 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -654,12 +654,12 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 
 			$setting_selected = ($value == $setting_value) ? ' selected' : '';
 
-			print '<option value="' . $setting_value . '"' . $setting_selected . '>' . $setting_name . '</option>' . PHP_EOL;
+			print '<option value="' . $setting_value . '"' . $setting_selected . '>' . html_escape($setting_name) . '</option>' . PHP_EOL;
 		}
 
 		print '</select></td>' . PHP_EOL;
 	} else {
-		print "<td style='display:none;'><input type='hidden' id='$id' value='$value'></td>" . PHP_EOL;
+		print "<td style='display:none;'><input type='hidden' id='$id' value='" . html_escape($value) . "'></td>" . PHP_EOL;
 	}
 }
 
@@ -1631,11 +1631,11 @@ function render_host($host, $float = true, $maxlen = 10) {
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			$tis = get_timeinstate($host);
 
-			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim($host['description'], $maxlen) . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
+			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim($host['description'], $maxlen) . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
+			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
 		}
 	}
 

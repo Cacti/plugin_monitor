@@ -69,6 +69,8 @@ in GitHub.
 
 * issue: Add more checks for removed Device conditions
 
+* issue: Don't attempt to send an device down email if there is none set for a device
+
 * feature: PHP 7.2 compatibility
 
 --- 2.3.5 ---

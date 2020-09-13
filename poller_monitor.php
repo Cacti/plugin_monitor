@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2008-2019 The Cacti Group                                 |
+ | Copyright (C) 2008-2020 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -267,8 +267,12 @@ function monitor_uptime_checker() {
 
 		if (sizeof($reboot_emails)) {
 			foreach ($reboot_emails as $email => $hosts) {
-				monitor_debug('Processing the email address: ' . $email);
-				process_reboot_email($email, $hosts);
+				if ($email != '') {
+					monitor_debug('Processing the Email address: ' . $email);
+					process_reboot_email($email, $hosts);
+				} else {
+					monitor_debug('Unable to process reboot notification due to empty Email address.');
+				}
 			}
 		}
 	}
