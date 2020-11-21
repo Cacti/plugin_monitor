@@ -420,6 +420,11 @@ function monitor_config_settings() {
 				'array' => monitor_scan_dir(),
 				'default' => 'attn-noc.wav',
 			),
+			'monitor_sound_loop' => array(
+				'friendly_name' => __('Loop Alarm Sound', 'monitor'),
+				'description' => __('Play the above sound on a loop when a Device goes down.', 'monitor'),
+				'method' => 'checkbox',
+			),
 			'monitor_legend' => array(
 				'friendly_name' => __('Show Icon Legend', 'monitor'),
 				'description' => __('Check this to show an icon legend on the Monitor display', 'monitor'),
@@ -458,6 +463,11 @@ function monitor_config_settings() {
 			'method' => 'drop_array',
 			'array' => monitor_scan_dir(),
 			'default' => 'attn-noc.wav',
+		),
+		'monitor_sound_loop' => array(
+			'friendly_name' => __('Loop Alarm Sound', 'monitor'),
+			'description' => __('Play the above sound on a loop when a Device goes down.', 'monitor'),
+			'method' => 'checkbox',
 		),
 		'monitor_refresh' => array(
 			'friendly_name' => __('Refresh Interval', 'monitor'),
