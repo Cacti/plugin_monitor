@@ -73,6 +73,8 @@ in GitHub.
 
 * feature: PHP 7.2 compatibility
 
+* feature#134: Added option to Loop the alarm sound
+
 --- 2.3.5 ---
 
 * feature: Support for Cacti 1.2
