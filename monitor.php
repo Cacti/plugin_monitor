@@ -241,7 +241,7 @@ function draw_page() {
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
-		if (get_monitor_sound_loop) {
+		if (get_monitor_sound_loop()) {
 			print "<audio id='audio' loop src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		} else {
 			print "<audio id='audio' loop=false src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
