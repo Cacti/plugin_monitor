@@ -241,10 +241,10 @@ function draw_page() {
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
-		if (get_monitor_sound_loop) {
+		if (read_user_setting('monitor_sound_loop', read_config_option('monitor_sound_loop'))) {
 			print "<audio id='audio' loop src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		} else {
-			print "<audio id='audio' loop=false src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
+			print "<audio id='audio' src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		}
 	}
 
@@ -516,10 +516,6 @@ function get_monitor_sound() {
 	$file = dirname(__FILE__) . '/sounds/' . $sound;
 	$exists = file_exists($file);
 	return $exists ? $sound : '';
-}
-
-function get_monitor_sound_loop() {
-	return read_user_setting('monitor_sound_loop', read_config_option('monitor_sound_loop'));
 }
 
 function find_down_hosts() {
