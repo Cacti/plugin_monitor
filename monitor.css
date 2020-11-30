@@ -351,6 +351,55 @@
 	padding: 2px;
 }
 
+// Zoom Errors Classification
+.monitor_errorzoom {
+	height: 118px;
+	width: 200px !important;
+}
+
+.monitor_errorzoom_title {
+	display: inline-block;
+	text-align: center;
+	word-wrap: break-word;
+	overflow: hidden;
+	line-height: 1.5;
+}
+
+.monitor_errorzoom_tiles {
+	height: 88px;
+	min-width: 88px;
+}
+
+.monitor_errorzoom_tilesadt {
+	height: 102px;
+	width: 128px;
+	justify-content: center;
+}
+
+.monitor_errorzoom i, .monitor_errorzoom_tiles i, .monitor_errorzoom_tilesadt i {
+	font-size: 80px;
+	min-width: 98px;
+}
+
+.monitor_errorzoom td {
+	font-size: 15px;
+}
+
+.monitor_errorzoom a, .monitor_errorzoom_tiles a, .monitor_errorzoom_tilesadt a {
+	font-size: 15px;
+	min-width: 98px;
+}
+
+.monitor_errorzoom .monitorLinkIcon {
+	font-size: 28px;
+}
+
+.monitor_device_errorzoom {
+	font-size: 10px;
+	padding: 2px;
+	min-width: 148px;
+}
+
 .monitorHover {
 	min-width: 400px;
 	max-width: 1000px;

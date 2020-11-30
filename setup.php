@@ -405,6 +405,15 @@ function monitor_config_settings() {
 		'365' => __('%d Year', 1, 'monitor')
 	);
 
+	$font_sizes=array(
+		'20'=>'20px',
+		'30'=>'30px',
+		'40'=>'40px',
+		'50'=>'50px',
+		'60'=>'60px',
+		'70'=>'70px'
+	);
+
 	if (function_exists('auth_augment_roles')) {
 		auth_augment_roles(__('Normal User'), array('monitor.php'));
 	}
@@ -429,6 +438,28 @@ function monitor_config_settings() {
 				'friendly_name' => __('Show Icon Legend', 'monitor'),
 				'description' => __('Check this to show an icon legend on the Monitor display', 'monitor'),
 				'method' => 'checkbox',
+			),
+			'monitor_uptime' => array(
+				'friendly_name' => __('Show Uptime', 'monitor'),
+				'description' => __('Check this to show Uptime on the Monitor display', 'monitor'),
+				'method' => 'checkbox',
+			),
+			'monitor_error_zoom' => array(
+				'friendly_name' => __('Zoom to Errors', 'monitor'),
+				'description' => __('Check this to zoom to errored items on the Monitor display', 'monitor'),
+				'method' => 'checkbox',
+			),
+			'monitor_error_background' => array(
+				'friendly_name' => __('Zoom Background', 'monitor'),
+				'description' => __('Background Color for Zoomed Errors on the Monitor display', 'monitor'),
+				'method' => 'drop_color',
+			),
+			'monitor_error_fontsize' => array(
+				'friendly_name' => __('Zoom Fontsize', 'monitor'),
+				'description' => __('Check this to zoom to errored items on the Monitor display', 'monitor'),
+				'method' => 'drop_array',
+				'default' => '50',
+				'array' => $font_sizes
 			)
 		)
 	);
