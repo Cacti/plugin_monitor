@@ -993,7 +993,7 @@ function validate_request_vars($force = false) {
 		'size' => array(
 			'filter' => FILTER_CALLBACK,
 			'options' => array('options' => 'sanitize_search_string'),
-			'default' => read_user_setting('monitor_size', 'monior_medium', $force)
+			'default' => read_user_setting('monitor_size', 'monitor_medium', $force)
 		),
 		'trim' => array(
 			'filter' => FILTER_VALIDATE_INT,
