@@ -189,7 +189,7 @@ function load_dashboard_settings() {
 }
 
 function draw_page() {
-	global $config, $iclasses, $icolorsdisplay,$monZoomState,$dozoomrefresh,$dozoombgndcolor,$font_sizes;
+	global $config, $iclasses, $icolorsdisplay, $monZoomState, $dozoomrefresh, $dozoombgndcolor, $font_sizes;
 
 	$ErroredList = get_hosts_down_or_triggered_by_permission(true);
 
@@ -765,8 +765,9 @@ function draw_filter_and_status() {
 		WHERE id = ?',
 		array(get_request_var('dashboard')));
 
-	$mon_zoom_status=null;
-	$mon_zoom_size=null;
+	$mon_zoom_status = null;
+	$mon_zoom_size   = null;
+
 	if (isset($_SESSION['monitor_zoom_state'])) {
 		if ($_SESSION['monitor_zoom_state'] == 1) {
 			$mon_zoom_status = 2;
