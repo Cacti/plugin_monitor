@@ -68,11 +68,11 @@ $icolorsdisplay = array(
 );
 
 $classes = array(
-	'monitor_exsmall' => __('Extra Small', 'monitor'),
-	'monitor_small'   => __('Small', 'monitor'),
-	'monitor_medium'  => __('Medium', 'monitor'),
-	'monitor_large'   => __('Large', 'monitor'),
-	'monitor_exlarge' => __('Extra Large', 'monitor'),
+	'monitor_exsmall'   => __('Extra Small', 'monitor'),
+	'monitor_small'     => __('Small', 'monitor'),
+	'monitor_medium'    => __('Medium', 'monitor'),
+	'monitor_large'     => __('Large', 'monitor'),
+	'monitor_exlarge'   => __('Extra Large', 'monitor'),
 	'monitor_errorzoom' => __('Zoom', 'monitor')
 );
 
@@ -191,25 +191,20 @@ function load_dashboard_settings() {
 function draw_page() {
 	global $config, $iclasses, $icolorsdisplay,$monZoomState,$dozoomrefresh,$dozoombgndcolor,$font_sizes;
 
-	$ErroredList=get_hosts_down_or_triggered_by_permission(true);
+	$ErroredList = get_hosts_down_or_triggered_by_permission(true);
 
-	if(cacti_sizeof($ErroredList) && read_user_setting('monitor_error_zoom')==true)
-	{
-		if($_SESSION['monitor_zoom_state']==0){
-		$monZoomState=$_SESSION['monitor_zoom_state']=1;
-			$_SESSION['mon_zoom_hist__status']=get_nfilter_request_var('status');
-			$_SESSION['mon_zoom_hist__size']=get_nfilter_request_var('size');
-			$dozoomrefresh=true;
-			$dozoombgndcolor=true;
+	if (cacti_sizeof($ErroredList) && read_user_setting('monitor_error_zoom') == true) {
+		if($_SESSION['monitor_zoom_state'] == 0) {
+		$monZoomState=$_SESSION['monitor_zoom_state'] = 1;
+			$_SESSION['mon_zoom_hist__status'] = get_nfilter_request_var('status');
+			$_SESSION['mon_zoom_hist__size']   = get_nfilter_request_var('size');
+			$dozoomrefresh   = true;
+			$dozoombgndcolor = true;
 		}
-	}
-	else
-	{
-		if($_SESSION['monitor_zoom_state']==1){
-			$_SESSION['monitor_zoom_state']=0;
-			$dozoomrefresh=true;
-			$dozoombgndcolor=false;
-		}
+	} elseif ($_SESSION['monitor_zoom_state']==1) {
+		$_SESSION['monitor_zoom_state'] = 0;
+		$dozoomrefresh   = true;
+		$dozoombgndcolor = false;
 	}
 
 	find_down_hosts();
@@ -273,15 +268,19 @@ function draw_page() {
 		}
 	}
 
-    if($dozoombgndcolor==true)
-	{
-		$mbcolora = db_fetch_row_prepared('SELECT * FROM colors WHERE id = ?', array(read_user_setting('monitor_error_background')));
-		$monitor_error_fontsize=read_user_setting('monitor_error_fontsize') . 'px';
-		$mbcolor="";
-		$mbcolor='#' . array_values($mbcolora)[2];
+	if ($dozoombgndcolor) {
+		$mbcolora = db_fetch_row_prepared('SELECT * 
+			FROM colors 
+			WHERE id = ?', 
+			array(read_user_setting('monitor_error_background')));
 
-		echo "<script type=\"text/javascript\">
+		$monitor_error_fontsize = read_user_setting('monitor_error_fontsize') . 'px';
+		$mbcolor = "";
+		$mbcolor = '#' . array_values($mbcolora)[2];
+
+		print "<script type=\"text/javascript\">
 			var monoe=false;
+
 			function setZoomErrorBackgrounds(){
 				$('.monitor_container').css('background-color', '$mbcolor');
 				$('.cactiConsoleContentArea').css('background-color','$mbcolor');
@@ -313,13 +312,12 @@ function draw_page() {
 				}
 			}, 600, 8);
 		</script>";
-    }
-    else{
-        echo "<script type=\"text/javascript\">
-            $('.monitor_container').css('background-color', 'white');
+	} else {
+		print "<script type=\"text/javascript\">
+			$('.monitor_container').css('background-color', 'white');
 			$('.cactiConsoleContentArea').css('background-color','white');
-            </script>";
-    }
+		</script>";
+	}
 
 	?>
 	<script type='text/javascript'>
@@ -391,8 +389,7 @@ function draw_page() {
 	}
 
 	function saveFilter() {
-		url =
-			'monitor.php?action=save&header=false' +
+		url = 'monitor.php?action=save&header=false' +
 			'&dashboard=' + $('#dashboard').val() +
 			'&refresh='   + $('#refresh').val() +
 			'&grouping='  + $('#grouping').val() +
@@ -768,34 +765,34 @@ function draw_filter_and_status() {
 		FROM plugin_monitor_dashboards
 		WHERE id = ?',
 		array(get_request_var('dashboard')));
-		$mon_zoom_status=null;
-		$mon_zoom_size=null;
-		if (isset($_SESSION['monitor_zoom_state'])) {
-			if($_SESSION['monitor_zoom_state']==1) {
-				$mon_zoom_status=2;
-				$mon_zoom_size='monitor_errorzoom';
-				$dozoombgndcolor=true;
+
+	$mon_zoom_status=null;
+	$mon_zoom_size=null;
+	if (isset($_SESSION['monitor_zoom_state'])) {
+		if ($_SESSION['monitor_zoom_state'] == 1) {
+			$mon_zoom_status = 2;
+			$mon_zoom_size   = 'monitor_errorzoom';
+			$dozoombgndcolor = true;
+		} else {
+			if (isset($_SESSION['mon_zoom_hist__status'])) {
+				$mon_zoom_status = $_SESSION['mon_zoom_hist__status'];
+			} else {
+				$mon_zoom_status = null;
 			}
-			else{
-				if (isset($_SESSION['mon_zoom_hist__status'])) {
-					$mon_zoom_status=$_SESSION['mon_zoom_hist__status'];
-				}
-				else{
-					$mon_zoom_status=null;
+
+			if (isset($_SESSION['mon_zoom_hist__size'])) {
+				$currentddsize = get_nfilter_request_var('size');
+
+				if ($currentddsize != $_SESSION['mon_zoom_hist__size'] && $currentddsize != 'monitor_errorzoom') {
+					$_SESSION['mon_zoom_hist__size'] = $currentddsize;
 				}
 
-				if (isset($_SESSION['mon_zoom_hist__size'])) {
-					$currentddsize=get_nfilter_request_var('size');
-					if($currentddsize!=$_SESSION['mon_zoom_hist__size'] && $currentddsize!='monitor_errorzoom'){
-						$_SESSION['mon_zoom_hist__size']=$currentddsize;
-					}
-					$mon_zoom_size=$_SESSION['mon_zoom_hist__size'];
-				}
-				else{
-					$mon_zoom_size=null;
-				}
+				$mon_zoom_size = $_SESSION['mon_zoom_hist__size'];
+			} else {
+				$mon_zoom_size=null;
 			}
 		}
+	}
 
 	draw_filter_dropdown('dashboard', __esc('Layout', 'monitor'), $dashboards);
 	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status, $mon_zoom_status);
