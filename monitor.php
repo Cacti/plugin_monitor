@@ -177,7 +177,7 @@ function load_dashboard_settings() {
 			$db_settings = str_replace('monitor.php?', '', $db_settings);
 			$settings = explode('&', $db_settings);
 
-			if (sizeof($settings)) {
+			if (cacti_sizeof($settings)) {
 				foreach($settings as $setting) {
 					list($name, $value) = explode('=', $setting);
 
@@ -189,19 +189,19 @@ function load_dashboard_settings() {
 }
 
 function draw_page() {
-	global $config, $iclasses, $icolorsdisplay, $monZoomState, $dozoomrefresh, $dozoombgndcolor, $font_sizes;
+	global $config, $iclasses, $icolorsdisplay, $mon_zoom_state, $dozoomrefresh, $dozoombgndcolor, $font_sizes;
 
-	$ErroredList = get_hosts_down_or_triggered_by_permission(true);
+	$errored_list = get_hosts_down_or_triggered_by_permission(true);
 
-	if (cacti_sizeof($ErroredList) && read_user_setting('monitor_error_zoom') == true) {
+	if (cacti_sizeof($errored_list) && read_user_setting('monitor_error_zoom') == 'on') {
 		if ($_SESSION['monitor_zoom_state'] == 0) {
-			$monZoomState = $_SESSION['monitor_zoom_state'] = 1;
-			$_SESSION['mon_zoom_hist__status'] = get_nfilter_request_var('status');
-			$_SESSION['mon_zoom_hist__size']   = get_nfilter_request_var('size');
+			$mon_zoom_state = $_SESSION['monitor_zoom_state'] = 1;
+			$_SESSION['mon_zoom_hist_status'] = get_nfilter_request_var('status');
+			$_SESSION['mon_zoom_hist_size']   = get_nfilter_request_var('size');
 			$dozoomrefresh   = true;
 			$dozoombgndcolor = true;
 		}
-	} elseif ($_SESSION['monitor_zoom_state']==1) {
+	} elseif ($_SESSION['monitor_zoom_state'] == 1) {
 		$_SESSION['monitor_zoom_state'] = 0;
 		$dozoomrefresh   = true;
 		$dozoombgndcolor = false;
@@ -269,9 +269,9 @@ function draw_page() {
 	}
 
 	if ($dozoombgndcolor) {
-		$mbcolora = db_fetch_row_prepared('SELECT * 
-			FROM colors 
-			WHERE id = ?', 
+		$mbcolora = db_fetch_row_prepared('SELECT *
+			FROM colors
+			WHERE id = ?',
 			array(read_user_setting('monitor_error_background')));
 
 		$monitor_error_fontsize = read_user_setting('monitor_error_fontsize') . 'px';
@@ -279,15 +279,17 @@ function draw_page() {
 		$mbcolor = '#' . array_values($mbcolora)[2];
 
 		print "<script type=\"text/javascript\">
-			var monoe=false;
+			var monoe = false;
 
-			function setZoomErrorBackgrounds(){
-				$('.monitor_container').css('background-color', '$mbcolor');
-				$('.cactiConsoleContentArea').css('background-color','$mbcolor');
+			function setZoomErrorBackgrounds() {
+				if ('$mbcolor' != '') {
+					$('.monitor_container').css('background-color', '$mbcolor');
+					$('.cactiConsoleContentArea').css('background-color', '$mbcolor');
+				}
 			};
 
 			setZoomErrorBackgrounds();
-			$('.monitor_errorzoom_title').css('font-size','$monitor_error_fontsize');
+			$('.monitor_errorzoom_title').css('font-size', '$monitor_error_fontsize');
 
 			function setIntervalX(callback, delay, repetitions) {
 				var x = 0;
@@ -303,18 +305,24 @@ function draw_page() {
 			setIntervalX(function () {
 				if (monoe === false) {
 					setZoomErrorBackgrounds();
+
 					monoe = true;
 				} else {
-					$('.monitor_container').css('background-color', 'white');
-					$('.cactiConsoleContentArea').css('background-color','white');
+					if ('$mbcolor' != '') {
+						$('.monitor_container').css('background-color', '');
+						$('.cactiConsoleContentArea').css('background-color','');
+					}
+
 					monoe = false;
 				}
 			}, 600, 8);
 		</script>";
 	} else {
 		print "<script type=\"text/javascript\">
-			$('.monitor_container').css('background-color', 'white');
-			$('.cactiConsoleContentArea').css('background-color','white');
+			if ('$mbcolor' != '') {
+				$('.monitor_container').css('background-color', '');
+				$('.cactiConsoleContentArea').css('background-color','');
+			}
 		</script>";
 	}
 
@@ -338,12 +346,12 @@ function draw_page() {
 
 	function muteUnmuteAudio(mute) {
 		if (mute) {
-			$('audio').each(function(){
+			$('audio').each(function() {
 				this.pause();
 				this.currentTime = 0;
 			});
 		} else if ($('#downhosts').val() == 'true') {
-			$('audio').each(function(){
+			$('audio').each(function() {
 				this.play();
 			});
 		}
@@ -717,8 +725,8 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 	}
 
 	if (cacti_sizeof($settings)) {
-		print '<td>' . $title . '</td>';
-		print '<td><select id="' . $id . '" title="' . $title . '">' . PHP_EOL;
+		print '<td>' . html_escape($title) . '</td>';
+		print '<td><select id="' . $id . '" title="' . html_escape($title) . '">' . PHP_EOL;
 
 		foreach ($settings as $setting_value => $setting_name) {
 			if ($value == null || $value == '') {
@@ -737,7 +745,7 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 }
 
 function draw_filter_and_status() {
-	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status, $monitor_trim, $dozoomrefresh, $zoomHist_Status, $zoomHist_Size, $dozoombgndcolor, $monZoomState;
+	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status, $monitor_trim, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $dozoombgndcolor, $mon_zoom_state;
 
 	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
 
@@ -774,30 +782,30 @@ function draw_filter_and_status() {
 			$mon_zoom_size   = 'monitor_errorzoom';
 			$dozoombgndcolor = true;
 		} else {
-			if (isset($_SESSION['mon_zoom_hist__status'])) {
-				$mon_zoom_status = $_SESSION['mon_zoom_hist__status'];
+			if (isset($_SESSION['mon_zoom_hist_status'])) {
+				$mon_zoom_status = $_SESSION['mon_zoom_hist_status'];
 			} else {
 				$mon_zoom_status = null;
 			}
 
-			if (isset($_SESSION['mon_zoom_hist__size'])) {
+			if (isset($_SESSION['mon_zoom_hist_size'])) {
 				$currentddsize = get_nfilter_request_var('size');
 
-				if ($currentddsize != $_SESSION['mon_zoom_hist__size'] && $currentddsize != 'monitor_errorzoom') {
-					$_SESSION['mon_zoom_hist__size'] = $currentddsize;
+				if ($currentddsize != $_SESSION['mon_zoom_hist_size'] && $currentddsize != 'monitor_errorzoom') {
+					$_SESSION['mon_zoom_hist_size'] = $currentddsize;
 				}
 
-				$mon_zoom_size = $_SESSION['mon_zoom_hist__size'];
+				$mon_zoom_size = $_SESSION['mon_zoom_hist_size'];
 			} else {
-				$mon_zoom_size=null;
+				$mon_zoom_size = null;
 			}
 		}
 	}
 
-	draw_filter_dropdown('dashboard', __esc('Layout', 'monitor'), $dashboards);
-	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status, $mon_zoom_status);
-	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
-	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
+	draw_filter_dropdown('dashboard', __('Layout', 'monitor'), $dashboards);
+	draw_filter_dropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
+	draw_filter_dropdown('view', __('View', 'monitor'), $monitor_view_type);
+	draw_filter_dropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
 
 	// Buttons
 	print '<td><span>' . PHP_EOL;
@@ -916,10 +924,10 @@ function draw_filter_and_status() {
 
 	html_end_box();
 
-	if($dozoomrefresh==true){
-		$dozoomrefresh=false;
+	if ($dozoomrefresh == true) {
+		$dozoomrefresh = false;
 
-		echo "<script type=\"text/javascript\">
+		print "<script type=\"text/javascript\">
 			applyFilter('refresh');
 		</script>";
 	}
@@ -1705,7 +1713,7 @@ function get_host_status_description($status) {
 
 /*Single host  rendering */
 function render_host($host, $float = true, $maxlen = 10) {
-	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes, $maxchars, $monZoomState;
+	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes, $maxchars, $mon_zoom_state;
 
 	//throw out tree root items
 	if (array_key_exists('name', $host))  {
@@ -1742,19 +1750,19 @@ function render_host($host, $float = true, $maxlen = 10) {
 		$monitor_time_html="";
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
-			if($monZoomState>0){
+			if ($mon_zoom_state) {
 				$fclass ='monitor_errorzoom';
 			}
 			$tis = get_timeinstate($host);
 
-			if($monitor_times=='on'){
+			if ($monitor_times=='on') {
 				$monitor_time_html="<br><div class='monitor_device${fclass} deviceDown'>$tis</div>";
 			}
 			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div>$monitor_time_html</a></div>";
 		} else {
 			$tis = get_uptime($host);
 
-			if($monitor_times=='on'){
+			if ($monitor_times=='on') {
 				$monitor_time_html="<br><div class='monitor_device${fclass} deviceUp'>$tis</div>";
 			}
 
@@ -2146,7 +2154,7 @@ function render_host_tilesadt($host, $maxlen = 10) {
 function get_hosts_down_or_triggered_by_permission($prescan) {
 	global $render_style;
 	$PreScanValue=2;
-	if($prescan){
+	if ($prescan) {
 		$PreScanValue=3;
 	}
 

@@ -927,16 +927,18 @@ function monitor_setup_table() {
 function monitor_poller_bottom() {
 	global $config;
 
-	include_once($config['library_path'] . '/poller.php');
+	if ($config['poller_id'] == 1) {
+		include_once($config['library_path'] . '/poller.php');
 
-    $command_string = trim(read_config_option('path_php_binary'));
+		$command_string = trim(read_config_option('path_php_binary'));
 
-    if (trim($command_string) == '') {
-        $command_string = 'php';
+		if (trim($command_string) == '') {
+			$command_string = 'php';
+		}
+
+		$extra_args = ' -q ' . $config['base_path'] . '/plugins/monitor/poller_monitor.php';
+
+		exec_background($command_string, $extra_args);
 	}
-
-    $extra_args = ' -q ' . $config['base_path'] . '/plugins/monitor/poller_monitor.php';
-
-    exec_background($command_string, $extra_args);
 }
 
