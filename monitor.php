@@ -194,8 +194,8 @@ function draw_page() {
 	$ErroredList = get_hosts_down_or_triggered_by_permission(true);
 
 	if (cacti_sizeof($ErroredList) && read_user_setting('monitor_error_zoom') == true) {
-		if($_SESSION['monitor_zoom_state'] == 0) {
-		$monZoomState=$_SESSION['monitor_zoom_state'] = 1;
+		if ($_SESSION['monitor_zoom_state'] == 0) {
+			$monZoomState = $_SESSION['monitor_zoom_state'] = 1;
 			$_SESSION['mon_zoom_hist__status'] = get_nfilter_request_var('status');
 			$_SESSION['mon_zoom_hist__size']   = get_nfilter_request_var('size');
 			$dozoomrefresh   = true;
