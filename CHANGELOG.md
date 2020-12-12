@@ -1,6 +1,6 @@
 ## Changelog
 
---- develop ---
+--- 2.4 ---
 
 * issue#100: Long names in devices in monitor.php in (title view)
 
