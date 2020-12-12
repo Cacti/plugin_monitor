@@ -201,7 +201,7 @@ function draw_page() {
 			$dozoomrefresh   = true;
 			$dozoombgndcolor = true;
 		}
-	} elseif ($_SESSION['monitor_zoom_state'] == 1) {
+	} elseif (isset($_SESSION['monitor_zoom_state']) && $_SESSION['monitor_zoom_state'] == 1) {
 		$_SESSION['monitor_zoom_state'] = 0;
 		$dozoomrefresh   = true;
 		$dozoombgndcolor = false;
@@ -319,10 +319,8 @@ function draw_page() {
 		</script>";
 	} else {
 		print "<script type=\"text/javascript\">
-			if ('$mbcolor' != '') {
-				$('.monitor_container').css('background-color', '');
-				$('.cactiConsoleContentArea').css('background-color','');
-			}
+			$('.monitor_container').css('background-color', '');
+			$('.cactiConsoleContentArea').css('background-color','');
 		</script>";
 	}
 
