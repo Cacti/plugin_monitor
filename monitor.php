@@ -68,11 +68,12 @@ $icolorsdisplay = array(
 );
 
 $classes = array(
-	'monitor_exsmall' => __('Extra Small', 'monitor'),
-	'monitor_small'   => __('Small', 'monitor'),
-	'monitor_medium'  => __('Medium', 'monitor'),
-	'monitor_large'   => __('Large', 'monitor'),
-	'monitor_exlarge' => __('Extra Large', 'monitor')
+	'monitor_exsmall'   => __('Extra Small', 'monitor'),
+	'monitor_small'     => __('Small', 'monitor'),
+	'monitor_medium'    => __('Medium', 'monitor'),
+	'monitor_large'     => __('Large', 'monitor'),
+	'monitor_exlarge'   => __('Extra Large', 'monitor'),
+	'monitor_errorzoom' => __('Zoom', 'monitor')
 );
 
 $monitor_status = array(
@@ -109,6 +110,9 @@ $monitor_trim = array(
 );
 
 global $thold_hosts, $maxchars;
+
+$dozoomrefresh   = false;
+$dozoombgndcolor = false;
 
 $maxchars = 12;
 
@@ -185,7 +189,23 @@ function load_dashboard_settings() {
 }
 
 function draw_page() {
-	global $config, $iclasses, $icolorsdisplay;
+	global $config, $iclasses, $icolorsdisplay, $monZoomState, $dozoomrefresh, $dozoombgndcolor, $font_sizes;
+
+	$ErroredList = get_hosts_down_or_triggered_by_permission(true);
+
+	if (cacti_sizeof($ErroredList) && read_user_setting('monitor_error_zoom') == true) {
+		if ($_SESSION['monitor_zoom_state'] == 0) {
+			$monZoomState = $_SESSION['monitor_zoom_state'] = 1;
+			$_SESSION['mon_zoom_hist__status'] = get_nfilter_request_var('status');
+			$_SESSION['mon_zoom_hist__size']   = get_nfilter_request_var('size');
+			$dozoomrefresh   = true;
+			$dozoombgndcolor = true;
+		}
+	} elseif ($_SESSION['monitor_zoom_state']==1) {
+		$_SESSION['monitor_zoom_state'] = 0;
+		$dozoomrefresh   = true;
+		$dozoombgndcolor = false;
+	}
 
 	find_down_hosts();
 
@@ -246,6 +266,56 @@ function draw_page() {
 		} else {
 			print "<audio id='audio' src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		}
+	}
+
+	if ($dozoombgndcolor) {
+		$mbcolora = db_fetch_row_prepared('SELECT * 
+			FROM colors 
+			WHERE id = ?', 
+			array(read_user_setting('monitor_error_background')));
+
+		$monitor_error_fontsize = read_user_setting('monitor_error_fontsize') . 'px';
+		$mbcolor = "";
+		$mbcolor = '#' . array_values($mbcolora)[2];
+
+		print "<script type=\"text/javascript\">
+			var monoe=false;
+
+			function setZoomErrorBackgrounds(){
+				$('.monitor_container').css('background-color', '$mbcolor');
+				$('.cactiConsoleContentArea').css('background-color','$mbcolor');
+			};
+
+			setZoomErrorBackgrounds();
+			$('.monitor_errorzoom_title').css('font-size','$monitor_error_fontsize');
+
+			function setIntervalX(callback, delay, repetitions) {
+				var x = 0;
+				var intervalID = window.setInterval(function () {
+					callback();
+					if (++x === repetitions) {
+						window.clearInterval(intervalID);
+						setZoomErrorBackgrounds();
+					}
+				}, delay);
+			}
+
+			setIntervalX(function () {
+				if (monoe === false) {
+					setZoomErrorBackgrounds();
+					monoe = true;
+				} else {
+					$('.monitor_container').css('background-color', 'white');
+					$('.cactiConsoleContentArea').css('background-color','white');
+					monoe = false;
+				}
+			}, 600, 8);
+		</script>";
+	} else {
+		print "<script type=\"text/javascript\">
+			$('.monitor_container').css('background-color', 'white');
+			$('.cactiConsoleContentArea').css('background-color','white');
+		</script>";
 	}
 
 	?>
@@ -318,8 +388,7 @@ function draw_page() {
 	}
 
 	function saveFilter() {
-		url =
-			'monitor.php?action=save&header=false' +
+		url = 'monitor.php?action=save&header=false' +
 			'&dashboard=' + $('#dashboard').val() +
 			'&refresh='   + $('#refresh').val() +
 			'&grouping='  + $('#grouping').val() +
@@ -519,7 +588,7 @@ function get_monitor_sound() {
 }
 
 function find_down_hosts() {
-	$dhosts = get_hosts_down_or_triggered_by_permission();
+	$dhosts = get_hosts_down_or_triggered_by_permission(false);
 
 	if (cacti_sizeof($dhosts)) {
 		set_request_var('downhosts', 'true');
@@ -552,7 +621,7 @@ function unmute_up_non_triggered_hosts($dhosts) {
 }
 
 function mute_all_hosts() {
-	$_SESSION['monitor_muted_hosts'] = get_hosts_down_or_triggered_by_permission();
+	$_SESSION['monitor_muted_hosts'] = get_hosts_down_or_triggered_by_permission(false);
 	mute_user();
 }
 
@@ -668,7 +737,7 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 }
 
 function draw_filter_and_status() {
-	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status, $monitor_trim;
+	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status, $monitor_trim, $dozoomrefresh, $zoomHist_Status, $zoomHist_Size, $dozoombgndcolor, $monZoomState;
 
 	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
 
@@ -696,8 +765,37 @@ function draw_filter_and_status() {
 		WHERE id = ?',
 		array(get_request_var('dashboard')));
 
+	$mon_zoom_status = null;
+	$mon_zoom_size   = null;
+
+	if (isset($_SESSION['monitor_zoom_state'])) {
+		if ($_SESSION['monitor_zoom_state'] == 1) {
+			$mon_zoom_status = 2;
+			$mon_zoom_size   = 'monitor_errorzoom';
+			$dozoombgndcolor = true;
+		} else {
+			if (isset($_SESSION['mon_zoom_hist__status'])) {
+				$mon_zoom_status = $_SESSION['mon_zoom_hist__status'];
+			} else {
+				$mon_zoom_status = null;
+			}
+
+			if (isset($_SESSION['mon_zoom_hist__size'])) {
+				$currentddsize = get_nfilter_request_var('size');
+
+				if ($currentddsize != $_SESSION['mon_zoom_hist__size'] && $currentddsize != 'monitor_errorzoom') {
+					$_SESSION['mon_zoom_hist__size'] = $currentddsize;
+				}
+
+				$mon_zoom_size = $_SESSION['mon_zoom_hist__size'];
+			} else {
+				$mon_zoom_size=null;
+			}
+		}
+	}
+
 	draw_filter_dropdown('dashboard', __esc('Layout', 'monitor'), $dashboards);
-	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status);
+	draw_filter_dropdown('status', __esc('Status', 'monitor'), $monitor_status, $mon_zoom_status);
 	draw_filter_dropdown('view', __esc('View', 'monitor'), $monitor_view_type);
 	draw_filter_dropdown('grouping', __esc('Grouping', 'monitor'), $monitor_grouping);
 
@@ -733,7 +831,7 @@ function draw_filter_and_status() {
 	draw_filter_dropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
 	if (get_request_var('view') != 'list') {
-		draw_filter_dropdown('size', __('Size', 'monitor'), $classes);
+		draw_filter_dropdown('size', __('Size', 'monitor'), $classes, $mon_zoom_size);
 	}
 
 	if (get_request_var('view') == 'default') {
@@ -817,6 +915,14 @@ function draw_filter_and_status() {
 	print '</form></td></tr>' . PHP_EOL;
 
 	html_end_box();
+
+	if($dozoomrefresh==true){
+		$dozoomrefresh=false;
+
+		echo "<script type=\"text/javascript\">
+			applyFilter('refresh');
+		</script>";
+	}
 }
 
 function get_mute_text() {
@@ -993,7 +1099,7 @@ function validate_request_vars($force = false) {
 		'size' => array(
 			'filter' => FILTER_CALLBACK,
 			'options' => array('options' => 'sanitize_search_string'),
-			'default' => read_user_setting('monitor_size', 'monior_medium', $force)
+			'default' => read_user_setting('monitor_size', 'monitor_medium', $force)
 		),
 		'trim' => array(
 			'filter' => FILTER_VALIDATE_INT,
@@ -1599,7 +1705,7 @@ function get_host_status_description($status) {
 
 /*Single host  rendering */
 function render_host($host, $float = true, $maxlen = 10) {
-	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes, $maxchars;
+	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes, $maxchars, $monZoomState;
 
 	//throw out tree root items
 	if (array_key_exists('name', $host))  {
@@ -1632,14 +1738,27 @@ function render_host($host, $float = true, $maxlen = 10) {
 		$iclass = get_status_icon($host['status']);
 		$fclass = get_request_var('size');
 
+		$monitor_times=read_user_setting('monitor_uptime');
+		$monitor_time_html="";
+
 		if ($host['status'] <= 2 || $host['status'] == 5) {
+			if($monZoomState>0){
+				$fclass ='monitor_errorzoom';
+			}
 			$tis = get_timeinstate($host);
 
-			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div><br><div class='monitor_device${fclass} deviceDown'>$tis</div></a></div>";
+			if($monitor_times=='on'){
+				$monitor_time_html="<br><div class='monitor_device${fclass} deviceDown'>$tis</div>";
+			}
+			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div>$monitor_time_html</a></div>";
 		} else {
 			$tis = get_uptime($host);
 
-			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div><br><div class='monitor_device${fclass} deviceUp'>$tis</div></a></div>";
+			if($monitor_times=='on'){
+				$monitor_time_html="<br><div class='monitor_device${fclass} deviceUp'>$tis</div>";
+			}
+
+			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div>$monitor_time_html</a></div>";
 		}
 	}
 
@@ -2024,8 +2143,12 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	}
 }
 
-function get_hosts_down_or_triggered_by_permission() {
+function get_hosts_down_or_triggered_by_permission($prescan) {
 	global $render_style;
+	$PreScanValue=2;
+	if($prescan){
+		$PreScanValue=3;
+	}
 
 	$result = array();
 
@@ -2074,7 +2197,7 @@ function get_hosts_down_or_triggered_by_permission() {
 	$sql_where = "h.monitor = 'on'
 		AND h.disabled = ''
 		AND h.deleted = ''
-		AND ((h.status < 2 AND (h.availability_method > 0 OR h.snmp_version > 0)) " .
+		AND ((h.status < " . $PreScanValue . " AND (h.availability_method > 0 OR h.snmp_version > 0)) " .
 		($sql_add_where != '' ? ' OR (' . $sql_add_where . '))':')');
 
 	// do a quick loop through to pull the hosts that are down
