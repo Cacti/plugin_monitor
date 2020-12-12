@@ -186,7 +186,7 @@ function monitor_uptime_checker() {
 			FROM plugin_monitor_uptime AS mu
 			LEFT JOIN host AS h
 			ON h.id = mu.host_id
-			WHERE h.id IS NULL)');
+			WHERE h.id IS NULL');
 	}
 
 	$removed_hosts = db_fetch_assoc('SELECT mu.host_id
@@ -200,7 +200,7 @@ function monitor_uptime_checker() {
 			FROM plugin_monitor_reboot_history AS mu
 			LEFT JOIN host AS h
 			ON h.id = mu.host_id
-			WHERE h.id IS NULL)');
+			WHERE h.id IS NULL');
 	}
 
 	// Get the rebooted devices
