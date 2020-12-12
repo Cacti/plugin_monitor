@@ -111,8 +111,8 @@ $monitor_trim = array(
 
 global $thold_hosts, $maxchars;
 
-$dozoomrefresh=false;
-$dozoombgndcolor=false;
+$dozoomrefresh   = false;
+$dozoombgndcolor = false;
 
 $maxchars = 12;
 
@@ -301,14 +301,13 @@ function draw_page() {
 			}
 
 			setIntervalX(function () {
-				if(monoe===false){
+				if (monoe === false) {
 					setZoomErrorBackgrounds();
-					monoe=true;
-				}
-				else{
+					monoe = true;
+				} else {
 					$('.monitor_container').css('background-color', 'white');
 					$('.cactiConsoleContentArea').css('background-color','white');
-					monoe=false;
+					monoe = false;
 				}
 			}, 600, 8);
 		</script>";
