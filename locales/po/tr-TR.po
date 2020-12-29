@@ -3,33 +3,29 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-28 20:03-0500\n"
-"PO-Revision-Date: 2019-03-17 12:18-0400\n"
+"PO-Revision-Date: 2020-12-28 20:15-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
-#, fuzzy
 msgid "Disabled"
 msgstr "Devre dışı"
 
 #: monitor.php:38 poller_monitor.php:394 setup.php:77 setup.php:392
-#, fuzzy
 msgid "Low"
 msgstr "Düşük"
 
 #: monitor.php:39 monitor.php:73 poller_monitor.php:395 setup.php:78
 #: setup.php:393
-#, fuzzy
 msgid "Medium"
 msgstr "Orta"
 
 #: monitor.php:40 poller_monitor.php:396 setup.php:79 setup.php:394
-#, fuzzy
 msgid "High"
 msgstr "Yüksek"
 
@@ -39,12 +35,10 @@ msgid "Mission Critical"
 msgstr "Kritik görev"
 
 #: monitor.php:58 monitor.php:1708
-#, fuzzy
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
 #: monitor.php:59
-#, fuzzy
 msgid "Down"
 msgstr "Aşağı"
 
@@ -54,12 +48,10 @@ msgid "Recovering"
 msgstr "kurtarma"
 
 #: monitor.php:61
-#, fuzzy
 msgid "Up"
 msgstr "Yukarı"
 
 #: monitor.php:62
-#, fuzzy
 msgid "Triggered"
 msgstr "Tetikleyici"
 
@@ -90,28 +82,24 @@ msgid "Alert Ping"
 msgstr "Uyarı Ping"
 
 #: monitor.php:71
-#, fuzzy
 msgid "Extra Small"
 msgstr "Çok küçük"
 
 #: monitor.php:72
-#, fuzzy
 msgid "Small"
 msgstr "Küçük"
 
 #: monitor.php:74
-#, fuzzy
 msgid "Large"
 msgstr "Büyük"
 
 #: monitor.php:75
-#, fuzzy
 msgid "Extra Large"
-msgstr "Çok küçük"
+msgstr "Çok Büyük"
 
 #: monitor.php:76
 msgid "Zoom"
-msgstr ""
+msgstr "Yakınlaştır"
 
 #: monitor.php:80
 #, fuzzy
@@ -134,17 +122,14 @@ msgid "Not Up, Triggered or Breached"
 msgstr "Yukarı değil, tetiklenmiş veya ihlal edilmiş"
 
 #: monitor.php:87 monitor.php:94 monitor.php:101 setup.php:521 setup.php:533
-#, fuzzy
 msgid "Default"
 msgstr "Varsayılan"
 
 #: monitor.php:88 setup.php:534
-#, fuzzy
 msgid "List"
 msgstr "Liste"
 
 #: monitor.php:89 setup.php:535
-#, fuzzy
 msgid "Tiles"
 msgstr "Fayans"
 
@@ -154,13 +139,12 @@ msgid "Tiles & Time"
 msgstr "Fayans ve zaman"
 
 #: monitor.php:95 monitor.php:859 setup.php:523
-#, fuzzy
 msgid "Tree"
 msgstr "Ağaç"
 
 #: monitor.php:96 monitor.php:2012
 msgid "Site"
-msgstr ""
+msgstr "Site"
 
 #: monitor.php:97 setup.php:524
 #, fuzzy
@@ -169,35 +153,42 @@ msgstr "Cihaz Şablonu"
 
 #: monitor.php:102
 msgid "Full"
-msgstr ""
+msgstr "Tam"
 
 #: monitor.php:103
+#, fuzzy
 msgid "10 Chars"
-msgstr ""
+msgstr "10 Karakter"
 
 #: monitor.php:104
+#, fuzzy
 msgid "20 Chars"
-msgstr ""
+msgstr "20 Karakter"
 
 #: monitor.php:105
+#, fuzzy
 msgid "30 Chars"
-msgstr ""
+msgstr "30 karakter"
 
 #: monitor.php:106
+#, fuzzy
 msgid "40 Chars"
-msgstr ""
+msgstr "40 karakter"
 
 #: monitor.php:107
+#, fuzzy
 msgid "50 Chars"
-msgstr ""
+msgstr "50 Karakter"
 
 #: monitor.php:108
+#, fuzzy
 msgid "75 Chars"
-msgstr ""
+msgstr "75 Karakter"
 
 #: monitor.php:109
+#, fuzzy
 msgid "100 Chars"
-msgstr ""
+msgstr "100 Karakter"
 
 #: monitor.php:224 monitor.php:2024
 #, fuzzy
@@ -205,20 +196,23 @@ msgid "Monitored Devices"
 msgstr "İzlenen Cihazlar"
 
 #: monitor.php:254
+#, fuzzy
 msgid "New Dashboard"
-msgstr ""
+msgstr "Yeni Gösterge Tablosu"
 
 #: monitor.php:257
 msgid "Dashboard"
-msgstr ""
+msgstr "Kontrol Paneli"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr ""
+msgstr "Gösterge Tablosu Adını girin ve ardından devam etmek için 'Kaydet'e basın, yoksa' İptal'e basın"
 
 #: monitor.php:259
+#, fuzzy
 msgid "Create New Dashboard"
-msgstr ""
+msgstr "Yeni Gösterge Tablosu Oluştur"
 
 #: monitor.php:413
 #, fuzzy
@@ -227,10 +221,9 @@ msgstr "[Filtre Ayarları Kaydedilmiş]"
 
 #: monitor.php:450
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: monitor.php:457 monitor.php:813
-#, fuzzy
 msgid "Save"
 msgstr "Kaydet"
 
@@ -301,29 +294,25 @@ msgstr "İzleme Filtresi [Son Yenileme: %s]"
 
 #: monitor.php:759
 msgid "Unsaved"
-msgstr ""
+msgstr "Kaydedilmedi"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "Düzen"
 
 #: monitor.php:804 monitor.php:2015
-#, fuzzy
 msgid "Status"
 msgstr "Durum"
 
 #: monitor.php:805 setup.php:528
-#, fuzzy
 msgid "View"
 msgstr "Görünüm"
 
 #: monitor.php:806 setup.php:516
-#, fuzzy
 msgid "Grouping"
 msgstr "Gruplama"
 
 #: monitor.php:811 monitor.php:897
-#, fuzzy
 msgid "Refresh"
 msgstr "Yenile"
 
@@ -339,27 +328,30 @@ msgstr "Filtre Ayarlarını Kaydet"
 
 #: monitor.php:815
 msgid "New"
-msgstr ""
+msgstr "Yeni"
 
 #: monitor.php:815
+#, fuzzy
 msgid "Save New Dashboard"
-msgstr ""
+msgstr "Yeni Gösterge Tablosunu Kaydet"
 
 #: monitor.php:818
 msgid "Rename"
-msgstr ""
+msgstr "Yeniden Adlandır"
 
 #: monitor.php:818
+#, fuzzy
 msgid "Rename Dashboard"
-msgstr ""
+msgstr "Gösterge Tablosunu Yeniden Adlandırın"
 
 #: monitor.php:822
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: monitor.php:822
+#, fuzzy
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "Gösterge Tablosunu Sil"
 
 #: monitor.php:825
 #, fuzzy, php-format
@@ -373,7 +365,7 @@ msgstr "Düşen Aygıtlar için %s Uyarıları"
 
 #: monitor.php:834
 msgid "Search"
-msgstr ""
+msgstr "Arama"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
@@ -383,13 +375,12 @@ msgid "Criticality"
 msgstr "Kritikliği"
 
 #: monitor.php:840
-#, fuzzy
 msgid "Size"
 msgstr "Boyut"
 
 #: monitor.php:844
 msgid "Trim"
-msgstr ""
+msgstr "Motor"
 
 #: monitor.php:852
 #, fuzzy
@@ -402,9 +393,8 @@ msgid "Non-Tree Devices"
 msgstr "Ağaç Dışı Cihazlar"
 
 #: monitor.php:873
-#, fuzzy
 msgid "All Sites"
-msgstr "Tüm Ağaçlar"
+msgstr "Tüm Siteler"
 
 #: monitor.php:874 monitor.php:1318
 #, fuzzy
@@ -413,10 +403,9 @@ msgstr "Ağaç Dışı Cihazlar"
 
 #: monitor.php:880
 msgid "Sites"
-msgstr ""
+msgstr "Siteler"
 
 #: monitor.php:888
-#, fuzzy
 msgid "All Templates"
 msgstr "Tüm Şablonlar"
 
@@ -426,19 +415,16 @@ msgid "Non-Templated Devices"
 msgstr "Şablonsuz cihazlar"
 
 #: monitor.php:894
-#, fuzzy
 msgid "Template"
 msgstr "Şablon"
 
 #: monitor.php:936
-#, fuzzy
 msgid "Mute"
 msgstr "Sessiz"
 
 #: monitor.php:938
-#, fuzzy
 msgid "Acknowledge"
-msgstr "kabul"
+msgstr "Kabul Et"
 
 #: monitor.php:944
 #, fuzzy
@@ -446,29 +432,28 @@ msgid "Un-Mute"
 msgstr "Un-Sessiz"
 
 #: monitor.php:946
-#, fuzzy
 msgid "Reset"
 msgstr "Sıfırla"
 
 #: monitor.php:964
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
-msgstr ""
+msgstr "Gösterge Tablosu '%s' Kaldırıldı."
 
 #: monitor.php:971
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr ""
+msgstr "Gösterge tablosu '%s' size ait değil."
 
 #: monitor.php:1059
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr ""
+msgstr "Gösterge Tablosu '%s' Kaydedildi!"
 
 #: monitor.php:1062
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
+msgstr "Gösterge Tablosu '%s' Kaydedilemedi!"
 
 #: monitor.php:1267 monitor.php:1588
 #, fuzzy
@@ -501,9 +486,8 @@ msgid "Device Status Information"
 msgstr "Cihaz Durum Bilgisi"
 
 #: monitor.php:1926
-#, fuzzy
 msgid "Device:"
-msgstr "Cihaz"
+msgstr "Cihaz:"
 
 #: monitor.php:1930
 #, fuzzy
@@ -511,9 +495,8 @@ msgid "Criticality:"
 msgstr "Kritikliği:"
 
 #: monitor.php:1934
-#, fuzzy
 msgid "Status:"
-msgstr "Durum"
+msgstr "Durum:"
 
 #: monitor.php:1938
 #, fuzzy
@@ -551,7 +534,6 @@ msgid "Last Fail:"
 msgstr "Son başarısız:"
 
 #: monitor.php:1955 monitor.php:2063 monitor.php:2092
-#, fuzzy
 msgid "Never"
 msgstr "Asla"
 
@@ -561,9 +543,8 @@ msgid "Time In State:"
 msgstr "Devlette Zaman:"
 
 #: monitor.php:1962
-#, fuzzy
 msgid "Availability:"
-msgstr "Kullanılabilirlik"
+msgstr "Kullanılabilirlik:"
 
 #: monitor.php:1966
 #, fuzzy
@@ -572,7 +553,7 @@ msgstr "Ajan Çalışma Süresi:"
 
 #: monitor.php:1967 monitor.php:2083
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: monitor.php:1970
 #, fuzzy
@@ -580,23 +561,19 @@ msgid "Sys Description:"
 msgstr "Sys açıklaması:"
 
 #: monitor.php:1974
-#, fuzzy
 msgid "Location:"
 msgstr "Konum:"
 
 #: monitor.php:1978
-#, fuzzy
 msgid "Contact:"
 msgstr "İletişim:"
 
 #: monitor.php:1982
-#, fuzzy
 msgid "Notes:"
-msgstr "Notlar"
+msgstr "Notlar:"
 
 #: monitor.php:2010 poller_monitor.php:314 poller_monitor.php:479
 #: poller_monitor.php:485 poller_monitor.php:528 poller_monitor.php:534
-#, fuzzy
 msgid "Hostname"
 msgstr "Sunucu Adı"
 
@@ -606,12 +583,10 @@ msgid "Hostname of device"
 msgstr "Cihazın ana bilgisayar adı"
 
 #: monitor.php:2011 poller_monitor.php:313
-#, fuzzy
 msgid "Description"
 msgstr "Açıklama"
 
 #: monitor.php:2014
-#, fuzzy
 msgid "Availability"
 msgstr "Kullanılabilirlik"
 
@@ -626,7 +601,6 @@ msgid "Averages"
 msgstr "Ortalamalar"
 
 #: monitor.php:2018
-#, fuzzy
 msgid "Warning"
 msgstr "Uyarı"
 
@@ -636,29 +610,25 @@ msgid "Last Fail"
 msgstr "Son başarısız"
 
 #: monitor.php:2020
-#, fuzzy
 msgid "Admin"
 msgstr "Yönetici"
 
 #: monitor.php:2021
-#, fuzzy
 msgid "Notes"
 msgstr "Notlar"
 
 #: monitor.php:2025
-#, fuzzy
 msgid "Devices"
 msgstr "Cihazlar"
 
 #: poller_monitor.php:331
-#, fuzzy
 msgid "Description: "
-msgstr "Açıklama"
+msgstr "Açıklama: "
 
 #: poller_monitor.php:332
 #, fuzzy
 msgid "Hostname: "
-msgstr "Sunucu Adı"
+msgstr "Makine adı:"
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 #, fuzzy
@@ -702,12 +672,10 @@ msgid "The following Devices have breached their Warning Notification Threshold.
 msgstr "Aşağıdaki Cihazlar Uyarı Bildirimi Eşiklerini ihlal etmiştir."
 
 #: setup.php:75
-#, fuzzy
 msgid "Any"
 msgstr "Herhangi"
 
 #: setup.php:76 setup.php:642
-#, fuzzy
 msgid "None"
 msgstr "Yok"
 
@@ -757,14 +725,13 @@ msgid "%d Months"
 msgstr "% d Ay"
 
 #: setup.php:405
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d Yıl"
+msgstr "%d yıl"
 
 #: setup.php:418
-#, fuzzy
 msgid "Normal User"
-msgstr "Kullanılacak Dosyayı Biçimlendir"
+msgstr "Normal Kullanıcı"
 
 #: setup.php:421 setup.php:475
 #, fuzzy
@@ -802,8 +769,9 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Monitör ekranında bir simge göstergesini göstermek için bunu kontrol edin"
 
 #: setup.php:443
+#, fuzzy
 msgid "Show Uptime"
-msgstr ""
+msgstr "Çalışma Süresini Göster"
 
 #: setup.php:444
 #, fuzzy
@@ -811,8 +779,9 @@ msgid "Check this to show Uptime on the Monitor display"
 msgstr "Monitör ekranında bir simge göstergesini göstermek için bunu kontrol edin"
 
 #: setup.php:448
+#, fuzzy
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "Hataları Yakınlaştır"
 
 #: setup.php:449 setup.php:459
 #, fuzzy
@@ -820,19 +789,21 @@ msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "Monitör ekranında bir simge göstergesini göstermek için bunu kontrol edin"
 
 #: setup.php:453
+#, fuzzy
 msgid "Zoom Background"
-msgstr ""
+msgstr "Yakınlaştırma Arka Planı"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "Monitör ekranındaki Yakınlaştırılmış Hatalar için Arka Plan Rengi"
 
 #: setup.php:458
+#, fuzzy
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "Yakınlaştırma Yazı Tipi Boyutu"
 
 #: setup.php:471 setup.php:682 setup.php:684
-#, fuzzy
 msgid "Monitor"
 msgstr "İzleme"
 
@@ -857,7 +828,6 @@ msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "Bu gün sayısı için Bildirimi Sakla ve Günlükleri Yeniden Başlat."
 
 #: setup.php:504
-#, fuzzy
 msgid "Refresh Interval"
 msgstr "Yenileme aralığı"
 
@@ -942,14 +912,13 @@ msgid "Every Occurrence"
 msgstr "Her Oluşum"
 
 #: setup.php:577 setup.php:578
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Minutes"
 msgstr "Her %d Dakika"
 
 #: setup.php:579
-#, fuzzy
 msgid "Every Hour"
-msgstr "Her saat"
+msgstr "Her Saat"
 
 #: setup.php:580 setup.php:581
 #, fuzzy, php-format
@@ -982,7 +951,6 @@ msgid "Should Threshold Alert Lists also receive notification"
 msgstr "Eşik Uyarı Listeleri ayrıca bildirim almalı mı?"
 
 #: setup.php:602
-#, fuzzy
 msgid "Subject"
 msgstr "Konu"
 
@@ -997,7 +965,6 @@ msgid "Cacti Device Reboot Nofication"
 msgstr "Kaktüsler Cihazı Yeniden Başlatma Nofication"
 
 #: setup.php:610
-#, fuzzy
 msgid "Email Body"
 msgstr "E-posta Gövdesi"
 
@@ -1017,7 +984,6 @@ msgid "Notification Email Addresses"
 msgstr "Bildirim E-posta Adresleri"
 
 #: setup.php:623
-#, fuzzy
 msgid "From Name"
 msgstr "İsimden"
 
@@ -1027,7 +993,6 @@ msgid "Enter the Email Name to send the notifications form"
 msgstr "Bildirim formunu göndermek için E-posta Adını girin"
 
 #: setup.php:630
-#, fuzzy
 msgid "From Address"
 msgstr "Adresinden"
 
@@ -1047,7 +1012,6 @@ msgid "Select a Notification List below.  All Emails subscribed to the notificat
 msgstr "Aşağıdan bir Bildirim Listesi seçin. Bildirim listesine abone olan tüm e-postalara bildirilir."
 
 #: setup.php:645
-#, fuzzy
 msgid "Email Addresses"
 msgstr "E-Posta Adres"
 
@@ -1105,9 +1069,8 @@ msgid "If the round-trip latency via any of the predefined Cacti ping methods ra
 msgstr "Önceden tanımlanmış Cacti ping yöntemlerinden herhangi birinin üzerinden geçen gecikme süresi bu eşiğin üzerine çıkarsa, Cihaz Kritikliği ve İzleyici ayarına göre bir uyarı girin veya e-posta gönderin. Birim milisaniye cinsindendir. 0 olarak devre dışı bırakma. Thold Plugin bu işlevselliği kullanmak için gereklidir."
 
 #: setup.php:749 setup.php:759
-#, fuzzy
 msgid "milliseconds"
-msgstr "Milisaniye "
+msgstr "MiliSaniye"
 
 #: setup.php:754
 #, fuzzy
@@ -1150,7 +1113,6 @@ msgid "This is the message that will be displayed when this Device is reported a
 msgstr "Bu, Cihaz aşağı olarak bildirildiğinde görüntülenecek mesajdır."
 
 #: setup.php:863
-#, fuzzy
 msgid "Monitoring"
 msgstr "İzleme"
 
