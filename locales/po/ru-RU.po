@@ -3,33 +3,29 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-28 20:03-0500\n"
-"PO-Revision-Date: 2019-03-17 12:08-0400\n"
+"PO-Revision-Date: 2020-12-28 20:14-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
-#, fuzzy
 msgid "Disabled"
 msgstr "Выключен"
 
 #: monitor.php:38 poller_monitor.php:394 setup.php:77 setup.php:392
-#, fuzzy
 msgid "Low"
 msgstr "Низкий"
 
 #: monitor.php:39 monitor.php:73 poller_monitor.php:395 setup.php:78
 #: setup.php:393
-#, fuzzy
 msgid "Medium"
 msgstr "Средний"
 
 #: monitor.php:40 poller_monitor.php:396 setup.php:79 setup.php:394
-#, fuzzy
 msgid "High"
 msgstr "Высокий"
 
@@ -39,27 +35,22 @@ msgid "Mission Critical"
 msgstr "Миссия Критическая"
 
 #: monitor.php:58 monitor.php:1708
-#, fuzzy
 msgid "Unknown"
 msgstr "Неизвестно"
 
 #: monitor.php:59
-#, fuzzy
 msgid "Down"
 msgstr "Вниз"
 
 #: monitor.php:60
-#, fuzzy
 msgid "Recovering"
 msgstr "Восстановление"
 
 #: monitor.php:61
-#, fuzzy
 msgid "Up"
 msgstr "Вверх"
 
 #: monitor.php:62
-#, fuzzy
 msgid "Triggered"
 msgstr "Просмотренный"
 
@@ -90,28 +81,24 @@ msgid "Alert Ping"
 msgstr "Сигнал тревоги Пинг"
 
 #: monitor.php:71
-#, fuzzy
 msgid "Extra Small"
 msgstr "Очень маленький"
 
 #: monitor.php:72
-#, fuzzy
 msgid "Small"
 msgstr "Маленький"
 
 #: monitor.php:74
-#, fuzzy
 msgid "Large"
 msgstr "Большой"
 
 #: monitor.php:75
-#, fuzzy
 msgid "Extra Large"
-msgstr "Очень маленький"
+msgstr "Очень большой"
 
 #: monitor.php:76
 msgid "Zoom"
-msgstr ""
+msgstr "Увеличить"
 
 #: monitor.php:80
 #, fuzzy
@@ -121,7 +108,7 @@ msgstr "Все под наблюдением"
 #: monitor.php:81
 #, fuzzy
 msgid "Not Up"
-msgstr "Не вверх"
+msgstr "Вверх"
 
 #: monitor.php:82
 #, fuzzy
@@ -134,7 +121,6 @@ msgid "Not Up, Triggered or Breached"
 msgstr "Не поднят, не сработал или сломан."
 
 #: monitor.php:87 monitor.php:94 monitor.php:101 setup.php:521 setup.php:533
-#, fuzzy
 msgid "Default"
 msgstr "Стандартно"
 
@@ -144,7 +130,6 @@ msgid "List"
 msgstr "Список"
 
 #: monitor.php:89 setup.php:535
-#, fuzzy
 msgid "Tiles"
 msgstr "Плитки"
 
@@ -154,13 +139,12 @@ msgid "Tiles & Time"
 msgstr "Плитка и время"
 
 #: monitor.php:95 monitor.php:859 setup.php:523
-#, fuzzy
 msgid "Tree"
 msgstr "Дерево"
 
 #: monitor.php:96 monitor.php:2012
 msgid "Site"
-msgstr ""
+msgstr "Узел"
 
 #: monitor.php:97 setup.php:524
 #, fuzzy
@@ -169,35 +153,42 @@ msgstr "Шаблон Устройства:"
 
 #: monitor.php:102
 msgid "Full"
-msgstr ""
+msgstr "Полный"
 
 #: monitor.php:103
+#, fuzzy
 msgid "10 Chars"
-msgstr ""
+msgstr "10 символов"
 
 #: monitor.php:104
+#, fuzzy
 msgid "20 Chars"
-msgstr ""
+msgstr "20 символов"
 
 #: monitor.php:105
+#, fuzzy
 msgid "30 Chars"
-msgstr ""
+msgstr "30 символов"
 
 #: monitor.php:106
+#, fuzzy
 msgid "40 Chars"
-msgstr ""
+msgstr "40 символов"
 
 #: monitor.php:107
+#, fuzzy
 msgid "50 Chars"
-msgstr ""
+msgstr "50 символов"
 
 #: monitor.php:108
+#, fuzzy
 msgid "75 Chars"
-msgstr ""
+msgstr "75 символов"
 
 #: monitor.php:109
+#, fuzzy
 msgid "100 Chars"
-msgstr ""
+msgstr "100 символов"
 
 #: monitor.php:224 monitor.php:2024
 #, fuzzy
@@ -206,19 +197,20 @@ msgstr "Контролируемые устройства"
 
 #: monitor.php:254
 msgid "New Dashboard"
-msgstr ""
+msgstr "Новая панель управления."
 
 #: monitor.php:257
 msgid "Dashboard"
-msgstr ""
+msgstr "Панель управления"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr ""
+msgstr "Введите имя панели управления и нажмите «Сохранить», чтобы продолжить, иначе нажмите «Отмена»."
 
 #: monitor.php:259
 msgid "Create New Dashboard"
-msgstr ""
+msgstr "Создать новую панель инструментов"
 
 #: monitor.php:413
 #, fuzzy
@@ -227,10 +219,9 @@ msgstr " [ Сохранены настройки фильтра ]"
 
 #: monitor.php:450
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: monitor.php:457 monitor.php:813
-#, fuzzy
 msgid "Save"
 msgstr " Сохранить "
 
@@ -301,29 +292,25 @@ msgstr "Фильтр монитора [ Последнее обновление:
 
 #: monitor.php:759
 msgid "Unsaved"
-msgstr ""
+msgstr "Не сохранено"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "Макет"
 
 #: monitor.php:804 monitor.php:2015
-#, fuzzy
 msgid "Status"
 msgstr "Статус"
 
 #: monitor.php:805 setup.php:528
-#, fuzzy
 msgid "View"
 msgstr "Вид"
 
 #: monitor.php:806 setup.php:516
-#, fuzzy
 msgid "Grouping"
 msgstr "Группировка"
 
 #: monitor.php:811 monitor.php:897
-#, fuzzy
 msgid "Refresh"
 msgstr "Обновить"
 
@@ -339,27 +326,30 @@ msgstr "Сохранить настройки фильтра"
 
 #: monitor.php:815
 msgid "New"
-msgstr ""
+msgstr "Новый"
 
 #: monitor.php:815
+#, fuzzy
 msgid "Save New Dashboard"
-msgstr ""
+msgstr "Сохранить новую панель управления"
 
 #: monitor.php:818
 msgid "Rename"
-msgstr ""
+msgstr "Переименовать"
 
 #: monitor.php:818
+#, fuzzy
 msgid "Rename Dashboard"
-msgstr ""
+msgstr "Переименовать панель управления"
 
 #: monitor.php:822
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: monitor.php:822
+#, fuzzy
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "Удалить панель мониторинга"
 
 #: monitor.php:825
 #, fuzzy, php-format
@@ -373,7 +363,7 @@ msgstr "%s Предупреждения для неработающих устр
 
 #: monitor.php:834
 msgid "Search"
-msgstr ""
+msgstr "Найти"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
@@ -383,13 +373,12 @@ msgid "Criticality"
 msgstr "Критичность"
 
 #: monitor.php:840
-#, fuzzy
 msgid "Size"
 msgstr "Размер"
 
 #: monitor.php:844
 msgid "Trim"
-msgstr ""
+msgstr "Обрезка"
 
 #: monitor.php:852
 #, fuzzy
@@ -402,9 +391,8 @@ msgid "Non-Tree Devices"
 msgstr "Недеревообрабатывающие устройства"
 
 #: monitor.php:873
-#, fuzzy
 msgid "All Sites"
-msgstr "Все деревья"
+msgstr "Все сайты"
 
 #: monitor.php:874 monitor.php:1318
 #, fuzzy
@@ -413,10 +401,9 @@ msgstr "Недеревообрабатывающие устройства"
 
 #: monitor.php:880
 msgid "Sites"
-msgstr ""
+msgstr "Узлы"
 
 #: monitor.php:888
-#, fuzzy
 msgid "All Templates"
 msgstr "Все шаблоны"
 
@@ -426,17 +413,14 @@ msgid "Non-Templated Devices"
 msgstr "Нешаблонные устройства"
 
 #: monitor.php:894
-#, fuzzy
 msgid "Template"
 msgstr "Шаблон"
 
 #: monitor.php:936
-#, fuzzy
 msgid "Mute"
 msgstr "Без звука"
 
 #: monitor.php:938
-#, fuzzy
 msgid "Acknowledge"
 msgstr "Принять к сведению"
 
@@ -446,29 +430,28 @@ msgid "Un-Mute"
 msgstr "Un-Mute"
 
 #: monitor.php:946
-#, fuzzy
 msgid "Reset"
 msgstr "Сброс"
 
 #: monitor.php:964
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
-msgstr ""
+msgstr "Панель управления \"%s\" удалена."
 
 #: monitor.php:971
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr ""
+msgstr "Панель инструментов \"%s\" не принадлежит вам."
 
 #: monitor.php:1059
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr ""
+msgstr "Панель управления \"%s\" сохранена!"
 
 #: monitor.php:1062
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
+msgstr "Панель мониторинга \"%s\" не может быть сохранена!"
 
 #: monitor.php:1267 monitor.php:1588
 #, fuzzy
@@ -501,7 +484,6 @@ msgid "Device Status Information"
 msgstr "Информация о состоянии устройства"
 
 #: monitor.php:1926
-#, fuzzy
 msgid "Device:"
 msgstr "Устройство:"
 
@@ -511,9 +493,8 @@ msgid "Criticality:"
 msgstr "Критичность:"
 
 #: monitor.php:1934
-#, fuzzy
 msgid "Status:"
-msgstr "Статус"
+msgstr "Статус:"
 
 #: monitor.php:1938
 #, fuzzy
@@ -531,7 +512,7 @@ msgid "Curr/Avg:"
 msgstr "Кур/Авг:"
 
 #: monitor.php:1947 monitor.php:2080
-#, fuzzy, php-format
+#, php-format
 msgid "%d ms"
 msgstr "%d мс"
 
@@ -551,7 +532,6 @@ msgid "Last Fail:"
 msgstr "Последний провал:"
 
 #: monitor.php:1955 monitor.php:2063 monitor.php:2092
-#, fuzzy
 msgid "Never"
 msgstr "Никогда"
 
@@ -561,9 +541,8 @@ msgid "Time In State:"
 msgstr "Время в штате:"
 
 #: monitor.php:1962
-#, fuzzy
 msgid "Availability:"
-msgstr "Доступность"
+msgstr "Наличие:"
 
 #: monitor.php:1966
 #, fuzzy
@@ -572,7 +551,7 @@ msgstr "Агент Готовность:"
 
 #: monitor.php:1967 monitor.php:2083
 msgid "N/A"
-msgstr ""
+msgstr "Н/Д"
 
 #: monitor.php:1970
 #, fuzzy
@@ -580,23 +559,19 @@ msgid "Sys Description:"
 msgstr "Описание систем:"
 
 #: monitor.php:1974
-#, fuzzy
 msgid "Location:"
 msgstr "Местоположение:"
 
 #: monitor.php:1978
-#, fuzzy
 msgid "Contact:"
 msgstr "Контактная информация:"
 
 #: monitor.php:1982
-#, fuzzy
 msgid "Notes:"
-msgstr "Заметки"
+msgstr "Заметки:"
 
 #: monitor.php:2010 poller_monitor.php:314 poller_monitor.php:479
 #: poller_monitor.php:485 poller_monitor.php:528 poller_monitor.php:534
-#, fuzzy
 msgid "Hostname"
 msgstr "Имя хоста"
 
@@ -606,12 +581,10 @@ msgid "Hostname of device"
 msgstr "Имя хоста устройства"
 
 #: monitor.php:2011 poller_monitor.php:313
-#, fuzzy
 msgid "Description"
 msgstr "Описание"
 
 #: monitor.php:2014
-#, fuzzy
 msgid "Availability"
 msgstr "Доступность"
 
@@ -626,7 +599,6 @@ msgid "Averages"
 msgstr "Средние показатели"
 
 #: monitor.php:2018
-#, fuzzy
 msgid "Warning"
 msgstr "Предупреждение"
 
@@ -636,29 +608,25 @@ msgid "Last Fail"
 msgstr "Последний провал"
 
 #: monitor.php:2020
-#, fuzzy
 msgid "Admin"
 msgstr "Администратор"
 
 #: monitor.php:2021
-#, fuzzy
 msgid "Notes"
 msgstr "Заметки"
 
 #: monitor.php:2025
-#, fuzzy
 msgid "Devices"
 msgstr "Устройства"
 
 #: poller_monitor.php:331
-#, fuzzy
 msgid "Description: "
-msgstr "Описание"
+msgstr "Описание: "
 
 #: poller_monitor.php:332
 #, fuzzy
 msgid "Hostname: "
-msgstr "Имя хоста"
+msgstr "Имя хоста : "
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 #, fuzzy
@@ -705,12 +673,10 @@ msgid "The following Devices have breached their Warning Notification Threshold.
 msgstr "Следующие устройства нарушили порог предупреждающих уведомлений."
 
 #: setup.php:75
-#, fuzzy
 msgid "Any"
 msgstr "Любой"
 
 #: setup.php:76 setup.php:642
-#, fuzzy
 msgid "None"
 msgstr "Нет"
 
@@ -750,24 +716,23 @@ msgid "Indefinately"
 msgstr "Определенно"
 
 #: setup.php:400
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
 msgstr "%d Месяц"
 
 #: setup.php:401 setup.php:402 setup.php:403 setup.php:404
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
 msgstr "%d Месяца"
 
 #: setup.php:405
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "Год"
+msgstr "%d Год"
 
 #: setup.php:418
-#, fuzzy
 msgid "Normal User"
-msgstr "Формат файла для использования"
+msgstr "Обычный пользователь"
 
 #: setup.php:421 setup.php:475
 #, fuzzy
@@ -805,8 +770,9 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Установите этот флажок, чтобы на дисплее монитора отображалась легенда с пиктограммами."
 
 #: setup.php:443
+#, fuzzy
 msgid "Show Uptime"
-msgstr ""
+msgstr "Показать время работы"
 
 #: setup.php:444
 #, fuzzy
@@ -814,8 +780,9 @@ msgid "Check this to show Uptime on the Monitor display"
 msgstr "Установите этот флажок, чтобы на дисплее монитора отображалась легенда с пиктограммами."
 
 #: setup.php:448
+#, fuzzy
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "Увеличить до ошибок"
 
 #: setup.php:449 setup.php:459
 #, fuzzy
@@ -823,19 +790,21 @@ msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "Установите этот флажок, чтобы на дисплее монитора отображалась легенда с пиктограммами."
 
 #: setup.php:453
+#, fuzzy
 msgid "Zoom Background"
-msgstr ""
+msgstr "Фон масштабирования"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "Цвет фона для увеличенных ошибок на дисплее монитора"
 
 #: setup.php:458
+#, fuzzy
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "Увеличить размер шрифта"
 
 #: setup.php:471 setup.php:682 setup.php:684
-#, fuzzy
 msgid "Monitor"
 msgstr "Монитор"
 
@@ -860,9 +829,8 @@ msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "Сохраняйте журналы уведомлений и перезагрузки в течение этого количества дней."
 
 #: setup.php:504
-#, fuzzy
 msgid "Refresh Interval"
-msgstr "Интервал обновления"
+msgstr "ÐÐ½ÑÐµÑÐ²Ð°Ð» Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ"
 
 #: setup.php:505
 #, fuzzy
@@ -945,12 +913,11 @@ msgid "Every Occurrence"
 msgstr "Каждое происшествие"
 
 #: setup.php:577 setup.php:578
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Minutes"
 msgstr "Каждые %d Минуты"
 
 #: setup.php:579
-#, fuzzy
 msgid "Every Hour"
 msgstr "Каждый час"
 
@@ -985,7 +952,6 @@ msgid "Should Threshold Alert Lists also receive notification"
 msgstr "Если пороговые списки уведомлений также получат уведомление."
 
 #: setup.php:602
-#, fuzzy
 msgid "Subject"
 msgstr "Тема"
 
@@ -1000,7 +966,6 @@ msgid "Cacti Device Reboot Nofication"
 msgstr "Перезагрузка устройства Cacti Перезагрузка Nofication"
 
 #: setup.php:610
-#, fuzzy
 msgid "Email Body"
 msgstr "Содержимое письма"
 
@@ -1020,7 +985,6 @@ msgid "Notification Email Addresses"
 msgstr "Уведомление Адреса электронной почты"
 
 #: setup.php:623
-#, fuzzy
 msgid "From Name"
 msgstr "От кого"
 
@@ -1030,7 +994,6 @@ msgid "Enter the Email Name to send the notifications form"
 msgstr "Введите имя эл. почты для отправки уведомлений."
 
 #: setup.php:630
-#, fuzzy
 msgid "From Address"
 msgstr "От Адрес"
 
@@ -1040,7 +1003,6 @@ msgid "Enter the Email Address to send the notification from"
 msgstr "Введите адрес электронной почты, с которого будет отправлено уведомление."
 
 #: setup.php:637
-#, fuzzy
 msgid "Notification List"
 msgstr "Список уведомлений"
 
@@ -1050,7 +1012,6 @@ msgid "Select a Notification List below.  All Emails subscribed to the notificat
 msgstr "Выберите список уведомлений ниже.  Все адреса электронной почты, подписавшиеся на список уведомлений, будут уведомлены."
 
 #: setup.php:645
-#, fuzzy
 msgid "Email Addresses"
 msgstr "Адрес электронной почты"
 
@@ -1108,7 +1069,6 @@ msgid "If the round-trip latency via any of the predefined Cacti ping methods ra
 msgstr "Если задержка прохождения туда и обратно с помощью любого из заранее определенных методов Cacti ping превышает этот порог, зарегистрируйте предупреждение или отправьте сообщение электронной почты, основываясь на настройках Критичность устройств и Монитор.  Единица измерения в миллисекундах.  Установка на 0 отключает. Для использования этой функции требуется Thold Plugin."
 
 #: setup.php:749 setup.php:759
-#, fuzzy
 msgid "milliseconds"
 msgstr "миллисекунд"
 
@@ -1153,7 +1113,6 @@ msgid "This is the message that will be displayed when this Device is reported a
 msgstr "Это сообщение будет отображаться, когда данное Устройство будет признано неработоспособным."
 
 #: setup.php:863
-#, fuzzy
 msgid "Monitoring"
 msgstr "Мониторинг"
 
