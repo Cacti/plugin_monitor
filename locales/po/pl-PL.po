@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-28 20:03-0500\n"
-"PO-Revision-Date: 2019-07-13 04:14+0000\n"
+"PO-Revision-Date: 2020-12-28 20:13-0500\n"
 "Last-Translator: Jaroslaw Kłopotek <jkl@interduo.pl>\n"
 "Language-Team: Polish <http://translate.cacti.net/projects/cacti/monitor/pl-PL/>\n"
-"Language: pl-PL\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -39,7 +39,6 @@ msgid "Unknown"
 msgstr "Nieznany"
 
 #: monitor.php:59
-#, fuzzy
 msgid "Down"
 msgstr "W dół"
 
@@ -49,7 +48,6 @@ msgid "Recovering"
 msgstr "Odzyskiwanie"
 
 #: monitor.php:61
-#, fuzzy
 msgid "Up"
 msgstr "Do góry"
 
@@ -99,7 +97,7 @@ msgstr "Bardzo duże"
 
 #: monitor.php:76
 msgid "Zoom"
-msgstr ""
+msgstr "Powiększenie"
 
 #: monitor.php:80
 msgid "All Monitored"
@@ -121,12 +119,10 @@ msgid "Not Up, Triggered or Breached"
 msgstr "Nie w górę, wyzwalane lub łamane"
 
 #: monitor.php:87 monitor.php:94 monitor.php:101 setup.php:521 setup.php:533
-#, fuzzy
 msgid "Default"
 msgstr "Domyślny"
 
 #: monitor.php:88 setup.php:534
-#, fuzzy
 msgid "List"
 msgstr "Lista"
 
@@ -152,35 +148,42 @@ msgstr "Szablon urządzenia"
 
 #: monitor.php:102
 msgid "Full"
-msgstr ""
+msgstr "Pełny"
 
 #: monitor.php:103
+#, fuzzy
 msgid "10 Chars"
-msgstr ""
+msgstr "10 znaków"
 
 #: monitor.php:104
+#, fuzzy
 msgid "20 Chars"
-msgstr ""
+msgstr "20 znaków"
 
 #: monitor.php:105
+#, fuzzy
 msgid "30 Chars"
-msgstr ""
+msgstr "30 znaków"
 
 #: monitor.php:106
+#, fuzzy
 msgid "40 Chars"
-msgstr ""
+msgstr "40 znaków"
 
 #: monitor.php:107
+#, fuzzy
 msgid "50 Chars"
-msgstr ""
+msgstr "50 znaków"
 
 #: monitor.php:108
+#, fuzzy
 msgid "75 Chars"
-msgstr ""
+msgstr "75 znaków"
 
 #: monitor.php:109
+#, fuzzy
 msgid "100 Chars"
-msgstr ""
+msgstr "100 znaków"
 
 #: monitor.php:224 monitor.php:2024
 msgid "Monitored Devices"
@@ -280,7 +283,7 @@ msgstr "Niezapisany"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "Układ"
 
 #: monitor.php:804 monitor.php:2015
 msgid "Status"
@@ -357,7 +360,7 @@ msgstr "Rozmiar"
 
 #: monitor.php:844
 msgid "Trim"
-msgstr ""
+msgstr "Oznaczenie modelu"
 
 #: monitor.php:852
 msgid "All Trees"
@@ -369,9 +372,8 @@ msgid "Non-Tree Devices"
 msgstr "Urządzenia bezdrzewne"
 
 #: monitor.php:873
-#, fuzzy
 msgid "All Sites"
-msgstr "Wszystkie drzewa"
+msgstr "Wszystkie strony"
 
 #: monitor.php:874 monitor.php:1318
 #, fuzzy
@@ -383,7 +385,6 @@ msgid "Sites"
 msgstr "Lokalizacje"
 
 #: monitor.php:888
-#, fuzzy
 msgid "All Templates"
 msgstr "Wszystkie szablony"
 
@@ -408,7 +409,6 @@ msgid "Un-Mute"
 msgstr "Wycisz"
 
 #: monitor.php:946
-#, fuzzy
 msgid "Reset"
 msgstr "Resetuj"
 
@@ -462,7 +462,6 @@ msgid "Device Status Information"
 msgstr "Informacje o stanie urządzenia"
 
 #: monitor.php:1926
-#, fuzzy
 msgid "Device:"
 msgstr "Urządzenie:"
 
@@ -531,7 +530,6 @@ msgid "Sys Description:"
 msgstr "Opis systemu:"
 
 #: monitor.php:1974
-#, fuzzy
 msgid "Location:"
 msgstr "Lokalizacja:"
 
@@ -597,7 +595,7 @@ msgstr "Opis: "
 #: poller_monitor.php:332
 #, fuzzy
 msgid "Hostname: "
-msgstr "Serwer"
+msgstr "Nazwa hosta:"
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
@@ -692,9 +690,8 @@ msgid "%d Year"
 msgstr "%d rok"
 
 #: setup.php:418
-#, fuzzy
 msgid "Normal User"
-msgstr "Formatowanie pliku do użycia"
+msgstr "Zwykły użytkownik"
 
 #: setup.php:421 setup.php:475
 msgid "Monitor Settings"
@@ -728,8 +725,9 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Zaznacz to pole, aby wyświetlić legendę ikon na zakładce monitora"
 
 #: setup.php:443
+#, fuzzy
 msgid "Show Uptime"
-msgstr ""
+msgstr "Pokaż dostępność"
 
 #: setup.php:444
 #, fuzzy
@@ -737,8 +735,9 @@ msgid "Check this to show Uptime on the Monitor display"
 msgstr "Zaznacz to pole, aby wyświetlić legendę ikon na zakładce monitora"
 
 #: setup.php:448
+#, fuzzy
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "Powiększ do błędów"
 
 #: setup.php:449 setup.php:459
 #, fuzzy
@@ -746,16 +745,19 @@ msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "Zaznacz to pole, aby wyświetlić legendę ikon na zakładce monitora"
 
 #: setup.php:453
+#, fuzzy
 msgid "Zoom Background"
-msgstr ""
+msgstr "Powiększ tło"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "Kolor tła dla błędów powiększenia na ekranie monitora"
 
 #: setup.php:458
+#, fuzzy
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "Powiększ rozmiar czcionki"
 
 #: setup.php:471 setup.php:682 setup.php:684
 msgid "Monitor"
@@ -780,7 +782,6 @@ msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "Zachowaj powiadomienia i przywróć logi dla tej liczby dni."
 
 #: setup.php:504
-#, fuzzy
 msgid "Refresh Interval"
 msgstr "Interwał odświeżania"
 
@@ -865,12 +866,11 @@ msgid "Every Occurrence"
 msgstr "Każde zdarzenie"
 
 #: setup.php:577 setup.php:578
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Minutes"
 msgstr "Co %d minutę/minut"
 
 #: setup.php:579
-#, fuzzy
 msgid "Every Hour"
 msgstr "Co godzine"
 
@@ -905,7 +905,6 @@ msgid "Should Threshold Alert Lists also receive notification"
 msgstr "Czy listy alarmowe Threshold Alert Lists również powinny być powiadamiane"
 
 #: setup.php:602
-#, fuzzy
 msgid "Subject"
 msgstr "Temat"
 
@@ -920,7 +919,6 @@ msgid "Cacti Device Reboot Nofication"
 msgstr "Cacti Device Reboot Nofication"
 
 #: setup.php:610
-#, fuzzy
 msgid "Email Body"
 msgstr "Treść wiadomości"
 
@@ -940,7 +938,6 @@ msgid "Notification Email Addresses"
 msgstr "Adresy e-mail powiadomień"
 
 #: setup.php:623
-#, fuzzy
 msgid "From Name"
 msgstr "Imię i nazwisko nadawcy"
 
@@ -950,7 +947,6 @@ msgid "Enter the Email Name to send the notifications form"
 msgstr "Wprowadź nazwę e-mail, aby wysłać formularz powiadomień"
 
 #: setup.php:630
-#, fuzzy
 msgid "From Address"
 msgstr "Od (e-mail)"
 
@@ -970,9 +966,8 @@ msgid "Select a Notification List below.  All Emails subscribed to the notificat
 msgstr "Wybierz poniżej listę powiadomień.  Wszystkie wiadomości e-mail subskrybowane na liście powiadomień zostaną powiadomione."
 
 #: setup.php:645
-#, fuzzy
 msgid "Email Addresses"
-msgstr "Adresy e-mail"
+msgstr "Wygeneruj nazwy użytkowników z adresów e-mail"
 
 #: setup.php:646
 #, fuzzy
@@ -1028,7 +1023,6 @@ msgid "If the round-trip latency via any of the predefined Cacti ping methods ra
 msgstr "Jeśli opóźnienie zaokrąglania za pomocą którejkolwiek z predefiniowanych metod ping Cacti przekroczy ten próg, zarejestruj ostrzeżenie lub wyślij wiadomość e-mail w oparciu o ustawienie Krytyczność Urządzeń i Monitor.  Jednostka znajduje się w milisekundach.  Ustawienie na 0 wyłącza. Wtyczka Thold Plugin jest wymagana do wykorzystania tej funkcjonalności."
 
 #: setup.php:749 setup.php:759
-#, fuzzy
 msgid "milliseconds"
 msgstr "milisekund"
 
@@ -1073,7 +1067,6 @@ msgid "This is the message that will be displayed when this Device is reported a
 msgstr "Jest to komunikat, który będzie wyświetlany, gdy to urządzenie będzie raportowane w dół."
 
 #: setup.php:863
-#, fuzzy
 msgid "Monitoring"
 msgstr "Monitorowanie"
 
