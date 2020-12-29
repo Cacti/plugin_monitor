@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-28 20:03-0500\n"
-"PO-Revision-Date: 2019-04-01 21:12+0000\n"
+"PO-Revision-Date: 2020-12-28 20:53-0500\n"
 "Last-Translator: Javier Pobeda <javier.pobeda@pm.me>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/monitor/es-ES/>\n"
-"Language: es-ES\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -89,13 +89,12 @@ msgid "Large"
 msgstr "Grande"
 
 #: monitor.php:75
-#, fuzzy
 msgid "Extra Large"
-msgstr "Extra Pequeño"
+msgstr "Extra grande"
 
 #: monitor.php:76
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #: monitor.php:80
 msgid "All Monitored"
@@ -119,9 +118,8 @@ msgid "Default"
 msgstr "Por defecto"
 
 #: monitor.php:88 setup.php:534
-#, fuzzy
 msgid "List"
-msgstr " - Una lista de puertos que NO deberían ser escaneados para dispositivos de usuario"
+msgstr "Lista"
 
 #: monitor.php:89 setup.php:535
 msgid "Tiles"
@@ -137,7 +135,7 @@ msgstr "Arbol"
 
 #: monitor.php:96 monitor.php:2012
 msgid "Site"
-msgstr ""
+msgstr "Sitio"
 
 #: monitor.php:97 setup.php:524
 msgid "Device Template"
@@ -145,56 +143,66 @@ msgstr "Plantilla de Dispositivo"
 
 #: monitor.php:102
 msgid "Full"
-msgstr ""
+msgstr "Completo"
 
 #: monitor.php:103
+#, fuzzy
 msgid "10 Chars"
-msgstr ""
+msgstr "10 caracteres"
 
 #: monitor.php:104
+#, fuzzy
 msgid "20 Chars"
-msgstr ""
+msgstr "20 caracteres"
 
 #: monitor.php:105
+#, fuzzy
 msgid "30 Chars"
-msgstr ""
+msgstr "30 caracteres"
 
 #: monitor.php:106
+#, fuzzy
 msgid "40 Chars"
-msgstr ""
+msgstr "40 caracteres"
 
 #: monitor.php:107
+#, fuzzy
 msgid "50 Chars"
-msgstr ""
+msgstr "50 caracteres"
 
 #: monitor.php:108
+#, fuzzy
 msgid "75 Chars"
-msgstr ""
+msgstr "75 caracteres"
 
 #: monitor.php:109
+#, fuzzy
 msgid "100 Chars"
-msgstr ""
+msgstr "100 caracteres"
 
 #: monitor.php:224 monitor.php:2024
 #, fuzzy
 msgid "Monitored Devices"
-msgstr "Monitorear dispositivo"
+msgstr "Dispositivos monitoreados ya sea Caídos o en Recuperación"
 
 #: monitor.php:254
+#, fuzzy
 msgid "New Dashboard"
-msgstr ""
+msgstr "Nuevo tablero"
 
 #: monitor.php:257
 msgid "Dashboard"
-msgstr ""
+msgstr "Escritorio"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr ""
+msgstr "Ingrese el nombre del tablero y luego presione 'Guardar' para continuar, de lo contrario presione 'Cancelar'"
 
 #: monitor.php:259
+#, fuzzy
 msgid "Create New Dashboard"
-msgstr ""
+msgstr "Crear nuevo panel"
 
 #: monitor.php:413
 #, fuzzy
@@ -269,11 +277,11 @@ msgstr "Última actualización: % s"
 
 #: monitor.php:759
 msgid "Unsaved"
-msgstr ""
+msgstr "No guardado"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "Diseño"
 
 #: monitor.php:804 monitor.php:2015
 msgid "Status"
@@ -301,27 +309,29 @@ msgstr "Guardar opciones de filtro"
 
 #: monitor.php:815
 msgid "New"
-msgstr ""
+msgstr "Nuevo"
 
 #: monitor.php:815
+#, fuzzy
 msgid "Save New Dashboard"
-msgstr ""
+msgstr "Guardar nuevo panel"
 
 #: monitor.php:818
 msgid "Rename"
-msgstr ""
+msgstr "Renombrar"
 
 #: monitor.php:818
+#, fuzzy
 msgid "Rename Dashboard"
-msgstr ""
+msgstr "Cambiar el nombre del panel"
 
 #: monitor.php:822
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: monitor.php:822
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "Eliminar el Dashboards"
 
 #: monitor.php:825
 #, php-format
@@ -335,7 +345,7 @@ msgstr "%s Alerta para dispositivos caídos"
 
 #: monitor.php:834
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
@@ -344,13 +354,12 @@ msgid "Criticality"
 msgstr "Criticidad"
 
 #: monitor.php:840
-#, fuzzy
 msgid "Size"
 msgstr "Tamaño"
 
 #: monitor.php:844
 msgid "Trim"
-msgstr ""
+msgstr "Versi&oacute;n"
 
 #: monitor.php:852
 msgid "All Trees"
@@ -361,9 +370,8 @@ msgid "Non-Tree Devices"
 msgstr "Dispositivos sin árbol"
 
 #: monitor.php:873
-#, fuzzy
 msgid "All Sites"
-msgstr "Todos los Arboles"
+msgstr "Todos los sitios"
 
 #: monitor.php:874 monitor.php:1318
 #, fuzzy
@@ -372,10 +380,9 @@ msgstr "Dispositivos sin árbol"
 
 #: monitor.php:880
 msgid "Sites"
-msgstr ""
+msgstr "Sitios"
 
 #: monitor.php:888
-#, fuzzy
 msgid "All Templates"
 msgstr "Todas las plantillas"
 
@@ -385,7 +392,6 @@ msgid "Non-Templated Devices"
 msgstr "Dispositivos sin árbol"
 
 #: monitor.php:894
-#, fuzzy
 msgid "Template"
 msgstr "Plantilla"
 
@@ -406,24 +412,24 @@ msgid "Reset"
 msgstr "Restablecer"
 
 #: monitor.php:964
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
-msgstr ""
+msgstr "Panel '%s' eliminado."
 
 #: monitor.php:971
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr ""
+msgstr "El panel de control '%s' no es de su propiedad."
 
 #: monitor.php:1059
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr ""
+msgstr "¡Se ha guardado el panel '%s'!"
 
 #: monitor.php:1062
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
+msgstr "¡No se pudo guardar el panel '%s'!"
 
 #: monitor.php:1267 monitor.php:1588
 #, fuzzy
@@ -533,7 +539,6 @@ msgstr "Notas:"
 
 #: monitor.php:2010 poller_monitor.php:314 poller_monitor.php:479
 #: poller_monitor.php:485 poller_monitor.php:528 poller_monitor.php:534
-#, fuzzy
 msgid "Hostname"
 msgstr "Nombre de equipo"
 
@@ -543,14 +548,12 @@ msgid "Hostname of device"
 msgstr "Nombre de host del dispositivo"
 
 #: monitor.php:2011 poller_monitor.php:313
-#, fuzzy
 msgid "Description"
 msgstr "Descripción"
 
 #: monitor.php:2014
-#, fuzzy
 msgid "Availability"
-msgstr "Disponibilidad:"
+msgstr "Disponibilidad"
 
 #: monitor.php:2016
 #, fuzzy
@@ -563,7 +566,6 @@ msgid "Averages"
 msgstr "Promedios"
 
 #: monitor.php:2018
-#, fuzzy
 msgid "Warning"
 msgstr "Advertencia"
 
@@ -573,29 +575,24 @@ msgid "Last Fail"
 msgstr "Ultima falla:"
 
 #: monitor.php:2020
-#, fuzzy
 msgid "Admin"
-msgstr "Notificar al Administrador principal si hay problemas"
+msgstr "Administrador"
 
 #: monitor.php:2021
-#, fuzzy
 msgid "Notes"
 msgstr "Notas"
 
 #: monitor.php:2025
-#, fuzzy
 msgid "Devices"
 msgstr "Dispositivos"
 
 #: poller_monitor.php:331
-#, fuzzy
 msgid "Description: "
-msgstr "Descripción"
+msgstr "Descripción: "
 
 #: poller_monitor.php:332
-#, fuzzy
 msgid "Hostname: "
-msgstr "Nombre de equipo"
+msgstr "Nombre del servidor: "
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
@@ -687,9 +684,8 @@ msgid "%d Year"
 msgstr "%d Año"
 
 #: setup.php:418
-#, fuzzy
 msgid "Normal User"
-msgstr "Formato de archivo a usar"
+msgstr "Usuario estándar"
 
 #: setup.php:421 setup.php:475
 msgid "Monitor Settings"
@@ -722,8 +718,9 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Activa esto para mostrar un ícono de leyenda en la pantalla de Monitor"
 
 #: setup.php:443
+#, fuzzy
 msgid "Show Uptime"
-msgstr ""
+msgstr "Mostrar tiempo de actividad"
 
 #: setup.php:444
 #, fuzzy
@@ -731,8 +728,9 @@ msgid "Check this to show Uptime on the Monitor display"
 msgstr "Activa esto para mostrar un ícono de leyenda en la pantalla de Monitor"
 
 #: setup.php:448
+#, fuzzy
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "Zoom a errores"
 
 #: setup.php:449 setup.php:459
 #, fuzzy
@@ -740,16 +738,19 @@ msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "Activa esto para mostrar un ícono de leyenda en la pantalla de Monitor"
 
 #: setup.php:453
+#, fuzzy
 msgid "Zoom Background"
-msgstr ""
+msgstr "Zoom de fondo"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "Color de fondo para errores de zoom en la pantalla del monitor"
 
 #: setup.php:458
+#, fuzzy
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "Zoom tamaño de fuente"
 
 #: setup.php:471 setup.php:682 setup.php:684
 msgid "Monitor"
@@ -884,7 +885,6 @@ msgid "Should Threshold Alert Lists also receive notification"
 msgstr "En caso de que las listas de alerta de umbral también reciban notificación"
 
 #: setup.php:602
-#, fuzzy
 msgid "Subject"
 msgstr "Asunto"
 
@@ -899,7 +899,6 @@ msgid "Cacti Device Reboot Nofication"
 msgstr "Noficación de reinicio de dispositivos Cacti"
 
 #: setup.php:610
-#, fuzzy
 msgid "Email Body"
 msgstr "Contenido del correo"
 
@@ -919,7 +918,6 @@ msgid "Notification Email Addresses"
 msgstr "Direcciones de correo electrónico de notificación"
 
 #: setup.php:623
-#, fuzzy
 msgid "From Name"
 msgstr "Nombre del remitente"
 
@@ -929,7 +927,6 @@ msgid "Enter the Email Name to send the notifications form"
 msgstr "Introduzca el nombre de correo electrónico para enviar el formulario de notificaciones"
 
 #: setup.php:630
-#, fuzzy
 msgid "From Address"
 msgstr "De la Dirección"
 
@@ -939,9 +936,8 @@ msgid "Enter the Email Address to send the notification from"
 msgstr "Ingrese la dirección de correo electrónico para enviar la notificación desde"
 
 #: setup.php:637
-#, fuzzy
 msgid "Notification List"
-msgstr "Retención de notificaciones/reinicios"
+msgstr "Notificaciones"
 
 #: setup.php:638
 #, fuzzy
@@ -949,7 +945,6 @@ msgid "Select a Notification List below.  All Emails subscribed to the notificat
 msgstr "Seleccione una lista de notificaciones a continuación.  Todos los correos electrónicos suscritos a la lista de notificación serán notificados."
 
 #: setup.php:645
-#, fuzzy
 msgid "Email Addresses"
 msgstr "Direcciones de correo"
 
@@ -999,7 +994,6 @@ msgid "If the round-trip latency via any of the predefined Cacti ping methods ra
 msgstr "Si la latencia a través de cualquiera de los método de ping predefinido en Cacti se eleva por encima de este umbral, registre una advertencia o envíe un correo basado en la configuración de criticidad y opciones de Monitoreo. La unidad se configura en milisegundos. Especificar 0 lo deshabilita. El Plugin Thold es requerido para aprovechar esta funcionalidad."
 
 #: setup.php:749 setup.php:759
-#, fuzzy
 msgid "milliseconds"
 msgstr "milisegundos"
 
