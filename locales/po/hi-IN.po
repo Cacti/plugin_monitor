@@ -3,33 +3,29 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-28 20:03-0500\n"
-"PO-Revision-Date: 2019-03-17 11:57-0400\n"
+"PO-Revision-Date: 2020-12-28 20:11-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: hi_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
-#, fuzzy
 msgid "Disabled"
 msgstr "अक्षम"
 
 #: monitor.php:38 poller_monitor.php:394 setup.php:77 setup.php:392
-#, fuzzy
 msgid "Low"
 msgstr "कम"
 
 #: monitor.php:39 monitor.php:73 poller_monitor.php:395 setup.php:78
 #: setup.php:393
-#, fuzzy
 msgid "Medium"
 msgstr "मध्यम"
 
 #: monitor.php:40 poller_monitor.php:396 setup.php:79 setup.php:394
-#, fuzzy
 msgid "High"
 msgstr "उच्च"
 
@@ -39,12 +35,10 @@ msgid "Mission Critical"
 msgstr "महत्वपूर्ण मिशन"
 
 #: monitor.php:58 monitor.php:1708
-#, fuzzy
 msgid "Unknown"
-msgstr "अनजान"
+msgstr "अज्ञात"
 
 #: monitor.php:59
-#, fuzzy
 msgid "Down"
 msgstr "नीचे"
 
@@ -54,7 +48,6 @@ msgid "Recovering"
 msgstr "पुन: प्राप्त करना"
 
 #: monitor.php:61
-#, fuzzy
 msgid "Up"
 msgstr "ऊपर"
 
@@ -100,7 +93,6 @@ msgid "Small"
 msgstr "छोटा"
 
 #: monitor.php:74
-#, fuzzy
 msgid "Large"
 msgstr "विशाल"
 
@@ -111,7 +103,7 @@ msgstr "अतिरिक्त छोटे"
 
 #: monitor.php:76
 msgid "Zoom"
-msgstr ""
+msgstr "ज़ूम करो"
 
 #: monitor.php:80
 #, fuzzy
@@ -134,12 +126,10 @@ msgid "Not Up, Triggered or Breached"
 msgstr "नॉट अप, ट्रिगर्ड या ब्रेक्ड"
 
 #: monitor.php:87 monitor.php:94 monitor.php:101 setup.php:521 setup.php:533
-#, fuzzy
 msgid "Default"
-msgstr "चूक"
+msgstr "डिफ़ॉल्ट"
 
 #: monitor.php:88 setup.php:534
-#, fuzzy
 msgid "List"
 msgstr "सूची"
 
@@ -154,13 +144,12 @@ msgid "Tiles & Time"
 msgstr "टाइलें और समय"
 
 #: monitor.php:95 monitor.php:859 setup.php:523
-#, fuzzy
 msgid "Tree"
-msgstr "पेड़"
+msgstr "वृक्षugiou"
 
 #: monitor.php:96 monitor.php:2012
 msgid "Site"
-msgstr ""
+msgstr "साइट"
 
 #: monitor.php:97 setup.php:524
 #, fuzzy
@@ -168,36 +157,44 @@ msgid "Device Template"
 msgstr "डिवाइस टेम्पलेट"
 
 #: monitor.php:102
+#, fuzzy
 msgid "Full"
-msgstr ""
+msgstr "पूर्ण"
 
 #: monitor.php:103
+#, fuzzy
 msgid "10 Chars"
-msgstr ""
+msgstr "10 शुल्क"
 
 #: monitor.php:104
+#, fuzzy
 msgid "20 Chars"
-msgstr ""
+msgstr "20 शुल्क"
 
 #: monitor.php:105
+#, fuzzy
 msgid "30 Chars"
-msgstr ""
+msgstr "30 शुल्क"
 
 #: monitor.php:106
+#, fuzzy
 msgid "40 Chars"
-msgstr ""
+msgstr "40 शुल्क"
 
 #: monitor.php:107
+#, fuzzy
 msgid "50 Chars"
-msgstr ""
+msgstr "50 शुल्क"
 
 #: monitor.php:108
+#, fuzzy
 msgid "75 Chars"
-msgstr ""
+msgstr "75 शुल्क"
 
 #: monitor.php:109
+#, fuzzy
 msgid "100 Chars"
-msgstr ""
+msgstr "100 शुल्क"
 
 #: monitor.php:224 monitor.php:2024
 #, fuzzy
@@ -205,20 +202,24 @@ msgid "Monitored Devices"
 msgstr "मॉनिटर किए गए उपकरण"
 
 #: monitor.php:254
+#, fuzzy
 msgid "New Dashboard"
-msgstr ""
+msgstr "नया डैशबोर्ड"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Dashboard"
-msgstr ""
+msgstr "डैशबोर्ड"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr ""
+msgstr "डैशबोर्ड नाम दर्ज करें और फिर जारी रखने के लिए 'सहेजें' दबाएं, अन्यथा 'रद्द करें' दबाएं"
 
 #: monitor.php:259
+#, fuzzy
 msgid "Create New Dashboard"
-msgstr ""
+msgstr "नया डैशबोर्ड बनाएं"
 
 #: monitor.php:413
 #, fuzzy
@@ -227,10 +228,9 @@ msgstr "[फ़िल्टर सेटिंग्स सहेजा गय�
 
 #: monitor.php:450
 msgid "Cancel"
-msgstr ""
+msgstr "कैंसिल करें"
 
 #: monitor.php:457 monitor.php:813
-#, fuzzy
 msgid "Save"
 msgstr "सेव करें"
 
@@ -300,20 +300,19 @@ msgid "Monitor Filter [ Last Refresh: %s ]"
 msgstr "फ़िल्टर फ़िल्टर करें [अंतिम ताज़ा करें: %s]"
 
 #: monitor.php:759
+#, fuzzy
 msgid "Unsaved"
-msgstr ""
+msgstr "न सहेजा गया"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "नक्शा"
 
 #: monitor.php:804 monitor.php:2015
-#, fuzzy
 msgid "Status"
 msgstr "ऑर्डर स्थिति"
 
 #: monitor.php:805 setup.php:528
-#, fuzzy
 msgid "View"
 msgstr "देखें"
 
@@ -323,9 +322,8 @@ msgid "Grouping"
 msgstr "समूहीकरण"
 
 #: monitor.php:811 monitor.php:897
-#, fuzzy
 msgid "Refresh"
-msgstr "ताज़ा करना"
+msgstr "रीफ्रैश करो"
 
 #: monitor.php:811
 #, fuzzy
@@ -339,27 +337,30 @@ msgstr "फ़िल्टर सेटिंग्स सहेजें"
 
 #: monitor.php:815
 msgid "New"
-msgstr ""
+msgstr "नया"
 
 #: monitor.php:815
+#, fuzzy
 msgid "Save New Dashboard"
-msgstr ""
+msgstr "नया डैशबोर्ड सहेजें"
 
 #: monitor.php:818
 msgid "Rename"
-msgstr ""
+msgstr "नाम बदलें"
 
 #: monitor.php:818
+#, fuzzy
 msgid "Rename Dashboard"
-msgstr ""
+msgstr "डैशबोर्ड का नाम बदलें"
 
 #: monitor.php:822
 msgid "Delete"
-msgstr ""
+msgstr "हटाएं"
 
 #: monitor.php:822
+#, fuzzy
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "डैशबोर्ड हटाएं"
 
 #: monitor.php:825
 #, fuzzy, php-format
@@ -373,7 +374,7 @@ msgstr "डाउन किए गए उपकरणों के लिए% �
 
 #: monitor.php:834
 msgid "Search"
-msgstr ""
+msgstr "खोजें"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
@@ -383,13 +384,13 @@ msgid "Criticality"
 msgstr "निर्णायक मोड़"
 
 #: monitor.php:840
-#, fuzzy
 msgid "Size"
 msgstr "आकार"
 
 #: monitor.php:844
+#, fuzzy
 msgid "Trim"
-msgstr ""
+msgstr "ट्रिम"
 
 #: monitor.php:852
 #, fuzzy
@@ -413,7 +414,7 @@ msgstr "गैर-पेड़ उपकरण"
 
 #: monitor.php:880
 msgid "Sites"
-msgstr ""
+msgstr "साइटां"
 
 #: monitor.php:888
 #, fuzzy
@@ -426,7 +427,6 @@ msgid "Non-Templated Devices"
 msgstr "गैर-अस्थायी उपकरण"
 
 #: monitor.php:894
-#, fuzzy
 msgid "Template"
 msgstr "खाका"
 
@@ -446,29 +446,28 @@ msgid "Un-Mute"
 msgstr "संयुक्त राष्ट्र के म्यूट"
 
 #: monitor.php:946
-#, fuzzy
 msgid "Reset"
-msgstr "रीसेट"
+msgstr "पुनः सेट करें"
 
 #: monitor.php:964
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
-msgstr ""
+msgstr "डैशबोर्ड '%s' निकाला गया।"
 
 #: monitor.php:971
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr ""
+msgstr "डैशबोर्ड '%s' आपके स्वामित्व में नहीं है।"
 
 #: monitor.php:1059
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr ""
+msgstr "डैशबोर्ड '%s' सहेजा गया है!"
 
 #: monitor.php:1062
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
+msgstr "डैशबोर्ड '%s' सहेजा नहीं जा सका!"
 
 #: monitor.php:1267 monitor.php:1588
 #, fuzzy
@@ -501,9 +500,8 @@ msgid "Device Status Information"
 msgstr "डिवाइस स्थिति की जानकारी"
 
 #: monitor.php:1926
-#, fuzzy
 msgid "Device:"
-msgstr "डिवाइस:"
+msgstr "उपकरणः"
 
 #: monitor.php:1930
 #, fuzzy
@@ -551,9 +549,8 @@ msgid "Last Fail:"
 msgstr "अंतिम विफल:"
 
 #: monitor.php:1955 monitor.php:2063 monitor.php:2092
-#, fuzzy
 msgid "Never"
-msgstr "कभी नहीँ"
+msgstr "कभी नहीं"
 
 #: monitor.php:1958
 #, fuzzy
@@ -563,7 +560,7 @@ msgstr "राज्य में समय:"
 #: monitor.php:1962
 #, fuzzy
 msgid "Availability:"
-msgstr "उपलब्धता:"
+msgstr "उपलब्धता"
 
 #: monitor.php:1966
 #, fuzzy
@@ -572,7 +569,7 @@ msgstr "एजेंट अपटाइम:"
 
 #: monitor.php:1967 monitor.php:2083
 msgid "N/A"
-msgstr ""
+msgstr "लागू नहीं"
 
 #: monitor.php:1970
 #, fuzzy
@@ -580,25 +577,22 @@ msgid "Sys Description:"
 msgstr "Sys विवरण:"
 
 #: monitor.php:1974
-#, fuzzy
 msgid "Location:"
-msgstr "स्थान"
+msgstr "स्थान:"
 
 #: monitor.php:1978
-#, fuzzy
 msgid "Contact:"
-msgstr "संपर्क करें"
+msgstr "संपर्क:"
 
 #: monitor.php:1982
 #, fuzzy
 msgid "Notes:"
-msgstr "टिप्पणियाँ:"
+msgstr "नोट"
 
 #: monitor.php:2010 poller_monitor.php:314 poller_monitor.php:479
 #: poller_monitor.php:485 poller_monitor.php:528 poller_monitor.php:534
-#, fuzzy
 msgid "Hostname"
-msgstr "होस्ट का नाम"
+msgstr "होस्टनांऽ"
 
 #: monitor.php:2010
 #, fuzzy
@@ -606,14 +600,12 @@ msgid "Hostname of device"
 msgstr "डिवाइस का होस्टनाम"
 
 #: monitor.php:2011 poller_monitor.php:313
-#, fuzzy
 msgid "Description"
 msgstr "विवरण"
 
 #: monitor.php:2014
-#, fuzzy
 msgid "Availability"
-msgstr "उपलब्धता:"
+msgstr "उपलब्धता"
 
 #: monitor.php:2016
 #, fuzzy
@@ -626,7 +618,6 @@ msgid "Averages"
 msgstr "औसत"
 
 #: monitor.php:2018
-#, fuzzy
 msgid "Warning"
 msgstr "चेतावनी"
 
@@ -641,14 +632,12 @@ msgid "Admin"
 msgstr "व्यवस्थापक"
 
 #: monitor.php:2021
-#, fuzzy
 msgid "Notes"
-msgstr "टिप्पणियाँ"
+msgstr "नोट"
 
 #: monitor.php:2025
-#, fuzzy
 msgid "Devices"
-msgstr "उपकरण"
+msgstr "डिवाइस"
 
 #: poller_monitor.php:331
 #, fuzzy
@@ -658,7 +647,7 @@ msgstr "विवरण"
 #: poller_monitor.php:332
 #, fuzzy
 msgid "Hostname: "
-msgstr "होस्ट का नाम"
+msgstr "#-#-#-#-# balsa.HEAD.hi.po (Balsa 2.x) #-#-#-#-# उपयोगकर्ता का नाम #-#-#-#-# eel.HEAD.hi.po (eel VERSION) #-#-#-#-# उपयोगकर्ता का नाम: (_U)"
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 #, fuzzy
@@ -702,12 +691,10 @@ msgid "The following Devices have breached their Warning Notification Threshold.
 msgstr "निम्नलिखित डिवाइसेस ने उनकी चेतावनी अधिसूचना थ्रेसहोल्ड का उल्लंघन किया है।"
 
 #: setup.php:75
-#, fuzzy
 msgid "Any"
-msgstr "कोई भी"
+msgstr "कोई भी@ label"
 
 #: setup.php:76 setup.php:642
-#, fuzzy
 msgid "None"
 msgstr "कोई नहीं"
 
@@ -762,9 +749,8 @@ msgid "%d Year"
 msgstr "% d वष"
 
 #: setup.php:418
-#, fuzzy
 msgid "Normal User"
-msgstr "प्रारूप फ़ाइल का उपयोग करने के लिए"
+msgstr "सामान्य उपयोगकर्ता"
 
 #: setup.php:421 setup.php:475
 #, fuzzy
@@ -802,8 +788,9 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "मॉनिटर प्रदर्शन पर एक आइकन किंवदंती दिखाने के लिए इसे जांचें"
 
 #: setup.php:443
+#, fuzzy
 msgid "Show Uptime"
-msgstr ""
+msgstr "दिखावा करना"
 
 #: setup.php:444
 #, fuzzy
@@ -811,8 +798,9 @@ msgid "Check this to show Uptime on the Monitor display"
 msgstr "मॉनिटर प्रदर्शन पर एक आइकन किंवदंती दिखाने के लिए इसे जांचें"
 
 #: setup.php:448
+#, fuzzy
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "त्रुटियों को ज़ूम करें"
 
 #: setup.php:449 setup.php:459
 #, fuzzy
@@ -820,16 +808,19 @@ msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "मॉनिटर प्रदर्शन पर एक आइकन किंवदंती दिखाने के लिए इसे जांचें"
 
 #: setup.php:453
+#, fuzzy
 msgid "Zoom Background"
-msgstr ""
+msgstr "ज़ूम पृष्ठभूमि"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "मॉनिटर प्रदर्शन पर ज़ूम की गई त्रुटियों के लिए पृष्ठभूमि का रंग"
 
 #: setup.php:458
+#, fuzzy
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "ज़ूम फ़ॉन्ट्स"
 
 #: setup.php:471 setup.php:682 setup.php:684
 #, fuzzy
@@ -857,9 +848,8 @@ msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "इस संख्या के लिए अधिसूचना और रिबूट लॉग रखें।"
 
 #: setup.php:504
-#, fuzzy
 msgid "Refresh Interval"
-msgstr "ताजा अंतराल"
+msgstr "अंतराल ताज़ा करें"
 
 #: setup.php:505
 #, fuzzy
@@ -982,7 +972,6 @@ msgid "Should Threshold Alert Lists also receive notification"
 msgstr "क्या थ्रेसहोल्ड अलर्ट सूचियों को भी अधिसूचना प्राप्त करनी चाहिए"
 
 #: setup.php:602
-#, fuzzy
 msgid "Subject"
 msgstr "विषय"
 
