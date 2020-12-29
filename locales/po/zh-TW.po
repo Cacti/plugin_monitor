@@ -3,33 +3,29 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-28 20:03-0500\n"
-"PO-Revision-Date: 2019-03-17 12:23-0400\n"
+"PO-Revision-Date: 2020-12-28 20:16-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
-#, fuzzy
 msgid "Disabled"
 msgstr "停用"
 
 #: monitor.php:38 poller_monitor.php:394 setup.php:77 setup.php:392
-#, fuzzy
 msgid "Low"
 msgstr "低"
 
 #: monitor.php:39 monitor.php:73 poller_monitor.php:395 setup.php:78
 #: setup.php:393
-#, fuzzy
 msgid "Medium"
 msgstr "中"
 
 #: monitor.php:40 poller_monitor.php:396 setup.php:79 setup.php:394
-#, fuzzy
 msgid "High"
 msgstr "高"
 
@@ -39,22 +35,18 @@ msgid "Mission Critical"
 msgstr "關鍵任務"
 
 #: monitor.php:58 monitor.php:1708
-#, fuzzy
 msgid "Unknown"
 msgstr "未知"
 
 #: monitor.php:59
-#, fuzzy
 msgid "Down"
 msgstr "向下"
 
 #: monitor.php:60
-#, fuzzy
 msgid "Recovering"
-msgstr "恢復"
+msgstr "正在復原"
 
 #: monitor.php:61
-#, fuzzy
 msgid "Up"
 msgstr "向上"
 
@@ -90,28 +82,24 @@ msgid "Alert Ping"
 msgstr "警報Ping"
 
 #: monitor.php:71
-#, fuzzy
 msgid "Extra Small"
 msgstr "特小"
 
 #: monitor.php:72
-#, fuzzy
 msgid "Small"
 msgstr "小"
 
 #: monitor.php:74
-#, fuzzy
 msgid "Large"
 msgstr "大"
 
 #: monitor.php:75
-#, fuzzy
 msgid "Extra Large"
-msgstr "特小"
+msgstr "超大"
 
 #: monitor.php:76
 msgid "Zoom"
-msgstr ""
+msgstr "縮放"
 
 #: monitor.php:80
 #, fuzzy
@@ -134,17 +122,14 @@ msgid "Not Up, Triggered or Breached"
 msgstr "不起來，觸發或違反"
 
 #: monitor.php:87 monitor.php:94 monitor.php:101 setup.php:521 setup.php:533
-#, fuzzy
 msgid "Default"
 msgstr "預設"
 
 #: monitor.php:88 setup.php:534
-#, fuzzy
 msgid "List"
 msgstr "清單"
 
 #: monitor.php:89 setup.php:535
-#, fuzzy
 msgid "Tiles"
 msgstr "瓷磚"
 
@@ -154,71 +139,77 @@ msgid "Tiles & Time"
 msgstr "瓷磚和時間"
 
 #: monitor.php:95 monitor.php:859 setup.php:523
-#, fuzzy
 msgid "Tree"
 msgstr "樹"
 
 #: monitor.php:96 monitor.php:2012
 msgid "Site"
-msgstr ""
+msgstr "網站"
 
 #: monitor.php:97 setup.php:524
-#, fuzzy
 msgid "Device Template"
 msgstr "設備模板"
 
 #: monitor.php:102
 msgid "Full"
-msgstr ""
+msgstr "完整"
 
 #: monitor.php:103
+#, fuzzy
 msgid "10 Chars"
-msgstr ""
+msgstr "10個字符"
 
 #: monitor.php:104
+#, fuzzy
 msgid "20 Chars"
-msgstr ""
+msgstr "20個字符"
 
 #: monitor.php:105
+#, fuzzy
 msgid "30 Chars"
-msgstr ""
+msgstr "30個字符"
 
 #: monitor.php:106
+#, fuzzy
 msgid "40 Chars"
-msgstr ""
+msgstr "40個字符"
 
 #: monitor.php:107
+#, fuzzy
 msgid "50 Chars"
-msgstr ""
+msgstr "50個字符"
 
 #: monitor.php:108
+#, fuzzy
 msgid "75 Chars"
-msgstr ""
+msgstr "75個字符"
 
 #: monitor.php:109
+#, fuzzy
 msgid "100 Chars"
-msgstr ""
+msgstr "100個字符"
 
 #: monitor.php:224 monitor.php:2024
-#, fuzzy
 msgid "Monitored Devices"
 msgstr "監控的設備"
 
 #: monitor.php:254
+#, fuzzy
 msgid "New Dashboard"
-msgstr ""
+msgstr "新儀表板"
 
 #: monitor.php:257
 msgid "Dashboard"
-msgstr ""
+msgstr "控制台"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr ""
+msgstr "輸入儀表板名稱，然後按“保存”繼續，否則按“取消”"
 
 #: monitor.php:259
 msgid "Create New Dashboard"
-msgstr ""
+msgstr "新增儀表板"
 
 #: monitor.php:413
 #, fuzzy
@@ -227,10 +218,9 @@ msgstr "[已保存過濾器設置]"
 
 #: monitor.php:450
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: monitor.php:457 monitor.php:813
-#, fuzzy
 msgid "Save"
 msgstr "儲存"
 
@@ -300,30 +290,27 @@ msgid "Monitor Filter [ Last Refresh: %s ]"
 msgstr "監控過濾器[上次刷新：％s]"
 
 #: monitor.php:759
+#, fuzzy
 msgid "Unsaved"
-msgstr ""
+msgstr "未保存"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "佈局"
 
 #: monitor.php:804 monitor.php:2015
-#, fuzzy
 msgid "Status"
 msgstr "狀態"
 
 #: monitor.php:805 setup.php:528
-#, fuzzy
 msgid "View"
 msgstr "查看"
 
 #: monitor.php:806 setup.php:516
-#, fuzzy
 msgid "Grouping"
-msgstr "群組"
+msgstr "商品群組"
 
 #: monitor.php:811 monitor.php:897
-#, fuzzy
 msgid "Refresh"
 msgstr "重新整理"
 
@@ -339,27 +326,30 @@ msgstr "保存過濾器設置"
 
 #: monitor.php:815
 msgid "New"
-msgstr ""
+msgstr "新增"
 
 #: monitor.php:815
+#, fuzzy
 msgid "Save New Dashboard"
-msgstr ""
+msgstr "保存新儀錶盤"
 
 #: monitor.php:818
 msgid "Rename"
-msgstr ""
+msgstr "重新命名"
 
 #: monitor.php:818
+#, fuzzy
 msgid "Rename Dashboard"
-msgstr ""
+msgstr "重命名儀表板"
 
 #: monitor.php:822
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: monitor.php:822
+#, fuzzy
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "刪除儀表板"
 
 #: monitor.php:825
 #, fuzzy, php-format
@@ -373,7 +363,7 @@ msgstr "％s已停機設備的警報"
 
 #: monitor.php:834
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
@@ -383,13 +373,12 @@ msgid "Criticality"
 msgstr "臨界"
 
 #: monitor.php:840
-#, fuzzy
 msgid "Size"
 msgstr "尺寸"
 
 #: monitor.php:844
 msgid "Trim"
-msgstr ""
+msgstr "特林"
 
 #: monitor.php:852
 #, fuzzy
@@ -402,9 +391,8 @@ msgid "Non-Tree Devices"
 msgstr "非樹設備"
 
 #: monitor.php:873
-#, fuzzy
 msgid "All Sites"
-msgstr "所有樹木"
+msgstr "所有網站"
 
 #: monitor.php:874 monitor.php:1318
 #, fuzzy
@@ -413,10 +401,9 @@ msgstr "非樹設備"
 
 #: monitor.php:880
 msgid "Sites"
-msgstr ""
+msgstr "網站"
 
 #: monitor.php:888
-#, fuzzy
 msgid "All Templates"
 msgstr "所有模板"
 
@@ -426,17 +413,14 @@ msgid "Non-Templated Devices"
 msgstr "非模板化設備"
 
 #: monitor.php:894
-#, fuzzy
 msgid "Template"
-msgstr "主題 ID"
+msgstr "模板"
 
 #: monitor.php:936
-#, fuzzy
 msgid "Mute"
 msgstr "靜音"
 
 #: monitor.php:938
-#, fuzzy
 msgid "Acknowledge"
 msgstr "確認"
 
@@ -446,29 +430,28 @@ msgid "Un-Mute"
 msgstr "取消靜音"
 
 #: monitor.php:946
-#, fuzzy
 msgid "Reset"
 msgstr "重置"
 
 #: monitor.php:964
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
-msgstr ""
+msgstr "儀表板'%s'已刪除。"
 
 #: monitor.php:971
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr ""
+msgstr "儀表板“ %s”不歸您所有。"
 
 #: monitor.php:1059
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr ""
+msgstr "儀表板“ %s”已保存！"
 
 #: monitor.php:1062
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
+msgstr "儀表板“ %s”無法保存！"
 
 #: monitor.php:1267 monitor.php:1588
 #, fuzzy
@@ -501,7 +484,6 @@ msgid "Device Status Information"
 msgstr "設備狀態信息"
 
 #: monitor.php:1926
-#, fuzzy
 msgid "Device:"
 msgstr "裝置："
 
@@ -511,9 +493,8 @@ msgid "Criticality:"
 msgstr "重要性："
 
 #: monitor.php:1934
-#, fuzzy
 msgid "Status:"
-msgstr "狀態"
+msgstr "狀態："
 
 #: monitor.php:1938
 #, fuzzy
@@ -551,7 +532,6 @@ msgid "Last Fail:"
 msgstr "最後的失敗："
 
 #: monitor.php:1955 monitor.php:2063 monitor.php:2092
-#, fuzzy
 msgid "Never"
 msgstr "從不"
 
@@ -561,9 +541,8 @@ msgid "Time In State:"
 msgstr "國家時間："
 
 #: monitor.php:1962
-#, fuzzy
 msgid "Availability:"
-msgstr "可用性"
+msgstr "可用性："
 
 #: monitor.php:1966
 #, fuzzy
@@ -572,7 +551,7 @@ msgstr "代理正常運行時間"
 
 #: monitor.php:1967 monitor.php:2083
 msgid "N/A"
-msgstr ""
+msgstr "不适用"
 
 #: monitor.php:1970
 #, fuzzy
@@ -580,23 +559,19 @@ msgid "Sys Description:"
 msgstr "系統描述："
 
 #: monitor.php:1974
-#, fuzzy
 msgid "Location:"
 msgstr "地點:"
 
 #: monitor.php:1978
-#, fuzzy
 msgid "Contact:"
 msgstr "聯繫方式："
 
 #: monitor.php:1982
-#, fuzzy
 msgid "Notes:"
-msgstr "備註"
+msgstr "筆記："
 
 #: monitor.php:2010 poller_monitor.php:314 poller_monitor.php:479
 #: poller_monitor.php:485 poller_monitor.php:528 poller_monitor.php:534
-#, fuzzy
 msgid "Hostname"
 msgstr "主機名稱"
 
@@ -606,12 +581,10 @@ msgid "Hostname of device"
 msgstr "設備的主機名"
 
 #: monitor.php:2011 poller_monitor.php:313
-#, fuzzy
 msgid "Description"
 msgstr "描述"
 
 #: monitor.php:2014
-#, fuzzy
 msgid "Availability"
 msgstr "可用性"
 
@@ -626,7 +599,6 @@ msgid "Averages"
 msgstr "平均值"
 
 #: monitor.php:2018
-#, fuzzy
 msgid "Warning"
 msgstr "警告"
 
@@ -636,29 +608,25 @@ msgid "Last Fail"
 msgstr "最後的失敗"
 
 #: monitor.php:2020
-#, fuzzy
 msgid "Admin"
 msgstr "管理員"
 
 #: monitor.php:2021
-#, fuzzy
 msgid "Notes"
 msgstr "備註"
 
 #: monitor.php:2025
-#, fuzzy
 msgid "Devices"
 msgstr "設備"
 
 #: poller_monitor.php:331
-#, fuzzy
 msgid "Description: "
-msgstr "描述"
+msgstr "描述："
 
 #: poller_monitor.php:332
 #, fuzzy
 msgid "Hostname: "
-msgstr "主機名稱"
+msgstr "主機名稱："
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 #, fuzzy
@@ -702,12 +670,10 @@ msgid "The following Devices have breached their Warning Notification Threshold.
 msgstr "以下設備已違反其警告通知閾值。"
 
 #: setup.php:75
-#, fuzzy
 msgid "Any"
 msgstr "任何"
 
 #: setup.php:76 setup.php:642
-#, fuzzy
 msgid "None"
 msgstr "無"
 
@@ -732,7 +698,6 @@ msgid "Change Monitoring Options"
 msgstr "更改監控選項"
 
 #: setup.php:358
-#, fuzzy
 msgid "Enable Monitoring"
 msgstr "啟用監控"
 
@@ -762,9 +727,8 @@ msgid "%d Year"
 msgstr "％d年"
 
 #: setup.php:418
-#, fuzzy
 msgid "Normal User"
-msgstr "格式化文件以使用"
+msgstr "普通用戶"
 
 #: setup.php:421 setup.php:475
 #, fuzzy
@@ -802,8 +766,9 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
 
 #: setup.php:443
+#, fuzzy
 msgid "Show Uptime"
-msgstr ""
+msgstr "顯示正常運行時間"
 
 #: setup.php:444
 #, fuzzy
@@ -811,8 +776,9 @@ msgid "Check this to show Uptime on the Monitor display"
 msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
 
 #: setup.php:448
+#, fuzzy
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "放大到錯誤"
 
 #: setup.php:449 setup.php:459
 #, fuzzy
@@ -820,19 +786,21 @@ msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
 
 #: setup.php:453
+#, fuzzy
 msgid "Zoom Background"
-msgstr ""
+msgstr "縮放背景"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "監視器顯示屏上縮放錯誤的背景顏色"
 
 #: setup.php:458
+#, fuzzy
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "縮放字體"
 
 #: setup.php:471 setup.php:682 setup.php:684
-#, fuzzy
 msgid "Monitor"
 msgstr "監控"
 
@@ -857,7 +825,6 @@ msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "保持通知並重新啟動日誌這幾天。"
 
 #: setup.php:504
-#, fuzzy
 msgid "Refresh Interval"
 msgstr "刷新間隔"
 
@@ -942,7 +909,7 @@ msgid "Every Occurrence"
 msgstr "每次出現"
 
 #: setup.php:577 setup.php:578
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Minutes"
 msgstr "每 %d 分鐘"
 
@@ -982,7 +949,6 @@ msgid "Should Threshold Alert Lists also receive notification"
 msgstr "閾值警報列表是否也會收到通知"
 
 #: setup.php:602
-#, fuzzy
 msgid "Subject"
 msgstr "主旨"
 
@@ -997,9 +963,8 @@ msgid "Cacti Device Reboot Nofication"
 msgstr "仙人掌設備重啟Nofication"
 
 #: setup.php:610
-#, fuzzy
 msgid "Email Body"
-msgstr "範本內文"
+msgstr "郵件內文"
 
 #: setup.php:611
 #, fuzzy
@@ -1012,12 +977,10 @@ msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Reboot
 msgstr "<h1>監控重啟通知</h1><p>以下設備已重新啟動。有關其他信息，請參閱以下詳細</p><br><DETAILS>"
 
 #: setup.php:618
-#, fuzzy
 msgid "Notification Email Addresses"
 msgstr "電子郵件通知地址"
 
 #: setup.php:623
-#, fuzzy
 msgid "From Name"
 msgstr "寄件者名稱"
 
@@ -1027,7 +990,6 @@ msgid "Enter the Email Name to send the notifications form"
 msgstr "輸入電子郵件名稱以發送通知表單"
 
 #: setup.php:630
-#, fuzzy
 msgid "From Address"
 msgstr "寄件者電子郵件地址"
 
@@ -1047,7 +1009,6 @@ msgid "Select a Notification List below.  All Emails subscribed to the notificat
 msgstr "選擇下面的通知列表。訂閱通知列表的所有電子郵件都將收到通知。"
 
 #: setup.php:645
-#, fuzzy
 msgid "Email Addresses"
 msgstr "電子郵件信箱"
 
@@ -1105,7 +1066,6 @@ msgid "If the round-trip latency via any of the predefined Cacti ping methods ra
 msgstr "如果通過任何預定義的Cacti ping方法的往返延遲超過此閾值，請根據“設備嚴重性和監視器”設置記錄警告或發送電子郵件。單位是毫秒。設置為0禁用。 Thold插件需要利用此功能。"
 
 #: setup.php:749 setup.php:759
-#, fuzzy
 msgid "milliseconds"
 msgstr "毫秒"
 
@@ -1150,7 +1110,6 @@ msgid "This is the message that will be displayed when this Device is reported a
 msgstr "這是將此設備報告為關閉時將顯示的消息。"
 
 #: setup.php:863
-#, fuzzy
 msgid "Monitoring"
 msgstr "監控"
 
