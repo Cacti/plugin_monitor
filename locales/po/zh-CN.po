@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: monitor on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
 "POT-Creation-Date: 2020-12-28 20:03-0500\n"
-"PO-Revision-Date: 2019-07-26 12:16+0000\n"
+"PO-Revision-Date: 2020-12-28 20:16-0500\n"
 "Last-Translator: tomcat <luis_126@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/monitor/zh-CN/>\n"
-"Language: zh-CN\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -94,13 +94,12 @@ msgid "Large"
 msgstr "大"
 
 #: monitor.php:75
-#, fuzzy
 msgid "Extra Large"
-msgstr "超小"
+msgstr "超大"
 
 #: monitor.php:76
 msgid "Zoom"
-msgstr ""
+msgstr "缩放"
 
 #: monitor.php:80
 msgid "All Monitored"
@@ -124,9 +123,8 @@ msgid "Default"
 msgstr "默认"
 
 #: monitor.php:88 setup.php:534
-#, fuzzy
 msgid "List"
-msgstr "自定义图表列表已应用 - 从列表中过滤"
+msgstr "列表"
 
 #: monitor.php:89 setup.php:535
 msgid "Tiles"
@@ -142,7 +140,7 @@ msgstr "树"
 
 #: monitor.php:96 monitor.php:2012
 msgid "Site"
-msgstr ""
+msgstr "站点"
 
 #: monitor.php:97 setup.php:524
 msgid "Device Template"
@@ -150,67 +148,70 @@ msgstr "设备模板"
 
 #: monitor.php:102
 msgid "Full"
-msgstr ""
+msgstr "满的"
 
 #: monitor.php:103
+#, fuzzy
 msgid "10 Chars"
-msgstr ""
+msgstr "10个字符"
 
 #: monitor.php:104
+#, fuzzy
 msgid "20 Chars"
-msgstr ""
+msgstr "20个字符"
 
 #: monitor.php:105
+#, fuzzy
 msgid "30 Chars"
-msgstr ""
+msgstr "30个字符"
 
 #: monitor.php:106
+#, fuzzy
 msgid "40 Chars"
-msgstr ""
+msgstr "40个字符"
 
 #: monitor.php:107
+#, fuzzy
 msgid "50 Chars"
-msgstr ""
+msgstr "50个字符"
 
 #: monitor.php:108
+#, fuzzy
 msgid "75 Chars"
-msgstr ""
+msgstr "75个字符"
 
 #: monitor.php:109
+#, fuzzy
 msgid "100 Chars"
-msgstr ""
+msgstr "100个字符"
 
 #: monitor.php:224 monitor.php:2024
-#, fuzzy
 msgid "Monitored Devices"
 msgstr "已监控设备"
 
 #: monitor.php:254
-#, fuzzy
 msgid "New Dashboard"
-msgstr "新的仪表盘"
+msgstr "新仪表盘"
 
 #: monitor.php:257
-#, fuzzy
 msgid "Dashboard"
 msgstr "仪表盘"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr ""
+msgstr "输入仪表板名称，然后按“保存”继续，否则按“取消”"
 
 #: monitor.php:259
-#, fuzzy
 msgid "Create New Dashboard"
-msgstr "创建新的仪表盘"
+msgstr "创建新的工作台"
 
 #: monitor.php:413
 #, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "过滤器设置保存"
+msgstr "过滤器设置已保存"
 
 #: monitor.php:450
-#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
@@ -278,14 +279,13 @@ msgstr "上次刷新：%s"
 
 #: monitor.php:759
 msgid "Unsaved"
-msgstr ""
+msgstr "未保存"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "布局"
 
 #: monitor.php:804 monitor.php:2015
-#, fuzzy
 msgid "Status"
 msgstr "状态"
 
@@ -310,9 +310,8 @@ msgid "Save Filter Settings"
 msgstr "保存过滤器设置"
 
 #: monitor.php:815
-#, fuzzy
 msgid "New"
-msgstr "新的"
+msgstr "新"
 
 #: monitor.php:815
 #, fuzzy
@@ -320,7 +319,6 @@ msgid "Save New Dashboard"
 msgstr "保存新的仪表盘"
 
 #: monitor.php:818
-#, fuzzy
 msgid "Rename"
 msgstr "重命名"
 
@@ -359,13 +357,12 @@ msgid "Criticality"
 msgstr "临界"
 
 #: monitor.php:840
-#, fuzzy
 msgid "Size"
 msgstr "大小"
 
 #: monitor.php:844
 msgid "Trim"
-msgstr ""
+msgstr "裁剪"
 
 #: monitor.php:852
 msgid "All Trees"
@@ -376,9 +373,8 @@ msgid "Non-Tree Devices"
 msgstr "非树设备"
 
 #: monitor.php:873
-#, fuzzy
 msgid "All Sites"
-msgstr "所有树"
+msgstr "全部网站"
 
 #: monitor.php:874 monitor.php:1318
 #, fuzzy
@@ -387,20 +383,17 @@ msgstr "非树设备"
 
 #: monitor.php:880
 msgid "Sites"
-msgstr ""
+msgstr "网站"
 
 #: monitor.php:888
-#, fuzzy
 msgid "All Templates"
 msgstr "所有模板"
 
 #: monitor.php:889
-#, fuzzy
 msgid "Non-Templated Devices"
 msgstr "非模板设备"
 
 #: monitor.php:894
-#, fuzzy
 msgid "Template"
 msgstr "模板"
 
@@ -421,24 +414,24 @@ msgid "Reset"
 msgstr "重置"
 
 #: monitor.php:964
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
-msgstr ""
+msgstr "仪表板'%s'已删除。"
 
 #: monitor.php:971
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr ""
+msgstr "仪表板“ %s”不归您所有。"
 
 #: monitor.php:1059
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr ""
+msgstr "仪表板“ %s”已保存！"
 
 #: monitor.php:1062
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
+msgstr "仪表板“ %s”无法保存！"
 
 #: monitor.php:1267 monitor.php:1588
 #, fuzzy
@@ -446,9 +439,8 @@ msgid "Non-Site Device"
 msgstr "非树设备"
 
 #: monitor.php:1562
-#, fuzzy
 msgid "Root Branch"
-msgstr "添加根分支"
+msgstr "根分支"
 
 #: monitor.php:1612
 #, fuzzy, php-format
@@ -456,9 +448,9 @@ msgid "Tree: %s"
 msgstr "放在树上 (%s)"
 
 #: monitor.php:1624
-#, fuzzy, php-format
+#, php-format
 msgid "Branch: %s"
-msgstr "分支：％s"
+msgstr "分支: %s"
 
 #: monitor.php:1802
 msgid "Just Up"
@@ -528,7 +520,6 @@ msgid "Agent Uptime:"
 msgstr "代理运行时间："
 
 #: monitor.php:1967 monitor.php:2083
-#, fuzzy
 msgid "N/A"
 msgstr "N/A"
 
@@ -550,69 +541,57 @@ msgstr "记录："
 
 #: monitor.php:2010 poller_monitor.php:314 poller_monitor.php:479
 #: poller_monitor.php:485 poller_monitor.php:528 poller_monitor.php:534
-#, fuzzy
 msgid "Hostname"
 msgstr "主机名"
 
 #: monitor.php:2010
-#, fuzzy
 msgid "Hostname of device"
 msgstr "设备主机名"
 
 #: monitor.php:2011 poller_monitor.php:313
-#, fuzzy
 msgid "Description"
 msgstr "描述"
 
 #: monitor.php:2014
-#, fuzzy
 msgid "Availability"
-msgstr "可用性："
+msgstr "可用性"
 
 #: monitor.php:2016
-#, fuzzy
 msgid "Length in status"
 msgstr "状态长度"
 
 #: monitor.php:2017
-#, fuzzy
 msgid "Averages"
 msgstr "平均值"
 
 #: monitor.php:2018
-#, fuzzy
 msgid "Warning"
 msgstr "警告"
 
 #: monitor.php:2019
 #, fuzzy
 msgid "Last Fail"
-msgstr "最后失败："
+msgstr "<br>系统 <DESCRIPTION> (<HOSTNAME>) 状态： <DOWN/UP><br><br>当前ping响应：<CUR_TIME> ms<br>系统平均响应： <AVG_TIME> ms<br>系统可用性： <AVAILABILITY><br>自从清除以来的总检查： <TOT_POLL><br>总失败检查： <FAIL_POLL><br>上次检查正常日期： <LAST_FAIL><br>设备先前挂了于：<DOWNTIME><br><br>名称:<br>名称 - <SNMP_HOSTNAME><br>位置- <SNMP_LOCATION><br>正常运行时间 - <UPTIMETEXT> (<UPTIME> ms)<br>系统 - <SNMP_SYSTEM><br><br>注意: <NOTES>"
 
 #: monitor.php:2020
-#, fuzzy
 msgid "Admin"
-msgstr "插件 - > MikroTik管理"
+msgstr "管理员"
 
 #: monitor.php:2021
-#, fuzzy
 msgid "Notes"
 msgstr "注释"
 
 #: monitor.php:2025
-#, fuzzy
 msgid "Devices"
 msgstr "设备"
 
 #: poller_monitor.php:331
-#, fuzzy
 msgid "Description: "
-msgstr "描述"
+msgstr "描述： "
 
 #: poller_monitor.php:332
-#, fuzzy
 msgid "Hostname: "
-msgstr "主机名"
+msgstr "主机名: "
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
@@ -646,9 +625,8 @@ msgstr "以下设备违反了其警报通知阈值。"
 
 #: poller_monitor.php:482 poller_monitor.php:488 poller_monitor.php:531
 #: poller_monitor.php:537
-#, fuzzy
 msgid "Current Ping"
-msgstr "当前到达设备的ping 延迟(以毫秒为单位)."
+msgstr "当前 Ping"
 
 #: poller_monitor.php:520 poller_monitor.php:522
 msgid "The following Devices have breached their Warning Notification Threshold."
@@ -659,7 +637,6 @@ msgid "Any"
 msgstr "所有"
 
 #: setup.php:76 setup.php:642
-#, fuzzy
 msgid "None"
 msgstr "无"
 
@@ -708,9 +685,8 @@ msgid "%d Year"
 msgstr "%d 年"
 
 #: setup.php:418
-#, fuzzy
 msgid "Normal User"
-msgstr "格式化文件以使用"
+msgstr "普通用户"
 
 #: setup.php:421 setup.php:475
 msgid "Monitor Settings"
@@ -743,8 +719,9 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "选中此项可在监视器显示屏上显示图标图例"
 
 #: setup.php:443
+#, fuzzy
 msgid "Show Uptime"
-msgstr ""
+msgstr "显示正常运行时间"
 
 #: setup.php:444
 #, fuzzy
@@ -752,8 +729,9 @@ msgid "Check this to show Uptime on the Monitor display"
 msgstr "选中此项可在监视器显示屏上显示图标图例"
 
 #: setup.php:448
+#, fuzzy
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "放大到错误"
 
 #: setup.php:449 setup.php:459
 #, fuzzy
@@ -761,28 +739,29 @@ msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "选中此项可在监视器显示屏上显示图标图例"
 
 #: setup.php:453
+#, fuzzy
 msgid "Zoom Background"
-msgstr ""
+msgstr "缩放背景"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "监视器显示屏上缩放错误的背景颜色"
 
 #: setup.php:458
+#, fuzzy
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "缩放字体"
 
 #: setup.php:471 setup.php:682 setup.php:684
 msgid "Monitor"
 msgstr "监控"
 
 #: setup.php:480
-#, fuzzy
 msgid "Enable on new devices"
 msgstr "启用新设备"
 
 #: setup.php:481
-#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr "选中此项可在创建新设备时自动启用监视"
 
@@ -819,7 +798,6 @@ msgid "Tiles & Downtime"
 msgstr "图块和停机时间"
 
 #: setup.php:540
-#, fuzzy
 msgid "Notification Report Format"
 msgstr "通知报表格式"
 
@@ -828,14 +806,12 @@ msgid "Format File to Use"
 msgstr "格式化文件以使用"
 
 #: setup.php:548
-#, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr ""
-"选择要使用的自定义html包装器和CSS文件。 此文件包含html和CSS以环绕您的报告。\n"
-"\t\t如果它包含的不仅仅是CSS，则需要在文件中放置一个特殊的<REPORT>标记。 这个格式标签将被报告内容替换。 这些文件位于“格式”目录中。"
+"择要使用的自定义html包装器和CSS文件. 该文件包含html和CSS.以包装您的报告.如果它包含的不仅仅是CSS.你需要在文件中放置一个特殊的<REPORT>标签.此格式标签将被报告内容替换.\n"
+"这些文件位于'formats'目录."
 
 #: setup.php:552
-#, fuzzy
 msgid "Ping Threshold Notifications"
 msgstr "Ping 阈值通知"
 
@@ -860,7 +836,6 @@ msgid "How Often to Resend Emails"
 msgstr "多久重新发送电子邮件"
 
 #: setup.php:572
-#, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr "如果电子邮件通知超过其延迟阈值，则应将电子邮件通知发送给这些主机的订阅者"
 
@@ -883,77 +858,62 @@ msgid "Every %d Hours"
 msgstr "每隔%d小时"
 
 #: setup.php:585
-#, fuzzy
 msgid "Reboot Notifications"
 msgstr "重新启动通知"
 
 #: setup.php:590
-#, fuzzy
 msgid "Send Reboot Notifications"
 msgstr "发送重新启动通知"
 
 #: setup.php:592
-#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "设备重新启动通知是否被发送给用户?"
 
 #: setup.php:596
-#, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "包含阈值警报列表"
 
 #: setup.php:598
-#, fuzzy
 msgid "Should Threshold Alert Lists also receive notification"
 msgstr "阈值警报列表是否也收到通知"
 
 #: setup.php:602
-#, fuzzy
 msgid "Subject"
 msgstr "主题"
 
 #: setup.php:603
-#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Nofication."
 msgstr "为重新启动通知输入重新启动消息标题."
 
 #: setup.php:605
-#, fuzzy
 msgid "Cacti Device Reboot Nofication"
 msgstr "Cacti 设备重新启动通知"
 
 #: setup.php:610
-#, fuzzy
 msgid "Email Body"
 msgstr "邮件正文"
 
 #: setup.php:611
-#, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr "输入要包含在重新引导通知消息中的电子邮件正文. 目前, 唯一支持的替换标签是接受的 &#060;DETAILS&#062;"
 
 #: setup.php:615
-#, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr "<h1>监控重启通知</h1><p>以下设备已重启。 有关其他信息，请参阅下面的详细信息.</p><br><DETAILS>"
 
 #: setup.php:618
-#, fuzzy
 msgid "Notification Email Addresses"
 msgstr "通知邮件地址"
 
 #: setup.php:623
-#, fuzzy
 msgid "From Name"
 msgstr "发件人"
 
 #: setup.php:624
-#, fuzzy
 msgid "Enter the Email Name to send the notifications form"
 msgstr "输入电子邮件名称以发送通知表单"
 
 #: setup.php:630
-#, fuzzy
 msgid "From Address"
 msgstr "来自地址"
 
@@ -963,22 +923,18 @@ msgid "Enter the Email Address to send the notification from"
 msgstr "输入电子邮件地址以发送通知"
 
 #: setup.php:637
-#, fuzzy
 msgid "Notification List"
 msgstr "通知列表"
 
 #: setup.php:638
-#, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr "选择下面的通知列表. 订阅通知列表的所有电子邮件将被通知."
 
 #: setup.php:645
-#, fuzzy
 msgid "Email Addresses"
 msgstr "电子邮件地址"
 
 #: setup.php:646
-#, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr "输入以逗号分隔的电子邮件地址列表，以通知重新启动事件."
 
@@ -1023,7 +979,6 @@ msgid "If the round-trip latency via any of the predefined Cacti ping methods ra
 msgstr "如果通过任何预定义的Cacti ping方法的往返延迟超过此阈值，请根据设备严重性和监视器设置记录警告或发送电子邮件。 单位以毫秒为单位。 设置为0禁用。 Thold插件需要利用此功能。"
 
 #: setup.php:749 setup.php:759
-#, fuzzy
 msgid "milliseconds"
 msgstr "毫秒"
 
