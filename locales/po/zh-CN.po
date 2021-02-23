@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: monitor on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-28 20:03-0500\n"
+"POT-Creation-Date: 2021-02-23 07:41-0500\n"
 "PO-Revision-Date: 2020-12-28 20:16-0500\n"
 "Last-Translator: tomcat <luis_126@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/monitor/zh-CN/>\n"
@@ -874,7 +874,9 @@ msgid "Include Threshold Alert Lists"
 msgstr "包含阈值警报列表"
 
 #: setup.php:598
-msgid "Should Threshold Alert Lists also receive notification"
+#, fuzzy
+#| msgid "Should Threshold Alert Lists also receive notification"
+msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "阈值警报列表是否也收到通知"
 
 #: setup.php:602
@@ -882,11 +884,15 @@ msgid "Subject"
 msgstr "主题"
 
 #: setup.php:603
-msgid "Enter a Reboot message subject for the Reboot Nofication."
+#, fuzzy
+#| msgid "Enter a Reboot message subject for the Reboot Nofication."
+msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "为重新启动通知输入重新启动消息标题."
 
 #: setup.php:605
-msgid "Cacti Device Reboot Nofication"
+#, fuzzy
+#| msgid "Cacti Device Reboot Nofication"
+msgid "Cacti Device Reboot Notification"
 msgstr "Cacti 设备重新启动通知"
 
 #: setup.php:610
