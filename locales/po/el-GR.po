@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-28 20:03-0500\n"
+"POT-Creation-Date: 2021-02-23 07:41-0500\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -951,7 +951,7 @@ msgstr "Συμπεριλάβετε λίστες ειδοποιήσεων κατ�
 
 #: setup.php:598
 #, fuzzy
-msgid "Should Threshold Alert Lists also receive notification"
+msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "Πρέπει επίσης να ειδοποιούνται οι λίστες ειδοποιήσεων κατωφλίου"
 
 #: setup.php:602
@@ -960,12 +960,12 @@ msgstr "Θέμα"
 
 #: setup.php:603
 #, fuzzy
-msgid "Enter a Reboot message subject for the Reboot Nofication."
+msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "Καταχωρίστε ένα θέμα μηνύματος επανεκκίνησης για την ειδοποίηση επανεκκίνησης."
 
 #: setup.php:605
 #, fuzzy
-msgid "Cacti Device Reboot Nofication"
+msgid "Cacti Device Reboot Notification"
 msgstr "Αναφορά επανεκκίνησης συσκευής Cacti"
 
 #: setup.php:610
