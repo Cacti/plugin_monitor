@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-28 20:03-0500\n"
+"POT-Creation-Date: 2021-02-23 07:41-0500\n"
 "PO-Revision-Date: 2020-12-28 20:14-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -948,7 +948,7 @@ msgstr "Включить пороговые списки предупрежде�
 
 #: setup.php:598
 #, fuzzy
-msgid "Should Threshold Alert Lists also receive notification"
+msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "Если пороговые списки уведомлений также получат уведомление."
 
 #: setup.php:602
@@ -957,12 +957,12 @@ msgstr "Тема"
 
 #: setup.php:603
 #, fuzzy
-msgid "Enter a Reboot message subject for the Reboot Nofication."
+msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "Введите тему сообщения Перезагрузки для параметра Перезагрузка Nofication."
 
 #: setup.php:605
 #, fuzzy
-msgid "Cacti Device Reboot Nofication"
+msgid "Cacti Device Reboot Notification"
 msgstr "Перезагрузка устройства Cacti Перезагрузка Nofication"
 
 #: setup.php:610
