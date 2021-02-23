@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-28 20:03-0500\n"
+"POT-Creation-Date: 2021-02-23 07:41-0500\n"
 "PO-Revision-Date: 2020-12-28 20:16-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -945,7 +945,7 @@ msgstr "包括閾值警報列表"
 
 #: setup.php:598
 #, fuzzy
-msgid "Should Threshold Alert Lists also receive notification"
+msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "閾值警報列表是否也會收到通知"
 
 #: setup.php:602
@@ -954,12 +954,12 @@ msgstr "主旨"
 
 #: setup.php:603
 #, fuzzy
-msgid "Enter a Reboot message subject for the Reboot Nofication."
+msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "輸入Reboot Nofication的Reboot消息主題。"
 
 #: setup.php:605
 #, fuzzy
-msgid "Cacti Device Reboot Nofication"
+msgid "Cacti Device Reboot Notification"
 msgstr "仙人掌設備重啟Nofication"
 
 #: setup.php:610
