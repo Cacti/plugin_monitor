@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-28 20:03-0500\n"
+"POT-Creation-Date: 2021-02-23 07:41-0500\n"
 "PO-Revision-Date: 2020-12-28 20:53-0500\n"
 "Last-Translator: Javier Pobeda <javier.pobeda@pm.me>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/monitor/es-ES/>\n"
@@ -881,7 +881,7 @@ msgstr "Incluir Listas de Alerta de Umbral"
 
 #: setup.php:598
 #, fuzzy
-msgid "Should Threshold Alert Lists also receive notification"
+msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "En caso de que las listas de alerta de umbral también reciban notificación"
 
 #: setup.php:602
@@ -890,12 +890,12 @@ msgstr "Asunto"
 
 #: setup.php:603
 #, fuzzy
-msgid "Enter a Reboot message subject for the Reboot Nofication."
+msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "Introduzca un asunto del mensaje de reinicio para la noficación de reinicio."
 
 #: setup.php:605
 #, fuzzy
-msgid "Cacti Device Reboot Nofication"
+msgid "Cacti Device Reboot Notification"
 msgstr "Noficación de reinicio de dispositivos Cacti"
 
 #: setup.php:610
