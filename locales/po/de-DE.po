@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-28 20:03-0500\n"
+"POT-Creation-Date: 2021-02-23 07:41-0500\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: Larry Adams <larryjadams@comcast.net>\n"
 "Language-Team: German <http://translate.cacti.net/projects/cacti/monitor/de-DE/>\n"
@@ -945,7 +945,7 @@ msgstr "Schwellenwert-Warnlisten einbinden"
 
 #: setup.php:598
 #, fuzzy
-msgid "Should Threshold Alert Lists also receive notification"
+msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "Sollten Schwellenwert-Warnlisten auch Benachrichtigung erhalten"
 
 #: setup.php:602
@@ -954,12 +954,12 @@ msgstr "Betreff"
 
 #: setup.php:603
 #, fuzzy
-msgid "Enter a Reboot message subject for the Reboot Nofication."
+msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "Geben Sie einen Reboot-Meldungsbetreff für die Reboot Nofication ein."
 
 #: setup.php:605
 #, fuzzy
-msgid "Cacti Device Reboot Nofication"
+msgid "Cacti Device Reboot Notification"
 msgstr "Kakteengerät Neustart der Nofikation"
 
 #: setup.php:610
