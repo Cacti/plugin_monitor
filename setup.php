@@ -1,7 +1,7 @@
 <?php
 /*
  +-------------------------------------------------------------------------+
- | Copyright (C) 2008-2020 The Cacti Group                                 |
+ | Copyright (C) 2008-2021 The Cacti Group                                 |
  |                                                                         |
  | This program is free software; you can redistribute it and/or           |
  | modify it under the terms of the GNU General Public License             |
@@ -595,14 +595,14 @@ function monitor_config_settings() {
 		'monitor_reboot_thold' => array(
 			'friendly_name' => __('Include Threshold Alert Lists', 'monitor'),
 			'method' => 'checkbox',
-			'description' => __('Should Threshold Alert Lists also receive notification', 'monitor'),
+			'description' => __('Should Threshold Alert Lists also receive Notification', 'monitor'),
 			'default' => 'on',
 		),
 		'monitor_subject' => array(
 			'friendly_name' => __('Subject', 'monitor'),
-			'description' => __('Enter a Reboot message subject for the Reboot Nofication.', 'monitor'),
+			'description' => __('Enter a Reboot message subject for the Reboot Notification.', 'monitor'),
 			'method' => 'textbox',
-			'default' => __('Cacti Device Reboot Nofication', 'monitor'),
+			'default' => __('Cacti Device Reboot Notification', 'monitor'),
 			'size' => 60,
 			'max_length' => 60
 		),

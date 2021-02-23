@@ -2,6 +2,7 @@
 
 --- 2.5 ---
 
+* issue#140: Spelling Error in Reboot Email Subject
 * issue: Unset variable warnings causing emails to be sent to Cacti admin
 
 --- 2.4 ---

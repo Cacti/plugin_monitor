@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2020-12-28 20:03-0500\n"
+"POT-Creation-Date: 2021-02-23 07:41-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -836,7 +836,7 @@ msgid "Include Threshold Alert Lists"
 msgstr ""
 
 #: setup.php:598
-msgid "Should Threshold Alert Lists also receive notification"
+msgid "Should Threshold Alert Lists also receive Notification"
 msgstr ""
 
 #: setup.php:602
@@ -844,11 +844,11 @@ msgid "Subject"
 msgstr ""
 
 #: setup.php:603
-msgid "Enter a Reboot message subject for the Reboot Nofication."
+msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr ""
 
 #: setup.php:605
-msgid "Cacti Device Reboot Nofication"
+msgid "Cacti Device Reboot Notification"
 msgstr ""
 
 #: setup.php:610
