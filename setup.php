@@ -116,8 +116,7 @@ function monitor_device_table_bottom() {
 		strURL += '&poller_id=' + $('#poller_id').val();
 		strURL += '&location=' + $('#location').val();
 		strURL += '&rows=' + $('#rows').val();
-		strURL += '&filter=' + $('#filter').val();
-		strURL += '&page=' + $('#page').val();
+		strURL += '&filter=' + escape($('#filter').val());
 		strURL += '&header=false';
 		loadPageNoHeader(strURL);
 	};
