@@ -368,7 +368,8 @@ function draw_page() {
 		$('.fa-server, .fa-first-order').unbind();
 
 		if (action != 'dashboard') {
-			strURL  = 'monitor.php?header=false';
+			var strURL  = 'monitor.php?header=false';
+
 			if (action >= '') {
 				strURL += '&action='+action;
 			}
@@ -394,22 +395,26 @@ function draw_page() {
 	}
 
 	function saveFilter() {
-		url = 'monitor.php?action=save&header=false' +
-			'&dashboard=' + $('#dashboard').val() +
-			'&refresh='   + $('#refresh').val() +
-			'&grouping='  + $('#grouping').val() +
-			'&tree='      + $('#tree').val() +
-			'&site='      + $('#site').val() +
-			'&template='  + $('#template').val() +
-			'&view='      + $('#view').val() +
-			'&crit='      + $('#crit').val() +
-			'&rfilter='   + base64_encode($('#rfilter').val()) +
-			'&trim='      + $('#trim').val() +
-			'&size='      + $('#size').val() +
-			'&trim='      + $('#trim').val() +
-			'&status='    + $('#status').val();
+		var url = 'monitor.php?action=save&header=false';
 
-		$.get(url, function(data) {
+		var post = {
+			dashboard: $('#dashboard').val(),
+			refresh: $('#refresh').val(),
+			grouping: $('#grouping').val(),
+			tree: $('#tree').val(),
+			site: $('#site').val(),
+			template: $('#template').val(),
+			view: $('#view').val(),
+			crit: $('#crit').val(),
+			rfilter: base64_encode($('#rfilter').val()),
+			trim: $('#trim').val(),
+			size: $('#size').val(),
+			trim: $('#trim').val(),
+			status: $('#status').val(),
+			__csrf_magic: csrfMagicToken
+		};
+
+		$.post(url, post).done(function(data) {
 			$('#text').show().text('<?php print __(' [ Filter Settings Saved ]', 'monitor');?>').fadeOut(2000);
 		});
 	}

@@ -1,5 +1,9 @@
 ## Changelog
 
+-- develop ---
+
+* issue#139: WEBUI WARNING: Attempt to use GET method for POST operations
+
 --- 2.5 ---
 
 * issue#140: Spelling Error in Reboot Email Subject
