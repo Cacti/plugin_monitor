@@ -293,62 +293,66 @@ function monitor_device_remove($devices) {
 function monitor_device_action_prepare($save) {
 	global $host_list, $fields_host_edit;
 
-	$action = $save['drp_action'];
-
-	if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
+	if (!isset($save['drp_action']) {
 		return $save;
-	}
+	} else {
+		$action = $save['drp_action'];
 
-	if ($action == 'monitor_enable' || $action == 'monitor_disable') {
-		if ($action == 'monitor_enable') {
-			$action_description = 'enable';
-		} else if ($action == 'monitor_disable') {
-			$action_description = 'disable';
+		if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
+			return $save;
 		}
 
-		print "<tr>
-			<td colspan='2' class='even'>
-				<p>" . __('Click \'Continue\' to %s monitoring on these Device(s)', $action_description, 'monitor') . "</p>
-				<p><div class='itemlist'><ul>" . $save['host_list'] . "</ul></div></p>
-			</td>
-		</tr>";
-	} else {
-		print "<tr>
-			<td colspan='2' class='even'>
-				<p>" . __('Click \'Continue\' to Change the Monitoring settings for the following Device(s). Remember to check \'Update this Field\' to indicate which columns to update.', 'monitor') . "</p>
-				<p><div class='itemlist'><ul>" . $save['host_list'] . "</ul></div></p>
-			</td>
-		</tr>";
+		if ($action == 'monitor_enable' || $action == 'monitor_disable') {
+			if ($action == 'monitor_enable') {
+				$action_description = 'enable';
+			} else if ($action == 'monitor_disable') {
+				$action_description = 'disable';
+			}
 
-		$form_array = array();
-		$fields = array(
-			'monitor',
-			'monitor_text',
-			'monitor_criticality',
-			'monitor_warn',
-			'monitor_alert',
-			'monitor_warn_baseline',
-			'monitor_alert_baseline'
-		);
+			print "<tr>
+				<td colspan='2' class='even'>
+					<p>" . __('Click \'Continue\' to %s monitoring on these Device(s)', $action_description, 'monitor') . "</p>
+					<p><div class='itemlist'><ul>" . $save['host_list'] . "</ul></div></p>
+				</td>
+			</tr>";
+		} else {
+			print "<tr>
+				<td colspan='2' class='even'>
+					<p>" . __('Click \'Continue\' to Change the Monitoring settings for the following Device(s). Remember to check \'Update this Field\' to indicate which columns to update.', 'monitor') . "</p>
+					<p><div class='itemlist'><ul>" . $save['host_list'] . "</ul></div></p>
+				</td>
+			</tr>";
 
-		foreach($fields as $field) {
-			$form_array += array($field => $fields_host_edit[$field]);
+			$form_array = array();
+			$fields = array(
+				'monitor',
+				'monitor_text',
+				'monitor_criticality',
+				'monitor_warn',
+				'monitor_alert',
+				'monitor_warn_baseline',
+				'monitor_alert_baseline'
+			);
 
-			$form_array[$field]['value'] = '';
-			$form_array[$field]['form_id'] = 0;
-			$form_array[$field]['sub_checkbox'] = array(
-				'name' => 't_' . $field,
-				'friendly_name' => __('Update this Field', 'monitor'),
-				'value' => ''
+			foreach($fields as $field) {
+				$form_array += array($field => $fields_host_edit[$field]);
+
+				$form_array[$field]['value'] = '';
+				$form_array[$field]['form_id'] = 0;
+				$form_array[$field]['sub_checkbox'] = array(
+					'name' => 't_' . $field,
+					'friendly_name' => __('Update this Field', 'monitor'),
+					'value' => ''
+				);
+			}
+
+			draw_edit_form(
+				array(
+					'config' => array('no_form_tag' => true),
+					'fields' => $form_array
+				)
 			);
 		}
-
-		draw_edit_form(
-			array(
-				'config' => array('no_form_tag' => true),
-				'fields' => $form_array
-			)
-		);
 	}
 }
 

@@ -3,6 +3,7 @@
 -- develop ---
 
 * issue#139: WEBUI WARNING: Attempt to use GET method for POST operations
+* issue#142: Monitor generates PHP Backtrace Errors
 
 --- 2.5 ---
 
