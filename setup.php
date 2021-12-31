@@ -293,7 +293,7 @@ function monitor_device_remove($devices) {
 function monitor_device_action_prepare($save) {
 	global $host_list, $fields_host_edit;
 
-	if (!isset($save['drp_action']) {
+	if (!isset($save['drp_action'])) {
 		return $save;
 	} else {
 		$action = $save['drp_action'];
