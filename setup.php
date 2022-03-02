@@ -116,7 +116,7 @@ function monitor_device_table_bottom() {
 		strURL += '&poller_id=' + $('#poller_id').val();
 		strURL += '&location=' + $('#location').val();
 		strURL += '&rows=' + $('#rows').val();
-		strURL += '&filter=' + escape($('#filter').val());
+		strURL += '&filter=' + $('#filter').val();
 		strURL += '&header=false';
 		loadPageNoHeader(strURL);
 	};
@@ -147,22 +147,9 @@ function plugin_monitor_check_config() {
 
 	include_once($config['library_path'] . '/database.php');
 	$r = read_config_option('monitor_refresh');
-	$result = db_fetch_assoc("SELECT * FROM settings WHERE name='monitor_refresh'");
-	if (!isset($result[0]['name'])) {
-		$r = NULL;
-	}
 
-	if ($r == '' or $r < 1 or $r > 300) {
-		if ($r == '') {
-			$sql = "REPLACE INTO settings VALUES ('monitor_refresh','300')";
-		} else if ($r == NULL) {
-			$sql = "INSERT INTO settings VALUES ('monitor_refresh','300')";
-		} else {
-			$sql = "UPDATE settings SET value = '300' WHERE name = 'monitor_refresh'";
-		}
-
-		$result = db_execute($sql);
-		kill_session_var('sess_config_array');
+	if ($r == '' || $r < 1 || $r > 300) {
+		set_config_var('monitor_refresh', '300');
 	}
 
 	return true;
@@ -730,8 +717,8 @@ function monitor_config_form() {
 				'form_id' => false
 			);
 
-			$host_id = form_input_validate(get_nfilter_request_var('id'), 'id', 0, true, 3);
-			if (!($host_id > 0)) {
+			$host_id = get_nfilter_request_var('id');
+			if (empty($host_id) || !is_numeric($host_id)) {
 				$fields_host_edit3['monitor']['default'] = monitor_get_default($host_id);
 			}
 
