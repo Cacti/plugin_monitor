@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2021-07-23 11:47+0000\nLast-Translator: Sergey <sbolshagin@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/monitor/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.3.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-03-31 15:49+0000\nLast-Translator: Anatoliy <hamrad99h2@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/monitor/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -352,7 +352,7 @@ msgstr "%s Предупреждения для неработающих устр
 
 #: monitor.php:834
 msgid "Search"
-msgstr "Найти"
+msgstr "Поиск"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
