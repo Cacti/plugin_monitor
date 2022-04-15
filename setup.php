@@ -149,7 +149,7 @@ function plugin_monitor_check_config() {
 	$r = read_config_option('monitor_refresh');
 
 	if ($r == '' || $r < 1 || $r > 300) {
-		set_config_var('monitor_refresh', '300');
+		set_config_option('monitor_refresh', '300');
 	}
 
 	return true;
@@ -371,11 +371,15 @@ function monitor_scan_dir() {
 }
 
 function monitor_config_settings() {
-	global $tabs, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
+	global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
 	include_once($config['base_path'] . '/lib/reports.php');
 
-	$formats = reports_get_format_files();
+	if (get_nfilter_request_var('tab') == 'monitor') {
+		$formats = reports_get_format_files();
+	} elseif (empty($formats)) {
+		$formats = array();
+	}
 
 	$criticalities = array(
 		0 => __('Disabled', 'monitor'),
