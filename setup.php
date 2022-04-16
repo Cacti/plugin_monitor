@@ -48,6 +48,10 @@ function plugin_monitor_install() {
 
 	api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring Dashboard', 1);
 
+	set_config_option('monitor_view', 'default');
+	set_config_option('monitor_grouping', 'default');
+	set_config_option('monitor_trim', '4000');
+
 	monitor_setup_table();
 }
 

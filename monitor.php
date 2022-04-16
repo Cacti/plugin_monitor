@@ -1105,12 +1105,12 @@ function validate_request_vars($force = false) {
 		'grouping' => array(
 			'filter' => FILTER_CALLBACK,
 			'options' => array('options' => 'sanitize_search_string'),
-			'default' => read_user_setting('monitor_grouping', read_config_option('monitor_grouping', 'default'), $force)
+			'default' => read_user_setting('monitor_grouping', read_config_option('monitor_grouping'), $force)
 		),
 		'view' => array(
 			'filter' => FILTER_CALLBACK,
 			'options' => array('options' => 'sanitize_search_string'),
-			'default' => read_user_setting('monitor_view', read_config_option('monitor_view', 'default'), $force)
+			'default' => read_user_setting('monitor_view', read_config_option('monitor_view'), $force)
 		),
 		'size' => array(
 			'filter' => FILTER_CALLBACK,
@@ -1119,7 +1119,7 @@ function validate_request_vars($force = false) {
 		),
 		'trim' => array(
 			'filter' => FILTER_VALIDATE_INT,
-			'default' => read_user_setting('monitor_trim', read_config_option('monitor_trim', '4000'), $force)
+			'default' => read_user_setting('monitor_trim', read_config_option('monitor_trim'), $force)
 		),
 		'crit' => array(
 			'filter' => FILTER_VALIDATE_INT,
