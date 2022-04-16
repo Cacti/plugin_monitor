@@ -120,7 +120,7 @@ if (!isset($_SESSION['monitor_muted_hosts'])) {
 	$_SESSION['monitor_muted_hosts'] = array();
 }
 
-validate_request_vars(true);
+validate_request_vars();
 
 $thold_hosts = check_tholds();
 
@@ -408,6 +408,7 @@ function draw_page() {
 			crit: $('#crit').val(),
 			rfilter: base64_encode($('#rfilter').val()),
 			trim: $('#trim').val(),
+			mute: $('#mute').val(),
 			size: $('#size').val(),
 			trim: $('#trim').val(),
 			status: $('#status').val(),
@@ -421,12 +422,12 @@ function draw_page() {
 
 	function saveNewDashboard(action) {
 		if (action == 'new') {
-			dashboard = '-1';
+			var dashboard = '-1';
 		} else {
-			dashboard = $('#dashboard').val();
+			var dashboard = $('#dashboard').val();
 		}
 
-		url = 'monitor.php?action=saveDb&header=false' +
+		var url = 'monitor.php?action=saveDb&header=false' +
 			'&dashboard=' + dashboard +
 			'&name='      + $('#name').val() +
 			'&refresh='   + $('#refresh').val() +
@@ -439,6 +440,7 @@ function draw_page() {
 			'&rfilter='   + base64_encode($('#rfilter').val()) +
 			'&trim='      + $('#trim').val() +
 			'&size='      + $('#size').val() +
+			'&mute='      + $('#mute').val() +
 			'&status='    + $('#status').val();
 
 		loadPageNoHeader(url);
@@ -643,7 +645,7 @@ function unmute_all_hosts() {
 
 function mute_user() {
 	set_request_var('mute', 'true');
-	set_user_setting('monitor_mute','true');
+	set_user_setting('monitor_mute', 'true');
 }
 
 function unmute_user() {
@@ -1025,6 +1027,9 @@ function save_settings() {
 				case 'tree':
 					set_user_setting('monitor_tree', get_request_var('tree'));
 					break;
+				case 'mute':
+					set_user_setting('monitor_mute', get_request_var('mute'));
+					break;
 				case 'site':
 					set_user_setting('monitor_site', get_request_var('site'));
 					break;
@@ -1100,12 +1105,12 @@ function validate_request_vars($force = false) {
 		'grouping' => array(
 			'filter' => FILTER_CALLBACK,
 			'options' => array('options' => 'sanitize_search_string'),
-			'default' => read_user_setting('monitor_grouping', read_config_option('monitor_grouping'), $force)
+			'default' => read_user_setting('monitor_grouping', read_config_option('monitor_grouping', 'default'), $force)
 		),
 		'view' => array(
 			'filter' => FILTER_CALLBACK,
 			'options' => array('options' => 'sanitize_search_string'),
-			'default' => read_user_setting('monitor_view', read_config_option('monitor_view'), $force)
+			'default' => read_user_setting('monitor_view', read_config_option('monitor_view', 'default'), $force)
 		),
 		'size' => array(
 			'filter' => FILTER_CALLBACK,
@@ -1114,7 +1119,7 @@ function validate_request_vars($force = false) {
 		),
 		'trim' => array(
 			'filter' => FILTER_VALIDATE_INT,
-			'default' => read_user_setting('monitor_trim', read_config_option('monitor_trim'), $force)
+			'default' => read_user_setting('monitor_trim', read_config_option('monitor_trim', '4000'), $force)
 		),
 		'crit' => array(
 			'filter' => FILTER_VALIDATE_INT,
