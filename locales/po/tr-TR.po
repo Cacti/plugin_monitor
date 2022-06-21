@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-06-11 03:50+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/monitor/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-06-21 02:59+0000\nLast-Translator: San IPE <sanipe1949@krunsea.com>\nLanguage-Team: Turkish <http://translate.cacti.net/projects/cacti/monitor/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -354,7 +354,7 @@ msgstr "Düşen Aygıtlar için %s Uyarıları"
 
 #: monitor.php:834
 msgid "Search"
-msgstr "Arama"
+msgstr "Ara"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
@@ -704,19 +704,19 @@ msgid "Indefinately"
 msgstr "indefinately"
 
 #: setup.php:400
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d Ay"
+msgstr "%d Ay"
 
 #: setup.php:401 setup.php:402 setup.php:403 setup.php:404
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d Ay"
+msgstr "%d Ay"
 
 #: setup.php:405
 #, php-format
 msgid "%d Year"
-msgstr "%d yıl"
+msgstr "%d Yıl"
 
 #: setup.php:418
 msgid "Normal User"
