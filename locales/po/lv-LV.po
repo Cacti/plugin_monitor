@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: lv\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-06-27 13:12+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
-msgstr ""
+msgstr "Atspējots"
 
 #: monitor.php:38 poller_monitor.php:394 setup.php:77 setup.php:392
 msgid "Low"
@@ -29,23 +29,25 @@ msgstr ""
 
 #: monitor.php:58 monitor.php:1708
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 #: monitor.php:59
+#, fuzzy
 msgid "Down"
-msgstr ""
+msgstr "Uz leju"
 
 #: monitor.php:60
 msgid "Recovering"
-msgstr ""
+msgstr "Atgūstas"
 
 #: monitor.php:61
+#, fuzzy
 msgid "Up"
-msgstr ""
+msgstr "Uz augšu"
 
 #: monitor.php:62
 msgid "Triggered"
-msgstr ""
+msgstr "Palaists"
 
 #: monitor.php:63
 msgid "Triggered (Muted/Acked)"
@@ -106,31 +108,31 @@ msgstr ""
 
 #: monitor.php:87 monitor.php:94 monitor.php:101 setup.php:521 setup.php:533
 msgid "Default"
-msgstr ""
+msgstr "Noklusējuma"
 
 #: monitor.php:88 setup.php:534
 msgid "List"
-msgstr ""
+msgstr "Saraksts"
 
 #: monitor.php:89 setup.php:535
 msgid "Tiles"
-msgstr ""
+msgstr "Flīzes"
 
 #: monitor.php:90
 msgid "Tiles & Time"
-msgstr ""
+msgstr "Flīzes un laiks"
 
 #: monitor.php:95 monitor.php:859 setup.php:523
 msgid "Tree"
-msgstr ""
+msgstr "Koks"
 
 #: monitor.php:96 monitor.php:2012
 msgid "Site"
-msgstr ""
+msgstr "Vietne"
 
 #: monitor.php:97 setup.php:524
 msgid "Device Template"
-msgstr ""
+msgstr "Ierīces veidne"
 
 #: monitor.php:102
 msgid "Full"
@@ -138,43 +140,45 @@ msgstr ""
 
 #: monitor.php:103
 msgid "10 Chars"
-msgstr ""
+msgstr "10 rakstzīmes"
 
 #: monitor.php:104
 msgid "20 Chars"
-msgstr ""
+msgstr "20 rakstzīmes"
 
 #: monitor.php:105
 msgid "30 Chars"
-msgstr ""
+msgstr "30 rakstzīmes"
 
 #: monitor.php:106
 msgid "40 Chars"
-msgstr ""
+msgstr "40 rakstzīmes"
 
 #: monitor.php:107
 msgid "50 Chars"
-msgstr ""
+msgstr "50 rakstzīmes"
 
 #: monitor.php:108
 msgid "75 Chars"
-msgstr ""
+msgstr "75 rakstzīmes"
 
 #: monitor.php:109
 msgid "100 Chars"
-msgstr ""
+msgstr "100 rakstzīmes"
 
 #: monitor.php:224 monitor.php:2024
 msgid "Monitored Devices"
 msgstr ""
 
 #: monitor.php:254
+#, fuzzy
 msgid "New Dashboard"
-msgstr ""
+msgstr "Jauns informācijas (vadības?) panelis"
 
 #: monitor.php:257
+#, fuzzy
 msgid "Dashboard"
-msgstr ""
+msgstr "Informācijas (vadības, mērinstrumentu?) panelis"
 
 #: monitor.php:257
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
@@ -186,31 +190,34 @@ msgstr ""
 
 #: monitor.php:413
 msgid " [ Filter Settings Saved ]"
-msgstr ""
+msgstr " [ Filtra iestatījumi saglabāti ]"
 
 #: monitor.php:450
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 #: monitor.php:457 monitor.php:813
 msgid "Save"
-msgstr ""
+msgstr "Saglabāt"
 
 #: monitor.php:682
 msgid "All Monitored Devices"
 msgstr ""
 
 #: monitor.php:685
+#, fuzzy
 msgid "Monitored Devices either Down or Recovering"
-msgstr ""
+msgstr "Uzraudzītās ierīces vai nu nedarbojas, vai atkopjas"
 
 #: monitor.php:688
+#, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr ""
+msgstr "Uzraudzītās ierīces vai nu uz leju, atkopjas vai ar aktivizētiem sliekšņiem"
 
 #: monitor.php:691
+#, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr ""
+msgstr "Uzraudzītās ierīces, kas darbojas vai nu nedarbojas, atkopjas, vai ar pārkāptiem vai iedarbinātiem sliekšņiem"
 
 #: monitor.php:694
 #, php-format
@@ -244,7 +251,7 @@ msgstr ""
 #: monitor.php:748
 #, php-format
 msgid " [ Refresh Again in <i id=\"timer\">%d</i> Seconds ]"
-msgstr ""
+msgstr " [ Atsvaidzināt vēlreiz pēc <i id=\"timer\">%d</i> sekundēm ]"
 
 #: monitor.php:748
 #, php-format
@@ -253,39 +260,40 @@ msgstr ""
 
 #: monitor.php:759
 msgid "Unsaved"
-msgstr ""
+msgstr "Nesaglabāts"
 
 #: monitor.php:803
 msgid "Layout"
-msgstr ""
+msgstr "Izkārtojums"
 
 #: monitor.php:804 monitor.php:2015
 msgid "Status"
-msgstr ""
+msgstr "Statuss"
 
 #: monitor.php:805 setup.php:528
+#, fuzzy
 msgid "View"
-msgstr ""
+msgstr "Skats (Skatīt?)"
 
 #: monitor.php:806 setup.php:516
 msgid "Grouping"
-msgstr ""
+msgstr "Grupēšana"
 
 #: monitor.php:811 monitor.php:897
 msgid "Refresh"
-msgstr ""
+msgstr "Atsvaidzināt"
 
 #: monitor.php:811
 msgid "Refresh the Device List"
-msgstr ""
+msgstr "Atsvaidzināt ierīču sarakstu"
 
 #: monitor.php:813
 msgid "Save Filter Settings"
-msgstr ""
+msgstr "Saglabāt filtra iestatījumus"
 
 #: monitor.php:815
 msgid "New"
-msgstr ""
+msgstr "Jauns"
 
 #: monitor.php:815
 msgid "Save New Dashboard"
@@ -293,19 +301,21 @@ msgstr ""
 
 #: monitor.php:818
 msgid "Rename"
-msgstr ""
+msgstr "Pārdēvēt"
 
 #: monitor.php:818
+#, fuzzy
 msgid "Rename Dashboard"
-msgstr ""
+msgstr "Pārdēvēt informācijas (vadības?) paneli"
 
 #: monitor.php:822
 msgid "Delete"
-msgstr ""
+msgstr "Dzēst"
 
 #: monitor.php:822
+#, fuzzy
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "Dzēst informācijas (vadības?) paneli"
 
 #: monitor.php:825
 #, php-format
@@ -319,7 +329,7 @@ msgstr ""
 
 #: monitor.php:834
 msgid "Search"
-msgstr ""
+msgstr "Meklēt"
 
 #: monitor.php:837 monitor.php:2013 poller_monitor.php:480
 #: poller_monitor.php:486 poller_monitor.php:529 poller_monitor.php:535
@@ -329,15 +339,15 @@ msgstr ""
 
 #: monitor.php:840
 msgid "Size"
-msgstr ""
+msgstr "Izmērs"
 
 #: monitor.php:844
 msgid "Trim"
-msgstr ""
+msgstr "Apgriezt"
 
 #: monitor.php:852
 msgid "All Trees"
-msgstr ""
+msgstr "Visi koki"
 
 #: monitor.php:853 monitor.php:1659
 msgid "Non-Tree Devices"
@@ -345,7 +355,7 @@ msgstr ""
 
 #: monitor.php:873
 msgid "All Sites"
-msgstr ""
+msgstr "Visas vietnes"
 
 #: monitor.php:874 monitor.php:1318
 msgid "Non-Site Devices"
@@ -353,11 +363,11 @@ msgstr ""
 
 #: monitor.php:880
 msgid "Sites"
-msgstr ""
+msgstr "Vietnes"
 
 #: monitor.php:888
 msgid "All Templates"
-msgstr ""
+msgstr "Visas veidnes"
 
 #: monitor.php:889
 msgid "Non-Templated Devices"
@@ -365,28 +375,29 @@ msgstr ""
 
 #: monitor.php:894
 msgid "Template"
-msgstr ""
+msgstr "Veidne"
 
 #: monitor.php:936
 msgid "Mute"
-msgstr ""
+msgstr "Izslēgt skaņu"
 
 #: monitor.php:938
+#, fuzzy
 msgid "Acknowledge"
-msgstr ""
+msgstr "Apliecināt (Ņemt vērā?)"
 
 #: monitor.php:944
 msgid "Un-Mute"
-msgstr ""
+msgstr "Ieslēgt skaņu"
 
 #: monitor.php:946
 msgid "Reset"
-msgstr ""
+msgstr "Atiestatīt"
 
 #: monitor.php:964
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
-msgstr ""
+msgstr "Informācijas panelis '%s' noņemts."
 
 #: monitor.php:971
 #, php-format
@@ -394,14 +405,14 @@ msgid "Dashboard '%s' is not owned by you."
 msgstr ""
 
 #: monitor.php:1059
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr ""
+msgstr "Informācijas panelis '%s' saglabāts!"
 
 #: monitor.php:1062
-#, php-format
+#, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
+msgstr "Informācijas paneli '%s' nevarēja saglabāt!"
 
 #: monitor.php:1267 monitor.php:1588
 msgid "Non-Site Device"
@@ -409,17 +420,17 @@ msgstr ""
 
 #: monitor.php:1562
 msgid "Root Branch"
-msgstr ""
+msgstr "Saknes atzars"
 
 #: monitor.php:1612
 #, php-format
 msgid "Tree: %s"
-msgstr ""
+msgstr "Koks: %s"
 
 #: monitor.php:1624
 #, php-format
 msgid "Branch: %s"
-msgstr ""
+msgstr "Atzars: %s"
 
 #: monitor.php:1802
 msgid "Just Up"
@@ -427,11 +438,11 @@ msgstr ""
 
 #: monitor.php:1923
 msgid "Device Status Information"
-msgstr ""
+msgstr "Ierīces statusa informācija"
 
 #: monitor.php:1926
 msgid "Device:"
-msgstr ""
+msgstr "Ierīce:"
 
 #: monitor.php:1930
 msgid "Criticality:"
@@ -439,24 +450,24 @@ msgstr ""
 
 #: monitor.php:1934
 msgid "Status:"
-msgstr ""
+msgstr "Statuss:"
 
 #: monitor.php:1938
 msgid "Admin Note:"
-msgstr ""
+msgstr "Administratora piezīme:"
 
 #: monitor.php:1942
 msgid "IP/Hostname:"
-msgstr ""
+msgstr "IP/Resursdatora nosaukums:"
 
 #: monitor.php:1946
 msgid "Curr/Avg:"
-msgstr ""
+msgstr "Pašreizējais/Vidējais:"
 
 #: monitor.php:1947 monitor.php:2080
 #, php-format
 msgid "%d ms"
-msgstr ""
+msgstr "%d ms"
 
 #: monitor.php:1950
 msgid "Warn/Alert:"
@@ -465,15 +476,16 @@ msgstr ""
 #: monitor.php:1951 monitor.php:2087
 #, php-format
 msgid "%0.2d ms"
-msgstr ""
+msgstr "%0.2d ms"
 
 #: monitor.php:1954
+#, fuzzy
 msgid "Last Fail:"
-msgstr ""
+msgstr "Pēdējā neveiksme:"
 
 #: monitor.php:1955 monitor.php:2063 monitor.php:2092
 msgid "Never"
-msgstr ""
+msgstr "Nekad"
 
 #: monitor.php:1958
 msgid "Time In State:"
@@ -481,11 +493,11 @@ msgstr ""
 
 #: monitor.php:1962
 msgid "Availability:"
-msgstr ""
+msgstr "Pieejamība:"
 
 #: monitor.php:1966
 msgid "Agent Uptime:"
-msgstr ""
+msgstr "Aģenta darbošanās laiks:"
 
 #: monitor.php:1967 monitor.php:2083
 msgid "N/A"
@@ -493,24 +505,24 @@ msgstr ""
 
 #: monitor.php:1970
 msgid "Sys Description:"
-msgstr ""
+msgstr "Sistēmas apraksts:"
 
 #: monitor.php:1974
 msgid "Location:"
-msgstr ""
+msgstr "Atrašanās vieta:"
 
 #: monitor.php:1978
 msgid "Contact:"
-msgstr ""
+msgstr "Kontaktinformācija:"
 
 #: monitor.php:1982
 msgid "Notes:"
-msgstr ""
+msgstr "Piezīmes:"
 
 #: monitor.php:2010 poller_monitor.php:314 poller_monitor.php:479
 #: poller_monitor.php:485 poller_monitor.php:528 poller_monitor.php:534
 msgid "Hostname"
-msgstr ""
+msgstr "Resursdatora nosaukums"
 
 #: monitor.php:2010
 msgid "Hostname of device"
@@ -518,11 +530,11 @@ msgstr ""
 
 #: monitor.php:2011 poller_monitor.php:313
 msgid "Description"
-msgstr ""
+msgstr "Apraksts"
 
 #: monitor.php:2014
 msgid "Availability"
-msgstr ""
+msgstr "Pieejamība"
 
 #: monitor.php:2016
 msgid "Length in status"
@@ -530,11 +542,11 @@ msgstr ""
 
 #: monitor.php:2017
 msgid "Averages"
-msgstr ""
+msgstr "Vidējie rādītāji"
 
 #: monitor.php:2018
 msgid "Warning"
-msgstr ""
+msgstr "Brīdinājums"
 
 #: monitor.php:2019
 msgid "Last Fail"
@@ -542,23 +554,23 @@ msgstr ""
 
 #: monitor.php:2020
 msgid "Admin"
-msgstr ""
+msgstr "Administrators"
 
 #: monitor.php:2021
 msgid "Notes"
-msgstr ""
+msgstr "Piezīmes"
 
 #: monitor.php:2025
 msgid "Devices"
-msgstr ""
+msgstr "Ierīces"
 
 #: poller_monitor.php:331
 msgid "Description: "
-msgstr ""
+msgstr "Apraksts: "
 
 #: poller_monitor.php:332
 msgid "Hostname: "
-msgstr ""
+msgstr "Resursdatora nosaukums: "
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
@@ -596,11 +608,11 @@ msgstr ""
 
 #: setup.php:75
 msgid "Any"
-msgstr ""
+msgstr "Jebkuru"
 
 #: setup.php:76 setup.php:642
 msgid "None"
-msgstr ""
+msgstr "Neviens"
 
 #: setup.php:312
 #, php-format
@@ -613,7 +625,7 @@ msgstr ""
 
 #: setup.php:342
 msgid "Update this Field"
-msgstr ""
+msgstr "Atsvaidzināt šo lauku"
 
 #: setup.php:357
 msgid "Change Monitoring Options"
@@ -629,26 +641,26 @@ msgstr ""
 
 #: setup.php:399
 msgid "Indefinately"
-msgstr ""
+msgstr "Bezgalīgi"
 
 #: setup.php:400
 #, php-format
 msgid "%d Month"
-msgstr ""
+msgstr "%d mēnesis"
 
 #: setup.php:401 setup.php:402 setup.php:403 setup.php:404
 #, php-format
 msgid "%d Months"
-msgstr ""
+msgstr "%d mēneši"
 
 #: setup.php:405
 #, php-format
 msgid "%d Year"
-msgstr ""
+msgstr "%d gads"
 
 #: setup.php:418
 msgid "Normal User"
-msgstr ""
+msgstr "Parasts lietotājs"
 
 #: setup.php:421 setup.php:475
 msgid "Monitor Settings"
@@ -656,15 +668,17 @@ msgstr ""
 
 #: setup.php:426 setup.php:492
 msgid "Alarm Sound"
-msgstr ""
+msgstr "Trauksmes skaņa"
 
 #: setup.php:427 setup.php:493
+#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
-msgstr ""
+msgstr "Skaņas fails, kas tiks atskaņots, kad ierīce nokrīt????."
 
 #: setup.php:433 setup.php:499
+#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr ""
+msgstr "Cikot (malt uz riņki?) trauksmes skaņu"
 
 #: setup.php:434 setup.php:500
 msgid "Play the above sound on a loop when a Device goes down."
@@ -672,19 +686,21 @@ msgstr ""
 
 #: setup.php:438 setup.php:511
 msgid "Show Icon Legend"
-msgstr ""
+msgstr "Rādīt ikonas leģendu"
 
 #: setup.php:439 setup.php:512
+#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr ""
+msgstr "Atķeksējiet, lai uzraudzības displejā rādītu ikonas leģendu"
 
 #: setup.php:443
 msgid "Show Uptime"
-msgstr ""
+msgstr "Rādīt darbošanās laiku"
 
 #: setup.php:444
+#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr ""
+msgstr "Atķešejiet, lai uzraudzības displejā rādītu darbošanās laiku"
 
 #: setup.php:448
 msgid "Zoom to Errors"
@@ -696,15 +712,16 @@ msgstr ""
 
 #: setup.php:453
 msgid "Zoom Background"
-msgstr ""
+msgstr "Tālummaiņas fons"
 
 #: setup.php:454
+#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr ""
+msgstr "Fona krāsa tuvinātām kļūdām uzraudzības displejā"
 
 #: setup.php:458
 msgid "Zoom Fontsize"
-msgstr ""
+msgstr "Tālummaiņas fonta izmērs"
 
 #: setup.php:471 setup.php:682 setup.php:684
 msgid "Monitor"
@@ -712,7 +729,7 @@ msgstr ""
 
 #: setup.php:480
 msgid "Enable on new devices"
-msgstr ""
+msgstr "Iespējot jaunās ierīcēs"
 
 #: setup.php:481
 msgid "Check this to automatically enable monitoring when creating new devices"
@@ -720,19 +737,19 @@ msgstr ""
 
 #: setup.php:485
 msgid "Notification/Reboot Log Retention"
-msgstr ""
+msgstr "Paziņojumu/Pārstartēšanas žurnāla uzglabāšana"
 
 #: setup.php:486
 msgid "Keep Notification and Reboot Logs for this number of days."
-msgstr ""
+msgstr "Cik dienas uzglabāt paziņojumu un pārstartēšanas žurnālus."
 
 #: setup.php:504
 msgid "Refresh Interval"
-msgstr ""
+msgstr "Atsvaidzināšanas intervāls"
 
 #: setup.php:505
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr ""
+msgstr "Laiks sekundēs, kad lapa tiek atsvaidzināta.  (1 - 300)"
 
 #: setup.php:517
 msgid "This is how monitor will Group Devices."
@@ -752,7 +769,7 @@ msgstr ""
 
 #: setup.php:540
 msgid "Notification Report Format"
-msgstr ""
+msgstr "Paziņojuma atskaites formāts"
 
 #: setup.php:545
 msgid "Format File to Use"
@@ -783,8 +800,9 @@ msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and a
 msgstr ""
 
 #: setup.php:571
+#, fuzzy
 msgid "How Often to Resend Emails"
-msgstr ""
+msgstr "Cik bieži atkārtoti sūtīt e-pastus"
 
 #: setup.php:572
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
@@ -797,28 +815,28 @@ msgstr ""
 #: setup.php:577 setup.php:578
 #, php-format
 msgid "Every %d Minutes"
-msgstr ""
+msgstr "Ik pēc %d minūtēm"
 
 #: setup.php:579
 msgid "Every Hour"
-msgstr ""
+msgstr "Katru stundu"
 
 #: setup.php:580 setup.php:581
 #, php-format
 msgid "Every %d Hours"
-msgstr ""
+msgstr "Ik pēc %d stundām"
 
 #: setup.php:585
 msgid "Reboot Notifications"
-msgstr ""
+msgstr "Pārstartēšanas paziņojumi"
 
 #: setup.php:590
 msgid "Send Reboot Notifications"
-msgstr ""
+msgstr "Nosūtīt pārstartēšanas paziņojumus"
 
 #: setup.php:592
 msgid "Should Device Reboot Notifications be sent to users?"
-msgstr ""
+msgstr "Vai lietotājiem nosūtīt paziņojumus par ierīces pārstartēšanos?"
 
 #: setup.php:596
 msgid "Include Threshold Alert Lists"
@@ -830,15 +848,16 @@ msgstr ""
 
 #: setup.php:602
 msgid "Subject"
-msgstr ""
+msgstr "Temats"
 
 #: setup.php:603
+#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr ""
+msgstr "Pārstartēšanas paziņojumam ievadiet Reboot ziņojuma tēmu."
 
 #: setup.php:605
 msgid "Cacti Device Reboot Notification"
-msgstr ""
+msgstr "Cacti ierīces pārstartēšanas paziņojums"
 
 #: setup.php:610
 msgid "Email Body"
@@ -846,11 +865,12 @@ msgstr ""
 
 #: setup.php:611
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr ""
+msgstr "Ievadiet e-pasta saturu, ko iekļaut pārstartēšanas ziņojumā.  Pašlaik vienīgais atbalstītais aizstājējtags ir &#060;DETAILS&#062;"
 
 #: setup.php:615
+#, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
-msgstr ""
+msgstr "<h1>Uzraudzības pārstartēšanas paziņojums</h1><p>Tika pārstartētas sekojošas ierīces.  Papildinformāciju skatiet zemāk.</p><br><DETAILS>"
 
 #: setup.php:618
 msgid "Notification Email Addresses"
@@ -886,7 +906,7 @@ msgstr ""
 
 #: setup.php:646
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
-msgstr ""
+msgstr "Ievadiet ar komatu atdalītus e-pastus. Saraksts tiks izmantots, lai informētu par pārstartēšanas notikumu."
 
 #: setup.php:693
 msgid "Do not Change"
