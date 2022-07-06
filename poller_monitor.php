@@ -138,7 +138,7 @@ list($purge_n, $purge_r) = purge_event_records();
 $poller_end = microtime(true);
 
 $stats =
-	'Time:'           . round($poller_end-$poller_start, 4) .
+	'Time:'           . round($poller_end-$poller_start, 2) .
 	' Reboots:'       . $reboots .
 	' DownDevices:'   . $recent_down .
 	' Notifications:' . $notifications .

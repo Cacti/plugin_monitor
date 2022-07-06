@@ -30,8 +30,7 @@ include_once('./include/auth.php');
 set_default_action();
 
 /* Record Start Time */
-list($micro,$seconds) = explode(" ", microtime());
-$start = $seconds + $micro;
+$start = microtime(true);
 
 $criticalities = array(
 	0 => __('Disabled', 'monitor'),
