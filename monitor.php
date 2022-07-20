@@ -1763,17 +1763,17 @@ function render_host($host, $float = true, $maxlen = 10) {
 			$tis = get_timeinstate($host);
 
 			if ($monitor_times=='on') {
-				$monitor_time_html="<br><div class='monitor_device${fclass} deviceDown'>$tis</div>";
+				$monitor_time_html="<br><div class='monitor_device{$fclass} deviceDown'>$tis</div>";
 			}
-			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div>$monitor_time_html</a></div>";
+			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><div class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div>$monitor_time_html</a></div>";
 		} else {
 			$tis = get_uptime($host);
 
 			if ($monitor_times=='on') {
-				$monitor_time_html="<br><div class='monitor_device${fclass} deviceUp'>$tis</div>";
+				$monitor_time_html="<br><div class='monitor_device{$fclass} deviceUp'>$tis</div>";
 			}
 
-			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='${fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div>$monitor_time_html</a></div>";
+			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><div class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</div>$monitor_time_html</a></div>";
 		}
 	}
 
@@ -2128,7 +2128,7 @@ function render_host_tiles($host, $maxlen = 10) {
 		return;
 	}
 
-	$result = "<div class='${fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
+	$result = "<div class='{$fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
 
 	return $result;
 }
@@ -2146,13 +2146,13 @@ function render_host_tilesadt($host, $maxlen = 10) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$tis = get_timeinstate($host);
 
-		$result = "<div class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceDown'>$tis</span></a></div>";
+		$result = "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_{$fclass} deviceDown'>$tis</span></a></div>";
 
 		return $result;
 	} else {
 		$tis = get_uptime($host);
 
-		$result = "<div class='${fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_${fclass} deviceUp'>$tis</span></a></div>";
+		$result = "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_{$fclass} deviceUp'>$tis</span></a></div>";
 
 		return $result;
 	}
