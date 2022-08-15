@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-07-19 12:53+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-08-15 14:02+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -579,24 +579,25 @@ msgstr ""
 #: poller_monitor.php:461 poller_monitor.php:463
 #, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
-msgstr ""
+msgstr "Jūs saņemsiet paziņojumus ik pēc %d minūtēm, ja Ierīce pārsniedz tā robežvērtību."
 
 #: poller_monitor.php:465 poller_monitor.php:467
 msgid "You will receive notifications every time the Device is above its threshold."
-msgstr ""
+msgstr "Jūs saņemsiet paziņojumus katru reizi, kad Ierīce pārsniedz tā robežvērtību."
 
 #: poller_monitor.php:471 poller_monitor.php:473
 msgid "The following Devices have breached their Alert Notification Threshold."
-msgstr ""
+msgstr "Sekojošās ierīces ir pārsasniegušas tā trauksmes paziņojuma robežvērtību."
 
 #: poller_monitor.php:482 poller_monitor.php:488 poller_monitor.php:531
 #: poller_monitor.php:537
+#, fuzzy
 msgid "Current Ping"
-msgstr ""
+msgstr "Pašreizējais Ping"
 
 #: poller_monitor.php:520 poller_monitor.php:522
 msgid "The following Devices have breached their Warning Notification Threshold."
-msgstr ""
+msgstr "Sekojošās ierīces ir pārsasniegušas tā brīdinājuma paziņojuma robežvērtību."
 
 #: setup.php:75
 msgid "Any"
@@ -609,7 +610,7 @@ msgstr "Neviens"
 #: setup.php:312
 #, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
-msgstr ""
+msgstr "Noklikšķiniet 'Turpināt', lai %s uzraudzītu šo(-īs) ierīci(-es)"
 
 #: setup.php:319
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
