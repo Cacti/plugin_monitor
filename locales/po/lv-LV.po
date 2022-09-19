@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-08-15 14:02+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-09-19 14:12+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -240,7 +240,7 @@ msgstr ""
 
 #: monitor.php:715
 msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr ""
+msgstr "</div><div class=\"center monitorFooterTextBold\">Atcerieties, ka vispirms ir jāizvēlas ierīces, kuras vēlaties uzraudzīt, Ierīču lapā!</div></div></div>"
 
 #: monitor.php:748
 #, php-format
@@ -480,7 +480,7 @@ msgstr "Nekad"
 
 #: monitor.php:1958
 msgid "Time In State:"
-msgstr ""
+msgstr "Stāvokļa laika statuss:"
 
 #: monitor.php:1962
 msgid "Availability:"
@@ -529,7 +529,7 @@ msgstr "Pieejamība"
 
 #: monitor.php:2016
 msgid "Length in status"
-msgstr ""
+msgstr "Stāvokļa ilguma statuss"
 
 #: monitor.php:2017
 msgid "Averages"
@@ -566,7 +566,7 @@ msgstr "Resursdatora nosaukums: "
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
-msgstr ""
+msgstr "Cacti uzraudzības spraudņa ping robežvērtības paziņojums"
 
 #: poller_monitor.php:452 poller_monitor.php:454
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
@@ -574,7 +574,7 @@ msgstr ""
 
 #: poller_monitor.php:458
 msgid "Cacti Monitoring Site"
-msgstr ""
+msgstr "Cacti uzraudzības vietne"
 
 #: poller_monitor.php:461 poller_monitor.php:463
 #, php-format
@@ -614,7 +614,7 @@ msgstr "Noklikšķiniet 'Turpināt', lai %s uzraudzītu šo(-īs) ierīci(-es)"
 
 #: setup.php:319
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
-msgstr ""
+msgstr "Noklikšķiniet 'Turpināt', lai mainītu uzraudzības iestatījumus izvēlētājai(-ām) ierīcei(-ēm). Atcerieties atķeksēt 'Atsvaidzināt šo lauku', lai norādītu, kuras kolonnas atsvaidzināt."
 
 #: setup.php:342
 msgid "Update this Field"
@@ -622,15 +622,15 @@ msgstr "Atsvaidzināt šo lauku"
 
 #: setup.php:357
 msgid "Change Monitoring Options"
-msgstr ""
+msgstr "Mainīt uzraudzības opcijas"
 
 #: setup.php:358
 msgid "Enable Monitoring"
-msgstr ""
+msgstr "Iespējot uzraudzību"
 
 #: setup.php:359
 msgid "Disable Monitoring"
-msgstr ""
+msgstr "Atspējot uzraudzību"
 
 #: setup.php:399
 msgid "Indefinately"
@@ -657,7 +657,7 @@ msgstr "Parasts lietotājs"
 
 #: setup.php:421 setup.php:475
 msgid "Monitor Settings"
-msgstr ""
+msgstr "Uzraudzības iestatījumi"
 
 #: setup.php:426 setup.php:492
 msgid "Alarm Sound"
@@ -674,8 +674,9 @@ msgid "Loop Alarm Sound"
 msgstr "Ciklot (malt uz riņki?) trauksmes skaņu"
 
 #: setup.php:434 setup.php:500
+#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr ""
+msgstr "Atskaņot iepriekš norādīto skaņas failu cikliski, kad ierīce nokrīt.???"
 
 #: setup.php:438 setup.php:511
 msgid "Show Icon Legend"
@@ -718,15 +719,15 @@ msgstr "Tālummaiņas fonta izmērs"
 
 #: setup.php:471 setup.php:682 setup.php:684
 msgid "Monitor"
-msgstr ""
+msgstr "Uzraudzīt"
 
 #: setup.php:480
 msgid "Enable on new devices"
-msgstr "Iespējot jaunās ierīcēs"
+msgstr "Iespējot jaunām ierīcēm"
 
 #: setup.php:481
 msgid "Check this to automatically enable monitoring when creating new devices"
-msgstr ""
+msgstr "Atķeksējiet šo, lai automātiski iespējotu uzraudzīt jaunizveidotās ierīces"
 
 #: setup.php:485
 msgid "Notification/Reboot Log Retention"
@@ -746,7 +747,7 @@ msgstr "Laiks sekundēs, kad lapa tiek atsvaidzināta.  (1 - 300)"
 
 #: setup.php:517
 msgid "This is how monitor will Group Devices."
-msgstr ""
+msgstr "Šādi uzraudzība grupēs ierīces."
 
 #: setup.php:522
 msgid "Default with permissions"
@@ -754,7 +755,7 @@ msgstr ""
 
 #: setup.php:529
 msgid "This is how monitor will render Devices."
-msgstr ""
+msgstr "Šādi uzraudzība atveidos ierīces."
 
 #: setup.php:536
 msgid "Tiles & Downtime"
