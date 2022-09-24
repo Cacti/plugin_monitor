@@ -274,8 +274,12 @@ function draw_page() {
 			array(read_user_setting('monitor_error_background')));
 
 		$monitor_error_fontsize = read_user_setting('monitor_error_fontsize') . 'px';
-		$mbcolor = "";
-		$mbcolor = '#' . array_values($mbcolora)[2];
+
+		if (cacti_sizeof($mbcolora)) {
+			$mbcolor = '#' . array_values($mbcolora)[2];
+		} else {
+			$mbcolor = 'snow';
+		}
 
 		print "<script type=\"text/javascript\">
 			var monoe = false;
