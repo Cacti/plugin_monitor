@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-09-19 14:12+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-09-26 01:57+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -33,7 +33,7 @@ msgstr "Nezināms"
 
 #: monitor.php:59
 msgid "Down"
-msgstr "Neaktīva (nedarbojoša, bezsaistē)"
+msgstr "Neaktīva (nedarbojoša, bezsaistē, izslēgta)"
 
 #: monitor.php:60
 msgid "Recovering"
@@ -53,7 +53,7 @@ msgstr "Nostrādājuši (Izslēgta skaņa/Atzīts)"
 
 #: monitor.php:64
 msgid "Down (Muted/Acked)"
-msgstr "Neaktīvi (nedarbojoši, bezsaistē)(Izslēgta skaņa/Atzīts)"
+msgstr "Neaktīvi (nedarbojoši, bezsaistē, izslēgti)(Izslēgta skaņa/Atzīts)"
 
 #: monitor.php:65
 msgid "No Availability Check"
@@ -759,7 +759,7 @@ msgstr "Šādi uzraudzība atveidos ierīces."
 
 #: setup.php:536
 msgid "Tiles & Downtime"
-msgstr ""
+msgstr "Flīzes un dīkstāves"
 
 #: setup.php:540
 msgid "Notification Report Format"
@@ -767,15 +767,15 @@ msgstr "Paziņojuma atskaites formāts"
 
 #: setup.php:545
 msgid "Format File to Use"
-msgstr ""
+msgstr "Izmantojamais faila formāts"
 
 #: setup.php:548
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
+msgstr "Izvēlieties pielāgotu HTML noformējuma un CSS failu.  Šis fails satur gan HTML, gan CSS kodu, kas noformē jūsu atskaites izskatu.  Ja tas satur kaut ko vairāk par CSS kodu, tad failā jāievieto īpašs tags <REPORT>.  Šis <REPORT> tags tiks aizstāts ar atskaites saturu.   Šie faili atrodas 'formats' mapē."
 
 #: setup.php:552
 msgid "Ping Threshold Notifications"
-msgstr ""
+msgstr "Ping robežvērtību paziņojumi"
 
 #: setup.php:557
 msgid "Warning Latency Notification"
@@ -803,7 +803,7 @@ msgstr ""
 
 #: setup.php:576
 msgid "Every Occurrence"
-msgstr ""
+msgstr "Katru reizi, kad tas notiek"
 
 #: setup.php:577 setup.php:578
 #, php-format
@@ -853,7 +853,7 @@ msgstr "Cacti ierīces pārstartēšanas paziņojums"
 
 #: setup.php:610
 msgid "Email Body"
-msgstr ""
+msgstr "E-pasta saturs"
 
 #: setup.php:611
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
@@ -865,35 +865,35 @@ msgstr "<h1>Uzraudzības pārstartēšanas paziņojums</h1><p>Sekojošas ierīce
 
 #: setup.php:618
 msgid "Notification Email Addresses"
-msgstr ""
+msgstr "Paziņojumu e-pasta adreses"
 
 #: setup.php:623
 msgid "From Name"
-msgstr ""
+msgstr "No kā (sūtītājs)"
 
 #: setup.php:624
 msgid "Enter the Email Name to send the notifications form"
-msgstr ""
+msgstr "Ievadiet e-pasta sūtītāja vārdu, no kura nosūtīt paziņojumus"
 
 #: setup.php:630
 msgid "From Address"
-msgstr ""
+msgstr "No adrese (sūtītāja e-pasta adrese)"
 
 #: setup.php:631
 msgid "Enter the Email Address to send the notification from"
-msgstr ""
+msgstr "Ievadiet e-pasta adresi, no kuras nosūtīt paziņojumu"
 
 #: setup.php:637
 msgid "Notification List"
-msgstr ""
+msgstr "Paziņojumu saraksts"
 
 #: setup.php:638
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
-msgstr ""
+msgstr "Atlasiet paziņojumu sarakstu.   Visi e-pasti paziņojumu sarakstā saņems paziņojumus."
 
 #: setup.php:645
 msgid "Email Addresses"
-msgstr ""
+msgstr "E-pasta adreses"
 
 #: setup.php:646
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
@@ -901,7 +901,7 @@ msgstr "Ievadiet ar komatu atdalītus e-pastus. Saraksts tiks izmantots, lai inf
 
 #: setup.php:693
 msgid "Do not Change"
-msgstr ""
+msgstr "Nemainīt"
 
 #: setup.php:694 setup.php:695 setup.php:696 setup.php:697 setup.php:698
 #: setup.php:699 setup.php:700 setup.php:701 setup.php:702 setup.php:703
@@ -909,27 +909,27 @@ msgstr ""
 #: setup.php:709
 #, php-format
 msgid "%d Percent Above Average"
-msgstr ""
+msgstr "%d procenti virs vidējā"
 
 #: setup.php:718
 msgid "Device Monitoring Settings"
-msgstr ""
+msgstr "Ierīces uzraudzības iestatījumi"
 
 #: setup.php:724
 msgid "Monitor Device"
-msgstr ""
+msgstr "Uzraudzīt ierīci"
 
 #: setup.php:725
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr ""
+msgstr "Atķeksējiet, lai uzraudzītu šo ierīci Uzraudzīt cilnē."
 
 #: setup.php:736
 msgid "Device Criticality"
-msgstr ""
+msgstr "Ierīces svarīgums"
 
 #: setup.php:737
 msgid "What is the Criticality of this Device."
-msgstr ""
+msgstr "Kāda ir šīs ierīces nozīme."
 
 #: setup.php:744
 msgid "Ping Warning Threshold"
@@ -941,7 +941,7 @@ msgstr ""
 
 #: setup.php:749 setup.php:759
 msgid "milliseconds"
-msgstr ""
+msgstr "milisekundes"
 
 #: setup.php:754
 msgid "Ping Alert Threshold"
@@ -969,12 +969,12 @@ msgstr ""
 
 #: setup.php:780
 msgid "Down Device Message"
-msgstr ""
+msgstr "Neaktīvas ierīces ziņojums"
 
 #: setup.php:781
 msgid "This is the message that will be displayed when this Device is reported as down."
-msgstr ""
+msgstr "Ziņojums, kas tiks parādīts, kad ierīce ir neaktīva (nedarbojoša, bezsaistē, izslēgta)."
 
 #: setup.php:863
 msgid "Monitoring"
-msgstr ""
+msgstr "Uzraudzība"
