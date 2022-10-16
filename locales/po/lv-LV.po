@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-09-26 01:57+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-10-16 15:18+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -57,7 +57,7 @@ msgstr "Neaktīvi (nedarbojoši, bezsaistē, izslēgti)(Izslēgta skaņa/Atzīts
 
 #: monitor.php:65
 msgid "No Availability Check"
-msgstr ""
+msgstr "Netiek izmantota ping vai SNMP pieejamības pārbaude"
 
 #: monitor.php:66
 msgid "Warning Ping"
@@ -218,25 +218,24 @@ msgid "Unknown monitoring status (%s)"
 msgstr "Nezināms uzraudzības statuss (%s)"
 
 #: monitor.php:699
-#, fuzzy
 msgid ", and All Criticalities"
-msgstr ", un visi kritiskie brīži."
+msgstr ", un visi kritiskie brīži"
 
 #: monitor.php:702
 msgid ", and of Low Criticality or Higher"
-msgstr ""
+msgstr ", un zemi kritiskie un augstāki brīži"
 
 #: monitor.php:705
 msgid ", and of Medium Criticality or Higher"
-msgstr ""
+msgstr ", un vidēji kritiskie un augstāki brīži"
 
 #: monitor.php:708
 msgid ", and of High Criticality or Higher"
-msgstr ""
+msgstr ", un augstu kritiskie un augstāki brīži"
 
 #: monitor.php:711
 msgid ", and of Mission Critical Status"
-msgstr ""
+msgstr ", un misijai kritiskie stāvokļa brīži"
 
 #: monitor.php:715
 msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
@@ -423,7 +422,6 @@ msgid "Branch: %s"
 msgstr "Atzars: %s"
 
 #: monitor.php:1802
-#, fuzzy
 msgid "Just Up"
 msgstr "Tikko atguvies"
 
@@ -470,9 +468,8 @@ msgid "%0.2d ms"
 msgstr "%0.2d ms"
 
 #: monitor.php:1954
-#, fuzzy
 msgid "Last Fail:"
-msgstr "Pēdējā neveiksme:"
+msgstr "Pēdējā kļūme:"
 
 #: monitor.php:1955 monitor.php:2063 monitor.php:2092
 msgid "Never"
@@ -540,9 +537,8 @@ msgid "Warning"
 msgstr "Brīdinājums"
 
 #: monitor.php:2019
-#, fuzzy
 msgid "Last Fail"
-msgstr "Pēdējā neveiksme"
+msgstr "Pēdējā kļūme"
 
 #: monitor.php:2020
 msgid "Admin"
@@ -570,7 +566,7 @@ msgstr "Cacti uzraudzības spraudņa ping robežvērtības paziņojums"
 
 #: poller_monitor.php:452 poller_monitor.php:454
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr ""
+msgstr "Šajā ziņojumā uzskaitītas ierīces, kuras pārsniegušas savas ping latentuma robežas.   Jūs saņēmāt šo ziņojumu, jo esat abonējis ierīci Cacti sistēmā, kas atrodas zemāk norādītajā URL."
 
 #: poller_monitor.php:458
 msgid "Cacti Monitoring Site"
@@ -591,7 +587,6 @@ msgstr "Sekojošās ierīces ir pārsasniegušas tā trauksmes paziņojuma robe�
 
 #: poller_monitor.php:482 poller_monitor.php:488 poller_monitor.php:531
 #: poller_monitor.php:537
-#, fuzzy
 msgid "Current Ping"
 msgstr "Pašreizējais Ping"
 
@@ -664,26 +659,22 @@ msgid "Alarm Sound"
 msgstr "Trauksmes skaņa"
 
 #: setup.php:427 setup.php:493
-#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
-msgstr "Skaņas fails, kas tiks atskaņots, kad ierīce nokrīt????."
+msgstr "Skaņas fails, kas tiks atskaņots, kad ierīce ir neaktīva."
 
 #: setup.php:433 setup.php:499
-#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr "Ciklot (malt uz riņki?) trauksmes skaņu"
+msgstr "Atskaņot nepārtraukti trauksmes skaņu"
 
 #: setup.php:434 setup.php:500
-#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "Atskaņot iepriekš norādīto skaņas failu cikliski, kad ierīce nokrīt.???"
+msgstr "Atskaņot nepārtraukti iepriekš norādīto skaņas failu, kad ierīce ir neaktīva."
 
 #: setup.php:438 setup.php:511
 msgid "Show Icon Legend"
 msgstr "Rādīt ikonas leģendu"
 
 #: setup.php:439 setup.php:512
-#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Atķeksējiet, lai uzraudzības displejā rādītu ikonas leģendu"
 
@@ -692,24 +683,22 @@ msgid "Show Uptime"
 msgstr "Rādīt darbošanās laiku"
 
 #: setup.php:444
-#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "Atķešejiet, lai uzraudzības displejā rādītu darbošanās laiku"
+msgstr "Atķeksējiet, lai uzraudzības displejā rādītu darbošanās laiku"
 
 #: setup.php:448
 msgid "Zoom to Errors"
-msgstr ""
+msgstr "Pietuvināt kļūdām"
 
 #: setup.php:449 setup.php:459
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr ""
+msgstr "Atķeksējiet šo, lai uzraudzības displejā tuvinātu kļūdainajām vienībām"
 
 #: setup.php:453
 msgid "Zoom Background"
 msgstr "Tālummaiņas fons"
 
 #: setup.php:454
-#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr "Fona krāsa tuvinātām kļūdām uzraudzības displejā"
 
@@ -751,7 +740,7 @@ msgstr "Šādi uzraudzība grupēs ierīces."
 
 #: setup.php:522
 msgid "Default with permissions"
-msgstr ""
+msgstr "Noklusējums ar atļaujām"
 
 #: setup.php:529
 msgid "This is how monitor will render Devices."
@@ -779,19 +768,19 @@ msgstr "Ping robežvērtību paziņojumi"
 
 #: setup.php:557
 msgid "Warning Latency Notification"
-msgstr ""
+msgstr "Latentuma brīdinājuma paziņojums"
 
 #: setup.php:558
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr ""
+msgstr "Ja ierīces apiešanas (turp un atpakaļ) latentums laiks pārsniedz brīdinājuma, bet nepārsniedz kritisko robežvērtību, ierīces abonenti saņems e-pasta ziņojumus.  Lai atspējotu, atķeksējiet 'Atspējot'.   Lai iespējotu šo funkciju, ir nepieciešams Thold spraudnis."
 
 #: setup.php:564
 msgid "Alert Latency Notification"
-msgstr ""
+msgstr "Latentuma trauksmes paziņojums"
 
 #: setup.php:565
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr ""
+msgstr "Ja ierīces apiešanas (turp un atpakaļ) latentums laiks pārsniedz trauksmes, bet nepārsniedz kritisko robežvērtību, ierīces abonenti saņems e-pasta ziņojumus.  Lai atspējotu, atķeksējiet 'Atspējot'.   Lai iespējotu šo funkciju, ir nepieciešams Thold spraudnis."
 
 #: setup.php:571
 msgid "How Often to Resend Emails"
@@ -799,7 +788,7 @@ msgstr "Cik bieži atkārtoti nosūtīt e-pastus"
 
 #: setup.php:572
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr ""
+msgstr "Cik bieži šo ierīču abonenti saņems e-pasta paziņojumus, ja tiek pārsniegtas latentuma robežvērtības"
 
 #: setup.php:576
 msgid "Every Occurrence"
@@ -833,11 +822,11 @@ msgstr "Vai lietotājiem nosūtīt paziņojumus par ierīces pārstartēšanos?"
 
 #: setup.php:596
 msgid "Include Threshold Alert Lists"
-msgstr ""
+msgstr "Iekļaut robežvērtību brīdinājumu sarakstus"
 
 #: setup.php:598
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr ""
+msgstr "Nosūtīt paziņojumu arī robežvērtību brīdinājumu sarakstiem"
 
 #: setup.php:602
 msgid "Subject"
@@ -933,11 +922,11 @@ msgstr "Kāda ir šīs ierīces nozīme."
 
 #: setup.php:744
 msgid "Ping Warning Threshold"
-msgstr ""
+msgstr "Ping brīdinājuma robežvērtība"
 
 #: setup.php:745
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr ""
+msgstr "Ja apiešanas (turp un atpakaļ) latentums, izmantojot jebkādu no iepriekš definētajām Cacti ping metodēm, pārsniedz šo robežvērtību, reģistrē brīdinājumu vai nosūta e-pastu, pamatojoties uz iekārtas kritiskuma un uzraudzības iestatījumiem.  Vienība - milisekunde.   Iestatot uz 0 tiek atspējots. Lai izmantotu šo iespēju, ir nepieciešams Thold spraudnis."
 
 #: setup.php:749 setup.php:759
 msgid "milliseconds"
@@ -945,27 +934,27 @@ msgstr "milisekundes"
 
 #: setup.php:754
 msgid "Ping Alert Threshold"
-msgstr ""
+msgstr "Ping trauksmes robežvērtība"
 
 #: setup.php:755
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr ""
+msgstr "Ja apiešanas (turp un atpakaļ) latentums, izmantojot jebkādu no iepriekš definētajām Cacti ping metodēm, pārsniedz šo robežvērtību, reģistrē trauksmi vai nosūta e-pastu, pamatojoties uz iekārtas kritiskuma un uzraudzības iestatījumiem.  Vienība - milisekunde.  Iestatot uz 0 tiek atspējots. Lai izmantotu šo iespēju, ir nepieciešams Thold spraudnis."
 
 #: setup.php:764
 msgid "Re-Baseline Warning"
-msgstr ""
+msgstr "Sākotnējā stāvokļa atjaunošanas brīdinājums"
 
 #: setup.php:765
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
-msgstr ""
+msgstr "Procentuālā daļa virs pašreizējā vidējā ping laika, lai aprēķinātu brīdinājuma robežvērtību.  Atjauninot vērtību, tas automātiski pielāgos ping brīdinājuma robežvērtību."
 
 #: setup.php:772
 msgid "Re-Baseline Alert"
-msgstr ""
+msgstr "Sākotnējā stāvokļa atjaunošanas trauksme"
 
 #: setup.php:773
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
-msgstr ""
+msgstr "Procentuālā daļa virs pašreizējā vidējā ping laika, lai aprēķinātu trauksmes robežvērtību.  Atjauninot vērtību, tas automātiski pielāgos ping trauksmes robežvērtību."
 
 #: setup.php:780
 msgid "Down Device Message"
