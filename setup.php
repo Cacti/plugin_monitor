@@ -344,6 +344,8 @@ function monitor_device_action_prepare($save) {
 				)
 			);
 		}
+
+		return $save;
 	}
 }
 
