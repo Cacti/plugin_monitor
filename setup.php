@@ -619,7 +619,7 @@ function monitor_config_settings() {
 		),
 		'monitor_fromname' => array(
 			'friendly_name' => __('From Name', 'monitor'),
-			'description' => __('Enter the Email Name to send the notifications form', 'monitor'),
+			'description' => __('Enter the Email Name to send the notifications from', 'monitor'),
 			'method' => 'textbox',
 			'size' => '60',
 			'max_length' => '255'
