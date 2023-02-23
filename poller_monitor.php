@@ -48,7 +48,7 @@ $force    = false;
 $purged_r = 0;
 $purged_n = 0;
 
-if (sizeof($parms)) {
+if (cacti_sizeof($parms)) {
 	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
 			list($arg, $value) = explode('=', $parameter);
@@ -115,12 +115,12 @@ if ($warning_criticality > 0 || $alert_criticality > 0) {
 		cacti_log('WARNING: No Global Notification List defined.  Please set under Settings -> Thresholds', false, 'MONITOR');
 	}
 
-	if (sizeof($global_list) || sizeof($notify_list)) {
+	if (cacti_sizeof($global_list) || sizeof($notify_list)) {
 		// array of email[list|'g'] = true;
 		$notification_emails = get_emails_and_lists($lists);
 
 		// Send out emails to each emails address with all notifications in one
-		if (sizeof($notification_emails)) {
+		if (cacti_sizeof($notification_emails)) {
 			foreach ($notification_emails as $email => $lists) {
 				monitor_debug('Processing the email address: ' . $email);
 				process_email($email, $lists, $global_list, $notify_list);
@@ -150,7 +150,7 @@ set_config_option('stats_monitor', $stats);
 exit;
 
 function monitor_addemails(&$reboot_emails, $alert_emails, $host_id) {
-	if (sizeof($alert_emails)) {
+	if (cacti_sizeof($alert_emails)) {
 		foreach ($alert_emails as $email) {
 			$reboot_emails[trim(strtolower($email))][$host_id] = $host_id;
 		}
@@ -172,7 +172,13 @@ function monitor_uptime_checker() {
 	$start = date('Y-m-d H:i:s');
 
 	$reboot_emails = array();
-	$alert_emails  = explode(',', read_config_option('alert_email'));
+
+	$alert_email   = read_config_option('alert_email');
+	if ($alert_email != '') {
+		$alert_emails = explode(',', $alert_email);
+	} else {
+		$alert_emails = array();
+	}
 
 	// Remove unneeded device records in associated tables
 	$removed_hosts = db_fetch_assoc('SELECT mu.host_id
@@ -265,7 +271,7 @@ function monitor_uptime_checker() {
 			}
 		}
 
-		if (sizeof($reboot_emails)) {
+		if (cacti_sizeof($reboot_emails)) {
 			foreach ($reboot_emails as $email => $hosts) {
 				if ($email != '') {
 					monitor_debug('Processing the Email address: ' . $email);
@@ -298,7 +304,7 @@ function monitor_uptime_checker() {
 
 	$recent = db_affected_rows();
 
-	return array(sizeof($rebooted_hosts), $recent);
+	return array(cacti_sizeof($rebooted_hosts), $recent);
 }
 
 function process_reboot_email($email, $hosts) {
@@ -321,7 +327,7 @@ function process_reboot_email($email, $hosts) {
 			WHERE id = ?',
 			array($host));
 
-		if (sizeof($host)) {
+		if (cacti_sizeof($host)) {
 			$body .= '<tr>' .
 				'<td class="left">' . $host['description'] . '</td>' .
 				'<td class="left">' . $host['hostname']    . '</td>' .
@@ -426,13 +432,13 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 	monitor_debug('Lists Processed');
 
-	if (sizeof($alert_hosts)) {
+	if (cacti_sizeof($alert_hosts)) {
 		$alert_hosts = array_unique($alert_hosts, SORT_NUMERIC);
 
 		log_messages('alert', $alert_hosts);
 	}
 
-	if (sizeof($warn_hosts)) {
+	if (cacti_sizeof($warn_hosts)) {
 		$warn_hosts = array_unique($warn_hosts, SORT_NUMERIC);
 
 		log_messages('warn', $alert_hosts);
@@ -440,7 +446,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 	monitor_debug('Found ' . sizeof($alert_hosts) . ' Alert Hosts, and ' . sizeof($warn_hosts) . ' Warn Hosts');
 
-	if (sizeof($alert_hosts) || sizeof($warn_hosts)) {
+	if (cacti_sizeof($alert_hosts) || sizeof($warn_hosts)) {
 		monitor_debug('Formatting Email');
 
 		$freq    = read_config_option('monitor_resend_frequency');
@@ -467,7 +473,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			$body_txt .= __('You will receive notifications every time the Device is above its threshold.', 'monitor') . PHP_EOL;
 		}
 
-		if (sizeof($alert_hosts)) {
+		if (cacti_sizeof($alert_hosts)) {
 			$body .= '<p>' . __('The following Devices have breached their Alert Notification Threshold.', 'monitor') . '</p>' . PHP_EOL;
 
 			$body_txt .= __('The following Devices have breached their Alert Notification Threshold.', 'monitor') . PHP_EOL;
@@ -516,7 +522,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			$body .= '</table>' . PHP_EOL;
 		}
 
-		if (sizeof($warn_hosts)) {
+		if (cacti_sizeof($warn_hosts)) {
 			$body .= '<p>' . __('The following Devices have breached their Warning Notification Threshold.', 'monitor') . '</p>' . PHP_EOL;
 
 			$body_txt .= __('The following Devices have breached their Warning Notification Threshold.', 'monitor') . PHP_EOL;
@@ -543,7 +549,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 				WHERE id IN(' . implode(',', $warn_hosts) . ')
 				AND deleted = ""');
 
-			if (sizeof($hosts)) {
+			if (cacti_sizeof($hosts)) {
 				foreach ($hosts as $host) {
 					$body .= '<tr>' . PHP_EOL;
 					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . PHP_EOL;
@@ -590,8 +596,8 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$v = get_cacti_version();
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
 
-		$status = (sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notifications' : '') .
-			(sizeof($warn_hosts) ? (sizeof($alert_hosts) ? ', and ' : '') .
+		$status = (cacti_sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notifications' : '') .
+			(cacti_sizeof($warn_hosts) ? (cacti_sizeof($alert_hosts) ? ', and ' : '') .
 				sizeof($warn_hosts) . ' Warning Notifications' : '');
 
 		process_send_email($email, $subject, $output, $toutput, $headers, $status);
@@ -653,7 +659,7 @@ function monitor_text($output) {
 
 	$new_output = '';
 
-	if (sizeof($output)) {
+	if (cacti_sizeof($output)) {
 		foreach ($output as $line) {
 			$line = str_replace('<br>', PHP_EOL, $line);
 			$line = str_replace('<br />', PHP_EOL, $line);
@@ -735,7 +741,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 			ORDER BY thold_host_email, thold_send_email',
 			array($htype, $criticality, $last_time));
 
-		if (sizeof($groups)) {
+		if (cacti_sizeof($groups)) {
 			foreach ($groups as $entry) {
 				switch($entry['thold_send_email']) {
 				case '1': // Global List
@@ -765,7 +771,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 }
 
 function flatten_lists(&$global_list, &$notify_list) {
-	if (sizeof($global_list)) {
+	if (cacti_sizeof($global_list)) {
 		foreach ($global_list as $severity => $list) {
 			foreach ($list as $item) {
 				$new_global[$severity] = (isset($new_global[$severity]) ? $new_global[$severity] . ',':'') . $item['id'];
@@ -774,7 +780,7 @@ function flatten_lists(&$global_list, &$notify_list) {
 		$global_list = $new_global;
 	}
 
-	if (sizeof($notify_list)) {
+	if (cacti_sizeof($notify_list)) {
 		foreach ($notify_list as $severity => $lists) {
 			foreach ($lists as $id => $list) {
 				foreach ($list as $item) {
@@ -789,23 +795,33 @@ function flatten_lists(&$global_list, &$notify_list) {
 function get_emails_and_lists($lists) {
 	$notification_emails = array();
 
-	$global_emails = explode(',', read_config_option('alert_email'));
-	foreach ($global_emails as $index => $user) {
-		if (trim($user) != '') {
-			$notification_emails[trim($user)]['global'] = true;
+	$alert_email = read_config_option('alert_email');
+	if ($alert_email != '') {
+		$global_emails = explode(',', $alert_email);
+	} else {
+		$global_emails = array();
+	}
+
+	if (cacti_sizeof($global_emails)) {
+		foreach ($global_emails as $index => $user) {
+			if (trim($user) != '') {
+				$notification_emails[trim($user)]['global'] = true;
+			}
 		}
 	}
 
-	if (sizeof($lists)) {
+	if (cacti_sizeof($lists)) {
 		$list_emails = db_fetch_assoc('SELECT id, emails
 			FROM plugin_notification_lists
 			WHERE id IN (' . implode(',', $lists) . ')');
 
-		foreach ($list_emails as $email) {
-			$emails = explode(',', $email['emails']);
-			foreach ($emails as $user) {
-				if (trim($user) != '') {
-					$notification_emails[trim($user)][$email['id']] = true;
+		if (cacti_sizeof($list_emails)) {
+			foreach ($list_emails as $email) {
+				$emails = explode(',', $email['emails']);
+				foreach ($emails as $user) {
+					if (trim($user) != '') {
+						$notification_emails[trim($user)][$email['id']] = true;
+					}
 				}
 			}
 		}

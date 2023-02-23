@@ -6,6 +6,8 @@
 
 * issue#142: Monitor generates PHP Backtrace Errors
 
+* issue#157: Monitor plugin error message in cacti log
+
 
 --- 2.5 ---
 
