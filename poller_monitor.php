@@ -374,12 +374,12 @@ function process_reboot_email($email, $hosts) {
 		monitor_debug('HTML Processed');
 
 		if (defined('CACTI_VERSION')) {
-			$v = CACTI_VERSION;
+			$version = CACTI_VERSION;
 		} else {
-			$v = get_cacti_version();
+			$versionn = get_cacti_version();
 		}
 
-		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
+		$headers['User-Agent'] = 'Cacti-Monitor-v' . $version;
 
 		$status = 'Reboot Notifications';
 
@@ -593,8 +593,13 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 		monitor_debug('HTML Processed');
 
-		$v = get_cacti_version();
-		$headers['User-Agent'] = 'Cacti-Monitor-v' . $v;
+		if (defined('CACTI_VERSION')) {
+			$version = CACTI_VERSION;
+		} else {
+			$version = get_cacti_version();
+		}
+
+		$headers['User-Agent'] = 'Cacti-Monitor-v' . $version;
 
 		$status = (cacti_sizeof($alert_hosts) ? sizeof($alert_hosts) . ' Alert Notifications' : '') .
 			(cacti_sizeof($warn_hosts) ? (cacti_sizeof($alert_hosts) ? ', and ' : '') .
