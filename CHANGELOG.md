@@ -1,12 +1,14 @@
 ## Changelog
 
--- develop ---
+-- 2.6 ---
 
 * issue#139: WEBUI WARNING: Attempt to use GET method for POST operations
 
 * issue#142: Monitor generates PHP Backtrace Errors
 
 * issue#157: Monitor plugin error message in cacti log
+
+* issue: Monitor continues to throw errors about monitor column being null
 
 
 --- 2.5 ---

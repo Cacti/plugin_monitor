@@ -21,7 +21,7 @@
 
 [info]
 name = monitor
-version = 2.5
+version = 2.6
 longname = Device Monitoring
 author = The Cacti Group
 email = 

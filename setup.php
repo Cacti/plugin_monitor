@@ -185,6 +185,8 @@ function monitor_check_upgrade() {
 	if ($current != $old) {
 		monitor_setup_table();
 
+		db_execute('ALTER TABLE host MODIFY COLUMM monitor char(3) DEFAULT "on"');
+
 		// Set the new version
 		db_execute("UPDATE plugin_config SET version='$current' WHERE directory='monitor'");
 
@@ -922,7 +924,7 @@ function monitor_setup_table() {
 			COMMENT='Stores predefined dashboard information for a user or users'");
 	}
 
-	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => false, 'default' => 'on', 'after' => 'disabled'));
+	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on', 'after' => 'disabled'));
 	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_text', 'type' => 'varchar(1024)', 'default' => '', 'NULL' => false, 'after' => 'monitor'));
 	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text'));
 	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality'));
