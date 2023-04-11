@@ -1969,7 +1969,7 @@ function ajax_status() {
 				</tr>' : '') . '
 				<tr>
 					<td>' . __('Last Fail:', 'monitor') . '</td>
-					<td>' . ($host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never', 'monitor') : $host['status_fail_date']) . '</td>
+					<td>' . html_escape($host['status_fail_date']) . '</td>
 				</tr>
 				<tr>
 					<td>' . __('Time In State:', 'monitor') . '</td>
@@ -2106,7 +2106,11 @@ function render_host_list($host) {
 		$host_warn = '';
 	}
 
-	$host_datefail = $host['status_fail_date'] == '0000-00-00 00:00:00' ? __('Never', 'monitor'):$host['status_fail_date'];
+	if (strtotime($host['status_fail_date']) < 86400) {
+		$host['status_fail_date'] = __('Never', 'monitor');
+	}
+
+	$host_datefail = $host['status_fail_date'];
 
 	$sdisplay = get_host_status_description($host['real_status']);
 
