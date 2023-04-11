@@ -1928,6 +1928,10 @@ function ajax_status() {
 				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $syslog_link . '"><i class="fas fa-life-ring deviceUp monitorLinkIcon"></i></a></div>';
 			}
 
+			if (strtotime($host['status_fail_date']) < 86400) {
+				$host['status_fail_date'] = __('Never', 'monitor');
+			}
+
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = get_host_status_description($host['real_status']);
 
