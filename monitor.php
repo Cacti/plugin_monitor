@@ -1962,6 +1962,15 @@ function ajax_status() {
 
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = get_host_status_description($host['real_status']);
+			$site     = db_fetch_cell_prepared('SELECT name FROM sites WHERE id = ?', array($host['site_id']));
+
+			if ($host['location'] == '') {
+				$host['location'] = __('Unspecified', 'monitor');
+			}
+
+			if ($site == '') {
+				$site = __('None', 'monitor');
+			}
 
 			print "<table class='monitorHover $size'>
 				<tr class='tableHeader'>
@@ -1970,6 +1979,13 @@ function ajax_status() {
 				<tr>
 					<td>' . __('Device:', 'monitor') . "</td>
 					<td><a class='pic hyperLink monitorLink' href='" . html_escape($host['anchor']) . "'>" . html_escape($host['description']) . '</a></td>
+				<tr>
+					<td>' . __('Site:', 'monitor') . '</td>
+					<td>' . html_escape($site) . '</td>
+				</tr>
+				<tr>
+					<td>' . __('Location:', 'monitor') . '</td>
+					<td>' . html_escape($host['location']) . '</td>
 				</tr>' . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? '
 				<tr>
 					<td>' . __('Criticality:', 'monitor') . '</td>
