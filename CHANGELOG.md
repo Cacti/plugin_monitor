@@ -6,6 +6,8 @@
 
 * issue#142: Monitor generates PHP Backtrace Errors
 
+* issue#147: Monitor Tab odering issue
+
 * issue#148: Monitor Plugin Last fail data always update to ~1970 for hosts that have never been down.
 
 * issue#157: Monitor plugin error message in cacti log

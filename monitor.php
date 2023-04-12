@@ -1608,7 +1608,8 @@ function render_tree() {
 					$sql_where
 					AND parent = ?
 					AND graph_tree_id = ?
-					GROUP BY h.id";
+					GROUP BY h.id
+					ORDER BY gti.position";
 
 				$hosts = db_fetch_assoc_prepared($hosts_sql, array($oid, $graph_tree_id));
 
