@@ -185,17 +185,24 @@ function monitor_check_upgrade() {
 	if ($current != $old) {
 		monitor_setup_table();
 
-		db_execute('ALTER TABLE host MODIFY COLUMM monitor char(3) DEFAULT "on"');
+		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
 
 		// Set the new version
-		db_execute("UPDATE plugin_config SET version='$current' WHERE directory='monitor'");
+		db_execute_prepared("UPDATE plugin_config
+			SET version = ?
+			WHERE directory='monitor'", array($current));
 
-		db_execute("UPDATE plugin_config SET
-			version='" . $info['version']  . "',
-			name='"    . $info['longname'] . "',
-			author='"  . $info['author']   . "',
-			webpage='" . $info['homepage'] . "'
-			WHERE directory='" . $info['name'] . "' ");
+		db_execute_prepared("UPDATE plugin_config
+			SET version = ?, name = ?, author = ?, webpage = ?
+			WHERE directory = ?",
+			array(
+				$info['version'],
+				$info['longname'],
+				$info['author'],
+				$info['homepage'],
+				$info['name']
+			)
+		);
 	}
 }
 

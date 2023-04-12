@@ -280,57 +280,58 @@ function draw_page() {
 		} else {
 			$mbcolor = 'snow';
 		}
-
-		print "<script type=\"text/javascript\">
-			var monoe = false;
-
-			function setZoomErrorBackgrounds() {
-				if ('$mbcolor' != '') {
-					$('.monitor_container').css('background-color', '$mbcolor');
-					$('.cactiConsoleContentArea').css('background-color', '$mbcolor');
-				}
-			};
-
-			setZoomErrorBackgrounds();
-			$('.monitor_errorzoom_title').css('font-size', '$monitor_error_fontsize');
-
-			function setIntervalX(callback, delay, repetitions) {
-				var x = 0;
-				var intervalID = window.setInterval(function () {
-					callback();
-					if (++x === repetitions) {
-						window.clearInterval(intervalID);
-						setZoomErrorBackgrounds();
-					}
-				}, delay);
-			}
-
-			setIntervalX(function () {
-				if (monoe === false) {
-					setZoomErrorBackgrounds();
-
-					monoe = true;
-				} else {
-					if ('$mbcolor' != '') {
-						$('.monitor_container').css('background-color', '');
-						$('.cactiConsoleContentArea').css('background-color','');
-					}
-
-					monoe = false;
-				}
-			}, 600, 8);
-		</script>";
 	} else {
-		print "<script type=\"text/javascript\">
-			$('.monitor_container').css('background-color', '');
-			$('.cactiConsoleContentArea').css('background-color','');
-		</script>";
+		$mbcolor = '';
 	}
 
 	?>
 	<script type='text/javascript'>
 	var refreshMSeconds=99999999;
 	var myTimer;
+	var mbColor = '<?php print $mbcolor;?>';
+
+	if (mbColor !== '') {
+		var monoe = false;
+
+		function setZoomErrorBackgrounds() {
+			if (mbColor != '') {
+				$('.monitor_container').css('background-color', mbColor);
+				$('.cactiConsoleContentArea').css('background-color', mbColor);
+			}
+		}
+
+		setZoomErrorBackgrounds();
+		$('.monitor_errorzoom_title').css('font-size', '$monitor_error_fontsize');
+
+		function setIntervalX(callback, delay, repetitions) {
+			var x = 0;
+			var intervalID = window.setInterval(function () {
+				callback();
+				if (++x === repetitions) {
+					window.clearInterval(intervalID);
+					setZoomErrorBackgrounds();
+				}
+			}, delay);
+		}
+
+		setIntervalX(function () {
+			if (monoe === false) {
+				setZoomErrorBackgrounds();
+
+				monoe = true;
+			} else {
+				if (mbColor != '') {
+					$('.monitor_container').css('background-color', '');
+					$('.cactiConsoleContentArea').css('background-color','');
+				}
+
+				monoe = false;
+			}
+		}, 600, 8);
+	} else {
+		$('.monitor_container').css('background-color', '');
+		$('.cactiConsoleContentArea').css('background-color','');
+	}
 
 	function timeStep() {
 		value = $('#timer').html() - 1;
@@ -486,6 +487,7 @@ function draw_page() {
 	}
 
 	$(function() {
+		console.log('starting');
 		// Clear the timeout to keep countdown accurate
 		clearTimeout(myTimer);
 
@@ -755,7 +757,7 @@ function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
 function draw_filter_and_status() {
 	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status, $monitor_trim, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $dozoombgndcolor, $mon_zoom_state;
 
-	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
+	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i style="padding:0px !important;margin:0px;" id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . (get_request_var('view') == 'list' ? __('[ Showing only first 30 Devices ]', 'monitor'):'') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
 
 	html_start_box($header, '100%', '', '3', 'center', '');
 
@@ -1304,10 +1306,18 @@ function render_default() {
 			$result .= $function($hosts);
 		}
 
+		$count = 0;
+
 		foreach($hosts as $host) {
 			if (is_device_allowed($host['id'])) {
 				$result .= render_host($host, true, $maxlen);
 			}
+
+			if (get_request_var('view') == 'list' && $count > 30) {
+				break;
+			}
+
+			$count++;
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
@@ -2039,18 +2049,54 @@ function render_header_tilesadt($hosts) {
 
 function render_header_list($hosts) {
 	$display_text = array(
-		'hostname'    => array('display' => __('Hostname', 'monitor'),         'align' => 'left', 'tip' => __('Hostname of device', 'monitor')),
-		'description' => array('display' => __('Description', 'monitor'),      'align' => 'left'),
-		'site_name'   => array('display' => __('Site', 'monitor'),             'align' => 'left'),
-		'criticality' => array('display' => __('Criticality', 'monitor'),      'align' => 'left'),
-		'avail'       => array('display' => __('Availability', 'monitor'),     'align' => 'right'),
-		'status'      => array('display' => __('Status', 'monitor'),           'align' => 'center'),
-		'duration'    => array('display' => __('Length in status', 'monitor'), 'align' => 'center'),
-		'average'     => array('display' => __('Averages', 'monitor'),         'align' => 'left'),
-		'warnings'    => array('display' => __('Warning', 'monitor'),          'align' => 'left'),
-		'lastfail'    => array('display' => __('Last Fail', 'monitor'),        'align' => 'left'),
-		'admin'       => array('display' => __('Admin', 'monitor'),            'align' => 'left'),
-		'notes'       => array('display' => __('Notes', 'monitor'),            'align' => 'left')
+		'hostname'    => array(
+			'display' => __('Hostname', 'monitor'),
+			'align' => 'left', 'tip' => __('Hostname of device', 'monitor')
+		),
+		'description' => array(
+			'display' => __('Description', 'monitor'),
+			'align' => 'left'
+		),
+		'site_name'   => array(
+			'display' => __('Site', 'monitor'),
+			'align' => 'left'
+		),
+		'criticality' => array(
+			'display' => __('Criticality', 'monitor'),
+			'align' => 'left'
+		),
+		'avail'       => array(
+			'display' => __('Availability', 'monitor'),
+			'align' => 'right'
+		),
+		'status'      => array(
+			'display' => __('Status', 'monitor'),
+			'align' => 'center'
+		),
+		'duration'    => array(
+			'display' => __('Length in status', 'monitor'),
+			'align' => 'center'
+		),
+		'average'     => array(
+			'display' => __('Averages', 'monitor'),
+			'align' => 'left'
+		),
+		'warnings'    => array(
+			'display' => __('Warning', 'monitor'),
+			'align' => 'left'
+		),
+		'lastfail'    => array(
+			'display' => __('Last Fail', 'monitor'),
+			'align' => 'left'
+		),
+		'admin'       => array(
+			'display' => __('Admin', 'monitor'),
+			'align' => 'left'
+		),
+		'notes'       => array(
+			'display' => __('Notes', 'monitor'),
+			'align' => 'left'
+		)
 	);
 
 	$output  = html_start_box(__('Monitored Devices', 'monitor'), '100%', '', '3', 'center', '');
