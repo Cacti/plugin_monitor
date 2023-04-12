@@ -276,7 +276,7 @@ function draw_page() {
 		$monitor_error_fontsize = read_user_setting('monitor_error_fontsize') . 'px';
 
 		if (cacti_sizeof($mbcolora)) {
-			$mbcolor = '#' . array_values($mbcolora)[2];
+			$mbcolor = '#' . $mbcolora['hex'];
 		} else {
 			$mbcolor = 'snow';
 		}
