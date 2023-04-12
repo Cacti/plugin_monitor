@@ -218,6 +218,7 @@ function monitor_uptime_checker() {
 		WHERE h.snmp_version > 0
 		AND status IN (2,3)
 		AND h.deleted = ""
+		AND h.monitor = "on"
 		AND (mu.uptime IS NULL OR mu.uptime > h.snmp_sysUpTimeInstance)
 		AND h.snmp_sysUpTimeInstance > 0');
 
@@ -291,6 +292,7 @@ function monitor_uptime_checker() {
 		WHERE snmp_version > 0
 		AND status IN(2,3)
 		AND deleted = ""
+		AND monitor = "on"
 		AND snmp_sysUpTimeInstance > 0');
 
 	// Log Recently Down
@@ -300,6 +302,7 @@ function monitor_uptime_checker() {
 		FROM host AS h
 		WHERE status = 1
 		AND deleted = ""
+		AND monitor = "on"
 		AND status_event_count = 1');
 
 	$recent = db_affected_rows();
@@ -696,6 +699,7 @@ function log_messages($type, $alert_hosts) {
 				SELECT id, '$type' AS notify_type, cur_time, $column, '$start_date' AS notification_time
 				FROM host
 				WHERE deleted = ''
+				AND monitor = 'on'
 				AND id = ?",
 				array($id));
 		}
@@ -713,6 +717,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 		FROM host
 		WHERE status = 3
 		AND deleted = ''
+		AND monitor = 'on'
 		AND thold_send_email > 0
 		AND monitor_criticality >= ?
 		AND cur_time > monitor_$type",
@@ -737,6 +742,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 			ON host.id=nh.host_id
 			WHERE status = 3
 			AND deleted = ''
+			AND monitor = 'on'
 			AND thold_send_email > 0
 			AND monitor_criticality >= ?
 			AND cur_time > monitor_$type " . ($type == 'warn' ? ' AND cur_time < monitor_alert':'') . '
