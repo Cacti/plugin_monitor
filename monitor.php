@@ -903,6 +903,8 @@ function draw_filter_and_status() {
 				var id = $(ui.tooltip).attr('id');
 
 				$('div.ui-tooltip').not('#'+ id).remove();
+
+				$('a').tooltip();
 			},
 			close: function(event, ui) {
 				ui.tooltip.hover(
@@ -1937,23 +1939,23 @@ function ajax_status() {
 
 			$links = '';
 			if (isset($host_link)) {
-				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $host_link . '"><i class="fas fa-pen-square deviceUp monitorLinkIcon"></i></a></div>';
+				$links .= '<div><a title="' . __('Edit Device', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $host_link . '"><i class="fas fa-pen-square deviceUp monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($graph_link)) {
-				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $graph_link . '"><i class="fa fa-chart-line deviceUp monitorLinkIcon"></i></a></div>';
+				$links .= '<div><a title="' . __esc('View Graphs', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $graph_link . '"><i class="fa fa-chart-line deviceUp monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($thold_link)) {
-				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $thold_link . '"><i class="fas fa-tasks deviceRecovering monitorLinkIcon"></i></a></div>';
+				$links .= '<div><a title="' . __esc('View Thresholds/Alerts', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $thold_link . '"><i class="fas fa-tasks deviceRecovering monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($syslog_log_link)) {
-				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $syslog_log_link . '"><i class="fas fa-life-ring deviceDown monitorLinkIcon"></i></a></div>';
+				$links .= '<div><a title="' . __esc('View Device Syslog Alerts', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $syslog_log_link . '"><i class="fas fa-life-ring deviceDown monitorLinkIcon"></i></a></div>';
 			}
 
 			if (isset($syslog_link)) {
-				$links .= '<div><a class="pic hyperLink monitorLink" href="' . $syslog_link . '"><i class="fas fa-life-ring deviceUp monitorLinkIcon"></i></a></div>';
+				$links .= '<div><a title="' . __esc('View Device Syslog Entries', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $syslog_link . '"><i class="fas fa-life-ring deviceUp monitorLinkIcon"></i></a></div>';
 			}
 
 			if (strtotime($host['status_fail_date']) < 86400) {
