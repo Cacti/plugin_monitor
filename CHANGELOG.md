@@ -18,6 +18,7 @@
 
 * issue: Monitor continues to throw errors about monitor column being null
 
+* feature#127: Limit the amount of devices shown
 
 --- 2.5 ---
 
