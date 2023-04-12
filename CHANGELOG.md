@@ -6,6 +6,8 @@
 
 * issue#142: Monitor generates PHP Backtrace Errors
 
+* issue#143: Limit device view based on User Permission Settings
+
 * issue#147: Monitor Tab odering issue
 
 * issue#148: Monitor Plugin Last fail data always update to ~1970 for hosts that have never been down.

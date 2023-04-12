@@ -1305,7 +1305,9 @@ function render_default() {
 		}
 
 		foreach($hosts as $host) {
-			$result .= render_host($host, true, $maxlen);
+			if (is_device_allowed($host['id'])) {
+				$result .= render_host($host, true, $maxlen);
+			}
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
@@ -1355,8 +1357,12 @@ function render_site() {
 			$suppresGroups = true;
 		}
 
-		foreach($hosts as $host) {
-			$host_ids[] = $host['id'];
+		foreach($hosts as $index => $host) {
+			if (is_device_allowed($host['id'])) {
+				$host_ids[] = $host['id'];
+			} else {
+				unset($hosts[$index]);
+			}
 		}
 
 		// Determine the correct width of the cell
@@ -1454,8 +1460,12 @@ function render_template() {
 			$suppresGroups = true;
 		}
 
-		foreach($hosts as $host) {
-			$host_ids[] = $host['id'];
+		foreach($hosts as $index => $host) {
+			if (is_device_allowed($host['id'])) {
+				$host_ids[] = $host['id'];
+			} else {
+				unset($hosts[$index]);
+			}
 		}
 
 		// Determine the correct width of the cell
@@ -1629,8 +1639,12 @@ function render_tree() {
 				}
 
 				if (cacti_sizeof($hosts)) {
-					foreach($hosts as $host) {
-						$host_ids[] = $host['id'];
+					foreach($hosts as $index => $host) {
+						if (is_device_allowed($host['id'])) {
+							$host_ids[] = $host['id'];
+						} else {
+							unset($hosts[$index]);
+						}
 					}
 
 					$class = get_request_var('size');
@@ -1654,8 +1668,12 @@ function render_tree() {
 		$hosts = get_host_non_tree_array();
 
 		if (cacti_sizeof($hosts)) {
-			foreach($hosts as $host) {
-				$host_ids[] = $host['id'];
+			foreach($hosts as $index => $host) {
+				if (is_device_allowed($host['id'])) {
+					$host_ids[] = $host['id'];
+				} else {
+					unset($hosts[$index]);
+				}
 			}
 
 			// Determine the correct width of the cell
@@ -1729,10 +1747,6 @@ function render_host($host, $float = true, $maxlen = 10) {
 
 	//throw out tree root items
 	if (array_key_exists('name', $host))  {
-		return;
-	}
-
-	if (!is_device_allowed($host['id'])) {
 		return;
 	}
 
@@ -2069,10 +2083,6 @@ function render_footer_list($hosts) {
 function render_host_list($host) {
 	global $criticalities;
 
-	if (!is_device_allowed($host['id'])) {
-		return ;
-	}
-
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
 	} elseif ($host['status_rec_date'] != '0000-00-00 00:00:00') {
@@ -2137,10 +2147,6 @@ function render_host_tiles($host, $maxlen = 10) {
 	$class  = get_status_icon($host['status']);
 	$fclass = get_request_var('size');
 
-	if (!is_device_allowed($host['id'])) {
-		return;
-	}
-
 	$result = "<div class='{$fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
 
 	return $result;
@@ -2148,10 +2154,6 @@ function render_host_tiles($host, $maxlen = 10) {
 
 function render_host_tilesadt($host, $maxlen = 10) {
 	$tis = '';
-
-	if (!is_device_allowed($host['id'])) {
-		return;
-	}
 
 	$class  = get_status_icon($host['status']);
 	$fclass = get_request_var('size');
