@@ -645,7 +645,7 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 		$subject,
 		$output,
 		monitor_text($toutput),
-		'',
+		null,
 		$headers,
 		$html
 	);
