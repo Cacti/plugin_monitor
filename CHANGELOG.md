@@ -2,6 +2,8 @@
 
 -- 2.6 ---
 
+* issue#128: SQL errors happen during Autom8 runs Monitor 2.3.6
+
 * issue#139: WEBUI WARNING: Attempt to use GET method for POST operations
 
 * issue#142: Monitor generates PHP Backtrace Errors
