@@ -189,6 +189,7 @@ function load_dashboard_settings() {
 
 function draw_page() {
 	global $config, $iclasses, $icolorsdisplay, $mon_zoom_state, $dozoomrefresh, $dozoombgndcolor, $font_sizes;
+	global $new_form, $new_title;
 
 	$errored_list = get_hosts_down_or_triggered_by_permission(true);
 
@@ -205,6 +206,19 @@ function draw_page() {
 		$dozoomrefresh   = true;
 		$dozoombgndcolor = false;
 	}
+
+	$name = db_fetch_cell_prepared('SELECT name
+		FROM plugin_monitor_dashboards
+		WHERE id = ?',
+		array(get_request_var('dashboard')));
+
+	if ($name == '') {
+		$name = __('New Dashboard', 'monitor');
+	}
+
+	$new_form  = "<div id='newdialog'><form id='new_dashboard'><table class='monitorTable'><tr><td colspan='2'>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form></div>";
+
+	$new_title = __('Create New Dashboard', 'monitor');
 
 	find_down_hosts();
 
@@ -244,19 +258,6 @@ function draw_page() {
 		print "</div>";
 	}
 
-	$name = db_fetch_cell_prepared('SELECT name
-		FROM plugin_monitor_dashboards
-		WHERE id = ?',
-		array(get_request_var('dashboard')));
-
-	if ($name == '') {
-		$name = __('New Dashboard', 'monitor');
-	}
-
-	$new_form  = "<div id='newdialog'><form id='new_dashboard'><table class='monitorTable'><tr><td colspan='2'>" . __('Enter the Dashboard Name and then press \'Save\' to continue, else press \'Cancel\'', 'monitor') . '</td></tr><tr><td>' . __('Dashboard', 'monitor') . "</td><td><input id='name' class='ui-state-default ui-corner-all' type='text' size='30' value='" . html_escape($name) . "'></td></tr></table></form></div>";
-
-	$new_title = __('Create New Dashboard', 'monitor');
-
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
@@ -266,6 +267,355 @@ function draw_page() {
 			print "<audio id='audio' src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		}
 	}
+
+	print '<div class="center monitorFooter">' . get_filter_text() . '</div>';
+
+	bottom_footer();
+}
+
+function is_monitor_audible() {
+	return get_monitor_sound() != '';
+}
+
+function get_monitor_sound() {
+	$sound = read_user_setting('monitor_sound', read_config_option('monitor_sound'));
+	clearstatcache();
+	$file = dirname(__FILE__) . '/sounds/' . $sound;
+	$exists = file_exists($file);
+	return $exists ? $sound : '';
+}
+
+function find_down_hosts() {
+	$dhosts = get_hosts_down_or_triggered_by_permission(false);
+
+	if (cacti_sizeof($dhosts)) {
+		set_request_var('downhosts', 'true');
+
+		if (isset($_SESSION['monitor_muted_hosts'])) {
+			unmute_up_non_triggered_hosts($dhosts);
+
+			$unmuted_hosts = array_diff($dhosts, $_SESSION['monitor_muted_hosts']);
+
+			if (cacti_sizeof($unmuted_hosts)) {
+				unmute_user();
+			}
+		} else {
+			set_request_var('mute', 'false');
+		}
+	} else {
+		unmute_all_hosts();
+		set_request_var('downhosts', 'false');
+	}
+}
+
+function unmute_up_non_triggered_hosts($dhosts) {
+	if (isset($_SESSION['monitor_muted_hosts'])) {
+		foreach($_SESSION['monitor_muted_hosts'] AS $index => $host_id) {
+			if (array_search($host_id, $dhosts) === false) {
+				unset($_SESSION['monitor_muted_hosts'][$index]);
+			}
+		}
+	}
+}
+
+function mute_all_hosts() {
+	$_SESSION['monitor_muted_hosts'] = get_hosts_down_or_triggered_by_permission(false);
+	mute_user();
+}
+
+function unmute_all_hosts() {
+	$_SESSION['monitor_muted_hosts'] = array();
+	unmute_user();
+}
+
+function mute_user() {
+	set_request_var('mute', 'true');
+	set_user_setting('monitor_mute', 'true');
+}
+
+function unmute_user() {
+	set_request_var('mute', 'false');
+	set_user_setting('monitor_mute','false');
+}
+
+function get_thold_where() {
+	if (get_request_var('status') == '2') { /* breached */
+		return "(td.thold_enabled = 'on'
+			AND (td.thold_alert != 0 OR td.bl_alert > 0))";
+	} else { /* triggered */
+		return "(td.thold_enabled='on'
+			AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger)
+			OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))";
+	}
+}
+
+function check_tholds() {
+	$thold_hosts  = array();
+
+	if (api_plugin_is_enabled('thold')) {
+		return array_rekey(
+			db_fetch_assoc("SELECT DISTINCT dl.host_id
+				FROM thold_data AS td
+				INNER JOIN data_local AS dl
+				ON td.local_data_id=dl.id
+				WHERE " . get_thold_where()),
+			'host_id', 'host_id'
+		);
+	}
+
+	return $thold_hosts;
+}
+
+function get_filter_text() {
+	$filter = '<div class="center monitorFooterText">';
+
+	switch(get_request_var('status')) {
+	case '-1':
+		$filter .= __('All Monitored Devices', 'monitor');
+		break;
+	case '0':
+		$filter .= __('Monitored Devices either Down or Recovering', 'monitor');
+		break;
+	case '1':
+		$filter .= __('Monitored Devices either Down, Recovering, or with Triggered Thresholds', 'monitor');
+		break;
+	case '2':
+		$filter .= __('Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds', 'monitor');
+		break;
+	default:
+		$filter .= __('Unknown monitoring status (%s)', get_request_var('status'), 'monitor');
+	}
+
+	switch(get_request_var('crit')) {
+	case '0':
+		$filter .= __(', and All Criticalities', 'monitor');
+		break;
+	case '1':
+		$filter .= __(', and of Low Criticality or Higher', 'monitor');
+		break;
+	case '2':
+		$filter .= __(', and of Medium Criticality or Higher', 'monitor');
+		break;
+	case '3':
+		$filter .= __(', and of High Criticality or Higher', 'monitor');
+		break;
+	case '4':
+		$filter .= __(', and of Mission Critical Status', 'monitor');
+		break;
+	}
+
+	$filter .= __('</div><div class="center monitorFooterTextBold">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>', 'monitor');
+
+	return $filter;
+}
+
+function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
+	if ($value == null) {
+		$value = get_nfilter_request_var($id);
+	}
+
+	if (cacti_sizeof($settings)) {
+		print '<td>' . html_escape($title) . '</td>';
+		print '<td><select id="' . $id . '" title="' . html_escape($title) . '">' . PHP_EOL;
+
+		foreach ($settings as $setting_value => $setting_name) {
+			if ($value == null || $value == '') {
+				$value = $setting_value;
+			}
+
+			$setting_selected = ($value == $setting_value) ? ' selected' : '';
+
+			print '<option value="' . $setting_value . '"' . $setting_selected . '>' . html_escape($setting_name) . '</option>' . PHP_EOL;
+		}
+
+		print '</select></td>' . PHP_EOL;
+	} else {
+		print "<td style='display:none;'><input type='hidden' id='$id' value='" . html_escape($value) . "'></td>" . PHP_EOL;
+	}
+}
+
+function draw_filter_and_status() {
+	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping;
+	global $monitor_view_type, $monitor_status, $monitor_trim;
+	global $dozoombgndcolor, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $mon_zoom_state;
+	global $new_form, $new_title;
+
+	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i style="padding:0px !important;margin:0px;" id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . (get_request_var('view') == 'list' ? __('[ Showing only first 30 Devices ]', 'monitor'):'') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
+
+	html_start_box($header, '100%', '', '3', 'center', '');
+
+	print '<tr class="even"><td>' . PHP_EOL;
+	print '<form class="monitorFilterForm">' . PHP_EOL;
+
+	// First line of filter
+	print '<table class="filterTable">' . PHP_EOL;
+	print '<tr class="even">' . PHP_EOL;
+
+	$dashboards[0] = __('Unsaved', 'monitor');
+	$dashboards += array_rekey(
+		db_fetch_assoc_prepared('SELECT id, name
+			FROM plugin_monitor_dashboards
+			WHERE user_id = 0 OR user_id = ?
+			ORDER BY name',
+			array($_SESSION['sess_user_id'])),
+		'id', 'name'
+	);
+
+	$name = db_fetch_cell_prepared('SELECT name
+		FROM plugin_monitor_dashboards
+		WHERE id = ?',
+		array(get_request_var('dashboard')));
+
+	$mon_zoom_status = null;
+	$mon_zoom_size   = null;
+
+	if (isset($_SESSION['monitor_zoom_state'])) {
+		if ($_SESSION['monitor_zoom_state'] == 1) {
+			$mon_zoom_status = 2;
+			$mon_zoom_size   = 'monitor_errorzoom';
+			$dozoombgndcolor = true;
+		} else {
+			if (isset($_SESSION['mon_zoom_hist_status'])) {
+				$mon_zoom_status = $_SESSION['mon_zoom_hist_status'];
+			} else {
+				$mon_zoom_status = null;
+			}
+
+			if (isset($_SESSION['mon_zoom_hist_size'])) {
+				$currentddsize = get_nfilter_request_var('size');
+
+				if ($currentddsize != $_SESSION['mon_zoom_hist_size'] && $currentddsize != 'monitor_errorzoom') {
+					$_SESSION['mon_zoom_hist_size'] = $currentddsize;
+				}
+
+				$mon_zoom_size = $_SESSION['mon_zoom_hist_size'];
+			} else {
+				$mon_zoom_size = null;
+			}
+		}
+	}
+
+	draw_filter_dropdown('dashboard', __('Layout', 'monitor'), $dashboards);
+	draw_filter_dropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
+	draw_filter_dropdown('view', __('View', 'monitor'), $monitor_view_type);
+	draw_filter_dropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
+
+	// Buttons
+	print '<td><span>' . PHP_EOL;
+
+	print '<input type="submit" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
+
+	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . PHP_EOL;
+
+	print '<input type="button" value="' . __esc('New', 'monitor') . '" id="new" title="' . __esc('Save New Dashboard', 'monitor') . '">' . PHP_EOL;
+
+	if (get_request_var('dashboard') > 0) {
+		print '<input type="button" value="' . __esc('Rename', 'monitor') . '" id="rename" title="' . __esc('Rename Dashboard', 'monitor') . '">' . PHP_EOL;
+	}
+
+	if (get_request_var('dashboard') > 0) {
+		print '<input type="button" value="' . __esc('Delete', 'monitor') . '" id="delete" title="' . __esc('Delete Dashboard', 'monitor') . '">' . PHP_EOL;
+	}
+
+	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
+	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
+	print '</span></td>';
+	print '</tr>';
+	print '</table>';
+
+	// Second line of filter
+	print '<table class="filterTable">' . PHP_EOL;
+	print '<tr>' . PHP_EOL;
+	print '<td>' . __('Search', 'monitor') . '</td>';
+	print '<td><input type="text" size="30" id="rfilter" value="' . html_escape_request_var('rfilter') . '"></input></td>';
+
+	draw_filter_dropdown('crit', __('Criticality', 'monitor'), $criticalities);
+
+	if (get_request_var('view') != 'list') {
+		draw_filter_dropdown('size', __('Size', 'monitor'), $classes, $mon_zoom_size);
+	}
+
+	if (get_request_var('view') == 'default') {
+		draw_filter_dropdown('trim', __('Trim', 'monitor'), $monitor_trim);
+	}
+
+	if (get_nfilter_request_var('grouping') == 'tree') {
+		$trees = array();
+		if (get_request_var('grouping') == 'tree') {
+			$trees_allowed = array_rekey(get_allowed_trees(), 'id', 'name');
+			if (cacti_sizeof($trees_allowed)) {
+				$trees_prefix = array(-1 => __('All Trees', 'monitor'));
+				$trees_suffix = array(-2 => __('Non-Tree Devices', 'monitor'));
+
+				$trees = $trees_prefix + $trees_allowed + $trees_suffix;
+			}
+		}
+
+		draw_filter_dropdown('tree', __('Tree', 'monitor'), $trees);
+	}
+
+	if (get_nfilter_request_var('grouping') == 'site') {
+		$sites = array();
+		if (get_request_var('grouping') == 'site') {
+			$sites = array_rekey(
+				db_fetch_assoc('SELECT id, name
+					FROM sites
+					ORDER BY name'),
+				'id', 'name'
+			);
+
+			if (cacti_sizeof($sites)) {
+				$sites_prefix = array(-1 => __('All Sites', 'monitor'));
+				$sites_suffix = array(-2 => __('Non-Site Devices', 'monitor'));
+
+				$sites = $sites_prefix + $sites + $sites_suffix;
+			}
+		}
+
+		draw_filter_dropdown('site', __('Sites', 'monitor'), $sites);
+	}
+
+	if (get_request_var('grouping') == 'template') {
+		$templates = array();
+		$templates_allowed = array_rekey(db_fetch_assoc('SELECT id, name FROM host_template'), 'id', 'name');
+
+		if (cacti_sizeof($templates_allowed)) {
+			$templates_prefix = array(-1 => __('All Templates', 'monitor'));
+			$templates_suffix = array(-2 => __('Non-Templated Devices', 'monitor'));
+
+			$templates = $templates_prefix + $templates_allowed + $templates_suffix;
+		}
+
+		draw_filter_dropdown('template', __('Template', 'monitor'), $templates);
+	}
+
+	draw_filter_dropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
+
+	if (get_request_var('grouping') != 'tree') {
+		print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('grouping') != 'site') {
+		print '<td><input type="hidden" id="site" value="' . get_request_var('site') . '"></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('grouping') != 'template') {
+		print '<td><input type="hidden" id="template" value="' . get_request_var('template') . '"></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('view') == 'list') {
+		print '<td><input type="hidden" id="size" value="' . get_request_var('size') . '"></td>' . PHP_EOL;
+	}
+
+	if (get_request_var('view') != 'default') {
+		print '<td><input type="hidden" id="trim" value="' . get_request_var('trim') . '"></td>' . PHP_EOL;
+	}
+
+	print '</tr>';
+	print '</table>';
+	print '</form></td></tr>' . PHP_EOL;
+
+	html_end_box();
 
 	if ($dozoombgndcolor) {
 		$mbcolora = db_fetch_row_prepared('SELECT *
@@ -282,6 +632,7 @@ function draw_page() {
 		}
 	} else {
 		$mbcolor = '';
+		$monitor_error_fontsize = '10px';
 	}
 
 	?>
@@ -289,6 +640,8 @@ function draw_page() {
 	var refreshMSeconds=99999999;
 	var myTimer;
 	var mbColor = '<?php print $mbcolor;?>';
+	var monitorFont = '<?php print $monitor_error_fontsize;?>';
+	var dozoomRefresh = <?php print $dozoomrefresh ? 'true':'false';?>;
 
 	if (mbColor !== '') {
 		var monoe = false;
@@ -301,7 +654,7 @@ function draw_page() {
 		}
 
 		setZoomErrorBackgrounds();
-		$('.monitor_errorzoom_title').css('font-size', '$monitor_error_fontsize');
+		$('.monitor_errorzoom_title').css('font-size', monitorFont);;
 
 		function setIntervalX(callback, delay, repetitions) {
 			var x = 0;
@@ -487,7 +840,10 @@ function draw_page() {
 	}
 
 	$(function() {
-		console.log('starting');
+		if (dozoomRefresh) {
+			applyFilter('refresh');
+		}
+
 		// Clear the timeout to keep countdown accurate
 		clearTimeout(myTimer);
 
@@ -588,359 +944,6 @@ function draw_page() {
 	</script>
 	<?php
 
-	print '<div class="center monitorFooter">' . get_filter_text() . '</div>';
-
-	bottom_footer();
-}
-
-function is_monitor_audible() {
-	return get_monitor_sound() != '';
-}
-
-function get_monitor_sound() {
-	$sound = read_user_setting('monitor_sound', read_config_option('monitor_sound'));
-	clearstatcache();
-	$file = dirname(__FILE__) . '/sounds/' . $sound;
-	$exists = file_exists($file);
-	return $exists ? $sound : '';
-}
-
-function find_down_hosts() {
-	$dhosts = get_hosts_down_or_triggered_by_permission(false);
-
-	if (cacti_sizeof($dhosts)) {
-		set_request_var('downhosts', 'true');
-
-		if (isset($_SESSION['monitor_muted_hosts'])) {
-			unmute_up_non_triggered_hosts($dhosts);
-
-			$unmuted_hosts = array_diff($dhosts, $_SESSION['monitor_muted_hosts']);
-
-			if (cacti_sizeof($unmuted_hosts)) {
-				unmute_user();
-			}
-		} else {
-			set_request_var('mute', 'false');
-		}
-	} else {
-		unmute_all_hosts();
-		set_request_var('downhosts', 'false');
-	}
-}
-
-function unmute_up_non_triggered_hosts($dhosts) {
-	if (isset($_SESSION['monitor_muted_hosts'])) {
-		foreach($_SESSION['monitor_muted_hosts'] AS $index => $host_id) {
-			if (array_search($host_id, $dhosts) === false) {
-				unset($_SESSION['monitor_muted_hosts'][$index]);
-			}
-		}
-	}
-}
-
-function mute_all_hosts() {
-	$_SESSION['monitor_muted_hosts'] = get_hosts_down_or_triggered_by_permission(false);
-	mute_user();
-}
-
-function unmute_all_hosts() {
-	$_SESSION['monitor_muted_hosts'] = array();
-	unmute_user();
-}
-
-function mute_user() {
-	set_request_var('mute', 'true');
-	set_user_setting('monitor_mute', 'true');
-}
-
-function unmute_user() {
-	set_request_var('mute', 'false');
-	set_user_setting('monitor_mute','false');
-}
-
-function get_thold_where() {
-	if (get_request_var('status') == '2') { /* breached */
-		return "(td.thold_enabled = 'on'
-			AND (td.thold_alert != 0 OR td.bl_alert > 0))";
-	} else { /* triggered */
-		return "(td.thold_enabled='on'
-			AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger)
-			OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))";
-	}
-}
-
-function check_tholds() {
-	$thold_hosts  = array();
-
-	if (api_plugin_is_enabled('thold')) {
-		return array_rekey(
-			db_fetch_assoc("SELECT DISTINCT dl.host_id
-				FROM thold_data AS td
-				INNER JOIN data_local AS dl
-				ON td.local_data_id=dl.id
-				WHERE " . get_thold_where()),
-			'host_id', 'host_id'
-		);
-	}
-
-	return $thold_hosts;
-}
-
-function get_filter_text() {
-	$filter = '<div class="center monitorFooterText">';
-
-	switch(get_request_var('status')) {
-	case '-1':
-		$filter .= __('All Monitored Devices', 'monitor');
-		break;
-	case '0':
-		$filter .= __('Monitored Devices either Down or Recovering', 'monitor');
-		break;
-	case '1':
-		$filter .= __('Monitored Devices either Down, Recovering, or with Triggered Thresholds', 'monitor');
-		break;
-	case '2':
-		$filter .= __('Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds', 'monitor');
-		break;
-	default:
-		$filter .= __('Unknown monitoring status (%s)', get_request_var('status'), 'monitor');
-	}
-
-	switch(get_request_var('crit')) {
-	case '0':
-		$filter .= __(', and All Criticalities', 'monitor');
-		break;
-	case '1':
-		$filter .= __(', and of Low Criticality or Higher', 'monitor');
-		break;
-	case '2':
-		$filter .= __(', and of Medium Criticality or Higher', 'monitor');
-		break;
-	case '3':
-		$filter .= __(', and of High Criticality or Higher', 'monitor');
-		break;
-	case '4':
-		$filter .= __(', and of Mission Critical Status', 'monitor');
-		break;
-	}
-
-	$filter .= __('</div><div class="center monitorFooterTextBold">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>', 'monitor');
-
-	return $filter;
-}
-
-function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
-	if ($value == null) {
-		$value = get_nfilter_request_var($id);
-	}
-
-	if (cacti_sizeof($settings)) {
-		print '<td>' . html_escape($title) . '</td>';
-		print '<td><select id="' . $id . '" title="' . html_escape($title) . '">' . PHP_EOL;
-
-		foreach ($settings as $setting_value => $setting_name) {
-			if ($value == null || $value == '') {
-				$value = $setting_value;
-			}
-
-			$setting_selected = ($value == $setting_value) ? ' selected' : '';
-
-			print '<option value="' . $setting_value . '"' . $setting_selected . '>' . html_escape($setting_name) . '</option>' . PHP_EOL;
-		}
-
-		print '</select></td>' . PHP_EOL;
-	} else {
-		print "<td style='display:none;'><input type='hidden' id='$id' value='" . html_escape($value) . "'></td>" . PHP_EOL;
-	}
-}
-
-function draw_filter_and_status() {
-	global $criticalities, $page_refresh_interval, $classes, $monitor_grouping, $monitor_view_type, $monitor_status, $monitor_trim, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $dozoombgndcolor, $mon_zoom_state;
-
-	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i style="padding:0px !important;margin:0px;" id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . (get_request_var('view') == 'list' ? __('[ Showing only first 30 Devices ]', 'monitor'):'') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
-
-	html_start_box($header, '100%', '', '3', 'center', '');
-
-	print '<tr class="even"><td>' . PHP_EOL;
-	print '<form class="monitorFilterForm">' . PHP_EOL;
-
-	// First line of filter
-	print '<table class="filterTable">' . PHP_EOL;
-	print '<tr class="even">' . PHP_EOL;
-
-	$dashboards[0] = __('Unsaved', 'monitor');
-	$dashboards += array_rekey(
-		db_fetch_assoc_prepared('SELECT id, name
-			FROM plugin_monitor_dashboards
-			WHERE user_id = 0 OR user_id = ?
-			ORDER BY name',
-			array($_SESSION['sess_user_id'])),
-		'id', 'name'
-	);
-
-	$name = db_fetch_cell_prepared('SELECT name
-		FROM plugin_monitor_dashboards
-		WHERE id = ?',
-		array(get_request_var('dashboard')));
-
-	$mon_zoom_status = null;
-	$mon_zoom_size   = null;
-
-	if (isset($_SESSION['monitor_zoom_state'])) {
-		if ($_SESSION['monitor_zoom_state'] == 1) {
-			$mon_zoom_status = 2;
-			$mon_zoom_size   = 'monitor_errorzoom';
-			$dozoombgndcolor = true;
-		} else {
-			if (isset($_SESSION['mon_zoom_hist_status'])) {
-				$mon_zoom_status = $_SESSION['mon_zoom_hist_status'];
-			} else {
-				$mon_zoom_status = null;
-			}
-
-			if (isset($_SESSION['mon_zoom_hist_size'])) {
-				$currentddsize = get_nfilter_request_var('size');
-
-				if ($currentddsize != $_SESSION['mon_zoom_hist_size'] && $currentddsize != 'monitor_errorzoom') {
-					$_SESSION['mon_zoom_hist_size'] = $currentddsize;
-				}
-
-				$mon_zoom_size = $_SESSION['mon_zoom_hist_size'];
-			} else {
-				$mon_zoom_size = null;
-			}
-		}
-	}
-
-	draw_filter_dropdown('dashboard', __('Layout', 'monitor'), $dashboards);
-	draw_filter_dropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
-	draw_filter_dropdown('view', __('View', 'monitor'), $monitor_view_type);
-	draw_filter_dropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
-
-	// Buttons
-	print '<td><span>' . PHP_EOL;
-
-	print '<input type="submit" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
-
-	print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . PHP_EOL;
-
-	print '<input type="button" value="' . __esc('New', 'monitor') . '" id="new" title="' . __esc('Save New Dashboard', 'monitor') . '">' . PHP_EOL;
-
-	if (get_request_var('dashboard') > 0) {
-		print '<input type="button" value="' . __esc('Rename', 'monitor') . '" id="rename" title="' . __esc('Rename Dashboard', 'monitor') . '">' . PHP_EOL;
-	}
-
-	if (get_request_var('dashboard') > 0) {
-		print '<input type="button" value="' . __esc('Delete', 'monitor') . '" id="delete" title="' . __esc('Delete Dashboard', 'monitor') . '">' . PHP_EOL;
-	}
-
-	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
-	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
-	print '</span></td>';
-	print '</tr>';
-	print '</table>';
-
-	// Second line of filter
-	print '<table class="filterTable">' . PHP_EOL;
-	print '<tr>' . PHP_EOL;
-	print '<td>' . __('Search', 'monitor') . '</td>';
-	print '<td><input type="text" size="30" id="rfilter" value="' . html_escape_request_var('rfilter') . '"></input></td>';
-
-	draw_filter_dropdown('crit', __('Criticality', 'monitor'), $criticalities);
-
-	if (get_request_var('view') != 'list') {
-		draw_filter_dropdown('size', __('Size', 'monitor'), $classes, $mon_zoom_size);
-	}
-
-	if (get_request_var('view') == 'default') {
-		draw_filter_dropdown('trim', __('Trim', 'monitor'), $monitor_trim);
-	}
-
-	if (get_nfilter_request_var('grouping') == 'tree') {
-		$trees = array();
-		if (get_request_var('grouping') == 'tree') {
-			$trees_allowed = array_rekey(get_allowed_trees(), 'id', 'name');
-			if (cacti_sizeof($trees_allowed)) {
-				$trees_prefix = array(-1 => __('All Trees', 'monitor'));
-				$trees_suffix = array(-2 => __('Non-Tree Devices', 'monitor'));
-
-				$trees = $trees_prefix + $trees_allowed + $trees_suffix;
-			}
-		}
-
-		draw_filter_dropdown('tree', __('Tree', 'monitor'), $trees);
-	}
-
-	if (get_nfilter_request_var('grouping') == 'site') {
-		$sites = array();
-		if (get_request_var('grouping') == 'site') {
-			$sites = array_rekey(
-				db_fetch_assoc('SELECT id, name
-					FROM sites
-					ORDER BY name'),
-				'id', 'name'
-			);
-
-			if (cacti_sizeof($sites)) {
-				$sites_prefix = array(-1 => __('All Sites', 'monitor'));
-				$sites_suffix = array(-2 => __('Non-Site Devices', 'monitor'));
-
-				$sites = $sites_prefix + $sites + $sites_suffix;
-			}
-		}
-
-		draw_filter_dropdown('site', __('Sites', 'monitor'), $sites);
-	}
-
-	if (get_request_var('grouping') == 'template') {
-		$templates = array();
-		$templates_allowed = array_rekey(db_fetch_assoc('SELECT id, name FROM host_template'), 'id', 'name');
-
-		if (cacti_sizeof($templates_allowed)) {
-			$templates_prefix = array(-1 => __('All Templates', 'monitor'));
-			$templates_suffix = array(-2 => __('Non-Templated Devices', 'monitor'));
-
-			$templates = $templates_prefix + $templates_allowed + $templates_suffix;
-		}
-
-		draw_filter_dropdown('template', __('Template', 'monitor'), $templates);
-	}
-
-	draw_filter_dropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
-
-	if (get_request_var('grouping') != 'tree') {
-		print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
-	}
-
-	if (get_request_var('grouping') != 'site') {
-		print '<td><input type="hidden" id="site" value="' . get_request_var('site') . '"></td>' . PHP_EOL;
-	}
-
-	if (get_request_var('grouping') != 'template') {
-		print '<td><input type="hidden" id="template" value="' . get_request_var('template') . '"></td>' . PHP_EOL;
-	}
-
-	if (get_request_var('view') == 'list') {
-		print '<td><input type="hidden" id="size" value="' . get_request_var('size') . '"></td>' . PHP_EOL;
-	}
-
-	if (get_request_var('view') != 'default') {
-		print '<td><input type="hidden" id="trim" value="' . get_request_var('trim') . '"></td>' . PHP_EOL;
-	}
-
-	print '</tr>';
-	print '</table>';
-	print '</form></td></tr>' . PHP_EOL;
-
-	html_end_box();
-
-	if ($dozoomrefresh == true) {
-		$dozoomrefresh = false;
-
-		print "<script type=\"text/javascript\">
-			applyFilter('refresh');
-		</script>";
-	}
 }
 
 function get_mute_text() {
