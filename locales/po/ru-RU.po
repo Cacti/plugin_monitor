@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2022-09-19 14:12+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/monitor/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2023-04-16 10:06+0000\nLast-Translator: Сергей <zersh@mail.ru>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/monitor/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -613,9 +613,8 @@ msgid "Description: "
 msgstr "Описание: "
 
 #: poller_monitor.php:332
-#, fuzzy
 msgid "Hostname: "
-msgstr "Имя хоста : "
+msgstr "Имя хоста:"
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 #, fuzzy
@@ -819,7 +818,7 @@ msgstr "Сохраняйте журналы уведомлений и перез
 
 #: setup.php:504
 msgid "Refresh Interval"
-msgstr "Интервал обновления страницы"
+msgstr "Интервал обновления"
 
 #: setup.php:505
 #, fuzzy
@@ -852,14 +851,12 @@ msgid "Notification Report Format"
 msgstr "Формат отчета об уведомлении"
 
 #: setup.php:545
-#, fuzzy
 msgid "Format File to Use"
-msgstr "Формат файла для использования"
+msgstr "Формат файла"
 
 #: setup.php:548
-#, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Выберите пользовательскую обертку html и CSS-файл для использования.  Этот файл содержит как html, так и CSS, чтобы обернуть ваш отчет.  Если он содержит больше, чем просто CSS, вам нужно поместить специальный тег <REPORT> внутри файла.  Этот тег формата будет заменен содержимым отчета.  Эти файлы находятся в каталоге 'format'."
+msgstr "Выберите пользовательскую оболочку html и файл CSS для использования. Этот файл содержит как html, так и CSS для обертки вашего отчета. Если он содержит больше, чем просто CSS, вам нужно поместить специальный тег <REPORT> внутри файла. Этот тег будет заменен содержимым отчета. Эти файлы находятся в каталоге 'formats'."
 
 #: setup.php:552
 #, fuzzy
