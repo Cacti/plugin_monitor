@@ -1,16 +1,5 @@
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2021-02-23 07:41-0500\n"
-"PO-Revision-Date: 2020-12-28 20:14-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: pt_BR\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2021-02-23 07:41-0500\nPO-Revision-Date: 2023-04-20 18:53+0000\nLast-Translator: Ede Willians dos Santos Cavalcante <edewillians10@gmail.com>\nLanguage-Team: Portuguese (Brazil) <http://translate.cacti.net/projects/cacti/monitor/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:37 poller_monitor.php:393 setup.php:391
 msgid "Disabled"
@@ -40,7 +29,7 @@ msgstr "Desconhecido"
 
 #: monitor.php:59
 msgid "Down"
-msgstr "Baixo"
+msgstr "Down"
 
 #: monitor.php:60
 #, fuzzy
@@ -49,21 +38,19 @@ msgstr "Recuperando"
 
 #: monitor.php:61
 msgid "Up"
-msgstr "Acima"
+msgstr "Up"
 
 #: monitor.php:62
 msgid "Triggered"
-msgstr "Provocado"
+msgstr "Acionado"
 
 #: monitor.php:63
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
-msgstr "Abaixo (Muted/Acked)"
+msgstr "Acionado (Silenciado/Ciente)"
 
 #: monitor.php:64
-#, fuzzy
 msgid "Down (Muted/Acked)"
-msgstr "Abaixo (Muted/Acked)"
+msgstr "Down (Silenciado/Ciente)"
 
 #: monitor.php:65
 #, fuzzy
@@ -112,14 +99,12 @@ msgid "Not Up"
 msgstr "Não Up"
 
 #: monitor.php:82
-#, fuzzy
 msgid "Not Up or Triggered"
-msgstr "Não ativada ou acionada"
+msgstr "Não Ativo ou Acionado"
 
 #: monitor.php:83
-#, fuzzy
 msgid "Not Up, Triggered or Breached"
-msgstr "Não Ativado, Ativado ou Quebrado"
+msgstr "Não Ativo, Acionado ou Violado"
 
 #: monitor.php:87 monitor.php:94 monitor.php:101 setup.php:521 setup.php:533
 msgid "Default"
@@ -131,12 +116,11 @@ msgstr "Lista"
 
 #: monitor.php:89 setup.php:535
 msgid "Tiles"
-msgstr "Tiles"
+msgstr "Azulejado"
 
 #: monitor.php:90
-#, fuzzy
 msgid "Tiles & Time"
-msgstr "Azulejos e Tempo"
+msgstr "Azulejado & Tempo"
 
 #: monitor.php:95 monitor.php:859 setup.php:523
 msgid "Tree"
@@ -623,9 +607,8 @@ msgid "Description: "
 msgstr "Descrição: "
 
 #: poller_monitor.php:332
-#, fuzzy
 msgid "Hostname: "
-msgstr "Hostname:"
+msgstr "Hostname: "
 
 #: poller_monitor.php:447 poller_monitor.php:449 poller_monitor.php:450
 #, fuzzy
