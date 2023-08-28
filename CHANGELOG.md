@@ -1,6 +1,10 @@
 ## Changelog
 
--- 2.6 ---
+--- develop ---
+
+* issue: Remove deprecated each() call in setup.php
+
+--- 2.6 ---
 
 * issue#122: Cacti Device Reboot Notification - don't include hosts with no monitor device set
 

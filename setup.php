@@ -241,7 +241,8 @@ function monitor_device_action_execute($action) {
 		} else {
 			for ($i = 0; ($i < count($selected_items)); $i++) {
 				reset($fields_host_edit);
-				while (list($field_name, $field_array) = each($fields_host_edit)) {
+
+				foreach($fields_host_edit as $field_name => $field_array) {
 					if (isset_request_var("t_$field_name")) {
 						if ($field_name == 'monitor_alert_baseline') {
 							$cur_time = db_fetch_cell_prepared('SELECT cur_time
@@ -419,13 +420,13 @@ function monitor_config_settings() {
 		'365' => __('%d Year', 1, 'monitor')
 	);
 
-	$font_sizes=array(
-		'20'=>'20px',
-		'30'=>'30px',
-		'40'=>'40px',
-		'50'=>'50px',
-		'60'=>'60px',
-		'70'=>'70px'
+	$font_sizes = array(
+		'20' => '20px',
+		'30' => '30px',
+		'40' => '40px',
+		'50' => '50px',
+		'60' => '60px',
+		'70' => '70px'
 	);
 
 	if (function_exists('auth_augment_roles')) {
