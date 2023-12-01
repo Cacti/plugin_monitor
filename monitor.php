@@ -694,7 +694,7 @@ function draw_filter_and_status() {
 		} else {
 			$('#timer').html(value);
 			// What is a second, well if you are an
-			// emperial storm tropper, it's just a little more than a second.
+			// imperial storm tropper, it's just a little more than a second.
 			myTimer = setTimeout(timeStep, 1284);
 		}
 	}
@@ -1369,7 +1369,7 @@ function render_site() {
 		if (function_exists($function)) {
 			/* Call the custom render_header_ function */
 			$result .= $function($hosts);
-			$suppresGroups = true;
+			$suppressGroups = true;
 		}
 
 		foreach($hosts as $index => $host) {
@@ -1472,7 +1472,7 @@ function render_template() {
 		if (function_exists($function)) {
 			/* Call the custom render_header_ function */
 			$result .= $function($hosts);
-			$suppresGroups = true;
+			$suppressGroups = true;
 		}
 
 		foreach($hosts as $index => $host) {
@@ -2321,7 +2321,7 @@ function get_host_non_tree_array() {
 
 	render_where_join($sql_where, $sql_join);
 
-	$heirarchy = db_fetch_assoc("SELECT DISTINCT
+	$hierarchy = db_fetch_assoc("SELECT DISTINCT
 		h.*, gti.title, gti.host_id, gti.host_grouping_type, gti.graph_tree_id
 		FROM host AS h
 		LEFT JOIN graph_tree_items AS gti
@@ -2331,11 +2331,11 @@ function get_host_non_tree_array() {
 		AND gti.graph_tree_id IS NULL
 		ORDER BY h.description");
 
-	if (cacti_sizeof($heirarchy) > 0) {
+	if (cacti_sizeof($hierarchy) > 0) {
 		$leafs = array();
 		$branchleafs = 0;
 
-		foreach ($heirarchy as $leaf) {
+		foreach ($hierarchy as $leaf) {
 			$leafs[$branchleafs] = $leaf;
 			$branchleafs++;
 		}
