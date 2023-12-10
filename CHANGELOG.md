@@ -1,6 +1,8 @@
 ## Changelog
 
---- develop ---
+--- 2.7 ---
+
+* issue#161: Reboot warnings triggered at the wrong time.
 
 * issue: Remove deprecated each() call in setup.php
 

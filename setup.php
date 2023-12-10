@@ -187,6 +187,9 @@ function monitor_check_upgrade() {
 
 		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
 
+		db_execute('ALTER TABLE plugin_monitor_update
+			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
+
 		// Set the new version
 		db_execute_prepared("UPDATE plugin_config
 			SET version = ?
@@ -913,7 +916,7 @@ function monitor_setup_table() {
 	if (!db_table_exists('plugin_monitor_uptime')) {
 		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_uptime (
 			host_id int(10) unsigned DEFAULT '0',
-			uptime int(10) unsigned DEFAULT '0',
+			uptime bigint(20) unsigned DEFAULT '0',
 			PRIMARY KEY (host_id),
 			KEY uptime (uptime))
 			ENGINE=InnoDB
