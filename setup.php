@@ -414,7 +414,7 @@ function monitor_config_settings() {
 	);
 
 	$log_retentions = array(
-		'-1'  => __('Indefinately', 'monitor'),
+		'-1'  => __('Indefinitely', 'monitor'),
 		'31'  => __('%d Month', 1, 'monitor'),
 		'62'  => __('%d Months', 2, 'monitor'),
 		'93'  => __('%d Months', 3, 'monitor'),
