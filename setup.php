@@ -187,7 +187,7 @@ function monitor_check_upgrade() {
 
 		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
 
-		db_execute('ALTER TABLE plugin_monitor_update
+		db_execute('ALTER TABLE plugin_monitor_uptime
 			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
 
 		// Set the new version
