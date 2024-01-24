@@ -730,8 +730,6 @@ function monitor_show_tab() {
 function monitor_config_form() {
 	global $config, $fields_host_edit, $criticalities;
 
-	include_once($config['base_path'] . '/plugins/monitor/include/fa_icons.php');
-
 	$baselines = array(
 		'0'   => __('Do not Change', 'monitor'),
 		'1.20'  => __('%d Percent Above Average', 20, 'monitor'),
