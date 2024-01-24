@@ -31,6 +31,7 @@ function plugin_monitor_install() {
 	api_plugin_register_hook('monitor', 'draw_navigation_text', 'monitor_draw_navigation_text', 'setup.php');
 	api_plugin_register_hook('monitor', 'config_form', 'monitor_config_form', 'setup.php');
 	api_plugin_register_hook('monitor', 'config_settings', 'monitor_config_settings', 'setup.php');
+	api_plugin_register_hook('monitor', 'config_arrays', 'monitor_config_arrays', 'setup.php');
 	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
 	api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php');
 
@@ -677,6 +678,27 @@ function monitor_config_settings() {
 	}
 }
 
+function monitor_config_arrays() {
+	global $fa_icons;
+
+	$fa_icons = array(
+		'server'        => __('Server', 'monitor'),
+		'print'         => __('Printer', 'monitor'),
+		'desktop'       => __('Desktop PC', 'monitor'),
+		'laptop'        => __('Laptop/notebook', 'monitor'),
+		'wifi'          => __('Wifi', 'monitor'),
+		'network-wired' => __('Wired network', 'monitor'),
+		'database'      => __('Database', 'monitor'),
+		'clock'         => __('Clock', 'monitor'),
+		'asterisk'      => __('Asterisk', 'monitor'),
+		'hdd'           => __('Harddisk', 'monitor'),
+		'boxes'         => __('Boxes', 'monitor'),
+		'phone'         => __('Phone', 'monitor'),
+		'cloud'         => __('Cloud', 'monitor')
+	);
+}
+
+
 function monitor_top_graph_refresh($refresh) {
 	if (get_current_page() != 'monitor.php') {
 		return $refresh;
@@ -831,6 +853,7 @@ function monitor_get_default($host_id) {
 }
 
 function monitor_api_device_save($save) {
+	global $fa_icons;
 
 	$monitor_default = monitor_get_default($save['id']);
 
@@ -864,7 +887,7 @@ function monitor_api_device_save($save) {
 		$save['monitor_alert'] = form_input_validate('', 'monitor_alert', '', true, 3);
 	}
 
-	if (isset_request_var('monitor_icon') && get_filter_request_var('monitor_icon', FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => '/^[a-zA-Z0-9\-]{1,20}$/')))) {
+	if (array_key_exists (get_nfilter_request_var('monitor_icon'), $fa_icons)) {
 		$save['monitor_icon'] = get_nfilter_request_var('monitor_icon');
 	} else {
 		$save['monitor_icon'] = '';

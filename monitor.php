@@ -110,9 +110,6 @@ $monitor_trim = array(
 
 global $thold_hosts, $maxchars;
 
-include($config['base_path'] . '/plugins/monitor/include/fa_icons.php');
-
-
 $dozoomrefresh   = false;
 $dozoombgndcolor = false;
 
