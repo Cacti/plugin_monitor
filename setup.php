@@ -728,7 +728,7 @@ function monitor_show_tab() {
 }
 
 function monitor_config_form() {
-	global $config, $fields_host_edit, $criticalities;
+	global $config, $fields_host_edit, $criticalities, $fa_icons;
 
 	$baselines = array(
 		'0'   => __('Do not Change', 'monitor'),
