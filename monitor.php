@@ -1230,7 +1230,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 				WHERE gti.host_id IS NULL
 				AND h.deleted = ""');
 
-			render_group_concat($ahwere, ' AND ', 'h.id', $hlist);
+			render_group_concat($awhere, ' AND ', 'h.id', $hlist);
 		}
 	}
 
