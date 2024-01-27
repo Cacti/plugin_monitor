@@ -31,6 +31,7 @@ function plugin_monitor_install() {
 	api_plugin_register_hook('monitor', 'draw_navigation_text', 'monitor_draw_navigation_text', 'setup.php');
 	api_plugin_register_hook('monitor', 'config_form', 'monitor_config_form', 'setup.php');
 	api_plugin_register_hook('monitor', 'config_settings', 'monitor_config_settings', 'setup.php');
+	api_plugin_register_hook('monitor', 'config_arrays', 'monitor_config_arrays', 'setup.php');
 	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
 	api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php');
 
@@ -187,7 +188,7 @@ function monitor_check_upgrade() {
 
 		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
 
-		db_execute('ALTER TABLE plugin_monitor_update
+		db_execute('ALTER TABLE plugin_monitor_uptime
 			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
 
 		// Set the new version
@@ -340,7 +341,8 @@ function monitor_device_action_prepare($save) {
 				'monitor_warn',
 				'monitor_alert',
 				'monitor_warn_baseline',
-				'monitor_alert_baseline'
+				'monitor_alert_baseline',
+				'monitor_icon'
 			);
 
 			foreach($fields as $field) {
@@ -676,6 +678,27 @@ function monitor_config_settings() {
 	}
 }
 
+function monitor_config_arrays() {
+	global $fa_icons;
+
+	$fa_icons = array(
+		'server'        => __('Server', 'monitor'),
+		'print'         => __('Printer', 'monitor'),
+		'desktop'       => __('Desktop PC', 'monitor'),
+		'laptop'        => __('Laptop/notebook', 'monitor'),
+		'wifi'          => __('Wifi', 'monitor'),
+		'network-wired' => __('Wired network', 'monitor'),
+		'database'      => __('Database', 'monitor'),
+		'clock'         => __('Clock', 'monitor'),
+		'asterisk'      => __('Asterisk', 'monitor'),
+		'hdd'           => __('Harddisk', 'monitor'),
+		'boxes'         => __('Boxes', 'monitor'),
+		'phone'         => __('Phone', 'monitor'),
+		'cloud'         => __('Cloud', 'monitor')
+	);
+}
+
+
 function monitor_top_graph_refresh($refresh) {
 	if (get_current_page() != 'monitor.php') {
 		return $refresh;
@@ -705,7 +728,7 @@ function monitor_show_tab() {
 }
 
 function monitor_config_form() {
-	global $fields_host_edit, $criticalities;
+	global $config, $fields_host_edit, $criticalities, $fa_icons;
 
 	$baselines = array(
 		'0'   => __('Do not Change', 'monitor'),
@@ -804,6 +827,14 @@ function monitor_config_form() {
 				'value' => '|arg1:monitor_text|',
 				'default' => '',
 			);
+			$fields_host_edit3['monitor_icon'] = array(
+				'friendly_name' => __('Device icon', 'monitor'),
+				'description' => __('You can select device icon.', 'monitor'),
+				'method' => 'drop_array',
+				'default' => '0',
+				'value' => '|arg1:monitor_icon|',
+				'array' => $fa_icons,
+			);
 		}
 	}
 	$fields_host_edit = $fields_host_edit3;
@@ -820,6 +851,8 @@ function monitor_get_default($host_id) {
 }
 
 function monitor_api_device_save($save) {
+	global $fa_icons;
+
 	$monitor_default = monitor_get_default($save['id']);
 
 	if (isset_request_var('monitor')) {
@@ -850,6 +883,12 @@ function monitor_api_device_save($save) {
 		$save['monitor_alert'] = form_input_validate(get_nfilter_request_var('monitor_alert'), 'monitor_alert', '^[0-9]+$', true, 3);
 	} else {
 		$save['monitor_alert'] = form_input_validate('', 'monitor_alert', '', true, 3);
+	}
+
+	if (array_key_exists (get_nfilter_request_var('monitor_icon'), $fa_icons)) {
+		$save['monitor_icon'] = get_nfilter_request_var('monitor_icon');
+	} else {
+		$save['monitor_icon'] = '';
 	}
 
 	if (!isempty_request_var('monitor_alert_baseline') && !empty($save['id'])) {
@@ -940,6 +979,7 @@ function monitor_setup_table() {
 	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text'));
 	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality'));
 	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn'));
+	api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert'));
 }
 
 function monitor_poller_bottom() {
@@ -959,4 +999,5 @@ function monitor_poller_bottom() {
 		exec_background($command_string, $extra_args);
 	}
 }
+
 

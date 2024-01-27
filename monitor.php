@@ -722,7 +722,7 @@ function draw_filter_and_status() {
 		}
 
 		clearTimeout(myTimer);
-		$('.fa-server, .fa-first-order').unbind();
+		$('.mon_icon').unbind();
 
 		if (action != 'dashboard') {
 			var strURL  = 'monitor.php?header=false';
@@ -894,7 +894,7 @@ function draw_filter_and_status() {
 
 		// Servers need tooltips
 		$('.monitor_device_frame').find('i').tooltip({
-			items: '.fa-server, .fa-first-order',
+			items: '.mon_icon',
 			open: function(event, ui) {
 				if (typeof(event.originalEvent) == 'undefined') {
 					return false;
@@ -1784,7 +1784,7 @@ function render_host($host, $float = true, $maxlen = 10) {
 		/* Call the custom render_host_ function */
 		$result = $function($host);
 	} else {
-		$iclass = get_status_icon($host['status']);
+		$iclass = get_status_icon($host['status'], $host['monitor_icon']);
 		$fclass = get_request_var('size');
 
 		$monitor_times=read_user_setting('monitor_uptime');
@@ -1814,11 +1814,17 @@ function render_host($host, $float = true, $maxlen = 10) {
 	return $result;
 }
 
-function get_status_icon($status) {
+function get_status_icon($status, $icon) {
+	global $fa_icons;
+
 	if (($status == 1 || ($status == 4 && get_request_var('status') > 0)) && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
-		return 'fab fa-first-order fa-spin';
+		return 'fab fa-first-order fa-spin mon_icon';
 	} else {
-		return 'fa fa-server';
+		if (array_key_exists ($icon, $fa_icons)) {
+			return 'fa fa-' . $icon . ' mon_icon';
+		} else {
+			return 'fa fa-server' . ' mon_icon';
+		}
 	}
 }
 
@@ -2211,7 +2217,7 @@ function render_host_list($host) {
 }
 
 function render_host_tiles($host, $maxlen = 10) {
-	$class  = get_status_icon($host['status']);
+	$class  = get_status_icon($host['status'], $host['monitor_icon']);
 	$fclass = get_request_var('size');
 
 	$result = "<div class='{$fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
@@ -2222,7 +2228,7 @@ function render_host_tiles($host, $maxlen = 10) {
 function render_host_tilesadt($host, $maxlen = 10) {
 	$tis = '';
 
-	$class  = get_status_icon($host['status']);
+	$class  = get_status_icon($host['status'], $host['monitor_icon']);
 	$fclass = get_request_var('size');
 
 	if ($host['status'] < 2 || $host['status'] == 5) {

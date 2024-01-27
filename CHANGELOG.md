@@ -32,6 +32,8 @@
 
 * feature#127: Limit the amount of devices shown
 
+* feature#167: Add device icons
+
 
 --- 2.5 ---
 
