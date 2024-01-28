@@ -207,6 +207,9 @@ function monitor_check_upgrade() {
 				$info['name']
 			)
 		);
+
+		api_plugin_db_add_column('monitor', 'host', array('name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert'));
+
 	}
 }
 
