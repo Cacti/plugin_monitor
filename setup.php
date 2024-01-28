@@ -752,14 +752,17 @@ function monitor_config_form() {
 
 	$fields_host_edit2 = $fields_host_edit;
 	$fields_host_edit3 = array();
+
 	foreach ($fields_host_edit2 as $f => $a) {
 		$fields_host_edit3[$f] = $a;
+
 		if ($f == 'disabled') {
 			$fields_host_edit3['monitor_header'] = array(
 				'friendly_name' => __('Device Monitoring Settings', 'monitor'),
 				'method' => 'spacer',
 				'collapsible' => 'true'
 			);
+
 			$fields_host_edit3['monitor'] = array(
 				'method' => 'checkbox',
 				'friendly_name' => __('Monitor Device', 'monitor'),
@@ -769,6 +772,7 @@ function monitor_config_form() {
 			);
 
 			$host_id = get_nfilter_request_var('id');
+
 			if (empty($host_id) || !is_numeric($host_id)) {
 				$fields_host_edit3['monitor']['default'] = monitor_get_default($host_id);
 			}
@@ -781,6 +785,7 @@ function monitor_config_form() {
 				'value' => '|arg1:monitor_criticality|',
 				'default' => '0',
 			);
+
 			$fields_host_edit3['monitor_warn'] = array(
 				'friendly_name' => __('Ping Warning Threshold', 'monitor'),
 				'description' => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.', 'monitor'),
@@ -791,6 +796,7 @@ function monitor_config_form() {
 				'value' => '|arg1:monitor_warn|',
 				'default' => '',
 			);
+
 			$fields_host_edit3['monitor_alert'] = array(
 				'friendly_name' => __('Ping Alert Threshold', 'monitor'),
 				'description' => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.', 'monitor'),
@@ -801,6 +807,7 @@ function monitor_config_form() {
 				'value' => '|arg1:monitor_alert|',
 				'default' => '',
 			);
+
 			$fields_host_edit3['monitor_warn_baseline'] = array(
 				'friendly_name' => __('Re-Baseline Warning', 'monitor'),
 				'description' => __('The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold.', 'monitor'),
@@ -809,6 +816,7 @@ function monitor_config_form() {
 				'value' => '0',
 				'array' => $baselines
 			);
+
 			$fields_host_edit3['monitor_alert_baseline'] = array(
 				'friendly_name' => __('Re-Baseline Alert', 'monitor'),
 				'description' => __('The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold.', 'monitor'),
@@ -817,6 +825,7 @@ function monitor_config_form() {
 				'value' => '0',
 				'array' => $baselines
 			);
+
 			$fields_host_edit3['monitor_text'] = array(
 				'friendly_name' => __('Down Device Message', 'monitor'),
 				'description' => __('This is the message that will be displayed when this Device is reported as down.', 'monitor'),
@@ -827,6 +836,7 @@ function monitor_config_form() {
 				'value' => '|arg1:monitor_text|',
 				'default' => '',
 			);
+
 			$fields_host_edit3['monitor_icon'] = array(
 				'friendly_name' => __('Device icon', 'monitor'),
 				'description' => __('You can select device icon.', 'monitor'),
@@ -837,6 +847,7 @@ function monitor_config_form() {
 			);
 		}
 	}
+
 	$fields_host_edit = $fields_host_edit3;
 }
 
@@ -885,7 +896,7 @@ function monitor_api_device_save($save) {
 		$save['monitor_alert'] = form_input_validate('', 'monitor_alert', '', true, 3);
 	}
 
-	if (array_key_exists (get_nfilter_request_var('monitor_icon'), $fa_icons)) {
+	if (isset_request_var('monitor_icon') && array_key_exists(get_nfilter_request_var('monitor_icon'), $fa_icons)) {
 		$save['monitor_icon'] = get_nfilter_request_var('monitor_icon');
 	} else {
 		$save['monitor_icon'] = '';
@@ -999,5 +1010,4 @@ function monitor_poller_bottom() {
 		exec_background($command_string, $extra_args);
 	}
 }
-
 

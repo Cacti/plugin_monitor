@@ -121,6 +121,10 @@ if (!isset($_SESSION['monitor_muted_hosts'])) {
 
 validate_request_vars();
 
+if (!db_column_exists('host', 'monitor_icon')) {
+	monitor_setup_table();
+}
+
 $thold_hosts = check_tholds();
 
 switch(get_nfilter_request_var('action')) {
@@ -1819,12 +1823,10 @@ function get_status_icon($status, $icon) {
 
 	if (($status == 1 || ($status == 4 && get_request_var('status') > 0)) && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
 		return 'fab fa-first-order fa-spin mon_icon';
+	} elseif ($icon != '' && array_key_exists($icon, $fa_icons)) {
+		return 'fa fa-' . $icon . ' mon_icon';
 	} else {
-		if (array_key_exists ($icon, $fa_icons)) {
-			return 'fa fa-' . $icon . ' mon_icon';
-		} else {
-			return 'fa fa-server' . ' mon_icon';
-		}
+		return 'fa fa-server' . ' mon_icon';
 	}
 }
 
