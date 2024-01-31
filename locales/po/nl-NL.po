@@ -1,16 +1,5 @@
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-12-11 22:02-0600\n"
-"PO-Revision-Date: 2020-12-28 20:13-0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: nl_NL\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2024-01-31 14:27+0000\nLast-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\nLanguage-Team: Dutch <http://translate.cacti.net/projects/cacti/monitor/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -229,7 +218,7 @@ msgstr "Bewaakte apparaten, hetzij naar beneden, hetzij naar boven, hetzij naar 
 #: monitor.php:383
 #, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Bewaakte apparaten, hetzij naar beneden, hetzij naar boven, hetzij naar beneden, hetzij naar boven, hetzij naar beneden, hetzij naar beneden, hetzij naar beneden, hetzij naar boven, hetzij naar beneden, hetzij naar boven, hetzij naar beneden, hetzij naar beneden, hetzij naar beneden."
+msgstr "Bewaakte apparaten die niet werken, herstellen of met overschreden of geactiveerde drempels"
 
 #: monitor.php:386
 #, fuzzy, php-format
@@ -264,12 +253,12 @@ msgstr "en van de kritieke status van de missie"
 #: monitor.php:407
 #, fuzzy
 msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">Herinnerlid om als eerste in aanmerking komende apparaten te selecteren op de pagina Apparaten!"
+msgstr "</div><div class=\"center monitorFooterTextBold\">Herinner om als eerste in aanmerking komende apparaten te selecteren op de pagina Apparaten!</div></div></div>"
 
 #: monitor.php:443
-#, fuzzy, php-format
+#, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr " Opnieuw verversen in <i id=\"timer\">%d</i> Seconden ]"
+msgstr " [ Opnieuw verversen in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconden ]"
 
 #: monitor.php:443
 #, fuzzy, php-format
@@ -372,9 +361,8 @@ msgid "Size"
 msgstr "Grootte"
 
 #: monitor.php:539
-#, fuzzy
 msgid "Trim"
-msgstr "Trimmen"
+msgstr "Trim"
 
 #: monitor.php:547
 #, fuzzy
@@ -413,9 +401,8 @@ msgid "Template"
 msgstr "Template"
 
 #: monitor.php:776
-#, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "Filter instellingen opgeslagen"
+msgstr " [Filter instellingen opgeslagen]"
 
 #: monitor.php:814
 msgid "Cancel"
@@ -432,7 +419,7 @@ msgstr "Erkennen"
 #: monitor.php:961
 #, fuzzy
 msgid "Un-Mute"
-msgstr "Un-Mute"
+msgstr "Dempen opheffen"
 
 #: monitor.php:963
 msgid "Reset"
@@ -530,10 +517,8 @@ msgid "Device:"
 msgstr "Apparaat:"
 
 #: monitor.php:1985
-#, fuzzy
-#| msgid "Site"
 msgid "Site:"
-msgstr "Website"
+msgstr "Website:"
 
 #: monitor.php:1989 monitor.php:2037
 msgid "Location:"
@@ -668,7 +653,6 @@ msgid "Description: "
 msgstr "Beschrijving: "
 
 #: poller_monitor.php:341
-#, fuzzy
 msgid "Hostname: "
 msgstr "Hostname:"
 
@@ -680,10 +664,7 @@ msgstr "Cactusmonitor Plugin Ping Threshold Notification"
 #: poller_monitor.php:461 poller_monitor.php:463
 #, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr ""
-"Het volgende rapport zal Apparaten identificeren die hun ping hebben overschaduwd\n"
-"\t\t\tlatentiedrempels.  U ontvangt dit rapport omdat u geabonneerd bent op een apparaat\n"
-"\t\t\tgeassocieerd met het Cactus systeem dat zich op de volgende URL hieronder bevindt."
+msgstr "In het volgende rapport worden apparaten geïdentificeerd waarvan de pinglatentiedrempels zijn overschreden. U ontvangt dit rapport omdat u bent geabonneerd op een apparaat dat is gekoppeld aan het Cacti-systeem en zich bevindt op de volgende URL hieronder."
 
 #: poller_monitor.php:467
 #, fuzzy
