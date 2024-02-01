@@ -237,7 +237,7 @@ function monitor_uptime_checker() {
 			db_execute_prepared('INSERT INTO plugin_monitor_reboot_history
 				(host_id, reboot_time)
 				VALUES (?, ?)',
-				array($host['id'], date('Y-m-d H:i:s', time()-$host['snmp_sysUpTimeInstance'])));
+				array($host['id'], date('Y-m-d H:i:s', time()-intval($host['snmp_sysUpTimeInstance']))));
 
 			monitor_addnotificationlist($reboot_emails, $monitor_list, $host['id'], $notification_lists);
 
