@@ -228,7 +228,7 @@
 }
 
 .monitor_medium_title {
-	display: inline-block;
+	display: table-cell;
 	text-align: center;
 	width: 100px !important;
 	word-wrap: break-word;
