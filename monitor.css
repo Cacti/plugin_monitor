@@ -144,7 +144,7 @@
 }
 
 .monitor_exsmall_title {
-	display: inline-block;
+	display: table-cell;
 	text-align: center;
 	width: 90px !important;
 	word-wrap: break-word;
@@ -185,7 +185,7 @@
 }
 
 .monitor_small_title {
-	display: inline-block;
+	display: table-cell;
 	text-align: center;
 	width: 90px !important;
 	word-wrap: break-word;
@@ -280,7 +280,7 @@
 }
 
 .monitor_large_title {
-	display: inline-block;
+	display: table-cell;
 	text-align: center;
 	width: 128px !important;
 	word-wrap: break-word;
@@ -329,7 +329,7 @@
 }
 
 .monitor_exlarge_title {
-	display: inline-block;
+	display: table-cell;
 	text-align: center;
 	width: 128px !important;
 	word-wrap: break-word;
@@ -381,7 +381,7 @@
 }
 
 .monitor_errorzoom_title {
-	display: inline-block;
+	display: table-cell;
 	text-align: center;
 	word-wrap: break-word;
 	overflow: hidden;
