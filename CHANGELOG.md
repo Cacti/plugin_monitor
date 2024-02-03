@@ -6,6 +6,9 @@
 
 * issue: Remove deprecated each() call in setup.php
 
+* issue#174: Fix css position
+
+
 --- 2.6 ---
 
 * issue#122: Cacti Device Reboot Notification - don't include hosts with no monitor device set
