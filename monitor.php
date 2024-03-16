@@ -266,9 +266,9 @@ function draw_page() {
 	$monitor_sound = get_monitor_sound();
 	if (is_monitor_audible()) {
 		if (read_user_setting('monitor_sound_loop', read_config_option('monitor_sound_loop'))) {
-			print "<audio id='audio' loop src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
+			print "<audio id='audio' playsinline='' loop src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		} else {
-			print "<audio id='audio' src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
+			print "<audio id='audio' playsinline='' src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		}
 	}
 
