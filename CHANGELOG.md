@@ -4,6 +4,8 @@
 
 * issue#161: Reboot warnings triggered at the wrong time.
 
+* issue#166: typo in monitor.php function render_where_join line 1233 render_group_concat($ahwere, ' AND ', 'h.id', $hlist);
+
 * issue#171: monitor plugin crashes with Uncaught TypeError
 
 * issue#173: small visual bug in tree view
