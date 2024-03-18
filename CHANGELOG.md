@@ -6,6 +6,8 @@
 
 * issue: Remove deprecated each() call in setup.php
 
+* issue#173: small visual bug in tree view
+
 * issue#174: Fix css position
 
 * issue#175: Issue with mute function
