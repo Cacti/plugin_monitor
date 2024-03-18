@@ -4,7 +4,7 @@
 
 * issue#161: Reboot warnings triggered at the wrong time.
 
-* issue: Remove deprecated each() call in setup.php
+* issue#171: monitor plugin crashes with Uncaught TypeError
 
 * issue#173: small visual bug in tree view
 
@@ -12,6 +12,7 @@
 
 * issue#175: Issue with mute function
 
+* issue: Remove deprecated each() call in setup.php
 
 --- 2.6 ---
 
