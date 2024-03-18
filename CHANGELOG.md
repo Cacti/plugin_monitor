@@ -8,6 +8,8 @@
 
 * issue#174: Fix css position
 
+* issue#175: Issue with mute function
+
 
 --- 2.6 ---
 
