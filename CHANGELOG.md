@@ -4,6 +4,8 @@
 
 * issue#161: Reboot warnings triggered at the wrong time.
 
+* issue#162: Table name is wrong ALTER TABLE plugin_monitor_update should be ALTER TABLE plugin_monitor_uptime
+
 * issue#163: Fix some PHP Deprecation warnings
 
 * issue#166: typo in monitor.php function render_where_join line 1233 render_group_concat($ahwere, ' AND ', 'h.id', $hlist);
