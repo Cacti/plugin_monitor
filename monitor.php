@@ -2160,7 +2160,7 @@ function render_host_list($host) {
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
-	} elseif ($host['status_rec_date'] != '0000-00-00 00:00:00') {
+	} elseif (strtotime($host['status_rec_date']) > 192800) {
 		$dt = get_timeinstate($host);
 	} else {
 		$dt = __('Never', 'monitor');
