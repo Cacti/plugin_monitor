@@ -379,7 +379,7 @@ function process_reboot_email($email, $hosts) {
 		if (defined('CACTI_VERSION')) {
 			$version = CACTI_VERSION;
 		} else {
-			$versionn = get_cacti_version();
+			$version = get_cacti_version();
 		}
 
 		$headers['User-Agent'] = 'Cacti-Monitor-v' . $version;
