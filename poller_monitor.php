@@ -272,19 +272,15 @@ function monitor_uptime_checker() {
 			}
 		}
 		
-// modified by MSS on 2024-06-11
-			$monitor_send_one_email = read_config_option('monitor_send_one_email');
-			//$to_email = array();
-			$to_email = '';
+		$monitor_send_one_email = read_config_option('monitor_send_one_email');
+		$to_email = '';
 
 		if (cacti_sizeof($reboot_emails)) {
 			foreach ($reboot_emails as $email => $hosts) {
 				if ($email != '') {
-					//$to_email[] = $email;
 					$to_email .= ($to_email != '' ? ',' : '') . $email;
 
-					// send emails to each email separately.
-					if ($monitor_send_one_email !== 'on') {
+					if ($monitor_send_one_email !== 'on')  {
 						monitor_debug('Processing the Email address: ' . $email);
 						process_reboot_email($email, $hosts);
 					}
@@ -292,14 +288,12 @@ function monitor_uptime_checker() {
 					monitor_debug('Unable to process reboot notification due to empty Email address.');
 				}
 			}
-			// send one email to all addresses.
+
 			if ($monitor_send_one_email == 'on') {
-				// cacti_log('NOTICE: $to_email: ' . $to_email, false, 'MONITOR');
 				monitor_debug('Processing the Email address: ' . $to_email);
 				process_reboot_email($to_email, $hosts);
 			}
 		}
-// end
 	}
 
 	// Freshen the uptimes
@@ -364,18 +358,15 @@ function process_reboot_email($email, $hosts) {
 
 	$subject = read_config_option('monitor_subject');
 
-// added by MSS on 2024-06-07
 	$monitor_send_one_email = read_config_option('monitor_send_one_email');
 	if ($monitor_send_one_email == 'on') {
 		$subject .= ' ' . $host['description'] . ' (' . $host['hostname'] . ')';
 	}
-// end
+
 	$output  = read_config_option('monitor_body');
-	// $output  = str_replace('<DETAILS>', $body, $output);
 	$output  = str_replace('<DETAILS>', $body, $output) . PHP_EOL;
 
 	if (strpos($output, '<DETAILS>') !== false) {
-		// $toutput = str_replace('<DETAILS>', $body_txt, $output);
 		$toutput = str_replace('<DETAILS>', $body_txt, $output) . PHP_EOL;
 	} else {
 		$toutput = $body_txt;
@@ -406,8 +397,6 @@ function process_reboot_email($email, $hosts) {
 		if (defined('CACTI_VERSION')) {
 			$version = CACTI_VERSION;
 		} else {
-			// modified by MSS on 2024-06-11
-			// $versionn = get_cacti_version();
 			$version = get_cacti_version();
 		}
 
