@@ -615,6 +615,12 @@ function monitor_config_settings() {
 			'description' => __('Should Device Reboot Notifications be sent to users?', 'monitor'),
 			'default' => 'on',
 		),
+		'monitor_send_one_email' => array(
+			'friendly_name' => __('Send one Email to all addresses', 'monitor'),
+			'description' => __('If checked, the system will send one Email only to all addresses.', 'monitor'),
+			'method' => 'checkbox',
+			'default' => 'on'
+		),
 		'monitor_reboot_thold' => array(
 			'friendly_name' => __('Include Threshold Alert Lists', 'monitor'),
 			'method' => 'checkbox',

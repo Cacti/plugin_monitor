@@ -271,15 +271,27 @@ function monitor_uptime_checker() {
 				}
 			}
 		}
+		
+		$monitor_send_one_email = read_config_option('monitor_send_one_email');
+		$to_email = '';
 
 		if (cacti_sizeof($reboot_emails)) {
 			foreach ($reboot_emails as $email => $hosts) {
 				if ($email != '') {
-					monitor_debug('Processing the Email address: ' . $email);
-					process_reboot_email($email, $hosts);
+					$to_email .= ($to_email != '' ? ',' : '') . $email;
+
+					if ($monitor_send_one_email !== 'on')  {
+						monitor_debug('Processing the Email address: ' . $email);
+						process_reboot_email($email, $hosts);
+					}
 				} else {
 					monitor_debug('Unable to process reboot notification due to empty Email address.');
 				}
+			}
+
+			if ($monitor_send_one_email == 'on') {
+				monitor_debug('Processing the Email address: ' . $to_email);
+				process_reboot_email($to_email, $hosts);
 			}
 		}
 	}
@@ -345,11 +357,17 @@ function process_reboot_email($email, $hosts) {
 	$body .= '</table>' . PHP_EOL;
 
 	$subject = read_config_option('monitor_subject');
+
+	$monitor_send_one_email = read_config_option('monitor_send_one_email');
+	if ($monitor_send_one_email == 'on') {
+		$subject .= ' ' . $host['description'] . ' (' . $host['hostname'] . ')';
+	}
+
 	$output  = read_config_option('monitor_body');
-	$output  = str_replace('<DETAILS>', $body, $output);
+	$output  = str_replace('<DETAILS>', $body, $output) . PHP_EOL;
 
 	if (strpos($output, '<DETAILS>') !== false) {
-		$toutput = str_replace('<DETAILS>', $body_txt, $output);
+		$toutput = str_replace('<DETAILS>', $body_txt, $output) . PHP_EOL;
 	} else {
 		$toutput = $body_txt;
 	}
