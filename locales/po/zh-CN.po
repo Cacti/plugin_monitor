@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: monitor on cacti 1.1.34\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2024-06-21 02:11+0000\nLast-Translator: tql <fttx31@126.com>\nLanguage-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/monitor/zh_Hans/>\nLanguage: zh-CN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: monitor on cacti 1.1.34\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2024-06-21 08:51+0000\nLast-Translator: tql <fttx31@126.com>\nLanguage-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/monitor/zh_Hans/>\nLanguage: zh-CN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -48,9 +48,8 @@ msgid "Triggered"
 msgstr "触发"
 
 #: monitor.php:62
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
-msgstr "宕机（静音/确认）"
+msgstr "触发（静音/确认）"
 
 #: monitor.php:63
 msgid "Down (Muted/Acked)"
@@ -102,9 +101,8 @@ msgid "Not Up or Triggered"
 msgstr "不起来或触发"
 
 #: monitor.php:82
-#, fuzzy
 msgid "Not Up, Triggered or Breached"
-msgstr "不起来或触发"
+msgstr "未启动、触发或违反"
 
 #: monitor.php:86 monitor.php:93 monitor.php:100 setup.php:539 setup.php:551
 msgid "Default"
@@ -139,37 +137,30 @@ msgid "Full"
 msgstr "满的"
 
 #: monitor.php:102
-#, fuzzy
 msgid "10 Chars"
 msgstr "10个字符"
 
 #: monitor.php:103
-#, fuzzy
 msgid "20 Chars"
 msgstr "20个字符"
 
 #: monitor.php:104
-#, fuzzy
 msgid "30 Chars"
 msgstr "30个字符"
 
 #: monitor.php:105
-#, fuzzy
 msgid "40 Chars"
 msgstr "40个字符"
 
 #: monitor.php:106
-#, fuzzy
 msgid "50 Chars"
 msgstr "50个字符"
 
 #: monitor.php:107
-#, fuzzy
 msgid "75 Chars"
 msgstr "75个字符"
 
 #: monitor.php:108
-#, fuzzy
 msgid "100 Chars"
 msgstr "100个字符"
 
@@ -182,7 +173,6 @@ msgid "Dashboard"
 msgstr "仪表盘"
 
 #: monitor.php:219
-#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
 msgstr "输入仪表板名称，然后按“保存”继续，否则按“取消”"
 
@@ -203,19 +193,17 @@ msgid "Monitored Devices either Down or Recovering"
 msgstr "受监控的设备处于关闭或恢复状态"
 
 #: monitor.php:380
-#, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "受监控的设备处于关闭状态，恢复，违反阈值"
+msgstr "受监控的设备处于关闭，恢复，触发阈值状态"
 
 #: monitor.php:383
-#, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "受监控的设备处于关闭状态，恢复，违反阈值"
+msgstr "受监控的设备处于关闭，恢复，违反或触发阈值状态"
 
 #: monitor.php:386
-#, fuzzy, php-format
+#, php-format
 msgid "Unknown monitoring status (%s)"
-msgstr "未知监控状态（％s）"
+msgstr "未知监控状态（%s）"
 
 #: monitor.php:391
 msgid ", and All Criticalities"
@@ -238,23 +226,22 @@ msgid ", and of Mission Critical Status"
 msgstr "，以及任务关键状态"
 
 #: monitor.php:407
-#, fuzzy
 msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "<br><b>请记得首先从设备页面选择要监控的设备！</b>"
+msgstr "</div><div class=\"center monitorFooterTextBold\">记得首先从“设备”页面中选择符合条件的要监控的设备!</div></div></div>"
 
 #: monitor.php:443
-#, fuzzy, php-format
+#, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "在 <i id=\"timer\">%d</i>秒内再次刷新"
+msgstr " [在<i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i>秒内再次刷新]"
 
 #: monitor.php:443
-#, fuzzy, php-format
+#, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "上次刷新：%s"
+msgstr "监视器筛选器[上次刷新：%s]"
 
 #: monitor.php:443
 msgid "[ Showing only first 30 Devices ]"
-msgstr ""
+msgstr "[仅显示前30个设备]"
 
 #: monitor.php:454
 msgid "Unsaved"
@@ -297,7 +284,6 @@ msgid "New"
 msgstr "新"
 
 #: monitor.php:510
-#, fuzzy
 msgid "Save New Dashboard"
 msgstr "保存新的仪表盘"
 
@@ -306,7 +292,6 @@ msgid "Rename"
 msgstr "重命名"
 
 #: monitor.php:513
-#, fuzzy
 msgid "Rename Dashboard"
 msgstr "仪表盘重命名"
 
@@ -315,7 +300,6 @@ msgid "Delete"
 msgstr "删除"
 
 #: monitor.php:517
-#, fuzzy
 msgid "Delete Dashboard"
 msgstr "删除仪表盘"
 
@@ -360,9 +344,8 @@ msgid "All Sites"
 msgstr "全部网站"
 
 #: monitor.php:569 monitor.php:1348
-#, fuzzy
 msgid "Non-Site Devices"
-msgstr "非树设备"
+msgstr "非现场设备"
 
 #: monitor.php:575
 msgid "Sites"
@@ -381,9 +364,8 @@ msgid "Template"
 msgstr "模板"
 
 #: monitor.php:776
-#, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "过滤器设置已保存"
+msgstr " [已保存筛选设置]"
 
 #: monitor.php:814
 msgid "Cancel"
@@ -406,29 +388,28 @@ msgid "Reset"
 msgstr "重置"
 
 #: monitor.php:981
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' Removed."
 msgstr "仪表板'%s'已删除。"
 
 #: monitor.php:988
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr "仪表板“ %s”不归您所有。"
+msgstr "仪表板' %s'不归您所有。"
 
 #: monitor.php:1079
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr "仪表板“ %s”已保存！"
+msgstr "仪表板' %s'已保存！"
 
 #: monitor.php:1082
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr "仪表板“ %s”无法保存！"
+msgstr "仪表板'%s'无法保存！"
 
 #: monitor.php:1287 monitor.php:1626
-#, fuzzy
 msgid "Non-Site Device"
-msgstr "非树设备"
+msgstr "非现场设备"
 
 #: monitor.php:1600
 msgid "Root Branch"
@@ -457,22 +438,16 @@ msgid "View Graphs"
 msgstr "查看图表"
 
 #: monitor.php:1950
-#, fuzzy
-#| msgid "View Thresholds"
 msgid "View Thresholds/Alerts"
-msgstr "查看阈值"
+msgstr "查看阈值/警报"
 
 #: monitor.php:1954
-#, fuzzy
-#| msgid "View Syslog Alerts"
 msgid "View Device Syslog Alerts"
-msgstr "查看Syslog警报"
+msgstr "查看设备系统日志警报"
 
 #: monitor.php:1958
-#, fuzzy
-#| msgid "View Syslog Alerts"
 msgid "View Device Syslog Entries"
-msgstr "查看Syslog警报"
+msgstr "查看设备系统日志条目"
 
 #: monitor.php:1962 monitor.php:2158 monitor.php:2188
 msgid "Never"
@@ -480,26 +455,23 @@ msgstr "从不"
 
 #: monitor.php:1970
 msgid "Unspecified"
-msgstr ""
+msgstr "未指定"
 
 #: monitor.php:1974 setup.php:80 setup.php:660
 msgid "None"
 msgstr "无"
 
 #: monitor.php:1979
-#, fuzzy
 msgid "Device Status Information"
-msgstr "设备状态"
+msgstr "设备状态信息"
 
 #: monitor.php:1982
 msgid "Device:"
 msgstr "设备："
 
 #: monitor.php:1985
-#, fuzzy
-#| msgid "Site"
 msgid "Site:"
-msgstr "站点"
+msgstr "站点:"
 
 #: monitor.php:1989 monitor.php:2037
 msgid "Location:"
@@ -601,9 +573,8 @@ msgid "Warning"
 msgstr "警告"
 
 #: monitor.php:2110
-#, fuzzy
 msgid "Last Fail"
-msgstr "<br>系统 <DESCRIPTION> (<HOSTNAME>) 状态： <DOWN/UP><br><br>当前ping响应：<CUR_TIME> ms<br>系统平均响应： <AVG_TIME> ms<br>系统可用性： <AVAILABILITY><br>自从清除以来的总检查： <TOT_POLL><br>总失败检查： <FAIL_POLL><br>上次检查正常日期： <LAST_FAIL><br>设备先前挂了于：<DOWNTIME><br><br>名称:<br>名称 - <SNMP_HOSTNAME><br>位置- <SNMP_LOCATION><br>正常运行时间 - <UPTIMETEXT> (<UPTIME> ms)<br>系统 - <SNMP_SYSTEM><br><br>注意: <NOTES>"
+msgstr "上次失败"
 
 #: monitor.php:2114
 msgid "Admin"
@@ -630,17 +601,12 @@ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 msgstr "Cacti监控插件Ping阈值通知"
 
 #: poller_monitor.php:461 poller_monitor.php:463
-#, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr ""
-"以下报告将会识别已经超出其ping功能的设备\n"
-"\t\t\tl延迟阈值. 您订阅了设备后, 您收到此报告\n"
-"\t\t\tl与 Cacti系统相关联, 位于以下URL."
+msgstr "以下报告将识别超过其ping延迟阈值的设备。您收到此报告是因为您订阅了位于以下URL的与Cacti系统相关联的设备。"
 
 #: poller_monitor.php:467
-#, fuzzy
 msgid "Cacti Monitoring Site"
-msgstr "更改监视选项"
+msgstr "Cacti监测站点"
 
 #: poller_monitor.php:470 poller_monitor.php:472
 #, php-format
@@ -694,10 +660,8 @@ msgid "Disable Monitoring"
 msgstr "禁用监视"
 
 #: setup.php:417
-#, fuzzy
-#| msgid "Indefinately"
 msgid "Indefinitely"
-msgstr "无限期"
+msgstr "无限期地"
 
 #: setup.php:418
 #, php-format
@@ -731,14 +695,12 @@ msgid "This is the sound file that will be played when a Device goes down."
 msgstr "这是当设备宕机时将播放的声音文件。"
 
 #: setup.php:451 setup.php:517
-#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr "报警声音"
+msgstr "循环报警声音"
 
 #: setup.php:452 setup.php:518
-#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "这是当设备宕机时将播放的声音文件。"
+msgstr "当设备出现故障时，循环播放上述声音。"
 
 #: setup.php:456 setup.php:529
 msgid "Show Icon Legend"
@@ -749,39 +711,32 @@ msgid "Check this to show an icon legend on the Monitor display"
 msgstr "选中此项可在监视器显示屏上显示图标图例"
 
 #: setup.php:461
-#, fuzzy
 msgid "Show Uptime"
-msgstr "显示正常运行时间"
+msgstr "显示运行时间"
 
 #: setup.php:462
-#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "选中此项可在监视器显示屏上显示图标图例"
+msgstr "选中此项可在监视器显示屏上显示正常运行时间"
 
 #: setup.php:466
-#, fuzzy
 msgid "Zoom to Errors"
-msgstr "放大到错误"
+msgstr "缩放到错误"
 
 #: setup.php:467 setup.php:477
-#, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "选中此项可在监视器显示屏上显示图标图例"
+msgstr "选中此项可缩放到监视器显示屏上的错误项目"
 
 #: setup.php:471
-#, fuzzy
 msgid "Zoom Background"
 msgstr "缩放背景"
 
 #: setup.php:472
-#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr "监视器显示屏上缩放错误的背景颜色"
 
 #: setup.php:476
-#, fuzzy
 msgid "Zoom Fontsize"
-msgstr "缩放字体"
+msgstr "缩放字体大小"
 
 #: setup.php:489 setup.php:700 setup.php:702
 msgid "Monitor"
@@ -837,9 +792,7 @@ msgstr "格式化文件以使用"
 
 #: setup.php:566
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr ""
-"择要使用的自定义html包装器和CSS文件. 该文件包含html和CSS.以包装您的报告.如果它包含的不仅仅是CSS.你需要在文件中放置一个特殊的<REPORT>标签.此格式标签将被报告内容替换.\n"
-"这些文件位于'formats'目录."
+msgstr "选择要使用的自定义html包装和CSS文件。此文件同时包含html和CSS，用于包装您的报告。如果它包含的不仅仅是CSS，则需要在文件中放置一个特殊的＜REPORT＞标记。此格式标记将被报告内容替换。这些文件位于“formats”目录中。"
 
 #: setup.php:570
 msgid "Ping Threshold Notifications"
@@ -904,21 +857,18 @@ msgid "Include Threshold Alert Lists"
 msgstr "包含阈值警报列表"
 
 #: setup.php:616
-#, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "阈值警报列表是否也收到通知"
+msgstr "阈值警报列表是否也应收到通知"
 
 #: setup.php:620
 msgid "Subject"
 msgstr "主题"
 
 #: setup.php:621
-#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr "为重新启动通知输入重新启动消息标题."
+msgstr "输入“重新启动通知”的“重新启动”消息主题。"
 
 #: setup.php:623
-#, fuzzy
 msgid "Cacti Device Reboot Notification"
 msgstr "Cacti 设备重新启动通知"
 
@@ -943,19 +893,16 @@ msgid "From Name"
 msgstr "发件人"
 
 #: setup.php:642
-#, fuzzy
-#| msgid "Enter the Email Name to send the notifications form"
 msgid "Enter the Email Name to send the notifications from"
-msgstr "输入电子邮件名称以发送通知表单"
+msgstr "输入发送通知的电子邮件名称"
 
 #: setup.php:648
 msgid "From Address"
 msgstr "来自地址"
 
 #: setup.php:649
-#, fuzzy
 msgid "Enter the Email Address to send the notification from"
-msgstr "输入电子邮件地址以发送通知"
+msgstr "输入发送通知的电子邮件地址"
 
 #: setup.php:655
 msgid "Notification List"
@@ -983,7 +930,7 @@ msgstr "没有变"
 #: setup.php:727
 #, php-format
 msgid "%d Percent Above Average"
-msgstr "%d百分比高于平均水平 "
+msgstr "%d百分比高于平均水平"
 
 #: setup.php:736
 msgid "Device Monitoring Settings"
