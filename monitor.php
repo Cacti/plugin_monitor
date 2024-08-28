@@ -2317,9 +2317,13 @@ function get_hosts_down_or_triggered_by_permission($prescan) {
 	return $result;
 }
 
+/*
+// This function is not used and contains an undefined variable
+
 function get_host_tree_array() {
 	return $leafs;
 }
+*/
 
 function get_host_non_tree_array() {
 	$leafs = array();
