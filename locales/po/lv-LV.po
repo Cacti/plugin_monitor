@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: Cacti\n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2023-12-11 22:02-0600\n"
-"PO-Revision-Date: 2022-12-30 06:32+0000\n"
-"Last-Translator: Coool (github.com/Coool) <coool@mail.lv>\n"
-"Language-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\n"
-"Language: lv-LV\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2024-10-17 09:14+0000\nLast-Translator: Coool (github.com/Coool) <coool@mail.lv>\nLanguage-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\nLanguage: lv-LV\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -37,7 +25,7 @@ msgstr "Augsts"
 
 #: monitor.php:40 poller_monitor.php:406 setup.php:84 setup.php:413
 msgid "Mission Critical"
-msgstr "Misijai kritiski svarīgs"
+msgstr "Kritiski svarīgs"
 
 #: monitor.php:57 monitor.php:1755
 msgid "Unknown"
@@ -57,15 +45,15 @@ msgstr "Aktīva (darbojoša, tiešsaistē, ieslēgta)"
 
 #: monitor.php:61
 msgid "Triggered"
-msgstr "Nostrādājuši"
+msgstr "Nostrādājušas robežvērtības"
 
 #: monitor.php:62
 msgid "Triggered (Muted/Acked)"
-msgstr "Nostrādājuši (Izslēgta skaņa/Atzīts)"
+msgstr "Nostrādājušas robežvērtības (Izslēgta skaņa/Atzīts)"
 
 #: monitor.php:63
 msgid "Down (Muted/Acked)"
-msgstr "Neaktīvi (nedarbojoši, bezsaistē, izslēgti)(Izslēgta skaņa/Atzīts)"
+msgstr "Neaktīva (nedarbojoša, bezsaistē, izslēgta) (Izslēgta skaņa/Atzīts)"
 
 #: monitor.php:64
 msgid "No Availability Check"
@@ -73,12 +61,12 @@ msgstr "Netiek izmantota ping vai SNMP pieejamības pārbaude"
 
 #: monitor.php:65
 msgid "Warning Ping"
-msgstr "Brīdinājuma signāls (pings)"
+msgstr "Sasniegta brīdinājuma ping robežvērtība"
 
 #: monitor.php:66 poller_monitor.php:490 poller_monitor.php:496
 #: poller_monitor.php:539 poller_monitor.php:545
 msgid "Alert Ping"
-msgstr "Trauksmes signāls (pings)"
+msgstr "Sasniegta trauksmes ping robežvērtība"
 
 #: monitor.php:70
 msgid "Extra Small"
@@ -102,7 +90,7 @@ msgstr "Palielināt"
 
 #: monitor.php:79
 msgid "All Monitored"
-msgstr "Visi uzraudzīti"
+msgstr "Visas uzraudzītās"
 
 #: monitor.php:80
 msgid "Not Up"
@@ -110,11 +98,11 @@ msgstr "Nedarbojas"
 
 #: monitor.php:81
 msgid "Not Up or Triggered"
-msgstr "Nedarbojas vai nav palaists"
+msgstr "Nedarbojas vai nostrādājušas robežvērtības"
 
 #: monitor.php:82
 msgid "Not Up, Triggered or Breached"
-msgstr "Nedarbojas, nav palaists vai uzlauzts"
+msgstr "Nedarbojas, nostrādājušas vai pārsniegtas robežvērtības"
 
 #: monitor.php:86 monitor.php:93 monitor.php:100 setup.php:539 setup.php:551
 msgid "Default"
@@ -138,7 +126,7 @@ msgstr "Koks"
 
 #: monitor.php:95 monitor.php:2082
 msgid "Site"
-msgstr "Vietne"
+msgstr "Atrašanās vieta"
 
 #: monitor.php:96 setup.php:542
 msgid "Device Template"
@@ -210,7 +198,7 @@ msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas vai
 
 #: monitor.php:383
 msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas, vai ir uzlauztas vai ar nostrādājušām robežvērtībām"
+msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas, vai ir ar pārsniegtām vai ar nostrādājušām robežvērtībām"
 
 #: monitor.php:386
 #, php-format
@@ -235,17 +223,16 @@ msgstr ", un augstu kritiskie un augstāki brīži"
 
 #: monitor.php:403
 msgid ", and of Mission Critical Status"
-msgstr ", un misijai kritiskie stāvokļa brīži"
+msgstr ", un kritiskie statusa brīži"
 
 #: monitor.php:407
 msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
 msgstr "</div><div class=\"center monitorFooterTextBold\">Atcerieties, ka vispirms ir jāizvēlas ierīces, kuras vēlaties uzraudzīt, Ierīču lapā!</div></div></div>"
 
 #: monitor.php:443
-#, fuzzy, php-format
-#| msgid " [ Refresh Again in <i id=\"timer\">%d</i> Seconds ]"
+#, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr " [ Atsvaidzināt vēlreiz pēc <i id=\"timer\">%d</i> sekundēm ]"
+msgstr " [ Atsvaidzinās atkal pēc <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> sekundēm ]"
 
 #: monitor.php:443
 #, php-format
@@ -254,7 +241,7 @@ msgstr "Uzraudzības filtrs [ Pēdējā atsvaidzināšana: %s ]"
 
 #: monitor.php:443
 msgid "[ Showing only first 30 Devices ]"
-msgstr ""
+msgstr "[ Rāda tikai pirmās 30 ierīces ]"
 
 #: monitor.php:454
 msgid "Unsaved"
@@ -319,12 +306,12 @@ msgstr "Dzēst informācijas paneli"
 #: monitor.php:520
 #, php-format
 msgid "%s Alert for downed Devices"
-msgstr "%s trauksme neaktīvām ierīcēm"
+msgstr "%s skaņas brīdinājums neaktīvām ierīcēm"
 
 #: monitor.php:520
 #, php-format
 msgid "%s Alerts for downed Devices"
-msgstr "%s trauksmes neaktīvām ierīcēm"
+msgstr "%s skaņas brīdinājumi neaktīvām ierīcēm"
 
 #: monitor.php:529
 msgid "Search"
@@ -346,7 +333,7 @@ msgstr "Apgriezt"
 
 #: monitor.php:547
 msgid "All Trees"
-msgstr "Visi koki"
+msgstr "Visas koka"
 
 #: monitor.php:548 monitor.php:1706
 msgid "Non-Tree Devices"
@@ -354,19 +341,19 @@ msgstr "Ierīces, kas nav kokā"
 
 #: monitor.php:568
 msgid "All Sites"
-msgstr "Visas vietnes"
+msgstr "Visas ar atrašanās vietu"
 
 #: monitor.php:569 monitor.php:1348
 msgid "Non-Site Devices"
-msgstr "Ierīces, kurām nav vietnes"
+msgstr "Ierīces, kurām nav atrašanās vieta"
 
 #: monitor.php:575
 msgid "Sites"
-msgstr "Vietnes"
+msgstr "Atrašanās vietas"
 
 #: monitor.php:583
 msgid "All Templates"
-msgstr "Visas veidnes"
+msgstr "Visas ar veidnēm"
 
 #: monitor.php:584
 msgid "Non-Templated Devices"
@@ -422,7 +409,7 @@ msgstr "Informācijas paneli '%s' nevarēja saglabāt!"
 
 #: monitor.php:1287 monitor.php:1626
 msgid "Non-Site Device"
-msgstr "Ierīce, kurai nav vietnes"
+msgstr "Ierīce, kurai nav atrašanās vieta"
 
 #: monitor.php:1600
 msgid "Root Branch"
@@ -443,28 +430,24 @@ msgid "Just Up"
 msgstr "Tikko atguvies"
 
 #: monitor.php:1942
-#, fuzzy
-#| msgid "Monitor Device"
 msgid "Edit Device"
-msgstr "Uzraudzīt ierīci"
+msgstr "Rediģēt ierīci"
 
 #: monitor.php:1946
 msgid "View Graphs"
-msgstr ""
+msgstr "Skatīt grafikus"
 
 #: monitor.php:1950
-#, fuzzy
-#| msgid "Include Threshold Alert Lists"
 msgid "View Thresholds/Alerts"
-msgstr "Iekļaut robežvērtību brīdinājumu sarakstus"
+msgstr "Skatīt robežvērtības/trauksmes brīdinājumus"
 
 #: monitor.php:1954
 msgid "View Device Syslog Alerts"
-msgstr ""
+msgstr "Skatīt ierīces sistēmas žurnāla trauksmes brīdinājumus"
 
 #: monitor.php:1958
 msgid "View Device Syslog Entries"
-msgstr ""
+msgstr "Skatīt ierīces sistēmas žurnāla ierakstus"
 
 #: monitor.php:1962 monitor.php:2158 monitor.php:2188
 msgid "Never"
@@ -472,11 +455,11 @@ msgstr "Nekad"
 
 #: monitor.php:1970
 msgid "Unspecified"
-msgstr ""
+msgstr "Nav norādīta"
 
 #: monitor.php:1974 setup.php:80 setup.php:660
 msgid "None"
-msgstr "Neviens"
+msgstr "Neviena"
 
 #: monitor.php:1979
 msgid "Device Status Information"
@@ -487,10 +470,8 @@ msgid "Device:"
 msgstr "Ierīce:"
 
 #: monitor.php:1985
-#, fuzzy
-#| msgid "Site"
 msgid "Site:"
-msgstr "Vietne"
+msgstr "Atrašanās vieta:"
 
 #: monitor.php:1989 monitor.php:2037
 msgid "Location:"
@@ -613,7 +594,7 @@ msgstr "Apraksts: "
 
 #: poller_monitor.php:341
 msgid "Hostname: "
-msgstr "Resursdatora nosaukums:"
+msgstr "Resursdatora nosaukums: "
 
 #: poller_monitor.php:456 poller_monitor.php:458 poller_monitor.php:459
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
@@ -621,7 +602,7 @@ msgstr "Cacti uzraudzības spraudņa ping robežvērtības paziņojums"
 
 #: poller_monitor.php:461 poller_monitor.php:463
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr "Šajā ziņojumā uzskaitītas ierīces, kuras pārsniegušas savas ping latentuma robežas.   Jūs saņēmāt šo ziņojumu, jo esat abonējis ierīci Cacti sistēmā, kas atrodas zemāk norādītajā URL."
+msgstr "Šajā atskaites ziņojumā uzskaitītas ierīces, kuras pārsniegušas savas ping latentuma robežas.   Jūs saņēmāt šo ziņojumu, jo esat abonējis ierīci Cacti sistēmā, kas atrodas zemāk norādītajā URL."
 
 #: poller_monitor.php:467
 msgid "Cacti Monitoring Site"
@@ -638,7 +619,7 @@ msgstr "Jūs saņemsiet paziņojumus katru reizi, kad Ierīce pārsniedz tā rob
 
 #: poller_monitor.php:480 poller_monitor.php:482
 msgid "The following Devices have breached their Alert Notification Threshold."
-msgstr "Sekojošās ierīces ir pārsasniegušas tā trauksmes paziņojuma robežvērtību."
+msgstr "Sekojošās ierīces ir pārsniegušas tā trauksmes paziņojuma robežvērtību."
 
 #: poller_monitor.php:491 poller_monitor.php:497 poller_monitor.php:540
 #: poller_monitor.php:546
@@ -647,7 +628,7 @@ msgstr "Pašreizējais Ping"
 
 #: poller_monitor.php:529 poller_monitor.php:531
 msgid "The following Devices have breached their Warning Notification Threshold."
-msgstr "Sekojošās ierīces ir pārsasniegušas tā brīdinājuma paziņojuma robežvērtību."
+msgstr "Sekojošās ierīces ir pārsniegušas tā brīdinājuma paziņojuma robežvērtību."
 
 #: setup.php:79
 msgid "Any"
@@ -668,7 +649,7 @@ msgstr "Atsvaidzināt šo lauku"
 
 #: setup.php:371
 msgid "Change Monitoring Options"
-msgstr "Mainīt uzraudzības opcijas"
+msgstr "Mainīt uzraudzības iestatījumus"
 
 #: setup.php:372
 msgid "Enable Monitoring"
@@ -679,10 +660,8 @@ msgid "Disable Monitoring"
 msgstr "Atspējot uzraudzību"
 
 #: setup.php:417
-#, fuzzy
-#| msgid "Indefinately"
 msgid "Indefinitely"
-msgstr "Bezgalīgi"
+msgstr "Neierobežota"
 
 #: setup.php:418
 #, php-format
@@ -717,11 +696,11 @@ msgstr "Skaņas fails, kas tiks atskaņots, kad ierīce ir neaktīva."
 
 #: setup.php:451 setup.php:517
 msgid "Loop Alarm Sound"
-msgstr "Atskaņot nepārtraukti trauksmes skaņu"
+msgstr "Nepārtraukti atskaņot trauksmes skaņu"
 
 #: setup.php:452 setup.php:518
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "Atskaņot nepārtraukti iepriekš norādīto skaņas failu, kad ierīce ir neaktīva."
+msgstr "Nepārtraukti atskaņot iepriekš norādīto skaņas failu, kad ierīce ir neaktīva."
 
 #: setup.php:456 setup.php:529
 msgid "Show Icon Legend"
@@ -809,7 +788,7 @@ msgstr "Paziņojuma atskaites formāts"
 
 #: setup.php:563
 msgid "Format File to Use"
-msgstr "Izmantojamais faila formāts"
+msgstr "Izmantotais faila formāts"
 
 #: setup.php:566
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
@@ -817,11 +796,11 @@ msgstr "Izvēlieties pielāgotu HTML noformējuma un CSS failu.  Šis fails satu
 
 #: setup.php:570
 msgid "Ping Threshold Notifications"
-msgstr "Ping robežvērtību paziņojumi"
+msgstr "Ping robežvērtības paziņojumi"
 
 #: setup.php:575
 msgid "Warning Latency Notification"
-msgstr "Latentuma brīdinājuma paziņojums"
+msgstr "Brīdinājums - latentuma paziņojums"
 
 #: setup.php:576
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
@@ -829,7 +808,7 @@ msgstr "Ja ierīces apiešanas (turp un atpakaļ) latentums laiks pārsniedz br�
 
 #: setup.php:582
 msgid "Alert Latency Notification"
-msgstr "Latentuma trauksmes paziņojums"
+msgstr "Trauksme - latentuma paziņojums"
 
 #: setup.php:583
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
@@ -875,11 +854,11 @@ msgstr "Vai lietotājiem nosūtīt paziņojumus par ierīces pārstartēšanos?"
 
 #: setup.php:614
 msgid "Include Threshold Alert Lists"
-msgstr "Iekļaut robežvērtību brīdinājumu sarakstus"
+msgstr "Iekļaut robežvērtības trauksmes sarakstus"
 
 #: setup.php:616
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "Nosūtīt paziņojumu arī robežvērtību brīdinājumu sarakstiem"
+msgstr "Nosūtīt paziņojumu arī robežvērtības trauksmes sarakstiem"
 
 #: setup.php:620
 msgid "Subject"
@@ -914,10 +893,8 @@ msgid "From Name"
 msgstr "No kā (sūtītājs)"
 
 #: setup.php:642
-#, fuzzy
-#| msgid "Enter the Email Name to send the notifications form"
 msgid "Enter the Email Name to send the notifications from"
-msgstr "Ievadiet e-pasta sūtītāja vārdu, no kura nosūtīt paziņojumus"
+msgstr "Ievadiet e-pasta sūtītāja vārdu, no kura nosūtīs paziņojumus"
 
 #: setup.php:648
 msgid "From Address"
@@ -925,7 +902,7 @@ msgstr "No adrese (sūtītāja e-pasta adrese)"
 
 #: setup.php:649
 msgid "Enter the Email Address to send the notification from"
-msgstr "Ievadiet e-pasta adresi, no kuras nosūtīt paziņojumu"
+msgstr "Ievadiet e-pasta adresi, no kuras nosūtīs paziņojumu"
 
 #: setup.php:655
 msgid "Notification List"
