@@ -694,20 +694,80 @@ function monitor_config_arrays() {
 	global $fa_icons;
 
 	$fa_icons = array(
-		'server'        => __('Server', 'monitor'),
-		'print'         => __('Printer', 'monitor'),
-		'desktop'       => __('Desktop PC', 'monitor'),
-		'laptop'        => __('Laptop/notebook', 'monitor'),
-		'wifi'          => __('Wifi', 'monitor'),
-		'network-wired' => __('Wired network', 'monitor'),
-		'database'      => __('Database', 'monitor'),
-		'clock'         => __('Clock', 'monitor'),
-		'asterisk'      => __('Asterisk', 'monitor'),
-		'hdd'           => __('Harddisk', 'monitor'),
-		'boxes'         => __('Boxes', 'monitor'),
-		'phone'         => __('Phone', 'monitor'),
-		'cloud'         => __('Cloud', 'monitor')
+		'server' => array(
+			'display' => __('Server', 'monitor'),
+			'class'   => 'fa fa-server deviceUp',
+			'style'   => ''
+		),
+		'print' => array(
+			'display' => __('Printer', 'monitor'),
+			'class'   => 'fa fa-print deviceUp',
+			'style'   => ''
+		),
+		'desktop' => array(
+			'display' => __('Desktop PC', 'monitor'),
+			'class'   => 'fa fa-desktop deviceUp',
+			'style'   => ''
+		),
+		'laptop' => array(
+			'display' => __('Laptop/notebook', 'monitor'),
+			'class'   => 'fa fa-laptop deviceUp',
+			'style'   => ''
+		),
+		'wifi' => array(
+			'display' => __('Wifi', 'monitor'),
+			'class'   => 'fa fa-wifi deviceUp',
+			'style'   => ''
+		),
+		'network-wired' => array(
+			'display' => __('Wired network', 'monitor'),
+			'class'   => 'fa fa-network-wired deviceUp',
+			'style'   => ''
+		),
+		'database' => array(
+			'display' => __('Database', 'monitor'),
+			'class'   => 'fa fa-database deviceUp',
+			'style'   => ''
+		),
+		'clock' => array(
+			'display' => __('Clock', 'monitor'),
+			'class'   => 'fa fa-clock deviceUp',
+			'style'   => ''
+		),
+		'asterisk' => array(
+			'display' => __('Asterisk', 'monitor'),
+			'class'   => 'fas fa-asterisk deviceUp',
+			'style'   => ''
+		),
+		'hdd' => array(
+			'display' => __('Harddisk', 'monitor'),
+			'class'   => 'fa fa-hdd deviceUp',
+			'style'   => ''
+		),
+		'boxes' => array(
+			'display' => __('Boxes', 'monitor'),
+			'class'   => 'fa fa-boxes deviceUp',
+			'style'   => ''
+		),
+		'phone' => array(
+			'display' => __('Phone', 'monitor'),
+			'class'   => 'fa fa-phone deviceUp',
+			'style'   => ''
+		),
+		'cloud' => array(
+			'display' => __('Cloud', 'monitor'),
+			'class'   => 'fa fa-cloud deviceUp',
+			'style'   => ''
+		)
 	);
+
+	if (!function_exists('form_dropicon')) {
+		foreach($fa_icons as $key => $data) {
+			$nfa_icons[$key] = $data['display'];
+		}
+
+		$fa_icons = $nfa_icons;
+	}
 
 	monitor_check_upgrade();
 }
@@ -851,10 +911,16 @@ function monitor_config_form() {
 				'default' => '',
 			);
 
+			if (function_exists('form_dropicon')) {
+				$method = 'drop_icon';
+			} else {
+				$method = 'drop_array';
+			}
+
 			$fields_host_edit3['monitor_icon'] = array(
 				'friendly_name' => __('Device icon', 'monitor'),
 				'description' => __('You can select device icon.', 'monitor'),
-				'method' => 'drop_array',
+				'method' => $method,
 				'default' => '0',
 				'value' => '|arg1:monitor_icon|',
 				'array' => $fa_icons,

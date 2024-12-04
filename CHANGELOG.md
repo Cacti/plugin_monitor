@@ -3,6 +3,7 @@
 --- develop ---
 
 * issue: Fixing issues with saving and renaming dashboards
+* feature: Support the new Drop Icon form object in Cacti
 
 --- 2.8 ---
 
