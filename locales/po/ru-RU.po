@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2024-12-06 19:24+0000\nLast-Translator: Anton Zhuravlev <baka109g@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/monitor/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2024-12-09 15:49+0000\nLast-Translator: Anton Zhuravlev <baka109g@gmail.com>\nLanguage-Team: Russian <http://translate.cacti.net/projects/cacti/monitor/ru/>\nLanguage: ru-RU\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -889,12 +889,10 @@ msgid "Send Reboot Notifications"
 msgstr "Отправлять уведомления о перезагрузке"
 
 #: setup.php:610
-#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "Следует ли отправлять пользователям уведомления о перезагрузке устройства?"
 
 #: setup.php:614
-#, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "Включить пороговые списки предупреждений"
 
@@ -932,9 +930,8 @@ msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Reboot
 msgstr "<h1>Уведомление о перезагрузке монитора</h1><p>Следующие Устройства были перезагружены.  Более подробную информацию смотрите ниже. </p><br><DETAILS>"
 
 #: setup.php:636
-#, fuzzy
 msgid "Notification Email Addresses"
-msgstr "Уведомление Адреса электронной почты"
+msgstr "Адреса электронной почты для уведомлений"
 
 #: setup.php:641
 msgid "From Name"
@@ -973,7 +970,6 @@ msgid "Enter a comma delimited list of Email addresses to inform of a reboot eve
 msgstr "Введите список адресов электронной почты, разделенный запятыми, чтобы сообщить о событии перезагрузки."
 
 #: setup.php:711
-#, fuzzy
 msgid "Do not Change"
 msgstr "Не менять"
 
@@ -981,12 +977,11 @@ msgstr "Не менять"
 #: setup.php:717 setup.php:718 setup.php:719 setup.php:720 setup.php:721
 #: setup.php:722 setup.php:723 setup.php:724 setup.php:725 setup.php:726
 #: setup.php:727
-#, fuzzy, php-format
+#, php-format
 msgid "%d Percent Above Average"
 msgstr "%d Процент выше среднего"
 
 #: setup.php:736
-#, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "Настройки мониторинга устройства"
 
@@ -996,24 +991,20 @@ msgid "Monitor Device"
 msgstr "Монитор Устройство"
 
 #: setup.php:743
-#, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr "Установите этот флажок для мониторинга этого устройства на вкладке Monitor (Монитор)."
+msgstr "Установите этот флажок для мониторинга этого устройства на вкладке Монитор."
 
 #: setup.php:754
-#, fuzzy
 msgid "Device Criticality"
 msgstr "Критичность устройства"
 
 #: setup.php:755
-#, fuzzy
 msgid "What is the Criticality of this Device."
 msgstr "Какова критичность этого Устройства."
 
 #: setup.php:762
-#, fuzzy
 msgid "Ping Warning Threshold"
-msgstr "Порог предупреждения о пинге Порог предупреждения"
+msgstr "Порог предупреждения о пинге"
 
 #: setup.php:763
 #, fuzzy
@@ -1025,9 +1016,8 @@ msgid "milliseconds"
 msgstr "миллисекунд"
 
 #: setup.php:772
-#, fuzzy
 msgid "Ping Alert Threshold"
-msgstr "Порог сигнала тревоги Порог сигнала тревоги Пинг"
+msgstr "Порог тревоги о пинге"
 
 #: setup.php:773
 #, fuzzy
@@ -1055,9 +1045,8 @@ msgid "The percentage above the current average ping time to consider a Alert Th
 msgstr "Процентное значение, превышающее текущее среднее время пинга для рассмотрения порога оповещения.  При обновлении пороговое значение сигнала Ping Alert будет автоматически изменено."
 
 #: setup.php:798
-#, fuzzy
 msgid "Down Device Message"
-msgstr "Вниз Сообщение устройства"
+msgstr "Сообщение упавшего устройства"
 
 #: setup.php:799
 #, fuzzy
