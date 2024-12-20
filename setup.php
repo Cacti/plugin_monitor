@@ -97,7 +97,7 @@ function monitor_device_table_bottom() {
 		'4'  => __('Mission Critical', 'monitor')
 	);
 
-	if (cacti_version_compare(CACTI_VERSION, '1.3.0', '<')) {
+	if (version_compare(CACTI_VERSION, '1.3.0', '<')) {
 		$select = '<td>' . __('Criticality') . '</td><td><select id="criticality">';
 		foreach($criticalities as $index => $crit) {
 			if ($index == get_request_var('criticality')) {
