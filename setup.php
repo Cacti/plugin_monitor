@@ -57,11 +57,23 @@ function plugin_monitor_install() {
 }
 
 function monitor_device_filters($filters) {
+	$criticalities = array(
+		'-1' => __('Any', 'monitor'),
+		'0'  => __('None', 'monitor'),
+		'1'  => __('Low', 'monitor'),
+		'2'  => __('Medium', 'monitor'),
+		'3'  => __('High', 'monitor'),
+		'4'  => __('Mission Critical', 'monitor')
+	);
 
 	$filters['criticality'] = array(
-		'filter' => FILTER_VALIDATE_INT,
-		'pageset' => true,
-		'default' => '-1'
+		'friendly_name' => __('Criticality', 'monitor'),
+		'method'        => 'drop_array',
+		'filter'        => FILTER_VALIDATE_INT,
+		'pageset'       => true,
+		'default'       => '-1',
+		'array'         => $criticalities,
+		'value'         => '-1'
 	);
 
 	return $filters;
@@ -85,59 +97,61 @@ function monitor_device_table_bottom() {
 		'4'  => __('Mission Critical', 'monitor')
 	);
 
-	$select = '<td>' . __('Criticality') . '</td><td><select id="criticality">';
-	foreach($criticalities as $index => $crit) {
-		if ($index == get_request_var('criticality')) {
-			$select .= '<option selected value="' . $index . '">' . $crit . '</option>';
-		} else {
-			$select .= '<option value="' . $index . '">' . $crit . '</option>';
-		}
-	}
-	$select .= '</select></td>';
-
-    ?>
-    <script type='text/javascript'>
-	$(function() {
-		$('#rows').parent().after('<?php print $select;?>');
-		<?php if (get_selected_theme() != 'classic') {?>
-		$('#criticality').selectmenu({
-			change: function() {
-				applyFilter();
+	if (cacti_version_compare(CACTI_VERSION, '1.3.0', '<')) {
+		$select = '<td>' . __('Criticality') . '</td><td><select id="criticality">';
+		foreach($criticalities as $index => $crit) {
+			if ($index == get_request_var('criticality')) {
+				$select .= '<option selected value="' . $index . '">' . $crit . '</option>';
+			} else {
+				$select .= '<option value="' . $index . '">' . $crit . '</option>';
 			}
-		});
-		<?php } else { ?>
-		$('#criticality').change(function() {
-			applyFilter();
-		});
-		<?php } ?>
-	});
-
-	applyFilter = function() {
-		strURL  = 'host.php';
-		strURL += '?host_status=' + $('#host_status').val();
-
-		if ($('#availability_method').length) {
-			strURL += '&availability_method=' + $('#availability_method').val();
 		}
+		$select .= '</select></td>';
 
-		strURL += '&host_template_id=' + $('#host_template_id').val();
-		strURL += '&site_id=' + $('#site_id').val();
-		strURL += '&criticality=' + $('#criticality').val();
-		strURL += '&poller_id=' + $('#poller_id').val();
-		strURL += '&location=' + $('#location').val();
-		strURL += '&rows=' + $('#rows').val();
-		strURL += '&filter=' + $('#filter').val();
-		strURL += '&header=false';
+		?>
+		<script type='text/javascript'>
+		$(function() {
+			$('#rows').parent().after('<?php print $select;?>');
+			<?php if (get_selected_theme() != 'classic') {?>
+			$('#criticality').selectmenu({
+				change: function() {
+					applyFilter();
+				}
+			});
+			<?php } else { ?>
+			$('#criticality').change(function() {
+				applyFilter();
+			});
+			<?php } ?>
+		});
 
-		if (typeof loadUrl == 'undefined') {
-			loadPageNoHeader(strURL);
-		} else {
-			loadUrl({ url: strURL });
-		}
-	};
+		applyFilter = function() {
+			strURL  = 'host.php';
+			strURL += '?host_status=' + $('#host_status').val();
 
-	</script>
-	<?php
+			if ($('#availability_method').length) {
+				strURL += '&availability_method=' + $('#availability_method').val();
+			}
+
+			strURL += '&host_template_id=' + $('#host_template_id').val();
+			strURL += '&site_id=' + $('#site_id').val();
+			strURL += '&criticality=' + $('#criticality').val();
+			strURL += '&poller_id=' + $('#poller_id').val();
+			strURL += '&location=' + $('#location').val();
+			strURL += '&rows=' + $('#rows').val();
+			strURL += '&filter=' + $('#filter').val();
+			strURL += '&header=false';
+
+			if (typeof loadUrl == 'undefined') {
+				loadPageNoHeader(strURL);
+			} else {
+				loadUrl({ url: strURL });
+			}
+		};
+
+		</script>
+		<?php
+	}
 }
 
 function plugin_monitor_uninstall() {
