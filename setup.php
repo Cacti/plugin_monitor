@@ -841,10 +841,16 @@ function monitor_config_form() {
 	$fields_host_edit2 = $fields_host_edit;
 	$fields_host_edit3 = array();
 
+	if (array_key_exists('snmp_options', $fields_host_edit2)) {
+		$insert_field = 'snmp_options';
+	} else {
+		$insert_field = 'disabled';
+	}
+
 	foreach ($fields_host_edit2 as $f => $a) {
 		$fields_host_edit3[$f] = $a;
 
-		if ($f == 'disabled') {
+		if ($f == $insert_field) {
 			$fields_host_edit3['monitor_header'] = array(
 				'friendly_name' => __('Device Monitoring Settings', 'monitor'),
 				'method' => 'spacer',
