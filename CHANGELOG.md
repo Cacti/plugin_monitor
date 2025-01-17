@@ -210,7 +210,7 @@
 
 --- 0.4 ---
 
-* feature: Added Javscript Mouseover Tooltips.  This replaces the title attribute which I used before (Newlines didnt work in Firefox)
+* feature: Added Javascript Mouseover Tooltips.  This replaces the title attribute which I used before (Newlines didnt work in Firefox)
 
 --- 0.3 ---
 
