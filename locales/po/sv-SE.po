@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-03-18 07:08+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-03-18 09:57+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -161,7 +161,7 @@ msgstr "100 tecken"
 
 #: monitor.php:216
 msgid "New Dashboard"
-msgstr "Ny instrumentpanel"
+msgstr "Ny dashboard"
 
 #: monitor.php:219
 msgid "Dashboard"
@@ -593,7 +593,7 @@ msgstr "Värdnamn: "
 
 #: poller_monitor.php:456 poller_monitor.php:458 poller_monitor.php:459
 msgid "Cacti Monitor Plugin Ping Threshold Notification"
-msgstr "Cacti Monitor Plugin Ping Tröskelvärde Notifiering"
+msgstr "Avisering från Cacti-övervakningstillägget tröskelvärde för ping"
 
 #: poller_monitor.php:461 poller_monitor.php:463
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
@@ -619,7 +619,7 @@ msgstr "Följande enheter har överskridit sin tröskel för varningsmeddelande.
 #: poller_monitor.php:491 poller_monitor.php:497 poller_monitor.php:540
 #: poller_monitor.php:546
 msgid "Current Ping"
-msgstr "Nuvarande Ping"
+msgstr "Aktuell ping"
 
 #: poller_monitor.php:529 poller_monitor.php:531
 msgid "The following Devices have breached their Warning Notification Threshold."
@@ -661,17 +661,17 @@ msgstr "Tillsvidare"
 #: setup.php:418
 #, php-format
 msgid "%d Month"
-msgstr "%d Månad"
+msgstr "%d månad"
 
 #: setup.php:419 setup.php:420 setup.php:421 setup.php:422
 #, php-format
 msgid "%d Months"
-msgstr "%d Månader"
+msgstr "%d månader"
 
 #: setup.php:423
 #, php-format
 msgid "%d Year"
-msgstr "%d År"
+msgstr "%d år"
 
 #: setup.php:436
 msgid "Normal User"
@@ -799,7 +799,7 @@ msgstr "Varning Latency Notification"
 
 #: setup.php:576
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Om en enhet har en Ping-latency för tur och retur som är högre än tröskelvärdet för Warning och högre än tröskelvärdet för Criticality nedan, kommer de som prenumererar på e-post till enheten att få ett e-postmeddelande.  Välj \"Disabled\" för att inaktivera.  Thold Plugin krävs för att aktivera den här funktionen."
+msgstr "Om en enhet har en Ping-latency för tur och retur som är högre än tröskelvärdet för Warning och högre än tröskelvärdet för Criticality nedan, kommer de som prenumererar på e-post till enheten att få ett e-postmeddelande.  Välj \"Disabled\" för att inaktivera.  Thold-tillägget krävs för att aktivera den här funktionen."
 
 #: setup.php:582
 msgid "Alert Latency Notification"
@@ -807,7 +807,7 @@ msgstr "Avisering om latenstid"
 
 #: setup.php:583
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Om en enhet har en Ping-latency för tur och retur som är högre än tröskelvärdet för varning och högre än kriticitetsvärdet nedan, kommer de som prenumererar på e-post till enheten att få ett e-postmeddelande.  Välj \"Disabled\" för att inaktivera.  Thold Plugin krävs för att aktivera den här funktionen."
+msgstr "Om en enhet har en Ping-latency för tur och retur som är högre än tröskelvärdet för varning och högre än kriticitetsvärdet nedan, kommer de som prenumererar på e-post till enheten att få ett e-postmeddelande.  Välj \"Disabled\" för att inaktivera.  Thold-tillägget krävs för att aktivera den här funktionen."
 
 #: setup.php:589
 msgid "How Often to Resend Emails"
@@ -925,7 +925,7 @@ msgstr "Ändra inte"
 #: setup.php:727
 #, php-format
 msgid "%d Percent Above Average"
-msgstr "%d Procent över genomsnittet"
+msgstr "%d procent över genomsnittet"
 
 #: setup.php:736
 msgid "Device Monitoring Settings"
@@ -953,7 +953,7 @@ msgstr "Tröskelvärde för pingvarning"
 
 #: setup.php:763
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Om latensen tur och retur via någon av de fördefinierade Cacti-pingmetoderna överstiger detta tröskelvärde, loggas en varning eller skickas ett e-postmeddelande beroende på inställningen Devices Criticality och Monitor.  Enheten är i millisekunder.  Inställning till 0 inaktiverar. Thold Plugin krävs för att utnyttja den här funktionen."
+msgstr "Om latensen tur och retur via någon av de fördefinierade Cacti-pingmetoderna överstiger detta tröskelvärde, loggas en varning eller skickas ett e-postmeddelande beroende på inställningen Devices Criticality och Monitor.  Enheten är i millisekunder.  Inställning till 0 inaktiverar. Thold-tillägget krävs för att utnyttja den här funktionen."
 
 #: setup.php:767 setup.php:777
 msgid "milliseconds"
@@ -965,7 +965,7 @@ msgstr "Tröskelvärde för ping-varning"
 
 #: setup.php:773
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Om latensen tur och retur via någon av de fördefinierade Cacti-pingmetoderna överstiger detta tröskelvärde, loggas en varning eller skickas ett e-postmeddelande baserat på inställningen Devices Criticality och Monitor.  Enheten är i millisekunder.  Inställning till 0 inaktiverar. Thold Plugin krävs för att utnyttja den här funktionen."
+msgstr "Om latensen tur och retur via någon av de fördefinierade Cacti-pingmetoderna överstiger detta tröskelvärde, loggas en varning eller skickas ett e-postmeddelande baserat på inställningen Devices Criticality och Monitor.  Enheten är i millisekunder.  Inställning till 0 inaktiverar. Thold-tillägget krävs för att utnyttja den här funktionen."
 
 #: setup.php:782
 msgid "Re-Baseline Warning"
