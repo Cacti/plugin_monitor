@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-03-14 13:09+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-03-18 07:08+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -40,7 +40,7 @@ msgstr "Uppe"
 
 #: monitor.php:61
 msgid "Triggered"
-msgstr "Utlöst:"
+msgstr "Utlöst"
 
 #: monitor.php:62
 msgid "Triggered (Muted/Acked)"
@@ -121,7 +121,7 @@ msgstr "Träd"
 
 #: monitor.php:95 monitor.php:2082
 msgid "Site"
-msgstr "Webbplats"
+msgstr "Plats"
 
 #: monitor.php:96 setup.php:542
 msgid "Device Template"
@@ -336,11 +336,11 @@ msgstr "Enheter utan träd"
 
 #: monitor.php:568
 msgid "All Sites"
-msgstr "Alla webbplatser"
+msgstr "Alla platser"
 
 #: monitor.php:569 monitor.php:1348
 msgid "Non-Site Devices"
-msgstr "Enheter utanför webbplatsen"
+msgstr "Enheter utanför platsen"
 
 #: monitor.php:575
 msgid "Sites"
@@ -404,7 +404,7 @@ msgstr "Instrumentpanelen '%s' kunde inte sparas!"
 
 #: monitor.php:1287 monitor.php:1626
 msgid "Non-Site Device"
-msgstr "Enhet utanför webbplatsen"
+msgstr "Enhet utanför platsen"
 
 #: monitor.php:1600
 msgid "Root Branch"
@@ -466,7 +466,7 @@ msgstr "Enhet:"
 
 #: monitor.php:1985
 msgid "Site:"
-msgstr "Plats"
+msgstr "Plats:"
 
 #: monitor.php:1989 monitor.php:2037
 msgid "Location:"
@@ -873,7 +873,7 @@ msgstr "E-post meddelandetext"
 
 #: setup.php:629
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Ange en e-posttext som ska ingå i meddelandet om omstart.  För närvarande är den enda ersättningstagg som stöds och accepteras <DETAILS>"
+msgstr "Ange en e-posttext som ska ingå i meddelandet om omstart.  För närvarande är den enda ersättningstagg som stöds och accepteras &#060;DETAILS&#062;"
 
 #: setup.php:633
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
@@ -945,7 +945,7 @@ msgstr "Enhetskritikalitet"
 
 #: setup.php:755
 msgid "What is the Criticality of this Device."
-msgstr "Vad är det som är kritiskt med den här enheten?"
+msgstr "Vad är det som är kritiskt med den här enheten."
 
 #: setup.php:762
 msgid "Ping Warning Threshold"
