@@ -572,6 +572,7 @@ function monitor_config_settings() {
 			'array' => array(
 				'default'  => __('Default', 'monitor'),
 				'list'     => __('List', 'monitor'),
+				'names'    => __('Names only', 'monitor'),
 				'tiles'    => __('Tiles', 'monitor'),
 				'tilesadt' => __('Tiles & Downtime', 'monitor')
 			)

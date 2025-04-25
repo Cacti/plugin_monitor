@@ -88,6 +88,7 @@ $monitor_status = array(
 $monitor_view_type = array(
 	'default'  => __('Default', 'monitor'),
 	'list'     => __('List', 'monitor'),
+	'names'    => __('Names only', 'monitor'),
 	'tiles'    => __('Tiles', 'monitor'),
 	'tilesadt' => __('Tiles & Time', 'monitor')
 );
@@ -245,7 +246,6 @@ function draw_page() {
 		} else {
 			html_start_box('', '100%', true, '3', 'center', '');
 		}
-
 		print $function();
 	} else {
 		print render_default();
@@ -554,7 +554,7 @@ function draw_filter_and_status() {
 		draw_filter_dropdown('size', __('Size', 'monitor'), $classes, $mon_zoom_size);
 	}
 
-	if (get_request_var('view') == 'default') {
+	if (get_request_var('view') == 'default' || get_request_var('view') == 'names') {
 		draw_filter_dropdown('trim', __('Trim', 'monitor'), $monitor_trim);
 	}
 
@@ -2472,6 +2472,24 @@ function render_host_list($host) {
 	return $result;
 }
 
+
+function render_host_names($host) {
+	$fclass = get_request_var('size');
+
+	$maxlen = get_monitor_trim_length(20);
+	$monitor_times=read_user_setting('monitor_uptime');
+	$monitor_time_html="";
+
+	if ($host['status'] <= 2 || $host['status'] == 5) {
+		$result = "<div class='{$fclass}_names flash monitor_device_frame'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><br><span class='{$fclass} deviceDown '>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></div>";
+	} else {
+		$result = "<div class='{$fclass}_names monitor_device_frame'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><br><span class='{$fclass}'>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></div>";
+
+	}
+	return $result;
+}
+
+
 function render_host_tiles($host, $maxlen = 10) {
 	$class  = get_status_icon($host['status'], $host['monitor_icon']);
 	$fclass = get_request_var('size');
@@ -2613,7 +2631,7 @@ function get_host_non_tree_array() {
 function get_monitor_trim_length($fieldlen) {
 	global $maxchars;
 
-	if (get_request_var('view') == 'default') {
+	if (get_request_var('view') == 'default' || get_request_var('view') == 'names') {
 		$maxlen = $maxchars;
 		if (get_request_var('trim') < 0) {
 			$maxlen = 4000;
