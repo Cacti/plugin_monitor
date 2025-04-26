@@ -88,6 +88,7 @@ $monitor_status = array(
 $monitor_view_type = array(
 	'default'  => __('Default', 'monitor'),
 	'list'     => __('List', 'monitor'),
+	'names'    => __('Names only', 'monitor'),
 	'tiles'    => __('Tiles', 'monitor'),
 	'tilesadt' => __('Tiles & Time', 'monitor')
 );
@@ -117,6 +118,8 @@ $dozoomrefresh   = false;
 $dozoombgndcolor = false;
 
 $maxchars = 12;
+
+$_SESSION['names'] = 0;
 
 if (!isset($_SESSION['monitor_muted_hosts'])) {
 	$_SESSION['monitor_muted_hosts'] = array();
@@ -245,7 +248,6 @@ function draw_page() {
 		} else {
 			html_start_box('', '100%', true, '3', 'center', '');
 		}
-
 		print $function();
 	} else {
 		print render_default();
@@ -554,7 +556,7 @@ function draw_filter_and_status() {
 		draw_filter_dropdown('size', __('Size', 'monitor'), $classes, $mon_zoom_size);
 	}
 
-	if (get_request_var('view') == 'default') {
+	if (get_request_var('view') == 'default' || get_request_var('view') == 'names') {
 		draw_filter_dropdown('trim', __('Trim', 'monitor'), $monitor_trim);
 	}
 
@@ -2266,6 +2268,10 @@ function render_header_default($hosts) {
 	return "<div class='monitorTable monitor'><div class='monitor_container'>";
 }
 
+function render_header_names($hosts) {
+	return "<table class='monitorTable monitor'>";
+}
+
 function render_header_tiles($hosts) {
 	return render_header_default($hosts);
 }
@@ -2367,6 +2373,17 @@ function render_suppressgroups_list($hosts) {
 
 function render_footer_default($hosts) {
 	return '</div></div>';
+}
+
+function render_footer_names($hosts) {
+
+	$col = 7 - $_SESSION['names'];
+
+	if ($col == 0) {
+		return '</tr></table>';
+	} else {
+		return '<td colspan="' . $col . '"></td></tr></table>';
+	}
 }
 
 function render_footer_tiles($hosts) {
@@ -2471,6 +2488,37 @@ function render_host_list($host) {
 
 	return $result;
 }
+
+
+function render_host_names($host) {
+
+	$fclass = get_request_var('size');
+
+	$result = '';
+
+	$maxlen = get_monitor_trim_length(100);
+	$monitor_times=read_user_setting('monitor_uptime');
+	$monitor_time_html="";
+
+	if ($_SESSION['names'] == 0) {
+		$result .= '<tr>';
+	}
+
+	if ($host['status'] <= 2 || $host['status'] == 5) {
+		$result .= "<td class='{$fclass}_names flash'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass} deviceDown '>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></td>";
+	} else {
+		$result .= "<td class='{$fclass}_names'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass}'>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></td>";
+	}
+
+	$_SESSION['names']++;
+
+	if ($_SESSION['names'] > 7) {
+		$result .= '</tr>';
+		$_SESSION['names'] = 0;
+	}
+	return $result;
+}
+
 
 function render_host_tiles($host, $maxlen = 10) {
 	$class  = get_status_icon($host['status'], $host['monitor_icon']);
@@ -2613,7 +2661,7 @@ function get_host_non_tree_array() {
 function get_monitor_trim_length($fieldlen) {
 	global $maxchars;
 
-	if (get_request_var('view') == 'default') {
+	if (get_request_var('view') == 'default' || get_request_var('view') == 'names') {
 		$maxlen = $maxchars;
 		if (get_request_var('trim') < 0) {
 			$maxlen = 4000;
