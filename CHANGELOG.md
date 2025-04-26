@@ -5,6 +5,7 @@
 * issue: Fixing issues with saving and renaming dashboards
 * feature: Support the new Drop Icon form object in Cacti
 * feature: Support for Cacti 1.3
+* featture#186: New table view - Names only
 
 --- 2.8 ---
 
