@@ -119,6 +119,8 @@ $dozoombgndcolor = false;
 
 $maxchars = 12;
 
+$_SESSION['names'] = 0;
+
 if (!isset($_SESSION['monitor_muted_hosts'])) {
 	$_SESSION['monitor_muted_hosts'] = array();
 }
@@ -2266,6 +2268,10 @@ function render_header_default($hosts) {
 	return "<div class='monitorTable monitor'><div class='monitor_container'>";
 }
 
+function render_header_names($hosts) {
+	return "<table class='monitorTable monitor'>";
+}
+
 function render_header_tiles($hosts) {
 	return render_header_default($hosts);
 }
@@ -2367,6 +2373,17 @@ function render_suppressgroups_list($hosts) {
 
 function render_footer_default($hosts) {
 	return '</div></div>';
+}
+
+function render_footer_names($hosts) {
+
+	$col = 7 - $_SESSION['names'];
+
+	if ($col == 0) {
+		return '</tr></table>';
+	} else {
+		return '<td colspan="' . $col . '"></td></tr></table>';
+	}
 }
 
 function render_footer_tiles($hosts) {
@@ -2474,17 +2491,30 @@ function render_host_list($host) {
 
 
 function render_host_names($host) {
+
 	$fclass = get_request_var('size');
 
-	$maxlen = get_monitor_trim_length(20);
+	$result = '';
+
+	$maxlen = get_monitor_trim_length(100);
 	$monitor_times=read_user_setting('monitor_uptime');
 	$monitor_time_html="";
 
-	if ($host['status'] <= 2 || $host['status'] == 5) {
-		$result = "<div class='{$fclass}_names flash monitor_device_frame'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><br><span class='{$fclass} deviceDown '>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></div>";
-	} else {
-		$result = "<div class='{$fclass}_names monitor_device_frame'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><br><span class='{$fclass}'>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></div>";
+	if ($_SESSION['names'] == 0) {
+		$result .= '<tr>';
+	}
 
+	if ($host['status'] <= 2 || $host['status'] == 5) {
+		$result .= "<td class='{$fclass}_names flash'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass} deviceDown '>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></td>";
+	} else {
+		$result .= "<td class='{$fclass}_names'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass}'>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></td>";
+	}
+
+	$_SESSION['names']++;
+
+	if ($_SESSION['names'] > 7) {
+		$result .= '</tr>';
+		$_SESSION['names'] = 0;
 	}
 	return $result;
 }
