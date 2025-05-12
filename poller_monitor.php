@@ -357,10 +357,16 @@ function process_reboot_email($email, $hosts) {
 	$body .= '</table>' . PHP_EOL;
 
 	$subject = read_config_option('monitor_subject');
-
 	$monitor_send_one_email = read_config_option('monitor_send_one_email');
+
 	if ($monitor_send_one_email == 'on') {
 		$subject .= ' ' . $host['description'] . ' (' . $host['hostname'] . ')';
+	} else {
+		if (cacti_sizeof($hosts) == 1) {
+			$subject .= ' 1 device  - ' . $host['description'] . ' (' . $host['hostname'] . ')';
+		} else {
+			$subject .= ' ' . cacti_sizeof($hosts) . ' devices';
+		}
 	}
 
 	$output  = read_config_option('monitor_body');
