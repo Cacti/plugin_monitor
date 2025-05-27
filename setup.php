@@ -52,6 +52,7 @@ function plugin_monitor_install() {
 	set_config_option('monitor_view', 'default');
 	set_config_option('monitor_grouping', 'default');
 	set_config_option('monitor_trim', '4000');
+	set_config_option('monitor_rows', 10);
 
 	monitor_setup_table();
 }
