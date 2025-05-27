@@ -3,9 +3,10 @@
 --- develop ---
 
 * issue: Fixing issues with saving and renaming dashboards
+* issue#188: Fix incorrect variable, missing default value
 * feature: Support the new Drop Icon form object in Cacti
 * feature: Support for Cacti 1.3
-* featture#186: New table view - Names only
+* feature#186: New table view - Names only
 
 --- 2.8 ---
 
