@@ -1109,7 +1109,7 @@ function save_settings() {
 					set_user_setting('monitor_view', get_request_var('view'));
 					break;
 				case 'rows':
-					set_user_setting('monitor_view', get_request_var('rows'));
+					set_user_setting('monitor_rows', get_request_var('rows'));
 					break;
 				case 'crit':
 					set_user_setting('monitor_crit', get_request_var('crit'));
@@ -1222,7 +1222,7 @@ function validate_request_vars($force = false) {
 		'rows' => array(
 			'filter' => FILTER_VALIDATE_INT,
 			'options' => array('options' => 'sanitize_search_string'),
-			'default' => read_user_setting('monitor_view', read_config_option('monitor_rows'), $force)
+			'default' => read_user_setting('monitor_rows', read_config_option('num_rows_table'), $force)
 		),
 		'size' => array(
 			'filter' => FILTER_CALLBACK,
@@ -1406,8 +1406,9 @@ function render_default() {
 
 	$rows = get_request_var('rows');
 	if ($rows == '-1') {
-		$rows = read_config_option('num_rows_table');
-	} elseif (!is_numeric($rows)) {
+		$rows = read_user_setting('monitor_rows');
+	}
+	if (!is_numeric($rows)) {
 		$rows = read_config_option('num_rows_table');
 	}
 
@@ -1494,8 +1495,9 @@ function render_site() {
 
 	$rows = get_request_var('rows');
 	if ($rows == '-1') {
-		$rows = read_config_option('num_rows_table');
-	} elseif (!is_numeric($rows)) {
+		$rows = read_user_setting('monitor_rows');
+	}
+	if (!is_numeric($rows)) {
 		$rows = read_config_option('num_rows_table');
 	}
 
@@ -1605,8 +1607,9 @@ function render_template() {
 
 	$rows = get_request_var('rows');
 	if ($rows == '-1') {
-		$rows = read_config_option('num_rows_table');
-	} elseif (!is_numeric($rows)) {
+		$rows = read_user_setting('monitor_rows');
+	}
+	if (!is_numeric($rows)) {
 		$rows = read_config_option('num_rows_table');
 	}
 
