@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-07-01 15:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-07-02 19:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -49,7 +49,7 @@ msgstr "დატრიგერებულია"
 
 #: monitor.php:62
 msgid "Triggered (Muted/Acked)"
-msgstr ""
+msgstr "დატრიგერებულია (დადუმებულია/მიღებულია)"
 
 #: monitor.php:63
 msgid "Down (Muted/Acked)"
@@ -61,16 +61,16 @@ msgstr ""
 
 #: monitor.php:65
 msgid "Warning Ping"
-msgstr ""
+msgstr "გაფრთხილების პინგი"
 
 #: monitor.php:66 poller_monitor.php:490 poller_monitor.php:496
 #: poller_monitor.php:539 poller_monitor.php:545
 msgid "Alert Ping"
-msgstr ""
+msgstr "პინგის განგაში"
 
 #: monitor.php:70
 msgid "Extra Small"
-msgstr ""
+msgstr "ძალიან პატარა"
 
 #: monitor.php:71
 msgid "Small"
@@ -94,7 +94,7 @@ msgstr ""
 
 #: monitor.php:80
 msgid "Not Up"
-msgstr ""
+msgstr "ჩართული არაა"
 
 #: monitor.php:81
 msgid "Not Up or Triggered"
@@ -138,7 +138,7 @@ msgstr "მთლიანი"
 
 #: monitor.php:102
 msgid "10 Chars"
-msgstr ""
+msgstr "10 სიმბოლო"
 
 #: monitor.php:103
 msgid "20 Chars"
@@ -150,7 +150,7 @@ msgstr ""
 
 #: monitor.php:105
 msgid "40 Chars"
-msgstr ""
+msgstr "40 სიმბოლო"
 
 #: monitor.php:106
 msgid "50 Chars"
@@ -166,7 +166,7 @@ msgstr "100 სიმბოლო"
 
 #: monitor.php:216
 msgid "New Dashboard"
-msgstr ""
+msgstr "ახალი სამუშაო დაფა"
 
 #: monitor.php:219
 msgid "Dashboard"
@@ -182,7 +182,7 @@ msgstr ""
 
 #: monitor.php:237 monitor.php:2123
 msgid "Monitored Devices"
-msgstr ""
+msgstr "მოწყობილობები მონიტორინგის ქვეშ"
 
 #: monitor.php:374
 msgid "All Monitored Devices"
@@ -277,7 +277,7 @@ msgstr "შენახვა"
 
 #: monitor.php:508
 msgid "Save Filter Settings"
-msgstr ""
+msgstr "ფილტრის პარამეტრების შენახვა"
 
 #: monitor.php:510
 msgid "New"
@@ -301,7 +301,7 @@ msgstr "წაშლა"
 
 #: monitor.php:517
 msgid "Delete Dashboard"
-msgstr ""
+msgstr "სამუშაო დაფის წაშლა"
 
 #: monitor.php:520
 #, php-format
@@ -333,7 +333,7 @@ msgstr "წაკვეთა"
 
 #: monitor.php:547
 msgid "All Trees"
-msgstr ""
+msgstr "ყველა ხე"
 
 #: monitor.php:548 monitor.php:1706
 msgid "Non-Tree Devices"
@@ -345,7 +345,7 @@ msgstr "ყველა საიტი"
 
 #: monitor.php:569 monitor.php:1348
 msgid "Non-Site Devices"
-msgstr ""
+msgstr "არასაიტის მოწყობილობები"
 
 #: monitor.php:575
 msgid "Sites"
@@ -353,7 +353,7 @@ msgstr "საიტები"
 
 #: monitor.php:583
 msgid "All Templates"
-msgstr ""
+msgstr "ყველა შაბლონი"
 
 #: monitor.php:584
 msgid "Non-Templated Devices"
@@ -413,12 +413,12 @@ msgstr ""
 
 #: monitor.php:1600
 msgid "Root Branch"
-msgstr ""
+msgstr "ძირითადი ბრენჩი"
 
 #: monitor.php:1651
 #, php-format
 msgid "Tree: %s"
-msgstr ""
+msgstr "ხე: %s"
 
 #: monitor.php:1667
 #, php-format
@@ -431,11 +431,11 @@ msgstr "უბრალოდ მაღლა"
 
 #: monitor.php:1942
 msgid "Edit Device"
-msgstr ""
+msgstr "მოწყობილობის ჩასწორება"
 
 #: monitor.php:1946
 msgid "View Graphs"
-msgstr ""
+msgstr "გრაფიკების ნახვა"
 
 #: monitor.php:1950
 msgid "View Thresholds/Alerts"
@@ -487,7 +487,7 @@ msgstr "სტატუსი:"
 
 #: monitor.php:2001
 msgid "Admin Note:"
-msgstr ""
+msgstr "ადმინისტრატორის შენიშვნა:"
 
 #: monitor.php:2005
 msgid "IP/Hostname:"
@@ -513,7 +513,7 @@ msgstr "%0.2d მწმ"
 
 #: monitor.php:2017
 msgid "Last Fail:"
-msgstr ""
+msgstr "ბოლო ჩავარდნა:"
 
 #: monitor.php:2021
 msgid "Time In State:"
@@ -533,7 +533,7 @@ msgstr "N/A"
 
 #: monitor.php:2033
 msgid "Sys Description:"
-msgstr ""
+msgstr "სის აღწერა:"
 
 #: monitor.php:2041
 msgid "Contact:"
@@ -645,7 +645,7 @@ msgstr ""
 
 #: setup.php:353
 msgid "Update this Field"
-msgstr ""
+msgstr "ამ ველის განახლება"
 
 #: setup.php:371
 msgid "Change Monitoring Options"
@@ -657,7 +657,7 @@ msgstr ""
 
 #: setup.php:373
 msgid "Disable Monitoring"
-msgstr ""
+msgstr "მონიტორინგის გამორთვა"
 
 #: setup.php:417
 msgid "Indefinitely"
@@ -671,7 +671,7 @@ msgstr "%d თვე"
 #: setup.php:419 setup.php:420 setup.php:421 setup.php:422
 #, php-format
 msgid "%d Months"
-msgstr ""
+msgstr "%d თვე"
 
 #: setup.php:423
 #, php-format
@@ -680,7 +680,7 @@ msgstr "%d წელი"
 
 #: setup.php:436
 msgid "Normal User"
-msgstr ""
+msgstr "ნორმალური მომხმარებელი"
 
 #: setup.php:439 setup.php:493
 msgid "Monitor Settings"
@@ -760,7 +760,7 @@ msgstr ""
 
 #: setup.php:522
 msgid "Refresh Interval"
-msgstr ""
+msgstr "განახლების შუალედი"
 
 #: setup.php:523
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
@@ -824,7 +824,7 @@ msgstr ""
 
 #: setup.php:594
 msgid "Every Occurrence"
-msgstr ""
+msgstr "ყოველი მოხდენა"
 
 #: setup.php:595 setup.php:596
 #, php-format
@@ -833,7 +833,7 @@ msgstr ""
 
 #: setup.php:597
 msgid "Every Hour"
-msgstr ""
+msgstr "ყოველ საათში"
 
 #: setup.php:598 setup.php:599
 #, php-format
@@ -842,7 +842,7 @@ msgstr ""
 
 #: setup.php:603
 msgid "Reboot Notifications"
-msgstr ""
+msgstr "გადატვირთვის გაფრთხილებები"
 
 #: setup.php:608
 msgid "Send Reboot Notifications"
@@ -874,7 +874,7 @@ msgstr ""
 
 #: setup.php:628
 msgid "Email Body"
-msgstr ""
+msgstr "ელფოსტის სხეული"
 
 #: setup.php:629
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
@@ -890,7 +890,7 @@ msgstr ""
 
 #: setup.php:641
 msgid "From Name"
-msgstr ""
+msgstr "რა სახელისგან"
 
 #: setup.php:642
 msgid "Enter the Email Name to send the notifications from"
@@ -898,7 +898,7 @@ msgstr ""
 
 #: setup.php:648
 msgid "From Address"
-msgstr ""
+msgstr "მისამართიდან"
 
 #: setup.php:649
 msgid "Enter the Email Address to send the notification from"
@@ -914,7 +914,7 @@ msgstr ""
 
 #: setup.php:663
 msgid "Email Addresses"
-msgstr ""
+msgstr "ელფოსტის მისამართები"
 
 #: setup.php:664
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
@@ -974,7 +974,7 @@ msgstr ""
 
 #: setup.php:782
 msgid "Re-Baseline Warning"
-msgstr ""
+msgstr "გაფრთხილების თავიდან გასწორება საბაზისო ხაზზე"
 
 #: setup.php:783
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
