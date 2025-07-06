@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-07-04 17:49+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-07-06 03:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -82,7 +82,7 @@ msgstr "დიდი"
 
 #: monitor.php:74
 msgid "Extra Large"
-msgstr ""
+msgstr "ძალიან დიდი"
 
 #: monitor.php:75
 msgid "Zoom"
@@ -186,7 +186,7 @@ msgstr "მოწყობილობები მონიტორინგ�
 
 #: monitor.php:374
 msgid "All Monitored Devices"
-msgstr ""
+msgstr "ყველა მოწყობილობა მონიტორინგის ქვეშ"
 
 #: monitor.php:377
 msgid "Monitored Devices either Down or Recovering"
@@ -517,7 +517,7 @@ msgstr "ბოლო ჩავარდნა:"
 
 #: monitor.php:2021
 msgid "Time In State:"
-msgstr ""
+msgstr "დრო მდგომარეობაში:"
 
 #: monitor.php:2025
 msgid "Availability:"
@@ -550,7 +550,7 @@ msgstr "ჰოსტის სახელი"
 
 #: monitor.php:2075
 msgid "Hostname of device"
-msgstr ""
+msgstr "მოწყობილობის ჰოსტის სახელი"
 
 #: monitor.php:2078 poller_monitor.php:322
 msgid "Description"
@@ -696,7 +696,7 @@ msgstr ""
 
 #: setup.php:451 setup.php:517
 msgid "Loop Alarm Sound"
-msgstr ""
+msgstr "განგაშის ხმის გამეორება"
 
 #: setup.php:452 setup.php:518
 msgid "Play the above sound on a loop when a Device goes down."
@@ -704,7 +704,7 @@ msgstr ""
 
 #: setup.php:456 setup.php:529
 msgid "Show Icon Legend"
-msgstr ""
+msgstr "ხატულების ახსნის ჩვენება"
 
 #: setup.php:457 setup.php:530
 msgid "Check this to show an icon legend on the Monitor display"
@@ -752,7 +752,7 @@ msgstr ""
 
 #: setup.php:503
 msgid "Notification/Reboot Log Retention"
-msgstr ""
+msgstr "გაფრთხილების/გადატვირთვის ჟურნალის შენარჩუნება"
 
 #: setup.php:504
 msgid "Keep Notification and Reboot Logs for this number of days."
@@ -784,7 +784,7 @@ msgstr ""
 
 #: setup.php:558
 msgid "Notification Report Format"
-msgstr ""
+msgstr "გაფრთხილების ანგარიშის ფორმატი"
 
 #: setup.php:563
 msgid "Format File to Use"
@@ -796,7 +796,7 @@ msgstr ""
 
 #: setup.php:570
 msgid "Ping Threshold Notifications"
-msgstr ""
+msgstr "პინგის ზღვრის გაფრთხილებები"
 
 #: setup.php:575
 msgid "Warning Latency Notification"
@@ -829,7 +829,7 @@ msgstr "ყოველი მოხდენა"
 #: setup.php:595 setup.php:596
 #, php-format
 msgid "Every %d Minutes"
-msgstr ""
+msgstr "ყოველ %d წუთში"
 
 #: setup.php:597
 msgid "Every Hour"
@@ -838,7 +838,7 @@ msgstr "ყოველ საათში"
 #: setup.php:598 setup.php:599
 #, php-format
 msgid "Every %d Hours"
-msgstr ""
+msgstr "ყოველ %d საათში"
 
 #: setup.php:603
 msgid "Reboot Notifications"
@@ -922,7 +922,7 @@ msgstr ""
 
 #: setup.php:711
 msgid "Do not Change"
-msgstr ""
+msgstr "არ შეცვალო"
 
 #: setup.php:712 setup.php:713 setup.php:714 setup.php:715 setup.php:716
 #: setup.php:717 setup.php:718 setup.php:719 setup.php:720 setup.php:721
