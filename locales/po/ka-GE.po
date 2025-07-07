@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-07-06 03:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: Cacti\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-07-07 04:26+0000\nLast-Translator: Ekaterine papava <papava.e@gtu.ge>\nLanguage-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\nLanguage: ka-GE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -118,7 +118,7 @@ msgstr "მოზაიკა"
 
 #: monitor.php:89
 msgid "Tiles & Time"
-msgstr ""
+msgstr "ფილები და დრო"
 
 #: monitor.php:94 monitor.php:554 setup.php:541
 msgid "Tree"
@@ -178,7 +178,7 @@ msgstr ""
 
 #: monitor.php:221
 msgid "Create New Dashboard"
-msgstr ""
+msgstr "ახალი სამუშაო დაფის შექმნა"
 
 #: monitor.php:237 monitor.php:2123
 msgid "Monitored Devices"
@@ -606,7 +606,7 @@ msgstr ""
 
 #: poller_monitor.php:467
 msgid "Cacti Monitoring Site"
-msgstr ""
+msgstr "Cacti-ის მონიტორინგის საიტი"
 
 #: poller_monitor.php:470 poller_monitor.php:472
 #, php-format
@@ -800,7 +800,7 @@ msgstr "პინგის ზღვრის გაფრთხილებე�
 
 #: setup.php:575
 msgid "Warning Latency Notification"
-msgstr ""
+msgstr "გაფრთხილების დაყოვნების შეტყობინება"
 
 #: setup.php:576
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
@@ -808,7 +808,7 @@ msgstr ""
 
 #: setup.php:582
 msgid "Alert Latency Notification"
-msgstr ""
+msgstr "განგაშის დაყოვნების შეტყობინება"
 
 #: setup.php:583
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
@@ -846,7 +846,7 @@ msgstr "გადატვირთვის გაფრთხილებე�
 
 #: setup.php:608
 msgid "Send Reboot Notifications"
-msgstr ""
+msgstr "გადატვირთვის გაფრთხილებების გაგზავნა"
 
 #: setup.php:610
 msgid "Should Device Reboot Notifications be sent to users?"
