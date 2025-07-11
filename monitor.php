@@ -985,15 +985,16 @@ function draw_filter_and_status() {
 		$('.monitor_device_frame').find('i').tooltip({
 			items: '.mon_icon',
 			open: function(event, ui) {
+				$('.monitorHover').find('a.pic').on('click', function(event) {
+					event.preventDefault();
+					loadPageNoHeader($(this).attr('href'));
+				});
+
 				if (typeof(event.originalEvent) == 'undefined') {
 					return false;
 				}
 
 				var id = $(ui.tooltip).attr('id');
-
-				$('div.ui-tooltip').not('#'+ id).remove();
-
-				$('a').tooltip();
 			},
 			close: function(event, ui) {
 				ui.tooltip.hover(
@@ -1001,9 +1002,7 @@ function draw_filter_and_status() {
 					$(this).stop(true).fadeTo(400, 1);
 				},
 				function() {
-					$(this).fadeOut('400', function() {
-						$(this).remove();
-					});
+					$(this).fadeOut('400');
 				});
 			},
 			position: {my: "left:15 top", at: "right center"},
