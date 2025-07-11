@@ -985,10 +985,7 @@ function draw_filter_and_status() {
 		$('.monitor_device_frame').find('i').tooltip({
 			items: '.mon_icon',
 			open: function(event, ui) {
-				$('.monitorHover').find('a.pic').on('click', function(event) {
-					event.preventDefault();
-					loadPageNoHeader($(this).attr('href'));
-				});
+				ajaxAnchors();
 
 				if (typeof(event.originalEvent) == 'undefined') {
 					return false;
