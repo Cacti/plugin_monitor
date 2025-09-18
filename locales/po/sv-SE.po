@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-03-18 09:57+0000\nLast-Translator: Daniel Nylander <weblate@danielnylander.se>\nLanguage-Team: Swedish <http://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-09-18 16:07+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -901,7 +901,7 @@ msgstr "Ange den e-postadress som meddelandet ska skickas från"
 
 #: setup.php:655
 msgid "Notification List"
-msgstr "Notifieringslista"
+msgstr "Aviseringslista"
 
 #: setup.php:656
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
