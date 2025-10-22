@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-10-20 20:27+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-10-22 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -32,7 +32,7 @@ msgstr "Nere"
 
 #: monitor.php:59
 msgid "Recovering"
-msgstr "På väg upp"
+msgstr "Återhämtar"
 
 #: monitor.php:60
 msgid "Up"
@@ -430,7 +430,7 @@ msgstr "Redigera enhet"
 
 #: monitor.php:1946
 msgid "View Graphs"
-msgstr "Visa grafer"
+msgstr "Visa diagram"
 
 #: monitor.php:1950
 msgid "View Thresholds/Alerts"
@@ -885,7 +885,7 @@ msgstr "E-postadresser för notifikation"
 
 #: setup.php:641
 msgid "From Name"
-msgstr "Från namn"
+msgstr "Från-namn"
 
 #: setup.php:642
 msgid "Enter the Email Name to send the notifications from"
@@ -893,7 +893,7 @@ msgstr "Ange det e-postnamn som aviseringarna ska skickas från"
 
 #: setup.php:648
 msgid "From Address"
-msgstr "Från adress"
+msgstr "Från-adress"
 
 #: setup.php:649
 msgid "Enter the Email Address to send the notification from"
