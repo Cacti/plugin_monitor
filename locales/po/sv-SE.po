@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-10-22 13:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2023-12-11 22:02-0600\nPO-Revision-Date: 2025-10-25 08:48+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: monitor.php:36 poller_monitor.php:402 setup.php:409
 msgid "Disabled"
@@ -12,7 +12,7 @@ msgstr "Låg"
 #: monitor.php:38 monitor.php:72 poller_monitor.php:404 setup.php:82
 #: setup.php:411
 msgid "Medium"
-msgstr "Medium"
+msgstr "Medel"
 
 #: monitor.php:39 poller_monitor.php:405 setup.php:83 setup.php:412
 msgid "High"
@@ -161,7 +161,7 @@ msgstr "100 tecken"
 
 #: monitor.php:216
 msgid "New Dashboard"
-msgstr "Ny dashboard"
+msgstr "Ny kontrollpanel"
 
 #: monitor.php:219
 msgid "Dashboard"
@@ -553,7 +553,7 @@ msgstr "Beskrivning"
 
 #: monitor.php:2090
 msgid "Availability"
-msgstr "Åtkomstbarhet"
+msgstr "Tillgänglighet"
 
 #: monitor.php:2098
 msgid "Length in status"
