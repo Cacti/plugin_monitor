@@ -29,18 +29,18 @@ include_once('./include/auth.php');
 
 set_default_action();
 
-/* Record Start Time */
+// Record Start Time
 $start = microtime(true);
 
-$criticalities = array(
+$criticalities = [
 	0 => __('Disabled', 'monitor'),
 	1 => __('Low', 'monitor'),
 	2 => __('Medium', 'monitor'),
 	3 => __('High', 'monitor'),
 	4 => __('Mission Critical', 'monitor')
-);
+];
 
-$iclasses = array(
+$iclasses = [
 	0 => 'deviceUnknown',
 	1 => 'deviceDown',
 	2 => 'deviceRecovering',
@@ -51,9 +51,9 @@ $iclasses = array(
 	7 => 'deviceWarning',
 	8 => 'deviceAlert',
 	9 => 'deviceThresholdMuted',
-);
+];
 
-$icolorsdisplay = array(
+$icolorsdisplay = [
 	0 => __('Unknown', 'monitor'),
 	1 => __('Down', 'monitor'),
 	2 => __('Recovering', 'monitor'),
@@ -64,18 +64,18 @@ $icolorsdisplay = array(
 	6 => __('No Availability Check', 'monitor'),
 	7 => __('Warning Ping', 'monitor'),
 	8 => __('Alert Ping', 'monitor'),
-);
+];
 
-$classes = array(
+$classes = [
 	'monitor_exsmall'   => __('Extra Small', 'monitor'),
 	'monitor_small'     => __('Small', 'monitor'),
 	'monitor_medium'    => __('Medium', 'monitor'),
 	'monitor_large'     => __('Large', 'monitor'),
 	'monitor_exlarge'   => __('Extra Large', 'monitor'),
 	'monitor_errorzoom' => __('Zoom', 'monitor')
-);
+];
 
-$monitor_status = array(
+$monitor_status = [
 	-2 => __('All Devices', 'monitor'),
 	-1 => __('All Monitored Devices', 'monitor'),
 	0  => __('Not Up', 'monitor'),
@@ -83,24 +83,24 @@ $monitor_status = array(
 	2  => __('Not Up, Triggered or Breached', 'monitor'),
 	-4 => __('Devices without Thresholds', 'monitor'),
 	-3 => __('Devices not Monitored', 'monitor'),
-);
+];
 
-$monitor_view_type = array(
+$monitor_view_type = [
 	'default'  => __('Default', 'monitor'),
 	'list'     => __('List', 'monitor'),
 	'names'    => __('Names only', 'monitor'),
 	'tiles'    => __('Tiles', 'monitor'),
 	'tilesadt' => __('Tiles & Time', 'monitor')
-);
+];
 
-$monitor_grouping = array(
+$monitor_grouping = [
 	'default'  => __('Default', 'monitor'),
 	'tree'     => __('Tree', 'monitor'),
 	'site'     => __('Site', 'monitor'),
 	'template' => __('Device Template', 'monitor')
-);
+];
 
-$monitor_trim = array(
+$monitor_trim = [
 	0   => __('Default', 'monitor'),
 	-1  => __('Full', 'monitor'),
 	10  => __('10 Chars', 'monitor'),
@@ -110,7 +110,7 @@ $monitor_trim = array(
 	50  => __('50 Chars', 'monitor'),
 	75  => __('75 Chars', 'monitor'),
 	100 => __('100 Chars', 'monitor'),
-);
+];
 
 global $thold_hosts, $maxchars;
 
@@ -122,7 +122,7 @@ $maxchars = 12;
 $_SESSION['names'] = 0;
 
 if (!isset($_SESSION['monitor_muted_hosts'])) {
-	$_SESSION['monitor_muted_hosts'] = array();
+	$_SESSION['monitor_muted_hosts'] = [];
 }
 
 validate_request_vars();
@@ -180,15 +180,15 @@ function load_dashboard_settings() {
 		$db_settings = db_fetch_cell_prepared('SELECT url
 			FROM plugin_monitor_dashboards
 			WHERE id = ?',
-			array($dashboard));
+			[$dashboard]);
 
 		if ($db_settings != '') {
 			$db_settings = str_replace('monitor.php?', '', $db_settings);
-			$settings = explode('&', $db_settings);
+			$settings    = explode('&', $db_settings);
 
 			if (cacti_sizeof($settings)) {
-				foreach($settings as $setting) {
-					list($name, $value) = explode('=', $setting);
+				foreach ($settings as $setting) {
+					[$name, $value] = explode('=', $setting);
 
 					set_request_var($name, $value);
 				}
@@ -205,22 +205,22 @@ function draw_page() {
 
 	if (cacti_sizeof($errored_list) && read_user_setting('monitor_error_zoom') == 'on') {
 		if ($_SESSION['monitor_zoom_state'] == 0) {
-			$mon_zoom_state = $_SESSION['monitor_zoom_state'] = 1;
+			$mon_zoom_state                   = $_SESSION['monitor_zoom_state'] = 1;
 			$_SESSION['mon_zoom_hist_status'] = get_nfilter_request_var('status');
 			$_SESSION['mon_zoom_hist_size']   = get_nfilter_request_var('size');
-			$dozoomrefresh   = true;
-			$dozoombgndcolor = true;
+			$dozoomrefresh                    = true;
+			$dozoombgndcolor                  = true;
 		}
 	} elseif (isset($_SESSION['monitor_zoom_state']) && $_SESSION['monitor_zoom_state'] == 1) {
 		$_SESSION['monitor_zoom_state'] = 0;
-		$dozoomrefresh   = true;
-		$dozoombgndcolor = false;
+		$dozoomrefresh                  = true;
+		$dozoombgndcolor                = false;
 	}
 
 	$name = db_fetch_cell_prepared('SELECT name
 		FROM plugin_monitor_dashboards
 		WHERE id = ?',
-		array(get_request_var('dashboard')));
+		[get_request_var('dashboard')]);
 
 	if ($name == '') {
 		$name = __('New Dashboard', 'monitor');
@@ -260,15 +260,16 @@ function draw_page() {
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
 		print "<div class='center monitor_legend'>";
 
-		foreach($iclasses as $index => $class) {
-			print "<div class='monitor_legend_cell center $class" . "Full'>" . $icolorsdisplay[$index] . "</div>";
+		foreach ($iclasses as $index => $class) {
+			print "<div class='monitor_legend_cell center $class" . "Full'>" . $icolorsdisplay[$index] . '</div>';
 		}
 
-		print "</div>";
+		print '</div>';
 	}
 
 	// If the host is down, we need to insert the embedded wav file
 	$monitor_sound = get_monitor_sound();
+
 	if (is_monitor_audible()) {
 		if (read_user_setting('monitor_sound_loop', read_config_option('monitor_sound_loop'))) {
 			print "<audio id='audio' playsinline='' loop src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
@@ -289,8 +290,9 @@ function is_monitor_audible() {
 function get_monitor_sound() {
 	$sound = read_user_setting('monitor_sound', read_config_option('monitor_sound'));
 	clearstatcache();
-	$file = dirname(__FILE__) . '/sounds/' . $sound;
+	$file   = __DIR__ . '/sounds/' . $sound;
 	$exists = file_exists($file);
+
 	return $exists ? $sound : '';
 }
 
@@ -319,8 +321,8 @@ function find_down_hosts() {
 
 function unmute_up_non_triggered_hosts($dhosts) {
 	if (isset($_SESSION['monitor_muted_hosts'])) {
-		foreach($_SESSION['monitor_muted_hosts'] AS $index => $host_id) {
-			if (array_search($host_id, $dhosts) === false) {
+		foreach ($_SESSION['monitor_muted_hosts'] as $index => $host_id) {
+			if (array_search($host_id, $dhosts, true) === false) {
 				unset($_SESSION['monitor_muted_hosts'][$index]);
 			}
 		}
@@ -333,7 +335,7 @@ function mute_all_hosts() {
 }
 
 function unmute_all_hosts() {
-	$_SESSION['monitor_muted_hosts'] = array();
+	$_SESSION['monitor_muted_hosts'] = [];
 	unmute_user();
 }
 
@@ -348,10 +350,10 @@ function unmute_user() {
 }
 
 function get_thold_where() {
-	if (get_request_var('status') == '2') { /* breached */
+	if (get_request_var('status') == '2') { // breached
 		return "(td.thold_enabled = 'on'
 			AND (td.thold_alert != 0 OR td.bl_alert > 0))";
-	} else { /* triggered */
+	} else { // triggered
 		return "(td.thold_enabled='on'
 			AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger)
 			OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger)))";
@@ -359,15 +361,15 @@ function get_thold_where() {
 }
 
 function check_tholds() {
-	$thold_hosts  = array();
+	$thold_hosts  = [];
 
 	if (api_plugin_is_enabled('thold')) {
 		return array_rekey(
-			db_fetch_assoc("SELECT DISTINCT dl.host_id
+			db_fetch_assoc('SELECT DISTINCT dl.host_id
 				FROM thold_data AS td
 				INNER JOIN data_local AS dl
 				ON td.local_data_id=dl.id
-				WHERE " . get_thold_where()),
+				WHERE ' . get_thold_where()),
 			'host_id', 'host_id'
 		);
 	}
@@ -381,24 +383,31 @@ function get_filter_text() {
 	switch(get_request_var('status')) {
 		case '-4':
 			$filter .= __('Devices without Thresholds', 'monitor');
+
 			break;
 		case '-3':
 			$filter .= __('Not Monitored Devices', 'monitor');
+
 			break;
 		case '-2':
 			$filter .= __('All Devices', 'monitor');
+
 			break;
 		case '-1':
 			$filter .= __('All Monitored Devices', 'monitor');
+
 			break;
 		case '0':
 			$filter .= __('Monitored Devices either Down or Recovering', 'monitor');
+
 			break;
 		case '1':
 			$filter .= __('Monitored Devices either Down, Recovering, or with Triggered Thresholds', 'monitor');
+
 			break;
 		case '2':
 			$filter .= __('Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds', 'monitor');
+
 			break;
 		default:
 			$filter .= __('Unknown monitoring status (%s)', get_request_var('status'), 'monitor');
@@ -407,18 +416,23 @@ function get_filter_text() {
 	switch(get_request_var('crit')) {
 		case '0':
 			$filter .= __(', and All Criticalities', 'monitor');
+
 			break;
 		case '1':
 			$filter .= __(', and of Low Criticality or Higher', 'monitor');
+
 			break;
 		case '2':
 			$filter .= __(', and of Medium Criticality or Higher', 'monitor');
+
 			break;
 		case '3':
 			$filter .= __(', and of High Criticality or Higher', 'monitor');
+
 			break;
 		case '4':
 			$filter .= __(', and of Mission Critical Status', 'monitor');
+
 			break;
 	}
 
@@ -427,7 +441,7 @@ function get_filter_text() {
 	return $filter;
 }
 
-function draw_filter_dropdown($id, $title, $settings = array(), $value = null) {
+function draw_filter_dropdown($id, $title, $settings = [], $value = null) {
 	if ($value == null) {
 		$value = get_nfilter_request_var($id);
 	}
@@ -458,7 +472,7 @@ function draw_filter_and_status() {
 	global $dozoombgndcolor, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $mon_zoom_state;
 	global $new_form, $new_title, $item_rows;
 
-	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i style="padding:0px !important;margin:0px;" id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . (get_request_var('view') == 'list' ? __('[ Showing only first 30 Devices ]', 'monitor'):'') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
+	$header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i style="padding:0px !important;margin:0px;" id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . (get_request_var('view') == 'list' ? __('[ Showing only first 30 Devices ]', 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
 
 	html_start_box($header, '100%', false, '3', 'center', '');
 
@@ -475,14 +489,14 @@ function draw_filter_and_status() {
 			FROM plugin_monitor_dashboards
 			WHERE user_id = 0 OR user_id = ?
 			ORDER BY name',
-			array($_SESSION['sess_user_id'])),
+			[$_SESSION['sess_user_id']]),
 		'id', 'name'
 	);
 
 	$name = db_fetch_cell_prepared('SELECT name
 		FROM plugin_monitor_dashboards
 		WHERE id = ?',
-		array(get_request_var('dashboard')));
+		[get_request_var('dashboard')]);
 
 	$mon_zoom_status = null;
 	$mon_zoom_size   = null;
@@ -538,7 +552,7 @@ function draw_filter_and_status() {
 		print '<input type="button" value="' . __esc('Delete', 'monitor') . '" id="delete" title="' . __esc('Delete Dashboard', 'monitor') . '">' . PHP_EOL;
 	}
 
-	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text():get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor'):__('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
+	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? get_mute_text() : get_unmute_text()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', get_mute_text(), 'monitor') : __('%s Alerts for downed Devices', get_unmute_text(), 'monitor')) . '">' . PHP_EOL;
 	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
 	print '</span></td>';
 	print '</tr>';
@@ -561,12 +575,14 @@ function draw_filter_and_status() {
 	}
 
 	if (get_nfilter_request_var('grouping') == 'tree') {
-		$trees = array();
+		$trees = [];
+
 		if (get_request_var('grouping') == 'tree') {
 			$trees_allowed = array_rekey(get_allowed_trees(), 'id', 'name');
+
 			if (cacti_sizeof($trees_allowed)) {
-				$trees_prefix = array(-1 => __('All Trees', 'monitor'));
-				$trees_suffix = array(-2 => __('Non-Tree Devices', 'monitor'));
+				$trees_prefix = [-1 => __('All Trees', 'monitor')];
+				$trees_suffix = [-2 => __('Non-Tree Devices', 'monitor')];
 
 				$trees = $trees_prefix + $trees_allowed + $trees_suffix;
 			}
@@ -576,7 +592,8 @@ function draw_filter_and_status() {
 	}
 
 	if (get_nfilter_request_var('grouping') == 'site') {
-		$sites = array();
+		$sites = [];
+
 		if (get_request_var('grouping') == 'site') {
 			$sites = array_rekey(
 				db_fetch_assoc('SELECT id, name
@@ -586,8 +603,8 @@ function draw_filter_and_status() {
 			);
 
 			if (cacti_sizeof($sites)) {
-				$sites_prefix = array(-1 => __('All Sites', 'monitor'));
-				$sites_suffix = array(-2 => __('Non-Site Devices', 'monitor'));
+				$sites_prefix = [-1 => __('All Sites', 'monitor')];
+				$sites_suffix = [-2 => __('Non-Site Devices', 'monitor')];
 
 				$sites = $sites_prefix + $sites + $sites_suffix;
 			}
@@ -597,7 +614,7 @@ function draw_filter_and_status() {
 	}
 
 	if (get_request_var('grouping') == 'template') {
-		$templates = array();
+		$templates         = [];
 		$templates_allowed = array_rekey(
 			db_fetch_assoc('SELECT ht.id, ht.name, COUNT(gl.id) AS graphs
 				FROM host_template AS ht
@@ -611,8 +628,8 @@ function draw_filter_and_status() {
 		);
 
 		if (cacti_sizeof($templates_allowed)) {
-			$templates_prefix = array(-1 => __('All Templates', 'monitor'));
-			$templates_suffix = array(-2 => __('Non-Templated Devices', 'monitor'));
+			$templates_prefix = [-1 => __('All Templates', 'monitor')];
+			$templates_suffix = [-2 => __('Non-Templated Devices', 'monitor')];
 
 			$templates = $templates_prefix + $templates_allowed + $templates_suffix;
 		}
@@ -652,7 +669,7 @@ function draw_filter_and_status() {
 		$mbcolora = db_fetch_row_prepared('SELECT *
 			FROM colors
 			WHERE id = ?',
-			array(read_user_setting('monitor_error_background')));
+			[read_user_setting('monitor_error_background')]);
 
 		$monitor_error_fontsize = read_user_setting('monitor_error_fontsize') . 'px';
 
@@ -662,7 +679,7 @@ function draw_filter_and_status() {
 			$mbcolor = 'snow';
 		}
 	} else {
-		$mbcolor = '';
+		$mbcolor                = '';
 		$monitor_error_fontsize = '10px';
 	}
 
@@ -670,9 +687,9 @@ function draw_filter_and_status() {
 	<script type='text/javascript'>
 	var refreshMSeconds=99999999;
 	var myTimer;
-	var mbColor = '<?php print $mbcolor;?>';
-	var monitorFont = '<?php print $monitor_error_fontsize;?>';
-	var dozoomRefresh = <?php print $dozoomrefresh ? 'true':'false';?>;
+	var mbColor = '<?php print $mbcolor; ?>';
+	var monitorFont = '<?php print $monitor_error_fontsize; ?>';
+	var dozoomRefresh = <?php print $dozoomrefresh ? 'true' : 'false'; ?>;
 
 	if (mbColor !== '') {
 		var monoe = false;
@@ -806,7 +823,7 @@ function draw_filter_and_status() {
 		};
 
 		$.post(url, post).done(function(data) {
-			$('#text').show().text('<?php print __(' [ Filter Settings Saved ]', 'monitor');?>').fadeOut(2000);
+			$('#text').show().text('<?php print __(' [ Filter Settings Saved ]', 'monitor'); ?>').fadeOut(2000);
 		});
 	}
 
@@ -872,14 +889,14 @@ function draw_filter_and_status() {
 	function saveDashboard(action) {
 		var btnDialog = {
 			'Cancel': {
-				text: '<?php print __('Cancel', 'monitor');?>',
+				text: '<?php print __('Cancel', 'monitor'); ?>',
 				id: 'btnCancel',
 				click: function() {
 					$(this).dialog('close');
 				}
 			},
 			'Save': {
-				text: '<?php print __('Save', 'monitor');?>',
+				text: '<?php print __('Save', 'monitor'); ?>',
 				id: 'btnSave',
 				click: function() {
 					saveNewDashboard(action);
@@ -888,11 +905,11 @@ function draw_filter_and_status() {
 		};
 
 		if ($('#newdialog').length == 0) {
-			$('body').append("<?php print $new_form;?>");
+			$('body').append("<?php print $new_form; ?>");
 		}
 
 		$('#newdialog').dialog({
-			title: '<?php print $new_title;?>',
+			title: '<?php print $new_title; ?>',
 			minHeight: 80,
 			minWidth: 500,
 			buttons: btnDialog,
@@ -1056,19 +1073,19 @@ function remove_dashboard() {
 		FROM plugin_monitor_dashboards
 		WHERE id = ?
 		AND user_id = ?',
-		array($dashboard, $_SESSION['sess_user_id']));
+		[$dashboard, $_SESSION['sess_user_id']]);
 
 	if ($name != '') {
 		db_execute_prepared('DELETE FROM plugin_monitor_dashboards
 			WHERE id = ?',
-			array($dashboard));
+			[$dashboard]);
 
 		raise_message('removed', __('Dashboard \'%s\' Removed.', $name, 'monitor'), MESSAGE_LEVEL_INFO);
 	} else {
 		$name = db_fetch_cell_prepared('SELECT name
 			FROM plugin_monitor_dashboards
 			WHERE id = ?',
-			array($dashboard));
+			[$dashboard]);
 
 		raise_message('notremoved', __('Dashboard \'%s\' is not owned by you.', $name, 'monitor'), MESSAGE_LEVEL_ERROR);
 	}
@@ -1087,65 +1104,79 @@ function save_settings() {
 
 	if (!$save_db) {
 		if (cacti_sizeof($_REQUEST)) {
-			foreach($_REQUEST as $var => $value) {
+			foreach ($_REQUEST as $var => $value) {
 				switch($var) {
-				case 'dashboard':
-					set_user_setting('monitor_rfilter', get_request_var('dashboard'));
-					break;
-				case 'rfilter':
-					set_user_setting('monitor_rfilter', get_request_var('rfilter'));
-					break;
-				case 'refresh':
-					set_user_setting('monitor_refresh', get_request_var('refresh'));
-					break;
-				case 'grouping':
-					set_user_setting('monitor_grouping', get_request_var('grouping'));
-					break;
-				case 'view':
-					set_user_setting('monitor_view', get_request_var('view'));
-					break;
-				case 'rows':
-					set_user_setting('monitor_rows', get_request_var('rows'));
-					break;
-				case 'crit':
-					set_user_setting('monitor_crit', get_request_var('crit'));
-					break;
-				case 'mute':
-					set_user_setting('monitor_mute', get_request_var('mute'));
-					break;
-				case 'size':
-					set_user_setting('monitor_size', get_request_var('size'));
-					break;
-				case 'trim':
-					set_user_setting('monitor_trim', get_request_var('trim'));
-					break;
-				case 'status':
-					set_user_setting('monitor_status', get_request_var('status'));
-					break;
-				case 'tree':
-					set_user_setting('monitor_tree', get_request_var('tree'));
-					break;
-				case 'mute':
-					set_user_setting('monitor_mute', get_request_var('mute'));
-					break;
-				case 'site':
-					set_user_setting('monitor_site', get_request_var('site'));
-					break;
+					case 'dashboard':
+						set_user_setting('monitor_rfilter', get_request_var('dashboard'));
+
+						break;
+					case 'rfilter':
+						set_user_setting('monitor_rfilter', get_request_var('rfilter'));
+
+						break;
+					case 'refresh':
+						set_user_setting('monitor_refresh', get_request_var('refresh'));
+
+						break;
+					case 'grouping':
+						set_user_setting('monitor_grouping', get_request_var('grouping'));
+
+						break;
+					case 'view':
+						set_user_setting('monitor_view', get_request_var('view'));
+
+						break;
+					case 'rows':
+						set_user_setting('monitor_rows', get_request_var('rows'));
+
+						break;
+					case 'crit':
+						set_user_setting('monitor_crit', get_request_var('crit'));
+
+						break;
+					case 'mute':
+						set_user_setting('monitor_mute', get_request_var('mute'));
+
+						break;
+					case 'size':
+						set_user_setting('monitor_size', get_request_var('size'));
+
+						break;
+					case 'trim':
+						set_user_setting('monitor_trim', get_request_var('trim'));
+
+						break;
+					case 'status':
+						set_user_setting('monitor_status', get_request_var('status'));
+
+						break;
+					case 'tree':
+						set_user_setting('monitor_tree', get_request_var('tree'));
+
+						break;
+					case 'mute':
+						set_user_setting('monitor_mute', get_request_var('mute'));
+
+						break;
+					case 'site':
+						set_user_setting('monitor_site', get_request_var('site'));
+
+						break;
 				}
 			}
 		}
 	} else {
 		$url = 'monitor.php' .
-			'?refresh='   . get_request_var('refresh') .
-			'&grouping='  . get_request_var('grouping') .
-			'&view='      . get_request_var('view') .
-			'&rows='      . get_request_var('rows') .
-			'&crit='      . get_request_var('crit') .
-			'&size='      . get_request_var('size') .
-			'&trim='      . get_request_var('trim') .
-			'&status='    . get_request_var('status') .
-			'&tree='      . get_request_var('tree') .
-			'&site='      . get_request_var('site');
+			'?refresh=' . get_request_var('refresh') .
+			'&grouping=' . get_request_var('grouping') .
+			'&view=' . get_request_var('view') .
+			'&rows=' . get_request_var('rows') .
+			'&crit=' . get_request_var('crit') .
+			'&size=' . get_request_var('size') .
+			'&trim=' . get_request_var('trim') .
+			'&status=' . get_request_var('status') .
+			'&tree=' . get_request_var('tree') .
+			'&site=' . get_request_var('site');
 
 		if (!isset_request_var('user')) {
 			$user = $_SESSION['sess_user_id'];
@@ -1156,7 +1187,7 @@ function save_settings() {
 		$id   = get_request_var('dashboard');
 		$name = get_nfilter_request_var('name');
 
-		$save = array();
+		$save            = [];
 		$save['id']      = $id;
 		$save['name']    = $name;
 		$save['user_id'] = $user;
@@ -1177,105 +1208,105 @@ function save_settings() {
 }
 
 function validate_request_vars($force = false) {
-	/* ================= input validation and session storage ================= */
-	$filters = array(
-		'refresh' => array(
-			'filter' => FILTER_VALIDATE_INT,
+	// ================= input validation and session storage =================
+	$filters = [
+		'refresh' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'default' => read_user_setting('monitor_refresh', read_config_option('monitor_refresh'), $force)
-		),
-		'dashboard' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'dashboard' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_dashboard', '0', $force)
-		),
-		'rfilter' => array(
-			'filter' => FILTER_VALIDATE_IS_REGEX,
+		],
+		'rfilter' => [
+			'filter'  => FILTER_VALIDATE_IS_REGEX,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_rfilter', '', $force)
-		),
-		'name' => array(
-			'filter' => FILTER_CALLBACK,
-			'options' => array('options' => 'sanitize_search_string'),
+		],
+		'name' => [
+			'filter'  => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string'],
 			'default' => ''
-		),
-		'mute' => array(
-			'filter' => FILTER_CALLBACK,
-			'options' => array('options' => 'sanitize_search_string'),
+		],
+		'mute' => [
+			'filter'  => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string'],
 			'default' => read_user_setting('monitor_mute', 'false', $force)
-		),
-		'grouping' => array(
-			'filter' => FILTER_CALLBACK,
-			'options' => array('options' => 'sanitize_search_string'),
+		],
+		'grouping' => [
+			'filter'  => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string'],
 			'pageset' => true,
 			'default' => read_user_setting('monitor_grouping', read_config_option('monitor_grouping'), $force)
-		),
-		'view' => array(
-			'filter' => FILTER_CALLBACK,
-			'options' => array('options' => 'sanitize_search_string'),
+		],
+		'view' => [
+			'filter'  => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string'],
 			'pageset' => true,
 			'default' => read_user_setting('monitor_view', read_config_option('monitor_view'), $force)
-		),
-		'rows' => array(
-			'filter' => FILTER_VALIDATE_INT,
-			'options' => array('options' => 'sanitize_search_string'),
+		],
+		'rows' => [
+			'filter'  => FILTER_VALIDATE_INT,
+			'options' => ['options' => 'sanitize_search_string'],
 			'default' => read_user_setting('monitor_rows', read_config_option('num_rows_table'), $force)
-		),
-		'size' => array(
-			'filter' => FILTER_CALLBACK,
-			'options' => array('options' => 'sanitize_search_string'),
+		],
+		'size' => [
+			'filter'  => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string'],
 			'default' => read_user_setting('monitor_size', 'monitor_medium', $force)
-		),
-		'trim' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'trim' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'default' => read_user_setting('monitor_trim', read_config_option('monitor_trim'), $force)
-		),
-		'crit' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'crit' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_crit', '-1', $force)
-		),
-		'status' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'status' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_status', '-1', $force)
-		),
-		'tree' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'tree' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_tree', '-1', $force)
-		),
-		'site' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'site' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_site', '-1', $force)
-		),
-		'template' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'template' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_template', '-1', $force)
-		),
-		'id' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'id' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'default' => '-1'
-		),
-		'page' => array(
-			'filter' => FILTER_VALIDATE_INT,
+		],
+		'page' => [
+			'filter'  => FILTER_VALIDATE_INT,
 			'default' => '1'
-		),
-		'sort_column' => array(
-			'filter' => FILTER_CALLBACK,
+		],
+		'sort_column' => [
+			'filter'  => FILTER_CALLBACK,
 			'default' => 'status',
-			'options' => array('options' => 'sanitize_search_string')
-		),
-		'sort_direction' => array(
-			'filter' => FILTER_CALLBACK,
+			'options' => ['options' => 'sanitize_search_string']
+		],
+		'sort_direction' => [
+			'filter'  => FILTER_CALLBACK,
 			'default' => 'ASC',
-			'options' => array('options' => 'sanitize_search_string')
-		)
-	);
+			'options' => ['options' => 'sanitize_search_string']
+		]
+	];
 
 	validate_store_request_vars($filters, 'sess_monitor');
-	/* ================= input validation ================= */
+	// ================= input validation =================
 }
 
 function render_group_concat(&$sql_where, $sql_join, $sql_field, $sql_data, $sql_suffix = '') {
@@ -1317,7 +1348,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 				WHERE host_id > 0
 				AND graph_tree_id = ?
 				AND h.deleted = ""',
-				array(get_request_var('tree')));
+				[get_request_var('tree')]);
 
 			render_group_concat($awhere, ' AND ', 'h.id', $hlist);
 		} elseif (get_request_var('tree') == -2) {
@@ -1389,7 +1420,7 @@ function render_where_join(&$sql_where, &$sql_join) {
 	}
 }
 
-/* Render functions */
+// Render functions
 function render_default() {
 	global $maxchars;
 
@@ -1401,9 +1432,11 @@ function render_default() {
 	$sql_order = 'ORDER BY description';
 
 	$rows = get_request_var('rows');
+
 	if ($rows == '-1') {
 		$rows = read_user_setting('monitor_rows');
 	}
+
 	if (!is_numeric($rows)) {
 		$rows = read_config_option('num_rows_table');
 	}
@@ -1416,7 +1449,7 @@ function render_default() {
 
 	$poller_interval = read_config_option('poller_interval');
 
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
 
 	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Device', 'monitor') . " ') AS site_name,
         CAST(IF(availability_method = 0, '0',
@@ -1445,6 +1478,7 @@ function render_default() {
 	if (cacti_sizeof($hosts)) {
 		// Determine the correct width of the cell
 		$maxlen = 10;
+
 		if (get_request_var('view') == 'default') {
 			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
 				FROM host AS h
@@ -1455,14 +1489,15 @@ function render_default() {
 		$maxlen = get_monitor_trim_length($maxlen);
 
 		$function = 'render_header_' . get_request_var('view');
+
 		if (function_exists($function)) {
-			/* Call the custom render_header_ function */
+			// Call the custom render_header_ function
 			$result .= $function($hosts, $total_rows, $rows);
 		}
 
 		$count = 0;
 
-		foreach($hosts as $host) {
+		foreach ($hosts as $host) {
 			if (is_device_allowed($host['id'])) {
 				$result .= render_host($host, true, $maxlen);
 			}
@@ -1471,8 +1506,9 @@ function render_default() {
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
+
 		if (function_exists($function)) {
-			/* Call the custom render_footer_ function */
+			// Call the custom render_footer_ function
 			$result .= $function($hosts, $total_rows, $rows);
 		}
 	}
@@ -1490,16 +1526,18 @@ function render_site() {
 	$sql_limit = '';
 
 	$rows = get_request_var('rows');
+
 	if ($rows == '-1') {
 		$rows = read_user_setting('monitor_rows');
 	}
+
 	if (!is_numeric($rows)) {
 		$rows = read_config_option('num_rows_table');
 	}
 
 	render_where_join($sql_where, $sql_join);
 
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
 
 	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Devices', 'monitor') . " ') AS site_name
 		FROM host AS h
@@ -1517,19 +1555,21 @@ function render_site() {
 
 	if (cacti_sizeof($hosts)) {
 		$suppressGroups = false;
-		$function = 'render_suppressgroups_'. get_request_var('view');
+		$function       = 'render_suppressgroups_' . get_request_var('view');
+
 		if (function_exists($function)) {
 			$suppressGroups = $function($hosts);
 		}
 
 		$function = 'render_header_' . get_request_var('view');
+
 		if (function_exists($function)) {
-			/* Call the custom render_header_ function */
+			// Call the custom render_header_ function
 			$result .= $function($hosts);
 			$suppressGroups = true;
 		}
 
-		foreach($hosts as $index => $host) {
+		foreach ($hosts as $index => $host) {
 			if (is_device_allowed($host['id'])) {
 				$host_ids[] = $host['id'];
 			} else {
@@ -1539,10 +1579,11 @@ function render_site() {
 
 		// Determine the correct width of the cell
 		$maxlen = 10;
+
 		if (get_request_var('view') == 'default') {
-			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+			$maxlen = db_fetch_cell('SELECT MAX(LENGTH(description))
 				FROM host AS h
-				WHERE id IN (" . implode(',', $host_ids) . ")");
+				WHERE id IN (' . implode(',', $host_ids) . ')');
 		}
 		$maxlen = get_monitor_trim_length($maxlen);
 
@@ -1553,12 +1594,12 @@ function render_site() {
 			$csuffix = '';
 		}
 
-		foreach($hosts as $host) {
+		foreach ($hosts as $host) {
 			$ctemp = $host['site_id'];
 
 			if (!$suppressGroups) {
 				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= "</div>";
+					$result .= '</div>';
 				}
 
 				if ($ctemp != $ptemp) {
@@ -1579,12 +1620,13 @@ function render_site() {
 		}
 
 		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= "</div>";
+			$result .= '</div>';
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
+
 		if (function_exists($function)) {
-			/* Call the custom render_footer_ function */
+			// Call the custom render_footer_ function
 			$result .= $function($hosts);
 		}
 	}
@@ -1602,22 +1644,25 @@ function render_template() {
 	$sql_limit = '';
 
 	$rows = get_request_var('rows');
+
 	if ($rows == '-1') {
 		$rows = read_user_setting('monitor_rows');
 	}
+
 	if (!is_numeric($rows)) {
 		$rows = read_config_option('num_rows_table');
 	}
 
 	render_where_join($sql_where, $sql_join);
 
-	$sql_limit = ' LIMIT ' . ($rows*(get_request_var('page')-1)) . ',' . $rows;
+	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
 
 	if (get_request_var('template') > 0) {
 		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id = ' . get_request_var('template');
 	}
 
 	$sql_template  = 'INNER JOIN host_template AS ht ON h.host_template_id=ht.id ';
+
 	if (get_request_var('template') == -2) {
 		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id IS NULL';
 		$sql_template = 'LEFT JOIN host_template AS ht ON h.host_template_id=ht.id ';
@@ -1637,19 +1682,21 @@ function render_template() {
 
 	if (cacti_sizeof($hosts)) {
 		$suppressGroups = false;
-		$function = 'render_suppressgroups_'. get_request_var('view');
+		$function       = 'render_suppressgroups_' . get_request_var('view');
+
 		if (function_exists($function)) {
 			$suppressGroups = $function($hosts);
 		}
 
 		$function = 'render_header_' . get_request_var('view');
+
 		if (function_exists($function)) {
-			/* Call the custom render_header_ function */
+			// Call the custom render_header_ function
 			$result .= $function($hosts);
 			$suppressGroups = true;
 		}
 
-		foreach($hosts as $index => $host) {
+		foreach ($hosts as $index => $host) {
 			if (is_device_allowed($host['id'])) {
 				$host_ids[] = $host['id'];
 			} else {
@@ -1659,10 +1706,11 @@ function render_template() {
 
 		// Determine the correct width of the cell
 		$maxlen = 10;
+
 		if (get_request_var('view') == 'default') {
-			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+			$maxlen = db_fetch_cell('SELECT MAX(LENGTH(description))
 				FROM host AS h
-				WHERE id IN (" . implode(',', $host_ids) . ")");
+				WHERE id IN (' . implode(',', $host_ids) . ')');
 		}
 		$maxlen = get_monitor_trim_length($maxlen);
 
@@ -1673,12 +1721,12 @@ function render_template() {
 			$csuffix = '';
 		}
 
-		foreach($hosts as $host) {
+		foreach ($hosts as $host) {
 			$ctemp = $host['host_template_id'];
 
 			if (!$suppressGroups) {
 				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= "</div>";
+					$result .= '</div>';
 				}
 
 				if ($ctemp != $ptemp) {
@@ -1699,12 +1747,13 @@ function render_template() {
 		}
 
 		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= "</div>";
+			$result .= '</div>';
 		}
 
 		$function = 'render_footer_' . get_request_var('view');
+
 		if (function_exists($function)) {
-			/* Call the custom render_footer_ function */
+			// Call the custom render_footer_ function
 			$result .= $function($hosts);
 		}
 	}
@@ -1717,7 +1766,7 @@ function render_tree() {
 
 	$result = '';
 
-	$leafs = array();
+	$leafs = [];
 
 	if (get_request_var('tree') > 0) {
 		$sql_where = 'gt.id=' . get_request_var('tree');
@@ -1728,20 +1777,22 @@ function render_tree() {
 	if (get_request_var('tree') != -2) {
 		$tree_list = get_allowed_trees(false, false, $sql_where, 'sequence');
 	} else {
-		$tree_list = array();
+		$tree_list = [];
 	}
 
 	$function = 'render_header_' . get_request_var('view');
-	if (function_exists($function)) {
-		$hosts = array();
 
-		/* Call the custom render_header_ function */
+	if (function_exists($function)) {
+		$hosts = [];
+
+		// Call the custom render_header_ function
 		$result .= $function($hosts);
 	}
 
 	if (cacti_sizeof($tree_list)) {
 		$ptree = '';
-		foreach($tree_list as $tree) {
+
+		foreach ($tree_list as $tree) {
 			$tree_ids[$tree['id']] = $tree['id'];
 		}
 
@@ -1756,10 +1807,10 @@ function render_tree() {
 			$sql_join
 			$sql_where
 			AND gti.host_id > 0
-			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ")
-			ORDER BY gt.sequence, gti.position");
+			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ')
+			ORDER BY gt.sequence, gti.position');
 
-		//cacti_log($branchWhost_SQL);
+		// cacti_log($branchWhost_SQL);
 
 		$branchWhost = db_fetch_assoc($branchWhost_SQL);
 
@@ -1778,10 +1829,10 @@ function render_tree() {
 		$maxlen = get_monitor_trim_length($maxlen);
 
 		if (cacti_sizeof($branchWhost)) {
-			foreach($branchWhost as $b) {
+			foreach ($branchWhost as $b) {
 				if ($ptree != $b['graph_tree_id']) {
 					$titles[$b['graph_tree_id'] . ':0'] = __('Root Branch', 'monitor');
-					$ptree = $b['graph_tree_id'];
+					$ptree                              = $b['graph_tree_id'];
 				}
 
 				if ($b['parent'] > 0) {
@@ -1790,14 +1841,14 @@ function render_tree() {
 						WHERE id = ?
 						AND graph_tree_id = ?
 						ORDER BY position',
-						array($b['parent'], $b['graph_tree_id']));
+						[$b['parent'], $b['graph_tree_id']]);
 				}
 			}
 
 			$ptree = '';
 
-			foreach($titles as $index => $title) {
-				list($graph_tree_id, $parent) = explode(':', $index);
+			foreach ($titles as $index => $title) {
+				[$graph_tree_id, $parent] = explode(':', $index);
 
 				$oid = $parent;
 
@@ -1819,14 +1870,14 @@ function render_tree() {
 					GROUP BY h.id
 					ORDER BY gti.position";
 
-				//cacti_log($hosts_sql);
+				// cacti_log($hosts_sql);
 
-				$hosts = db_fetch_assoc_prepared($hosts_sql, array($oid, $graph_tree_id));
+				$hosts = db_fetch_assoc_prepared($hosts_sql, [$oid, $graph_tree_id]);
 
 				$tree_name = db_fetch_cell_prepared('SELECT name
 					FROM graph_tree
 					WHERE id = ?',
-					array($graph_tree_id));
+					[$graph_tree_id]);
 
 				if ($ptree != $tree_name) {
 					if ($ptree != '') {
@@ -1845,7 +1896,7 @@ function render_tree() {
 				}
 
 				if (cacti_sizeof($hosts)) {
-					foreach($hosts as $index => $host) {
+					foreach ($hosts as $index => $host) {
 						if (is_device_allowed($host['id'])) {
 							$host_ids[] = $host['id'];
 						} else {
@@ -1857,7 +1908,7 @@ function render_tree() {
 
 					$result .= "<div class='monitorSubTable'><div class='navBarNavigation'><div class='navBarNavigationNone'>" . __esc('Branch: %s', $title, 'monitor') . "</div></div><div class='monitor_sub_container'>";
 
-					foreach($hosts as $host) {
+					foreach ($hosts as $host) {
 						$result .= render_host($host, true, $maxlen);
 					}
 
@@ -1869,12 +1920,12 @@ function render_tree() {
 		$result .= '</div>';
 	}
 
-	/* begin others - lets get the monitor items that are not associated with any tree */
+	// begin others - lets get the monitor items that are not associated with any tree
 	if (get_request_var('tree') < 0) {
 		$hosts = get_host_non_tree_array();
 
 		if (cacti_sizeof($hosts)) {
-			foreach($hosts as $index => $host) {
+			foreach ($hosts as $index => $host) {
 				if (is_device_allowed($host['id'])) {
 					$host_ids[] = $host['id'];
 				} else {
@@ -1884,11 +1935,12 @@ function render_tree() {
 
 			// Determine the correct width of the cell
 			$maxlen = 10;
+
 			if (get_request_var('view') == 'default') {
 				if (cacti_sizeof($host_ids)) {
-					$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+					$maxlen = db_fetch_cell('SELECT MAX(LENGTH(description))
 						FROM host AS h
-						WHERE id IN (" . implode(',', $host_ids) . ")
+						WHERE id IN (' . implode(',', $host_ids) . ")
 						AND h.deleted = ''");
 				}
 			}
@@ -1901,7 +1953,7 @@ function render_tree() {
 			</div>
 			<div class='monitor_container'>";
 
-			foreach($hosts as $leaf) {
+			foreach ($hosts as $leaf) {
 				$result .= render_host($leaf, true, $maxlen);
 			}
 
@@ -1910,8 +1962,9 @@ function render_tree() {
 	}
 
 	$function = 'render_footer_' . get_request_var('view');
+
 	if (function_exists($function)) {
-		/* Call the custom render_footer_ function */
+		// Call the custom render_footer_ function
 		$result .= $function($hosts);
 	}
 
@@ -1921,14 +1974,14 @@ function render_tree() {
 function get_host_status($host, $real = false) {
 	global $thold_hosts, $iclasses;
 
-	/* If the host has been muted, show the muted Icon */
-	if ($host['status'] != 1 && in_array($host['id'], $thold_hosts)) {
+	// If the host has been muted, show the muted Icon
+	if ($host['status'] != 1 && in_array($host['id'], $thold_hosts, true)) {
 		$host['status'] = 4;
 	}
 
-	if (in_array($host['id'], $_SESSION['monitor_muted_hosts']) && $host['status'] == 1) {
+	if (in_array($host['id'], $_SESSION['monitor_muted_hosts'], true) && $host['status'] == 1) {
 		$host['status'] = 5;
-	} elseif (in_array($host['id'], $_SESSION['monitor_muted_hosts']) && $host['status'] == 4) {
+	} elseif (in_array($host['id'], $_SESSION['monitor_muted_hosts'], true) && $host['status'] == 4) {
 		$host['status'] = 9;
 	} elseif ($host['status'] == 3) {
 		if ($host['cur_time'] > $host['monitor_alert'] && !empty($host['monitor_alert'])) {
@@ -1955,12 +2008,15 @@ function get_host_status_description($status) {
 
 /**
  * render_host - Renders a host using a sub-function
+ * @param mixed $host
+ * @param mixed $float
+ * @param mixed $maxlen
  */
 function render_host($host, $float = true, $maxlen = 10) {
 	global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes, $maxchars, $mon_zoom_state;
 
-	//throw out tree root items
-	if (array_key_exists('name', $host))  {
+	// throw out tree root items
+	if (array_key_exists('name', $host)) {
 		return;
 	}
 
@@ -1975,35 +2031,37 @@ function render_host($host, $float = true, $maxlen = 10) {
 		$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id'];
 	}
 
-	$host['real_status'] = get_host_status($host, true); $host['status'] = get_host_status($host); $host['iclass'] = $iclasses[$host['status']];
+	$host['real_status'] = get_host_status($host, true);
+	$host['status']      = get_host_status($host);
+	$host['iclass']      = $iclasses[$host['status']];
 
 	$function = 'render_host_' . get_request_var('view');
 
 	if (function_exists($function)) {
-		/* Call the custom render_host_ function */
+		// Call the custom render_host_ function
 		$result = $function($host);
 	} else {
 		$iclass = get_status_icon($host['status'], $host['monitor_icon']);
 		$fclass = get_request_var('size');
 
-		$monitor_times=read_user_setting('monitor_uptime');
-		$monitor_time_html="";
+		$monitor_times     = read_user_setting('monitor_uptime');
+		$monitor_time_html = '';
 
 		if ($host['status'] <= 2 || $host['status'] == 5) {
 			if ($mon_zoom_state) {
-				$fclass ='monitor_errorzoom';
+				$fclass = 'monitor_errorzoom';
 			}
 			$tis = get_timeinstate($host);
 
-			if ($monitor_times=='on') {
-				$monitor_time_html="<br><span class='monitor_device{$fclass} deviceDown'>$tis</span>";
+			if ($monitor_times == 'on') {
+				$monitor_time_html = "<br><span class='monitor_device{$fclass} deviceDown'>$tis</span>";
 			}
 			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</span>$monitor_time_html</a></div>";
 		} else {
 			$tis = get_uptime($host);
 
-			if ($monitor_times=='on') {
-				$monitor_time_html="<br><div class='monitor_device{$fclass} deviceUp'>$tis</div>";
+			if ($monitor_times == 'on') {
+				$monitor_time_html = "<br><div class='monitor_device{$fclass} deviceUp'>$tis</div>";
 			}
 
 			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</span>$monitor_time_html</a></div>";
@@ -2018,7 +2076,9 @@ function get_status_icon($status, $icon) {
 
 	if (($status == 1 || ($status == 4 && get_request_var('status') > 0)) && read_user_setting('monitor_sound') == 'First Orders Suite.mp3') {
 		return 'fab fa-first-order fa-spin mon_icon';
-	} elseif ($icon != '' && array_key_exists($icon, $fa_icons)) {
+	}
+
+	if ($icon != '' && array_key_exists($icon, $fa_icons)) {
 		if (isset($fa_icons[$icon]['class'])) {
 			return $fa_icons[$icon]['class'] . ' mon_icon';
 		} else {
@@ -2032,24 +2092,25 @@ function get_status_icon($status, $icon) {
 function monitor_print_host_time($status_time, $seconds = false) {
 	// If the host is down, make a downtime since message
 	$dt   = '';
+
 	if (is_numeric($status_time)) {
 		$sfd  = round($status_time / 100,0);
 	} else {
 		$sfd  = time() - strtotime($status_time);
 	}
-	$dt_d = floor($sfd/86400);
-	$dt_h = floor(($sfd - ($dt_d * 86400))/3600);
-	$dt_m = floor(($sfd - ($dt_d * 86400) - ($dt_h * 3600))/60);
+	$dt_d = floor($sfd / 86400);
+	$dt_h = floor(($sfd - ($dt_d * 86400)) / 3600);
+	$dt_m = floor(($sfd - ($dt_d * 86400) - ($dt_h * 3600)) / 60);
 	$dt_s = $sfd - ($dt_d * 86400) - ($dt_h * 3600) - ($dt_m * 60);
 
-	if ($dt_d > 0 ) {
-		$dt .= $dt_d . 'd:' . $dt_h . 'h:' . $dt_m . 'm' . ($seconds ? ':' . $dt_s . 's':'');
-	} else if ($dt_h > 0 ) {
-		$dt .= $dt_h . 'h:' . $dt_m . 'm' . ($seconds ? ':' . $dt_s . 's':'');
-	} else if ($dt_m > 0 ) {
-		$dt .= $dt_m . 'm' . ($seconds ? ':' . $dt_s . 's':'');;
+	if ($dt_d > 0) {
+		$dt .= $dt_d . 'd:' . $dt_h . 'h:' . $dt_m . 'm' . ($seconds ? ':' . $dt_s . 's' : '');
+	} elseif ($dt_h > 0) {
+		$dt .= $dt_h . 'h:' . $dt_m . 'm' . ($seconds ? ':' . $dt_s . 's' : '');
+	} elseif ($dt_m > 0) {
+		$dt .= $dt_m . 'm' . ($seconds ? ':' . $dt_s . 's' : '');
 	} else {
-		$dt .= ($seconds ? $dt_s . 's':__('Just Up', 'monitor'));
+		$dt .= ($seconds ? $dt_s . 's' : __('Just Up', 'monitor'));
 	}
 
 	return $dt;
@@ -2069,10 +2130,11 @@ function ajax_status() {
 		$host = db_fetch_row_prepared('SELECT *
 			FROM host
 			WHERE id = ?',
-			array($id));
+			[$id]);
 
 		if (!cacti_sizeof($host)) {
 			cacti_log('Attempted to retrieve status for missing Device ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
+
 			return false;
 		}
 
@@ -2088,7 +2150,7 @@ function ajax_status() {
 		}
 
 		$host['real_status'] = get_host_status($host, true);
-		$host['status'] = get_host_status($host);
+		$host['status']      = get_host_status($host);
 
 		if (cacti_sizeof($host)) {
 			if (api_plugin_user_realm_auth('host.php')) {
@@ -2099,7 +2161,7 @@ function ajax_status() {
 			$graphs = db_fetch_cell_prepared('SELECT COUNT(*)
 				FROM graph_local
 				WHERE host_id = ?',
-				array($host['id']));
+				[$host['id']]);
 
 			if ($graphs > 0) {
 				$graph_link = html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id']);
@@ -2110,7 +2172,7 @@ function ajax_status() {
 				$tholds = db_fetch_cell_prepared('SELECT count(*)
 					FROM thold_data
 					WHERE host_id = ?',
-					array($host['id']));
+					[$host['id']]);
 
 				if ($tholds) {
 					$thold_link = html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id']);
@@ -2125,12 +2187,12 @@ function ajax_status() {
 				$syslog_logs = syslog_db_fetch_cell_prepared('SELECT count(*)
 					FROM syslog_logs
 					WHERE host = ?',
-					array($host['hostname']));
+					[$host['hostname']]);
 
 				$syslog_host = syslog_db_fetch_cell_prepared('SELECT host_id
 					FROM syslog_hosts
 					WHERE host = ?',
-					array($host['hostname']));
+					[$host['hostname']]);
 
 				if ($syslog_logs && $syslog_host) {
 					$syslog_log_link = html_escape($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=alerts&host_id=' . $syslog_host);
@@ -2145,6 +2207,7 @@ function ajax_status() {
 			}
 
 			$links = '';
+
 			if (isset($host_link)) {
 				$links .= '<div><a title="' . __('Edit Device', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $host_link . '"><i class="fas fa-pen-square deviceUp monitorLinkIcon"></i></a></div>';
 			}
@@ -2171,7 +2234,7 @@ function ajax_status() {
 
 			$iclass   = $iclasses[$host['status']];
 			$sdisplay = get_host_status_description($host['real_status']);
-			$site     = db_fetch_cell_prepared('SELECT name FROM sites WHERE id = ?', array($host['site_id']));
+			$site     = db_fetch_cell_prepared('SELECT name FROM sites WHERE id = ?', [$host['site_id']]);
 
 			if ($host['location'] == '') {
 				$host['location'] = __('Unspecified', 'monitor');
@@ -2214,7 +2277,7 @@ function ajax_status() {
 				</tr>' : '') . ($host['availability_method'] > 0 ? "
 				<tr>
 					<td class='nowrap'>" . __('Curr/Avg:', 'monitor') . '</td>
-					<td>' . __('%d ms', $host['cur_time'], 'monitor') . ' / ' .  __('%d ms', $host['avg_time'], 'monitor') . '</td>
+					<td>' . __('%d ms', $host['cur_time'], 'monitor') . ' / ' . __('%d ms', $host['avg_time'], 'monitor') . '</td>
 				</tr>' : '') . (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0) ? "
 				<tr>
 					<td class='nowrap'>" . __('Warn/Alert:', 'monitor') . '</td>
@@ -2280,74 +2343,74 @@ function render_header_tilesadt($hosts) {
 }
 
 function render_header_list($hosts, $total_rows = 0, $rows = 0) {
-	$display_text = array(
-		'hostname' => array(
+	$display_text = [
+		'hostname' => [
 			'display' => __('Hostname', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left', 'tip' => __('Hostname of device', 'monitor')
-		),
-		'id' => array(
+		],
+		'id' => [
 			'display' => __('ID', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left'
-		),
-		'description' => array(
+		],
+		'description' => [
 			'display' => __('Description', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left'
-		),
-		'site_name' => array(
+		],
+		'site_name' => [
 			'display' => __('Site', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left'
-		),
-		'monitor_criticality' => array(
+		],
+		'monitor_criticality' => [
 			'display' => __('Criticality', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left'
-		),
-		'status' => array(
+		],
+		'status' => [
 			'display' => __('Status', 'monitor'),
 			'sort'    => 'DESC',
 			'align'   => 'center'
-		),
-		'instate' => array(
+		],
+		'instate' => [
 			'display' => __('Length in Status', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'center'
-		),
-		'avg_time' => array(
+		],
+		'avg_time' => [
 			'display' => __('Averages', 'monitor'),
 			'sort'    => 'DESC',
 			'align'   => 'left'
-		),
-		'monitor_warn' => array(
+		],
+		'monitor_warn' => [
 			'display' => __('Warning', 'monitor'),
 			'sort'    => 'DESC',
-			'align' => 'left'
-		),
-		'monitor_text' => array(
+			'align'   => 'left'
+		],
+		'monitor_text' => [
 			'display' => __('Admin', 'monitor'),
 			'sort'    => 'ASC',
 			'tip'     => __('Monitor Text Column represents \'Admin\'', 'monitor'),
 			'align'   => 'left'
-		),
-		'notes' => array(
+		],
+		'notes' => [
 			'display' => __('Notes', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left'
-		),
-		'availability' => array(
+		],
+		'availability' => [
 			'display' => __('Availability', 'monitor'),
 			'sort'    => 'DESC',
 			'align'   => 'right'
-		),
-		'status_fail_date' => array(
+		],
+		'status_fail_date' => [
 			'display' => __('Last Fail', 'monitor'),
 			'sort'    => 'DESC',
 			'align'   => 'right'
-		),
-	);
+		],
+	];
 
 	ob_start();
 
@@ -2375,7 +2438,6 @@ function render_footer_default($hosts) {
 }
 
 function render_footer_names($hosts) {
-
 	$col = 7 - $_SESSION['names'];
 
 	if ($col == 0) {
@@ -2422,7 +2484,7 @@ function render_host_list($host) {
 		$dt = __('Never', 'monitor');
 	}
 
-	if ($host['status'] < 3 || $host['status'] == 5 ) {
+	if ($host['status'] < 3 || $host['status'] == 5) {
 		$host_admin = $host['monitor_text'];
 	} else {
 		$host_admin = '';
@@ -2436,7 +2498,7 @@ function render_host_list($host) {
 
 	if ($host['availability_method'] > 0) {
 		$host_address = $host['hostname'];
-		$host_avg     =	__('%d ms', $host['cur_time'], 'monitor') . ' / ' .  __('%d ms', $host['avg_time'], 'monitor');
+		$host_avg     =	__('%d ms', $host['cur_time'], 'monitor') . ' / ' . __('%d ms', $host['avg_time'], 'monitor');
 	} else {
 		$host_address = '';
 		$host_avg     = __('N/A', 'monitor');
@@ -2475,8 +2537,8 @@ function render_host_list($host) {
 	form_selectable_cell($host_avg, $host['id'], '', 'left');
 	form_selectable_cell($host_warn, $host['id'], '', 'left');
 	form_selectable_cell($host_admin, $host['id'], '', 'white-space:pre-wrap;text-align:left');
-	form_selectable_cell(str_replace(array("\n", "\r"), array(' ', ''), $host['notes']), $host['id'], '', 'white-space:pre-wrap;text-align:left');
-	form_selectable_cell(round($host['availability'],2) . " %", $host['id'], '', 'right');
+	form_selectable_cell(str_replace(["\n", "\r"], [' ', ''], $host['notes']), $host['id'], '', 'white-space:pre-wrap;text-align:left');
+	form_selectable_cell(round($host['availability'],2) . ' %', $host['id'], '', 'right');
 	form_selectable_cell($host_datefail, $host['id'], '', 'right');
 
 	form_end_row();
@@ -2488,25 +2550,23 @@ function render_host_list($host) {
 	return $result;
 }
 
-
 function render_host_names($host) {
-
 	$fclass = get_request_var('size');
 
 	$result = '';
 
-	$maxlen = get_monitor_trim_length(100);
-	$monitor_times=read_user_setting('monitor_uptime');
-	$monitor_time_html="";
+	$maxlen            = get_monitor_trim_length(100);
+	$monitor_times     = read_user_setting('monitor_uptime');
+	$monitor_time_html = '';
 
 	if ($_SESSION['names'] == 0) {
 		$result .= '<tr>';
 	}
 
 	if ($host['status'] <= 2 || $host['status'] == 5) {
-		$result .= "<td class='{$fclass}_names flash'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass} deviceDown '>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></td>";
+		$result .= "<td class='{$fclass}_names flash'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass} deviceDown '>" . title_trim(html_escape($host['description']), $maxlen) . '</span></a></td>';
 	} else {
-		$result .= "<td class='{$fclass}_names'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass}'>" . title_trim(html_escape($host['description']), $maxlen) . "</span></a></td>";
+		$result .= "<td class='{$fclass}_names'><a class='hyperLink' href='" . html_escape($host['anchor']) . "'><span class='{$fclass}'>" . title_trim(html_escape($host['description']), $maxlen) . '</span></a></td>';
 	}
 
 	$_SESSION['names']++;
@@ -2515,9 +2575,9 @@ function render_host_names($host) {
 		$result .= '</tr>';
 		$_SESSION['names'] = 0;
 	}
+
 	return $result;
 }
-
 
 function render_host_tiles($host, $maxlen = 10) {
 	$class  = get_status_icon($host['status'], $host['monitor_icon']);
@@ -2551,12 +2611,13 @@ function render_host_tilesadt($host, $maxlen = 10) {
 
 function get_hosts_down_or_triggered_by_permission($prescan) {
 	global $render_style;
-	$PreScanValue=2;
+	$PreScanValue = 2;
+
 	if ($prescan) {
-		$PreScanValue=3;
+		$PreScanValue = 3;
 	}
 
-	$result = array();
+	$result = [];
 
 	if (get_request_var('crit') > 0) {
 		$sql_add_where = 'monitor_criticality >= ' . get_request_var('crit');
@@ -2572,7 +2633,7 @@ function get_hosts_down_or_triggered_by_permission($prescan) {
 				WHERE host_id > 0
 				AND h.deleted = ""
 				AND graph_tree_id = ?',
-				array(get_request_var('tree')));
+				[get_request_var('tree')]);
 
 			render_group_concat($sql_add_where, ' OR ', 'h.id', $devices,'AND h.status < 2');
 		}
@@ -2603,13 +2664,14 @@ function get_hosts_down_or_triggered_by_permission($prescan) {
 	$sql_where = "h.monitor = 'on'
 		AND h.disabled = ''
 		AND h.deleted = ''
-		AND ((h.status < " . $PreScanValue . " AND (h.availability_method > 0 OR h.snmp_version > 0)) " .
-		($sql_add_where != '' ? ' OR (' . $sql_add_where . '))':')');
+		AND ((h.status < " . $PreScanValue . ' AND (h.availability_method > 0 OR h.snmp_version > 0)) ' .
+		($sql_add_where != '' ? ' OR (' . $sql_add_where . '))' : ')');
 
 	// do a quick loop through to pull the hosts that are down
 	$hosts = get_allowed_devices($sql_where);
+
 	if (cacti_sizeof($hosts)) {
-		foreach($hosts as $host) {
+		foreach ($hosts as $host) {
 			$result[] = $host['id'];
 			sort($result);
 		}
@@ -2627,7 +2689,7 @@ function get_host_tree_array() {
 */
 
 function get_host_non_tree_array() {
-	$leafs = array();
+	$leafs = [];
 
 	$sql_where = '';
 	$sql_join  = '';
@@ -2645,7 +2707,7 @@ function get_host_non_tree_array() {
 		ORDER BY h.description");
 
 	if (cacti_sizeof($hierarchy) > 0) {
-		$leafs = array();
+		$leafs       = [];
 		$branchleafs = 0;
 
 		foreach ($hierarchy as $leaf) {
@@ -2662,6 +2724,7 @@ function get_monitor_trim_length($fieldlen) {
 
 	if (get_request_var('view') == 'default' || get_request_var('view') == 'names') {
 		$maxlen = $maxchars;
+
 		if (get_request_var('trim') < 0) {
 			$maxlen = 4000;
 		} elseif (get_request_var('trim') > 0) {
@@ -2675,4 +2738,3 @@ function get_monitor_trim_length($fieldlen) {
 
 	return $fieldlen;
 }
-
