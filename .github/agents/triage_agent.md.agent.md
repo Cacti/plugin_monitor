@@ -51,7 +51,9 @@ including any delays or issues encountered during the delegation process.
 - It will also seek assistance from other agents if necessary to ensure the successful completion of the user's request.
 
 
-## Example Workflow1. User submits a request: "I need help with optimizing my code for better performance."
+## Example Workflow
+
+1. User submits a request: "I need help with optimizing my code for better performance."
 2. Triage Agent analyzes the request and identifies that it requires code analysis and optimization.
 3. Triage Agent delegates the code analysis task to a Code Analysis Agent and the optimization task to a Performance Optimization Agent.
 4. Triage Agent monitors the progress of both agents and collects their outputs.
