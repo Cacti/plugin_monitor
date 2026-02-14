@@ -55,7 +55,7 @@ Here are some common design patterns and best practices for MySQL and MariaDB da
 - `db_last_insert_id()`: Retrieves the ID of the last inserted record.
 
 
-##web documentation
+## web documentation
 For additional information and best practices, refer to the official MySQL and MariaDB documentation:
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 - [MariaDB Documentation](https://mariadb.com/kb/en/documentation/)
