@@ -22,24 +22,24 @@
  +-------------------------------------------------------------------------+
 */
 
-$dir = dirname(__FILE__);
+$dir = __DIR__;
 chdir($dir);
 
 include('../../include/cli_check.php');
 include_once($config['base_path'] . '/lib/reports.php');
 
-/* let PHP run just as long as it has to */
+// let PHP run just as long as it has to
 ini_set('max_execution_time', '0');
 
 error_reporting(E_ALL);
 
-/* record the start time */
+// record the start time
 $poller_start = microtime(true);
 $start_date   = date('Y-m-d H:i:s');
 
 global $config, $database_default, $purged_r, $purged_n;
 
-/* process calling arguments */
+// process calling arguments
 $parms = $_SERVER['argv'];
 array_shift($parms);
 
@@ -51,30 +51,32 @@ $purged_n = 0;
 if (cacti_sizeof($parms)) {
 	foreach ($parms as $parameter) {
 		if (strpos($parameter, '=')) {
-			list($arg, $value) = explode('=', $parameter);
+			[$arg, $value] = explode('=', $parameter);
 		} else {
-			$arg = $parameter;
+			$arg   = $parameter;
 			$value = '';
 		}
 
 		switch ($arg) {
-			case '--version' :
-			case '-V' :
-			case '-v' :
+			case '--version':
+			case '-V':
+			case '-v':
 				display_version();
 				exit;
-			case '--help' :
-			case '-H' :
-			case '-h' :
+			case '--help':
+			case '-H':
+			case '-h':
 				display_help();
 				exit;
-			case '--force' :
+			case '--force':
 				$force = true;
+
 				break;
-			case '--debug' :
+			case '--debug':
 				$debug = true;
+
 				break;
-			default :
+			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . PHP_EOL . PHP_EOL;
 				display_help();
 				exit;
@@ -84,19 +86,20 @@ if (cacti_sizeof($parms)) {
 
 monitor_debug('Monitor Starting Checks');
 
-list($reboots, $recent_down) = monitor_uptime_checker();
+[$reboots, $recent_down] = monitor_uptime_checker();
 
 $warning_criticality = read_config_option('monitor_warn_criticality');
 $alert_criticality   = read_config_option('monitor_alert_criticality');
 
-$lists               = array();
+$lists               = [];
 $notifications       = 0;
-$global_list         = array();
-$notify_list         = array();
+$global_list         = [];
+$notify_list         = [];
 $last_time           = date('Y-m-d H:i:s', time() - read_config_option('monitor_resend_frequency') * 60);
 
 if ($warning_criticality > 0 || $alert_criticality > 0) {
 	monitor_debug('Monitor Notification Enabled for Devices');
+
 	// Get hosts that are above threshold.  Start with Alert, and then Warning
 	if ($alert_criticality) {
 		get_hosts_by_list_type('alert', $alert_criticality, $global_list, $notify_list, $lists);
@@ -133,16 +136,16 @@ if ($warning_criticality > 0 || $alert_criticality > 0) {
 	monitor_debug('Both Warning and Alert Notification are Disabled.');
 }
 
-list($purge_n, $purge_r) = purge_event_records();
+[$purge_n, $purge_r] = purge_event_records();
 
 $poller_end = microtime(true);
 
 $stats =
-	'Time:'           . round($poller_end-$poller_start, 2) .
-	' Reboots:'       . $reboots .
-	' DownDevices:'   . $recent_down .
+	'Time:' . round($poller_end - $poller_start, 2) .
+	' Reboots:' . $reboots .
+	' DownDevices:' . $recent_down .
 	' Notifications:' . $notifications .
-	' Purges:'        . ($purge_n + $purge_r);
+	' Purges:' . ($purge_n + $purge_r);
 
 cacti_log('MONITOR STATS: ' . $stats, false, 'SYSTEM');
 set_config_option('stats_monitor', $stats);
@@ -171,13 +174,14 @@ function monitor_uptime_checker() {
 
 	$start = date('Y-m-d H:i:s');
 
-	$reboot_emails = array();
+	$reboot_emails = [];
 
 	$alert_email   = read_config_option('alert_email');
+
 	if ($alert_email != '') {
 		$alert_emails = explode(',', $alert_email);
 	} else {
-		$alert_emails = array();
+		$alert_emails = [];
 	}
 
 	// Remove unneeded device records in associated tables
@@ -237,7 +241,7 @@ function monitor_uptime_checker() {
 			db_execute_prepared('INSERT INTO plugin_monitor_reboot_history
 				(host_id, reboot_time)
 				VALUES (?, ?)',
-				array($host['id'], date('Y-m-d H:i:s', time()-intval($host['snmp_sysUpTimeInstance']))));
+				[$host['id'], date('Y-m-d H:i:s', time() - intval($host['snmp_sysUpTimeInstance']))]);
 
 			monitor_addnotificationlist($reboot_emails, $monitor_list, $host['id'], $notification_lists);
 
@@ -245,12 +249,11 @@ function monitor_uptime_checker() {
 				$notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
 					FROM host
 					WHERE id = ?',
-					array($host['id']));
+					[$host['id']]);
 
 				if (cacti_sizeof($notify)) {
 					switch($notify['thold_send_email']) {
 						case '0': // Disabled
-
 							break;
 						case '1': // Global List
 							monitor_addemails($reboot_emails, $alert_emails, $host['id']);
@@ -271,16 +274,16 @@ function monitor_uptime_checker() {
 				}
 			}
 		}
-		
+
 		$monitor_send_one_email = read_config_option('monitor_send_one_email');
-		$to_email = '';
+		$to_email               = '';
 
 		if (cacti_sizeof($reboot_emails)) {
 			foreach ($reboot_emails as $email => $hosts) {
 				if ($email != '') {
 					$to_email .= ($to_email != '' ? ',' : '') . $email;
 
-					if ($monitor_send_one_email !== 'on')  {
+					if ($monitor_send_one_email !== 'on') {
 						monitor_debug('Processing the Email address: ' . $email);
 						process_reboot_email($email, $hosts);
 					}
@@ -319,7 +322,7 @@ function monitor_uptime_checker() {
 
 	$recent = db_affected_rows();
 
-	return array(cacti_sizeof($rebooted_hosts), $recent);
+	return [cacti_sizeof($rebooted_hosts), $recent];
 }
 
 function process_reboot_email($email, $hosts) {
@@ -332,7 +335,7 @@ function process_reboot_email($email, $hosts) {
 
 	$body .=
 		'<th class="left">' . __('Description', 'monitor') . '</th>' .
-		'<th class="left">' . __('Hostname', 'monitor')    . '</th>' . PHP_EOL;
+		'<th class="left">' . __('Hostname', 'monitor') . '</th>' . PHP_EOL;
 
 	$body .= '</tr>' . PHP_EOL;
 
@@ -340,23 +343,23 @@ function process_reboot_email($email, $hosts) {
 		$host = db_fetch_row_prepared('SELECT description, hostname
 			FROM host
 			WHERE id = ?',
-			array($host));
+			[$host]);
 
 		if (cacti_sizeof($host)) {
 			$body .= '<tr>' .
 				'<td class="left">' . $host['description'] . '</td>' .
-				'<td class="left">' . $host['hostname']    . '</td>' .
+				'<td class="left">' . $host['hostname'] . '</td>' .
 				'</tr>' . PHP_EOL;
 
 			$body_txt .=
 				__('Description: ', 'monitor') . $host['description'] . PHP_EOL .
-				__('Hostname: ', 'monitor')    . $host['hostname']    . PHP_EOL . PHP_EOL;
+				__('Hostname: ', 'monitor') . $host['hostname'] . PHP_EOL . PHP_EOL;
 		}
 	}
 
 	$body .= '</table>' . PHP_EOL;
 
-	$subject = read_config_option('monitor_subject');
+	$subject                = read_config_option('monitor_subject');
 	$monitor_send_one_email = read_config_option('monitor_send_one_email');
 
 	if ($monitor_send_one_email == 'on') {
@@ -386,7 +389,7 @@ function process_reboot_email($email, $hosts) {
 
 		$format_ok = reports_load_format_file(read_config_option('monitor_format_file'), $output, $report_tag, $theme);
 
-		monitor_debug('Format File Loaded, Format is ' . ($format_ok ? 'Ok':'Not Ok') . ', Report Tag is ' . $report_tag);
+		monitor_debug('Format File Loaded, Format is ' . ($format_ok ? 'Ok' : 'Not Ok') . ', Report Tag is ' . $report_tag);
 
 		if ($format_ok) {
 			if ($report_tag) {
@@ -419,41 +422,41 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 	monitor_debug('Into Processing');
 
-	$alert_hosts = array();
-	$warn_hosts  = array();
+	$alert_hosts = [];
+	$warn_hosts  = [];
 
-	$criticalities = array(
+	$criticalities = [
 		0 => __('Disabled', 'monnitor'),
 		1 => __('Low', 'monnitor'),
 		2 => __('Medium', 'monnitor'),
 		3 => __('High', 'monnitor'),
 		4 => __('Mission Critical', 'monnitor')
-	);
+	];
 
 	foreach ($lists as $list) {
 		switch($list) {
-		case 'global':
-			$hosts = array();
+			case 'global':
+				$hosts = [];
 
-			if (isset($global_list['alert'])) {
-				$alert_hosts += explode(',', $global_list['alert']);
-			}
+				if (isset($global_list['alert'])) {
+					$alert_hosts += explode(',', $global_list['alert']);
+				}
 
-			if (isset($global_list['warn'])) {
-				$warn_hosts += explode(',', $global_list['warn']);
-			}
+				if (isset($global_list['warn'])) {
+					$warn_hosts += explode(',', $global_list['warn']);
+				}
 
-			break;
-		default:
-			if (isset($notify_list[$list]['alert'])) {
-				$alert_hosts = explode(',', $notify_list[$list]['alert']);
-			}
+				break;
+			default:
+				if (isset($notify_list[$list]['alert'])) {
+					$alert_hosts = explode(',', $notify_list[$list]['alert']);
+				}
 
-			if (isset($notify_list[$list]['warn'])) {
-				$warn_hosts = explode(',', $notify_list[$list]['warn']);
-			}
+				if (isset($notify_list[$list]['warn'])) {
+					$warn_hosts = explode(',', $notify_list[$list]['warn']);
+				}
 
-			break;
+				break;
 		}
 	}
 
@@ -479,7 +482,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$freq    = read_config_option('monitor_resend_frequency');
 		$subject = __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor');
 
-		$body = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor') . '</h1>' . PHP_EOL;
+		$body     = '<h1>' . __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor') . '</h1>' . PHP_EOL;
 		$body_txt = __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor') . PHP_EOL;
 
 		$body .= '<p>' . __('The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below.') . '</p>' . PHP_EOL;
@@ -509,15 +512,15 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			$body .= '<tr class="header_row">' . PHP_EOL;
 
 			$body .=
-				'<th class="left">'  . __('Hostname', 'monitor')     . '</th>' .
-				'<th class="left">'  . __('Criticality', 'monitor')  . '</th>' .
-				'<th class="right">' . __('Alert Ping', 'monitor')   . '</th>' .
+				'<th class="left">' . __('Hostname', 'monitor') . '</th>' .
+				'<th class="left">' . __('Criticality', 'monitor') . '</th>' .
+				'<th class="right">' . __('Alert Ping', 'monitor') . '</th>' .
 				'<th class="right">' . __('Current Ping', 'monitor') . '</th>' . PHP_EOL;
 
 			$body_txt .=
-				__('Hostname', 'monitor')     . "\t" .
-				__('Criticality', 'monitor')  . "\t" .
-				__('Alert Ping', 'monitor')   . "\t" .
+				__('Hostname', 'monitor') . "\t" .
+				__('Criticality', 'monitor') . "\t" .
+				__('Alert Ping', 'monitor') . "\t" .
 				__('Current Ping', 'monitor') . PHP_EOL;
 
 			$body .= '</tr>' . PHP_EOL;
@@ -530,17 +533,17 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			if (cacti_sizeof($hosts)) {
 				foreach ($hosts as $host) {
 					$body .= '<tr>' . PHP_EOL;
-					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . PHP_EOL;
+					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description'] . '</a></td>' . PHP_EOL;
 
-					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>'    . PHP_EOL;
+					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']] . '</td>' . PHP_EOL;
 					$body .= '<td class="right">' . number_format_i18n($host['monitor_alert'],2) . ' ms</td>' . PHP_EOL;
-					$body .= '<td class="right">' . number_format_i18n($host['cur_time'],2)      . ' ms</td>' . PHP_EOL;
+					$body .= '<td class="right">' . number_format_i18n($host['cur_time'],2) . ' ms</td>' . PHP_EOL;
 
 					$body_txt .=
 						$host['description'] . "\t" .
 						$criticalities[$host['monitor_criticality']] . "\t" .
 						number_format_i18n($host['monitor_alert'],2) . " ms\t" .
-						number_format_i18n($host['cur_time'],2)      . " ms" . PHP_EOL;
+						number_format_i18n($host['cur_time'],2) . ' ms' . PHP_EOL;
 
 					$body .= '</tr>' . PHP_EOL;
 				}
@@ -558,15 +561,15 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			$body .= '<tr class="header_row">' . PHP_EOL;
 
 			$body .=
-				'<th class="left">'  . __('Hostname', 'monitor')     . '</th>' .
-				'<th class="left">'  . __('Criticality', 'monitor')  . '</th>' .
-				'<th class="right">' . __('Alert Ping', 'monitor')   . '</th>' .
+				'<th class="left">' . __('Hostname', 'monitor') . '</th>' .
+				'<th class="left">' . __('Criticality', 'monitor') . '</th>' .
+				'<th class="right">' . __('Alert Ping', 'monitor') . '</th>' .
 				'<th class="right">' . __('Current Ping', 'monitor') . '</th>' . PHP_EOL;
 
 			$body_txt .=
-				__('Hostname', 'monitor')     . "\t" .
-				__('Criticality', 'monitor')  . "\t" .
-				__('Alert Ping', 'monitor')   . "\t" .
+				__('Hostname', 'monitor') . "\t" .
+				__('Criticality', 'monitor') . "\t" .
+				__('Alert Ping', 'monitor') . "\t" .
 				__('Current Ping', 'monitor') . PHP_EOL;
 
 			$body .= '</tr>' . PHP_EOL;
@@ -579,17 +582,17 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			if (cacti_sizeof($hosts)) {
 				foreach ($hosts as $host) {
 					$body .= '<tr>' . PHP_EOL;
-					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description']  . '</a></td>' . PHP_EOL;
+					$body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description'] . '</a></td>' . PHP_EOL;
 
-					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']]  . '</td>'    . PHP_EOL;
-					$body .= '<td class="right">' . number_format_i18n($host['monitor_warn'],2)  . ' ms</td>' . PHP_EOL;
-					$body .= '<td class="right">' . number_format_i18n($host['cur_time'],2)      . ' ms</td>' . PHP_EOL;
+					$body .= '<td class="left">' . $criticalities[$host['monitor_criticality']] . '</td>' . PHP_EOL;
+					$body .= '<td class="right">' . number_format_i18n($host['monitor_warn'],2) . ' ms</td>' . PHP_EOL;
+					$body .= '<td class="right">' . number_format_i18n($host['cur_time'],2) . ' ms</td>' . PHP_EOL;
 
 					$body_txt .=
 						$host['description'] . "\t" .
 						$criticalities[$host['monitor_criticality']] . "\t" .
 						number_format_i18n($host['monitor_alert'],2) . " ms\t" .
-						number_format_i18n($host['cur_time'],2)      . " ms" . PHP_EOL;
+						number_format_i18n($host['cur_time'],2) . ' ms' . PHP_EOL;
 
 					$body .= '</tr>' . PHP_EOL;
 				}
@@ -606,7 +609,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 		$format_ok = reports_load_format_file(read_config_option('monitor_format_file'), $output, $report_tag, $theme);
 
-		monitor_debug('Format File Loaded, Format is ' . ($format_ok ? 'Ok':'Not Ok') . ', Report Tag is ' . $report_tag);
+		monitor_debug('Format File Loaded, Format is ' . ($format_ok ? 'Ok' : 'Not Ok') . ', Report Tag is ' . $report_tag);
 
 		if ($format_ok) {
 			if ($report_tag) {
@@ -638,6 +641,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 
 function process_send_email($email, $subject, $output, $toutput, $headers, $status) {
 	$from_email = read_config_option('monitor_fromemail');
+
 	if ($from_email == '') {
 		$from_email = read_config_option('settings_from_email');
 
@@ -647,6 +651,7 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 	}
 
 	$from_name = read_config_option('monitor_fromname');
+
 	if ($from_name != '') {
 		$from_name  = read_config_option('settings_from_name');
 
@@ -656,15 +661,16 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 	}
 
 	$html = true;
+
 	if (read_config_option('thold_send_text_only') == 'on') {
 		$output = monitor_text($toutput);
-		$html = false;
+		$html   = false;
 	}
 
 	monitor_debug("Sending Email to '$email' for $status");
 
 	$error = mailer(
-		array($from_email, $from_name),
+		[$from_email, $from_name],
 		$email,
 		'',
 		'',
@@ -706,13 +712,13 @@ function monitor_text($output) {
 function log_messages($type, $alert_hosts) {
 	global $start_date;
 
-	static $processed = array();
+	static $processed = [];
 
 	if ($type == 'warn') {
 		$type   = '0';
 		$column = 'monitor_warn';
 	} elseif ($type == 'alert') {
-		$type = '1';
+		$type   = '1';
 		$column = 'monitor_alert';
 	}
 
@@ -725,7 +731,7 @@ function log_messages($type, $alert_hosts) {
 				WHERE deleted = ''
 				AND monitor = 'on'
 				AND id = ?",
-				array($id));
+				[$id]);
 		}
 
 		$processed[$id] = true;
@@ -745,7 +751,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 		AND thold_send_email > 0
 		AND monitor_criticality >= ?
 		AND cur_time > monitor_$type",
-		array($criticality));
+		[$criticality]);
 
 	if ($type == 'warn') {
 		$htype = 1;
@@ -769,36 +775,36 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 			AND monitor = 'on'
 			AND thold_send_email > 0
 			AND monitor_criticality >= ?
-			AND cur_time > monitor_$type " . ($type == 'warn' ? ' AND cur_time < monitor_alert':'') . '
+			AND cur_time > monitor_$type " . ($type == 'warn' ? ' AND cur_time < monitor_alert' : '') . '
 			AND (notification_time < ? OR notification_time IS NULL)
 			AND host.total_polls > 1
 			GROUP BY thold_host_email, thold_send_email
 			ORDER BY thold_host_email, thold_send_email',
-			array($htype, $criticality, $last_time));
+			[$htype, $criticality, $last_time]);
 
 		if (cacti_sizeof($groups)) {
 			foreach ($groups as $entry) {
 				switch($entry['thold_send_email']) {
-				case '1': // Global List
-					$global_list[$type][] = $entry;
+					case '1': // Global List
+						$global_list[$type][] = $entry;
 
-					break;
-				case '2': // Notification List
-					if ($entry['thold_host_email'] > 0) {
-						$notify_list[$type][$entry['thold_host_email']][] = $entry;
-						$lists[$entry['thold_host_email']] = $entry['thold_host_email'];
-					}
+						break;
+					case '2': // Notification List
+						if ($entry['thold_host_email'] > 0) {
+							$notify_list[$type][$entry['thold_host_email']][] = $entry;
+							$lists[$entry['thold_host_email']]                = $entry['thold_host_email'];
+						}
 
-					break;
-				case '3': // Both Notification and Global
-					$global_list[$type][] = $entry;
+						break;
+					case '3': // Both Notification and Global
+						$global_list[$type][] = $entry;
 
-					if ($entry['thold_host_email'] > 0) {
-						$notify_list[$type][$entry['thold_host_email']][] = $entry;
-						$lists[$entry['thold_host_email']] = $entry['thold_host_email'];
-					}
+						if ($entry['thold_host_email'] > 0) {
+							$notify_list[$type][$entry['thold_host_email']][] = $entry;
+							$lists[$entry['thold_host_email']]                = $entry['thold_host_email'];
+						}
 
-					break;
+						break;
 				}
 			}
 		}
@@ -809,7 +815,7 @@ function flatten_lists(&$global_list, &$notify_list) {
 	if (cacti_sizeof($global_list)) {
 		foreach ($global_list as $severity => $list) {
 			foreach ($list as $item) {
-				$new_global[$severity] = (isset($new_global[$severity]) ? $new_global[$severity] . ',':'') . $item['id'];
+				$new_global[$severity] = (isset($new_global[$severity]) ? $new_global[$severity] . ',' : '') . $item['id'];
 			}
 		}
 		$global_list = $new_global;
@@ -819,7 +825,7 @@ function flatten_lists(&$global_list, &$notify_list) {
 		foreach ($notify_list as $severity => $lists) {
 			foreach ($lists as $id => $list) {
 				foreach ($list as $item) {
-					$new_list[$severity][$id] = (isset($new_list[$severity][$id]) ? $new_list[$severity][$id] . ',':'') . $item['id'];
+					$new_list[$severity][$id] = (isset($new_list[$severity][$id]) ? $new_list[$severity][$id] . ',' : '') . $item['id'];
 				}
 			}
 		}
@@ -828,13 +834,14 @@ function flatten_lists(&$global_list, &$notify_list) {
 }
 
 function get_emails_and_lists($lists) {
-	$notification_emails = array();
+	$notification_emails = [];
 
 	$alert_email = read_config_option('alert_email');
+
 	if ($alert_email != '') {
 		$global_emails = explode(',', $alert_email);
 	} else {
-		$global_emails = array();
+		$global_emails = [];
 	}
 
 	if (cacti_sizeof($global_emails)) {
@@ -853,6 +860,7 @@ function get_emails_and_lists($lists) {
 		if (cacti_sizeof($list_emails)) {
 			foreach ($list_emails as $email) {
 				$emails = explode(',', $email['emails']);
+
 				foreach ($emails as $user) {
 					if (trim($user) != '') {
 						$notification_emails[trim($user)][$email['id']] = true;
@@ -875,17 +883,17 @@ function purge_event_records() {
 
 	db_execute_prepared('DELETE FROM plugin_monitor_notify_history
 		WHERE notification_time < FROM_UNIXTIME(UNIX_TIMESTAMP() - (? * 86400))',
-		array($days));
+		[$days]);
 
 	$purge_n = db_affected_rows();
 
 	db_execute_prepared('DELETE FROM plugin_monitor_reboot_history
 		WHERE log_time < FROM_UNIXTIME(UNIX_TIMESTAMP() - (? * 86400))',
-		array($days));
+		[$days]);
 
 	$purge_r = db_affected_rows();
 
-	return array($purge_n, $purge_r);
+	return [$purge_n, $purge_r];
 }
 
 function monitor_debug($message) {
@@ -919,4 +927,3 @@ function display_help() {
 	print '  --force       - force execution, e.g. for testing' . PHP_EOL;
 	print '  --debug       - debug execution, e.g. for testing' . PHP_EOL . PHP_EOL;
 }
-
