@@ -61,12 +61,12 @@ if (cacti_sizeof($parms)) {
 			case '--version':
 			case '-V':
 			case '-v':
-				display_version();
+				displayVersion();
 				exit;
 			case '--help':
 			case '-H':
 			case '-h':
-				display_help();
+				displayHelp();
 				exit;
 			case '--force':
 				$force = true;
@@ -78,15 +78,15 @@ if (cacti_sizeof($parms)) {
 				break;
 			default:
 				print 'ERROR: Invalid Parameter ' . $parameter . PHP_EOL . PHP_EOL;
-				display_help();
+				displayHelp();
 				exit;
 		}
 	}
 }
 
-monitor_debug('Monitor Starting Checks');
+monitorDebug('Monitor Starting Checks');
 
-[$reboots, $recent_down] = monitor_uptime_checker();
+[$reboots, $recent_down] = monitorUptimeChecker();
 
 $warning_criticality = read_config_option('monitor_warn_criticality');
 $alert_criticality   = read_config_option('monitor_alert_criticality');
@@ -98,45 +98,45 @@ $notify_list         = [];
 $last_time           = date('Y-m-d H:i:s', time() - read_config_option('monitor_resend_frequency') * 60);
 
 if ($warning_criticality > 0 || $alert_criticality > 0) {
-	monitor_debug('Monitor Notification Enabled for Devices');
+	monitorDebug('Monitor Notification Enabled for Devices');
 
 	// Get hosts that are above threshold.  Start with Alert, and then Warning
 	if ($alert_criticality) {
-		get_hosts_by_list_type('alert', $alert_criticality, $global_list, $notify_list, $lists);
+		getHostsByListType('alert', $alert_criticality, $global_list, $notify_list, $lists);
 	}
 
 	if ($warning_criticality) {
-		get_hosts_by_list_type('warn', $warning_criticality, $global_list, $notify_list, $lists);
+		getHostsByListType('warn', $warning_criticality, $global_list, $notify_list, $lists);
 	}
 
-	flatten_lists($global_list, $notify_list);
+	flattenLists($global_list, $notify_list);
 
-	monitor_debug('Lists Flattened there are ' . sizeof($global_list) . ' Global Notifications and ' . sizeof($notify_list) . ' Notification List Notifications.');
+	monitorDebug('Lists Flattened there are ' . sizeof($global_list) . ' Global Notifications and ' . sizeof($notify_list) . ' Notification List Notifications.');
 
 	if (strlen(read_config_option('alert_email')) == 0) {
-		monitor_debug('WARNING: No Global List Defined.  Please set under Settings -> Thresholds');
+		monitorDebug('WARNING: No Global List Defined.  Please set under Settings -> Thresholds');
 		cacti_log('WARNING: No Global Notification List defined.  Please set under Settings -> Thresholds', false, 'MONITOR');
 	}
 
 	if (cacti_sizeof($global_list) || sizeof($notify_list)) {
 		// array of email[list|'g'] = true;
-		$notification_emails = get_emails_and_lists($lists);
+		$notification_emails = getEmailsAndLists($lists);
 
 		// Send out emails to each emails address with all notifications in one
 		if (cacti_sizeof($notification_emails)) {
 			foreach ($notification_emails as $email => $lists) {
-				monitor_debug('Processing the email address: ' . $email);
-				process_email($email, $lists, $global_list, $notify_list);
+				monitorDebug('Processing the email address: ' . $email);
+				processEmail($email, $lists, $global_list, $notify_list);
 
 				$notifications++;
 			}
 		}
 	}
 } else {
-	monitor_debug('Both Warning and Alert Notification are Disabled.');
+	monitorDebug('Both Warning and Alert Notification are Disabled.');
 }
 
-[$purge_n, $purge_r] = purge_event_records();
+[$purge_n, $purge_r] = purgeEventRecords();
 
 $poller_end = microtime(true);
 
@@ -152,7 +152,7 @@ set_config_option('stats_monitor', $stats);
 
 exit;
 
-function monitor_addemails(&$reboot_emails, $alert_emails, $host_id) {
+function monitorAddEmails(&$reboot_emails, $alert_emails, $host_id) {
 	if (cacti_sizeof($alert_emails)) {
 		foreach ($alert_emails as $email) {
 			$reboot_emails[trim(strtolower($email))][$host_id] = $host_id;
@@ -160,17 +160,17 @@ function monitor_addemails(&$reboot_emails, $alert_emails, $host_id) {
 	}
 }
 
-function monitor_addnotificationlist(&$reboot_emails, $notify_list, $host_id, $notification_lists) {
+function monitorAddNotificationList(&$reboot_emails, $notify_list, $host_id, $notification_lists) {
 	if ($notify_list > 0) {
 		if (isset($notification_lists[$notify_list])) {
 			$emails = explode(',', $notification_lists[$notify_list]);
-			monitor_addemails($reboot_emails, $emails, $host_id);
+			monitorAddEmails($reboot_emails, $emails, $host_id);
 		}
 	}
 }
 
-function monitor_uptime_checker() {
-	monitor_debug('Checking for Uptime of Devices');
+function monitorUptimeChecker() {
+	monitorDebug('Checking for Uptime of Devices');
 
 	$start = date('Y-m-d H:i:s');
 
@@ -243,7 +243,7 @@ function monitor_uptime_checker() {
 				VALUES (?, ?)',
 				[$host['id'], date('Y-m-d H:i:s', time() - intval($host['snmp_sysUpTimeInstance']))]);
 
-			monitor_addnotificationlist($reboot_emails, $monitor_list, $host['id'], $notification_lists);
+			monitorAddNotificationList($reboot_emails, $monitor_list, $host['id'], $notification_lists);
 
 			if ($monitor_thold == 'on') {
 				$notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
@@ -256,17 +256,17 @@ function monitor_uptime_checker() {
 						case '0': // Disabled
 							break;
 						case '1': // Global List
-							monitor_addemails($reboot_emails, $alert_emails, $host['id']);
+							monitorAddEmails($reboot_emails, $alert_emails, $host['id']);
 
 							break;
 						case '2': // Nofitication List
-							monitor_addnotificationlist($reboot_emails, $notify['thold_host_email'],
+							monitorAddNotificationList($reboot_emails, $notify['thold_host_email'],
 								$host['id'], $notification_lists);
 
 							break;
 						case '3': // Both Global and Nofication list
-							monitor_addemails($reboot_emails, $alert_emails, $host['id']);
-							monitor_addnotificationlist($reboot_emails, $notify['thold_host_email'],
+							monitorAddEmails($reboot_emails, $alert_emails, $host['id']);
+							monitorAddNotificationList($reboot_emails, $notify['thold_host_email'],
 								$host['id'], $notification_lists);
 
 							break;
@@ -284,17 +284,17 @@ function monitor_uptime_checker() {
 					$to_email .= ($to_email != '' ? ',' : '') . $email;
 
 					if ($monitor_send_one_email !== 'on') {
-						monitor_debug('Processing the Email address: ' . $email);
-						process_reboot_email($email, $hosts);
+						monitorDebug('Processing the Email address: ' . $email);
+						processRebootEmail($email, $hosts);
 					}
 				} else {
-					monitor_debug('Unable to process reboot notification due to empty Email address.');
+					monitorDebug('Unable to process reboot notification due to empty Email address.');
 				}
 			}
 
 			if ($monitor_send_one_email == 'on') {
-				monitor_debug('Processing the Email address: ' . $to_email);
-				process_reboot_email($to_email, $hosts);
+				monitorDebug('Processing the Email address: ' . $to_email);
+				processRebootEmail($to_email, $hosts);
 			}
 		}
 	}
@@ -325,8 +325,8 @@ function monitor_uptime_checker() {
 	return [cacti_sizeof($rebooted_hosts), $recent];
 }
 
-function process_reboot_email($email, $hosts) {
-	monitor_debug("Reboot Processing for $email starting");
+function processRebootEmail($email, $hosts) {
+	monitorDebug("Reboot Processing for $email starting");
 
 	$body_txt = '';
 
@@ -385,11 +385,11 @@ function process_reboot_email($email, $hosts) {
 		$report_tag = '';
 		$theme      = 'modern';
 
-		monitor_debug('Loading Format File');
+		monitorDebug('Loading Format File');
 
 		$format_ok = reports_load_format_file(read_config_option('monitor_format_file'), $output, $report_tag, $theme);
 
-		monitor_debug('Format File Loaded, Format is ' . ($format_ok ? 'Ok' : 'Not Ok') . ', Report Tag is ' . $report_tag);
+		monitorDebug('Format File Loaded, Format is ' . ($format_ok ? 'Ok' : 'Not Ok') . ', Report Tag is ' . $report_tag);
 
 		if ($format_ok) {
 			if ($report_tag) {
@@ -401,7 +401,7 @@ function process_reboot_email($email, $hosts) {
 			$output = $body;
 		}
 
-		monitor_debug('HTML Processed');
+		monitorDebug('HTML Processed');
 
 		if (defined('CACTI_VERSION')) {
 			$version = CACTI_VERSION;
@@ -413,14 +413,14 @@ function process_reboot_email($email, $hosts) {
 
 		$status = 'Reboot Notifications';
 
-		process_send_email($email, $subject, $output, $toutput, $headers, $status);
+		processSendEmail($email, $subject, $output, $toutput, $headers, $status);
 	}
 }
 
-function process_email($email, $lists, $global_list, $notify_list) {
+function processEmail($email, $lists, $global_list, $notify_list) {
 	global $config;
 
-	monitor_debug('Into Processing');
+	monitorDebug('Into Processing');
 
 	$alert_hosts = [];
 	$warn_hosts  = [];
@@ -460,24 +460,24 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		}
 	}
 
-	monitor_debug('Lists Processed');
+	monitorDebug('Lists Processed');
 
 	if (cacti_sizeof($alert_hosts)) {
 		$alert_hosts = array_unique($alert_hosts, SORT_NUMERIC);
 
-		log_messages('alert', $alert_hosts);
+		logMessages('alert', $alert_hosts);
 	}
 
 	if (cacti_sizeof($warn_hosts)) {
 		$warn_hosts = array_unique($warn_hosts, SORT_NUMERIC);
 
-		log_messages('warn', $alert_hosts);
+		logMessages('warn', $alert_hosts);
 	}
 
-	monitor_debug('Found ' . sizeof($alert_hosts) . ' Alert Hosts, and ' . sizeof($warn_hosts) . ' Warn Hosts');
+	monitorDebug('Found ' . sizeof($alert_hosts) . ' Alert Hosts, and ' . sizeof($warn_hosts) . ' Warn Hosts');
 
 	if (cacti_sizeof($alert_hosts) || sizeof($warn_hosts)) {
-		monitor_debug('Formatting Email');
+		monitorDebug('Formatting Email');
 
 		$freq    = read_config_option('monitor_resend_frequency');
 		$subject = __('Cacti Monitor Plugin Ping Threshold Notification', 'monitor');
@@ -605,11 +605,11 @@ function process_email($email, $lists, $global_list, $notify_list) {
 		$report_tag = '';
 		$theme      = 'modern';
 
-		monitor_debug('Loading Format File');
+		monitorDebug('Loading Format File');
 
 		$format_ok = reports_load_format_file(read_config_option('monitor_format_file'), $output, $report_tag, $theme);
 
-		monitor_debug('Format File Loaded, Format is ' . ($format_ok ? 'Ok' : 'Not Ok') . ', Report Tag is ' . $report_tag);
+		monitorDebug('Format File Loaded, Format is ' . ($format_ok ? 'Ok' : 'Not Ok') . ', Report Tag is ' . $report_tag);
 
 		if ($format_ok) {
 			if ($report_tag) {
@@ -621,7 +621,7 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			$output = $body;
 		}
 
-		monitor_debug('HTML Processed');
+		monitorDebug('HTML Processed');
 
 		if (defined('CACTI_VERSION')) {
 			$version = CACTI_VERSION;
@@ -635,11 +635,11 @@ function process_email($email, $lists, $global_list, $notify_list) {
 			(cacti_sizeof($warn_hosts) ? (cacti_sizeof($alert_hosts) ? ', and ' : '') .
 				sizeof($warn_hosts) . ' Warning Notifications' : '');
 
-		process_send_email($email, $subject, $output, $toutput, $headers, $status);
+		processSendEmail($email, $subject, $output, $toutput, $headers, $status);
 	}
 }
 
-function process_send_email($email, $subject, $output, $toutput, $headers, $status) {
+function processSendEmail($email, $subject, $output, $toutput, $headers, $status) {
 	$from_email = read_config_option('monitor_fromemail');
 
 	if ($from_email == '') {
@@ -663,11 +663,11 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 	$html = true;
 
 	if (read_config_option('thold_send_text_only') == 'on') {
-		$output = monitor_text($toutput);
+		$output = monitorText($toutput);
 		$html   = false;
 	}
 
-	monitor_debug("Sending Email to '$email' for $status");
+	monitorDebug("Sending Email to '$email' for $status");
 
 	$error = mailer(
 		[$from_email, $from_name],
@@ -677,13 +677,13 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 		'',
 		$subject,
 		$output,
-		monitor_text($toutput),
+		monitorText($toutput),
 		null,
 		$headers,
 		$html
 	);
 
-	monitor_debug("The return from the mailer was '$error'");
+	monitorDebug("The return from the mailer was '$error'");
 
 	if (strlen($error)) {
 		cacti_log("WARNING: Monitor had problems sending to '$email' for $status.  The error was '$error'", false, 'MONITOR');
@@ -692,7 +692,7 @@ function process_send_email($email, $subject, $output, $toutput, $headers, $stat
 	}
 }
 
-function monitor_text($output) {
+function monitorText($output) {
 	$output = explode(PHP_EOL, $output);
 
 	$new_output = '';
@@ -709,7 +709,7 @@ function monitor_text($output) {
 	return $new_output;
 }
 
-function log_messages($type, $alert_hosts) {
+function logMessages($type, $alert_hosts) {
 	global $start_date;
 
 	static $processed = [];
@@ -738,7 +738,7 @@ function log_messages($type, $alert_hosts) {
 	}
 }
 
-function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_list, &$lists) {
+function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &$lists) {
 	global $force;
 
 	$last_time = date('Y-m-d H:i:s', time() - read_config_option('monitor_resend_frequency') * 60);
@@ -811,7 +811,7 @@ function get_hosts_by_list_type($type, $criticality, &$global_list, &$notify_lis
 	}
 }
 
-function flatten_lists(&$global_list, &$notify_list) {
+function flattenLists(&$global_list, &$notify_list) {
 	if (cacti_sizeof($global_list)) {
 		foreach ($global_list as $severity => $list) {
 			foreach ($list as $item) {
@@ -833,7 +833,7 @@ function flatten_lists(&$global_list, &$notify_list) {
 	}
 }
 
-function get_emails_and_lists($lists) {
+function getEmailsAndLists($lists) {
 	$notification_emails = [];
 
 	$alert_email = read_config_option('alert_email');
@@ -873,7 +873,7 @@ function get_emails_and_lists($lists) {
 	return $notification_emails;
 }
 
-function purge_event_records() {
+function purgeEventRecords() {
 	// Purge old records
 	$days = read_config_option('monitor_log_storage');
 
@@ -896,7 +896,7 @@ function purge_event_records() {
 	return [$purge_n, $purge_r];
 }
 
-function monitor_debug($message) {
+function monitorDebug($message) {
 	global $debug;
 
 	if ($debug) {
@@ -904,14 +904,14 @@ function monitor_debug($message) {
 	}
 }
 
-function display_version() {
+function displayVersion() {
 	global $config;
 
-	if (!function_exists('plugin_monitor_version')) {
+	if (!function_exists('pluginMonitorVersion')) {
 		include_once($config['base_path'] . '/plugins/monitor/setup.php');
 	}
 
-	$info = plugin_monitor_version();
+	$info = pluginMonitorVersion();
 	print 'Cacti Monitor Poller, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
@@ -919,8 +919,8 @@ function display_version() {
  * display_help
  * displays the usage of the function
  */
-function display_help() {
-	display_version();
+function displayHelp() {
+	displayVersion();
 
 	print PHP_EOL;
 	print 'usage: poller_monitor.php [--force] [--debug]' . PHP_EOL . PHP_EOL;

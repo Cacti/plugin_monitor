@@ -22,30 +22,30 @@
  +-------------------------------------------------------------------------+
 */
 
-function plugin_monitor_install() {
+function pluginMonitorInstall() {
 	// core plugin functionality
-	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitor_show_tab', 'setup.php');
-	api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitor_show_tab', 'setup.php');
-	api_plugin_register_hook('monitor', 'top_graph_refresh', 'monitor_top_graph_refresh', 'setup.php');
+	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitorShowTab', 'setup.php');
+	api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitorShowTab', 'setup.php');
+	api_plugin_register_hook('monitor', 'top_graph_refresh', 'monitorTopGraphRefresh', 'setup.php');
 
-	api_plugin_register_hook('monitor', 'draw_navigation_text', 'monitor_draw_navigation_text', 'setup.php');
-	api_plugin_register_hook('monitor', 'config_form', 'monitor_config_form', 'setup.php');
-	api_plugin_register_hook('monitor', 'config_settings', 'monitor_config_settings', 'setup.php');
-	api_plugin_register_hook('monitor', 'config_arrays', 'monitor_config_arrays', 'setup.php');
-	api_plugin_register_hook('monitor', 'poller_bottom', 'monitor_poller_bottom', 'setup.php');
-	api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php');
+	api_plugin_register_hook('monitor', 'draw_navigation_text', 'monitorDrawNavigationText', 'setup.php');
+	api_plugin_register_hook('monitor', 'config_form', 'monitorConfigForm', 'setup.php');
+	api_plugin_register_hook('monitor', 'config_settings', 'monitorConfigSettings', 'setup.php');
+	api_plugin_register_hook('monitor', 'config_arrays', 'monitorConfigArrays', 'setup.php');
+	api_plugin_register_hook('monitor', 'poller_bottom', 'monitorPollerBottom', 'setup.php');
+	api_plugin_register_hook('monitor', 'page_head', 'pluginMonitorPageHead', 'setup.php');
 
 	// device actions and interaction
-	api_plugin_register_hook('monitor', 'api_device_save', 'monitor_api_device_save', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_action_array', 'monitor_device_action_array', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_action_execute', 'monitor_device_action_execute', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_action_prepare', 'monitor_device_action_prepare', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_remove', 'monitor_device_remove', 'setup.php');
+	api_plugin_register_hook('monitor', 'api_device_save', 'monitorApiDeviceSave', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_action_array', 'monitorDeviceActionArray', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_action_execute', 'monitorDeviceActionExecute', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_action_prepare', 'monitorDeviceActionPrepare', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_remove', 'monitorDeviceRemove', 'setup.php');
 
 	// add new filter for device
-	api_plugin_register_hook('monitor', 'device_filters', 'monitor_device_filters', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_sql_where', 'monitor_device_sql_where', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_table_bottom', 'monitor_device_table_bottom', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_filters', 'monitorDeviceFilters', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_sql_where', 'monitorDeviceSqlWhere', 'setup.php');
+	api_plugin_register_hook('monitor', 'device_table_bottom', 'monitorDeviceTableBottom', 'setup.php');
 
 	api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring Dashboard', 1);
 
@@ -54,10 +54,10 @@ function plugin_monitor_install() {
 	set_config_option('monitor_trim', '4000');
 	set_config_option('monitor_rows', 100);
 
-	monitor_setup_table();
+	monitorSetupTable();
 }
 
-function monitor_device_filters($filters) {
+function monitorDeviceFilters($filters) {
 	$criticalities = [
 		'-1' => __('Any', 'monitor'),
 		'0'  => __('None', 'monitor'),
@@ -80,7 +80,7 @@ function monitor_device_filters($filters) {
 	return $filters;
 }
 
-function monitor_device_sql_where($sql_where) {
+function monitorDeviceSqlWhere($sql_where) {
 	if (get_request_var('criticality') >= 0) {
 		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' monitor_criticality = ' . get_request_var('criticality');
 	}
@@ -88,7 +88,7 @@ function monitor_device_sql_where($sql_where) {
 	return $sql_where;
 }
 
-function monitor_device_table_bottom() {
+function monitorDeviceTableBottom() {
 	$criticalities = [
 		'-1' => __('Any', 'monitor'),
 		'0'  => __('None', 'monitor'),
@@ -156,13 +156,13 @@ function monitor_device_table_bottom() {
 	}
 }
 
-function plugin_monitor_uninstall() {
+function pluginMonitorUninstall() {
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
 }
 
-function plugin_monitor_page_head() {
+function pluginMonitorPageHead() {
 	global $config;
 
 	print get_md5_include_css('plugins/monitor/monitor.css') . PHP_EOL;
@@ -172,10 +172,10 @@ function plugin_monitor_page_head() {
 	}
 }
 
-function plugin_monitor_check_config() {
+function pluginMonitorCheckConfig() {
 	global $config;
 	// Here we will check to ensure everything is configured
-	monitor_check_upgrade();
+	monitorCheckUpgrade();
 
 	include_once($config['library_path'] . '/database.php');
 	$r = read_config_option('monitor_refresh');
@@ -187,28 +187,28 @@ function plugin_monitor_check_config() {
 	return true;
 }
 
-function plugin_monitor_upgrade() {
+function pluginMonitorUpgrade() {
 	// Here we will upgrade to the newest version
-	monitor_check_upgrade();
+	monitorCheckUpgrade();
 
 	return false;
 }
 
-function monitor_check_upgrade() {
+function monitorCheckUpgrade() {
 	$files = ['plugins.php', 'monitor.php'];
 
 	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files, true)) {
 		return;
 	}
 
-	$info    = plugin_monitor_version();
+	$info    = pluginMonitorVersion();
 	$current = $info['version'];
 	$old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory = "monitor"');
 
 	if ($current != $old) {
-		monitor_setup_table();
+		monitorSetupTable();
 
-		api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php', 1);
+		api_plugin_register_hook('monitor', 'page_head', 'pluginMonitorPageHead', 'setup.php', 1);
 
 		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
 
@@ -235,14 +235,14 @@ function monitor_check_upgrade() {
 	}
 }
 
-function plugin_monitor_version() {
+function pluginMonitorVersion() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);
 
 	return $info['info'];
 }
 
-function monitor_device_action_execute($action) {
+function monitorDeviceActionExecute($action) {
 	global $config, $fields_host_edit;
 
 	if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
@@ -318,7 +318,7 @@ function monitor_device_action_execute($action) {
 	return $action;
 }
 
-function monitor_device_remove($devices) {
+function monitorDeviceRemove($devices) {
 	db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
 	db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
 	db_execute('DELETE FROM plugin_monitor_uptime WHERE host_id IN(' . implode(',', $devices) . ')');
@@ -326,7 +326,7 @@ function monitor_device_remove($devices) {
 	return $devices;
 }
 
-function monitor_device_action_prepare($save) {
+function monitorDeviceActionPrepare($save) {
 	global $host_list, $fields_host_edit;
 
 	if (!isset($save['drp_action'])) {
@@ -395,7 +395,7 @@ function monitor_device_action_prepare($save) {
 	}
 }
 
-function monitor_device_action_array($device_action_array) {
+function monitorDeviceActionArray($device_action_array) {
 	$device_action_array['monitor_settings'] = __('Change Monitoring Options', 'monitor');
 	$device_action_array['monitor_enable']   = __('Enable Monitoring', 'monitor');
 	$device_action_array['monitor_disable']  = __('Disable Monitoring', 'monitor');
@@ -403,7 +403,7 @@ function monitor_device_action_array($device_action_array) {
 	return $device_action_array;
 }
 
-function monitor_scan_dir() {
+function monitorScanDir() {
 	global $config;
 
 	$ext   = ['.wav', '.mp3'];
@@ -422,7 +422,7 @@ function monitor_scan_dir() {
 	return $files;
 }
 
-function monitor_config_settings() {
+function monitorConfigSettings() {
 	global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
 	include_once($config['base_path'] . '/lib/reports.php');
@@ -472,7 +472,7 @@ function monitor_config_settings() {
 				'friendly_name' => __('Alarm Sound', 'monitor'),
 				'description'   => __('This is the sound file that will be played when a Device goes down.', 'monitor'),
 				'method'        => 'drop_array',
-				'array'         => monitor_scan_dir(),
+				'array'         => monitorScanDir(),
 				'default'       => 'attn-noc.wav',
 			],
 			'monitor_sound_loop' => [
@@ -538,7 +538,7 @@ function monitor_config_settings() {
 			'friendly_name' => __('Alarm Sound', 'monitor'),
 			'description'   => __('This is the sound file that will be played when a Device goes down.', 'monitor'),
 			'method'        => 'drop_array',
-			'array'         => monitor_scan_dir(),
+			'array'         => monitorScanDir(),
 			'default'       => 'attn-noc.wav',
 		],
 		'monitor_sound_loop' => [
@@ -711,7 +711,7 @@ function monitor_config_settings() {
 	}
 }
 
-function monitor_config_arrays() {
+function monitorConfigArrays() {
 	global $fa_icons;
 
 	$fa_icons = [
@@ -790,10 +790,10 @@ function monitor_config_arrays() {
 		$fa_icons = $nfa_icons;
 	}
 
-	monitor_check_upgrade();
+	monitorCheckUpgrade();
 }
 
-function monitor_top_graph_refresh($refresh) {
+function monitorTopGraphRefresh($refresh) {
 	if (get_current_page() != 'monitor.php') {
 		return $refresh;
 	}
@@ -807,10 +807,10 @@ function monitor_top_graph_refresh($refresh) {
 	return $r;
 }
 
-function monitor_show_tab() {
+function monitorShowTab() {
 	global $config;
 
-	monitor_check_upgrade();
+	monitorCheckUpgrade();
 
 	if (api_user_realm_auth('monitor.php')) {
 		if (substr_count($_SERVER['REQUEST_URI'], 'monitor.php')) {
@@ -821,7 +821,7 @@ function monitor_show_tab() {
 	}
 }
 
-function monitor_config_form() {
+function monitorConfigForm() {
 	global $config, $fields_host_edit, $criticalities, $fa_icons;
 
 	$baselines = [
@@ -874,7 +874,7 @@ function monitor_config_form() {
 			$host_id = get_nfilter_request_var('id');
 
 			if (empty($host_id) || !is_numeric($host_id)) {
-				$fields_host_edit3['monitor']['default'] = monitor_get_default($host_id);
+				$fields_host_edit3['monitor']['default'] = monitorGetDefault($host_id);
 			}
 
 			$fields_host_edit3['monitor_criticality'] = [
@@ -957,7 +957,7 @@ function monitor_config_form() {
 	$fields_host_edit = $fields_host_edit3;
 }
 
-function monitor_get_default($host_id) {
+function monitorGetDefault($host_id) {
 	$monitor_new_device = '';
 
 	if ($host_id <= 0) {
@@ -967,10 +967,10 @@ function monitor_get_default($host_id) {
 	return $monitor_new_device;
 }
 
-function monitor_api_device_save($save) {
+function monitorApiDeviceSave($save) {
 	global $fa_icons;
 
-	$monitor_default = monitor_get_default($save['id']);
+	$monitor_default = monitorGetDefault($save['id']);
 
 	if (isset_request_var('monitor')) {
 		$save['monitor'] = form_input_validate(get_nfilter_request_var('monitor'), 'monitor', $monitor_default, true, 3);
@@ -1033,13 +1033,13 @@ function monitor_api_device_save($save) {
 	return $save;
 }
 
-function monitor_draw_navigation_text($nav) {
+function monitorDrawNavigationText($nav) {
 	$nav['monitor.php:'] = ['title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '0'];
 
 	return $nav;
 }
 
-function monitor_setup_table() {
+function monitorSetupTable() {
 	if (!db_table_exists('plugin_monitor_notify_history')) {
 		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
 			id int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1099,7 +1099,7 @@ function monitor_setup_table() {
 	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
 }
 
-function monitor_poller_bottom() {
+function monitorPollerBottom() {
 	global $config;
 
 	if ($config['poller_id'] == 1) {
