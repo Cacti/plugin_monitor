@@ -1,7 +1,7 @@
 let refreshMSeconds = 99999999;
 let myTimer;
 
-const monitorCfg = window.monitorPageConfig || {};
+const monitorCfg = globalThis.monitorPageConfig || {};
 const mbColor = monitorCfg.mbColor || '';
 const monitorFont = monitorCfg.monitorFont || '10px';
 const dozoomRefresh = Boolean(monitorCfg.doZoomRefresh);
@@ -18,37 +18,37 @@ function setZoomErrorBackgrounds() {
 
 function setIntervalX(callback, delay, repetitions) {
 	let x = 0;
-	const intervalID = window.setInterval(() => {
+	const intervalID = globalThis.setInterval(() => {
 		callback();
 		if (++x === repetitions) {
-			window.clearInterval(intervalID);
+			globalThis.clearInterval(intervalID);
 			setZoomErrorBackgrounds();
 		}
 	}, delay);
 }
 
-if (mbColor !== '') {
+if (mbColor === '') {
+	$('.monitor_container').css('background-color', '');
+	$('.cactiConsoleContentArea').css('background-color', '');
+} else {
 	let monoe = false;
 
 	setZoomErrorBackgrounds();
 	$('.monitor_errorzoom_title').css('font-size', monitorFont);
 
 	setIntervalX(() => {
-		if (!monoe) {
-			setZoomErrorBackgrounds();
-			monoe = true;
-		} else {
+		if (monoe) {
 			if (mbColor !== '') {
 				$('.monitor_container').css('background-color', '');
 				$('.cactiConsoleContentArea').css('background-color', '');
 			}
 
 			monoe = false;
+		} else {
+			setZoomErrorBackgrounds();
+			monoe = true;
 		}
 	}, 600, 8);
-} else {
-	$('.monitor_container').css('background-color', '');
-	$('.cactiConsoleContentArea').css('background-color', '');
 }
 
 function timeStep() {
@@ -87,7 +87,9 @@ function applyFilter(action = '') {
 
 	let strURL;
 
-	if (action !== 'dashboard') {
+	if (action === 'dashboard') {
+		strURL = `monitor.php?action=dbchange&header=false&dashboard=${$('#dashboard').val()}`;
+	} else {
 		strURL = 'monitor.php?header=false';
 
 		if (action >= '') {
@@ -107,8 +109,6 @@ function applyFilter(action = '') {
 		strURL += `&mute=${$('#mute').val()}`;
 		strURL += `&rfilter=${base64_encode($('#rfilter').val())}`;
 		strURL += `&status=${$('#status').val()}`;
-	} else {
-		strURL = `monitor.php?action=dbchange&header=false&dashboard=${$('#dashboard').val()}`;
 	}
 
 	loadIt(strURL);
@@ -223,7 +223,7 @@ function saveDashboard(action) {
 		minHeight: 80,
 		minWidth: 500,
 		buttons: btnDialog,
-		position: { at: 'center top+240px', of: window },
+		position: { at: 'center top+240px', of: globalThis },
 		open() {
 			$('#name').val($('#dashboard option:selected').text());
 			$('#btnSave').addClass('ui-state-active');
@@ -314,7 +314,7 @@ $(() => {
 		open(event, ui) {
 			ajaxAnchors();
 
-			if (typeof event.originalEvent === 'undefined') {
+			if (event.originalEvent === undefined) {
 				return false;
 			}
 		},
@@ -340,7 +340,7 @@ $(() => {
 
 	myTimer = setTimeout(timeStep, 1000);
 
-	$(window).resize(() => {
+	$(globalThis).resize(() => {
 		$(document).tooltip('option', 'position', { my: '1eft:15 top', at: 'right center' });
 	});
 
