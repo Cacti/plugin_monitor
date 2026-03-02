@@ -22,95 +22,99 @@
  +-------------------------------------------------------------------------+
 */
 
-function pluginMonitorInstall() {
-	// core plugin functionality
-	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitorShowTab', 'setup.php');
-	api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitorShowTab', 'setup.php');
-	api_plugin_register_hook('monitor', 'top_graph_refresh', 'monitorTopGraphRefresh', 'setup.php');
+function pluginMonitorInstall()
+{
+    // core plugin functionality
+    api_plugin_register_hook('monitor', 'top_header_tabs', 'monitorShowTab', 'setup.php');
+    api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitorShowTab', 'setup.php');
+    api_plugin_register_hook('monitor', 'top_graph_refresh', 'monitorTopGraphRefresh', 'setup.php');
 
-	api_plugin_register_hook('monitor', 'draw_navigation_text', 'monitorDrawNavigationText', 'setup.php');
-	api_plugin_register_hook('monitor', 'config_form', 'monitorConfigForm', 'setup.php');
-	api_plugin_register_hook('monitor', 'config_settings', 'monitorConfigSettings', 'setup.php');
-	api_plugin_register_hook('monitor', 'config_arrays', 'monitorConfigArrays', 'setup.php');
-	api_plugin_register_hook('monitor', 'poller_bottom', 'monitorPollerBottom', 'setup.php');
-	api_plugin_register_hook('monitor', 'page_head', 'pluginMonitorPageHead', 'setup.php');
+    api_plugin_register_hook('monitor', 'draw_navigation_text', 'monitorDrawNavigationText', 'setup.php');
+    api_plugin_register_hook('monitor', 'config_form', 'monitorConfigForm', 'setup.php');
+    api_plugin_register_hook('monitor', 'config_settings', 'monitorConfigSettings', 'setup.php');
+    api_plugin_register_hook('monitor', 'config_arrays', 'monitorConfigArrays', 'setup.php');
+    api_plugin_register_hook('monitor', 'poller_bottom', 'monitorPollerBottom', 'setup.php');
+    api_plugin_register_hook('monitor', 'page_head', 'pluginMonitorPageHead', 'setup.php');
 
-	// device actions and interaction
-	api_plugin_register_hook('monitor', 'api_device_save', 'monitorApiDeviceSave', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_action_array', 'monitorDeviceActionArray', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_action_execute', 'monitorDeviceActionExecute', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_action_prepare', 'monitorDeviceActionPrepare', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_remove', 'monitorDeviceRemove', 'setup.php');
+    // device actions and interaction
+    api_plugin_register_hook('monitor', 'api_device_save', 'monitorApiDeviceSave', 'setup.php');
+    api_plugin_register_hook('monitor', 'device_action_array', 'monitorDeviceActionArray', 'setup.php');
+    api_plugin_register_hook('monitor', 'device_action_execute', 'monitorDeviceActionExecute', 'setup.php');
+    api_plugin_register_hook('monitor', 'device_action_prepare', 'monitorDeviceActionPrepare', 'setup.php');
+    api_plugin_register_hook('monitor', 'device_remove', 'monitorDeviceRemove', 'setup.php');
 
-	// add new filter for device
-	api_plugin_register_hook('monitor', 'device_filters', 'monitorDeviceFilters', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_sql_where', 'monitorDeviceSqlWhere', 'setup.php');
-	api_plugin_register_hook('monitor', 'device_table_bottom', 'monitorDeviceTableBottom', 'setup.php');
+    // add new filter for device
+    api_plugin_register_hook('monitor', 'device_filters', 'monitorDeviceFilters', 'setup.php');
+    api_plugin_register_hook('monitor', 'device_sql_where', 'monitorDeviceSqlWhere', 'setup.php');
+    api_plugin_register_hook('monitor', 'device_table_bottom', 'monitorDeviceTableBottom', 'setup.php');
 
-	api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring Dashboard', 1);
+    api_plugin_register_realm('monitor', 'monitor.php', 'View Monitoring Dashboard', 1);
 
-	set_config_option('monitor_view', 'default');
-	set_config_option('monitor_grouping', 'default');
-	set_config_option('monitor_trim', '4000');
-	set_config_option('monitor_rows', 100);
+    set_config_option('monitor_view', 'default');
+    set_config_option('monitor_grouping', 'default');
+    set_config_option('monitor_trim', '4000');
+    set_config_option('monitor_rows', 100);
 
-	monitorSetupTable();
+    monitorSetupTable();
 }
 
-function monitorDeviceFilters($filters) {
-	$criticalities = [
-		'-1' => __('Any', 'monitor'),
-		'0'  => __('None', 'monitor'),
-		'1'  => __('Low', 'monitor'),
-		'2'  => __('Medium', 'monitor'),
-		'3'  => __('High', 'monitor'),
-		'4'  => __('Mission Critical', 'monitor')
-	];
+function monitorDeviceFilters($filters)
+{
+    $criticalities = [
+        '-1' => __('Any', 'monitor'),
+        '0'  => __('None', 'monitor'),
+        '1'  => __('Low', 'monitor'),
+        '2'  => __('Medium', 'monitor'),
+        '3'  => __('High', 'monitor'),
+        '4'  => __('Mission Critical', 'monitor')
+    ];
 
-	$filters['criticality'] = [
-		'friendly_name' => __('Criticality', 'monitor'),
-		'method'        => 'drop_array',
-		'filter'        => FILTER_VALIDATE_INT,
-		'pageset'       => true,
-		'default'       => '-1',
-		'array'         => $criticalities,
-		'value'         => '-1'
-	];
+    $filters['criticality'] = [
+        'friendly_name' => __('Criticality', 'monitor'),
+        'method'        => 'drop_array',
+        'filter'        => FILTER_VALIDATE_INT,
+        'pageset'       => true,
+        'default'       => '-1',
+        'array'         => $criticalities,
+        'value'         => '-1'
+    ];
 
-	return $filters;
+    return $filters;
 }
 
-function monitorDeviceSqlWhere($sql_where) {
-	if (get_request_var('criticality') >= 0) {
-		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' monitor_criticality = ' . get_request_var('criticality');
-	}
+function monitorDeviceSqlWhere($sql_where)
+{
+    if (get_request_var('criticality') >= 0) {
+        $sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' monitor_criticality = ' . get_request_var('criticality');
+    }
 
-	return $sql_where;
+    return $sql_where;
 }
 
-function monitorDeviceTableBottom() {
-	$criticalities = [
-		'-1' => __('Any', 'monitor'),
-		'0'  => __('None', 'monitor'),
-		'1'  => __('Low', 'monitor'),
-		'2'  => __('Medium', 'monitor'),
-		'3'  => __('High', 'monitor'),
-		'4'  => __('Mission Critical', 'monitor')
-	];
+function monitorDeviceTableBottom()
+{
+    $criticalities = [
+        '-1' => __('Any', 'monitor'),
+        '0'  => __('None', 'monitor'),
+        '1'  => __('Low', 'monitor'),
+        '2'  => __('Medium', 'monitor'),
+        '3'  => __('High', 'monitor'),
+        '4'  => __('Mission Critical', 'monitor')
+    ];
 
-	if (version_compare(CACTI_VERSION, '1.3.0', '<')) {
-		$select = '<td>' . __('Criticality') . '</td><td><select id="criticality">';
+    if (version_compare(CACTI_VERSION, '1.3.0', '<')) {
+        $select = '<td>' . __('Criticality') . '</td><td><select id="criticality">';
 
-		foreach ($criticalities as $index => $crit) {
-			if ($index == get_request_var('criticality')) {
-				$select .= '<option selected value="' . $index . '">' . $crit . '</option>';
-			} else {
-				$select .= '<option value="' . $index . '">' . $crit . '</option>';
-			}
-		}
-		$select .= '</select></td>';
+        foreach ($criticalities as $index => $crit) {
+            if ($index == get_request_var('criticality')) {
+                $select .= '<option selected value="' . $index . '">' . $crit . '</option>';
+            } else {
+                $select .= '<option value="' . $index . '">' . $crit . '</option>';
+            }
+        }
+        $select .= '</select></td>';
 
-		?>
+        ?>
 		<script type='text/javascript'>
 		$(function() {
 			$('#rows').parent().after('<?php print $select; ?>');
@@ -153,895 +157,934 @@ function monitorDeviceTableBottom() {
 
 		</script>
 		<?php
-	}
+    }
 }
 
-function pluginMonitorUninstall() {
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
+function pluginMonitorUninstall()
+{
+    db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
+    db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
+    db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
 }
 
-function pluginMonitorPageHead() {
-	global $config;
+function pluginMonitorPageHead()
+{
+    global $config;
 
-	print get_md5_include_css('plugins/monitor/monitor.css') . PHP_EOL;
+    print get_md5_include_css('plugins/monitor/monitor.css') . PHP_EOL;
 
-	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
-		print get_md5_include_css('plugins/monitor/themes/' . get_selected_theme() . '/monitor.css') . PHP_EOL;
-	}
+    if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
+        print get_md5_include_css('plugins/monitor/themes/' . get_selected_theme() . '/monitor.css') . PHP_EOL;
+    }
 }
 
-function pluginMonitorCheckConfig() {
-	global $config;
-	// Here we will check to ensure everything is configured
-	monitorCheckUpgrade();
+function pluginMonitorCheckConfig()
+{
+    global $config;
+    // Here we will check to ensure everything is configured
+    monitorCheckUpgrade();
 
-	include_once($config['library_path'] . '/database.php');
-	$r = read_config_option('monitor_refresh');
+    include_once($config['library_path'] . '/database.php');
+    $r = read_config_option('monitor_refresh');
 
-	if ($r == '' || $r < 1 || $r > 300) {
-		set_config_option('monitor_refresh', '300');
-	}
+    if ($r == '' || $r < 1 || $r > 300) {
+        set_config_option('monitor_refresh', '300');
+    }
 
-	return true;
+    return true;
 }
 
-function pluginMonitorUpgrade() {
-	// Here we will upgrade to the newest version
-	monitorCheckUpgrade();
+function pluginMonitorUpgrade()
+{
+    // Here we will upgrade to the newest version
+    monitorCheckUpgrade();
 
-	return false;
+    return false;
 }
 
-function monitorCheckUpgrade() {
-	$files = ['plugins.php', 'monitor.php'];
+function monitorCheckUpgrade()
+{
+    $files = ['plugins.php', 'monitor.php'];
 
-	if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files, true)) {
-		return;
-	}
+    if (isset($_SERVER['PHP_SELF']) && !in_array(basename($_SERVER['PHP_SELF']), $files, true)) {
+        return;
+    }
 
-	$info    = pluginMonitorVersion();
-	$current = $info['version'];
-	$old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory = "monitor"');
+    $info    = pluginMonitorVersion();
+    $current = $info['version'];
+    $old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory = "monitor"');
 
-	if ($current != $old) {
-		monitorSetupTable();
+    if ($current != $old) {
+        monitorSetupTable();
 
-		api_plugin_register_hook('monitor', 'page_head', 'pluginMonitorPageHead', 'setup.php', 1);
+        api_plugin_register_hook('monitor', 'page_head', 'pluginMonitorPageHead', 'setup.php', 1);
 
-		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
+        db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
 
-		db_execute('ALTER TABLE plugin_monitor_uptime
+        db_execute('ALTER TABLE plugin_monitor_uptime
 			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
 
-		api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
+        api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
 
-		if (function_exists('api_plugin_upgrade_register')) {
-			api_plugin_upgrade_register('monitor');
-		} else {
-			db_execute_prepared('UPDATE plugin_config
+        if (function_exists('api_plugin_upgrade_register')) {
+            api_plugin_upgrade_register('monitor');
+        } else {
+            db_execute_prepared(
+                'UPDATE plugin_config
 				SET version = ?, name = ?, author = ?, webpage = ?
 				WHERE directory = ?',
-				[
-					$info['version'],
-					$info['longname'],
-					$info['author'],
-					$info['homepage'],
-					$info['name']
-				]
-			);
-		}
-	}
+                [
+                    $info['version'],
+                    $info['longname'],
+                    $info['author'],
+                    $info['homepage'],
+                    $info['name']
+                ]
+            );
+        }
+    }
 }
 
-function pluginMonitorVersion() {
-	global $config;
-	$info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);
+function pluginMonitorVersion()
+{
+    global $config;
+    $info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);
 
-	return $info['info'];
+    return $info['info'];
 }
 
-function monitorDeviceActionExecute($action) {
-	global $config, $fields_host_edit;
+function monitorDeviceActionExecute($action)
+{
+    global $config, $fields_host_edit;
 
-	if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
-		return $action;
-	}
+    if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
+        return $action;
+    }
 
-	$selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
+    $selected_items = sanitize_unserialize_selected_items(get_nfilter_request_var('selected_items'));
 
-	if ($selected_items != false) {
-		if ($action == 'monitor_enable' || $action == 'monitor_disable') {
-			for ($i = 0; ($i < count($selected_items)); $i++) {
-				if ($action == 'monitor_enable') {
-					db_execute_prepared('UPDATE host
+    if ($selected_items != false) {
+        if ($action == 'monitor_enable' || $action == 'monitor_disable') {
+            for ($i = 0; ($i < count($selected_items)); $i++) {
+                if ($action == 'monitor_enable') {
+                    db_execute_prepared(
+                        'UPDATE host
 						SET monitor = "on"
 						WHERE deleted = ""
 						AND id = ?',
-						[$selected_items[$i]]);
-				} elseif ($action == 'monitor_disable') {
-					db_execute_prepared('UPDATE host
+                        [$selected_items[$i]]
+                    );
+                } elseif ($action == 'monitor_disable') {
+                    db_execute_prepared(
+                        'UPDATE host
 						SET monitor = ""
 						WHERE deleted = ""
 						AND id = ?',
-						[$selected_items[$i]]);
-				}
-			}
-		} else {
-			for ($i = 0; ($i < count($selected_items)); $i++) {
-				reset($fields_host_edit);
+                        [$selected_items[$i]]
+                    );
+                }
+            }
+        } else {
+            for ($i = 0; ($i < count($selected_items)); $i++) {
+                reset($fields_host_edit);
 
-				foreach ($fields_host_edit as $field_name => $field_array) {
-					if (isset_request_var("t_$field_name")) {
-						if ($field_name == 'monitor_alert_baseline') {
-							$cur_time = db_fetch_cell_prepared('SELECT cur_time
+                foreach ($fields_host_edit as $field_name => $field_array) {
+                    if (isset_request_var("t_$field_name")) {
+                        if ($field_name == 'monitor_alert_baseline') {
+                            $cur_time = db_fetch_cell_prepared(
+                                'SELECT cur_time
 								FROM host
 								WHERE deleted = ""
 								AND id = ?',
-								[$selected_items[$i]]);
+                                [$selected_items[$i]]
+                            );
 
-							if ($cur_time > 0) {
-								db_execute_prepared('UPDATE host
+                            if ($cur_time > 0) {
+                                db_execute_prepared(
+                                    'UPDATE host
 									SET monitor_alert = CEIL(avg_time*?)
 									WHERE deleted = ""
 									AND id = ?',
-									[get_nfilter_request_var($field_name), $selected_items[$i]]);
-							}
-						} elseif ($field_name == 'monitor_warn_baseline') {
-							$cur_time = db_fetch_cell_prepared('SELECT cur_time
+                                    [get_nfilter_request_var($field_name), $selected_items[$i]]
+                                );
+                            }
+                        } elseif ($field_name == 'monitor_warn_baseline') {
+                            $cur_time = db_fetch_cell_prepared(
+                                'SELECT cur_time
 								FROM host
 								WHERE deleted = ""
 								AND id = ?',
-								[$selected_items[$i]]);
+                                [$selected_items[$i]]
+                            );
 
-							if ($cur_time > 0) {
-								db_execute_prepared('UPDATE host
+                            if ($cur_time > 0) {
+                                db_execute_prepared(
+                                    'UPDATE host
 									SET monitor_warn = CEIL(avg_time*?)
 									WHERE deleted = ""
 									AND id = ?',
-									[get_nfilter_request_var($field_name), $selected_items[$i]]);
-							}
-						} else {
-							db_execute_prepared("UPDATE host
+                                    [get_nfilter_request_var($field_name), $selected_items[$i]]
+                                );
+                            }
+                        } else {
+                            db_execute_prepared(
+                                "UPDATE host
 								SET $field_name = ?
 								WHERE deleted=''
 								AND id = ?",
-								[get_nfilter_request_var($field_name), $selected_items[$i]]);
-						}
-					}
-				}
-			}
-		}
-	}
+                                [get_nfilter_request_var($field_name), $selected_items[$i]]
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-	return $action;
+    return $action;
 }
 
-function monitorDeviceRemove($devices) {
-	db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
-	db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
-	db_execute('DELETE FROM plugin_monitor_uptime WHERE host_id IN(' . implode(',', $devices) . ')');
+function monitorDeviceRemove($devices)
+{
+    db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
+    db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
+    db_execute('DELETE FROM plugin_monitor_uptime WHERE host_id IN(' . implode(',', $devices) . ')');
 
-	return $devices;
+    return $devices;
 }
 
-function monitorDeviceActionPrepare($save) {
-	global $host_list, $fields_host_edit;
+function monitorDeviceActionPrepare($save)
+{
+    global $host_list, $fields_host_edit;
 
-	if (!isset($save['drp_action'])) {
-		return $save;
-	} else {
-		$action = $save['drp_action'];
+    if (!isset($save['drp_action'])) {
+        return $save;
+    } else {
+        $action = $save['drp_action'];
 
-		if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
-			return $save;
-		}
+        if ($action != 'monitor_enable' && $action != 'monitor_disable' && $action != 'monitor_settings') {
+            return $save;
+        }
 
-		if ($action == 'monitor_enable' || $action == 'monitor_disable') {
-			if ($action == 'monitor_enable') {
-				$action_description = 'enable';
-			} elseif ($action == 'monitor_disable') {
-				$action_description = 'disable';
-			}
+        if ($action == 'monitor_enable' || $action == 'monitor_disable') {
+            if ($action == 'monitor_enable') {
+                $action_description = 'enable';
+            } elseif ($action == 'monitor_disable') {
+                $action_description = 'disable';
+            }
 
-			print "<tr>
+            print "<tr>
 				<td colspan='2' class='even'>
 					<p>" . __('Click \'Continue\' to %s monitoring on these Device(s)', $action_description, 'monitor') . "</p>
 					<p><div class='itemlist'><ul>" . $save['host_list'] . '</ul></div></p>
 				</td>
 			</tr>';
-		} else {
-			print "<tr>
+        } else {
+            print "<tr>
 				<td colspan='2' class='even'>
 					<p>" . __('Click \'Continue\' to Change the Monitoring settings for the following Device(s). Remember to check \'Update this Field\' to indicate which columns to update.', 'monitor') . "</p>
 					<p><div class='itemlist'><ul>" . $save['host_list'] . '</ul></div></p>
 				</td>
 			</tr>';
 
-			$form_array = [];
-			$fields     = [
-				'monitor',
-				'monitor_text',
-				'monitor_criticality',
-				'monitor_warn',
-				'monitor_alert',
-				'monitor_warn_baseline',
-				'monitor_alert_baseline',
-				'monitor_icon'
-			];
+            $form_array = [];
+            $fields     = [
+                'monitor',
+                'monitor_text',
+                'monitor_criticality',
+                'monitor_warn',
+                'monitor_alert',
+                'monitor_warn_baseline',
+                'monitor_alert_baseline',
+                'monitor_icon'
+            ];
 
-			foreach ($fields as $field) {
-				$form_array += [$field => $fields_host_edit[$field]];
+            foreach ($fields as $field) {
+                $form_array += [$field => $fields_host_edit[$field]];
 
-				$form_array[$field]['value']        = '';
-				$form_array[$field]['form_id']      = 0;
-				$form_array[$field]['sub_checkbox'] = [
-					'name'          => 't_' . $field,
-					'friendly_name' => __('Update this Field', 'monitor'),
-					'value'         => ''
-				];
-			}
+                $form_array[$field]['value']        = '';
+                $form_array[$field]['form_id']      = 0;
+                $form_array[$field]['sub_checkbox'] = [
+                    'name'          => 't_' . $field,
+                    'friendly_name' => __('Update this Field', 'monitor'),
+                    'value'         => ''
+                ];
+            }
 
-			draw_edit_form(
-				[
-					'config' => ['no_form_tag' => true],
-					'fields' => $form_array
-				]
-			);
-		}
+            draw_edit_form(
+                [
+                    'config' => ['no_form_tag' => true],
+                    'fields' => $form_array
+                ]
+            );
+        }
 
-		return $save;
-	}
+        return $save;
+    }
 }
 
-function monitorDeviceActionArray($device_action_array) {
-	$device_action_array['monitor_settings'] = __('Change Monitoring Options', 'monitor');
-	$device_action_array['monitor_enable']   = __('Enable Monitoring', 'monitor');
-	$device_action_array['monitor_disable']  = __('Disable Monitoring', 'monitor');
+function monitorDeviceActionArray($device_action_array)
+{
+    $device_action_array['monitor_settings'] = __('Change Monitoring Options', 'monitor');
+    $device_action_array['monitor_enable']   = __('Enable Monitoring', 'monitor');
+    $device_action_array['monitor_disable']  = __('Disable Monitoring', 'monitor');
 
-	return $device_action_array;
+    return $device_action_array;
 }
 
-function monitorScanDir() {
-	global $config;
+function monitorScanDir()
+{
+    global $config;
 
-	$ext   = ['.wav', '.mp3'];
-	$d     = dir($config['base_path'] . '/plugins/monitor/sounds/');
-	$files = [];
+    $ext   = ['.wav', '.mp3'];
+    $d     = dir($config['base_path'] . '/plugins/monitor/sounds/');
+    $files = [];
 
-	while (false !== ($entry = $d->read())) {
-		if ($entry != '.' && $entry != '..' && in_array(strtolower(substr($entry,-4)),$ext, true)) {
-			$files[$entry] = $entry;
-		}
-	}
-	$d->close();
-	asort($files); // sort the files
-	array_unshift($files, 'None'); // prepend the None option
+    while (false !== ($entry = $d->read())) {
+        if ($entry != '.' && $entry != '..' && in_array(strtolower(substr($entry, -4)), $ext, true)) {
+            $files[$entry] = $entry;
+        }
+    }
+    $d->close();
+    asort($files); // sort the files
+    array_unshift($files, 'None'); // prepend the None option
 
-	return $files;
+    return $files;
 }
 
-function monitorConfigSettings() {
-	global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
+function monitorConfigSettings()
+{
+    global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
-	include_once($config['base_path'] . '/lib/reports.php');
+    include_once($config['base_path'] . '/lib/reports.php');
 
-	if (get_nfilter_request_var('tab') == 'monitor') {
-		$formats = reports_get_format_files();
-	} elseif (empty($formats)) {
-		$formats = [];
-	}
+    if (get_nfilter_request_var('tab') == 'monitor') {
+        $formats = reports_get_format_files();
+    } elseif (empty($formats)) {
+        $formats = [];
+    }
 
-	$criticalities = [
-		0 => __('Disabled', 'monitor'),
-		1 => __('Low', 'monitor'),
-		2 => __('Medium', 'monitor'),
-		3 => __('High', 'monitor'),
-		4 => __('Mission Critical', 'monitor')
-	];
+    $criticalities = [
+        0 => __('Disabled', 'monitor'),
+        1 => __('Low', 'monitor'),
+        2 => __('Medium', 'monitor'),
+        3 => __('High', 'monitor'),
+        4 => __('Mission Critical', 'monitor')
+    ];
 
-	$log_retentions = [
-		'-1'  => __('Indefinitely', 'monitor'),
-		'31'  => __('%d Month', 1, 'monitor'),
-		'62'  => __('%d Months', 2, 'monitor'),
-		'93'  => __('%d Months', 3, 'monitor'),
-		'124' => __('%d Months', 4, 'monitor'),
-		'186' => __('%d Months', 6, 'monitor'),
-		'365' => __('%d Year', 1, 'monitor')
-	];
+    $log_retentions = [
+        '-1'  => __('Indefinitely', 'monitor'),
+        '31'  => __('%d Month', 1, 'monitor'),
+        '62'  => __('%d Months', 2, 'monitor'),
+        '93'  => __('%d Months', 3, 'monitor'),
+        '124' => __('%d Months', 4, 'monitor'),
+        '186' => __('%d Months', 6, 'monitor'),
+        '365' => __('%d Year', 1, 'monitor')
+    ];
 
-	$font_sizes = [
-		'20' => '20px',
-		'30' => '30px',
-		'40' => '40px',
-		'50' => '50px',
-		'60' => '60px',
-		'70' => '70px'
-	];
+    $font_sizes = [
+        '20' => '20px',
+        '30' => '30px',
+        '40' => '40px',
+        '50' => '50px',
+        '60' => '60px',
+        '70' => '70px'
+    ];
 
-	if (function_exists('auth_augment_roles')) {
-		auth_augment_roles(__('Normal User'), ['monitor.php']);
-	}
+    if (function_exists('auth_augment_roles')) {
+        auth_augment_roles(__('Normal User'), ['monitor.php']);
+    }
 
-	$tabs_graphs += ['monitor' => __('Monitor Settings', 'monitor')];
+    $tabs_graphs += ['monitor' => __('Monitor Settings', 'monitor')];
 
-	$settings_user += [
-		'monitor' => [
-			'monitor_sound' => [
-				'friendly_name' => __('Alarm Sound', 'monitor'),
-				'description'   => __('This is the sound file that will be played when a Device goes down.', 'monitor'),
-				'method'        => 'drop_array',
-				'array'         => monitorScanDir(),
-				'default'       => 'attn-noc.wav',
-			],
-			'monitor_sound_loop' => [
-				'friendly_name' => __('Loop Alarm Sound', 'monitor'),
-				'description'   => __('Play the above sound on a loop when a Device goes down.', 'monitor'),
-				'method'        => 'checkbox',
-			],
-			'monitor_legend' => [
-				'friendly_name' => __('Show Icon Legend', 'monitor'),
-				'description'   => __('Check this to show an icon legend on the Monitor display', 'monitor'),
-				'method'        => 'checkbox',
-			],
-			'monitor_uptime' => [
-				'friendly_name' => __('Show Uptime', 'monitor'),
-				'description'   => __('Check this to show Uptime on the Monitor display', 'monitor'),
-				'method'        => 'checkbox',
-			],
-			'monitor_error_zoom' => [
-				'friendly_name' => __('Zoom to Errors', 'monitor'),
-				'description'   => __('Check this to zoom to errored items on the Monitor display', 'monitor'),
-				'method'        => 'checkbox',
-			],
-			'monitor_error_background' => [
-				'friendly_name' => __('Zoom Background', 'monitor'),
-				'description'   => __('Background Color for Zoomed Errors on the Monitor display', 'monitor'),
-				'method'        => 'drop_color',
-			],
-			'monitor_error_fontsize' => [
-				'friendly_name' => __('Zoom Fontsize', 'monitor'),
-				'description'   => __('Check this to zoom to errored items on the Monitor display', 'monitor'),
-				'method'        => 'drop_array',
-				'default'       => '50',
-				'array'         => $font_sizes
-			]
-		]
-	];
+    $settings_user += [
+        'monitor' => [
+            'monitor_sound' => [
+                'friendly_name' => __('Alarm Sound', 'monitor'),
+                'description'   => __('This is the sound file that will be played when a Device goes down.', 'monitor'),
+                'method'        => 'drop_array',
+                'array'         => monitorScanDir(),
+                'default'       => 'attn-noc.wav',
+            ],
+            'monitor_sound_loop' => [
+                'friendly_name' => __('Loop Alarm Sound', 'monitor'),
+                'description'   => __('Play the above sound on a loop when a Device goes down.', 'monitor'),
+                'method'        => 'checkbox',
+            ],
+            'monitor_legend' => [
+                'friendly_name' => __('Show Icon Legend', 'monitor'),
+                'description'   => __('Check this to show an icon legend on the Monitor display', 'monitor'),
+                'method'        => 'checkbox',
+            ],
+            'monitor_uptime' => [
+                'friendly_name' => __('Show Uptime', 'monitor'),
+                'description'   => __('Check this to show Uptime on the Monitor display', 'monitor'),
+                'method'        => 'checkbox',
+            ],
+            'monitor_error_zoom' => [
+                'friendly_name' => __('Zoom to Errors', 'monitor'),
+                'description'   => __('Check this to zoom to errored items on the Monitor display', 'monitor'),
+                'method'        => 'checkbox',
+            ],
+            'monitor_error_background' => [
+                'friendly_name' => __('Zoom Background', 'monitor'),
+                'description'   => __('Background Color for Zoomed Errors on the Monitor display', 'monitor'),
+                'method'        => 'drop_color',
+            ],
+            'monitor_error_fontsize' => [
+                'friendly_name' => __('Zoom Fontsize', 'monitor'),
+                'description'   => __('Check this to zoom to errored items on the Monitor display', 'monitor'),
+                'method'        => 'drop_array',
+                'default'       => '50',
+                'array'         => $font_sizes
+            ]
+        ]
+    ];
 
-	if (get_current_page() != 'settings.php') {
-		return;
-	}
+    if (get_current_page() != 'settings.php') {
+        return;
+    }
 
-	$tabs['monitor'] = __('Monitor', 'monitor');
+    $tabs['monitor'] = __('Monitor', 'monitor');
 
-	$temp = [
-		'monitor_header' => [
-			'friendly_name' => __('Monitor Settings', 'monitor'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		],
-		'monitor_new_enabled' => [
-			'friendly_name' => __('Enable on new devices', 'monitor'),
-			'description'   => __('Check this to automatically enable monitoring when creating new devices', 'monitor'),
-			'method'        => 'checkbox',
-		],
-		'monitor_log_storage' => [
-			'friendly_name' => __('Notification/Reboot Log Retention', 'monitor'),
-			'description'   => __('Keep Notification and Reboot Logs for this number of days.', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => '31',
-			'array'         => $log_retentions
-		],
-		'monitor_sound' => [
-			'friendly_name' => __('Alarm Sound', 'monitor'),
-			'description'   => __('This is the sound file that will be played when a Device goes down.', 'monitor'),
-			'method'        => 'drop_array',
-			'array'         => monitorScanDir(),
-			'default'       => 'attn-noc.wav',
-		],
-		'monitor_sound_loop' => [
-			'friendly_name' => __('Loop Alarm Sound', 'monitor'),
-			'description'   => __('Play the above sound on a loop when a Device goes down.', 'monitor'),
-			'method'        => 'checkbox',
-		],
-		'monitor_refresh' => [
-			'friendly_name' => __('Refresh Interval', 'monitor'),
-			'description'   => __('This is the time in seconds before the page refreshes.  (1 - 300)', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => '60',
-			'array'         => $page_refresh_interval
-		],
-		'monitor_legend' => [
-			'friendly_name' => __('Show Icon Legend', 'monitor'),
-			'description'   => __('Check this to show an icon legend on the Monitor display', 'monitor'),
-			'method'        => 'checkbox',
-		],
-		'monitor_grouping' => [
-			'friendly_name' => __('Grouping', 'monitor'),
-			'description'   => __('This is how monitor will Group Devices.', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => 'default',
-			'array'         => [
-				'default'                  => __('Default', 'monitor'),
-				'default_by_permissions'   => __('Default with permissions', 'monitor'),
-				'group_by_tree'            => __('Tree', 'monitor'),
-				'group_by_device_template' => __('Device Template', 'monitor'),
-			]
-		],
-		'monitor_view' => [
-			'friendly_name' => __('View', 'monitor'),
-			'description'   => __('This is how monitor will render Devices.', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => 'default',
-			'array'         => [
-				'default'  => __('Default', 'monitor'),
-				'list'     => __('List', 'monitor'),
-				'names'    => __('Names only', 'monitor'),
-				'tiles'    => __('Tiles', 'monitor'),
-				'tilesadt' => __('Tiles & Downtime', 'monitor')
-			]
-		],
-		'monitor_format_header' => [
-			'friendly_name' => __('Notification Report Format', 'monitor'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		],
-		'monitor_format_file' => [
-			'friendly_name' => __('Format File to Use', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => 'default.format',
-			'description'   => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'monitor'),
-			'array'         => $formats
-		],
-		'monitor_threshold' => [
-			'friendly_name' => __('Ping Threshold Notifications', 'monitor'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		],
-		'monitor_warn_criticality' => [
-			'friendly_name' => __('Warning Latency Notification', 'monitor'),
-			'description'   => __('If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => '0',
-			'array'         => $criticalities
-		],
-		'monitor_alert_criticality' => [
-			'friendly_name' => __('Alert Latency Notification', 'monitor'),
-			'description'   => __('If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => '0',
-			'array'         => $criticalities
-		],
-		'monitor_resend_frequency' => [
-			'friendly_name' => __('How Often to Resend Emails', 'monitor'),
-			'description'   => __('How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds', 'monitor'),
-			'method'        => 'drop_array',
-			'default'       => '0',
-			'array'         => [
-				'0'   => __('Every Occurrence', 'monitor'),
-				'20'  => __('Every %d Minutes', 20, 'monitor'),
-				'30'  => __('Every %d Minutes', 30, 'monitor'),
-				'60'  => __('Every Hour', 'monitor'),
-				'120' => __('Every %d Hours', 2, 'monitor'),
-				'240' => __('Every %d Hours', 4, 'monitor')
-			]
-		],
-		'monitor_reboot' => [
-			'friendly_name' => __('Reboot Notifications', 'monitor'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		],
-		'monitor_reboot_notify' => [
-			'friendly_name' => __('Send Reboot Notifications', 'monitor'),
-			'method'        => 'checkbox',
-			'description'   => __('Should Device Reboot Notifications be sent to users?', 'monitor'),
-			'default'       => 'on',
-		],
-		'monitor_send_one_email' => [
-			'friendly_name' => __('Send one Email to all addresses', 'monitor'),
-			'description'   => __('If checked, the system will send one Email only to all addresses.', 'monitor'),
-			'method'        => 'checkbox',
-			'default'       => 'on'
-		],
-		'monitor_reboot_thold' => [
-			'friendly_name' => __('Include Threshold Alert Lists', 'monitor'),
-			'method'        => 'checkbox',
-			'description'   => __('Should Threshold Alert Lists also receive Notification', 'monitor'),
-			'default'       => 'on',
-		],
-		'monitor_subject' => [
-			'friendly_name' => __('Subject', 'monitor'),
-			'description'   => __('Enter a Reboot message subject for the Reboot Notification.', 'monitor'),
-			'method'        => 'textbox',
-			'default'       => __('Cacti Device Reboot Notification', 'monitor'),
-			'size'          => 60,
-			'max_length'    => 60
-		],
-		'monitor_body' => [
-			'friendly_name' => __('Email Body', 'monitor'),
-			'description'   => __('Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;', 'monitor'),
-			'method'        => 'textarea',
-			'textarea_rows' => 4,
-			'textarea_cols' => 80,
-			'default'       => __('<h1>Monitor Reboot Notification</h1><p>The following Device\'s were Rebooted.  See details below for additional information.</p><br><DETAILS>', 'monitor')
-		],
-		'monitor_email_header' => [
-			'friendly_name' => __('Notification Email Addresses', 'monitor'),
-			'method'        => 'spacer',
-			'collapsible'   => 'true'
-		],
-		'monitor_fromname' => [
-			'friendly_name' => __('From Name', 'monitor'),
-			'description'   => __('Enter the Email Name to send the notifications from', 'monitor'),
-			'method'        => 'textbox',
-			'size'          => '60',
-			'max_length'    => '255'
-		],
-		'monitor_fromemail' => [
-			'friendly_name' => __('From Address', 'monitor'),
-			'description'   => __('Enter the Email Address to send the notification from', 'monitor'),
-			'method'        => 'textbox',
-			'size'          => '60',
-			'max_length'    => '255'
-		],
-		'monitor_list' => [
-			'friendly_name' => __('Notification List', 'thold'),
-			'description'   => __('Select a Notification List below.  All Emails subscribed to the notification list will be notified.', 'thold'),
-			'method'        => 'drop_sql',
-			'sql'           => 'SELECT id, name FROM plugin_notification_lists ORDER BY name',
-			'default'       => '',
-			'none_value'    => __('None', 'monitor')
-		],
-		'monitor_emails' => [
-			'friendly_name' => __('Email Addresses', 'monitor'),
-			'description'   => __('Enter a comma delimited list of Email addresses to inform of a reboot event.', 'monitor'),
-			'method'        => 'textarea',
-			'textarea_rows' => 2,
-			'textarea_cols' => 80,
-			'default'       => ''
-		]
-	];
+    $temp = [
+        'monitor_header' => [
+            'friendly_name' => __('Monitor Settings', 'monitor'),
+            'method'        => 'spacer',
+            'collapsible'   => 'true'
+        ],
+        'monitor_new_enabled' => [
+            'friendly_name' => __('Enable on new devices', 'monitor'),
+            'description'   => __('Check this to automatically enable monitoring when creating new devices', 'monitor'),
+            'method'        => 'checkbox',
+        ],
+        'monitor_log_storage' => [
+            'friendly_name' => __('Notification/Reboot Log Retention', 'monitor'),
+            'description'   => __('Keep Notification and Reboot Logs for this number of days.', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => '31',
+            'array'         => $log_retentions
+        ],
+        'monitor_sound' => [
+            'friendly_name' => __('Alarm Sound', 'monitor'),
+            'description'   => __('This is the sound file that will be played when a Device goes down.', 'monitor'),
+            'method'        => 'drop_array',
+            'array'         => monitorScanDir(),
+            'default'       => 'attn-noc.wav',
+        ],
+        'monitor_sound_loop' => [
+            'friendly_name' => __('Loop Alarm Sound', 'monitor'),
+            'description'   => __('Play the above sound on a loop when a Device goes down.', 'monitor'),
+            'method'        => 'checkbox',
+        ],
+        'monitor_refresh' => [
+            'friendly_name' => __('Refresh Interval', 'monitor'),
+            'description'   => __('This is the time in seconds before the page refreshes.  (1 - 300)', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => '60',
+            'array'         => $page_refresh_interval
+        ],
+        'monitor_legend' => [
+            'friendly_name' => __('Show Icon Legend', 'monitor'),
+            'description'   => __('Check this to show an icon legend on the Monitor display', 'monitor'),
+            'method'        => 'checkbox',
+        ],
+        'monitor_grouping' => [
+            'friendly_name' => __('Grouping', 'monitor'),
+            'description'   => __('This is how monitor will Group Devices.', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => 'default',
+            'array'         => [
+                'default'                  => __('Default', 'monitor'),
+                'default_by_permissions'   => __('Default with permissions', 'monitor'),
+                'group_by_tree'            => __('Tree', 'monitor'),
+                'group_by_device_template' => __('Device Template', 'monitor'),
+            ]
+        ],
+        'monitor_view' => [
+            'friendly_name' => __('View', 'monitor'),
+            'description'   => __('This is how monitor will render Devices.', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => 'default',
+            'array'         => [
+                'default'  => __('Default', 'monitor'),
+                'list'     => __('List', 'monitor'),
+                'names'    => __('Names only', 'monitor'),
+                'tiles'    => __('Tiles', 'monitor'),
+                'tilesadt' => __('Tiles & Downtime', 'monitor')
+            ]
+        ],
+        'monitor_format_header' => [
+            'friendly_name' => __('Notification Report Format', 'monitor'),
+            'method'        => 'spacer',
+            'collapsible'   => 'true'
+        ],
+        'monitor_format_file' => [
+            'friendly_name' => __('Format File to Use', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => 'default.format',
+            'description'   => __('Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the \'formats\' directory.', 'monitor'),
+            'array'         => $formats
+        ],
+        'monitor_threshold' => [
+            'friendly_name' => __('Ping Threshold Notifications', 'monitor'),
+            'method'        => 'spacer',
+            'collapsible'   => 'true'
+        ],
+        'monitor_warn_criticality' => [
+            'friendly_name' => __('Warning Latency Notification', 'monitor'),
+            'description'   => __('If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => '0',
+            'array'         => $criticalities
+        ],
+        'monitor_alert_criticality' => [
+            'friendly_name' => __('Alert Latency Notification', 'monitor'),
+            'description'   => __('If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select \'Disabled\' to Disable.  The Thold Plugin is required to enable this feature.', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => '0',
+            'array'         => $criticalities
+        ],
+        'monitor_resend_frequency' => [
+            'friendly_name' => __('How Often to Resend Emails', 'monitor'),
+            'description'   => __('How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds', 'monitor'),
+            'method'        => 'drop_array',
+            'default'       => '0',
+            'array'         => [
+                '0'   => __('Every Occurrence', 'monitor'),
+                '20'  => __('Every %d Minutes', 20, 'monitor'),
+                '30'  => __('Every %d Minutes', 30, 'monitor'),
+                '60'  => __('Every Hour', 'monitor'),
+                '120' => __('Every %d Hours', 2, 'monitor'),
+                '240' => __('Every %d Hours', 4, 'monitor')
+            ]
+        ],
+        'monitor_reboot' => [
+            'friendly_name' => __('Reboot Notifications', 'monitor'),
+            'method'        => 'spacer',
+            'collapsible'   => 'true'
+        ],
+        'monitor_reboot_notify' => [
+            'friendly_name' => __('Send Reboot Notifications', 'monitor'),
+            'method'        => 'checkbox',
+            'description'   => __('Should Device Reboot Notifications be sent to users?', 'monitor'),
+            'default'       => 'on',
+        ],
+        'monitor_send_one_email' => [
+            'friendly_name' => __('Send one Email to all addresses', 'monitor'),
+            'description'   => __('If checked, the system will send one Email only to all addresses.', 'monitor'),
+            'method'        => 'checkbox',
+            'default'       => 'on'
+        ],
+        'monitor_reboot_thold' => [
+            'friendly_name' => __('Include Threshold Alert Lists', 'monitor'),
+            'method'        => 'checkbox',
+            'description'   => __('Should Threshold Alert Lists also receive Notification', 'monitor'),
+            'default'       => 'on',
+        ],
+        'monitor_subject' => [
+            'friendly_name' => __('Subject', 'monitor'),
+            'description'   => __('Enter a Reboot message subject for the Reboot Notification.', 'monitor'),
+            'method'        => 'textbox',
+            'default'       => __('Cacti Device Reboot Notification', 'monitor'),
+            'size'          => 60,
+            'max_length'    => 60
+        ],
+        'monitor_body' => [
+            'friendly_name' => __('Email Body', 'monitor'),
+            'description'   => __('Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;', 'monitor'),
+            'method'        => 'textarea',
+            'textarea_rows' => 4,
+            'textarea_cols' => 80,
+            'default'       => __('<h1>Monitor Reboot Notification</h1><p>The following Device\'s were Rebooted.  See details below for additional information.</p><br><DETAILS>', 'monitor')
+        ],
+        'monitor_email_header' => [
+            'friendly_name' => __('Notification Email Addresses', 'monitor'),
+            'method'        => 'spacer',
+            'collapsible'   => 'true'
+        ],
+        'monitor_fromname' => [
+            'friendly_name' => __('From Name', 'monitor'),
+            'description'   => __('Enter the Email Name to send the notifications from', 'monitor'),
+            'method'        => 'textbox',
+            'size'          => '60',
+            'max_length'    => '255'
+        ],
+        'monitor_fromemail' => [
+            'friendly_name' => __('From Address', 'monitor'),
+            'description'   => __('Enter the Email Address to send the notification from', 'monitor'),
+            'method'        => 'textbox',
+            'size'          => '60',
+            'max_length'    => '255'
+        ],
+        'monitor_list' => [
+            'friendly_name' => __('Notification List', 'thold'),
+            'description'   => __('Select a Notification List below.  All Emails subscribed to the notification list will be notified.', 'thold'),
+            'method'        => 'drop_sql',
+            'sql'           => 'SELECT id, name FROM plugin_notification_lists ORDER BY name',
+            'default'       => '',
+            'none_value'    => __('None', 'monitor')
+        ],
+        'monitor_emails' => [
+            'friendly_name' => __('Email Addresses', 'monitor'),
+            'description'   => __('Enter a comma delimited list of Email addresses to inform of a reboot event.', 'monitor'),
+            'method'        => 'textarea',
+            'textarea_rows' => 2,
+            'textarea_cols' => 80,
+            'default'       => ''
+        ]
+    ];
 
-	if (isset($settings['monitor'])) {
-		$settings['monitor'] = array_merge($settings['monitor'], $temp);
-	} else {
-		$settings['monitor'] = $temp;
-	}
+    if (isset($settings['monitor'])) {
+        $settings['monitor'] = array_merge($settings['monitor'], $temp);
+    } else {
+        $settings['monitor'] = $temp;
+    }
 }
 
-function monitorConfigArrays() {
-	global $fa_icons;
+function monitorConfigArrays()
+{
+    global $fa_icons;
 
-	$fa_icons = [
-		'server' => [
-			'display' => __('Server', 'monitor'),
-			'class'   => 'fa fa-server deviceUp',
-			'style'   => ''
-		],
-		'print' => [
-			'display' => __('Printer', 'monitor'),
-			'class'   => 'fa fa-print deviceUp',
-			'style'   => ''
-		],
-		'desktop' => [
-			'display' => __('Desktop PC', 'monitor'),
-			'class'   => 'fa fa-desktop deviceUp',
-			'style'   => ''
-		],
-		'laptop' => [
-			'display' => __('Laptop/notebook', 'monitor'),
-			'class'   => 'fa fa-laptop deviceUp',
-			'style'   => ''
-		],
-		'wifi' => [
-			'display' => __('Wifi', 'monitor'),
-			'class'   => 'fa fa-wifi deviceUp',
-			'style'   => ''
-		],
-		'network-wired' => [
-			'display' => __('Wired network', 'monitor'),
-			'class'   => 'fa fa-network-wired deviceUp',
-			'style'   => ''
-		],
-		'database' => [
-			'display' => __('Database', 'monitor'),
-			'class'   => 'fa fa-database deviceUp',
-			'style'   => ''
-		],
-		'clock' => [
-			'display' => __('Clock', 'monitor'),
-			'class'   => 'fa fa-clock deviceUp',
-			'style'   => ''
-		],
-		'asterisk' => [
-			'display' => __('Asterisk', 'monitor'),
-			'class'   => 'fas fa-asterisk deviceUp',
-			'style'   => ''
-		],
-		'hdd' => [
-			'display' => __('Harddisk', 'monitor'),
-			'class'   => 'fa fa-hdd deviceUp',
-			'style'   => ''
-		],
-		'boxes' => [
-			'display' => __('Boxes', 'monitor'),
-			'class'   => 'fa fa-boxes deviceUp',
-			'style'   => ''
-		],
-		'phone' => [
-			'display' => __('Phone', 'monitor'),
-			'class'   => 'fa fa-phone deviceUp',
-			'style'   => ''
-		],
-		'cloud' => [
-			'display' => __('Cloud', 'monitor'),
-			'class'   => 'fa fa-cloud deviceUp',
-			'style'   => ''
-		]
-	];
+    $fa_icons = [
+        'server' => [
+            'display' => __('Server', 'monitor'),
+            'class'   => 'fa fa-server deviceUp',
+            'style'   => ''
+        ],
+        'print' => [
+            'display' => __('Printer', 'monitor'),
+            'class'   => 'fa fa-print deviceUp',
+            'style'   => ''
+        ],
+        'desktop' => [
+            'display' => __('Desktop PC', 'monitor'),
+            'class'   => 'fa fa-desktop deviceUp',
+            'style'   => ''
+        ],
+        'laptop' => [
+            'display' => __('Laptop/notebook', 'monitor'),
+            'class'   => 'fa fa-laptop deviceUp',
+            'style'   => ''
+        ],
+        'wifi' => [
+            'display' => __('Wifi', 'monitor'),
+            'class'   => 'fa fa-wifi deviceUp',
+            'style'   => ''
+        ],
+        'network-wired' => [
+            'display' => __('Wired network', 'monitor'),
+            'class'   => 'fa fa-network-wired deviceUp',
+            'style'   => ''
+        ],
+        'database' => [
+            'display' => __('Database', 'monitor'),
+            'class'   => 'fa fa-database deviceUp',
+            'style'   => ''
+        ],
+        'clock' => [
+            'display' => __('Clock', 'monitor'),
+            'class'   => 'fa fa-clock deviceUp',
+            'style'   => ''
+        ],
+        'asterisk' => [
+            'display' => __('Asterisk', 'monitor'),
+            'class'   => 'fas fa-asterisk deviceUp',
+            'style'   => ''
+        ],
+        'hdd' => [
+            'display' => __('Harddisk', 'monitor'),
+            'class'   => 'fa fa-hdd deviceUp',
+            'style'   => ''
+        ],
+        'boxes' => [
+            'display' => __('Boxes', 'monitor'),
+            'class'   => 'fa fa-boxes deviceUp',
+            'style'   => ''
+        ],
+        'phone' => [
+            'display' => __('Phone', 'monitor'),
+            'class'   => 'fa fa-phone deviceUp',
+            'style'   => ''
+        ],
+        'cloud' => [
+            'display' => __('Cloud', 'monitor'),
+            'class'   => 'fa fa-cloud deviceUp',
+            'style'   => ''
+        ]
+    ];
 
-	if (!function_exists('form_dropicon')) {
-		foreach ($fa_icons as $key => $data) {
-			$nfa_icons[$key] = $data['display'];
-		}
+    if (!function_exists('form_dropicon')) {
+        foreach ($fa_icons as $key => $data) {
+            $nfa_icons[$key] = $data['display'];
+        }
 
-		$fa_icons = $nfa_icons;
-	}
+        $fa_icons = $nfa_icons;
+    }
 
-	monitorCheckUpgrade();
+    monitorCheckUpgrade();
 }
 
-function monitorTopGraphRefresh($refresh) {
-	if (get_current_page() != 'monitor.php') {
-		return $refresh;
-	}
+function monitorTopGraphRefresh($refresh)
+{
+    if (get_current_page() != 'monitor.php') {
+        return $refresh;
+    }
 
-	$r = read_config_option('monitor_refresh');
+    $r = read_config_option('monitor_refresh');
 
-	if ($r == '' || $r < 1) {
-		return $refresh;
-	}
+    if ($r == '' || $r < 1) {
+        return $refresh;
+    }
 
-	return $r;
+    return $r;
 }
 
-function monitorShowTab() {
-	global $config;
+function monitorShowTab()
+{
+    global $config;
 
-	monitorCheckUpgrade();
+    monitorCheckUpgrade();
 
-	if (api_user_realm_auth('monitor.php')) {
-		if (substr_count($_SERVER['REQUEST_URI'], 'monitor.php')) {
-			print '<a href="' . $config['url_path'] . 'plugins/monitor/monitor.php"><img src="' . $config['url_path'] . 'plugins/monitor/images/tab_monitor_down.gif" alt="' . __('Monitor', 'monitor') . '"></a>';
-		} else {
-			print '<a href="' . $config['url_path'] . 'plugins/monitor/monitor.php"><img src="' . $config['url_path'] . 'plugins/monitor/images/tab_monitor.gif" alt="' . __('Monitor', 'monitor') . '"></a>';
-		}
-	}
+    if (api_user_realm_auth('monitor.php')) {
+        if (substr_count($_SERVER['REQUEST_URI'], 'monitor.php')) {
+            print '<a href="' . $config['url_path'] . 'plugins/monitor/monitor.php"><img src="' . $config['url_path'] . 'plugins/monitor/images/tab_monitor_down.gif" alt="' . __('Monitor', 'monitor') . '"></a>';
+        } else {
+            print '<a href="' . $config['url_path'] . 'plugins/monitor/monitor.php"><img src="' . $config['url_path'] . 'plugins/monitor/images/tab_monitor.gif" alt="' . __('Monitor', 'monitor') . '"></a>';
+        }
+    }
 }
 
-function monitorConfigForm() {
-	global $config, $fields_host_edit, $criticalities, $fa_icons;
+function monitorConfigForm()
+{
+    global $config, $fields_host_edit, $criticalities, $fa_icons;
 
-	$baselines = [
-		'0'     => __('Do not Change', 'monitor'),
-		'1.20'  => __('%d Percent Above Average', 20, 'monitor'),
-		'1.30'  => __('%d Percent Above Average', 30, 'monitor'),
-		'1.40'  => __('%d Percent Above Average', 40, 'monitor'),
-		'1.50'  => __('%d Percent Above Average', 50, 'monitor'),
-		'1.60'  => __('%d Percent Above Average', 60, 'monitor'),
-		'1.70'  => __('%d Percent Above Average', 70, 'monitor'),
-		'1.80'  => __('%d Percent Above Average', 80, 'monitor'),
-		'1.90'  => __('%d Percent Above Average', 90, 'monitor'),
-		'2.00'  => __('%d Percent Above Average', 100, 'monitor'),
-		'2.20'  => __('%d Percent Above Average', 120, 'monitor'),
-		'2.40'  => __('%d Percent Above Average', 140, 'monitor'),
-		'2.50'  => __('%d Percent Above Average', 150, 'monitor'),
-		'3.00'  => __('%d Percent Above Average', 200, 'monitor'),
-		'4.00'  => __('%d Percent Above Average', 300, 'monitor'),
-		'5.00'  => __('%d Percent Above Average', 400, 'monitor'),
-		'6.00'  => __('%d Percent Above Average', 500, 'monitor')
-	];
+    $baselines = [
+        '0'     => __('Do not Change', 'monitor'),
+        '1.20'  => __('%d Percent Above Average', 20, 'monitor'),
+        '1.30'  => __('%d Percent Above Average', 30, 'monitor'),
+        '1.40'  => __('%d Percent Above Average', 40, 'monitor'),
+        '1.50'  => __('%d Percent Above Average', 50, 'monitor'),
+        '1.60'  => __('%d Percent Above Average', 60, 'monitor'),
+        '1.70'  => __('%d Percent Above Average', 70, 'monitor'),
+        '1.80'  => __('%d Percent Above Average', 80, 'monitor'),
+        '1.90'  => __('%d Percent Above Average', 90, 'monitor'),
+        '2.00'  => __('%d Percent Above Average', 100, 'monitor'),
+        '2.20'  => __('%d Percent Above Average', 120, 'monitor'),
+        '2.40'  => __('%d Percent Above Average', 140, 'monitor'),
+        '2.50'  => __('%d Percent Above Average', 150, 'monitor'),
+        '3.00'  => __('%d Percent Above Average', 200, 'monitor'),
+        '4.00'  => __('%d Percent Above Average', 300, 'monitor'),
+        '5.00'  => __('%d Percent Above Average', 400, 'monitor'),
+        '6.00'  => __('%d Percent Above Average', 500, 'monitor')
+    ];
 
-	$fields_host_edit2 = $fields_host_edit;
-	$fields_host_edit3 = [];
+    $fields_host_edit2 = $fields_host_edit;
+    $fields_host_edit3 = [];
 
-	if (array_key_exists('bulk_walk_size', $fields_host_edit2)) {
-		$insert_field = 'bulk_walk_size';
-	} else {
-		$insert_field = 'disabled';
-	}
+    if (array_key_exists('bulk_walk_size', $fields_host_edit2)) {
+        $insert_field = 'bulk_walk_size';
+    } else {
+        $insert_field = 'disabled';
+    }
 
-	foreach ($fields_host_edit2 as $f => $a) {
-		$fields_host_edit3[$f] = $a;
+    foreach ($fields_host_edit2 as $f => $a) {
+        $fields_host_edit3[$f] = $a;
 
-		if ($f == $insert_field) {
-			$fields_host_edit3['monitor_header'] = [
-				'friendly_name' => __('Device Monitoring Settings', 'monitor'),
-				'method'        => 'spacer',
-				'collapsible'   => 'true'
-			];
+        if ($f == $insert_field) {
+            $fields_host_edit3['monitor_header'] = [
+                'friendly_name' => __('Device Monitoring Settings', 'monitor'),
+                'method'        => 'spacer',
+                'collapsible'   => 'true'
+            ];
 
-			$fields_host_edit3['monitor'] = [
-				'method'        => 'checkbox',
-				'friendly_name' => __('Monitor Device', 'monitor'),
-				'description'   => __('Check this box to monitor this Device on the Monitor Tab.', 'monitor'),
-				'value'         => '|arg1:monitor|',
-				'form_id'       => false
-			];
+            $fields_host_edit3['monitor'] = [
+                'method'        => 'checkbox',
+                'friendly_name' => __('Monitor Device', 'monitor'),
+                'description'   => __('Check this box to monitor this Device on the Monitor Tab.', 'monitor'),
+                'value'         => '|arg1:monitor|',
+                'form_id'       => false
+            ];
 
-			$host_id = get_nfilter_request_var('id');
+            $host_id = get_nfilter_request_var('id');
 
-			if (empty($host_id) || !is_numeric($host_id)) {
-				$fields_host_edit3['monitor']['default'] = monitorGetDefault($host_id);
-			}
+            if (empty($host_id) || !is_numeric($host_id)) {
+                $fields_host_edit3['monitor']['default'] = monitorGetDefault($host_id);
+            }
 
-			$fields_host_edit3['monitor_criticality'] = [
-				'friendly_name' => __('Device Criticality', 'monitor'),
-				'description'   => __('What is the Criticality of this Device.', 'monitor'),
-				'method'        => 'drop_array',
-				'array'         => $criticalities,
-				'value'         => '|arg1:monitor_criticality|',
-				'default'       => '0',
-			];
+            $fields_host_edit3['monitor_criticality'] = [
+                'friendly_name' => __('Device Criticality', 'monitor'),
+                'description'   => __('What is the Criticality of this Device.', 'monitor'),
+                'method'        => 'drop_array',
+                'array'         => $criticalities,
+                'value'         => '|arg1:monitor_criticality|',
+                'default'       => '0',
+            ];
 
-			$fields_host_edit3['monitor_warn'] = [
-				'friendly_name' => __('Ping Warning Threshold', 'monitor'),
-				'description'   => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.', 'monitor'),
-				'method'        => 'textbox',
-				'size'          => '10',
-				'max_length'    => '5',
-				'placeholder'   => __('milliseconds', 'monitor'),
-				'value'         => '|arg1:monitor_warn|',
-				'default'       => '',
-			];
+            $fields_host_edit3['monitor_warn'] = [
+                'friendly_name' => __('Ping Warning Threshold', 'monitor'),
+                'description'   => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.', 'monitor'),
+                'method'        => 'textbox',
+                'size'          => '10',
+                'max_length'    => '5',
+                'placeholder'   => __('milliseconds', 'monitor'),
+                'value'         => '|arg1:monitor_warn|',
+                'default'       => '',
+            ];
 
-			$fields_host_edit3['monitor_alert'] = [
-				'friendly_name' => __('Ping Alert Threshold', 'monitor'),
-				'description'   => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.', 'monitor'),
-				'method'        => 'textbox',
-				'size'          => '10',
-				'max_length'    => '5',
-				'placeholder'   => __('milliseconds', 'monitor'),
-				'value'         => '|arg1:monitor_alert|',
-				'default'       => '',
-			];
+            $fields_host_edit3['monitor_alert'] = [
+                'friendly_name' => __('Ping Alert Threshold', 'monitor'),
+                'description'   => __('If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality.', 'monitor'),
+                'method'        => 'textbox',
+                'size'          => '10',
+                'max_length'    => '5',
+                'placeholder'   => __('milliseconds', 'monitor'),
+                'value'         => '|arg1:monitor_alert|',
+                'default'       => '',
+            ];
 
-			$fields_host_edit3['monitor_warn_baseline'] = [
-				'friendly_name' => __('Re-Baseline Warning', 'monitor'),
-				'description'   => __('The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold.', 'monitor'),
-				'method'        => 'drop_array',
-				'default'       => '0',
-				'value'         => '0',
-				'array'         => $baselines
-			];
+            $fields_host_edit3['monitor_warn_baseline'] = [
+                'friendly_name' => __('Re-Baseline Warning', 'monitor'),
+                'description'   => __('The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold.', 'monitor'),
+                'method'        => 'drop_array',
+                'default'       => '0',
+                'value'         => '0',
+                'array'         => $baselines
+            ];
 
-			$fields_host_edit3['monitor_alert_baseline'] = [
-				'friendly_name' => __('Re-Baseline Alert', 'monitor'),
-				'description'   => __('The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold.', 'monitor'),
-				'method'        => 'drop_array',
-				'default'       => '0',
-				'value'         => '0',
-				'array'         => $baselines
-			];
+            $fields_host_edit3['monitor_alert_baseline'] = [
+                'friendly_name' => __('Re-Baseline Alert', 'monitor'),
+                'description'   => __('The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold.', 'monitor'),
+                'method'        => 'drop_array',
+                'default'       => '0',
+                'value'         => '0',
+                'array'         => $baselines
+            ];
 
-			$fields_host_edit3['monitor_text'] = [
-				'friendly_name' => __('Down Device Message', 'monitor'),
-				'description'   => __('This is the message that will be displayed when this Device is reported as down.', 'monitor'),
-				'method'        => 'textarea',
-				'max_length'    => 1000,
-				'textarea_rows' => 2,
-				'textarea_cols' => 80,
-				'value'         => '|arg1:monitor_text|',
-				'default'       => '',
-			];
+            $fields_host_edit3['monitor_text'] = [
+                'friendly_name' => __('Down Device Message', 'monitor'),
+                'description'   => __('This is the message that will be displayed when this Device is reported as down.', 'monitor'),
+                'method'        => 'textarea',
+                'max_length'    => 1000,
+                'textarea_rows' => 2,
+                'textarea_cols' => 80,
+                'value'         => '|arg1:monitor_text|',
+                'default'       => '',
+            ];
 
-			if (function_exists('form_dropicon')) {
-				$method = 'drop_icon';
-			} else {
-				$method = 'drop_array';
-			}
+            if (function_exists('form_dropicon')) {
+                $method = 'drop_icon';
+            } else {
+                $method = 'drop_array';
+            }
 
-			$fields_host_edit3['monitor_icon'] = [
-				'friendly_name' => __('Device icon', 'monitor'),
-				'description'   => __('You can select device icon.', 'monitor'),
-				'method'        => $method,
-				'default'       => '0',
-				'value'         => '|arg1:monitor_icon|',
-				'array'         => $fa_icons,
-			];
-		}
-	}
+            $fields_host_edit3['monitor_icon'] = [
+                'friendly_name' => __('Device icon', 'monitor'),
+                'description'   => __('You can select device icon.', 'monitor'),
+                'method'        => $method,
+                'default'       => '0',
+                'value'         => '|arg1:monitor_icon|',
+                'array'         => $fa_icons,
+            ];
+        }
+    }
 
-	$fields_host_edit = $fields_host_edit3;
+    $fields_host_edit = $fields_host_edit3;
 }
 
-function monitorGetDefault($host_id) {
-	$monitor_new_device = '';
+function monitorGetDefault($host_id)
+{
+    $monitor_new_device = '';
 
-	if ($host_id <= 0) {
-		$monitor_new_device = read_config_option('monitor_new_enabled');
-	}
+    if ($host_id <= 0) {
+        $monitor_new_device = read_config_option('monitor_new_enabled');
+    }
 
-	return $monitor_new_device;
+    return $monitor_new_device;
 }
 
-function monitorApiDeviceSave($save) {
-	global $fa_icons;
+function monitorApiDeviceSave($save)
+{
+    global $fa_icons;
 
-	$monitor_default = monitorGetDefault($save['id']);
+    $monitor_default = monitorGetDefault($save['id']);
 
-	if (isset_request_var('monitor')) {
-		$save['monitor'] = form_input_validate(get_nfilter_request_var('monitor'), 'monitor', $monitor_default, true, 3);
-	} else {
-		$save['monitor'] = form_input_validate($monitor_default, 'monitor', '', true, 3);
-	}
+    if (isset_request_var('monitor')) {
+        $save['monitor'] = form_input_validate(get_nfilter_request_var('monitor'), 'monitor', $monitor_default, true, 3);
+    } else {
+        $save['monitor'] = form_input_validate($monitor_default, 'monitor', '', true, 3);
+    }
 
-	if (isset_request_var('monitor_text')) {
-		$save['monitor_text'] = form_input_validate(get_nfilter_request_var('monitor_text'), 'monitor_text', '', true, 3);
-	} else {
-		$save['monitor_text'] = form_input_validate('', 'monitor_text', '', true, 3);
-	}
+    if (isset_request_var('monitor_text')) {
+        $save['monitor_text'] = form_input_validate(get_nfilter_request_var('monitor_text'), 'monitor_text', '', true, 3);
+    } else {
+        $save['monitor_text'] = form_input_validate('', 'monitor_text', '', true, 3);
+    }
 
-	if (isset_request_var('monitor_criticality')) {
-		$save['monitor_criticality'] = form_input_validate(get_nfilter_request_var('monitor_criticality'), 'monitor_criticality', '^[0-9]+$', true, 3);
-	} else {
-		$save['monitor_criticality'] = form_input_validate('', 'monitor_criticality', '', true, 3);
-	}
+    if (isset_request_var('monitor_criticality')) {
+        $save['monitor_criticality'] = form_input_validate(get_nfilter_request_var('monitor_criticality'), 'monitor_criticality', '^[0-9]+$', true, 3);
+    } else {
+        $save['monitor_criticality'] = form_input_validate('', 'monitor_criticality', '', true, 3);
+    }
 
-	if (isset_request_var('monitor_warn')) {
-		$save['monitor_warn'] = form_input_validate(get_nfilter_request_var('monitor_warn'), 'monitor_warn', '^[0-9]+$', true, 3);
-	} else {
-		$save['monitor_warn'] = form_input_validate('', 'monitor_warn', '', true, 3);
-	}
+    if (isset_request_var('monitor_warn')) {
+        $save['monitor_warn'] = form_input_validate(get_nfilter_request_var('monitor_warn'), 'monitor_warn', '^[0-9]+$', true, 3);
+    } else {
+        $save['monitor_warn'] = form_input_validate('', 'monitor_warn', '', true, 3);
+    }
 
-	if (isset_request_var('monitor_alert')) {
-		$save['monitor_alert'] = form_input_validate(get_nfilter_request_var('monitor_alert'), 'monitor_alert', '^[0-9]+$', true, 3);
-	} else {
-		$save['monitor_alert'] = form_input_validate('', 'monitor_alert', '', true, 3);
-	}
+    if (isset_request_var('monitor_alert')) {
+        $save['monitor_alert'] = form_input_validate(get_nfilter_request_var('monitor_alert'), 'monitor_alert', '^[0-9]+$', true, 3);
+    } else {
+        $save['monitor_alert'] = form_input_validate('', 'monitor_alert', '', true, 3);
+    }
 
-	if (isset_request_var('monitor_icon') && array_key_exists(get_nfilter_request_var('monitor_icon'), $fa_icons)) {
-		$save['monitor_icon'] = get_nfilter_request_var('monitor_icon');
-	} else {
-		$save['monitor_icon'] = '';
-	}
+    if (isset_request_var('monitor_icon') && array_key_exists(get_nfilter_request_var('monitor_icon'), $fa_icons)) {
+        $save['monitor_icon'] = get_nfilter_request_var('monitor_icon');
+    } else {
+        $save['monitor_icon'] = '';
+    }
 
-	if (!isempty_request_var('monitor_alert_baseline') && !empty($save['id'])) {
-		$cur_time = db_fetch_cell_prepared('SELECT cur_time
+    if (!isempty_request_var('monitor_alert_baseline') && !empty($save['id'])) {
+        $cur_time = db_fetch_cell_prepared(
+            'SELECT cur_time
 			FROM host
 			WHERE id = ?',
-			[$save['id']]);
+            [$save['id']]
+        );
 
-		if ($cur_time > 0) {
-			$save['monitor_alert'] = ceil($cur_time * get_nfilter_request_var('monitor_alert_baseline'));
-		}
-	}
+        if ($cur_time > 0) {
+            $save['monitor_alert'] = ceil($cur_time * get_nfilter_request_var('monitor_alert_baseline'));
+        }
+    }
 
-	if (!isempty_request_var('monitor_warn_baseline') && !empty($save['id'])) {
-		$cur_time = db_fetch_cell_prepared('SELECT cur_time
+    if (!isempty_request_var('monitor_warn_baseline') && !empty($save['id'])) {
+        $cur_time = db_fetch_cell_prepared(
+            'SELECT cur_time
 			FROM host
 			WHERE id = ?',
-			[$save['id']]);
+            [$save['id']]
+        );
 
-		if ($cur_time > 0) {
-			$save['monitor_warn'] = ceil($cur_time * get_nfilter_request_var('monitor_alert_baseline'));
-		}
-	}
+        if ($cur_time > 0) {
+            $save['monitor_warn'] = ceil($cur_time * get_nfilter_request_var('monitor_alert_baseline'));
+        }
+    }
 
-	return $save;
+    return $save;
 }
 
-function monitorDrawNavigationText($nav) {
-	$nav['monitor.php:'] = ['title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '0'];
+function monitorDrawNavigationText($nav)
+{
+    $nav['monitor.php:'] = ['title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '0'];
 
-	return $nav;
+    return $nav;
 }
 
-function monitorSetupTable() {
-	if (!db_table_exists('plugin_monitor_notify_history')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
+function monitorSetupTable()
+{
+    if (!db_table_exists('plugin_monitor_notify_history')) {
+        db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
 			id int(10) unsigned NOT NULL AUTO_INCREMENT,
 			host_id int(10) unsigned DEFAULT NULL,
 			notify_type tinyint(3) unsigned DEFAULT NULL,
@@ -1053,10 +1096,10 @@ function monitorSetupTable() {
 			UNIQUE KEY unique_key (host_id,notify_type,notification_time))
 			ENGINE=InnoDB
 			COMMENT='Stores Notification Event History'");
-	}
+    }
 
-	if (!db_table_exists('plugin_monitor_reboot_history')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_reboot_history (
+    if (!db_table_exists('plugin_monitor_reboot_history')) {
+        db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_reboot_history (
 			id int(10) unsigned NOT NULL AUTO_INCREMENT,
 			host_id int(10) unsigned DEFAULT NULL,
 			reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -1067,20 +1110,20 @@ function monitorSetupTable() {
 			KEY reboot_time (reboot_time))
 			ENGINE=InnoDB
 			COMMENT='Keeps Track of Device Reboot Times'");
-	}
+    }
 
-	if (!db_table_exists('plugin_monitor_uptime')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_uptime (
+    if (!db_table_exists('plugin_monitor_uptime')) {
+        db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_uptime (
 			host_id int(10) unsigned DEFAULT '0',
 			uptime bigint(20) unsigned DEFAULT '0',
 			PRIMARY KEY (host_id),
 			KEY uptime (uptime))
 			ENGINE=InnoDB
 			COMMENT='Keeps Track of the Devices last uptime to track agent restarts and reboots'");
-	}
+    }
 
-	if (!db_table_exists('plugin_monitor_dashboards')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_dashboards (
+    if (!db_table_exists('plugin_monitor_dashboards')) {
+        db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_dashboards (
 			id int(10) unsigned auto_increment,
 			user_id int(10) unsigned DEFAULT '0',
 			name varchar(128) DEFAULT '',
@@ -1089,30 +1132,31 @@ function monitorSetupTable() {
 			KEY user_id (user_id))
 			ENGINE=InnoDB
 			COMMENT='Stores predefined dashboard information for a user or users'");
-	}
+    }
 
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on', 'after' => 'disabled']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'varchar(1024)', 'default' => '', 'NULL' => false, 'after' => 'monitor']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on', 'after' => 'disabled']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'varchar(1024)', 'default' => '', 'NULL' => false, 'after' => 'monitor']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
 }
 
-function monitorPollerBottom() {
-	global $config;
+function monitorPollerBottom()
+{
+    global $config;
 
-	if ($config['poller_id'] == 1) {
-		include_once($config['library_path'] . '/poller.php');
+    if ($config['poller_id'] == 1) {
+        include_once($config['library_path'] . '/poller.php');
 
-		$command_string = trim(read_config_option('path_php_binary'));
+        $command_string = trim(read_config_option('path_php_binary'));
 
-		if (trim($command_string) == '') {
-			$command_string = 'php';
-		}
+        if (trim($command_string) == '') {
+            $command_string = 'php';
+        }
 
-		$extra_args = ' -q ' . $config['base_path'] . '/plugins/monitor/poller_monitor.php';
+        $extra_args = ' -q ' . $config['base_path'] . '/plugins/monitor/poller_monitor.php';
 
-		exec_background($command_string, $extra_args);
-	}
+        exec_background($command_string, $extra_args);
+    }
 }

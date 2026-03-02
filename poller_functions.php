@@ -1,4 +1,5 @@
 <?php
+
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -31,7 +32,8 @@
  *
  * @return void
  */
-function monitorAddEmails(&$reboot_emails, $alert_emails, $host_id) {
+function monitorAddEmails(&$reboot_emails, $alert_emails, $host_id)
+{
     if (cacti_sizeof($alert_emails)) {
         foreach ($alert_emails as $email) {
             $reboot_emails[trim(strtolower($email))][$host_id] = $host_id;
@@ -49,7 +51,8 @@ function monitorAddEmails(&$reboot_emails, $alert_emails, $host_id) {
  *
  * @return void
  */
-function monitorAddNotificationList(&$reboot_emails, $notify_list, $host_id, $notification_lists) {
+function monitorAddNotificationList(&$reboot_emails, $notify_list, $host_id, $notification_lists)
+{
     if ($notify_list > 0 && isset($notification_lists[$notify_list])) {
         $emails = explode(',', $notification_lists[$notify_list]);
         monitorAddEmails($reboot_emails, $emails, $host_id);
@@ -61,7 +64,8 @@ function monitorAddNotificationList(&$reboot_emails, $notify_list, $host_id, $no
  *
  * @return array
  */
-function getAlertEmails() {
+function getAlertEmails()
+{
     $alert_email = read_config_option('alert_email');
 
     return ($alert_email != '') ? explode(',', $alert_email) : [];
@@ -74,7 +78,8 @@ function getAlertEmails() {
  *
  * @return void
  */
-function purgeOrphanMonitorRows($table_name) {
+function purgeOrphanMonitorRows($table_name)
+{
     $removed_hosts = db_fetch_assoc("SELECT mu.host_id
         FROM $table_name AS mu
         LEFT JOIN host AS h
@@ -95,7 +100,8 @@ function purgeOrphanMonitorRows($table_name) {
  *
  * @return array
  */
-function getRebootedHosts() {
+function getRebootedHosts()
+{
     return db_fetch_assoc('SELECT h.id, h.description,
         h.hostname, h.snmp_sysUpTimeInstance, mu.uptime
         FROM host AS h
@@ -114,12 +120,14 @@ function getRebootedHosts() {
  *
  * @return array
  */
-function getNotificationListsMap() {
+function getNotificationListsMap()
+{
     return array_rekey(
         db_fetch_assoc('SELECT id, emails
             FROM plugin_notification_lists
             ORDER BY id'),
-        'id', 'emails'
+        'id',
+        'emails'
     );
 }
 
@@ -133,11 +141,14 @@ function getNotificationListsMap() {
  *
  * @return void
  */
-function addTholdRebootRecipients(&$reboot_emails, $host_id, $alert_emails, $notification_lists) {
-    $notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
+function addTholdRebootRecipients(&$reboot_emails, $host_id, $alert_emails, $notification_lists)
+{
+    $notify = db_fetch_row_prepared(
+        'SELECT thold_send_email, thold_host_email
         FROM host
         WHERE id = ?',
-        [$host_id]);
+        [$host_id]
+    );
 
     if (!cacti_sizeof($notify)) {
         return;
@@ -170,17 +181,20 @@ function addTholdRebootRecipients(&$reboot_emails, $host_id, $alert_emails, $not
  *
  * @return array
  */
-function buildRebootEmailMap($rebooted_hosts, $alert_emails) {
+function buildRebootEmailMap($rebooted_hosts, $alert_emails)
+{
     $reboot_emails      = [];
     $notification_lists = getNotificationListsMap();
     $monitor_list       = read_config_option('monitor_list');
     $monitor_thold      = read_config_option('monitor_reboot_thold');
 
     foreach ($rebooted_hosts as $host) {
-        db_execute_prepared('INSERT INTO plugin_monitor_reboot_history
+        db_execute_prepared(
+            'INSERT INTO plugin_monitor_reboot_history
             (host_id, reboot_time)
             VALUES (?, ?)',
-            [$host['id'], date(MONITOR_DATE_TIME_FORMAT, time() - intval($host['snmp_sysUpTimeInstance']))]);
+            [$host['id'], date(MONITOR_DATE_TIME_FORMAT, time() - intval($host['snmp_sysUpTimeInstance']))]
+        );
 
         monitorAddNotificationList($reboot_emails, $monitor_list, $host['id'], $notification_lists);
 
@@ -199,7 +213,8 @@ function buildRebootEmailMap($rebooted_hosts, $alert_emails) {
  *
  * @return void
  */
-function sendRebootNotifications($reboot_emails) {
+function sendRebootNotifications($reboot_emails)
+{
     $monitor_send_one_email = read_config_option('monitor_send_one_email');
 
     if (!cacti_sizeof($reboot_emails)) {
@@ -236,7 +251,8 @@ function sendRebootNotifications($reboot_emails) {
  *
  * @return array{int, int} Reboot count and recent down count.
  */
-function monitorUptimeChecker() {
+function monitorUptimeChecker()
+{
     monitorDebug('Checking for Uptime of Devices');
 
     $alert_emails  = getAlertEmails();
@@ -284,7 +300,8 @@ function monitorUptimeChecker() {
  *
  * @return array{string, string, array}
  */
-function buildRebootDetails($hosts) {
+function buildRebootDetails($hosts)
+{
     $body_txt  = '';
     $last_host = [];
 
@@ -296,10 +313,12 @@ function buildRebootDetails($hosts) {
     $body .= '</tr>' . PHP_EOL;
 
     foreach ($hosts as $host_id) {
-        $host = db_fetch_row_prepared('SELECT description, hostname
+        $host = db_fetch_row_prepared(
+            'SELECT description, hostname
             FROM host
             WHERE id = ?',
-            [$host_id]);
+            [$host_id]
+        );
 
         if (!cacti_sizeof($host)) {
             continue;
@@ -329,7 +348,8 @@ function buildRebootDetails($hosts) {
  *
  * @return string
  */
-function buildRebootSubject($hosts, $last_host) {
+function buildRebootSubject($hosts, $last_host)
+{
     $subject                = read_config_option('monitor_subject');
     $monitor_send_one_email = read_config_option('monitor_send_one_email');
 
@@ -352,7 +372,8 @@ function buildRebootSubject($hosts, $last_host) {
  *
  * @return array{string, string, array}
  */
-function prepareReportOutput($body, $body_txt) {
+function prepareReportOutput($body, $body_txt)
+{
     $output = '';
 
     $report_tag = '';
@@ -395,7 +416,8 @@ function prepareReportOutput($body, $body_txt) {
  *
  * @return void
  */
-function processRebootEmail($email, $hosts) {
+function processRebootEmail($email, $hosts)
+{
     monitorDebug("Reboot Processing for $email starting");
 
     [$body, $body_txt, $last_host] = buildRebootDetails($hosts);
@@ -428,7 +450,8 @@ function processRebootEmail($email, $hosts) {
  *
  * @return array{array, array}
  */
-function collectNotificationHosts($lists, $global_list, $notify_list) {
+function collectNotificationHosts($lists, $global_list, $notify_list)
+{
     $alert_hosts = [];
     $warn_hosts  = [];
 
@@ -465,7 +488,8 @@ function collectNotificationHosts($lists, $global_list, $notify_list) {
  *
  * @return void
  */
-function normalizeAndLogNotificationHosts(&$alert_hosts, &$warn_hosts) {
+function normalizeAndLogNotificationHosts(&$alert_hosts, &$warn_hosts)
+{
     if (cacti_sizeof($alert_hosts)) {
         $alert_hosts = array_unique($alert_hosts, SORT_NUMERIC);
         logMessages('alert', $alert_hosts);
@@ -484,7 +508,8 @@ function normalizeAndLogNotificationHosts(&$alert_hosts, &$warn_hosts) {
  *
  * @return array{string, string}
  */
-function buildPingNotificationIntro($freq) {
+function buildPingNotificationIntro($freq)
+{
     $body     = '<h1>' . __(MONITOR_PING_NOTIFICATION_SUBJECT, 'monitor') . '</h1>' . PHP_EOL;
     $body_txt = __(MONITOR_PING_NOTIFICATION_SUBJECT, 'monitor') . PHP_EOL;
 
@@ -519,7 +544,8 @@ function buildPingNotificationIntro($freq) {
  *
  * @return void
  */
-function appendThresholdSection(&$body, &$body_txt, $host_ids, $criticalities, $section_text, $threshold_field) {
+function appendThresholdSection(&$body, &$body_txt, $host_ids, $criticalities, $section_text, $threshold_field)
+{
     global $config;
 
     if (!cacti_sizeof($host_ids)) {
@@ -554,15 +580,15 @@ function appendThresholdSection(&$body, &$body_txt, $host_ids, $criticalities, $
             $body .= '<tr>' . PHP_EOL;
             $body .= '<td class="left"><a class="hyperLink" href="' . htmlspecialchars($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . '">' . $host['description'] . '</a></td>' . PHP_EOL;
             $body .= '<td class="left">' . $criticalities[$host['monitor_criticality']] . '</td>' . PHP_EOL;
-            $body .= '<td class="right">' . number_format_i18n($host[$threshold_field],2) . ' ms</td>' . PHP_EOL;
-            $body .= '<td class="right">' . number_format_i18n($host['cur_time'],2) . ' ms</td>' . PHP_EOL;
+            $body .= '<td class="right">' . number_format_i18n($host[$threshold_field], 2) . ' ms</td>' . PHP_EOL;
+            $body .= '<td class="right">' . number_format_i18n($host['cur_time'], 2) . ' ms</td>' . PHP_EOL;
             $body .= '</tr>' . PHP_EOL;
 
             $body_txt .=
                 $host['description'] . "\t" .
                 $criticalities[$host['monitor_criticality']] . "\t" .
-                number_format_i18n($host[$threshold_field],2) . " ms\t" .
-                number_format_i18n($host['cur_time'],2) . ' ms' . PHP_EOL;
+                number_format_i18n($host[$threshold_field], 2) . " ms\t" .
+                number_format_i18n($host['cur_time'], 2) . ' ms' . PHP_EOL;
         }
     }
 
@@ -577,7 +603,8 @@ function appendThresholdSection(&$body, &$body_txt, $host_ids, $criticalities, $
  *
  * @return string
  */
-function buildNotificationStatus($alert_hosts, $warn_hosts) {
+function buildNotificationStatus($alert_hosts, $warn_hosts)
+{
     $status = '';
 
     if (cacti_sizeof($alert_hosts)) {
@@ -605,7 +632,8 @@ function buildNotificationStatus($alert_hosts, $warn_hosts) {
  *
  * @return void
  */
-function processEmail($email, $lists, $global_list, $notify_list) {
+function processEmail($email, $lists, $global_list, $notify_list)
+{
     monitorDebug('Into Processing');
 
     $criticalities = [
@@ -668,7 +696,8 @@ function processEmail($email, $lists, $global_list, $notify_list) {
  *
  * @return void
  */
-function processSendEmail($email, $subject, $output, $toutput, $headers, $status) {
+function processSendEmail($email, $subject, $output, $toutput, $headers, $status)
+{
     $from_email = read_config_option('monitor_fromemail');
 
     if ($from_email == '') {
@@ -728,7 +757,8 @@ function processSendEmail($email, $subject, $output, $toutput, $headers, $status
  *
  * @return string
  */
-function monitorText($output) {
+function monitorText($output)
+{
     $output = explode(PHP_EOL, $output);
 
     $new_output = '';
@@ -753,7 +783,8 @@ function monitorText($output) {
  *
  * @return void
  */
-function logMessages($type, $alert_hosts) {
+function logMessages($type, $alert_hosts)
+{
     global $start_date;
 
     static $processed = [];
@@ -768,14 +799,16 @@ function logMessages($type, $alert_hosts) {
 
     foreach ($alert_hosts as $id) {
         if (!isset($processed[$id])) {
-            db_execute_prepared("INSERT INTO plugin_monitor_notify_history
+            db_execute_prepared(
+                "INSERT INTO plugin_monitor_notify_history
                 (host_id, notify_type, ping_time, ping_threshold, notification_time)
                 SELECT id, '$type' AS notify_type, cur_time, $column, '$start_date' AS notification_time
                 FROM host
                 WHERE deleted = ''
                 AND monitor = 'on'
                 AND id = ?",
-                [$id]);
+                [$id]
+            );
         }
 
         $processed[$id] = true;
@@ -793,7 +826,8 @@ function logMessages($type, $alert_hosts) {
  *
  * @return void
  */
-function addGroupedNotificationEntry($type, $entry, &$global_list, &$notify_list, &$lists) {
+function addGroupedNotificationEntry($type, $entry, &$global_list, &$notify_list, &$lists)
+{
     if ($entry['thold_send_email'] == '1' || $entry['thold_send_email'] == '3') {
         $global_list[$type][] = $entry;
     }
@@ -815,10 +849,12 @@ function addGroupedNotificationEntry($type, $entry, &$global_list, &$notify_list
  *
  * @return void
  */
-function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &$lists) {
+function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &$lists)
+{
     $last_time = date(MONITOR_DATE_TIME_FORMAT, time() - read_config_option('monitor_resend_frequency') * 60);
 
-    $hosts = db_fetch_cell_prepared("SELECT COUNT(*)
+    $hosts = db_fetch_cell_prepared(
+        "SELECT COUNT(*)
         FROM host
         WHERE status = 3
         AND deleted = ''
@@ -826,7 +862,8 @@ function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &
         AND thold_send_email > 0
         AND monitor_criticality >= ?
         AND cur_time > monitor_$type",
-        [$criticality]);
+        [$criticality]
+    );
 
     if ($hosts <= 0) {
         return;
@@ -834,7 +871,8 @@ function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &
 
     $htype = ($type == 'warn') ? 1 : 0;
 
-    $groups = db_fetch_assoc_prepared("SELECT
+    $groups = db_fetch_assoc_prepared(
+        "SELECT
         thold_send_email, thold_host_email, GROUP_CONCAT(host.id) AS id
         FROM host
         LEFT JOIN (
@@ -854,7 +892,8 @@ function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &
         AND host.total_polls > 1
         GROUP BY thold_host_email, thold_send_email
         ORDER BY thold_host_email, thold_send_email',
-        [$htype, $criticality, $last_time]);
+        [$htype, $criticality, $last_time]
+    );
 
     if (!cacti_sizeof($groups)) {
         return;
@@ -872,7 +911,8 @@ function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &
  *
  * @return string
  */
-function flattenGroupSeverityList($list) {
+function flattenGroupSeverityList($list)
+{
     $flattened = '';
 
     foreach ($list as $item) {
@@ -889,7 +929,8 @@ function flattenGroupSeverityList($list) {
  *
  * @return array
  */
-function flattenNotifySeverityLists($lists) {
+function flattenNotifySeverityLists($lists)
+{
     $flattened = [];
 
     foreach ($lists as $id => $list) {
@@ -907,7 +948,8 @@ function flattenNotifySeverityLists($lists) {
  *
  * @return void
  */
-function flattenLists(&$global_list, &$notify_list) {
+function flattenLists(&$global_list, &$notify_list)
+{
     if (cacti_sizeof($global_list)) {
         $new_global = [];
 
@@ -938,7 +980,8 @@ function flattenLists(&$global_list, &$notify_list) {
  *
  * @return void
  */
-function addEmailsToNotificationMap(&$notification_emails, $emails, $scope_key) {
+function addEmailsToNotificationMap(&$notification_emails, $emails, $scope_key)
+{
     foreach ($emails as $user) {
         $user = trim($user);
 
@@ -955,7 +998,8 @@ function addEmailsToNotificationMap(&$notification_emails, $emails, $scope_key) 
  *
  * @return array
  */
-function getEmailsAndLists($lists) {
+function getEmailsAndLists($lists)
+{
     $notification_emails = [];
 
     $alert_email = read_config_option('alert_email');
@@ -989,7 +1033,8 @@ function getEmailsAndLists($lists) {
  *
  * @return array{int, int} Purged notify count and purged reboot count.
  */
-function purgeEventRecords() {
+function purgeEventRecords()
+{
     // Purge old records
     $days = read_config_option('monitor_log_storage');
 
@@ -997,15 +1042,19 @@ function purgeEventRecords() {
         $days = 120;
     }
 
-    db_execute_prepared('DELETE FROM plugin_monitor_notify_history
+    db_execute_prepared(
+        'DELETE FROM plugin_monitor_notify_history
         WHERE notification_time < FROM_UNIXTIME(UNIX_TIMESTAMP() - (? * 86400))',
-        [$days]);
+        [$days]
+    );
 
     $purge_n = db_affected_rows();
 
-    db_execute_prepared('DELETE FROM plugin_monitor_reboot_history
+    db_execute_prepared(
+        'DELETE FROM plugin_monitor_reboot_history
         WHERE log_time < FROM_UNIXTIME(UNIX_TIMESTAMP() - (? * 86400))',
-        [$days]);
+        [$days]
+    );
 
     $purge_r = db_affected_rows();
 
@@ -1019,7 +1068,8 @@ function purgeEventRecords() {
  *
  * @return void
  */
-function monitorDebug($message) {
+function monitorDebug($message)
+{
     global $debug;
 
     if ($debug) {
@@ -1032,7 +1082,8 @@ function monitorDebug($message) {
  *
  * @return void
  */
-function displayVersion() {
+function displayVersion()
+{
     global $config;
 
     if (!function_exists('pluginMonitorVersion')) {
@@ -1048,7 +1099,8 @@ function displayVersion() {
  *
  * @return void
  */
-function displayHelp() {
+function displayHelp()
+{
     displayVersion();
 
     print PHP_EOL;
