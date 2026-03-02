@@ -93,7 +93,7 @@ function renderDefault() {
 
 		if (function_exists($function)) {
 			// Call the custom render_header_ function
-			$result .= $function($hosts, $total_rows, $rows);
+			$result .= $function($total_rows, $rows);
 		}
 
 		$count = 0;
@@ -110,7 +110,7 @@ function renderDefault() {
 
 		if (function_exists($function)) {
 			// Call the custom render_footer_ function
-			$result .= $function($hosts, $total_rows, $rows);
+			$result .= $function($total_rows, $rows);
 		}
 	}
 
@@ -159,14 +159,14 @@ function renderSite() {
 		$function       = 'renderSuppressgroups' . ucfirst(get_request_var('view'));
 
 		if (function_exists($function)) {
-			$suppressGroups = $function($hosts);
+			$suppressGroups = $function();
 		}
 
 		$function = 'renderHeader' . ucfirst(get_request_var('view'));
 
 		if (function_exists($function)) {
 			// Call the custom render_header_ function
-			$result .= $function($hosts);
+			$result .= $function();
 			$suppressGroups = true;
 		}
 
@@ -228,7 +228,7 @@ function renderSite() {
 
 		if (function_exists($function)) {
 			// Call the custom render_footer_ function
-			$result .= $function($hosts);
+			$result .= $function();
 		}
 	}
 
@@ -286,14 +286,14 @@ function renderTemplate() {
 		$function       = 'renderSuppressgroups' . ucfirst(get_request_var('view'));
 
 		if (function_exists($function)) {
-			$suppressGroups = $function($hosts);
+			$suppressGroups = $function();
 		}
 
 		$function = 'renderHeader' . ucfirst(get_request_var('view'));
 
 		if (function_exists($function)) {
 			// Call the custom render_header_ function
-			$result .= $function($hosts);
+			$result .= $function();
 			$suppressGroups = true;
 		}
 
@@ -355,7 +355,7 @@ function renderTemplate() {
 
 		if (function_exists($function)) {
 			// Call the custom render_footer_ function
-			$result .= $function($hosts);
+			$result .= $function();
 		}
 	}
 
@@ -387,7 +387,7 @@ function renderTree() {
 		$hosts = [];
 
 		// Call the custom render_header_ function
-		$result .= $function($hosts);
+		$result .= $function();
 	}
 
 	if (cacti_sizeof($tree_list)) {
@@ -566,7 +566,7 @@ function renderTree() {
 
 	if (function_exists($function)) {
 		// Call the custom render_footer_ function
-		$result .= $function($hosts);
+		$result .= $function();
 	}
 
 	return $result;
@@ -722,23 +722,23 @@ function monitorTrim($string) {
 	return trim($string, "\"'\\ \n\t\r");
 }
 
-function renderHeaderDefault($hosts) {
+function renderHeaderDefault() {
 	return "<div class='monitorTable monitor'><div class='monitor_container'>";
 }
 
-function renderHeaderNames($hosts) {
+function renderHeaderNames() {
 	return "<table class='monitorTable monitor'>";
 }
 
-function renderHeaderTiles($hosts) {
-	return renderHeaderDefault($hosts);
+function renderHeaderTiles() {
+	return renderHeaderDefault();
 }
 
-function renderHeaderTilesadt($hosts) {
-	return renderHeaderDefault($hosts);
+function renderHeaderTilesadt() {
+	return renderHeaderDefault();
 }
 
-function renderHeaderList($hosts, $total_rows = 0, $rows = 0) {
+function renderHeaderList($total_rows = 0, $rows = 0) {
 	$display_text = [
 		'hostname' => [
 			'display' => __('Hostname', 'monitor'),
@@ -825,15 +825,15 @@ function renderHeaderList($hosts, $total_rows = 0, $rows = 0) {
 	return $output;
 }
 
-function renderSuppressgroupsList($hosts) {
+function renderSuppressgroupsList() {
 	return true;
 }
 
-function renderFooterDefault($hosts) {
+function renderFooterDefault() {
 	return '</div></div>';
 }
 
-function renderFooterNames($hosts) {
+function renderFooterNames() {
 	$col = 7 - $_SESSION['names'];
 
 	if ($col == 0) {
@@ -843,15 +843,15 @@ function renderFooterNames($hosts) {
 	}
 }
 
-function renderFooterTiles($hosts) {
-	return renderFooterDefault($hosts);
+function renderFooterTiles() {
+	return renderFooterDefault();
 }
 
-function renderFooterTilesadt($hosts) {
-	return renderFooterDefault($hosts);
+function renderFooterTilesadt() {
+	return renderFooterDefault();
 }
 
-function renderFooterList($hosts, $total_rows, $rows) {
+function renderFooterList($total_rows, $rows) {
 	ob_start();
 
 	html_end_box(false);
