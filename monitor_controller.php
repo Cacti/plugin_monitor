@@ -23,6 +23,11 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Load saved dashboard URL parameters into request scope.
+ *
+ * @return void
+ */
 function loadDashboardSettings()
 {
     $dashboard = get_filter_request_var('dashboard');
@@ -50,6 +55,11 @@ function loadDashboardSettings()
     }
 }
 
+/**
+ * Render monitor page including filters, host layout, legend, and audio.
+ *
+ * @return void
+ */
 function drawPage()
 {
     global $config, $iclasses, $icolorsdisplay, $mon_zoom_state, $dozoomrefresh, $dozoombgndcolor, $font_sizes;
@@ -139,11 +149,21 @@ function drawPage()
     bottom_footer();
 }
 
+/**
+ * Determine if alert audio is available and should be considered playable.
+ *
+ * @return bool
+ */
 function isMonitorAudible()
 {
     return getMonitorSound() != '';
 }
 
+/**
+ * Resolve configured monitor sound file if it exists on disk.
+ *
+ * @return string
+ */
 function getMonitorSound()
 {
     $sound = read_user_setting('monitor_sound', read_config_option('monitor_sound'));
@@ -154,6 +174,11 @@ function getMonitorSound()
     return $exists ? $sound : '';
 }
 
+/**
+ * Update down-host request flags and mute state based on current host status.
+ *
+ * @return void
+ */
 function findDownHosts()
 {
     $dhosts = getHostsDownOrTriggeredByPermission(false);
@@ -178,6 +203,13 @@ function findDownHosts()
     }
 }
 
+/**
+ * Remove recovered hosts from muted-host session state.
+ *
+ * @param array $dhosts Current down/triggered host id list.
+ *
+ * @return void
+ */
 function unmuteUpNonTriggeredHosts($dhosts)
 {
     if (isset($_SESSION['monitor_muted_hosts'])) {
@@ -189,24 +221,44 @@ function unmuteUpNonTriggeredHosts($dhosts)
     }
 }
 
+/**
+ * Mute all currently down/triggered hosts for the active user session.
+ *
+ * @return void
+ */
 function muteAllHosts()
 {
     $_SESSION['monitor_muted_hosts'] = getHostsDownOrTriggeredByPermission(false);
     muteUser();
 }
 
+/**
+ * Clear muted-host list and unmute monitor notifications for this user.
+ *
+ * @return void
+ */
 function unmuteAllHosts()
 {
     $_SESSION['monitor_muted_hosts'] = [];
     unmuteUser();
 }
 
+/**
+ * Persist user mute state as enabled.
+ *
+ * @return void
+ */
 function muteUser()
 {
     set_request_var('mute', 'true');
     set_user_setting('monitor_mute', 'true');
 }
 
+/**
+ * Persist user mute state as disabled.
+ *
+ * @return void
+ */
 function unmuteUser()
 {
     set_request_var('mute', 'false');
@@ -214,6 +266,11 @@ function unmuteUser()
 }
 
 
+/**
+ * Build footer text describing currently active monitor filters.
+ *
+ * @return string
+ */
 function getFilterText()
 {
     $filter = '<div class="center monitorFooterText">';
@@ -279,6 +336,16 @@ function getFilterText()
     return $filter;
 }
 
+/**
+ * Render one filter dropdown (or hidden fallback input) for the monitor form.
+ *
+ * @param string     $id       Filter field id/name.
+ * @param string     $title    Filter display title.
+ * @param array      $settings Option map of value => label.
+ * @param string|int $value    Selected value override.
+ *
+ * @return void
+ */
 function drawFilterDropdown($id, $title, $settings = [], $value = null)
 {
     if ($value == null) {
@@ -305,6 +372,11 @@ function drawFilterDropdown($id, $title, $settings = [], $value = null)
     }
 }
 
+/**
+ * Build dashboard dropdown option map for current user context.
+ *
+ * @return array
+ */
 function monitorGetDashboardOptions()
 {
     $dashboards = [0 => __('Unsaved', 'monitor')];
@@ -323,6 +395,13 @@ function monitorGetDashboardOptions()
     return $dashboards;
 }
 
+/**
+ * Resolve zoom override dropdown state from session values.
+ *
+ * @param bool $dozoombgndcolor Zoom background flag, updated in place.
+ *
+ * @return array{int|null, string|null}
+ */
 function monitorGetZoomDropdownState(&$dozoombgndcolor)
 {
     $mon_zoom_status = null;
@@ -353,6 +432,18 @@ function monitorGetZoomDropdownState(&$dozoombgndcolor)
     return [$mon_zoom_status, $mon_zoom_size];
 }
 
+/**
+ * Render the primary filter row (layout/status/view/grouping/actions).
+ *
+ * @param array      $dashboards        Dashboard option map.
+ * @param array      $monitor_status    Status filter options.
+ * @param array      $monitor_view_type View mode options.
+ * @param array      $monitor_grouping  Grouping mode options.
+ * @param array      $item_rows         Device row count options.
+ * @param int|null   $mon_zoom_status   Zoom-driven status override.
+ *
+ * @return void
+ */
 function monitorRenderPrimaryFilterRow($dashboards, $monitor_status, $monitor_view_type, $monitor_grouping, $item_rows, $mon_zoom_status)
 {
     drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
@@ -377,6 +468,17 @@ function monitorRenderPrimaryFilterRow($dashboards, $monitor_status, $monitor_vi
     print '</span></td>';
 }
 
+/**
+ * Render secondary grouping/filter controls for monitor page.
+ *
+ * @param array            $classes               Size class options.
+ * @param array            $criticalities         Criticality options.
+ * @param array            $monitor_trim          Trim options.
+ * @param array            $page_refresh_interval Refresh options.
+ * @param string|null      $mon_zoom_size         Zoom-driven size override.
+ *
+ * @return void
+ */
 function monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim, $page_refresh_interval, $mon_zoom_size)
 {
     drawFilterDropdown('crit', __('Criticality', 'monitor'), $criticalities);
@@ -454,6 +556,11 @@ function monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim,
     drawFilterDropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
 }
 
+/**
+ * Render hidden fallback input fields for inactive filters.
+ *
+ * @return void
+ */
 function monitorRenderHiddenFilterInputs()
 {
     if (get_request_var('grouping') != 'tree') {
@@ -477,6 +584,13 @@ function monitorRenderHiddenFilterInputs()
     }
 }
 
+/**
+ * Resolve zoom background color/font style for page rendering.
+ *
+ * @param bool $dozoombgndcolor Whether zoom background styling is enabled.
+ *
+ * @return array{string, string}
+ */
 function monitorGetZoomBackgroundStyle($dozoombgndcolor)
 {
     if ($dozoombgndcolor) {
@@ -497,6 +611,18 @@ function monitorGetZoomBackgroundStyle($dozoombgndcolor)
     return [$mbcolor, $monitor_error_fontsize];
 }
 
+/**
+ * Emit JavaScript bootstrap config and monitor JS include tag.
+ *
+ * @param array  $config                 Global Cacti config.
+ * @param string $mbcolor                Monitor background color.
+ * @param string $monitor_error_fontsize Zoom mode font size.
+ * @param bool   $dozoomrefresh          Auto-refresh flag for zoom mode.
+ * @param string $new_form               New dashboard dialog markup.
+ * @param string $new_title              New dashboard dialog title.
+ *
+ * @return void
+ */
 function monitorPrintJsBootstrap($config, $mbcolor, $monitor_error_fontsize, $dozoomrefresh, $new_form, $new_title)
 {
     $monitor_js_config = [
@@ -518,6 +644,11 @@ function monitorPrintJsBootstrap($config, $mbcolor, $monitor_error_fontsize, $do
     print '<script type="text/javascript" src="' . html_escape($config['url_path'] . 'plugins/monitor/js/monitor.js') . '"></script>';
 }
 
+/**
+ * Render monitor filter area and inject page JS bootstrap config.
+ *
+ * @return void
+ */
 function drawFilterAndStatus()
 {
     global $config, $criticalities, $page_refresh_interval, $classes, $monitor_grouping;
@@ -564,6 +695,11 @@ function drawFilterAndStatus()
     monitorPrintJsBootstrap($config, $mbcolor, $monitor_error_fontsize, $dozoomrefresh, $new_form, $new_title);
 }
 
+/**
+ * Get action label for mute button based on current audio capability.
+ *
+ * @return string
+ */
 function getMuteText()
 {
     if (isMonitorAudible()) {
@@ -573,6 +709,11 @@ function getMuteText()
     }
 }
 
+/**
+ * Get action label for unmute/reset button based on audio capability.
+ *
+ * @return string
+ */
 function getUnmuteText()
 {
     if (isMonitorAudible()) {
@@ -582,6 +723,11 @@ function getUnmuteText()
     }
 }
 
+/**
+ * Delete selected dashboard when owned by current user.
+ *
+ * @return void
+ */
 function removeDashboard()
 {
     $dashboard = get_filter_request_var('dashboard');
@@ -616,6 +762,11 @@ function removeDashboard()
     set_request_var('dashboard', '0');
 }
 
+/**
+ * Save monitor filter settings to user prefs or selected dashboard record.
+ *
+ * @return void
+ */
 function saveSettings()
 {
     if (isset_request_var('dashboard') && get_filter_request_var('dashboard') != 0) {
@@ -731,6 +882,13 @@ function saveSettings()
     validateRequestVars(true);
 }
 
+/**
+ * Validate and persist monitor request/session filter variables.
+ *
+ * @param bool $force Force reload from saved defaults.
+ *
+ * @return void
+ */
 function validateRequestVars($force = false)
 {
     // ================= input validation and session storage =================
@@ -834,6 +992,15 @@ function validateRequestVars($force = false)
     // ================= input validation =================
 }
 
+/**
+ * Load host row and normalize status fields for AJAX tooltip rendering.
+ *
+ * @param int   $id          Host id.
+ * @param array $thold_hosts Threshold host map.
+ * @param array $config      Global Cacti config.
+ *
+ * @return array
+ */
 function monitorLoadAjaxStatusHost($id, $thold_hosts, $config)
 {
     $host = db_fetch_row_prepared(
@@ -864,6 +1031,14 @@ function monitorLoadAjaxStatusHost($id, $thold_hosts, $config)
     return $host;
 }
 
+/**
+ * Build quick-action link markup for AJAX tooltip panel.
+ *
+ * @param array $host   Host row.
+ * @param array $config Global Cacti config.
+ *
+ * @return string
+ */
 function monitorGetAjaxStatusLinks($host, $config)
 {
     $links = '';
@@ -931,6 +1106,19 @@ function monitorGetAjaxStatusLinks($host, $config)
     return $links;
 }
 
+/**
+ * Render full hover tooltip table HTML for one host.
+ *
+ * @param array  $host         Host row.
+ * @param string $size         Tooltip CSS size key.
+ * @param string $links        Action links HTML.
+ * @param string $site         Site display value.
+ * @param string $sdisplay     Status display string.
+ * @param string $iclass       Status CSS class.
+ * @param array  $criticalities Criticality label map.
+ *
+ * @return string
+ */
 function monitorRenderAjaxStatusTooltip($host, $size, $links, $site, $sdisplay, $iclass, $criticalities)
 {
     return "<table class='monitorHover $size'>
@@ -1010,6 +1198,11 @@ function monitorRenderAjaxStatusTooltip($host, $size, $links, $site, $sdisplay, 
 }
 
 
+/**
+ * Handle AJAX monitor status tooltip request and print response HTML.
+ *
+ * @return bool|null
+ */
 function ajaxStatus()
 {
     global $thold_hosts, $config, $iclasses, $criticalities;

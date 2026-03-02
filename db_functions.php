@@ -23,6 +23,11 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Build thold SQL predicate based on selected monitor status filter.
+ *
+ * @return string
+ */
 function getTholdWhere()
 {
     if (get_request_var('status') == '2') { // breached
@@ -35,6 +40,11 @@ function getTholdWhere()
     }
 }
 
+/**
+ * Get host ids currently associated with triggered/breached thresholds.
+ *
+ * @return array
+ */
 function checkTholds()
 {
     $thold_hosts  = [];
@@ -55,6 +65,17 @@ function checkTholds()
 }
 
 
+/**
+ * Append an IN-clause fragment to an existing SQL where string.
+ *
+ * @param string $sql_where  SQL where fragment, updated in place.
+ * @param string $sql_join   Join token used between predicates (e.g. AND/OR).
+ * @param string $sql_field  Field name to compare with IN list.
+ * @param string $sql_data   Comma-delimited values for the IN list.
+ * @param string $sql_suffix Optional suffix appended inside predicate.
+ *
+ * @return void
+ */
 function renderGroupConcat(&$sql_where, $sql_join, $sql_field, $sql_data, $sql_suffix = '')
 {
     // Remove empty entries if something was returned
@@ -67,6 +88,14 @@ function renderGroupConcat(&$sql_where, $sql_join, $sql_field, $sql_data, $sql_s
     }
 }
 
+/**
+ * Build core monitor host query join/where fragments from current filters.
+ *
+ * @param string $sql_where SQL where fragment, updated in place.
+ * @param string $sql_join  SQL join fragment, updated in place.
+ *
+ * @return void
+ */
 function renderWhereJoin(&$sql_where, &$sql_join)
 {
     if (get_request_var('crit') > 0) {
@@ -170,8 +199,13 @@ function renderWhereJoin(&$sql_where, &$sql_join)
     }
 }
 
-// Render functions
-
+/**
+ * Return host ids that are down/triggered and visible to current user.
+ *
+ * @param bool $prescan Whether to use prescan severity threshold.
+ *
+ * @return array
+ */
 function getHostsDownOrTriggeredByPermission($prescan)
 {
     global $render_style;
@@ -247,6 +281,11 @@ function getHostsDownOrTriggeredByPermission($prescan)
     return $result;
 }
 
+/**
+ * Return non-tree monitor hosts after applying current filters.
+ *
+ * @return array
+ */
 function getHostNonTreeArray()
 {
     $leafs = [];

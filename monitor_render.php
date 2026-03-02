@@ -23,6 +23,11 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Render default monitor grouping output with active filters applied.
+ *
+ * @return string
+ */
 function renderDefault()
 {
     global $maxchars;
@@ -119,6 +124,11 @@ function renderDefault()
     return $result;
 }
 
+/**
+ * Render host output grouped by site.
+ *
+ * @return string
+ */
 function renderSite()
 {
     global $maxchars;
@@ -238,6 +248,11 @@ function renderSite()
     return $result;
 }
 
+/**
+ * Render host output grouped by host template.
+ *
+ * @return string
+ */
 function renderTemplate()
 {
     global $maxchars;
@@ -366,6 +381,13 @@ function renderTemplate()
     return $result;
 }
 
+/**
+ * Filter out disallowed hosts and return normalized host/id lists.
+ *
+ * @param array $hosts Host rows.
+ *
+ * @return array{array, array}
+ */
 function monitorFilterAllowedHosts($hosts)
 {
     $host_ids = [];
@@ -381,6 +403,11 @@ function monitorFilterAllowedHosts($hosts)
     return [array_values($hosts), $host_ids];
 }
 
+/**
+ * Determine max description trim length for tree rendering context.
+ *
+ * @return int
+ */
 function monitorGetTreeRenderMaxLength()
 {
     $maxlen = 10;
@@ -397,6 +424,13 @@ function monitorGetTreeRenderMaxLength()
     return getMonitorTrimLength($maxlen);
 }
 
+/**
+ * Build map of tree branch labels keyed by "tree_id:parent_id".
+ *
+ * @param array $branchWhost Tree branch/host rows.
+ *
+ * @return array
+ */
 function monitorBuildTreeTitles($branchWhost)
 {
     $titles = [];
@@ -423,6 +457,14 @@ function monitorBuildTreeTitles($branchWhost)
     return $titles;
 }
 
+/**
+ * Render grouped tree title/branch sections for monitor view.
+ *
+ * @param array $titles Tree titles map keyed by "tree_id:parent_id".
+ * @param int   $maxlen Trim length used for host title rendering.
+ *
+ * @return string
+ */
 function monitorRenderTreeTitleSections($titles, $maxlen)
 {
     $result = '';
@@ -496,6 +538,11 @@ function monitorRenderTreeTitleSections($titles, $maxlen)
     return $result;
 }
 
+/**
+ * Render section for monitored hosts that are not attached to any tree.
+ *
+ * @return string
+ */
 function monitorRenderNonTreeSection()
 {
     $result = '';
@@ -543,6 +590,11 @@ function monitorRenderNonTreeSection()
     return $result;
 }
 
+/**
+ * Render monitor tree grouping view, including tree and non-tree sections.
+ *
+ * @return string
+ */
 function renderTree()
 {
     $result = '';
@@ -608,6 +660,14 @@ function renderTree()
     return $result;
 }
 
+/**
+ * Resolve display status for a host with monitor/thold/mute overlays applied.
+ *
+ * @param array $host Host row data.
+ * @param bool  $real Return raw computed status even if icon class is missing.
+ *
+ * @return int
+ */
 function getHostStatus($host, $real = false)
 {
     global $thold_hosts, $iclasses;
@@ -634,6 +694,13 @@ function getHostStatus($host, $real = false)
     return ($real || array_key_exists($host['status'], $iclasses)) ? $host['status'] : 0;
 }
 
+/**
+ * Translate status code into localized display label.
+ *
+ * @param int $status Monitor status code.
+ *
+ * @return string
+ */
 function getHostStatusDescription($status)
 {
     global $icolorsdisplay;
@@ -646,10 +713,13 @@ function getHostStatusDescription($status)
 }
 
 /**
- * render_host - Renders a host using a sub-function
- * @param mixed $host
- * @param mixed $float
- * @param mixed $maxlen
+ * Render one host using view-specific renderer or default tile layout.
+ *
+ * @param array $host   Host row data.
+ * @param bool  $float  Legacy compatibility flag (currently unused).
+ * @param int   $maxlen Maximum host description trim length.
+ *
+ * @return string|null
  */
 function renderHost($host, $float = true, $maxlen = 10)
 {
@@ -711,6 +781,14 @@ function renderHost($host, $float = true, $maxlen = 10)
     return $result;
 }
 
+/**
+ * Resolve icon class for host status and configured monitor icon.
+ *
+ * @param int    $status Current monitor status.
+ * @param string $icon   Configured icon key.
+ *
+ * @return string
+ */
 function getStatusIcon($status, $icon)
 {
     global $fa_icons;
@@ -730,6 +808,14 @@ function getStatusIcon($status, $icon)
     }
 }
 
+/**
+ * Convert uptime/fail timestamp into compact human-readable duration text.
+ *
+ * @param string|int $status_time Timestamp string or SNMP uptime ticks.
+ * @param bool       $seconds     Include seconds in output string.
+ *
+ * @return string
+ */
 function monitorPrintHostTime($status_time, $seconds = false)
 {
     // If the host is down, make a downtime since message
@@ -759,31 +845,66 @@ function monitorPrintHostTime($status_time, $seconds = false)
 }
 
 
+/**
+ * Trim monitor text fields for quote and whitespace artifacts.
+ *
+ * @param string $string Input string.
+ *
+ * @return string
+ */
 function monitorTrim($string)
 {
     return trim($string, "\"'\\ \n\t\r");
 }
 
+/**
+ * Render wrapper header for default/tile monitor views.
+ *
+ * @return string
+ */
 function renderHeaderDefault()
 {
     return "<div class='monitorTable monitor'><div class='monitor_container'>";
 }
 
+/**
+ * Render wrapper header for names view table.
+ *
+ * @return string
+ */
 function renderHeaderNames()
 {
     return "<table class='monitorTable monitor'>";
 }
 
+/**
+ * Render wrapper header for icon tile view.
+ *
+ * @return string
+ */
 function renderHeaderTiles()
 {
     return renderHeaderDefault();
 }
 
+/**
+ * Render wrapper header for advanced tile view.
+ *
+ * @return string
+ */
 function renderHeaderTilesadt()
 {
     return renderHeaderDefault();
 }
 
+/**
+ * Render header and sortable column bar for list view.
+ *
+ * @param int $total_rows Total rows matching active filters.
+ * @param int $rows       Page row limit.
+ *
+ * @return string
+ */
 function renderHeaderList($total_rows = 0, $rows = 0)
 {
     $display_text = [
@@ -872,16 +993,31 @@ function renderHeaderList($total_rows = 0, $rows = 0)
     return $output;
 }
 
+/**
+ * Indicate whether grouped section headers are suppressed for list view.
+ *
+ * @return bool
+ */
 function renderSuppressgroupsList()
 {
     return true;
 }
 
+/**
+ * Render wrapper footer for default/tile monitor views.
+ *
+ * @return string
+ */
 function renderFooterDefault()
 {
     return '</div></div>';
 }
 
+/**
+ * Render footer row for names view including trailing empty cells.
+ *
+ * @return string
+ */
 function renderFooterNames()
 {
     $col = 7 - $_SESSION['names'];
@@ -893,16 +1029,34 @@ function renderFooterNames()
     }
 }
 
+/**
+ * Render wrapper footer for icon tile view.
+ *
+ * @return string
+ */
 function renderFooterTiles()
 {
     return renderFooterDefault();
 }
 
+/**
+ * Render wrapper footer for advanced tile view.
+ *
+ * @return string
+ */
 function renderFooterTilesadt()
 {
     return renderFooterDefault();
 }
 
+/**
+ * Render list view footer and bottom pager.
+ *
+ * @param int $total_rows Total rows matching active filters.
+ * @param int $rows       Page row limit.
+ *
+ * @return string
+ */
 function renderFooterList($total_rows, $rows)
 {
     ob_start();
@@ -922,6 +1076,13 @@ function renderFooterList($total_rows, $rows)
     return $output;
 }
 
+/**
+ * Render one host row in list view.
+ *
+ * @param array $host Host row data.
+ *
+ * @return string
+ */
 function renderHostList($host)
 {
     global $criticalities, $iclasses;
@@ -998,6 +1159,13 @@ function renderHostList($host)
     return $result;
 }
 
+/**
+ * Render one host cell in names view grid.
+ *
+ * @param array $host Host row data.
+ *
+ * @return string
+ */
 function renderHostNames($host)
 {
     $fclass = get_request_var('size');
@@ -1026,6 +1194,13 @@ function renderHostNames($host)
     return $result;
 }
 
+/**
+ * Render one host icon tile.
+ *
+ * @param array $host Host row data.
+ *
+ * @return string
+ */
 function renderHostTiles($host)
 {
     $class  = getStatusIcon($host['status'], $host['monitor_icon']);
@@ -1034,6 +1209,13 @@ function renderHostTiles($host)
     return "<div class='{$fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
 }
 
+/**
+ * Render one advanced host tile including time-in-state/uptime text.
+ *
+ * @param array $host Host row data.
+ *
+ * @return string
+ */
 function renderHostTilesadt($host)
 {
     $tis = '';
@@ -1053,6 +1235,13 @@ function renderHostTilesadt($host)
 }
 
 
+/**
+ * Apply monitor trim setting to a computed source field length.
+ *
+ * @param int $fieldlen Initial field length.
+ *
+ * @return int
+ */
 function getMonitorTrimLength($fieldlen)
 {
     global $maxchars;

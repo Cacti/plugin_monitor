@@ -22,6 +22,11 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Register monitor plugin hooks, realm, defaults, and schema.
+ *
+ * @return void
+ */
 function pluginMonitorInstall()
 {
     // core plugin functionality
@@ -58,6 +63,13 @@ function pluginMonitorInstall()
     monitorSetupTable();
 }
 
+/**
+ * Add monitor criticality filter definition to device filter list.
+ *
+ * @param array $filters Existing device filters.
+ *
+ * @return array
+ */
 function monitorDeviceFilters($filters)
 {
     $criticalities = [
@@ -82,6 +94,13 @@ function monitorDeviceFilters($filters)
     return $filters;
 }
 
+/**
+ * Append monitor criticality SQL predicate to host filter query.
+ *
+ * @param string $sql_where Existing WHERE fragment.
+ *
+ * @return string
+ */
 function monitorDeviceSqlWhere($sql_where)
 {
     if (get_request_var('criticality') >= 0) {
@@ -91,6 +110,11 @@ function monitorDeviceSqlWhere($sql_where)
     return $sql_where;
 }
 
+/**
+ * Render legacy criticality filter control for pre-1.3 device table UI.
+ *
+ * @return void
+ */
 function monitorDeviceTableBottom()
 {
     $criticalities = [
@@ -160,6 +184,11 @@ function monitorDeviceTableBottom()
     }
 }
 
+/**
+ * Drop monitor plugin runtime/history tables during uninstall.
+ *
+ * @return void
+ */
 function pluginMonitorUninstall()
 {
     db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
@@ -167,6 +196,11 @@ function pluginMonitorUninstall()
     db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
 }
 
+/**
+ * Inject monitor CSS assets into the current page header.
+ *
+ * @return void
+ */
 function pluginMonitorPageHead()
 {
     global $config;
@@ -178,6 +212,11 @@ function pluginMonitorPageHead()
     }
 }
 
+/**
+ * Validate plugin configuration values and trigger upgrade checks.
+ *
+ * @return bool
+ */
 function pluginMonitorCheckConfig()
 {
     global $config;
@@ -194,6 +233,11 @@ function pluginMonitorCheckConfig()
     return true;
 }
 
+/**
+ * Execute plugin upgrade checks when plugin manager requests upgrade.
+ *
+ * @return bool
+ */
 function pluginMonitorUpgrade()
 {
     // Here we will upgrade to the newest version
@@ -202,6 +246,11 @@ function pluginMonitorUpgrade()
     return false;
 }
 
+/**
+ * Apply pending monitor plugin schema/metadata upgrades.
+ *
+ * @return void
+ */
 function monitorCheckUpgrade()
 {
     $files = ['plugins.php', 'monitor.php'];
@@ -245,6 +294,11 @@ function monitorCheckUpgrade()
     }
 }
 
+/**
+ * Read monitor plugin metadata from INFO file.
+ *
+ * @return array
+ */
 function pluginMonitorVersion()
 {
     global $config;
@@ -253,6 +307,13 @@ function pluginMonitorVersion()
     return $info['info'];
 }
 
+/**
+ * Execute custom monitor bulk actions for selected devices.
+ *
+ * @param string $action Requested device action key.
+ *
+ * @return string
+ */
 function monitorDeviceActionExecute($action)
 {
     global $config, $fields_host_edit;
@@ -344,6 +405,13 @@ function monitorDeviceActionExecute($action)
     return $action;
 }
 
+/**
+ * Remove monitor history/uptime rows for deleted devices.
+ *
+ * @param array $devices Device ids being removed.
+ *
+ * @return array
+ */
 function monitorDeviceRemove($devices)
 {
     db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
@@ -353,6 +421,13 @@ function monitorDeviceRemove($devices)
     return $devices;
 }
 
+/**
+ * Render confirmation/edit UI for monitor-specific bulk device actions.
+ *
+ * @param array $save Bulk action context payload.
+ *
+ * @return array
+ */
 function monitorDeviceActionPrepare($save)
 {
     global $host_list, $fields_host_edit;
@@ -423,6 +498,13 @@ function monitorDeviceActionPrepare($save)
     }
 }
 
+/**
+ * Register monitor-specific entries in device action dropdown.
+ *
+ * @param array $device_action_array Existing action map.
+ *
+ * @return array
+ */
 function monitorDeviceActionArray($device_action_array)
 {
     $device_action_array['monitor_settings'] = __('Change Monitoring Options', 'monitor');
@@ -432,6 +514,11 @@ function monitorDeviceActionArray($device_action_array)
     return $device_action_array;
 }
 
+/**
+ * Scan monitor sounds directory and return selectable alarm files.
+ *
+ * @return array
+ */
 function monitorScanDir()
 {
     global $config;
@@ -452,6 +539,11 @@ function monitorScanDir()
     return $files;
 }
 
+/**
+ * Register monitor plugin settings and user preference definitions.
+ *
+ * @return void
+ */
 function monitorConfigSettings()
 {
     global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
@@ -742,6 +834,11 @@ function monitorConfigSettings()
     }
 }
 
+/**
+ * Build monitor icon option arrays and normalize legacy format fallback.
+ *
+ * @return void
+ */
 function monitorConfigArrays()
 {
     global $fa_icons;
@@ -825,6 +922,13 @@ function monitorConfigArrays()
     monitorCheckUpgrade();
 }
 
+/**
+ * Override top-graph refresh interval when on monitor page.
+ *
+ * @param int|string $refresh Existing refresh interval.
+ *
+ * @return int|string
+ */
 function monitorTopGraphRefresh($refresh)
 {
     if (get_current_page() != 'monitor.php') {
@@ -840,6 +944,11 @@ function monitorTopGraphRefresh($refresh)
     return $r;
 }
 
+/**
+ * Render monitor navigation tab icon for authorized users.
+ *
+ * @return void
+ */
 function monitorShowTab()
 {
     global $config;
@@ -855,6 +964,11 @@ function monitorShowTab()
     }
 }
 
+/**
+ * Inject monitor fields into device edit form configuration.
+ *
+ * @return void
+ */
 function monitorConfigForm()
 {
     global $config, $fields_host_edit, $criticalities, $fa_icons;
@@ -992,6 +1106,13 @@ function monitorConfigForm()
     $fields_host_edit = $fields_host_edit3;
 }
 
+/**
+ * Resolve default monitor enabled state for new devices.
+ *
+ * @param int|string $host_id Host identifier.
+ *
+ * @return string
+ */
 function monitorGetDefault($host_id)
 {
     $monitor_new_device = '';
@@ -1003,6 +1124,13 @@ function monitorGetDefault($host_id)
     return $monitor_new_device;
 }
 
+/**
+ * Validate and map monitor-specific host fields during device save.
+ *
+ * @param array $save Device save payload.
+ *
+ * @return array
+ */
 function monitorApiDeviceSave($save)
 {
     global $fa_icons;
@@ -1074,6 +1202,13 @@ function monitorApiDeviceSave($save)
     return $save;
 }
 
+/**
+ * Add monitor page breadcrumb/nav metadata.
+ *
+ * @param array $nav Existing navigation mapping.
+ *
+ * @return array
+ */
 function monitorDrawNavigationText($nav)
 {
     $nav['monitor.php:'] = ['title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '0'];
@@ -1081,6 +1216,11 @@ function monitorDrawNavigationText($nav)
     return $nav;
 }
 
+/**
+ * Create/upgrade monitor plugin tables and host columns.
+ *
+ * @return void
+ */
 function monitorSetupTable()
 {
     if (!db_table_exists('plugin_monitor_notify_history')) {
@@ -1142,6 +1282,11 @@ function monitorSetupTable()
     api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
 }
 
+/**
+ * Trigger monitor poller script from primary poller process.
+ *
+ * @return void
+ */
 function monitorPollerBottom()
 {
     global $config;
