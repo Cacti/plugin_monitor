@@ -893,10 +893,8 @@ function renderHostList($host) {
 	}
 
 	if ($host['availability_method'] > 0) {
-		$host_address = $host['hostname'];
 		$host_avg     =	__('%d ms', $host['cur_time'], 'monitor') . ' / ' . __('%d ms', $host['avg_time'], 'monitor');
 	} else {
-		$host_address = '';
 		$host_avg     = __('N/A', 'monitor');
 	}
 
@@ -952,8 +950,6 @@ function renderHostNames($host) {
 	$result = '';
 
 	$maxlen            = getMonitorTrimLength(100);
-	$monitor_times     = read_user_setting('monitor_uptime');
-	$monitor_time_html = '';
 
 	if ($_SESSION['names'] == 0) {
 		$result .= '<tr>';
@@ -975,16 +971,14 @@ function renderHostNames($host) {
 	return $result;
 }
 
-function renderHostTiles($host, $maxlen = 10) {
+function renderHostTiles($host) {
 	$class  = getStatusIcon($host['status'], $host['monitor_icon']);
 	$fclass = get_request_var('size');
 
-	$result = "<div class='{$fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
-
-	return $result;
+	return "<div class='{$fclass}_tiles monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i></a></div>";
 }
 
-function renderHostTilesadt($host, $maxlen = 10) {
+function renderHostTilesadt($host) {
 	$tis = '';
 
 	$class  = getStatusIcon($host['status'], $host['monitor_icon']);
@@ -993,15 +987,11 @@ function renderHostTilesadt($host, $maxlen = 10) {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$tis = get_timeinstate($host);
 
-		$result = "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_{$fclass} deviceDown'>$tis</span></a></div>";
-
-		return $result;
+		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_{$fclass} deviceDown'>$tis</span></a></div>";
 	} else {
 		$tis = get_uptime($host);
 
-		$result = "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_{$fclass} deviceUp'>$tis</span></a></div>";
-
-		return $result;
+		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='monitor_device_{$fclass} deviceUp'>$tis</span></a></div>";
 	}
 }
 
