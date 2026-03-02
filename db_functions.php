@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -28,7 +30,7 @@
  *
  * @return string
  */
-function getTholdWhere()
+function getTholdWhere(): string
 {
     if (get_request_var('status') == '2') { // breached
         return "(td.thold_enabled = 'on'
@@ -45,7 +47,7 @@ function getTholdWhere()
  *
  * @return array
  */
-function checkTholds()
+function checkTholds(): array
 {
     $thold_hosts  = [];
 
@@ -76,7 +78,7 @@ function checkTholds()
  *
  * @return void
  */
-function renderGroupConcat(&$sql_where, $sql_join, $sql_field, $sql_data, $sql_suffix = '')
+function renderGroupConcat(string &$sql_where, string $sql_join, string $sql_field, string $sql_data, string $sql_suffix = ''): void
 {
     // Remove empty entries if something was returned
     if (!empty($sql_data)) {
@@ -96,7 +98,7 @@ function renderGroupConcat(&$sql_where, $sql_join, $sql_field, $sql_data, $sql_s
  *
  * @return void
  */
-function renderWhereJoin(&$sql_where, &$sql_join)
+function renderWhereJoin(string &$sql_where, string &$sql_join): void
 {
     if (get_request_var('crit') > 0) {
         $awhere = 'h.monitor_criticality >= ' . get_request_var('crit');
@@ -206,7 +208,7 @@ function renderWhereJoin(&$sql_where, &$sql_join)
  *
  * @return array
  */
-function getHostsDownOrTriggeredByPermission($prescan)
+function getHostsDownOrTriggeredByPermission(bool $prescan): array
 {
     global $render_style;
     $PreScanValue = 2;
@@ -286,7 +288,7 @@ function getHostsDownOrTriggeredByPermission($prescan)
  *
  * @return array
  */
-function getHostNonTreeArray()
+function getHostNonTreeArray(): array
 {
     $leafs = [];
 

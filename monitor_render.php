@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -28,7 +30,7 @@
  *
  * @return string
  */
-function renderDefault()
+function renderDefault(): string
 {
     global $maxchars;
 
@@ -129,7 +131,7 @@ function renderDefault()
  *
  * @return string
  */
-function renderSite()
+function renderSite(): string
 {
     global $maxchars;
 
@@ -253,7 +255,7 @@ function renderSite()
  *
  * @return string
  */
-function renderTemplate()
+function renderTemplate(): string
 {
     global $maxchars;
 
@@ -388,7 +390,7 @@ function renderTemplate()
  *
  * @return array{array, array}
  */
-function monitorFilterAllowedHosts($hosts)
+function monitorFilterAllowedHosts(array $hosts): array
 {
     $host_ids = [];
 
@@ -408,7 +410,7 @@ function monitorFilterAllowedHosts($hosts)
  *
  * @return int
  */
-function monitorGetTreeRenderMaxLength()
+function monitorGetTreeRenderMaxLength(): int
 {
     $maxlen = 10;
 
@@ -431,7 +433,7 @@ function monitorGetTreeRenderMaxLength()
  *
  * @return array
  */
-function monitorBuildTreeTitles($branchWhost)
+function monitorBuildTreeTitles(array $branchWhost): array
 {
     $titles = [];
     $ptree  = '';
@@ -465,7 +467,7 @@ function monitorBuildTreeTitles($branchWhost)
  *
  * @return string
  */
-function monitorRenderTreeTitleSections($titles, $maxlen)
+function monitorRenderTreeTitleSections(array $titles, int $maxlen): string
 {
     $result = '';
     $ptree  = '';
@@ -543,7 +545,7 @@ function monitorRenderTreeTitleSections($titles, $maxlen)
  *
  * @return string
  */
-function monitorRenderNonTreeSection()
+function monitorRenderNonTreeSection(): string
 {
     $result = '';
 
@@ -595,7 +597,7 @@ function monitorRenderNonTreeSection()
  *
  * @return string
  */
-function renderTree()
+function renderTree(): string
 {
     $result = '';
 
@@ -668,7 +670,7 @@ function renderTree()
  *
  * @return int
  */
-function getHostStatus($host, $real = false)
+function getHostStatus(array $host, bool $real = false): int
 {
     global $thold_hosts, $iclasses;
 
@@ -701,7 +703,7 @@ function getHostStatus($host, $real = false)
  *
  * @return string
  */
-function getHostStatusDescription($status)
+function getHostStatusDescription(int|string $status): string
 {
     global $icolorsdisplay;
 
@@ -721,17 +723,17 @@ function getHostStatusDescription($status)
  *
  * @return string|null
  */
-function renderHost($host, $float = true, $maxlen = 10)
+function renderHost(array $host, bool $float = true, int $maxlen = 10): ?string
 {
     global $thold_hosts, $config, $icolorsdisplay, $iclasses, $classes, $maxchars, $mon_zoom_state;
 
     // throw out tree root items
     if (array_key_exists('name', $host)) {
-        return;
+        return null;
     }
 
     if ($host['id'] <= 0) {
-        return;
+        return null;
     }
 
     $host['anchor'] = $config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id'];
@@ -789,7 +791,7 @@ function renderHost($host, $float = true, $maxlen = 10)
  *
  * @return string
  */
-function getStatusIcon($status, $icon)
+function getStatusIcon(int $status, string $icon): string
 {
     global $fa_icons;
 
@@ -816,7 +818,7 @@ function getStatusIcon($status, $icon)
  *
  * @return string
  */
-function monitorPrintHostTime($status_time, $seconds = false)
+function monitorPrintHostTime(int|string $status_time, bool $seconds = false): string
 {
     // If the host is down, make a downtime since message
     $dt   = '';
@@ -852,7 +854,7 @@ function monitorPrintHostTime($status_time, $seconds = false)
  *
  * @return string
  */
-function monitorTrim($string)
+function monitorTrim(string $string): string
 {
     return trim($string, "\"'\\ \n\t\r");
 }
@@ -862,7 +864,7 @@ function monitorTrim($string)
  *
  * @return string
  */
-function renderHeaderDefault()
+function renderHeaderDefault(): string
 {
     return "<div class='monitorTable monitor'><div class='monitor_container'>";
 }
@@ -872,7 +874,7 @@ function renderHeaderDefault()
  *
  * @return string
  */
-function renderHeaderNames()
+function renderHeaderNames(): string
 {
     return "<table class='monitorTable monitor'>";
 }
@@ -882,7 +884,7 @@ function renderHeaderNames()
  *
  * @return string
  */
-function renderHeaderTiles()
+function renderHeaderTiles(): string
 {
     return renderHeaderDefault();
 }
@@ -892,7 +894,7 @@ function renderHeaderTiles()
  *
  * @return string
  */
-function renderHeaderTilesadt()
+function renderHeaderTilesadt(): string
 {
     return renderHeaderDefault();
 }
@@ -905,7 +907,7 @@ function renderHeaderTilesadt()
  *
  * @return string
  */
-function renderHeaderList($total_rows = 0, $rows = 0)
+function renderHeaderList(int $total_rows = 0, int $rows = 0): string
 {
     $display_text = [
         'hostname' => [
@@ -998,7 +1000,7 @@ function renderHeaderList($total_rows = 0, $rows = 0)
  *
  * @return bool
  */
-function renderSuppressgroupsList()
+function renderSuppressgroupsList(): bool
 {
     return true;
 }
@@ -1008,7 +1010,7 @@ function renderSuppressgroupsList()
  *
  * @return string
  */
-function renderFooterDefault()
+function renderFooterDefault(): string
 {
     return '</div></div>';
 }
@@ -1018,7 +1020,7 @@ function renderFooterDefault()
  *
  * @return string
  */
-function renderFooterNames()
+function renderFooterNames(): string
 {
     $col = 7 - $_SESSION['names'];
 
@@ -1034,7 +1036,7 @@ function renderFooterNames()
  *
  * @return string
  */
-function renderFooterTiles()
+function renderFooterTiles(): string
 {
     return renderFooterDefault();
 }
@@ -1044,7 +1046,7 @@ function renderFooterTiles()
  *
  * @return string
  */
-function renderFooterTilesadt()
+function renderFooterTilesadt(): string
 {
     return renderFooterDefault();
 }
@@ -1057,7 +1059,7 @@ function renderFooterTilesadt()
  *
  * @return string
  */
-function renderFooterList($total_rows, $rows)
+function renderFooterList(int $total_rows, int $rows): string
 {
     ob_start();
 
@@ -1083,7 +1085,7 @@ function renderFooterList($total_rows, $rows)
  *
  * @return string
  */
-function renderHostList($host)
+function renderHostList(array $host): string
 {
     global $criticalities, $iclasses;
 
@@ -1166,7 +1168,7 @@ function renderHostList($host)
  *
  * @return string
  */
-function renderHostNames($host)
+function renderHostNames(array $host): string
 {
     $fclass = get_request_var('size');
 
@@ -1201,7 +1203,7 @@ function renderHostNames($host)
  *
  * @return string
  */
-function renderHostTiles($host)
+function renderHostTiles(array $host): string
 {
     $class  = getStatusIcon($host['status'], $host['monitor_icon']);
     $fclass = get_request_var('size');
@@ -1216,7 +1218,7 @@ function renderHostTiles($host)
  *
  * @return string
  */
-function renderHostTilesadt($host)
+function renderHostTilesadt(array $host): string
 {
     $tis = '';
 
@@ -1242,7 +1244,7 @@ function renderHostTilesadt($host)
  *
  * @return int
  */
-function getMonitorTrimLength($fieldlen)
+function getMonitorTrimLength(int $fieldlen): int
 {
     global $maxchars;
 

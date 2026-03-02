@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -22,6 +24,11 @@
  | http://www.cacti.net/                                                   |
  +-------------------------------------------------------------------------+
 */
+
+if (PHP_VERSION_ID < 80100) {
+    fwrite(STDERR, 'Monitor plugin requires PHP 8.1.0 or newer. Current runtime: ' . PHP_VERSION . PHP_EOL);
+    exit(1);
+}
 
 $dir = __DIR__;
 chdir($dir);

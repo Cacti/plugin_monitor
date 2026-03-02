@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -23,12 +25,64 @@
 */
 
 /**
+ * Get minimum supported PHP version for this plugin.
+ *
+ * @return string
+ */
+function monitorGetMinimumPhpVersion(): string
+{
+    return '8.1.0';
+}
+
+/**
+ * Determine whether current runtime satisfies plugin PHP requirement.
+ *
+ * @return bool
+ */
+function monitorHasSupportedPhpVersion(): bool
+{
+    return version_compare(PHP_VERSION, monitorGetMinimumPhpVersion(), '>=');
+}
+
+/**
+ * Enforce plugin minimum PHP version and optionally raise a UI message.
+ *
+ * @param bool $raise_message Whether to raise a Cacti UI error message.
+ *
+ * @return bool
+ */
+function monitorEnsureSupportedPhpVersion(bool $raise_message = true): bool
+{
+    if (monitorHasSupportedPhpVersion()) {
+        return true;
+    }
+
+    $message = sprintf(
+        'Monitor plugin requires PHP %s or newer. Current runtime: %s',
+        monitorGetMinimumPhpVersion(),
+        PHP_VERSION
+    );
+
+    cacti_log($message, false, 'MONITOR');
+
+    if ($raise_message) {
+        raise_message('monitor_php_version', $message, MESSAGE_LEVEL_ERROR);
+    }
+
+    return false;
+}
+
+/**
  * Register monitor plugin hooks, realm, defaults, and schema.
  *
  * @return void
  */
-function pluginMonitorInstall()
+function pluginMonitorInstall(): void
 {
+    if (!monitorEnsureSupportedPhpVersion()) {
+        return;
+    }
+
     // core plugin functionality
     api_plugin_register_hook('monitor', 'top_header_tabs', 'monitorShowTab', 'setup.php');
     api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitorShowTab', 'setup.php');
@@ -70,7 +124,7 @@ function pluginMonitorInstall()
  *
  * @return array
  */
-function monitorDeviceFilters($filters)
+function monitorDeviceFilters(array $filters): array
 {
     $criticalities = [
         '-1' => __('Any', 'monitor'),
@@ -101,7 +155,7 @@ function monitorDeviceFilters($filters)
  *
  * @return string
  */
-function monitorDeviceSqlWhere($sql_where)
+function monitorDeviceSqlWhere(string $sql_where): string
 {
     if (get_request_var('criticality') >= 0) {
         $sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' monitor_criticality = ' . get_request_var('criticality');
@@ -115,7 +169,7 @@ function monitorDeviceSqlWhere($sql_where)
  *
  * @return void
  */
-function monitorDeviceTableBottom()
+function monitorDeviceTableBottom(): void
 {
     $criticalities = [
         '-1' => __('Any', 'monitor'),
@@ -189,7 +243,7 @@ function monitorDeviceTableBottom()
  *
  * @return void
  */
-function pluginMonitorUninstall()
+function pluginMonitorUninstall(): void
 {
     db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
     db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
@@ -201,7 +255,7 @@ function pluginMonitorUninstall()
  *
  * @return void
  */
-function pluginMonitorPageHead()
+function pluginMonitorPageHead(): void
 {
     global $config;
 
@@ -217,9 +271,14 @@ function pluginMonitorPageHead()
  *
  * @return bool
  */
-function pluginMonitorCheckConfig()
+function pluginMonitorCheckConfig(): bool
 {
     global $config;
+
+    if (!monitorEnsureSupportedPhpVersion()) {
+        return false;
+    }
+
     // Here we will check to ensure everything is configured
     monitorCheckUpgrade();
 
@@ -238,8 +297,12 @@ function pluginMonitorCheckConfig()
  *
  * @return bool
  */
-function pluginMonitorUpgrade()
+function pluginMonitorUpgrade(): bool
 {
+    if (!monitorEnsureSupportedPhpVersion()) {
+        return false;
+    }
+
     // Here we will upgrade to the newest version
     monitorCheckUpgrade();
 
@@ -251,7 +314,7 @@ function pluginMonitorUpgrade()
  *
  * @return void
  */
-function monitorCheckUpgrade()
+function monitorCheckUpgrade(): void
 {
     $files = ['plugins.php', 'monitor.php'];
 
@@ -299,7 +362,7 @@ function monitorCheckUpgrade()
  *
  * @return array
  */
-function pluginMonitorVersion()
+function pluginMonitorVersion(): array
 {
     global $config;
     $info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);
@@ -314,7 +377,7 @@ function pluginMonitorVersion()
  *
  * @return string
  */
-function monitorDeviceActionExecute($action)
+function monitorDeviceActionExecute(string $action): string
 {
     global $config, $fields_host_edit;
 
@@ -412,7 +475,7 @@ function monitorDeviceActionExecute($action)
  *
  * @return array
  */
-function monitorDeviceRemove($devices)
+function monitorDeviceRemove(array $devices): array
 {
     db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
     db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
@@ -428,7 +491,7 @@ function monitorDeviceRemove($devices)
  *
  * @return array
  */
-function monitorDeviceActionPrepare($save)
+function monitorDeviceActionPrepare(array $save): array
 {
     global $host_list, $fields_host_edit;
 
@@ -505,7 +568,7 @@ function monitorDeviceActionPrepare($save)
  *
  * @return array
  */
-function monitorDeviceActionArray($device_action_array)
+function monitorDeviceActionArray(array $device_action_array): array
 {
     $device_action_array['monitor_settings'] = __('Change Monitoring Options', 'monitor');
     $device_action_array['monitor_enable']   = __('Enable Monitoring', 'monitor');
@@ -519,7 +582,7 @@ function monitorDeviceActionArray($device_action_array)
  *
  * @return array
  */
-function monitorScanDir()
+function monitorScanDir(): array
 {
     global $config;
 
@@ -544,7 +607,7 @@ function monitorScanDir()
  *
  * @return void
  */
-function monitorConfigSettings()
+function monitorConfigSettings(): void
 {
     global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
@@ -839,7 +902,7 @@ function monitorConfigSettings()
  *
  * @return void
  */
-function monitorConfigArrays()
+function monitorConfigArrays(): void
 {
     global $fa_icons;
 
@@ -929,7 +992,7 @@ function monitorConfigArrays()
  *
  * @return int|string
  */
-function monitorTopGraphRefresh($refresh)
+function monitorTopGraphRefresh(mixed $refresh): mixed
 {
     if (get_current_page() != 'monitor.php') {
         return $refresh;
@@ -949,7 +1012,7 @@ function monitorTopGraphRefresh($refresh)
  *
  * @return void
  */
-function monitorShowTab()
+function monitorShowTab(): void
 {
     global $config;
 
@@ -969,7 +1032,7 @@ function monitorShowTab()
  *
  * @return void
  */
-function monitorConfigForm()
+function monitorConfigForm(): void
 {
     global $config, $fields_host_edit, $criticalities, $fa_icons;
 
@@ -1113,7 +1176,7 @@ function monitorConfigForm()
  *
  * @return string
  */
-function monitorGetDefault($host_id)
+function monitorGetDefault(int|string $host_id): string
 {
     $monitor_new_device = '';
 
@@ -1131,7 +1194,7 @@ function monitorGetDefault($host_id)
  *
  * @return array
  */
-function monitorApiDeviceSave($save)
+function monitorApiDeviceSave(array $save): array
 {
     global $fa_icons;
 
@@ -1209,7 +1272,7 @@ function monitorApiDeviceSave($save)
  *
  * @return array
  */
-function monitorDrawNavigationText($nav)
+function monitorDrawNavigationText(array $nav): array
 {
     $nav['monitor.php:'] = ['title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '0'];
 
@@ -1221,7 +1284,7 @@ function monitorDrawNavigationText($nav)
  *
  * @return void
  */
-function monitorSetupTable()
+function monitorSetupTable(): void
 {
     if (!db_table_exists('plugin_monitor_notify_history')) {
         db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
@@ -1287,7 +1350,7 @@ function monitorSetupTable()
  *
  * @return void
  */
-function monitorPollerBottom()
+function monitorPollerBottom(): void
 {
     global $config;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -28,7 +30,7 @@
  *
  * @return void
  */
-function loadDashboardSettings()
+function loadDashboardSettings(): void
 {
     $dashboard = get_filter_request_var('dashboard');
 
@@ -60,7 +62,7 @@ function loadDashboardSettings()
  *
  * @return void
  */
-function drawPage()
+function drawPage(): void
 {
     global $config, $iclasses, $icolorsdisplay, $mon_zoom_state, $dozoomrefresh, $dozoombgndcolor, $font_sizes;
     global $new_form, $new_title;
@@ -154,7 +156,7 @@ function drawPage()
  *
  * @return bool
  */
-function isMonitorAudible()
+function isMonitorAudible(): bool
 {
     return getMonitorSound() != '';
 }
@@ -164,7 +166,7 @@ function isMonitorAudible()
  *
  * @return string
  */
-function getMonitorSound()
+function getMonitorSound(): string
 {
     $sound = read_user_setting('monitor_sound', read_config_option('monitor_sound'));
     clearstatcache();
@@ -179,7 +181,7 @@ function getMonitorSound()
  *
  * @return void
  */
-function findDownHosts()
+function findDownHosts(): void
 {
     $dhosts = getHostsDownOrTriggeredByPermission(false);
 
@@ -210,7 +212,7 @@ function findDownHosts()
  *
  * @return void
  */
-function unmuteUpNonTriggeredHosts($dhosts)
+function unmuteUpNonTriggeredHosts(array $dhosts): void
 {
     if (isset($_SESSION['monitor_muted_hosts'])) {
         foreach ($_SESSION['monitor_muted_hosts'] as $index => $host_id) {
@@ -226,7 +228,7 @@ function unmuteUpNonTriggeredHosts($dhosts)
  *
  * @return void
  */
-function muteAllHosts()
+function muteAllHosts(): void
 {
     $_SESSION['monitor_muted_hosts'] = getHostsDownOrTriggeredByPermission(false);
     muteUser();
@@ -237,7 +239,7 @@ function muteAllHosts()
  *
  * @return void
  */
-function unmuteAllHosts()
+function unmuteAllHosts(): void
 {
     $_SESSION['monitor_muted_hosts'] = [];
     unmuteUser();
@@ -248,7 +250,7 @@ function unmuteAllHosts()
  *
  * @return void
  */
-function muteUser()
+function muteUser(): void
 {
     set_request_var('mute', 'true');
     set_user_setting('monitor_mute', 'true');
@@ -259,7 +261,7 @@ function muteUser()
  *
  * @return void
  */
-function unmuteUser()
+function unmuteUser(): void
 {
     set_request_var('mute', 'false');
     set_user_setting('monitor_mute', 'false');
@@ -271,7 +273,7 @@ function unmuteUser()
  *
  * @return string
  */
-function getFilterText()
+function getFilterText(): string
 {
     $filter = '<div class="center monitorFooterText">';
 
@@ -346,7 +348,7 @@ function getFilterText()
  *
  * @return void
  */
-function drawFilterDropdown($id, $title, $settings = [], $value = null)
+function drawFilterDropdown(string $id, string $title, array $settings = [], mixed $value = null): void
 {
     if ($value == null) {
         $value = get_nfilter_request_var($id);
@@ -377,7 +379,7 @@ function drawFilterDropdown($id, $title, $settings = [], $value = null)
  *
  * @return array
  */
-function monitorGetDashboardOptions()
+function monitorGetDashboardOptions(): array
 {
     $dashboards = [0 => __('Unsaved', 'monitor')];
     $dashboards += array_rekey(
@@ -402,7 +404,7 @@ function monitorGetDashboardOptions()
  *
  * @return array{int|null, string|null}
  */
-function monitorGetZoomDropdownState(&$dozoombgndcolor)
+function monitorGetZoomDropdownState(bool &$dozoombgndcolor): array
 {
     $mon_zoom_status = null;
     $mon_zoom_size   = null;
@@ -444,7 +446,7 @@ function monitorGetZoomDropdownState(&$dozoombgndcolor)
  *
  * @return void
  */
-function monitorRenderPrimaryFilterRow($dashboards, $monitor_status, $monitor_view_type, $monitor_grouping, $item_rows, $mon_zoom_status)
+function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_view_type, array $monitor_grouping, array $item_rows, int|null $mon_zoom_status): void
 {
     drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
     drawFilterDropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
@@ -479,7 +481,7 @@ function monitorRenderPrimaryFilterRow($dashboards, $monitor_status, $monitor_vi
  *
  * @return void
  */
-function monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim, $page_refresh_interval, $mon_zoom_size)
+function monitorRenderGroupingDropdowns(array $classes, array $criticalities, array $monitor_trim, array $page_refresh_interval, string|null $mon_zoom_size): void
 {
     drawFilterDropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
@@ -561,7 +563,7 @@ function monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim,
  *
  * @return void
  */
-function monitorRenderHiddenFilterInputs()
+function monitorRenderHiddenFilterInputs(): void
 {
     if (get_request_var('grouping') != 'tree') {
         print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
@@ -591,7 +593,7 @@ function monitorRenderHiddenFilterInputs()
  *
  * @return array{string, string}
  */
-function monitorGetZoomBackgroundStyle($dozoombgndcolor)
+function monitorGetZoomBackgroundStyle(bool $dozoombgndcolor): array
 {
     if ($dozoombgndcolor) {
         $mbcolora = db_fetch_row_prepared(
@@ -623,7 +625,7 @@ function monitorGetZoomBackgroundStyle($dozoombgndcolor)
  *
  * @return void
  */
-function monitorPrintJsBootstrap($config, $mbcolor, $monitor_error_fontsize, $dozoomrefresh, $new_form, $new_title)
+function monitorPrintJsBootstrap(array $config, string $mbcolor, string $monitor_error_fontsize, bool $dozoomrefresh, string $new_form, string $new_title): void
 {
     $monitor_js_config = [
         'mbColor' => $mbcolor,
@@ -649,7 +651,7 @@ function monitorPrintJsBootstrap($config, $mbcolor, $monitor_error_fontsize, $do
  *
  * @return void
  */
-function drawFilterAndStatus()
+function drawFilterAndStatus(): void
 {
     global $config, $criticalities, $page_refresh_interval, $classes, $monitor_grouping;
     global $monitor_view_type, $monitor_status, $monitor_trim;
@@ -700,7 +702,7 @@ function drawFilterAndStatus()
  *
  * @return string
  */
-function getMuteText()
+function getMuteText(): string
 {
     if (isMonitorAudible()) {
         return __('Mute', 'monitor');
@@ -714,7 +716,7 @@ function getMuteText()
  *
  * @return string
  */
-function getUnmuteText()
+function getUnmuteText(): string
 {
     if (isMonitorAudible()) {
         return __('Un-Mute', 'monitor');
@@ -728,7 +730,7 @@ function getUnmuteText()
  *
  * @return void
  */
-function removeDashboard()
+function removeDashboard(): void
 {
     $dashboard = get_filter_request_var('dashboard');
 
@@ -767,7 +769,7 @@ function removeDashboard()
  *
  * @return void
  */
-function saveSettings()
+function saveSettings(): void
 {
     if (isset_request_var('dashboard') && get_filter_request_var('dashboard') != 0) {
         $save_db = true;
@@ -889,7 +891,7 @@ function saveSettings()
  *
  * @return void
  */
-function validateRequestVars($force = false)
+function validateRequestVars(bool $force = false): void
 {
     // ================= input validation and session storage =================
     $filters = [
@@ -1001,7 +1003,7 @@ function validateRequestVars($force = false)
  *
  * @return array
  */
-function monitorLoadAjaxStatusHost($id, $thold_hosts, $config)
+function monitorLoadAjaxStatusHost(int|string $id, array $thold_hosts, array $config): array
 {
     $host = db_fetch_row_prepared(
         'SELECT *
@@ -1039,7 +1041,7 @@ function monitorLoadAjaxStatusHost($id, $thold_hosts, $config)
  *
  * @return string
  */
-function monitorGetAjaxStatusLinks($host, $config)
+function monitorGetAjaxStatusLinks(array $host, array $config): string
 {
     $links = '';
 
@@ -1119,7 +1121,7 @@ function monitorGetAjaxStatusLinks($host, $config)
  *
  * @return string
  */
-function monitorRenderAjaxStatusTooltip($host, $size, $links, $site, $sdisplay, $iclass, $criticalities)
+function monitorRenderAjaxStatusTooltip(array $host, string $size, string $links, string $site, string $sdisplay, string $iclass, array $criticalities): string
 {
     return "<table class='monitorHover $size'>
         <tr class='tableHeader'>
@@ -1203,7 +1205,7 @@ function monitorRenderAjaxStatusTooltip($host, $size, $links, $site, $sdisplay, 
  *
  * @return bool|null
  */
-function ajaxStatus()
+function ajaxStatus(): void
 {
     global $thold_hosts, $config, $iclasses, $criticalities;
 
@@ -1220,7 +1222,7 @@ function ajaxStatus()
     if (!cacti_sizeof($host)) {
         cacti_log('Attempted to retrieve status for missing Device ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
 
-        return false;
+        return;
     }
 
     $links = monitorGetAjaxStatusLinks($host, $config);
