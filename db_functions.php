@@ -247,14 +247,6 @@ function getHostsDownOrTriggeredByPermission($prescan)
     return $result;
 }
 
-/*
-// This function is not used and contains an undefined variable
-
-function getHostTreeArray() {
-    return $leafs;
-}
-*/
-
 function getHostNonTreeArray()
 {
     $leafs = [];
