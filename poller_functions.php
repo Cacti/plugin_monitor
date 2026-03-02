@@ -23,7 +23,13 @@
 */
 
 /**
- * Add host to reboot email recipients.
+ * Add a host id to each recipient entry in the reboot recipient map.
+ *
+ * @param array $reboot_emails Recipient map keyed by email, then host id.
+ * @param array $alert_emails  List of raw email addresses.
+ * @param int   $host_id       Host id to associate with each recipient.
+ *
+ * @return void
  */
 function monitorAddEmails(&$reboot_emails, $alert_emails, $host_id) {
     if (cacti_sizeof($alert_emails)) {
@@ -34,7 +40,14 @@ function monitorAddEmails(&$reboot_emails, $alert_emails, $host_id) {
 }
 
 /**
- * Add host to recipients from a notification list.
+ * Add a host id to recipients coming from a notification list id.
+ *
+ * @param array $reboot_emails      Recipient map keyed by email, then host id.
+ * @param int   $notify_list        Notification list id.
+ * @param int   $host_id            Host id to add.
+ * @param array $notification_lists Map of list id to comma-delimited emails.
+ *
+ * @return void
  */
 function monitorAddNotificationList(&$reboot_emails, $notify_list, $host_id, $notification_lists) {
     if ($notify_list > 0 && isset($notification_lists[$notify_list])) {
@@ -44,7 +57,9 @@ function monitorAddNotificationList(&$reboot_emails, $notify_list, $host_id, $no
 }
 
 /**
- * Return configured global alert emails.
+ * Fetch the configured global alert email list.
+ *
+ * @return array
  */
 function getAlertEmails() {
     $alert_email = read_config_option('alert_email');
@@ -53,7 +68,11 @@ function getAlertEmails() {
 }
 
 /**
- * Remove orphan monitor rows for a monitor table.
+ * Delete monitor table rows that reference missing hosts.
+ *
+ * @param string $table_name Monitor table to purge.
+ *
+ * @return void
  */
 function purgeOrphanMonitorRows($table_name) {
     $removed_hosts = db_fetch_assoc("SELECT mu.host_id
@@ -72,7 +91,9 @@ function purgeOrphanMonitorRows($table_name) {
 }
 
 /**
- * Return hosts detected as rebooted.
+ * Get monitored hosts whose uptime indicates a reboot.
+ *
+ * @return array
  */
 function getRebootedHosts() {
     return db_fetch_assoc('SELECT h.id, h.description,
@@ -89,7 +110,9 @@ function getRebootedHosts() {
 }
 
 /**
- * Return notification list id-to-emails map.
+ * Fetch notification lists and map id to email string.
+ *
+ * @return array
  */
 function getNotificationListsMap() {
     return array_rekey(
@@ -101,7 +124,14 @@ function getNotificationListsMap() {
 }
 
 /**
- * Add threshold-configured recipients for rebooted host.
+ * Add reboot recipients based on host threshold notification settings.
+ *
+ * @param array $reboot_emails      Recipient map keyed by email, then host id.
+ * @param int   $host_id            Host id being processed.
+ * @param array $alert_emails       Global alert email list.
+ * @param array $notification_lists Map of notification list id to emails.
+ *
+ * @return void
  */
 function addTholdRebootRecipients(&$reboot_emails, $host_id, $alert_emails, $notification_lists) {
     $notify = db_fetch_row_prepared('SELECT thold_send_email, thold_host_email
@@ -133,7 +163,12 @@ function addTholdRebootRecipients(&$reboot_emails, $host_id, $alert_emails, $not
 }
 
 /**
- * Build reboot email recipient map for rebooted hosts.
+ * Build reboot recipient map and persist reboot history rows.
+ *
+ * @param array $rebooted_hosts Rebooted host rows.
+ * @param array $alert_emails   Global alert email list.
+ *
+ * @return array
  */
 function buildRebootEmailMap($rebooted_hosts, $alert_emails) {
     $reboot_emails      = [];
@@ -158,7 +193,11 @@ function buildRebootEmailMap($rebooted_hosts, $alert_emails) {
 }
 
 /**
- * Send reboot notifications using configured delivery mode.
+ * Dispatch reboot notifications per-recipient or as a single batched email.
+ *
+ * @param array $reboot_emails Recipient map keyed by email, then host id.
+ *
+ * @return void
  */
 function sendRebootNotifications($reboot_emails) {
     $monitor_send_one_email = read_config_option('monitor_send_one_email');
@@ -193,7 +232,9 @@ function sendRebootNotifications($reboot_emails) {
 }
 
 /**
- * Check uptime/reboot events and process reboot notifications.
+ * Process reboot detection, uptime refresh, and down-event history logging.
+ *
+ * @return array{int, int} Reboot count and recent down count.
  */
 function monitorUptimeChecker() {
     monitorDebug('Checking for Uptime of Devices');
@@ -237,7 +278,11 @@ function monitorUptimeChecker() {
 }
 
 /**
- * Build reboot details for both HTML and plain text mail bodies.
+ * Build reboot details table/text and capture the last resolved host row.
+ *
+ * @param array $hosts Host ids to include.
+ *
+ * @return array{string, string, array}
  */
 function buildRebootDetails($hosts) {
     $body_txt  = '';
@@ -277,7 +322,12 @@ function buildRebootDetails($hosts) {
 }
 
 /**
- * Build reboot notification email subject.
+ * Build reboot notification subject from host count and delivery mode.
+ *
+ * @param array $hosts     Host id list.
+ * @param array $last_host Last host row seen while building details.
+ *
+ * @return string
  */
 function buildRebootSubject($hosts, $last_host) {
     $subject                = read_config_option('monitor_subject');
@@ -295,7 +345,12 @@ function buildRebootSubject($hosts, $last_host) {
 }
 
 /**
- * Prepare report wrapper output and headers for monitor notifications.
+ * Wrap body output with report format template and build mail headers.
+ *
+ * @param string $body     HTML body content.
+ * @param string $body_txt Plain text body content.
+ *
+ * @return array{string, string, array}
  */
 function prepareReportOutput($body, $body_txt) {
     $output = '';
@@ -333,7 +388,12 @@ function prepareReportOutput($body, $body_txt) {
 }
 
 /**
- * Process and send reboot notification email.
+ * Render and send one reboot notification email payload.
+ *
+ * @param string $email Recipient email address string.
+ * @param array  $hosts Host ids to include in the message.
+ *
+ * @return void
  */
 function processRebootEmail($email, $hosts) {
     monitorDebug("Reboot Processing for $email starting");
@@ -360,7 +420,13 @@ function processRebootEmail($email, $hosts) {
 }
 
 /**
- * Collect alert and warning host ids from requested notification lists.
+ * Resolve alert/warn host ids for requested global/list subscription scopes.
+ *
+ * @param array $lists       Requested scopes (`global` or list ids).
+ * @param array $global_list Flattened global notification host ids by severity.
+ * @param array $notify_list Flattened list notification host ids by severity.
+ *
+ * @return array{array, array}
  */
 function collectNotificationHosts($lists, $global_list, $notify_list) {
     $alert_hosts = [];
@@ -392,7 +458,12 @@ function collectNotificationHosts($lists, $global_list, $notify_list) {
 }
 
 /**
- * Log and de-duplicate notification host ids.
+ * De-duplicate alert/warn host ids and log notification history entries.
+ *
+ * @param array $alert_hosts Alert host ids; normalized in place.
+ * @param array $warn_hosts  Warning host ids; normalized in place.
+ *
+ * @return void
  */
 function normalizeAndLogNotificationHosts(&$alert_hosts, &$warn_hosts) {
     if (cacti_sizeof($alert_hosts)) {
@@ -407,7 +478,11 @@ function normalizeAndLogNotificationHosts(&$alert_hosts, &$warn_hosts) {
 }
 
 /**
- * Build base intro text for ping threshold notification.
+ * Build shared intro copy for ping threshold email and text output.
+ *
+ * @param int $freq Resend frequency in minutes.
+ *
+ * @return array{string, string}
  */
 function buildPingNotificationIntro($freq) {
     $body     = '<h1>' . __(MONITOR_PING_NOTIFICATION_SUBJECT, 'monitor') . '</h1>' . PHP_EOL;
@@ -433,7 +508,16 @@ function buildPingNotificationIntro($freq) {
 }
 
 /**
- * Append one threshold breach section to notification body.
+ * Append one severity section for breached host thresholds.
+ *
+ * @param string $body           HTML body output buffer.
+ * @param string $body_txt       Plain text output buffer.
+ * @param array  $host_ids       Host ids for the section.
+ * @param array  $criticalities  Criticality label map.
+ * @param string $section_text   Section heading text.
+ * @param string $threshold_field Host threshold field name.
+ *
+ * @return void
  */
 function appendThresholdSection(&$body, &$body_txt, $host_ids, $criticalities, $section_text, $threshold_field) {
     global $config;
@@ -486,7 +570,12 @@ function appendThresholdSection(&$body, &$body_txt, $host_ids, $criticalities, $
 }
 
 /**
- * Build delivery status summary for notification logging.
+ * Build log-friendly summary text for alert/warn delivery counts.
+ *
+ * @param array $alert_hosts Alert host ids.
+ * @param array $warn_hosts  Warning host ids.
+ *
+ * @return string
  */
 function buildNotificationStatus($alert_hosts, $warn_hosts) {
     $status = '';
@@ -507,7 +596,14 @@ function buildNotificationStatus($alert_hosts, $warn_hosts) {
 }
 
 /**
- * Process and send ping threshold notification email.
+ * Build and send a ping-threshold notification for one recipient.
+ *
+ * @param string $email       Recipient email.
+ * @param array  $lists       Requested scopes (`global` or list ids).
+ * @param array  $global_list Flattened global host ids by severity.
+ * @param array  $notify_list Flattened list host ids by severity.
+ *
+ * @return void
  */
 function processEmail($email, $lists, $global_list, $notify_list) {
     monitorDebug('Into Processing');
@@ -561,7 +657,16 @@ function processEmail($email, $lists, $global_list, $notify_list) {
 }
 
 /**
- * Send notification email through Cacti mailer.
+ * Send an email through Cacti mailer with configured sender fallbacks.
+ *
+ * @param string $email   Recipient email string.
+ * @param string $subject Message subject.
+ * @param string $output  HTML output body.
+ * @param string $toutput Plain text output body.
+ * @param array  $headers Extra headers passed to mailer.
+ * @param string $status  Status text used in logs.
+ *
+ * @return void
  */
 function processSendEmail($email, $subject, $output, $toutput, $headers, $status) {
     $from_email = read_config_option('monitor_fromemail');
@@ -617,7 +722,11 @@ function processSendEmail($email, $subject, $output, $toutput, $headers, $status
 }
 
 /**
- * Convert HTML output into plain text output.
+ * Convert HTML-ish report content into plain text line output.
+ *
+ * @param string $output HTML or mixed output.
+ *
+ * @return string
  */
 function monitorText($output) {
     $output = explode(PHP_EOL, $output);
@@ -637,7 +746,12 @@ function monitorText($output) {
 }
 
 /**
- * Log alert or warning notification events.
+ * Persist alert or warning notification history rows once per host.
+ *
+ * @param string $type        Severity type (`alert` or `warn`).
+ * @param array  $alert_hosts Host ids to log for the severity.
+ *
+ * @return void
  */
 function logMessages($type, $alert_hosts) {
     global $start_date;
@@ -669,7 +783,15 @@ function logMessages($type, $alert_hosts) {
 }
 
 /**
- * Add one grouped notification entry to global/notification collections.
+ * Add grouped host ids to global/list collections by host email mode.
+ *
+ * @param string $type        Severity key (`alert` or `warn`).
+ * @param array  $entry       Grouped SQL row containing mode/list/ids.
+ * @param array  $global_list Global grouped bucket, updated in place.
+ * @param array  $notify_list Per-list grouped bucket, updated in place.
+ * @param array  $lists       Set of list ids used for recipient lookups.
+ *
+ * @return void
  */
 function addGroupedNotificationEntry($type, $entry, &$global_list, &$notify_list, &$lists) {
     if ($entry['thold_send_email'] == '1' || $entry['thold_send_email'] == '3') {
@@ -683,7 +805,15 @@ function addGroupedNotificationEntry($type, $entry, &$global_list, &$notify_list
 }
 
 /**
- * Collect threshold-breached hosts by severity and notification list type.
+ * Query and group threshold-breached hosts for one severity type.
+ *
+ * @param string $type        Severity key (`alert` or `warn`).
+ * @param int    $criticality Minimum criticality threshold.
+ * @param array  $global_list Global grouped bucket, updated in place.
+ * @param array  $notify_list Per-list grouped bucket, updated in place.
+ * @param array  $lists       Set of notification list ids, updated in place.
+ *
+ * @return void
  */
 function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &$lists) {
     $last_time = date(MONITOR_DATE_TIME_FORMAT, time() - read_config_option('monitor_resend_frequency') * 60);
@@ -736,7 +866,11 @@ function getHostsByListType($type, $criticality, &$global_list, &$notify_list, &
 }
 
 /**
- * Flatten grouped list ids for one severity.
+ * Flatten grouped host id chunks for a single severity bucket.
+ *
+ * @param array $list Grouped rows, each row containing a CSV `id` field.
+ *
+ * @return string
  */
 function flattenGroupSeverityList($list) {
     $flattened = '';
@@ -749,7 +883,11 @@ function flattenGroupSeverityList($list) {
 }
 
 /**
- * Flatten grouped notification ids for each list id within a severity.
+ * Flatten grouped host ids for each notification list id.
+ *
+ * @param array $lists Grouped entries keyed by notification list id.
+ *
+ * @return array
  */
 function flattenNotifySeverityLists($lists) {
     $flattened = [];
@@ -762,7 +900,12 @@ function flattenNotifySeverityLists($lists) {
 }
 
 /**
- * Flatten grouped notification structures into comma-separated host id strings.
+ * Flatten grouped global and per-list structures into CSV host id strings.
+ *
+ * @param array $global_list Global grouped structure, updated in place.
+ * @param array $notify_list Per-list grouped structure, updated in place.
+ *
+ * @return void
  */
 function flattenLists(&$global_list, &$notify_list) {
     if (cacti_sizeof($global_list)) {
@@ -787,7 +930,13 @@ function flattenLists(&$global_list, &$notify_list) {
 }
 
 /**
- * Add email addresses to notification map under a scope key.
+ * Add email addresses into the recipient scope map.
+ *
+ * @param array  $notification_emails Recipient map, updated in place.
+ * @param array  $emails              Raw email values to normalize.
+ * @param string|int $scope_key       Scope key (`global` or list id).
+ *
+ * @return void
  */
 function addEmailsToNotificationMap(&$notification_emails, $emails, $scope_key) {
     foreach ($emails as $user) {
@@ -801,6 +950,10 @@ function addEmailsToNotificationMap(&$notification_emails, $emails, $scope_key) 
 
 /**
  * Build recipient map for global and notification list subscriptions.
+ *
+ * @param array $lists Notification list ids to resolve.
+ *
+ * @return array
  */
 function getEmailsAndLists($lists) {
     $notification_emails = [];
@@ -832,7 +985,9 @@ function getEmailsAndLists($lists) {
 }
 
 /**
- * Purge old notification and reboot history rows.
+ * Purge notification and reboot history records older than configured retention.
+ *
+ * @return array{int, int} Purged notify count and purged reboot count.
  */
 function purgeEventRecords() {
     // Purge old records
@@ -858,7 +1013,11 @@ function purgeEventRecords() {
 }
 
 /**
- * Print debug message when debug mode is enabled.
+ * Print a debug line when poller debug mode is enabled.
+ *
+ * @param string $message Debug message.
+ *
+ * @return void
  */
 function monitorDebug($message) {
     global $debug;
@@ -869,7 +1028,9 @@ function monitorDebug($message) {
 }
 
 /**
- * Display poller version information.
+ * Print monitor poller version information.
+ *
+ * @return void
  */
 function displayVersion() {
     global $config;
@@ -882,9 +1043,10 @@ function displayVersion() {
     print 'Cacti Monitor Poller, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
-/*
- * display_help
- * displays the usage of the function
+/**
+ * Print CLI help output for this poller entrypoint.
+ *
+ * @return void
  */
 function displayHelp() {
     displayVersion();
