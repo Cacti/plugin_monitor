@@ -366,13 +366,186 @@ function renderTemplate()
     return $result;
 }
 
-function renderTree()
+function monitorFilterAllowedHosts($hosts)
 {
-    global $maxchars;
+    $host_ids = [];
 
+    foreach ($hosts as $index => $host) {
+        if (is_device_allowed($host['id'])) {
+            $host_ids[] = $host['id'];
+        } else {
+            unset($hosts[$index]);
+        }
+    }
+
+    return [array_values($hosts), $host_ids];
+}
+
+function monitorGetTreeRenderMaxLength()
+{
+    $maxlen = 10;
+
+    if (get_request_var('view') == 'default') {
+        $maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+            FROM host AS h
+            INNER JOIN graph_tree_items AS gti
+            ON gti.host_id = h.id
+            WHERE disabled = ''
+            AND deleted = ''");
+    }
+
+    return getMonitorTrimLength($maxlen);
+}
+
+function monitorBuildTreeTitles($branchWhost)
+{
+    $titles = [];
+    $ptree  = '';
+
+    foreach ($branchWhost as $b) {
+        if ($ptree != $b['graph_tree_id']) {
+            $titles[$b['graph_tree_id'] . ':0'] = __('Root Branch', 'monitor');
+            $ptree                              = $b['graph_tree_id'];
+        }
+
+        if ($b['parent'] > 0) {
+            $titles[$b['graph_tree_id'] . ':' . $b['parent']] = db_fetch_cell_prepared(
+                'SELECT title
+                FROM graph_tree_items
+                WHERE id = ?
+                AND graph_tree_id = ?
+                ORDER BY position',
+                [$b['parent'], $b['graph_tree_id']]
+            );
+        }
+    }
+
+    return $titles;
+}
+
+function monitorRenderTreeTitleSections($titles, $maxlen)
+{
+    $result = '';
+    $ptree  = '';
+
+    foreach ($titles as $index => $title) {
+        [$graph_tree_id, $parent] = explode(':', $index);
+        $oid = $parent;
+
+        $sql_where = '';
+        $sql_join  = '';
+        renderWhereJoin($sql_where, $sql_join);
+
+        $hosts_sql = "SELECT h.*, IFNULL(s.name,' " . __('Non-Site Device', 'monitor') . " ') AS site_name
+            FROM host AS h
+            LEFT JOIN sites AS s
+            ON h.site_id = s.id
+            INNER JOIN graph_tree_items AS gti
+            ON h.id = gti.host_id
+            $sql_join
+            $sql_where
+            AND parent = ?
+            AND graph_tree_id = ?
+            GROUP BY h.id
+            ORDER BY gti.position";
+
+        $hosts = db_fetch_assoc_prepared($hosts_sql, [$oid, $graph_tree_id]);
+
+        $tree_name = db_fetch_cell_prepared(
+            'SELECT name
+            FROM graph_tree
+            WHERE id = ?',
+            [$graph_tree_id]
+        );
+
+        if ($ptree != $tree_name) {
+            if ($ptree != '') {
+                $result .= '</div>';
+            }
+
+            $result .= "<div class='monitorTableHeader'>
+                <div class='navBarNavigation'>
+                    <div class='navBarNavigationNone'>" . __esc('Tree: %s', $tree_name, 'monitor') . "</div>
+                </div>
+            </div>
+            <div class='monitorTable'>
+                <div class='monitor_sub_container'>";
+
+            $ptree = $tree_name;
+        }
+
+        if (!cacti_sizeof($hosts)) {
+            continue;
+        }
+
+        [$hosts] = monitorFilterAllowedHosts($hosts);
+
+        if (!cacti_sizeof($hosts)) {
+            continue;
+        }
+
+        $result .= "<div class='monitorSubTable'><div class='navBarNavigation'><div class='navBarNavigationNone'>" . __esc('Branch: %s', $title, 'monitor') . "</div></div><div class='monitor_sub_container'>";
+
+        foreach ($hosts as $host) {
+            $result .= renderHost($host, true, $maxlen);
+        }
+
+        $result .= '</div></div>';
+    }
+
+    return $result;
+}
+
+function monitorRenderNonTreeSection()
+{
     $result = '';
 
-    $leafs = [];
+    if (get_request_var('tree') >= 0) {
+        return $result;
+    }
+
+    $hosts = getHostNonTreeArray();
+
+    if (!cacti_sizeof($hosts)) {
+        return $result;
+    }
+
+    [$hosts, $host_ids] = monitorFilterAllowedHosts($hosts);
+
+    if (!cacti_sizeof($hosts)) {
+        return $result;
+    }
+
+    $maxlen = 10;
+
+    if (get_request_var('view') == 'default' && cacti_sizeof($host_ids)) {
+        $maxlen = db_fetch_cell('SELECT MAX(LENGTH(description))
+            FROM host AS h
+            WHERE id IN (' . implode(',', $host_ids) . ")
+            AND h.deleted = ''");
+    }
+
+    $maxlen = getMonitorTrimLength($maxlen);
+
+    $result .= "<div class='monitorTableHeader'>
+        <div class='navBarNavigation'>
+            <div class='navBarNavigationNone'>" . __('Non-Tree Devices', 'monitor') . "</div>
+        </div>
+    </div>
+    <div class='monitor_container'>";
+
+    foreach ($hosts as $leaf) {
+        $result .= renderHost($leaf, true, $maxlen);
+    }
+
+    $result .= '</div></div>';
+
+    return $result;
+}
+
+function renderTree()
+{
+    $result = '';
 
     if (get_request_var('tree') > 0) {
         $sql_where = 'gt.id=' . get_request_var('tree');
@@ -396,180 +569,34 @@ function renderTree()
     }
 
     if (cacti_sizeof($tree_list)) {
-        $ptree = '';
-
+        $tree_ids = [];
         foreach ($tree_list as $tree) {
             $tree_ids[$tree['id']] = $tree['id'];
         }
 
         renderWhereJoin($sql_where, $sql_join);
 
-        $branchWhost_SQL = ("SELECT DISTINCT gti.graph_tree_id, gti.parent
-			FROM graph_tree_items AS gti
-			INNER JOIN graph_tree AS gt
-			ON gt.id = gti.graph_tree_id
-			INNER JOIN host AS h
-			ON h.id = gti.host_id
-			$sql_join
-			$sql_where
-			AND gti.host_id > 0
-			AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ')
-			ORDER BY gt.sequence, gti.position');
-
-        // cacti_log($branchWhost_SQL);
-
-        $branchWhost = db_fetch_assoc($branchWhost_SQL);
-
-        // Determine the correct width of the cell
-        $maxlen = 10;
-
-        if (get_request_var('view') == 'default') {
-            $maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
-				FROM host AS h
-				INNER JOIN graph_tree_items AS gti
-				ON gti.host_id = h.id
-				WHERE disabled = ''
-				AND deleted = ''");
-        }
-
-        $maxlen = getMonitorTrimLength($maxlen);
+        $branchWhost = db_fetch_assoc("SELECT DISTINCT gti.graph_tree_id, gti.parent
+            FROM graph_tree_items AS gti
+            INNER JOIN graph_tree AS gt
+            ON gt.id = gti.graph_tree_id
+            INNER JOIN host AS h
+            ON h.id = gti.host_id
+            $sql_join
+            $sql_where
+            AND gti.host_id > 0
+            AND gti.graph_tree_id IN (" . implode(',', $tree_ids) . ')
+            ORDER BY gt.sequence, gti.position');
 
         if (cacti_sizeof($branchWhost)) {
-            foreach ($branchWhost as $b) {
-                if ($ptree != $b['graph_tree_id']) {
-                    $titles[$b['graph_tree_id'] . ':0'] = __('Root Branch', 'monitor');
-                    $ptree                              = $b['graph_tree_id'];
-                }
-
-                if ($b['parent'] > 0) {
-                    $titles[$b['graph_tree_id'] . ':' . $b['parent']] = db_fetch_cell_prepared(
-                        'SELECT title
-						FROM graph_tree_items
-						WHERE id = ?
-						AND graph_tree_id = ?
-						ORDER BY position',
-                        [$b['parent'], $b['graph_tree_id']]
-                    );
-                }
-            }
-
-            $ptree = '';
-
-            foreach ($titles as $index => $title) {
-                [$graph_tree_id, $parent] = explode(':', $index);
-
-                $oid = $parent;
-
-                $sql_where = '';
-                $sql_join  = '';
-
-                renderWhereJoin($sql_where, $sql_join);
-
-                $hosts_sql = "SELECT h.*, IFNULL(s.name,' " . __('Non-Site Device', 'monitor') . " ') AS site_name
-					FROM host AS h
-					LEFT JOIN sites AS s
-					ON h.site_id = s.id
-					INNER JOIN graph_tree_items AS gti
-					ON h.id = gti.host_id
-					$sql_join
-					$sql_where
-					AND parent = ?
-					AND graph_tree_id = ?
-					GROUP BY h.id
-					ORDER BY gti.position";
-
-                // cacti_log($hosts_sql);
-
-                $hosts = db_fetch_assoc_prepared($hosts_sql, [$oid, $graph_tree_id]);
-
-                $tree_name = db_fetch_cell_prepared(
-                    'SELECT name
-					FROM graph_tree
-					WHERE id = ?',
-                    [$graph_tree_id]
-                );
-
-                if ($ptree != $tree_name) {
-                    if ($ptree != '') {
-                        $result .= '</div>';
-                    }
-
-                    $result .= "<div class='monitorTableHeader'>
-						<div class='navBarNavigation'>
-							<div class='navBarNavigationNone'>" . __esc('Tree: %s', $tree_name, 'monitor') . "</div>
-						</div>
-					</div>
-					<div class='monitorTable'>
-						<div class='monitor_sub_container'>";
-
-                    $ptree = $tree_name;
-                }
-
-                if (cacti_sizeof($hosts)) {
-                    foreach ($hosts as $index => $host) {
-                        if (is_device_allowed($host['id'])) {
-                            $host_ids[] = $host['id'];
-                        } else {
-                            unset($hosts[$index]);
-                        }
-                    }
-
-                    $class = get_request_var('size');
-
-                    $result .= "<div class='monitorSubTable'><div class='navBarNavigation'><div class='navBarNavigationNone'>" . __esc('Branch: %s', $title, 'monitor') . "</div></div><div class='monitor_sub_container'>";
-
-                    foreach ($hosts as $host) {
-                        $result .= renderHost($host, true, $maxlen);
-                    }
-
-                    $result .= '</div></div>';
-                }
-            }
+            $titles = monitorBuildTreeTitles($branchWhost);
+            $result .= monitorRenderTreeTitleSections($titles, monitorGetTreeRenderMaxLength());
         }
 
         $result .= '</div>';
     }
 
-    // begin others - lets get the monitor items that are not associated with any tree
-    if (get_request_var('tree') < 0) {
-        $hosts = getHostNonTreeArray();
-
-        if (cacti_sizeof($hosts)) {
-            foreach ($hosts as $index => $host) {
-                if (is_device_allowed($host['id'])) {
-                    $host_ids[] = $host['id'];
-                } else {
-                    unset($hosts[$index]);
-                }
-            }
-
-            // Determine the correct width of the cell
-            $maxlen = 10;
-
-            if (get_request_var('view') == 'default') {
-                if (cacti_sizeof($host_ids)) {
-                    $maxlen = db_fetch_cell('SELECT MAX(LENGTH(description))
-						FROM host AS h
-						WHERE id IN (' . implode(',', $host_ids) . ")
-						AND h.deleted = ''");
-                }
-            }
-            $maxlen = getMonitorTrimLength($maxlen);
-
-            $result .= "<div class='monitorTableHeader'>
-				<div class='navBarNavigation'>
-					<div class='navBarNavigationNone'>" . __('Non-Tree Devices', 'monitor') . "</div>
-				</div>
-			</div>
-			<div class='monitor_container'>";
-
-            foreach ($hosts as $leaf) {
-                $result .= renderHost($leaf, true, $maxlen);
-            }
-
-            $result .= '</div></div>';
-        }
-    }
+    $result .= monitorRenderNonTreeSection();
 
     $function = 'renderFooter' . ucfirst(get_request_var('view'));
 

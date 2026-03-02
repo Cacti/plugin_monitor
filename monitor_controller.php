@@ -305,44 +305,26 @@ function drawFilterDropdown($id, $title, $settings = [], $value = null)
     }
 }
 
-function drawFilterAndStatus()
+function monitorGetDashboardOptions()
 {
-    global $config, $criticalities, $page_refresh_interval, $classes, $monitor_grouping;
-    global $monitor_view_type, $monitor_status, $monitor_trim;
-    global $dozoombgndcolor, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $mon_zoom_state;
-    global $new_form, $new_title, $item_rows;
-
-    $header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i style="padding:0px !important;margin:0px;" id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . (get_request_var('view') == 'list' ? __('[ Showing only first 30 Devices ]', 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
-
-    html_start_box($header, '100%', false, '3', 'center', '');
-
-    print '<tr class="even"><td>' . PHP_EOL;
-    print '<form class="monitorFilterForm">' . PHP_EOL;
-
-    // First line of filter
-    print '<table class="filterTable">' . PHP_EOL;
-    print '<tr class="even">' . PHP_EOL;
-
-    $dashboards[0] = __('Unsaved', 'monitor');
+    $dashboards = [0 => __('Unsaved', 'monitor')];
     $dashboards += array_rekey(
         db_fetch_assoc_prepared(
             'SELECT id, name
-			FROM plugin_monitor_dashboards
-			WHERE user_id = 0 OR user_id = ?
-			ORDER BY name',
+            FROM plugin_monitor_dashboards
+            WHERE user_id = 0 OR user_id = ?
+            ORDER BY name',
             [$_SESSION['sess_user_id']]
         ),
         'id',
         'name'
     );
 
-    $name = db_fetch_cell_prepared(
-        'SELECT name
-		FROM plugin_monitor_dashboards
-		WHERE id = ?',
-        [get_request_var('dashboard')]
-    );
+    return $dashboards;
+}
 
+function monitorGetZoomDropdownState(&$dozoombgndcolor)
+{
     $mon_zoom_status = null;
     $mon_zoom_size   = null;
 
@@ -354,8 +336,6 @@ function drawFilterAndStatus()
         } else {
             if (isset($_SESSION['mon_zoom_hist_status'])) {
                 $mon_zoom_status = $_SESSION['mon_zoom_hist_status'];
-            } else {
-                $mon_zoom_status = null;
             }
 
             if (isset($_SESSION['mon_zoom_hist_size'])) {
@@ -366,49 +346,39 @@ function drawFilterAndStatus()
                 }
 
                 $mon_zoom_size = $_SESSION['mon_zoom_hist_size'];
-            } else {
-                $mon_zoom_size = null;
             }
         }
     }
 
+    return [$mon_zoom_status, $mon_zoom_size];
+}
+
+function monitorRenderPrimaryFilterRow($dashboards, $monitor_status, $monitor_view_type, $monitor_grouping, $item_rows, $mon_zoom_status)
+{
     drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
     drawFilterDropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
     drawFilterDropdown('view', __('View', 'monitor'), $monitor_view_type);
     drawFilterDropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
     drawFilterDropdown('rows', __('Devices', 'monitor'), $item_rows);
 
-    // Buttons
     print '<td><span>' . PHP_EOL;
-
     print '<input type="submit" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
-
     print '<input type="button" value="' . __esc('Clear', 'monitor') . '" id="clear" title="' . __esc('Clear the set filter', 'monitor') . '">' . PHP_EOL;
-
     print '<input type="button" value="' . __esc('Save', 'monitor') . '" id="save" title="' . __esc('Save Filter Settings', 'monitor') . '">' . PHP_EOL;
-
     print '<input type="button" value="' . __esc('New', 'monitor') . '" id="new" title="' . __esc('Save New Dashboard', 'monitor') . '">' . PHP_EOL;
 
     if (get_request_var('dashboard') > 0) {
         print '<input type="button" value="' . __esc('Rename', 'monitor') . '" id="rename" title="' . __esc('Rename Dashboard', 'monitor') . '">' . PHP_EOL;
-    }
-
-    if (get_request_var('dashboard') > 0) {
         print '<input type="button" value="' . __esc('Delete', 'monitor') . '" id="delete" title="' . __esc('Delete Dashboard', 'monitor') . '">' . PHP_EOL;
     }
 
     print '<input type="button" value="' . (get_request_var('mute') == 'false' ? getMuteText() : getUnmuteText()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', getMuteText(), 'monitor') : __('%s Alerts for downed Devices', getUnmuteText(), 'monitor')) . '">' . PHP_EOL;
     print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
     print '</span></td>';
-    print '</tr>';
-    print '</table>';
+}
 
-    // Second line of filter
-    print '<table class="filterTable">' . PHP_EOL;
-    print '<tr>' . PHP_EOL;
-    print '<td>' . __('Search', 'monitor') . '</td>';
-    print '<td><input type="text" size="30" id="rfilter" value="' . html_escape_request_var('rfilter') . '"></input></td>';
-
+function monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim, $page_refresh_interval, $mon_zoom_size)
+{
     drawFilterDropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
     if (get_request_var('view') != 'list') {
@@ -428,8 +398,7 @@ function drawFilterAndStatus()
             if (cacti_sizeof($trees_allowed)) {
                 $trees_prefix = [-1 => __('All Trees', 'monitor')];
                 $trees_suffix = [-2 => __('Non-Tree Devices', 'monitor')];
-
-                $trees = $trees_prefix + $trees_allowed + $trees_suffix;
+                $trees        = $trees_prefix + $trees_allowed + $trees_suffix;
             }
         }
 
@@ -442,8 +411,8 @@ function drawFilterAndStatus()
         if (get_request_var('grouping') == 'site') {
             $sites = array_rekey(
                 db_fetch_assoc('SELECT id, name
-					FROM sites
-					ORDER BY name'),
+                FROM sites
+                ORDER BY name'),
                 'id',
                 'name'
             );
@@ -451,8 +420,7 @@ function drawFilterAndStatus()
             if (cacti_sizeof($sites)) {
                 $sites_prefix = [-1 => __('All Sites', 'monitor')];
                 $sites_suffix = [-2 => __('Non-Site Devices', 'monitor')];
-
-                $sites = $sites_prefix + $sites + $sites_suffix;
+                $sites        = $sites_prefix + $sites + $sites_suffix;
             }
         }
 
@@ -463,13 +431,13 @@ function drawFilterAndStatus()
         $templates         = [];
         $templates_allowed = array_rekey(
             db_fetch_assoc('SELECT ht.id, ht.name, COUNT(gl.id) AS graphs
-				FROM host_template AS ht
-				INNER JOIN host AS h
-				ON h.host_template_id = ht.id
-				INNER JOIN graph_local AS gl
-				ON h.id = gl.host_id
-				GROUP BY ht.id
-				HAVING graphs > 0'),
+                FROM host_template AS ht
+                INNER JOIN host AS h
+                ON h.host_template_id = ht.id
+                INNER JOIN graph_local AS gl
+                ON h.id = gl.host_id
+                GROUP BY ht.id
+                HAVING graphs > 0'),
             'id',
             'name'
         );
@@ -477,15 +445,17 @@ function drawFilterAndStatus()
         if (cacti_sizeof($templates_allowed)) {
             $templates_prefix = [-1 => __('All Templates', 'monitor')];
             $templates_suffix = [-2 => __('Non-Templated Devices', 'monitor')];
-
-            $templates = $templates_prefix + $templates_allowed + $templates_suffix;
+            $templates        = $templates_prefix + $templates_allowed + $templates_suffix;
         }
 
         drawFilterDropdown('template', __('Template', 'monitor'), $templates);
     }
 
     drawFilterDropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
+}
 
+function monitorRenderHiddenFilterInputs()
+{
     if (get_request_var('grouping') != 'tree') {
         print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
     }
@@ -505,33 +475,30 @@ function drawFilterAndStatus()
     if (get_request_var('view') != 'default') {
         print '<td><input type="hidden" id="trim" value="' . get_request_var('trim') . '"></td>' . PHP_EOL;
     }
+}
 
-    print '</tr>';
-    print '</table>';
-    print '</form></td></tr>' . PHP_EOL;
-
-    html_end_box();
-
+function monitorGetZoomBackgroundStyle($dozoombgndcolor)
+{
     if ($dozoombgndcolor) {
         $mbcolora = db_fetch_row_prepared(
             'SELECT *
-			FROM colors
-			WHERE id = ?',
+            FROM colors
+            WHERE id = ?',
             [read_user_setting('monitor_error_background')]
         );
 
         $monitor_error_fontsize = read_user_setting('monitor_error_fontsize') . 'px';
-
-        if (cacti_sizeof($mbcolora)) {
-            $mbcolor = '#' . $mbcolora['hex'];
-        } else {
-            $mbcolor = 'snow';
-        }
+        $mbcolor                = cacti_sizeof($mbcolora) ? '#' . $mbcolora['hex'] : 'snow';
     } else {
         $mbcolor                = '';
         $monitor_error_fontsize = '10px';
     }
 
+    return [$mbcolor, $monitor_error_fontsize];
+}
+
+function monitorPrintJsBootstrap($config, $mbcolor, $monitor_error_fontsize, $dozoomrefresh, $new_form, $new_title)
+{
     $monitor_js_config = [
         'mbColor' => $mbcolor,
         'monitorFont' => $monitor_error_fontsize,
@@ -549,7 +516,52 @@ function drawFilterAndStatus()
         json_encode($monitor_js_config, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) .
         ';</script>';
     print '<script type="text/javascript" src="' . html_escape($config['url_path'] . 'plugins/monitor/js/monitor.js') . '"></script>';
+}
 
+function drawFilterAndStatus()
+{
+    global $config, $criticalities, $page_refresh_interval, $classes, $monitor_grouping;
+    global $monitor_view_type, $monitor_status, $monitor_trim;
+    global $dozoombgndcolor, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $mon_zoom_state;
+    global $new_form, $new_title, $item_rows;
+
+    $header = __('Monitor Filter [ Last Refresh: %s ]', date('g:i:s a', time()), 'monitor') . (get_request_var('refresh') < 99999 ? __(' [ Refresh Again in <i style="padding:0px !important;margin:0px;" id="timer">%d</i> Seconds ]', get_request_var('refresh'), 'monitor') : '') . (get_request_var('view') == 'list' ? __('[ Showing only first 30 Devices ]', 'monitor') : '') . '<span id="text" style="vertical-align:baseline;padding:0px !important;display:none"></span>';
+
+    html_start_box($header, '100%', false, '3', 'center', '');
+
+    print '<tr class="even"><td>' . PHP_EOL;
+    print '<form class="monitorFilterForm">' . PHP_EOL;
+
+    print '<table class="filterTable">' . PHP_EOL;
+    print '<tr class="even">' . PHP_EOL;
+    [$mon_zoom_status, $mon_zoom_size] = monitorGetZoomDropdownState($dozoombgndcolor);
+    monitorRenderPrimaryFilterRow(
+        monitorGetDashboardOptions(),
+        $monitor_status,
+        $monitor_view_type,
+        $monitor_grouping,
+        $item_rows,
+        $mon_zoom_status
+    );
+    print '</tr>';
+    print '</table>';
+
+    // Second line of filter
+    print '<table class="filterTable">' . PHP_EOL;
+    print '<tr>' . PHP_EOL;
+    print '<td>' . __('Search', 'monitor') . '</td>';
+    print '<td><input type="text" size="30" id="rfilter" value="' . html_escape_request_var('rfilter') . '"></input></td>';
+    monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim, $page_refresh_interval, $mon_zoom_size);
+    monitorRenderHiddenFilterInputs();
+
+    print '</tr>';
+    print '</table>';
+    print '</form></td></tr>' . PHP_EOL;
+
+    html_end_box();
+
+    [$mbcolor, $monitor_error_fontsize] = monitorGetZoomBackgroundStyle($dozoombgndcolor);
+    monitorPrintJsBootstrap($config, $mbcolor, $monitor_error_fontsize, $dozoomrefresh, $new_form, $new_title);
 }
 
 function getMuteText()
@@ -822,220 +834,219 @@ function validateRequestVars($force = false)
     // ================= input validation =================
 }
 
+function monitorLoadAjaxStatusHost($id, $thold_hosts, $config)
+{
+    $host = db_fetch_row_prepared(
+        'SELECT *
+        FROM host
+        WHERE id = ?',
+        [$id]
+    );
+
+    if (!cacti_sizeof($host)) {
+        return [];
+    }
+
+    $host['anchor'] = $config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id'];
+
+    if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
+        $host['status'] = 4;
+        $host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id'];
+    }
+
+    if ($host['availability_method'] == 0) {
+        $host['status'] = 6;
+    }
+
+    $host['real_status'] = getHostStatus($host, true);
+    $host['status']      = getHostStatus($host);
+
+    return $host;
+}
+
+function monitorGetAjaxStatusLinks($host, $config)
+{
+    $links = '';
+
+    if (api_plugin_user_realm_auth('host.php')) {
+        $host_link = html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']);
+        $links .= '<div><a title="' . __('Edit Device', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $host_link . '"><i class="fas fa-pen-square deviceUp monitorLinkIcon"></i></a></div>';
+    }
+
+    $graphs = db_fetch_cell_prepared(
+        'SELECT COUNT(*)
+        FROM graph_local
+        WHERE host_id = ?',
+        [$host['id']]
+    );
+
+    if ($graphs > 0) {
+        $graph_link = html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id']);
+        $links .= '<div><a title="' . __esc('View Graphs', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $graph_link . '"><i class="fa fa-chart-line deviceUp monitorLinkIcon"></i></a></div>';
+    }
+
+    if (api_plugin_is_enabled('thold')) {
+        $tholds = db_fetch_cell_prepared(
+            'SELECT count(*)
+            FROM thold_data
+            WHERE host_id = ?',
+            [$host['id']]
+        );
+
+        if ($tholds) {
+            $thold_link = html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id']);
+            $links .= '<div><a title="' . __esc('View Thresholds/Alerts', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $thold_link . '"><i class="fas fa-tasks deviceRecovering monitorLinkIcon"></i></a></div>';
+        }
+    }
+
+    if (api_plugin_is_enabled('syslog') && api_plugin_user_realm_auth('syslog.php')) {
+        include($config['base_path'] . '/plugins/syslog/config.php');
+        include_once($config['base_path'] . '/plugins/syslog/functions.php');
+
+        $syslog_logs = syslog_db_fetch_cell_prepared(
+            'SELECT count(*)
+            FROM syslog_logs
+            WHERE host = ?',
+            [$host['hostname']]
+        );
+
+        $syslog_host = syslog_db_fetch_cell_prepared(
+            'SELECT host_id
+            FROM syslog_hosts
+            WHERE host = ?',
+            [$host['hostname']]
+        );
+
+        if ($syslog_logs && $syslog_host) {
+            $syslog_log_link = html_escape($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=alerts&host_id=' . $syslog_host);
+            $links .= '<div><a title="' . __esc('View Device Syslog Alerts', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $syslog_log_link . '"><i class="fas fa-life-ring deviceDown monitorLinkIcon"></i></a></div>';
+        }
+
+        if ($syslog_host) {
+            $syslog_link = html_escape($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=syslog&host_id=' . $syslog_host);
+            $links .= '<div><a title="' . __esc('View Device Syslog Entries', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $syslog_link . '"><i class="fas fa-life-ring deviceUp monitorLinkIcon"></i></a></div>';
+        }
+    }
+
+    return $links;
+}
+
+function monitorRenderAjaxStatusTooltip($host, $size, $links, $site, $sdisplay, $iclass, $criticalities)
+{
+    return "<table class='monitorHover $size'>
+        <tr class='tableHeader'>
+            <th class='left' colspan='2'>" . __('Device Status Information', 'monitor') . '</th>
+        </tr>
+        <tr>
+            <td>' . __('Device:', 'monitor') . "</td>
+            <td><a class='pic hyperLink monitorLink' href='" . html_escape($host['anchor']) . "'>" . html_escape($host['description']) . '</a></td>
+        <tr>
+            <td>' . __('Site:', 'monitor') . '</td>
+            <td>' . html_escape($site) . '</td>
+        </tr>
+        <tr>
+            <td>' . __('Location:', 'monitor') . '</td>
+            <td>' . html_escape($host['location']) . '</td>
+        </tr>' . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? '
+        <tr>
+            <td>' . __('Criticality:', 'monitor') . '</td>
+            <td>' . html_escape($criticalities[$host['monitor_criticality']]) . '</td>
+        </tr>' : '') . '
+        <tr>
+            <td>' . __('Status:', 'monitor') . "</td>
+            <td class='$iclass'>$sdisplay</td>
+        </tr>" . ($host['status'] < 3 || $host['status'] == 5 ? '
+        <tr>
+            <td>' . __('Admin Note:', 'monitor') . "</td>
+            <td class='$iclass'>" . html_escape($host['monitor_text']) . '</td>
+        </tr>' : '') . ($host['availability_method'] > 0 ? '
+        <tr>
+            <td>' . __('IP/Hostname:', 'monitor') . '</td>
+            <td>' . html_escape($host['hostname']) . '</td>
+        </tr>' : '') . ($host['availability_method'] > 0 ? "
+        <tr>
+            <td class='nowrap'>" . __('Curr/Avg:', 'monitor') . '</td>
+            <td>' . __('%d ms', $host['cur_time'], 'monitor') . ' / ' . __('%d ms', $host['avg_time'], 'monitor') . '</td>
+        </tr>' : '') . (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0) ? "
+        <tr>
+            <td class='nowrap'>" . __('Warn/Alert:', 'monitor') . '</td>
+            <td>' . __('%0.2d ms', $host['monitor_warn'], 'monitor') . ' / ' . __('%0.2d ms', $host['monitor_alert'], 'monitor') . '</td>
+        </tr>' : '') . '
+        <tr>
+            <td>' . __('Last Fail:', 'monitor') . '</td>
+            <td>' . html_escape($host['status_fail_date']) . '</td>
+        </tr>
+        <tr>
+            <td>' . __('Time In State:', 'monitor') . '</td>
+            <td>' . get_timeinstate($host) . '</td>
+        </tr>
+        <tr>
+            <td>' . __('Availability:', 'monitor') . '</td>
+            <td>' . round($host['availability'], 2) . ' %</td>
+        </tr>' . ($host['snmp_version'] > 0 && ($host['status'] == 3 || $host['status'] == 2) ? '
+        <tr>
+            <td>' . __('Agent Uptime:', 'monitor') . '</td>
+            <td>' . ($host['status'] == 3 || $host['status'] == 5 ? monitorPrintHostTime($host['snmp_sysUpTimeInstance']) : __('N/A', 'monitor')) . "</td>
+        </tr>
+        <tr>
+            <td class='nowrap'>" . __('Sys Description:', 'monitor') . '</td>
+            <td>' . html_escape(monitorTrim($host['snmp_sysDescr'])) . '</td>
+        </tr>
+        <tr>
+            <td>' . __('Location:', 'monitor') . '</td>
+            <td>' . html_escape(monitorTrim($host['snmp_sysLocation'])) . '</td>
+        </tr>
+        <tr>
+            <td>' . __('Contact:', 'monitor') . '</td>
+            <td>' . html_escape(monitorTrim($host['snmp_sysContact'])) . '</td>
+        </tr>' : '') . ($host['notes'] != '' ? '
+        <tr>
+            <td>' . __('Notes:', 'monitor') . '</td>
+            <td>' . html_escape($host['notes']) . '</td>
+        </tr>' : '') . "
+        <tr><td colspan='2' style='width:100%'><hr></td></tr>
+        <tr><td colspan='2' style='width:100%'><div style='display:flex;justify-content:space-around;'>$links</div></td></tr>
+        </table>";
+}
+
 
 function ajaxStatus()
 {
-    global $thold_hosts, $config, $icolorsdisplay, $iclasses, $criticalities;
-
-    $tholds = 0;
+    global $thold_hosts, $config, $iclasses, $criticalities;
 
     validateRequestVars();
 
-    if (isset_request_var('id') && get_filter_request_var('id')) {
-        $id   = get_request_var('id');
-        $size = get_request_var('size');
-
-        $host = db_fetch_row_prepared(
-            'SELECT *
-			FROM host
-			WHERE id = ?',
-            [$id]
-        );
-
-        if (!cacti_sizeof($host)) {
-            cacti_log('Attempted to retrieve status for missing Device ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
-
-            return false;
-        }
-
-        $host['anchor'] = $config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id'];
-
-        if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
-            $host['status'] = 4;
-            $host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id'];
-        }
-
-        if ($host['availability_method'] == 0) {
-            $host['status'] = 6;
-        }
-
-        $host['real_status'] = getHostStatus($host, true);
-        $host['status']      = getHostStatus($host);
-
-        if (cacti_sizeof($host)) {
-            if (api_plugin_user_realm_auth('host.php')) {
-                $host_link = html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']);
-            }
-
-            // Get the number of graphs
-            $graphs = db_fetch_cell_prepared(
-                'SELECT COUNT(*)
-				FROM graph_local
-				WHERE host_id = ?',
-                [$host['id']]
-            );
-
-            if ($graphs > 0) {
-                $graph_link = html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id']);
-            }
-
-            // Get the number of thresholds
-            if (api_plugin_is_enabled('thold')) {
-                $tholds = db_fetch_cell_prepared(
-                    'SELECT count(*)
-					FROM thold_data
-					WHERE host_id = ?',
-                    [$host['id']]
-                );
-
-                if ($tholds) {
-                    $thold_link = html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id']);
-                }
-            }
-
-            // Get the number of syslogs
-            if (api_plugin_is_enabled('syslog') && api_plugin_user_realm_auth('syslog.php')) {
-                include($config['base_path'] . '/plugins/syslog/config.php');
-                include_once($config['base_path'] . '/plugins/syslog/functions.php');
-
-                $syslog_logs = syslog_db_fetch_cell_prepared(
-                    'SELECT count(*)
-					FROM syslog_logs
-					WHERE host = ?',
-                    [$host['hostname']]
-                );
-
-                $syslog_host = syslog_db_fetch_cell_prepared(
-                    'SELECT host_id
-					FROM syslog_hosts
-					WHERE host = ?',
-                    [$host['hostname']]
-                );
-
-                if ($syslog_logs && $syslog_host) {
-                    $syslog_log_link = html_escape($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=alerts&host_id=' . $syslog_host);
-                }
-
-                if ($syslog_host) {
-                    $syslog_link = html_escape($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=syslog&host_id=' . $syslog_host);
-                }
-            } else {
-                $syslog_logs  = 0;
-                $syslog_host  = 0;
-            }
-
-            $links = '';
-
-            if (isset($host_link)) {
-                $links .= '<div><a title="' . __('Edit Device', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $host_link . '"><i class="fas fa-pen-square deviceUp monitorLinkIcon"></i></a></div>';
-            }
-
-            if (isset($graph_link)) {
-                $links .= '<div><a title="' . __esc('View Graphs', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $graph_link . '"><i class="fa fa-chart-line deviceUp monitorLinkIcon"></i></a></div>';
-            }
-
-            if (isset($thold_link)) {
-                $links .= '<div><a title="' . __esc('View Thresholds/Alerts', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $thold_link . '"><i class="fas fa-tasks deviceRecovering monitorLinkIcon"></i></a></div>';
-            }
-
-            if (isset($syslog_log_link)) {
-                $links .= '<div><a title="' . __esc('View Device Syslog Alerts', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $syslog_log_link . '"><i class="fas fa-life-ring deviceDown monitorLinkIcon"></i></a></div>';
-            }
-
-            if (isset($syslog_link)) {
-                $links .= '<div><a title="' . __esc('View Device Syslog Entries', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $syslog_link . '"><i class="fas fa-life-ring deviceUp monitorLinkIcon"></i></a></div>';
-            }
-
-            if (strtotime($host['status_fail_date']) < 86400) {
-                $host['status_fail_date'] = __('Never', 'monitor');
-            }
-
-            $iclass   = $iclasses[$host['status']];
-            $sdisplay = getHostStatusDescription($host['real_status']);
-            $site     = db_fetch_cell_prepared('SELECT name FROM sites WHERE id = ?', [$host['site_id']]);
-
-            if ($host['location'] == '') {
-                $host['location'] = __('Unspecified', 'monitor');
-            }
-
-            if ($site == '') {
-                $site = __('None', 'monitor');
-            }
-
-            print "<table class='monitorHover $size'>
-				<tr class='tableHeader'>
-					<th class='left' colspan='2'>" . __('Device Status Information', 'monitor') . '</th>
-				</tr>
-				<tr>
-					<td>' . __('Device:', 'monitor') . "</td>
-					<td><a class='pic hyperLink monitorLink' href='" . html_escape($host['anchor']) . "'>" . html_escape($host['description']) . '</a></td>
-				<tr>
-					<td>' . __('Site:', 'monitor') . '</td>
-					<td>' . html_escape($site) . '</td>
-				</tr>
-				<tr>
-					<td>' . __('Location:', 'monitor') . '</td>
-					<td>' . html_escape($host['location']) . '</td>
-				</tr>' . (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0 ? '
-				<tr>
-					<td>' . __('Criticality:', 'monitor') . '</td>
-					<td>' . html_escape($criticalities[$host['monitor_criticality']]) . '</td>
-				</tr>' : '') . '
-				<tr>
-					<td>' . __('Status:', 'monitor') . "</td>
-					<td class='$iclass'>$sdisplay</td>
-				</tr>" . ($host['status'] < 3 || $host['status'] == 5 ? '
-				<tr>
-					<td>' . __('Admin Note:', 'monitor') . "</td>
-					<td class='$iclass'>" . html_escape($host['monitor_text']) . '</td>
-				</tr>' : '') . ($host['availability_method'] > 0 ? '
-				<tr>
-					<td>' . __('IP/Hostname:', 'monitor') . '</td>
-					<td>' . html_escape($host['hostname']) . '</td>
-				</tr>' : '') . ($host['availability_method'] > 0 ? "
-				<tr>
-					<td class='nowrap'>" . __('Curr/Avg:', 'monitor') . '</td>
-					<td>' . __('%d ms', $host['cur_time'], 'monitor') . ' / ' . __('%d ms', $host['avg_time'], 'monitor') . '</td>
-				</tr>' : '') . (isset($host['monitor_warn']) && ($host['monitor_warn'] > 0 || $host['monitor_alert'] > 0) ? "
-				<tr>
-					<td class='nowrap'>" . __('Warn/Alert:', 'monitor') . '</td>
-					<td>' . __('%0.2d ms', $host['monitor_warn'], 'monitor') . ' / ' . __('%0.2d ms', $host['monitor_alert'], 'monitor') . '</td>
-				</tr>' : '') . '
-				<tr>
-					<td>' . __('Last Fail:', 'monitor') . '</td>
-					<td>' . html_escape($host['status_fail_date']) . '</td>
-				</tr>
-				<tr>
-					<td>' . __('Time In State:', 'monitor') . '</td>
-					<td>' . get_timeinstate($host) . '</td>
-				</tr>
-				<tr>
-					<td>' . __('Availability:', 'monitor') . '</td>
-					<td>' . round($host['availability'], 2) . ' %</td>
-				</tr>' . ($host['snmp_version'] > 0 && ($host['status'] == 3 || $host['status'] == 2) ? '
-				<tr>
-					<td>' . __('Agent Uptime:', 'monitor') . '</td>
-					<td>' . ($host['status'] == 3 || $host['status'] == 5 ? monitorPrintHostTime($host['snmp_sysUpTimeInstance']) : __('N/A', 'monitor')) . "</td>
-				</tr>
-				<tr>
-					<td class='nowrap'>" . __('Sys Description:', 'monitor') . '</td>
-					<td>' . html_escape(monitorTrim($host['snmp_sysDescr'])) . '</td>
-				</tr>
-				<tr>
-					<td>' . __('Location:', 'monitor') . '</td>
-					<td>' . html_escape(monitorTrim($host['snmp_sysLocation'])) . '</td>
-				</tr>
-				<tr>
-					<td>' . __('Contact:', 'monitor') . '</td>
-					<td>' . html_escape(monitorTrim($host['snmp_sysContact'])) . '</td>
-				</tr>' : '') . ($host['notes'] != '' ? '
-				<tr>
-					<td>' . __('Notes:', 'monitor') . '</td>
-					<td>' . html_escape($host['notes']) . '</td>
-				</tr>' : '') . "
-				<tr><td colspan='2' style='width:100%'><hr></td></tr>
-				<tr><td colspan='2' style='width:100%'><div style='display:flex;justify-content:space-around;'>$links</div></td></tr>
-				</table>";
-        }
+    if (!isset_request_var('id') || !get_filter_request_var('id')) {
+        return;
     }
+
+    $id   = get_request_var('id');
+    $size = get_request_var('size');
+    $host = monitorLoadAjaxStatusHost($id, $thold_hosts, $config);
+
+    if (!cacti_sizeof($host)) {
+        cacti_log('Attempted to retrieve status for missing Device ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
+
+        return false;
+    }
+
+    $links = monitorGetAjaxStatusLinks($host, $config);
+
+    if (strtotime($host['status_fail_date']) < 86400) {
+        $host['status_fail_date'] = __('Never', 'monitor');
+    }
+
+    if ($host['location'] == '') {
+        $host['location'] = __('Unspecified', 'monitor');
+    }
+
+    $iclass   = $iclasses[$host['status']];
+    $sdisplay = getHostStatusDescription($host['real_status']);
+    $site     = db_fetch_cell_prepared('SELECT name FROM sites WHERE id = ?', [$host['site_id']]);
+
+    if ($site == '') {
+        $site = __('None', 'monitor');
+    }
+
+    print monitorRenderAjaxStatusTooltip($host, $size, $links, $site, $sdisplay, $iclass, $criticalities);
 }
