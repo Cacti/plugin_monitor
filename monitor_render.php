@@ -628,6 +628,8 @@ function renderTree(): string
             $tree_ids[$tree['id']] = $tree['id'];
         }
 
+        $sql_where = '';
+        $sql_join  = '';
         renderWhereJoin($sql_where, $sql_join);
 
         $branchWhost = db_fetch_assoc("SELECT DISTINCT gti.graph_tree_id, gti.parent
