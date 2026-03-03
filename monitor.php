@@ -135,9 +135,6 @@ include_once __DIR__ . '/monitor_controller.php';
 
 validateRequestVars();
 
-if (!db_column_exists('host', 'monitor_icon')) {
-    monitorSetupTable();
-}
 
 $thold_hosts = checkTholds();
 

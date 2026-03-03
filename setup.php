@@ -1102,12 +1102,16 @@ function monitor_setup_table() {
 		}
 	}
 
+	db_execute('SET SESSION innodb_strict_mode=0');
+
 	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on']);
 	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'text', 'NULL' => false]);
 	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0']);
 	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0']);
 	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0']);
 	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
+
+	db_execute('SET SESSION innodb_strict_mode=1');
 }
 
 function monitor_poller_bottom() {

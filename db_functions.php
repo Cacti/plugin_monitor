@@ -66,7 +66,6 @@ function checkTholds(): array
     return $thold_hosts;
 }
 
-
 /**
  * Append an IN-clause fragment to an existing SQL where string.
  *
@@ -156,7 +155,7 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void
 			AND h.deleted = ""
 			AND (h.availability_method > 0
 				OR h.snmp_version > 0
-				OR (h.cur_time >= h.monitor_warn AND monitor_warn > 0)
+				OR (h.cur_time >= h.monitor_warn AND h.monitor_warn > 0)
 				OR (h.cur_time >= h.monitor_alert AND h.monitor_alert > 0)
 			)' . $awhere;
     } elseif (get_request_var('status') == '1' || get_request_var('status') == 2) {
@@ -169,8 +168,8 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void
 			OR ' . getTholdWhere() . '
 			OR ((h.availability_method > 0 OR h.snmp_version > 0)
 				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
-				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0))
-			))' . $awhere;
+				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0)))
+			)' . $awhere;
     } elseif (get_request_var('status') == -1) {
         $sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
@@ -191,7 +190,7 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void
 
         $sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = ""
-			AND h.deleted = "")' . $awhere;
+			AND h.deleted = ""' . $awhere;
     } else {
         $sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
@@ -264,7 +263,7 @@ function getHostsDownOrTriggeredByPermission(bool $prescan): array
         );
     }
 
-    $sql_where = "h.monitor = 'on'
+        $sql_where = "h.monitor = 'on'
 		AND h.disabled = ''
 		AND h.deleted = ''
 		AND ((h.status < " . $PreScanValue . ' AND (h.availability_method > 0 OR h.snmp_version > 0)) ' .
