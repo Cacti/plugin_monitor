@@ -25,63 +25,13 @@ declare(strict_types=1);
 */
 
 /**
- * Get minimum supported PHP version for this plugin.
- *
- * @return string
- */
-function monitorGetMinimumPhpVersion(): string
-{
-    return '8.1.0';
-}
-
-/**
- * Determine whether current runtime satisfies plugin PHP requirement.
- *
- * @return bool
- */
-function monitorHasSupportedPhpVersion(): bool
-{
-    return version_compare(PHP_VERSION, monitorGetMinimumPhpVersion(), '>=');
-}
-
-/**
- * Enforce plugin minimum PHP version and optionally raise a UI message.
- *
- * @param bool $raise_message Whether to raise a Cacti UI error message.
- *
- * @return bool
- */
-function monitorEnsureSupportedPhpVersion(bool $raise_message = true): bool
-{
-    if (monitorHasSupportedPhpVersion()) {
-        return true;
-    }
-
-    $message = sprintf(
-        'Monitor plugin requires PHP %s or newer. Current runtime: %s',
-        monitorGetMinimumPhpVersion(),
-        PHP_VERSION
-    );
-
-    cacti_log($message, false, 'MONITOR');
-
-    if ($raise_message) {
-        raise_message('monitor_php_version', $message, MESSAGE_LEVEL_ERROR);
-    }
-
-    return false;
-}
-
-/**
  * Register monitor plugin hooks, realm, defaults, and schema.
  *
  * @return void
  */
 function pluginMonitorInstall(): void
 {
-    if (!monitorEnsureSupportedPhpVersion()) {
-        return;
-    }
+    plugin_monitor_version();
 
     // core plugin functionality
     api_plugin_register_hook('monitor', 'top_header_tabs', 'monitorShowTab', 'setup.php');
@@ -275,10 +225,6 @@ function pluginMonitorCheckConfig(): bool
 {
     global $config;
 
-    if (!monitorEnsureSupportedPhpVersion()) {
-        return false;
-    }
-
     // Here we will check to ensure everything is configured
     monitorCheckUpgrade();
 
@@ -299,10 +245,6 @@ function pluginMonitorCheckConfig(): bool
  */
 function pluginMonitorUpgrade(): bool
 {
-    if (!monitorEnsureSupportedPhpVersion()) {
-        return false;
-    }
-
     // Here we will upgrade to the newest version
     monitorCheckUpgrade();
 
@@ -322,7 +264,7 @@ function monitorCheckUpgrade(): void
         return;
     }
 
-    $info    = pluginMonitorVersion();
+    $info    = plugin_monitor_version();
     $current = $info['version'];
     $old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory = "monitor"');
 
@@ -362,7 +304,7 @@ function monitorCheckUpgrade(): void
  *
  * @return array
  */
-function pluginMonitorVersion(): array
+function plugin_monitor_version(): array
 {
     global $config;
     $info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);

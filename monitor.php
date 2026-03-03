@@ -25,13 +25,6 @@ declare(strict_types=1);
  +-------------------------------------------------------------------------+
 */
 
-if (PHP_VERSION_ID < 80100) {
-    $protocol = $_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.1';
-    header($protocol . ' 500 Internal Server Error', true, 500);
-    print 'Monitor plugin requires PHP 8.1.0 or newer. Current runtime: ' . PHP_VERSION;
-    exit;
-}
-
 $guest_account = true;
 
 chdir('../../');

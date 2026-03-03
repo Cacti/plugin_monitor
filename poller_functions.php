@@ -1088,11 +1088,12 @@ function displayVersion(): void
 {
     global $config;
 
-    if (!function_exists('pluginMonitorVersion')) {
+    if (!function_exists('plugin_monitor_version')) {
         include_once $config['base_path'] . '/plugins/monitor/setup.php';
     }
 
-    $info = pluginMonitorVersion();
+    $info = plugin_monitor_version();
+
     print 'Cacti Monitor Poller, Version ' . $info['version'] . ', ' . COPYRIGHT_YEARS . PHP_EOL;
 }
 
