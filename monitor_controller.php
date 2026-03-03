@@ -194,7 +194,7 @@ function findDownHosts(): void
             $unmuted_hosts = array_diff($dhosts, $_SESSION['monitor_muted_hosts']);
 
             if (cacti_sizeof($unmuted_hosts)) {
-                unmute_user();
+                unmuteUser();
             }
         } else {
             set_request_var('mute', 'false');
