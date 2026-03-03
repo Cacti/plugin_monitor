@@ -189,7 +189,7 @@ function findDownHosts(): void
         set_request_var('downhosts', 'true');
 
         if (isset($_SESSION['monitor_muted_hosts'])) {
-            unmute_up_non_triggered_hosts($dhosts);
+            unmuteUpNonTriggeredHosts($dhosts);
 
             $unmuted_hosts = array_diff($dhosts, $_SESSION['monitor_muted_hosts']);
 
