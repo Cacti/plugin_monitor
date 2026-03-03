@@ -53,9 +53,9 @@ function monitorAddEmails(array &$reboot_emails, array $alert_emails, int|string
  *
  * @return void
  */
-function monitorAddNotificationList(array &$reboot_emails, int|string $notify_list, int|string $host_id, array $notification_lists): void
+function monitorAddNotificationList(array &$reboot_emails, int|string|null $notify_list, int|string $host_id, array $notification_lists): void
 {
-    if ($notify_list > 0 && isset($notification_lists[$notify_list])) {
+    if ($notify_list !== null && $notify_list > 0 && isset($notification_lists[$notify_list])) {
         $emails = explode(',', $notification_lists[$notify_list]);
         monitorAddEmails($reboot_emails, $emails, $host_id);
     }

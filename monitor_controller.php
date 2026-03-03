@@ -1172,7 +1172,7 @@ function monitorRenderAjaxStatusTooltip(array $host, string $size, string $links
         </tr>
         <tr>
             <td>' . __('Availability:', 'monitor') . '</td>
-            <td>' . round($host['availability'], 2) . ' %</td>
+            <td>' . round((float) $host['availability'], 2) . ' %</td>
         </tr>' . ($host['snmp_version'] > 0 && ($host['status'] == 3 || $host['status'] == 2) ? '
         <tr>
             <td>' . __('Agent Uptime:', 'monitor') . '</td>
