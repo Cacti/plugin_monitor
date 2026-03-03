@@ -29,7 +29,7 @@ declare(strict_types=1);
  *
  * @return void
  */
-function pluginMonitorInstall(): void
+function plugin_monitor_install(): void
 {
     plugin_monitor_version();
 
@@ -65,6 +65,16 @@ function pluginMonitorInstall(): void
     set_config_option('monitor_rows', 100);
 
     monitorSetupTable();
+}
+
+/**
+ * Backward-compatible camelCase install entrypoint.
+ *
+ * @return void
+ */
+function pluginMonitorInstall(): void
+{
+    plugin_monitor_install();
 }
 
 /**
@@ -193,7 +203,7 @@ function monitorDeviceTableBottom(): void
  *
  * @return void
  */
-function pluginMonitorUninstall(): void
+function plugin_monitor_uninstall(): void
 {
     db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
     db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
@@ -221,7 +231,7 @@ function pluginMonitorPageHead(): void
  *
  * @return bool
  */
-function pluginMonitorCheckConfig(): bool
+function plugin_monitor_check_config(): bool
 {
     global $config;
 
@@ -243,7 +253,7 @@ function pluginMonitorCheckConfig(): bool
  *
  * @return bool
  */
-function pluginMonitorUpgrade(): bool
+function plugin_monitor_upgrade(): bool
 {
     // Here we will upgrade to the newest version
     monitorCheckUpgrade();
@@ -278,7 +288,7 @@ function monitorCheckUpgrade(): void
         db_execute('ALTER TABLE plugin_monitor_uptime
 			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
 
-        api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
+        api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
 
         if (function_exists('api_plugin_upgrade_register')) {
             api_plugin_upgrade_register('monitor');
@@ -1123,7 +1133,7 @@ function monitorGetDefault(int|string $host_id): string
     $monitor_new_device = '';
 
     if ($host_id <= 0) {
-        $monitor_new_device = read_config_option('monitor_new_enabled');
+        $monitor_new_device = (string) read_config_option('monitor_new_enabled');
     }
 
     return $monitor_new_device;
@@ -1279,12 +1289,23 @@ function monitorSetupTable(): void
 			COMMENT='Stores predefined dashboard information for a user or users'");
     }
 
-    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on', 'after' => 'disabled']);
-    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'varchar(1024)', 'default' => '', 'NULL' => false, 'after' => 'monitor']);
-    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text']);
-    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality']);
-    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn']);
-    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
+    if (db_table_exists('host')) {
+        $row_format = db_fetch_cell("SELECT ROW_FORMAT
+            FROM information_schema.tables
+            WHERE TABLE_SCHEMA = DATABASE()
+            AND TABLE_NAME = 'host'");
+
+        if (strtoupper((string) $row_format) !== 'DYNAMIC') {
+            db_execute('ALTER TABLE host ROW_FORMAT=DYNAMIC');
+        }
+    }
+
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'text', 'NULL' => false]);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0']);
+    api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
 }
 
 /**
