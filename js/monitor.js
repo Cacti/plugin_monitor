@@ -92,7 +92,7 @@ function applyFilter(action = '') {
 	} else {
 		strURL = 'monitor.php?header=false';
 
-		if (action >= '') {
+		if (action !== '') {
 			strURL += `&action=${action}`;
 		}
 
