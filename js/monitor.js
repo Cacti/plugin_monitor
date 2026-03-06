@@ -341,7 +341,7 @@ $(() => {
 	myTimer = setTimeout(timeStep, 1000);
 
 	$(globalThis).resize(() => {
-		$(document).tooltip('option', 'position', { my: '1eft:15 top', at: 'right center' });
+		$(document).tooltip('option', 'position', { my: 'left:15 top', at: 'right center' });
 	});
 
 	if ($('#mute').val() === 'true') {
