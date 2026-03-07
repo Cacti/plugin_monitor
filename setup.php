@@ -215,7 +215,7 @@ function monitor_check_upgrade() {
 		db_execute('ALTER TABLE plugin_monitor_uptime
 			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
 
-		api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
+		api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
 
 		if (function_exists('api_plugin_upgrade_register')) {
 			api_plugin_upgrade_register('monitor');
@@ -1091,12 +1091,27 @@ function monitor_setup_table() {
 			COMMENT='Stores predefined dashboard information for a user or users'");
 	}
 
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on', 'after' => 'disabled']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'varchar(1024)', 'default' => '', 'NULL' => false, 'after' => 'monitor']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0', 'after' => 'monitor_text']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_criticality']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0', 'after' => 'monitor_warn']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '', 'after' => 'monitor_alert']);
+	if (db_table_exists('host')) {
+		$row_format = db_fetch_cell("SELECT ROW_FORMAT
+			FROM information_schema.tables
+			WHERE TABLE_SCHEMA = DATABASE()
+			AND TABLE_NAME = 'host'");
+
+		if (strtoupper((string) $row_format) !== 'DYNAMIC') {
+			db_execute('ALTER TABLE host ROW_FORMAT=DYNAMIC');
+		}
+	}
+
+	db_execute('SET SESSION innodb_strict_mode=0');
+
+	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on']);
+	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'text', 'NULL' => false]);
+	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0']);
+	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0']);
+	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0']);
+	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
+
+	db_execute('SET SESSION innodb_strict_mode=1');
 }
 
 function monitor_poller_bottom() {
