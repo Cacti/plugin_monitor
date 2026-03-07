@@ -112,3 +112,4 @@ Do not add a new local unit-test framework unless requested.
 - Keep CSS/theme updates limited to existing theme file layout.
 - Keep localization changes aligned to existing gettext workflow/files.
 - If guidance conflicts, prefer behavior already validated in runtime entrypoints and CI workflow.
+
