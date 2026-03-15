@@ -178,6 +178,15 @@ jobs:
           exit 1
         fi
 
+    - name: Run standalone regression tests
+      run: |
+        cd ${{ github.workspace }}/cacti/plugins/monitor
+        if ls tests/test_*.php >/dev/null 2>&1; then
+          for test_file in tests/test_*.php; do
+            php "$test_file"
+          done
+        fi
+
     - name: Remove the plugins directory exclusion from the .phpstan.neon
       run: sed '/plugins/d' -i .phpstan.neon
       working-directory: ${{ github.workspace }}/cacti

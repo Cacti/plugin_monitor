@@ -157,9 +157,9 @@ function monitor_device_table_bottom() {
 }
 
 function plugin_monitor_uninstall() {
-	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_notify_history');
-	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
-	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_uptime');
+	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_notify_history', []);
+	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_reboot_history', []);
+	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_uptime', []);
 }
 
 function plugin_monitor_page_head() {
