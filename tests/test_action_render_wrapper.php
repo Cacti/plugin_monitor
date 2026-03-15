@@ -1,5 +1,16 @@
 <?php
 
+/*
+ +-------------------------------------------------------------------------+
+ | Copyright (C) 2004-2026 The Cacti Group                                 |
+ |                                                                         |
+ | This program is free software; you can redistribute it and/or           |
+ | modify it under the terms of the GNU General Public License             |
+ | as published by the Free Software Foundation; either version 2          |
+ | of the License, or (at your option) any later version.                  |
+ +-------------------------------------------------------------------------+
+ */
+
 require_once __DIR__ . '/../monitor_helpers.php';
 
 $events = [];
@@ -23,6 +34,13 @@ function assert_same($expected, $actual, string $message): void {
 	}
 }
 
+function assert_regex(string $pattern, string $subject, string $message): void {
+	if (!preg_match($pattern, $subject)) {
+		fwrite(STDERR, $message . PHP_EOL);
+		exit(1);
+	}
+}
+
 monitorRunActionAndRender('monitor_test_action');
 assert_same(['action', 'render'], $events, 'Wrapper should run action before render.');
 
@@ -32,19 +50,17 @@ if ($source === false) {
 	exit(1);
 }
 
-$expected_calls = [
-	"monitorRunActionAndRender('muteAllHosts');",
-	"monitorRunActionAndRender('unmuteAllHosts');",
-	"monitorRunActionAndRender('loadDashboardSettings');",
-	"monitorRunActionAndRender('removeDashboard');",
-	"monitorRunActionAndRender('saveSettings');"
+$expected_patterns = [
+	"/include_once\\s+__DIR__\\s*\\.\\s*'\\/monitor_helpers\\.php'\\s*;/",
+	"/monitorRunActionAndRender\\(\\s*'muteAllHosts'\\s*\\)\\s*;/",
+	"/monitorRunActionAndRender\\(\\s*'unmuteAllHosts'\\s*\\)\\s*;/",
+	"/monitorRunActionAndRender\\(\\s*'loadDashboardSettings'\\s*\\)\\s*;/",
+	"/monitorRunActionAndRender\\(\\s*'removeDashboard'\\s*\\)\\s*;/",
+	"/monitorRunActionAndRender\\(\\s*'saveSettings'\\s*\\)\\s*;/"
 ];
 
-foreach ($expected_calls as $expected_call) {
-	if (strpos($source, $expected_call) === false) {
-		fwrite(STDERR, "Expected monitor.php to call wrapper: $expected_call\n");
-		exit(1);
-	}
+foreach ($expected_patterns as $expected_pattern) {
+	assert_regex($expected_pattern, $source, "Expected monitor.php to match pattern: $expected_pattern");
 }
 
 echo "OK\n";
