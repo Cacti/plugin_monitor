@@ -157,9 +157,9 @@ function monitor_device_table_bottom() {
 }
 
 function plugin_monitor_uninstall() {
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
+	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_notify_history');
+	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
+	db_execute_prepared('DROP TABLE IF EXISTS plugin_monitor_uptime');
 }
 
 function plugin_monitor_page_head() {
@@ -203,7 +203,12 @@ function monitor_check_upgrade() {
 
 	$info    = plugin_monitor_version();
 	$current = $info['version'];
-	$old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory = "monitor"');
+	$old     = db_fetch_cell_prepared(
+		'SELECT version
+		FROM plugin_config
+		WHERE directory = ?',
+		['monitor']
+	);
 
 	if ($current != $old) {
 		monitor_setup_table();
@@ -319,9 +324,16 @@ function monitor_device_action_execute($action) {
 }
 
 function monitor_device_remove($devices) {
-	db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
-	db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
-	db_execute('DELETE FROM plugin_monitor_uptime WHERE host_id IN(' . implode(',', $devices) . ')');
+	if (!cacti_sizeof($devices)) {
+		return $devices;
+	}
+
+	$devices      = array_map('intval', $devices);
+	$placeholders = implode(',', array_fill(0, cacti_sizeof($devices), '?'));
+
+	db_execute_prepared("DELETE FROM plugin_monitor_notify_history WHERE host_id IN($placeholders)", $devices);
+	db_execute_prepared("DELETE FROM plugin_monitor_reboot_history WHERE host_id IN($placeholders)", $devices);
+	db_execute_prepared("DELETE FROM plugin_monitor_uptime WHERE host_id IN($placeholders)", $devices);
 
 	return $devices;
 }
