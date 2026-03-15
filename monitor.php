@@ -130,6 +130,7 @@ if (!isset($_SESSION['monitor_muted_hosts'])) {
 
 include_once __DIR__ . '/db_functions.php';
 include_once __DIR__ . '/monitor_render.php';
+include_once __DIR__ . '/monitor_helpers.php';
 include_once __DIR__ . '/monitor_controller.php';
 
 validateRequestVars();
@@ -142,28 +143,23 @@ switch (get_nfilter_request_var('action')) {
 
 		break;
 	case 'ajax_mute_all':
-		muteAllHosts();
-		drawPage();
+		monitorRunActionAndRender('muteAllHosts');
 
 		break;
 	case 'ajax_unmute_all':
-		unmuteAllHosts();
-		drawPage();
+		monitorRunActionAndRender('unmuteAllHosts');
 
 		break;
 	case 'dbchange':
-		loadDashboardSettings();
-		drawPage();
+		monitorRunActionAndRender('loadDashboardSettings');
 
 		break;
 	case 'remove':
-		removeDashboard();
-		drawPage();
+		monitorRunActionAndRender('removeDashboard');
 
 		break;
 	case 'saveDb':
-		saveSettings();
-		drawPage();
+		monitorRunActionAndRender('saveSettings');
 
 		break;
 	case 'save':
