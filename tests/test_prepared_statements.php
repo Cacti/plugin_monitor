@@ -68,6 +68,16 @@ assert_contains(
 	'$placeholders = implode(\',\', array_fill(0, cacti_sizeof($devices), \'?\'));',
 	'Expected monitor_device_remove() to build placeholder list for IN clause.'
 );
+assert_contains(
+	$setup,
+	'if (!cacti_sizeof($devices)) {',
+	'Expected monitor_device_remove() to short-circuit empty device lists.'
+);
+assert_contains(
+	$setup,
+	'array_map(\'intval\', $devices);',
+	'Expected monitor_device_remove() to normalize device ids before prepared deletes.'
+);
 
 assert_contains(
 	$setup,
