@@ -106,7 +106,9 @@ function drawPage(): void {
 
 	// Default with permissions = default_by_permission
 	// Tree  = group_by_tree
-	$function = 'render' . ucfirst(get_request_var('grouping'));
+	$allowed_groupings = ['default', 'tree', 'site', 'template'];
+	$grouping          = in_array(get_request_var('grouping'), $allowed_groupings, true) ? get_request_var('grouping') : 'default';
+	$function          = 'render' . ucfirst($grouping);
 
 	if (function_exists($function) && get_request_var('view') != 'list') {
 		if (get_request_var('grouping') == 'default' || get_request_var('grouping') == 'site') {
@@ -548,23 +550,23 @@ function monitorRenderGroupingDropdowns(array $classes, array $criticalities, ar
  */
 function monitorRenderHiddenFilterInputs(): void {
 	if (get_request_var('grouping') != 'tree') {
-		print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="tree" value="' . html_escape(get_request_var('tree')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'site') {
-		print '<td><input type="hidden" id="site" value="' . get_request_var('site') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="site" value="' . html_escape(get_request_var('site')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'template') {
-		print '<td><input type="hidden" id="template" value="' . get_request_var('template') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="template" value="' . html_escape(get_request_var('template')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') == 'list') {
-		print '<td><input type="hidden" id="size" value="' . get_request_var('size') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="size" value="' . html_escape(get_request_var('size')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') != 'default') {
-		print '<td><input type="hidden" id="trim" value="' . get_request_var('trim') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="trim" value="' . html_escape(get_request_var('trim')) . '"></td>' . PHP_EOL;
 	}
 }
 

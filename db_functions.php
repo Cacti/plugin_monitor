@@ -96,21 +96,21 @@ function renderGroupConcat(string &$sql_where, string $sql_join, string $sql_fie
  */
 function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 	if (get_request_var('crit') > 0) {
-		$awhere = 'h.monitor_criticality >= ' . get_request_var('crit');
+		$awhere = 'h.monitor_criticality >= ' . (int) get_request_var('crit');
 	} else {
 		$awhere = '';
 	}
 
 	if (get_request_var('grouping') == 'site') {
 		if (get_request_var('site') > 0) {
-			$awhere .= ($awhere == '' ? '' : ' AND ') . 'h.site_id = ' . get_request_var('site');
+			$awhere .= ($awhere == '' ? '' : ' AND ') . 'h.site_id = ' . (int) get_request_var('site');
 		} elseif (get_request_var('site') == -2) {
 			$awhere .= ($awhere == '' ? '' : ' AND ') . ' h.site_id = 0';
 		}
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$awhere .= ($awhere == '' ? '' : ' AND ') . " h.description RLIKE '" . get_request_var('rfilter') . "'";
+		$awhere .= ($awhere == '' ? '' : ' AND ') . ' h.description RLIKE ' . db_qstr(get_request_var('rfilter'));
 	}
 
 	if (get_request_var('grouping') == 'tree') {

@@ -317,8 +317,8 @@ function buildRebootDetails(array $hosts): array {
 
 		$last_host = $host;
 		$body .= '<tr>' .
-			'<td class="left">' . $host['description'] . '</td>' .
-			'<td class="left">' . $host['hostname'] . '</td>' .
+			'<td class="left">' . html_escape($host['description']) . '</td>' .
+			'<td class="left">' . html_escape($host['hostname']) . '</td>' .
 			'</tr>' . PHP_EOL;
 
 		$body_txt .=
