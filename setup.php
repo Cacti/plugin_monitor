@@ -319,9 +319,9 @@ function monitor_device_action_execute($action) {
 }
 
 function monitor_device_remove($devices) {
-	db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
-	db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
-	db_execute('DELETE FROM plugin_monitor_uptime WHERE host_id IN(' . implode(',', $devices) . ')');
+	db_execute_prepared('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', array_fill(0, cacti_count($devices), '?')) . ')', array_values(array_map('intval', $devices)));
+	db_execute_prepared('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', array_fill(0, cacti_count($devices), '?')) . ')', array_values(array_map('intval', $devices)));
+	db_execute_prepared('DELETE FROM plugin_monitor_uptime WHERE host_id IN(' . implode(',', array_fill(0, cacti_count($devices), '?')) . ')', array_values(array_map('intval', $devices)));
 
 	return $devices;
 }
