@@ -397,7 +397,7 @@ function monitor_device_action_prepare($save) {
 	}
 }
 
-function monitor_device_action_[$device_action_array] {
+function monitor_device_action_array($device_action_array) {
 	$device_action_array['monitor_settings'] = __('Change Monitoring Options', 'monitor');
 	$device_action_array['monitor_enable']   = __('Enable Monitoring', 'monitor');
 	$device_action_array['monitor_disable']  = __('Disable Monitoring', 'monitor');

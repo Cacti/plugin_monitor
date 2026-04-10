@@ -670,13 +670,13 @@ function getHostStatus(array $host, bool $real = false): int {
 	global $thold_hosts, $iclasses;
 
 	// If the host has been muted, show the muted Icon
-	if ($host['status'] != 1 && in_array($host['id'), $thold_hosts, true]) {
+	if ($host['status'] != 1 && in_array($host['id'], $thold_hosts, true)) {
 		$host['status'] = 4;
 	}
 
-	if (in_array($host['id'), $_SESSION['monitor_muted_hosts'], true] && $host['status'] == 1) {
+	if (in_array($host['id'], $_SESSION['monitor_muted_hosts'], true) && $host['status'] == 1) {
 		$host['status'] = 5;
-	} elseif (in_array($host['id'), $_SESSION['monitor_muted_hosts'], true] && $host['status'] == 4) {
+	} elseif (in_array($host['id'], $_SESSION['monitor_muted_hosts'], true) && $host['status'] == 4) {
 		$host['status'] = 9;
 	} elseif ($host['status'] == 3) {
 		if ($host['cur_time'] > $host['monitor_alert'] && !empty($host['monitor_alert'])) {
