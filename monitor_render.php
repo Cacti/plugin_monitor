@@ -963,7 +963,7 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 
 	ob_start();
 
-	$nav = html_nav_bar('monitor.php?rfilter=' . get_request_var('rfilter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices'), 'page', 'main');
+	$nav = html_nav_bar('monitor.php?rfilter=' . rawurlencode(get_request_var('rfilter')), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices'), 'page', 'main');
 
 	html_start_box(__('Monitored Devices', 'monitor'), '100%', false, 3, 'center', '');
 
@@ -1043,7 +1043,7 @@ function renderFooterList(int $total_rows, int $rows): string {
 	html_end_box(false);
 
 	if ($total_rows > 0) {
-		$nav = html_nav_bar('monitor.php?rfilter=' . get_request_var('rfilter'), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices'), 'page', 'main');
+		$nav = html_nav_bar('monitor.php?rfilter=' . rawurlencode(get_request_var('rfilter')), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices'), 'page', 'main');
 
 		print $nav;
 	}
