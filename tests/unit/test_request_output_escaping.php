@@ -7,7 +7,7 @@
  +-------------------------------------------------------------------------+
 */
 
-$payload = "\" autofocus onfocus=\"alert(1)";
+$payload = '" autofocus onfocus="alert(1)';
 $escaped = htmlspecialchars($payload, ENT_QUOTES, 'UTF-8');
 
 if (strpos($escaped, '"') === false && strpos($escaped, '&quot;') !== false) {

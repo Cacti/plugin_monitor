@@ -7,19 +7,19 @@
  +-------------------------------------------------------------------------+
 */
 
-$checks = array(
-	__DIR__ . '/../../monitor_controller.php' => array(
+$checks = [
+	__DIR__ . '/../../monitor_controller.php' => [
 		"get_request_var('downhosts') . '\"><input id=\"mute\" type=\"hidden\" value=\"' . get_request_var('mute')",
 		"get_request_var('tree') . '\"></td>'",
 		"get_request_var('site') . '\"></td>'",
 		"get_request_var('template') . '\"></td>'",
 		"get_request_var('size') . '\"></td>'",
 		"get_request_var('trim') . '\"></td>'",
-	),
-	__DIR__ . '/../../monitor_render.php' => array(
+	],
+	__DIR__ . '/../../monitor_render.php' => [
 		"monitor.php?rfilter=' . get_request_var('rfilter')",
-	),
-);
+	],
+];
 
 foreach ($checks as $path => $patterns) {
 	$contents = file_get_contents($path);

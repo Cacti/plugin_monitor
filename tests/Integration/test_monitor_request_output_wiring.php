@@ -7,8 +7,8 @@
  +-------------------------------------------------------------------------+
 */
 
-$checks = array(
-	__DIR__ . '/../../monitor_controller.php' => array(
+$checks = [
+	__DIR__ . '/../../monitor_controller.php' => [
 		"html_escape(get_request_var('downhosts'))",
 		"html_escape(get_request_var('mute'))",
 		"html_escape(get_request_var('tree'))",
@@ -16,11 +16,11 @@ $checks = array(
 		"html_escape(get_request_var('template'))",
 		"html_escape(get_request_var('size'))",
 		"html_escape(get_request_var('trim'))",
-	),
-	__DIR__ . '/../../monitor_render.php' => array(
+	],
+	__DIR__ . '/../../monitor_render.php' => [
 		"rawurlencode(get_request_var('rfilter'))",
-	),
-);
+	],
+];
 
 foreach ($checks as $path => $patterns) {
 	$contents = file_get_contents($path);
