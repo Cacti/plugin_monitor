@@ -89,7 +89,7 @@ function renderDefault(): string {
 		$maxlen = 10;
 
 		if (get_request_var('view') == 'default') {
-			$maxlen = db_fetch_cell("SELECT MAX(LENGTH(description))
+			$maxlen = (int) db_fetch_cell("SELECT MAX(LENGTH(description))
 				FROM host AS h
 				$sql_join
 				$sql_where");
@@ -692,11 +692,11 @@ function getHostStatus(array $host, bool $real = false): int {
 /**
  * Translate status code into localized display label.
  *
- * @param int $status Monitor status code.
+ * @param int|string $status Monitor status code.
  *
  * @return string
  */
-function getHostStatusDescription(int|string $status): string {
+function getHostStatusDescription(mixed $status): string {
 	global $icolorsdisplay;
 
 	if (array_key_exists($status, $icolorsdisplay)) {
@@ -803,12 +803,12 @@ function getStatusIcon(int $status, string $icon): string {
 /**
  * Convert uptime/fail timestamp into compact human-readable duration text.
  *
- * @param string|int $status_time Timestamp string or SNMP uptime ticks.
+ * @param int|string $status_time Timestamp string or SNMP uptime ticks.
  * @param bool       $seconds     Include seconds in output string.
  *
  * @return string
  */
-function monitorPrintHostTime(int|string $status_time, bool $seconds = false): string {
+function monitorPrintHostTime(mixed $status_time, bool $seconds = false): string {
 	// If the host is down, make a downtime since message
 	$dt   = '';
 

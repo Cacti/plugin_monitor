@@ -30,11 +30,11 @@ declare(strict_types = 1);
  *
  * @param array $reboot_emails Recipient map keyed by email, then host id.
  * @param array $alert_emails  List of raw email addresses.
- * @param int   $host_id       Host id to associate with each recipient.
+ * @param int|string   $host_id       Host id to associate with each recipient.
  *
  * @return void
  */
-function monitorAddEmails(array &$reboot_emails, array $alert_emails, int|string $host_id): void {
+function monitorAddEmails(array &$reboot_emails, array $alert_emails, mixd $host_id): void {
 	if (cacti_sizeof($alert_emails)) {
 		foreach ($alert_emails as $email) {
 			$reboot_emails[trim(strtolower($email))][$host_id] = $host_id;
@@ -45,14 +45,14 @@ function monitorAddEmails(array &$reboot_emails, array $alert_emails, int|string
 /**
  * Add a host id to recipients coming from a notification list id.
  *
- * @param array $reboot_emails      Recipient map keyed by email, then host id.
- * @param int   $notify_list        Notification list id.
- * @param int   $host_id            Host id to add.
+ * @param array           $reboot_emails      Recipient map keyed by email, then host id.
+ * @param int|string|null $notify_list        Notification list id.
+ * @param int|string      $host_id            Host id to add.
  * @param array $notification_lists Map of list id to comma-delimited emails.
  *
  * @return void
  */
-function monitorAddNotificationList(array &$reboot_emails, int|string|null $notify_list, int|string $host_id, array $notification_lists): void {
+function monitorAddNotificationList(array &$reboot_emails, mixed $notify_list, mixed $host_id, array $notification_lists): void {
 	if ($notify_list !== null && $notify_list > 0 && isset($notification_lists[$notify_list])) {
 		$emails = explode(',', $notification_lists[$notify_list]);
 		monitorAddEmails($reboot_emails, $emails, $host_id);
@@ -130,14 +130,14 @@ function getNotificationListsMap(): array {
 /**
  * Add reboot recipients based on host threshold notification settings.
  *
- * @param array $reboot_emails      Recipient map keyed by email, then host id.
- * @param int   $host_id            Host id being processed.
- * @param array $alert_emails       Global alert email list.
- * @param array $notification_lists Map of notification list id to emails.
+ * @param array      $reboot_emails      Recipient map keyed by email, then host id.
+ * @param int|string $host_id            Host id being processed.
+ * @param array      $alert_emails       Global alert email list.
+ * @param array      $notification_lists Map of notification list id to emails.
  *
  * @return void
  */
-function addTholdRebootRecipients(array &$reboot_emails, int|string $host_id, array $alert_emails, array $notification_lists): void {
+function addTholdRebootRecipients(array &$reboot_emails, mixed $host_id, array $alert_emails, array $notification_lists): void {
 	$notify = db_fetch_row_prepared(
 		'SELECT thold_send_email, thold_host_email
         FROM host
@@ -490,11 +490,11 @@ function normalizeAndLogNotificationHosts(array &$alert_hosts, array &$warn_host
 /**
  * Build shared intro copy for ping threshold email and text output.
  *
- * @param int $freq Resend frequency in minutes.
+ * @param int|string $freq Resend frequency in minutes.
  *
  * @return array{string, string}
  */
-function buildPingNotificationIntro(int|string $freq): array {
+function buildPingNotificationIntro(mixed $freq): array {
 	$body     = '<h1>' . __(MONITOR_PING_NOTIFICATION_SUBJECT, 'monitor') . '</h1>' . PHP_EOL;
 	$body_txt = __(MONITOR_PING_NOTIFICATION_SUBJECT, 'monitor') . PHP_EOL;
 
@@ -819,15 +819,15 @@ function addGroupedNotificationEntry(string $type, array $entry, array &$global_
 /**
  * Query and group threshold-breached hosts for one severity type.
  *
- * @param string $type        Severity key (`alert` or `warn`).
- * @param int    $criticality Minimum criticality threshold.
- * @param array  $global_list Global grouped bucket, updated in place.
- * @param array  $notify_list Per-list grouped bucket, updated in place.
- * @param array  $lists       Set of notification list ids, updated in place.
+ * @param int|string $type        Severity key (`alert` or `warn`).
+ * @param int        $criticality Minimum criticality threshold.
+ * @param array      $global_list Global grouped bucket, updated in place.
+ * @param array      $notify_list Per-list grouped bucket, updated in place.
+ * @param array      $lists       Set of notification list ids, updated in place.
  *
  * @return void
  */
-function getHostsByListType(string $type, int|string $criticality, array &$global_list, array &$notify_list, array &$lists): void {
+function getHostsByListType(string $type, mixed $criticality, array &$global_list, array &$notify_list, array &$lists): void {
 	$last_time = date(MONITOR_DATE_TIME_FORMAT, time() - read_config_option('monitor_resend_frequency') * 60);
 
 	$hosts = db_fetch_cell_prepared(
@@ -954,7 +954,7 @@ function flattenLists(array &$global_list, array &$notify_list): void {
  *
  * @return void
  */
-function addEmailsToNotificationMap(array &$notification_emails, array $emails, string|int $scope_key): void {
+function addEmailsToNotificationMap(array &$notification_emails, array $emails, mixed $scope_key): void {
 	foreach ($emails as $user) {
 		$user = trim($user);
 
