@@ -28,9 +28,9 @@ declare(strict_types = 1);
 /**
  * Add a host id to each recipient entry in the reboot recipient map.
  *
- * @param array $reboot_emails Recipient map keyed by email, then host id.
- * @param array $alert_emails  List of raw email addresses.
- * @param int|string   $host_id       Host id to associate with each recipient.
+ * @param array      $reboot_emails Recipient map keyed by email, then host id.
+ * @param array      $alert_emails  List of raw email addresses.
+ * @param int|string $host_id       Host id to associate with each recipient.
  *
  * @return void
  */
@@ -48,7 +48,7 @@ function monitorAddEmails(array &$reboot_emails, array $alert_emails, mixd $host
  * @param array           $reboot_emails      Recipient map keyed by email, then host id.
  * @param int|string|null $notify_list        Notification list id.
  * @param int|string      $host_id            Host id to add.
- * @param array $notification_lists Map of list id to comma-delimited emails.
+ * @param array           $notification_lists Map of list id to comma-delimited emails.
  *
  * @return void
  */
