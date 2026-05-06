@@ -34,7 +34,7 @@ declare(strict_types = 1);
  *
  * @return void
  */
-function monitorAddEmails(array &$reboot_emails, array $alert_emails, mixd $host_id): void {
+function monitorAddEmails(array &$reboot_emails, array $alert_emails, mixed $host_id): void {
 	if (cacti_sizeof($alert_emails)) {
 		foreach ($alert_emails as $email) {
 			$reboot_emails[trim(strtolower($email))][$host_id] = $host_id;
