@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types = 1);
-
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -450,7 +448,7 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
 	}
 
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? getMuteText() : getUnmuteText()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', getMuteText(), 'monitor') : __('%s Alerts for downed Devices', getUnmuteText(), 'monitor')) . '">' . PHP_EOL;
-	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
+	print '<input id="downhosts" type="hidden" value="' . html_escape(get_request_var('downhosts')) . '"><input id="mute" type="hidden" value="' . html_escape(get_request_var('mute')) . '">' . PHP_EOL;
 	print '</span></td>';
 }
 
@@ -548,23 +546,23 @@ function monitorRenderGroupingDropdowns(array $classes, array $criticalities, ar
  */
 function monitorRenderHiddenFilterInputs(): void {
 	if (get_request_var('grouping') != 'tree') {
-		print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="tree" value="' . html_escape(get_request_var('tree')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'site') {
-		print '<td><input type="hidden" id="site" value="' . get_request_var('site') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="site" value="' . html_escape(get_request_var('site')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'template') {
-		print '<td><input type="hidden" id="template" value="' . get_request_var('template') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="template" value="' . html_escape(get_request_var('template')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') == 'list') {
-		print '<td><input type="hidden" id="size" value="' . get_request_var('size') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="size" value="' . html_escape(get_request_var('size')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') != 'default') {
-		print '<td><input type="hidden" id="trim" value="' . get_request_var('trim') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="trim" value="' . html_escape(get_request_var('trim')) . '"></td>' . PHP_EOL;
 	}
 }
 
