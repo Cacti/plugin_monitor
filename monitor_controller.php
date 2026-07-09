@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types = 1);
-
 /*
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
@@ -431,7 +429,7 @@ function monitorGetZoomDropdownState(bool &$dozoombgndcolor): array {
  *
  * @return void
  */
-function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_view_type, array $monitor_grouping, array $item_rows, int|null $mon_zoom_status): void {
+function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_view_type, array $monitor_grouping, array $item_rows, mixed $mon_zoom_status): void {
 	drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
 	drawFilterDropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
 	drawFilterDropdown('view', __('View', 'monitor'), $monitor_view_type);
@@ -450,7 +448,7 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
 	}
 
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? getMuteText() : getUnmuteText()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', getMuteText(), 'monitor') : __('%s Alerts for downed Devices', getUnmuteText(), 'monitor')) . '">' . PHP_EOL;
-	print '<input id="downhosts" type="hidden" value="' . get_request_var('downhosts') . '"><input id="mute" type="hidden" value="' . get_request_var('mute') . '">' . PHP_EOL;
+	print '<input id="downhosts" type="hidden" value="' . html_escape(get_request_var('downhosts')) . '"><input id="mute" type="hidden" value="' . html_escape(get_request_var('mute')) . '">' . PHP_EOL;
 	print '</span></td>';
 }
 
@@ -465,7 +463,7 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
  *
  * @return void
  */
-function monitorRenderGroupingDropdowns(array $classes, array $criticalities, array $monitor_trim, array $page_refresh_interval, string|null $mon_zoom_size): void {
+function monitorRenderGroupingDropdowns(array $classes, array $criticalities, array $monitor_trim, array $page_refresh_interval, mixed $mon_zoom_size): void {
 	drawFilterDropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
 	if (get_request_var('view') != 'list') {
@@ -548,23 +546,23 @@ function monitorRenderGroupingDropdowns(array $classes, array $criticalities, ar
  */
 function monitorRenderHiddenFilterInputs(): void {
 	if (get_request_var('grouping') != 'tree') {
-		print '<td><input type="hidden" id="tree" value="' . get_request_var('tree') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="tree" value="' . html_escape(get_request_var('tree')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'site') {
-		print '<td><input type="hidden" id="site" value="' . get_request_var('site') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="site" value="' . html_escape(get_request_var('site')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('grouping') != 'template') {
-		print '<td><input type="hidden" id="template" value="' . get_request_var('template') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="template" value="' . html_escape(get_request_var('template')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') == 'list') {
-		print '<td><input type="hidden" id="size" value="' . get_request_var('size') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="size" value="' . html_escape(get_request_var('size')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') != 'default') {
-		print '<td><input type="hidden" id="trim" value="' . get_request_var('trim') . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="trim" value="' . html_escape(get_request_var('trim')) . '"></td>' . PHP_EOL;
 	}
 }
 
@@ -971,13 +969,13 @@ function validateRequestVars(bool $force = false): void {
 /**
  * Load host row and normalize status fields for AJAX tooltip rendering.
  *
- * @param int   $id          Host id.
+ * @param int   $id|string   Host id.
  * @param array $thold_hosts Threshold host map.
  * @param array $config      Global Cacti config.
  *
  * @return array
  */
-function monitorLoadAjaxStatusHost(int|string $id, array $thold_hosts, array $config): array {
+function monitorLoadAjaxStatusHost(mixed $id, array $thold_hosts, array $config): array {
 	$host = db_fetch_row_prepared(
 		'SELECT *
         FROM host
