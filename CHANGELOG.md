@@ -1,13 +1,16 @@
 ## Changelog
 
---- develop ---
+--- 2.9 ---
 
 * issue#188: Fix incorrect variable, missing default value
 * issue#189: Fixing issues with tooltips generating recursion errors
+* issue#221: Fix JavaScript issues in develop
 * issue: Fixing issues with saving and renaming dashboards
+* issue: Adding CI for future Cacti and plugin releases
 * feature: Support the new Drop Icon form object in Cacti
 * feature: Support for Cacti 1.3
 * feature#186: New table view - Names only
+* feature#219: Show host description in Tiles and Time view
 * feature: Better email subject if Send one Email to all addresses is on
 
 --- 2.8 ---
