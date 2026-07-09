@@ -61,13 +61,13 @@ jobs:
     
     steps:
     - name: Checkout Cacti
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         repository: Cacti/cacti
         path: cacti
     
     - name: Checkout Monitor Plugin
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         path: cacti/plugins/monitor
     
@@ -85,7 +85,7 @@ jobs:
       run: sudo apt-get update
     
     - name: Install System Dependencies
-      run: sudo apt-get install -y apache2 snmp snmpd rrdtool fping libapache2-mod-php${{ matrix.php }}
+      run: sudo apt-get install -y apache2 snmp snmpd rrdtool fping libapache2-mod-php
     
     - name: Start SNMPD Agent and Test
       run: |

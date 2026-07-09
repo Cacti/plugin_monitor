@@ -429,7 +429,7 @@ function monitorGetZoomDropdownState(bool &$dozoombgndcolor): array {
  *
  * @return void
  */
-function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_view_type, array $monitor_grouping, array $item_rows, int|null $mon_zoom_status): void {
+function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_view_type, array $monitor_grouping, array $item_rows, mixed $mon_zoom_status): void {
 	drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
 	drawFilterDropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
 	drawFilterDropdown('view', __('View', 'monitor'), $monitor_view_type);
@@ -463,7 +463,7 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
  *
  * @return void
  */
-function monitorRenderGroupingDropdowns(array $classes, array $criticalities, array $monitor_trim, array $page_refresh_interval, string|null $mon_zoom_size): void {
+function monitorRenderGroupingDropdowns(array $classes, array $criticalities, array $monitor_trim, array $page_refresh_interval, mixed $mon_zoom_size): void {
 	drawFilterDropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
 	if (get_request_var('view') != 'list') {
@@ -969,13 +969,13 @@ function validateRequestVars(bool $force = false): void {
 /**
  * Load host row and normalize status fields for AJAX tooltip rendering.
  *
- * @param int   $id          Host id.
+ * @param int   $id|string   Host id.
  * @param array $thold_hosts Threshold host map.
  * @param array $config      Global Cacti config.
  *
  * @return array
  */
-function monitorLoadAjaxStatusHost(int|string $id, array $thold_hosts, array $config): array {
+function monitorLoadAjaxStatusHost(mixed $id, array $thold_hosts, array $config): array {
 	$host = db_fetch_row_prepared(
 		'SELECT *
         FROM host

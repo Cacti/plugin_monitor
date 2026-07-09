@@ -1,13 +1,13 @@
-let refreshMSeconds = 99999999;
-let myTimer;
+var refreshMSeconds = 99999999;
+var myTimer;
 
-const monitorCfg = globalThis.monitorPageConfig || {};
-const mbColor = monitorCfg.mbColor || '';
-const monitorFont = monitorCfg.monitorFont || '10px';
-const dozoomRefresh = Boolean(monitorCfg.doZoomRefresh);
-const monitorMessages = monitorCfg.messages || {};
-const monitorNewForm = monitorCfg.newForm || '';
-const monitorNewTitle = monitorCfg.newTitle || '';
+var monitorCfg = globalThis.monitorPageConfig || {};
+var mbColor = monitorCfg.mbColor || '';
+var monitorFont = monitorCfg.monitorFont || '10px';
+var dozoomRefresh = Boolean(monitorCfg.doZoomRefresh);
+var monitorMessages = monitorCfg.messages || {};
+var monitorNewForm = monitorCfg.newForm || '';
+var monitorNewTitle = monitorCfg.newTitle || '';
 
 function setZoomErrorBackgrounds() {
 	if (mbColor !== '') {
