@@ -61,13 +61,13 @@ jobs:
     
     steps:
     - name: Checkout Cacti
-      uses: actions/checkout@v6
+      uses: actions/checkout@v5
       with:
         repository: Cacti/cacti
         path: cacti
     
     - name: Checkout Monitor Plugin
-      uses: actions/checkout@v6
+      uses: actions/checkout@v5
       with:
         path: cacti/plugins/monitor
     
