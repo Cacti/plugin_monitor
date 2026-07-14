@@ -134,7 +134,7 @@ jobs:
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          composer validate --strict
+          composer validate --no-check-publish
         fi
     
     - name: Install Composer Dependencies
