@@ -22,4 +22,3 @@
 locales/po/*.mo
 vendor/
 .omc/
-.php-cs-fixer.cache
