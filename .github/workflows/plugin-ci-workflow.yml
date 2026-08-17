@@ -28,7 +28,7 @@ on:
       - develop
     paths:
       - '**.php'
-      - '.github/workflows/plugin-ci-workflow.yml'
+      - '.github/workflows/**'
       - 'composer.json'
       - 'composer.lock'
       - 'phpunit.xml.dist'
@@ -39,7 +39,7 @@ on:
       - develop
     paths:
       - '**.php'
-      - '.github/workflows/plugin-ci-workflow.yml'
+      - '.github/workflows/**'
       - 'composer.json'
       - 'composer.lock'
       - 'phpunit.xml.dist'

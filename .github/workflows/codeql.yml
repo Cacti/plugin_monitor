@@ -6,8 +6,9 @@
 # | http://www.cacti.net/                                                   |
 # +-------------------------------------------------------------------------+
 #
-# CodeQL has no PHP analysis, so this covers the plugin JavaScript only.  The PHP is
-# covered by the syntax and integration jobs in plugin-ci-workflow.yml.
+# CodeQL has no PHP analysis, so this covers the plugin JavaScript only.  Nothing in
+# CI performs taint analysis on the PHP: plugin-ci-workflow.yml runs a parser check
+# and an install smoke test, neither of which tracks a value from request to sink.
 
 name: "CodeQL"
 
