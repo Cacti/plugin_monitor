@@ -31,7 +31,54 @@ on:
       - main
       - develop
 
+permissions:
+  contents: read
+
 jobs:
+  # The plugin ships tests that nothing ran: three files under tests/ that pass
+  # from a plain PHP CLI.  They cover request-variable output escaping, which is
+  # the class of defect most likely to regress here.
+  unit-test:
+    name: Standalone test suite
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout monitor Plugin
+      uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45 # v2
+      with:
+        php-version: '8.1'
+        tools: composer
+
+    - name: Install dev dependencies
+      run: composer install --prefer-dist --no-progress --no-interaction --no-plugins --no-scripts
+
+    - name: Run the test suite
+      run: composer test
+
+  # compat = 1.2.15 implies Cacti 1.2.x, which requires PHP 8.0.  The matrix
+  # below starts at 8.1, so it cannot catch syntax the declared floor rejects.
+  syntax-floor:
+    name: PHP 8.0 syntax floor
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout monitor Plugin
+      uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+    - name: Install PHP 8.0
+      uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45 # v2
+      with:
+        php-version: '8.0'
+
+    - name: Lint every PHP file
+      run: |
+        if find . -path ./vendor -prune -o -name '*.php' -print \
+          | xargs -n1 php -l 2>&1 | grep -iv 'no syntax errors detected'; then
+          echo "Syntax errors found at the declared PHP floor"
+          exit 1
+        fi
+
   integration-test:
     runs-on: ${{ matrix.os }}
     
@@ -61,18 +108,18 @@ jobs:
     
     steps:
     - name: Checkout Cacti
-      uses: actions/checkout@v5
+      uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       with:
         repository: Cacti/cacti
         path: cacti
     
     - name: Checkout Monitor Plugin
-      uses: actions/checkout@v5
+      uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       with:
         path: cacti/plugins/monitor
     
     - name: Install PHP ${{ matrix.php }}
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45 # v2
       with:
         php-version: ${{ matrix.php }}
         extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring
