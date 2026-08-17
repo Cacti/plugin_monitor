@@ -203,7 +203,9 @@ jobs:
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          sudo composer install --prefer-dist --no-interaction --no-progress
+          # Cacti core ships no composer.lock and declares no scripts, so nothing
+          # is lost by refusing to run package-supplied code as root.
+          sudo composer install --prefer-dist --no-interaction --no-progress --no-plugins --no-scripts
         fi
     
     - name: Create Cacti config.php
