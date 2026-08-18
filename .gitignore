@@ -22,3 +22,8 @@
 locales/po/*.mo
 vendor/
 .omc/
+
+# Lockfile is not committed: the plugin declares a range, and thold does the same.
+composer.lock
+/vendor/
+.phpunit.result.cache
