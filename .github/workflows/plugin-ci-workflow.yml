@@ -29,8 +29,6 @@ on:
     paths:
       - '**.php'
       - '.github/workflows/**'
-      - 'composer.json'
-      - 'composer.lock'
       - 'phpunit.xml.dist'
       - 'tests/**'
   pull_request:
@@ -40,8 +38,6 @@ on:
     paths:
       - '**.php'
       - '.github/workflows/**'
-      - 'composer.json'
-      - 'composer.lock'
       - 'phpunit.xml.dist'
       - 'tests/**'
   workflow_dispatch:
@@ -72,29 +68,47 @@ jobs:
         args: -color
 
   unit-test:
-    name: Standalone test suite
+    name: Pest using Cacti Composer (Docker)
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+
     steps:
     - name: Checkout monitor Plugin
-      uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-    - name: Install PHP
-      uses: shivammathur/setup-php@b604ade2a87db23f8871b7182e69ec5e75effb45 # v2
+    - name: Checkout Cacti runtime
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       with:
-        # 8.2 is the floor for the test tooling, not for the plugin: Pest 2 pulls
-        # brianium/paratest ^7.4, which requires 8.2. The plugin's own floor is
-        # covered by syntax-floor on 8.0 and by the 8.1 integration matrix entry.
-        php-version: '8.2'
-        tools: composer
+        repository: Cacti/cacti
+        # Commit behind the annotated release/1.2.31 tag.
+        ref: 1e8eaca26b84b128c39ce8cc8ece42d7ff76aac1
+        path: cacti-runtime
 
-    - name: Install dev dependencies
-      run: composer install --prefer-dist --no-progress --no-interaction --no-plugins --no-scripts
+    - name: Checkout Cacti test toolchain
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      with:
+        repository: Cacti/cacti
+        # Pins Composer, Pest, the lock file and Cacti's Docker test image.
+        ref: 298bd51eca843490fb90b27ada6b3fecc9b9a7d8
+        path: cacti-toolchain
 
-    - name: Run the test suite
-      run: composer test
+    # The same image Cacti's own tests/tools/docker_pest.sh builds. Composer and
+    # Pest come from Cacti's locked toolchain, so the plugin ships no
+    # composer.json and no parallel vendor directory.
+    - name: Build Cacti test image
+      run: |
+        docker build --tag cacti-web --file cacti-toolchain/docker/Dockerfile cacti-toolchain/docker
+        docker build --tag cacti-monitor-test --file cacti-toolchain/docker/Dockerfile.test cacti-toolchain
 
-  # compat = 1.2.15 implies Cacti 1.2.x, which requires PHP 8.0.  The matrix
-  # below starts at 8.1, so it cannot catch syntax the declared floor rejects.
+    - name: Run Pest
+      run: |
+        docker run --rm \
+          --volume "$PWD/cacti-runtime":/cacti \
+          --volume "$PWD":/cacti/plugins/monitor \
+          --user root \
+          --entrypoint composer cacti-monitor-test \
+          test -- --configuration=/cacti/plugins/monitor/phpunit.xml.dist
+
   syntax-floor:
     name: PHP 8.0 syntax floor
     runs-on: ubuntu-latest
