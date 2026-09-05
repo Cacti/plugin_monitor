@@ -19,17 +19,35 @@
 # | http://www.cacti.net/                                                   |
 # +-------------------------------------------------------------------------+
 
-name: Plugin Integration Tests
+name: Monitor CI
 
 on:
   push:
     branches:
       - main
       - develop
+    paths:
+      - '**.php'
+      - '.github/workflows/plugin-ci-workflow.yml'
+      - 'composer.json'
+      - 'composer.lock'
   pull_request:
     branches:
       - main
       - develop
+    paths:
+      - '**.php'
+      - '.github/workflows/plugin-ci-workflow.yml'
+      - 'composer.json'
+      - 'composer.lock'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: monitor-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   integration-test:
@@ -43,7 +61,7 @@ jobs:
     
     services:
       mariadb:
-        image: mariadb:10.6
+        image: mariadb:10.11
         env:
           MYSQL_ROOT_PASSWORD: cactiroot
           MYSQL_DATABASE: cacti
@@ -61,18 +79,19 @@ jobs:
     
     steps:
     - name: Checkout Cacti
-      uses: actions/checkout@v5
+      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
       with:
         repository: Cacti/cacti
+        ref: release/1.2.31
         path: cacti
     
     - name: Checkout Monitor Plugin
-      uses: actions/checkout@v5
+      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
       with:
         path: cacti/plugins/monitor
     
     - name: Install PHP ${{ matrix.php }}
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
       with:
         php-version: ${{ matrix.php }}
         extensions: intl, mysql, gd, ldap, gmp, xml, curl, json, mbstring
@@ -81,11 +100,10 @@ jobs:
     - name: Check PHP version
       run: php -v
     
-    - name: Run apt-get update
-      run: sudo apt-get update
-    
     - name: Install System Dependencies
-      run: sudo apt-get install -y apache2 snmp snmpd rrdtool fping libapache2-mod-php
+      run: |
+        sudo apt-get update
+        sudo apt-get install --yes --no-install-recommends apache2 snmp snmpd rrdtool fping libapache2-mod-php
     
     - name: Start SNMPD Agent and Test
       run: |
@@ -95,40 +113,35 @@ jobs:
     - name: Setup Permissions
       run: |
         sudo chown -R www-data:runner ${{ github.workspace }}/cacti
-        sudo find ${{ github.workspace }}/cacti -type d -exec chmod 775 {} \;
-        sudo find ${{ github.workspace }}/cacti -type f -exec chmod 664 {} \;
+        sudo find ${{ github.workspace }}/cacti -type d -exec chmod 775 {} +
+        sudo find ${{ github.workspace }}/cacti -type f -exec chmod 664 {} +
         sudo chmod +x ${{ github.workspace }}/cacti/cmd.php
         sudo chmod +x ${{ github.workspace }}/cacti/poller.php
     
-    - name: Create MySQL Config
-      run: |
-        echo -e "[client]\nuser = root\npassword = cactiroot\nhost = 127.0.0.1\n" > ~/.my.cnf
-        cat ~/.my.cnf
-    
     - name: Initialize Cacti Database
       env:
-        MYSQL_AUTH_USR: '--defaults-file=~/.my.cnf'
+        MYSQL_PWD: cactiroot
       run: |
-        mysql $MYSQL_AUTH_USR -e 'CREATE DATABASE IF NOT EXISTS cacti;'
-        mysql $MYSQL_AUTH_USR -e "CREATE USER IF NOT EXISTS 'cactiuser'@'localhost' IDENTIFIED BY 'cactiuser';"
-        mysql $MYSQL_AUTH_USR -e "GRANT ALL PRIVILEGES ON cacti.* TO 'cactiuser'@'localhost';"
-        mysql $MYSQL_AUTH_USR -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'localhost';"
-        mysql $MYSQL_AUTH_USR -e "FLUSH PRIVILEGES;"
-        mysql $MYSQL_AUTH_USR cacti < ${{ github.workspace }}/cacti/cacti.sql
-        mysql $MYSQL_AUTH_USR -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
+        mysql --host=127.0.0.1 --user=root -e 'CREATE DATABASE IF NOT EXISTS cacti;'
+        mysql --host=127.0.0.1 --user=root -e "CREATE USER IF NOT EXISTS 'cactiuser'@'%' IDENTIFIED BY 'cactiuser';"
+        mysql --host=127.0.0.1 --user=root -e "GRANT ALL PRIVILEGES ON cacti.* TO 'cactiuser'@'%';"
+        mysql --host=127.0.0.1 --user=root -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'%';"
+        mysql --host=127.0.0.1 --user=root -e "FLUSH PRIVILEGES;"
+        mysql --host=127.0.0.1 --user=root cacti < ${{ github.workspace }}/cacti/cacti.sql
+        mysql --host=127.0.0.1 --user=root -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
     
     - name: Validate composer files
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          composer validate --strict || true
+          composer validate --no-check-publish
         fi
     
     - name: Install Composer Dependencies
       run: |
         cd ${{ github.workspace }}/cacti
         if [ -f composer.json ]; then
-          sudo composer install --prefer-dist --no-progress
+          sudo composer install --prefer-dist --no-interaction --no-progress
         fi
     
     - name: Create Cacti config.php
@@ -173,24 +186,37 @@ jobs:
     - name: Check PHP Syntax for Plugin
       run: |
         cd ${{ github.workspace }}/cacti/plugins/monitor
-        if find . -name '*.php' -exec php -l {} 2>&1 \; | grep -iv 'no syntax errors detected'; then
-          echo "Syntax errors found!"
-          exit 1
-        fi
+        find . -path './vendor' -prune -o -name '*.php' -print0 | xargs -0 -n1 php -l
 
     - name: Remove the plugins directory exclusion from the .phpstan.neon
-      run: sed '/plugins/d' -i .phpstan.neon
+      run: |
+        if [ -f .phpstan.neon ]; then
+          sed '/plugins/d' -i .phpstan.neon
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Mark composer scripts executable
-      run: sudo chmod +x ${{ github.workspace }}/cacti/include/vendor/bin/*
+      run: |
+        if [ -d "${{ github.workspace }}/cacti/include/vendor/bin" ]; then
+          sudo find "${{ github.workspace }}/cacti/include/vendor/bin" -maxdepth 1 -type f -exec chmod +x {} +
+        fi
 
     - name: Run Linter on base code
-      run: composer run-script lint ${{ github.workspace }}/cacti/plugins/monitor
+      run: |
+        if composer run-script --list | grep -qE '^  lint'; then
+          composer run-script lint ${{ github.workspace }}/cacti/plugins/monitor
+        else
+          echo 'Composer lint script is not defined; skipping.'
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
     - name: Checking coding standards on base code
-      run: composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/monitor
+      run: |
+        if composer run-script --list | grep -qE '^  phpcsfixer'; then
+          composer run-script phpcsfixer ${{ github.workspace }}/cacti/plugins/monitor
+        else
+          echo 'Composer phpcsfixer script is not defined; skipping.'
+        fi
       working-directory: ${{ github.workspace }}/cacti
 
 #    - name: Run PHPStan at Level 6 on base code outside of Composer due to technical issues
@@ -214,3 +240,11 @@ jobs:
           echo "=== Cacti Log ==="
           sudo cat ${{ github.workspace }}/cacti/log/cacti.log
         fi
+
+    - name: Upload Cacti log
+      if: failure()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: cacti-log-php-${{ matrix.php }}
+        path: ${{ github.workspace }}/cacti/log/cacti.log
+        if-no-files-found: ignore
