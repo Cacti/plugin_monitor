@@ -123,9 +123,9 @@ jobs:
         MYSQL_PWD: cactiroot
       run: |
         mysql --host=127.0.0.1 --user=root -e 'CREATE DATABASE IF NOT EXISTS cacti;'
-        mysql --host=127.0.0.1 --user=root -e "CREATE USER IF NOT EXISTS 'cactiuser'@'localhost' IDENTIFIED BY 'cactiuser';"
-        mysql --host=127.0.0.1 --user=root -e "GRANT ALL PRIVILEGES ON cacti.* TO 'cactiuser'@'localhost';"
-        mysql --host=127.0.0.1 --user=root -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'localhost';"
+        mysql --host=127.0.0.1 --user=root -e "CREATE USER IF NOT EXISTS 'cactiuser'@'%' IDENTIFIED BY 'cactiuser';"
+        mysql --host=127.0.0.1 --user=root -e "GRANT ALL PRIVILEGES ON cacti.* TO 'cactiuser'@'%';"
+        mysql --host=127.0.0.1 --user=root -e "GRANT SELECT ON mysql.time_zone_name TO 'cactiuser'@'%';"
         mysql --host=127.0.0.1 --user=root -e "FLUSH PRIVILEGES;"
         mysql --host=127.0.0.1 --user=root cacti < ${{ github.workspace }}/cacti/cacti.sql
         mysql --host=127.0.0.1 --user=root -e "INSERT INTO settings (name, value) VALUES ('path_php_binary', '/usr/bin/php')" cacti
