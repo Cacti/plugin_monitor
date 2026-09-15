@@ -166,7 +166,7 @@ function plugin_monitor_uninstall() {
 function plugin_monitor_page_head() {
 	global $config;
 
-	print get_md5_include_css('plugins/monitor/monitor.css') . PHP_EOL;
+	print get_md5_include_css('plugins/monitor/css/monitor.css') . PHP_EOL;
 
 	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
 		print get_md5_include_css('plugins/monitor/themes/' . get_selected_theme() . '/monitor.css') . PHP_EOL;
