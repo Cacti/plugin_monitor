@@ -81,6 +81,7 @@ $GLOBALS['config'] = array(
 );
 
 $GLOBALS['__test_db_calls'] = array();
+$GLOBALS['__test_request']  = array();
 
 if (!function_exists('db_execute')) {
 	function db_execute($sql) {
@@ -220,25 +221,37 @@ if (!function_exists('raise_message')) {
 
 if (!function_exists('get_request_var')) {
 	function get_request_var($name) {
-		return '';
+		return $GLOBALS['__test_request'][$name] ?? '';
 	}
 }
 
 if (!function_exists('get_nfilter_request_var')) {
 	function get_nfilter_request_var($name) {
-		return '';
+		return get_request_var($name);
 	}
 }
 
 if (!function_exists('get_filter_request_var')) {
 	function get_filter_request_var($name) {
-		return '';
+		return get_request_var($name);
 	}
 }
 
 if (!function_exists('set_request_var')) {
 	function set_request_var($name, $value) {
+		$GLOBALS['__test_request'][$name] = $value;
 	}
+}
+
+/**
+ * Set the stubbed request vars a test needs, resetting the rest.
+ *
+ * @param array $vars
+ *
+ * @return void
+ */
+function test_set_request(array $vars): void {
+	$GLOBALS['__test_request'] = $vars;
 }
 
 if (!function_exists('validateRequestVars')) {
