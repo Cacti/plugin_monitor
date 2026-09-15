@@ -44,5 +44,10 @@ Bug and feature enhancements for the webseer plugin are handled in GitHub. If
 you find a first search the Cacti forums for a solution before creating an issue
 in GitHub.
 
+## Architecture
+
+The proposed architectural direction for Monitor is documented in the
+[Architecture Decision Record](docs/architecture/0001-hexagonal-monitor.md).
+
 -----------------------------------------------
 Copyright (c) 2004-2026 - The Cacti Group, Inc.
