@@ -44,7 +44,7 @@ monitor/                    # Repository root (install to plugins/monitor/ in Ca
 ## Naming Conventions
 
 ### Function Names
-- Procedural functions use **lowerCamelCase or `monitor_` prefix** matching current file conventions — keep plugin hook callback names exactly synchronized between their definitions and their `api_plugin_register_hook()` registration strings.
+- Procedural functions use **lowerCamelCase**, the `monitor_` prefix, or the required `plugin_monitor_` lifecycle prefix, matching current file conventions — keep plugin hook callback names exactly synchronized between their definitions and their `api_plugin_register_hook()` registration strings.
 - Keep top-level entrypoints lightweight; place reusable logic in the appropriate helper file (`db_functions.php`, `poller_functions.php`).
 
 ### Database Tables
@@ -63,14 +63,14 @@ ALL PHP files MUST include the standard GPL v2 license header used throughout th
 ## Security Standards
 
 ### SQL Query Security
-Prefer Cacti's prepared DB helpers already used in this plugin — `db_fetch_assoc()`, `db_fetch_row_prepared()`, `db_fetch_cell_prepared()`, `db_execute_prepared()` — over direct string interpolation for dynamic SQL parameters.
+Prefer Cacti's DB helpers already used in this plugin — use `db_fetch_row_prepared()`, `db_fetch_cell_prepared()`, and `db_execute_prepared()` when dynamic values are present, and use `db_fetch_assoc()` only for queries without dynamic parameters.
 
 ```php
 // CORRECT
-db_fetch_row_prepared('SELECT * FROM plugin_monitor_devices WHERE id = ?', array($id));
+db_fetch_row_prepared('SELECT * FROM plugin_monitor_dashboards WHERE id = ?', [$id]);
 
 // WRONG
-db_fetch_row("SELECT * FROM plugin_monitor_devices WHERE id = $id");
+db_fetch_row('SELECT * FROM plugin_monitor_dashboards WHERE id = ' . $id);
 ```
 
 ### Input Validation
@@ -122,7 +122,7 @@ $id = get_filter_request_var('id');
 
 ## Version Control
 
-Document all changes in `CHANGELOG.md`; use descriptive commit messages referencing issue/PR numbers when applicable.
+Document user-visible or release-impacting changes in `CHANGELOG.md`; use descriptive commit messages referencing issue/PR numbers when applicable.
 
 ## References
 
