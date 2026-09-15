@@ -64,14 +64,14 @@ jobs:
 
     steps:
     - name: Checkout Cacti
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         repository: Cacti/cacti
         ref: ${{ env.CACTI }}
         path: cacti
 
     - name: Checkout Monitor Plugin
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
       with:
         path: cacti/plugins/monitor
 
@@ -199,7 +199,7 @@ jobs:
 
     - name: Upload coverage report
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: coverage-php${{ matrix.php }}
         path: ${{ github.workspace }}/cacti/plugins/monitor/coverage/
