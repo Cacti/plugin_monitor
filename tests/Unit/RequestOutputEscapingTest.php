@@ -7,13 +7,10 @@
  +-------------------------------------------------------------------------+
 */
 
-$payload = '" autofocus onfocus="alert(1)';
-$escaped = htmlspecialchars($payload, ENT_QUOTES, 'UTF-8');
+it('escapes request values used in hidden inputs', function () {
+	$payload = '" autofocus onfocus="alert(1)';
+	$escaped = htmlspecialchars($payload, ENT_QUOTES, 'UTF-8');
 
-if (strpos($escaped, '"') === false && strpos($escaped, '&quot;') !== false) {
-	print "OK\n";
-	exit(0);
-}
-
-fwrite(STDERR, "Expected request values to be escaped for hidden inputs\n");
-exit(1);
+	expect($escaped)->not->toContain('"');
+	expect($escaped)->toContain('&quot;');
+});
