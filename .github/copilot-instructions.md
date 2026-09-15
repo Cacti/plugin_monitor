@@ -4,112 +4,129 @@
 
 When generating code for this repository:
 
-1. **Version Compatibility First**: Honor plugin and CI version constraints before all style preferences.
-2. **Repository Context Files**: Prioritize `.github/copilot/*` docs if they are added later.
-3. **Agent Profiles as Secondary Context**: Reuse conventions from `.github/agents/*.md` when applicable.
-4. **Pattern Matching Over Reinvention**: Mirror existing plugin patterns in the same file/flow.
-5. **Architectural Consistency**: Keep the plugin procedural and Cacti-native.
+1. **Version Compatibility**: This is a Cacti plugin (`monitor`, "Device Monitoring", version 2.9) targeting Cacti 1.2.15+, requires `thold:1.2.1`
+2. **Context Files**: Prioritize patterns and standards defined in this file (`.github/copilot-instructions.md`)
+3. **Codebase Patterns**: When context files don't provide specific guidance, scan the codebase for established patterns
+4. **Architectural Consistency**: Maintain plugin-based architecture extending Cacti core
+5. **Code Quality**: Prioritize security, maintainability, and compatibility in all generated code
 
-## Verified Runtime and Compatibility
+## Technology Stack
 
-Use only capabilities compatible with observed project metadata:
+### Core Technologies
+- **PHP**: 8.1+ (CI matrix tests 8.1-8.4)
+- **Platform**: Cacti Plugin Architecture (Cacti 1.2.15+)
+- **Database**: MariaDB 10.6+ with InnoDB engine
+- **Dependency**: Requires the `thold` plugin (>= 1.2.1) to be installed
 
-- **Plugin metadata (`INFO`)**
-  - `name = monitor`
-  - `version = 2.8`
-  - `compat = 1.2.15`
-  - `requires = thold:1.2.1`
-- **CI matrix (`.github/workflows/plugin-ci-workflow.yml`)**
-  - PHP: `8.1`, `8.2`, `8.3`, `8.4`
-  - OS: `ubuntu-latest`
-  - MariaDB service: `10.6`
-- **Observed technologies**
-  - Procedural PHP plugin files
-  - CSS theme overlays in `themes/*/monitor.css`
-  - gettext localization (`locales/po/*.po`, `locales/LC_MESSAGES/*.mo`)
-  - GitHub Actions integration checks
+### Key Dependencies
+- Cacti core framework (`api_plugin_*`, `db_*`, `read_config_option()`, `get_filter_request_var()`)
+- `themes/` CSS overlays, `sounds/` audible alert assets, `js/` client-side dashboard code
 
-Do not introduce syntax or APIs that could fail under these versions.
+## Project Structure
 
-## Architecture and File Responsibilities
+```
+monitor/                    # Repository root (install to plugins/monitor/ in Cacti)
+├── js/                       # Dashboard client-side logic
+├── sounds/                      # Alert sound assets
+├── themes/                        # CSS theme overlays (monitor.css)
+├── tests/                            # Test suite
+├── db_functions.php                    # SQL filter/join helpers and status/device query utilities
+├── monitor.php                           # Web entrypoint/bootstrap (session/request setup)
+├── monitor_controller.php                  # Action flow, filter handling, page orchestration
+├── monitor_render.php                        # Dashboard/group rendering and view-specific output
+├── poller_functions.php                        # Poller helper logic (uptime checks, notifications, email payloads)
+├── poller_monitor.php                            # Background poller entry point (CLI: --help, --version, --debug)
+├── INFO                                            # Plugin metadata (name, version, compat)
+├── README.md
+└── setup.php                                         # Plugin install/uninstall/upgrade hooks, hook registration, config
+```
 
-This is a single Cacti plugin with procedural flows split by responsibility:
+## Naming Conventions
 
+### Function Names
+- Procedural functions use **lowerCamelCase or `monitor_` prefix** matching current file conventions — keep plugin hook callback names exactly synchronized between their definitions and their `api_plugin_register_hook()` registration strings.
+- Keep top-level entrypoints lightweight; place reusable logic in the appropriate helper file (`db_functions.php`, `poller_functions.php`).
+
+### Database Tables
+Plugin tables are prefixed `plugin_monitor_`. Reuse existing table names and avoid introducing parallel schema variants; keep schema evolution inside the existing setup/upgrade lifecycle functions in `setup.php`.
+
+## Code Style
+
+### Indentation and Formatting
+- **Tabs**: Use tabs (not spaces) for indentation throughout all PHP files.
+- **Braces**: Opening brace on the same line for functions and control structures.
+- **Spacing**: Space after control structure keywords (`if`, `foreach`, `while`).
+
+### File Headers
+ALL PHP files MUST include the standard GPL v2 license header used throughout this repository (see `setup.php`), crediting "The Cacti Group".
+
+## Security Standards
+
+### SQL Query Security
+Prefer Cacti's prepared DB helpers already used in this plugin — `db_fetch_assoc()`, `db_fetch_row_prepared()`, `db_fetch_cell_prepared()`, `db_execute_prepared()` — over direct string interpolation for dynamic SQL parameters.
+
+```php
+// CORRECT
+db_fetch_row_prepared('SELECT * FROM plugin_monitor_devices WHERE id = ?', array($id));
+
+// WRONG
+db_fetch_row("SELECT * FROM plugin_monitor_devices WHERE id = $id");
+```
+
+### Input Validation
+Use the existing request-validation patterns before consuming request values: `get_request_var()`, `get_filter_request_var()`, `get_nfilter_request_var()`, `set_request_var()`, `validateRequestVars()`.
+
+### Output Escaping
+Escape HTML output with existing helpers (e.g., `html_escape()`).
+
+## Database Operations
+
+Keep schema evolution in the existing setup/upgrade flows (table creation/alter logic in `setup.php`'s install/upgrade lifecycle functions); avoid repeated expensive queries inside loops — precompute lists/maps, then iterate.
+
+## Internationalization
+
+Use gettext calls with the `monitor` domain for user-facing strings: `__('Text', 'monitor')`.
+
+## Plugin Architecture
+
+### File Responsibilities
 - `setup.php`: plugin lifecycle, hook registration, config arrays/settings, install/upgrade table management.
 - `monitor.php`: web entrypoint/bootstrap, includes, session/request setup.
 - `monitor_controller.php`: action flow, filter handling, page orchestration.
 - `monitor_render.php`: dashboard/group rendering and view-specific output.
 - `db_functions.php`: SQL filter/join helpers and status/device query utilities.
-- `poller_monitor.php`: CLI poller entrypoint (`--help`, `--version`, `--debug`).
+- `poller_monitor.php`: CLI poller entrypoint.
 - `poller_functions.php`: poller helper logic (uptime checks, notifications, email payload building).
 
-Avoid OO/framework refactors unless explicitly requested.
+Avoid OO/framework refactors unless explicitly requested; this plugin is intentionally procedural.
 
-## Coding Patterns to Preserve
+### Plugin Hooks
+Register hooks in `setup.php`, including `top_header_tabs`, `config_arrays`, `config_settings`, `poller_bottom`, `api_device_save`, `device_action_array/execute/prepare`, `device_remove`, `device_filters`, `device_sql_where`, `device_table_bottom`; keep hook callback names synchronized with their registration strings.
 
-### Naming and Structure
+## Best Practices
 
-- Use procedural functions with **lowerCamelCase** naming, matching current core files.
-- Keep plugin hook callback names exactly synchronized between definitions and `api_plugin_register_hook()` registration strings.
-- Keep top-level entrypoints lightweight; place reusable logic in helper files.
+1. Keep changes localized to the appropriate responsibility file; favor small helper extractions for complex branches (pattern used in `poller_functions.php`).
+2. Do not rename public/plugin callback functions unless all call sites and hook strings are updated.
+3. Avoid repeated expensive queries inside loops; preserve current poller stat logging behavior and timing model.
+4. Run `php -l` on modified plugin files and ensure compatibility with the CI lint/style checks (`lint`, `phpcsfixer` scripts).
 
-### Cacti Integration
+## Common Pitfalls to Avoid
 
-- Prefer Cacti APIs already used in this plugin:
-  - Config/state: `read_config_option()`, `set_config_option()`, `read_user_setting()`, `set_user_setting()`
-  - Request helpers: `get_request_var()`, `get_filter_request_var()`, `get_nfilter_request_var()`, `set_request_var()`, `validateRequestVars()`
-  - DB helpers: `db_fetch_assoc()`, `db_fetch_row_prepared()`, `db_fetch_cell_prepared()`, `db_execute_prepared()`
-  - Plugin hooks/realms: `api_plugin_register_hook()`, `api_plugin_register_realm()`
-- Use gettext calls with the `monitor` domain for user-facing strings: `__('Text', 'monitor')`.
+```php
+// WRONG - direct request superglobal access
+$id = $_REQUEST['id'];
 
-### Data and Schema Safety
+// CORRECT
+$id = get_filter_request_var('id');
+```
 
-- Keep schema evolution in existing setup/upgrade flows (table creation/alter logic in setup lifecycle functions).
-- Reuse existing table names and avoid introducing parallel schema variants.
-- Prefer prepared DB calls when dynamic values are present.
+## Version Control
 
-## Quality Expectations
+Document all changes in `CHANGELOG.md`; use descriptive commit messages referencing issue/PR numbers when applicable.
 
-### Maintainability
+## References
 
-- Keep changes localized to the appropriate responsibility file.
-- Favor small helper extractions for complex branches (pattern used in `poller_functions.php`).
-- Do not rename public/plugin callback functions unless all call sites and hook strings are updated.
-
-### Security
-
-- Continue current request-validation patterns before consuming request values.
-- Escape HTML output with existing helpers (e.g., `html_escape()`).
-- Avoid direct string interpolation for dynamic SQL parameters when prepared variants exist.
-
-### Performance
-
-- Avoid repeated expensive queries inside loops.
-- Follow current query-shaping patterns (precompute lists/maps, then iterate).
-- Preserve current poller stat logging behavior and timing model.
-
-### Documentation
-
-- Keep function docblocks descriptive where present, especially in `poller_functions.php`.
-- Keep inline comments concise and only where intent is non-obvious.
-- Do not add boilerplate comments for trivial statements.
-
-## Validation and CI Alignment
-
-Before finalizing substantial PHP changes:
-
-1. Run PHP syntax checks (`php -l`) on modified plugin files.
-2. Ensure compatibility with Cacti-driven lint/style checks used in CI (`lint`, `phpcsfixer` scripts run from Cacti workspace).
-3. Preserve integration behavior expected by CI:
-   - Plugin install/enable via Cacti CLI
-   - Poller execution path and monitor stats logging
-
-Do not add a new local unit-test framework unless requested.
-
-## Scope Rules for Future Changes
-
-- Prefer minimal, surgical updates over broad rewrites.
-- Keep CSS/theme updates limited to existing theme file layout.
-- Keep localization changes aligned to existing gettext workflow/files.
-- If guidance conflicts, prefer behavior already validated in runtime entrypoints and CI workflow.
-
+- [Cacti main repo](https://github.com/Cacti/cacti/tree/1.2.x)
+- [Cacti Documentation](https://www.github.com/Cacti/documentation)
+- `README.md` for feature descriptions
+- `CHANGELOG.md` for version history
