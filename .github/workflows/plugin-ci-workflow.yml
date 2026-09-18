@@ -64,14 +64,14 @@ jobs:
 
     steps:
     - name: Checkout Cacti
-      uses: actions/checkout@v7
+      uses: actions/checkout@v7.0.1
       with:
         repository: Cacti/cacti
         ref: ${{ env.CACTI }}
         path: cacti
 
     - name: Checkout Monitor Plugin
-      uses: actions/checkout@v7
+      uses: actions/checkout@v7.0.1
       with:
         path: cacti/plugins/monitor
 
