@@ -76,6 +76,14 @@ db_fetch_row('SELECT * FROM plugin_monitor_dashboards WHERE id = ' . $id);
 ### Input Validation
 Use the existing request-validation patterns before consuming request values: `get_request_var()`, `get_filter_request_var()`, `get_nfilter_request_var()`, `set_request_var()`, `validateRequestVars()`.
 
+`get_filter_request_var()` (and its `gfrv()` shorthand, where available) called with only the
+`$name` argument (no regex/filter as the 2nd/3rd argument) already validates the value as numeric
+and returns it as a **string** -- it does not return an int, and it halts execution if the request
+value is not numeric. Because of this, do NOT cast its output to `(int)` when the result is only
+used for string output (e.g. `print`/`echo`, string concatenation, embedding in HTML/JS); the cast
+is redundant. Only cast when the value is genuinely used in an integer/numeric context (e.g.
+arithmetic, strict `===` comparisons).
+
 ### Output Escaping
 Escape HTML output with existing helpers (e.g., `html_escape()`).
 
