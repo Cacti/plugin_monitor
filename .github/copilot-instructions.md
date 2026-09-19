@@ -13,7 +13,7 @@ When generating code for this repository:
 ## Technology Stack
 
 ### Core Technologies
-- **PHP**: 8.1+ (CI matrix tests 8.1-8.4)
+- **PHP**: 8.2+ (CI matrix tests 8.2-8.4)
 - **Platform**: Cacti Plugin Architecture (Cacti 1.2.15+)
 - **Database**: MariaDB 10.6+ with InnoDB engine
 - **Dependency**: Requires the `thold` plugin (>= 1.2.1) to be installed

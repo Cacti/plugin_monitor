@@ -254,10 +254,9 @@ function test_set_request(array $vars): void {
 	$GLOBALS['__test_request'] = $vars;
 }
 
-if (!function_exists('validateRequestVars')) {
-	function validateRequestVars($section, $filter = array()) {
-	}
-}
+// validateRequestVars() is not stubbed here: monitor_controller.php declares
+// it unconditionally, so a global stub would fatal with a redeclare error
+// once a test loads that file via loadPluginSource()/monitor_test_load().
 
 if (!function_exists('form_input_validate')) {
 	function form_input_validate($value, $name, $regex, $optional, $error) {
