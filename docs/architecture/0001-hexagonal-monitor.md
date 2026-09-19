@@ -35,7 +35,7 @@ The target contains the following responsibilities:
   poller hook, and the existing Monitor web UI.
 
 Domain code must not access request variables, sessions, globals, SQL, the
-filesystem, or Cacti helper functions. New code targets PHP 8.1, the
+filesystem, or Cacti helper functions. New code targets PHP 8.2, the
 baseline this repository's CI tests against.
 
 ## State and delivery rules
