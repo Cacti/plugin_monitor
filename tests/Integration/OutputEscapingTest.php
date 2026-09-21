@@ -31,6 +31,7 @@ it('escapes request values before printing them', function (string $file, string
 })->with('escaped_outputs');
 
 dataset('raw_reuse', [
+	['monitor_controller.php', "get_request_var('downhosts') . '\"><input id=\"mute\" type=\"hidden\" value=\"' . get_request_var('mute')"],
 	['monitor_controller.php', "get_request_var('tree') . '\"></td>'"],
 	['monitor_controller.php', "get_request_var('site') . '\"></td>'"],
 	['monitor_controller.php', "get_request_var('template') . '\"></td>'"],
