@@ -116,11 +116,20 @@ function monitor_device_table_bottom() {
 		$(function() {
 			$('#rows').parent().after('<?php print $select; ?>');
 			<?php if (get_selected_theme() != 'classic') {?>
-			$('#criticality').selectmenu({
-				change: function() {
+			/* Cacti core may have already converted this select to select2 by
+			 * the time this runs; don't also layer a selectmenu widget on it,
+			 * but still wire up applyFilter() either way */
+			if (!$('#criticality').hasClass('select2-hidden-accessible')) {
+				$('#criticality').selectmenu({
+					change: function() {
+						applyFilter();
+					}
+				});
+			} else {
+				$('#criticality').on('change', function() {
 					applyFilter();
-				}
-			});
+				});
+			}
 			<?php } else { ?>
 			$('#criticality').change(function() {
 				applyFilter();

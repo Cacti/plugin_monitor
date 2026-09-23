@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-21 13:14-0400\n"
+"POT-Creation-Date: 2026-09-22 10:12-0400\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,27 +12,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: monitor.php:37 poller_functions.php:620 setup.php:438
+#: monitor.php:37 poller_functions.php:620 setup.php:447
 msgid "Disabled"
 msgstr "Изключен"
 
 #: monitor.php:38 poller_functions.php:621 setup.php:65 setup.php:96
-#: setup.php:439
+#: setup.php:448
 msgid "Low"
 msgstr "Нисък"
 
 #: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:66
-#: setup.php:97 setup.php:440
+#: setup.php:97 setup.php:449
 msgid "Medium"
 msgstr "Среден"
 
 #: monitor.php:40 poller_functions.php:623 setup.php:67 setup.php:98
-#: setup.php:441
+#: setup.php:450
 msgid "High"
 msgstr "Висок"
 
 #: monitor.php:41 poller_functions.php:624 setup.php:68 setup.php:99
-#: setup.php:442
+#: setup.php:451
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Критична мисия"
@@ -106,7 +106,6 @@ msgstr "Увеличение"
 
 #: monitor.php:80 monitor_controller.php:276
 #, fuzzy
-#| msgid "Devices"
 msgid "All Devices"
 msgstr "Устройства"
 
@@ -139,19 +138,19 @@ msgstr ""
 msgid "Devices not Monitored"
 msgstr "Настройки за наблюдение на устройства"
 
-#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:568 setup.php:580
+#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:577 setup.php:589
 msgid "Default"
 msgstr "По подразбиране"
 
-#: monitor.php:91 setup.php:581
+#: monitor.php:91 setup.php:590
 msgid "List"
 msgstr "Списък"
 
-#: monitor.php:92 setup.php:582
+#: monitor.php:92 setup.php:591
 msgid "Names only"
 msgstr ""
 
-#: monitor.php:93 setup.php:583
+#: monitor.php:93 setup.php:592
 #, fuzzy
 msgid "Tiles"
 msgstr "Фаянсови плочки"
@@ -161,7 +160,7 @@ msgstr "Фаянсови плочки"
 msgid "Tiles & Time"
 msgstr "Плочки и време"
 
-#: monitor.php:99 monitor_controller.php:490 setup.php:570
+#: monitor.php:99 monitor_controller.php:490 setup.php:579
 msgid "Tree"
 msgstr "‎درخت"
 
@@ -169,7 +168,7 @@ msgstr "‎درخت"
 msgid "Site"
 msgstr "Tочка на продажба"
 
-#: monitor.php:101 setup.php:571
+#: monitor.php:101 setup.php:580
 #, fuzzy
 msgid "Device Template"
 msgstr "Шаблон на устройството"
@@ -305,11 +304,11 @@ msgstr "Оформление"
 msgid "Status"
 msgstr "Статус"
 
-#: monitor_controller.php:435 setup.php:575
+#: monitor_controller.php:435 setup.php:584
 msgid "View"
 msgstr "Преглед"
 
-#: monitor_controller.php:436 setup.php:563
+#: monitor_controller.php:436 setup.php:572
 msgid "Grouping"
 msgstr "Групиране"
 
@@ -533,7 +532,6 @@ msgstr "Изделие:"
 
 #: monitor_controller.php:1103
 #, fuzzy
-#| msgid "Site"
 msgid "Site:"
 msgstr "Tочка на продажба"
 
@@ -625,7 +623,7 @@ msgstr "Никога"
 msgid "Unspecified"
 msgstr ""
 
-#: monitor_controller.php:1210 setup.php:64 setup.php:95 setup.php:696
+#: monitor_controller.php:1210 setup.php:64 setup.php:95 setup.php:705
 msgid "None"
 msgstr "Няма"
 
@@ -740,517 +738,515 @@ msgstr "Ще получавате известия всеки път, когат
 msgid "Any"
 msgstr "Всички"
 
-#: setup.php:351
+#: setup.php:360
 #, fuzzy, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "Кликнете върху „Продължи“, за да наблюдавате %s на тези устройства"
 
-#: setup.php:358
+#: setup.php:367
 #, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
 msgstr "Кликнете върху \"Продължи\", за да промените настройките за наблюдение за следните устройства. Не забравяйте да маркирате „Актуализиране на това поле“, за да посочите кои колони да се актуализират."
 
-#: setup.php:382
+#: setup.php:391
 #, fuzzy
 msgid "Update this Field"
 msgstr "Актуализирайте това поле"
 
-#: setup.php:400
+#: setup.php:409
 #, fuzzy
 msgid "Change Monitoring Options"
 msgstr "Опции за мониторинг на промяната"
 
-#: setup.php:401
+#: setup.php:410
 #, fuzzy
 msgid "Enable Monitoring"
 msgstr "Активиране на мониторинга"
 
-#: setup.php:402
+#: setup.php:411
 #, fuzzy
 msgid "Disable Monitoring"
 msgstr "Деактивиране на мониторинга"
 
-#: setup.php:446
+#: setup.php:455
 #, fuzzy
 msgid "Indefinitely"
 msgstr "неопределен период от време"
 
-#: setup.php:447
+#: setup.php:456
 #, fuzzy, php-format
 msgid "%d Month"
 msgstr "% d Месец"
 
-#: setup.php:448 setup.php:449 setup.php:450 setup.php:451
+#: setup.php:457 setup.php:458 setup.php:459 setup.php:460
 #, fuzzy, php-format
 msgid "%d Months"
 msgstr "% d Месеци"
 
-#: setup.php:452
+#: setup.php:461
 #, fuzzy, php-format
 msgid "%d Year"
 msgstr "% d Година"
 
-#: setup.php:465
+#: setup.php:474
 #, fuzzy
 msgid "Normal User"
 msgstr "Форматирайте файла за използване"
 
-#: setup.php:468 setup.php:522
+#: setup.php:477 setup.php:531
 #, fuzzy
 msgid "Monitor Settings"
 msgstr "Настройки на монитора"
 
-#: setup.php:473 setup.php:539
+#: setup.php:482 setup.php:548
 #, fuzzy
 msgid "Alarm Sound"
 msgstr "Звук на алармата"
 
-#: setup.php:474 setup.php:540
+#: setup.php:483 setup.php:549
 #, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr "Това е звуковия файл, който ще се възпроизвежда, когато устройството падне."
 
-#: setup.php:480 setup.php:546
+#: setup.php:489 setup.php:555
 #, fuzzy
 msgid "Loop Alarm Sound"
 msgstr "Звук на алармата"
 
-#: setup.php:481 setup.php:547
+#: setup.php:490 setup.php:556
 #, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
 msgstr "Това е звуковия файл, който ще се възпроизвежда, когато устройството падне."
 
-#: setup.php:485 setup.php:558
+#: setup.php:494 setup.php:567
 #, fuzzy
 msgid "Show Icon Legend"
 msgstr "Показване на легендата на иконите"
 
-#: setup.php:486 setup.php:559
+#: setup.php:495 setup.php:568
 #, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Отметнете това, за да се покаже легенда на иконата на дисплея на монитора"
 
-#: setup.php:490
+#: setup.php:499
 #, fuzzy
 msgid "Show Uptime"
 msgstr "Показване на Uptime"
 
-#: setup.php:491
+#: setup.php:500
 #, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
 msgstr "Отметнете това, за да се покаже легенда на иконата на дисплея на монитора"
 
-#: setup.php:495
+#: setup.php:504
 #, fuzzy
 msgid "Zoom to Errors"
 msgstr "Увеличете до Грешки"
 
-#: setup.php:496 setup.php:506
+#: setup.php:505 setup.php:515
 #, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "Отметнете това, за да се покаже легенда на иконата на дисплея на монитора"
 
-#: setup.php:500
+#: setup.php:509
 #, fuzzy
 msgid "Zoom Background"
 msgstr "Мащабиране на фона"
 
-#: setup.php:501
+#: setup.php:510
 #, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr "Цвят на фона за увеличени грешки на дисплея на монитора"
 
-#: setup.php:505
+#: setup.php:514
 #, fuzzy
 msgid "Zoom Fontsize"
 msgstr "Zoom Fontsize"
 
-#: setup.php:518 setup.php:818 setup.php:820
+#: setup.php:527 setup.php:827 setup.php:829
 #, fuzzy
 msgid "Monitor"
 msgstr "монитор"
 
-#: setup.php:527
+#: setup.php:536
 #, fuzzy
 msgid "Enable on new devices"
 msgstr "Активиране на нови устройства"
 
-#: setup.php:528
+#: setup.php:537
 #, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr "Отметнете това, за да активирате автоматично мониторинга при създаването на нови устройства"
 
-#: setup.php:532
+#: setup.php:541
 #, fuzzy
 msgid "Notification/Reboot Log Retention"
 msgstr "Уведомление / запазване на регистъра за рестартиране"
 
-#: setup.php:533
+#: setup.php:542
 #, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "Съхранявайте уведомленията и рестартирайте журналите за този брой дни."
 
-#: setup.php:551
+#: setup.php:560
 msgid "Refresh Interval"
 msgstr "????‚?µ?Ђ???°?» ???° ???±???????Џ???°???µ"
 
-#: setup.php:552
+#: setup.php:561
 #, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
 msgstr "Това е времето в секунди, преди страницата да се освежи. (1 - 300)"
 
-#: setup.php:564
+#: setup.php:573
 #, fuzzy
 msgid "This is how monitor will Group Devices."
 msgstr "Ето как мониторът ще групира устройства."
 
-#: setup.php:569
+#: setup.php:578
 #, fuzzy
 msgid "Default with permissions"
 msgstr "По подразбиране с разрешения"
 
-#: setup.php:576
+#: setup.php:585
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "Ето как мониторът ще визуализира устройства."
 
-#: setup.php:584
+#: setup.php:593
 #, fuzzy
 msgid "Tiles & Downtime"
 msgstr "Плочки и престой"
 
-#: setup.php:588
+#: setup.php:597
 #, fuzzy
 msgid "Notification Report Format"
 msgstr "Формат на доклада за известия"
 
-#: setup.php:593
+#: setup.php:602
 #, fuzzy
 msgid "Format File to Use"
 msgstr "Форматирайте файла за използване"
 
-#: setup.php:596
+#: setup.php:605
 #, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr "Изберете потребителската html обвивка и CSS файла, който да използвате. Този файл съдържа както html, така и CSS за пренасяне на отчета ви. Ако съдържа повече от просто CSS, трябва да поставите специален <REPORT> вътре във файла. Този етикет за формат ще бъде заменен от съдържанието на отчета. Тези файлове се намират в директорията 'formats'."
 
-#: setup.php:600
+#: setup.php:609
 #, fuzzy
 msgid "Ping Threshold Notifications"
 msgstr "Уведомления за прагове за Ping"
 
-#: setup.php:605
+#: setup.php:614
 #, fuzzy
 msgid "Warning Latency Notification"
 msgstr "Уведомление за латентност при предупреждение"
 
-#: setup.php:606
+#: setup.php:615
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "Ако дадено устройство има закъснение по време на обиколка по-високо от прага за предупреждение и над критичността по-долу, абонирането на имейли в устройството ще получи известие по имейл. Изберете „Disabled“ за Disable. За да активирате тази функция, е необходим Plug-in за Thold."
 
-#: setup.php:612
+#: setup.php:621
 #, fuzzy
 msgid "Alert Latency Notification"
 msgstr "Уведомление за латентност на сигнала"
 
-#: setup.php:613
+#: setup.php:622
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "Ако дадено устройство има закъснение по време на обиколка над прага за предупреждение и над критичността по-долу, абонирането на имейли в устройството ще получи известие по имейл. Изберете „Disabled“ за Disable. За да активирате тази функция, е необходим Plug-in за Thold."
 
-#: setup.php:619
+#: setup.php:628
 #, fuzzy
 msgid "How Often to Resend Emails"
 msgstr "Колко често се изпращат имейли"
 
-#: setup.php:620
+#: setup.php:629
 #, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr "Колко често трябва да се изпращат уведомления за имейли до абонатите за тези устройства, ако те надвишават праговете за закъснение"
 
-#: setup.php:624
+#: setup.php:633
 #, fuzzy
 msgid "Every Occurrence"
 msgstr "Всяко събитие"
 
-#: setup.php:625 setup.php:626
+#: setup.php:634 setup.php:635
 #, fuzzy, php-format
 msgid "Every %d Minutes"
 msgstr "Всеки% d минути"
 
-#: setup.php:627
+#: setup.php:636
 #, fuzzy
 msgid "Every Hour"
 msgstr "Всеки час"
 
-#: setup.php:628 setup.php:629
+#: setup.php:637 setup.php:638
 #, fuzzy, php-format
 msgid "Every %d Hours"
 msgstr "Всеки% d часа"
 
-#: setup.php:633
+#: setup.php:642
 #, fuzzy
 msgid "Reboot Notifications"
 msgstr "Рестартирайте Известия"
 
-#: setup.php:638
+#: setup.php:647
 #, fuzzy
 msgid "Send Reboot Notifications"
 msgstr "Изпращане на известия за рестартиране"
 
-#: setup.php:640
+#: setup.php:649
 #, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "Ако уведомленията за рестартиране на устройства се изпращат на потребителите?"
 
-#: setup.php:644
+#: setup.php:653
 #, fuzzy
-#| msgid "Email Addresses"
 msgid "Send one Email to all addresses"
 msgstr "Джибути"
 
-#: setup.php:645
+#: setup.php:654
 msgid "If checked, the system will send one Email only to all addresses."
 msgstr ""
 
-#: setup.php:650
+#: setup.php:659
 #, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "Включете списъци с предупреждения за прагове"
 
-#: setup.php:652
+#: setup.php:661
 #, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "Ако списъците със сигнали за праг също получават известие"
 
-#: setup.php:656
+#: setup.php:665
 msgid "Subject"
 msgstr "Тема"
 
-#: setup.php:657
+#: setup.php:666
 #, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "Въведете тема за рестартиране на съобщението за нулиране на рестартиране."
 
-#: setup.php:659
+#: setup.php:668
 #, fuzzy
 msgid "Cacti Device Reboot Notification"
 msgstr "Cacti Device Reboot Nofication"
 
-#: setup.php:664
+#: setup.php:673
 #, fuzzy
 msgid "Email Body"
 msgstr "Тяло на имейла"
 
-#: setup.php:665
+#: setup.php:674
 #, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr "Въведете орган за имейл, който да се включи в съобщението за рестартиране на уведомлението. Понастоящем единственият приет подменен заместващ маркер е &lt;DETAILS&gt;"
 
-#: setup.php:669
+#: setup.php:678
 #, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr "<h1> Уведомяване за рестартиране на монитора </h1><p> Следните устройства бяха рестартирани. За допълнителна информация вижте подробностите по-долу. </p><br><DETAILS>"
 
-#: setup.php:672
+#: setup.php:681
 #, fuzzy
 msgid "Notification Email Addresses"
 msgstr "Електронни адреси за уведомяване"
 
-#: setup.php:677
+#: setup.php:686
 msgid "From Name"
 msgstr "Име на формата"
 
-#: setup.php:678
+#: setup.php:687
 #, fuzzy
 msgid "Enter the Email Name to send the notifications from"
 msgstr "Въведете имейл адреса, за да изпратите формуляра за известия"
 
-#: setup.php:684
+#: setup.php:693
 msgid "From Address"
 msgstr "Адрес на подателя"
 
-#: setup.php:685
+#: setup.php:694
 #, fuzzy
 msgid "Enter the Email Address to send the notification from"
 msgstr "Въведете имейл адреса, от който да изпратите известието"
 
-#: setup.php:691
+#: setup.php:700
 #, fuzzy
 msgid "Notification List"
 msgstr "Списък с уведомления"
 
-#: setup.php:692
+#: setup.php:701
 #, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr "Изберете списък с уведомления по-долу. Всички имейли, абонирани за списъка с известия, ще бъдат известени."
 
-#: setup.php:699
+#: setup.php:708
 msgid "Email Addresses"
 msgstr "Джибути"
 
-#: setup.php:700
+#: setup.php:709
 #, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr "Въведете списък с имейл адреси, разделени със запетая, за да информирате за събитие за рестартиране."
 
-#: setup.php:720
+#: setup.php:729
 msgid "Server"
 msgstr ""
 
-#: setup.php:725
+#: setup.php:734
 msgid "Printer"
 msgstr ""
 
-#: setup.php:730
+#: setup.php:739
 msgid "Desktop PC"
 msgstr ""
 
-#: setup.php:735
+#: setup.php:744
 msgid "Laptop/notebook"
 msgstr ""
 
-#: setup.php:740
+#: setup.php:749
 msgid "Wifi"
 msgstr ""
 
-#: setup.php:745
+#: setup.php:754
 msgid "Wired network"
 msgstr ""
 
-#: setup.php:750
+#: setup.php:759
 msgid "Database"
 msgstr ""
 
-#: setup.php:755
+#: setup.php:764
 msgid "Clock"
 msgstr ""
 
-#: setup.php:760
+#: setup.php:769
 msgid "Asterisk"
 msgstr ""
 
-#: setup.php:765
+#: setup.php:774
 msgid "Harddisk"
 msgstr ""
 
-#: setup.php:770
+#: setup.php:779
 msgid "Boxes"
 msgstr ""
 
-#: setup.php:775
+#: setup.php:784
 msgid "Phone"
 msgstr ""
 
-#: setup.php:780
+#: setup.php:789
 msgid "Cloud"
 msgstr ""
 
-#: setup.php:829
+#: setup.php:838
 #, fuzzy
 msgid "Do not Change"
 msgstr "Не се променят"
 
-#: setup.php:830 setup.php:831 setup.php:832 setup.php:833 setup.php:834
-#: setup.php:835 setup.php:836 setup.php:837 setup.php:838 setup.php:839
-#: setup.php:840 setup.php:841 setup.php:842 setup.php:843 setup.php:844
-#: setup.php:845
+#: setup.php:839 setup.php:840 setup.php:841 setup.php:842 setup.php:843
+#: setup.php:844 setup.php:845 setup.php:846 setup.php:847 setup.php:848
+#: setup.php:849 setup.php:850 setup.php:851 setup.php:852 setup.php:853
+#: setup.php:854
 #, fuzzy, php-format
 msgid "%d Percent Above Average"
 msgstr "% d Процент над средното"
 
-#: setup.php:862
+#: setup.php:871
 #, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "Настройки за наблюдение на устройства"
 
-#: setup.php:869
+#: setup.php:878
 #, fuzzy
 msgid "Monitor Device"
 msgstr "Устройство за наблюдение"
 
-#: setup.php:870
+#: setup.php:879
 #, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
 msgstr "Поставете отметка в това квадратче, за да наблюдавате това устройство в раздела Монитор."
 
-#: setup.php:882
+#: setup.php:891
 #, fuzzy
 msgid "Device Criticality"
 msgstr "Критичност на устройството"
 
-#: setup.php:883
+#: setup.php:892
 #, fuzzy
 msgid "What is the Criticality of this Device."
 msgstr "Каква е критичността на това устройство."
 
-#: setup.php:891
+#: setup.php:900
 #, fuzzy
 msgid "Ping Warning Threshold"
 msgstr "Праг за предупреждение при пинг"
 
-#: setup.php:892
+#: setup.php:901
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "Ако закъснението при двупосочно пътуване чрез някой от предварително зададените методи на CactiPing се повиши над този праг, регистрирайте предупреждение или изпратете електронна поща въз основа на настройката за критичност и монитор на устройствата. Устройството е в милисекунди. Настройка на 0 забранява. За да се използва тази функционалност, е необходим приставката Thold."
 
-#: setup.php:896 setup.php:907
+#: setup.php:905 setup.php:916
 #, fuzzy
 msgid "milliseconds"
 msgstr "милисекунди"
 
-#: setup.php:902
+#: setup.php:911
 #, fuzzy
 msgid "Ping Alert Threshold"
 msgstr "Праг на сигнала за пинг"
 
-#: setup.php:903
+#: setup.php:912
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "Ако закъснението по време на обиколка чрез някой от предварително зададените методи на CactiPing се повиши над този праг, регистрирайте сигнал или изпратете имейл въз основа на настройката за критичност и монитор на устройствата. Устройството е в милисекунди. Настройка на 0 забранява. За да се използва тази функционалност, е необходим приставката Thold."
 
-#: setup.php:913
+#: setup.php:922
 #, fuzzy
 msgid "Re-Baseline Warning"
 msgstr "Предупреждение за повторна база"
 
-#: setup.php:914
+#: setup.php:923
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
 msgstr "Процентът над сегашното средно време на пинг да се вземе под внимание Предупредителния праг. Ако се актуализира, това автоматично ще коригира прага на предупреждението Ping."
 
-#: setup.php:922
+#: setup.php:931
 #, fuzzy
 msgid "Re-Baseline Alert"
 msgstr "Сигнал за повторна изходна линия"
 
-#: setup.php:923
+#: setup.php:932
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
 msgstr "Процентът над сегашното средно време на пинг, за да се вземе под внимание Прагът на предупреждение. Ако се актуализира, това автоматично ще коригира прага на Ping Alert."
 
-#: setup.php:931
+#: setup.php:940
 #, fuzzy
 msgid "Down Device Message"
 msgstr "Съобщение за устройство надолу"
 
-#: setup.php:932
+#: setup.php:941
 #, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
 msgstr "Това е съобщението, което ще се покаже, когато това устройство бъде съобщено като надолу."
 
-#: setup.php:948
+#: setup.php:957
 #, fuzzy
-#| msgid "Device:"
 msgid "Device icon"
 msgstr "Изделие:"
 
-#: setup.php:949
+#: setup.php:958
 msgid "You can select device icon."
 msgstr ""
 
-#: setup.php:1038
+#: setup.php:1047
 #, fuzzy
 msgid "Monitoring"
 msgstr "мониторинг"
@@ -1264,12 +1260,16 @@ msgstr "мониторинг"
 #~ msgstr "Уведомяване за Ping Праг на плагина за монитор"
 
 #, fuzzy
-#~ msgid "The following Devices have breached their Alert Notification Threshold."
-#~ msgstr "Следните устройства са нарушили своя праг за уведомяване."
-
-#, fuzzy
 #~ msgid "Current Ping"
 #~ msgstr "Текущ пинг"
+
+#, fuzzy
+#~ msgid "Links:"
+#~ msgstr "Връзки"
+
+#, fuzzy
+#~ msgid "The following Devices have breached their Alert Notification Threshold."
+#~ msgstr "Следните устройства са нарушили своя праг за уведомяване."
 
 #, fuzzy
 #~ msgid "The following Devices have breached their Warning Notification Threshold."
@@ -1278,10 +1278,6 @@ msgstr "мониторинг"
 #, fuzzy
 #~ msgid "Up %"
 #~ msgstr "Нагоре%"
-
-#, fuzzy
-#~ msgid "Links:"
-#~ msgstr "Връзки"
 
 #, fuzzy
 #~ msgid "View Syslog Messages"

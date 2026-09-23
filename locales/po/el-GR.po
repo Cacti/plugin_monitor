@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-21 13:14-0400\n"
+"POT-Creation-Date: 2026-09-22 10:12-0400\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,27 +12,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: monitor.php:37 poller_functions.php:620 setup.php:438
+#: monitor.php:37 poller_functions.php:620 setup.php:447
 msgid "Disabled"
 msgstr "Απενεργοποιημένο"
 
 #: monitor.php:38 poller_functions.php:621 setup.php:65 setup.php:96
-#: setup.php:439
+#: setup.php:448
 msgid "Low"
 msgstr "Χαμηλός"
 
 #: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:66
-#: setup.php:97 setup.php:440
+#: setup.php:97 setup.php:449
 msgid "Medium"
 msgstr "Μεσαίο"
 
 #: monitor.php:40 poller_functions.php:623 setup.php:67 setup.php:98
-#: setup.php:441
+#: setup.php:450
 msgid "High"
 msgstr "Υψηλή"
 
 #: monitor.php:41 poller_functions.php:624 setup.php:68 setup.php:99
-#: setup.php:442
+#: setup.php:451
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Κρίσιμη αποστολή"
@@ -105,7 +105,6 @@ msgstr "Μεγέθυνση"
 
 #: monitor.php:80 monitor_controller.php:276
 #, fuzzy
-#| msgid "Devices"
 msgid "All Devices"
 msgstr "Τύπος Συσκευής"
 
@@ -138,19 +137,19 @@ msgstr ""
 msgid "Devices not Monitored"
 msgstr "Ρυθμίσεις παρακολούθησης συσκευών"
 
-#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:568 setup.php:580
+#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:577 setup.php:589
 msgid "Default"
 msgstr "Προεπιλογή"
 
-#: monitor.php:91 setup.php:581
+#: monitor.php:91 setup.php:590
 msgid "List"
 msgstr "Λίστα"
 
-#: monitor.php:92 setup.php:582
+#: monitor.php:92 setup.php:591
 msgid "Names only"
 msgstr ""
 
-#: monitor.php:93 setup.php:583
+#: monitor.php:93 setup.php:592
 #, fuzzy
 msgid "Tiles"
 msgstr "Πλακάκια"
@@ -160,7 +159,7 @@ msgstr "Πλακάκια"
 msgid "Tiles & Time"
 msgstr "Πλακάκια &amp; Ώρα"
 
-#: monitor.php:99 monitor_controller.php:490 setup.php:570
+#: monitor.php:99 monitor_controller.php:490 setup.php:579
 msgid "Tree"
 msgstr "Δέντρο"
 
@@ -168,7 +167,7 @@ msgstr "Δέντρο"
 msgid "Site"
 msgstr "Ιστοσελίδα"
 
-#: monitor.php:101 setup.php:571
+#: monitor.php:101 setup.php:580
 #, fuzzy
 msgid "Device Template"
 msgstr "Πρότυπο συσκευής"
@@ -303,11 +302,11 @@ msgstr "Διάταξη"
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: monitor_controller.php:435 setup.php:575
+#: monitor_controller.php:435 setup.php:584
 msgid "View"
 msgstr "Προβολή"
 
-#: monitor_controller.php:436 setup.php:563
+#: monitor_controller.php:436 setup.php:572
 msgid "Grouping"
 msgstr "Ομαδοποίηση"
 
@@ -528,7 +527,6 @@ msgstr "设备："
 
 #: monitor_controller.php:1103
 #, fuzzy
-#| msgid "Site"
 msgid "Site:"
 msgstr "Ιστοσελίδα"
 
@@ -620,7 +618,7 @@ msgstr "Ποτέ"
 msgid "Unspecified"
 msgstr ""
 
-#: monitor_controller.php:1210 setup.php:64 setup.php:95 setup.php:696
+#: monitor_controller.php:1210 setup.php:64 setup.php:95 setup.php:705
 msgid "None"
 msgstr "Κανένα"
 
@@ -735,515 +733,514 @@ msgstr "Θα λαμβάνετε ειδοποιήσεις κάθε φορά πο�
 msgid "Any"
 msgstr "Οποιοδήποτε"
 
-#: setup.php:351
+#: setup.php:360
 #, fuzzy, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για παρακολούθηση %s σε αυτές τις συσκευές"
 
-#: setup.php:358
+#: setup.php:367
 #, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
 msgstr "Κάντε κλικ στο κουμπί \"Συνέχεια\" για να αλλάξετε τις ρυθμίσεις παρακολούθησης για τις ακόλουθες συσκευές. Θυμηθείτε να ελέγξετε την επιλογή 'Ενημέρωση αυτού του πεδίου' για να δηλώσετε ποιες στήλες θα ενημερωθούν."
 
-#: setup.php:382
+#: setup.php:391
 #, fuzzy
 msgid "Update this Field"
 msgstr "Ενημερώστε αυτό το πεδίο"
 
-#: setup.php:400
+#: setup.php:409
 #, fuzzy
 msgid "Change Monitoring Options"
 msgstr "Αλλαγή επιλογών παρακολούθησης"
 
-#: setup.php:401
+#: setup.php:410
 #, fuzzy
 msgid "Enable Monitoring"
 msgstr "Ενεργοποιήστε την παρακολούθηση"
 
-#: setup.php:402
+#: setup.php:411
 #, fuzzy
 msgid "Disable Monitoring"
 msgstr "Απενεργοποιήστε την παρακολούθηση"
 
-#: setup.php:446
+#: setup.php:455
 #, fuzzy
 msgid "Indefinitely"
 msgstr "Απεριόριστα"
 
-#: setup.php:447
+#: setup.php:456
 #, php-format
 msgid "%d Month"
 msgstr "% d Μήνα"
 
-#: setup.php:448 setup.php:449 setup.php:450 setup.php:451
+#: setup.php:457 setup.php:458 setup.php:459 setup.php:460
 #, php-format
 msgid "%d Months"
 msgstr "% d Μήνας"
 
-#: setup.php:452
+#: setup.php:461
 #, php-format
 msgid "%d Year"
 msgstr "% d Έτος"
 
-#: setup.php:465
+#: setup.php:474
 msgid "Normal User"
 msgstr "Απλός Χρήστης"
 
-#: setup.php:468 setup.php:522
+#: setup.php:477 setup.php:531
 #, fuzzy
 msgid "Monitor Settings"
 msgstr "Ρυθμίσεις οθόνης"
 
-#: setup.php:473 setup.php:539
+#: setup.php:482 setup.php:548
 #, fuzzy
 msgid "Alarm Sound"
 msgstr "Ήχος συναγερμού"
 
-#: setup.php:474 setup.php:540
+#: setup.php:483 setup.php:549
 #, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr "Αυτό είναι το αρχείο ήχου που θα αναπαραχθεί όταν μια Συσκευή σβήσει."
 
-#: setup.php:480 setup.php:546
+#: setup.php:489 setup.php:555
 #, fuzzy
 msgid "Loop Alarm Sound"
 msgstr "Ήχος συναγερμού"
 
-#: setup.php:481 setup.php:547
+#: setup.php:490 setup.php:556
 #, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
 msgstr "Αυτό είναι το αρχείο ήχου που θα αναπαραχθεί όταν μια Συσκευή σβήσει."
 
-#: setup.php:485 setup.php:558
+#: setup.php:494 setup.php:567
 #, fuzzy
 msgid "Show Icon Legend"
 msgstr "Εμφάνιση εικονιδίου εικονιδίου"
 
-#: setup.php:486 setup.php:559
+#: setup.php:495 setup.php:568
 #, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Επιλέξτε αυτό για να εμφανιστεί ένα εικονίδιο με το εικονίδιο στην οθόνη της οθόνης"
 
-#: setup.php:490
+#: setup.php:499
 #, fuzzy
 msgid "Show Uptime"
 msgstr "Εμφάνιση χρόνου λειτουργίας"
 
-#: setup.php:491
+#: setup.php:500
 #, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
 msgstr "Επιλέξτε αυτό για να εμφανιστεί ένα εικονίδιο με το εικονίδιο στην οθόνη της οθόνης"
 
-#: setup.php:495
+#: setup.php:504
 #, fuzzy
 msgid "Zoom to Errors"
 msgstr "Μεγέθυνση σε σφάλματα"
 
-#: setup.php:496 setup.php:506
+#: setup.php:505 setup.php:515
 #, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "Επιλέξτε αυτό για να εμφανιστεί ένα εικονίδιο με το εικονίδιο στην οθόνη της οθόνης"
 
-#: setup.php:500
+#: setup.php:509
 #, fuzzy
 msgid "Zoom Background"
 msgstr "Μεγέθυνση φόντου"
 
-#: setup.php:501
+#: setup.php:510
 #, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr "Χρώμα φόντου για εσφαλμένα σφάλματα στην οθόνη της οθόνης"
 
-#: setup.php:505
+#: setup.php:514
 #, fuzzy
 msgid "Zoom Fontsize"
 msgstr "Μεγέθυνση γραμματοσειράς"
 
-#: setup.php:518 setup.php:818 setup.php:820
+#: setup.php:527 setup.php:827 setup.php:829
 #, fuzzy
 msgid "Monitor"
 msgstr "Οθόνη"
 
-#: setup.php:527
+#: setup.php:536
 #, fuzzy
 msgid "Enable on new devices"
 msgstr "Ενεργοποίηση σε νέες συσκευές"
 
-#: setup.php:528
+#: setup.php:537
 #, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr "Επιλέξτε αυτό για να ενεργοποιήσετε αυτόματα την παρακολούθηση κατά τη δημιουργία νέων συσκευών"
 
-#: setup.php:532
+#: setup.php:541
 #, fuzzy
 msgid "Notification/Reboot Log Retention"
 msgstr "Κοινοποίηση / επανεκκίνηση καταχώρησης αρχείου καταγραφής"
 
-#: setup.php:533
+#: setup.php:542
 #, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "Διατηρήστε τις ειδοποιήσεις και τα αρχεία καταγραφής επανεκκίνησης για αυτόν τον αριθμό ημερών."
 
-#: setup.php:551
+#: setup.php:560
 msgid "Refresh Interval"
 msgstr "Μεσοδιάστημα ανανέωσης"
 
-#: setup.php:552
+#: setup.php:561
 #, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
 msgstr "Αυτή είναι η ώρα σε δευτερόλεπτα πριν ανανεωθεί η σελίδα. (1 - 300)"
 
-#: setup.php:564
+#: setup.php:573
 #, fuzzy
 msgid "This is how monitor will Group Devices."
 msgstr "Αυτός είναι ο τρόπος με τον οποίο παρακολουθεί τις Συσκευές Ομάδας."
 
-#: setup.php:569
+#: setup.php:578
 #, fuzzy
 msgid "Default with permissions"
 msgstr "Προεπιλογή με δικαιώματα"
 
-#: setup.php:576
+#: setup.php:585
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "Αυτός είναι ο τρόπος με τον οποίο η οθόνη θα κάνει συσκευές."
 
-#: setup.php:584
+#: setup.php:593
 #, fuzzy
 msgid "Tiles & Downtime"
 msgstr "Πλακάκια και διακοπές"
 
-#: setup.php:588
+#: setup.php:597
 #, fuzzy
 msgid "Notification Report Format"
 msgstr "Μορφή αναφοράς ειδοποίησης"
 
-#: setup.php:593
+#: setup.php:602
 #, fuzzy
 msgid "Format File to Use"
 msgstr "Μορφοποίηση αρχείου προς χρήση"
 
-#: setup.php:596
+#: setup.php:605
 #, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr "Επιλέξτε το προσαρμοσμένο περιτύλιγμα html και το αρχείο CSS που θέλετε να χρησιμοποιήσετε. Αυτό το αρχείο περιέχει τόσο html όσο και CSS για να τυλίξει την αναφορά σας. Εάν περιέχει κάτι παραπάνω από απλά CSS, πρέπει να τοποθετήσετε ένα ειδικό <REPORT> ετικέτα μέσα στο αρχείο. Αυτή η ετικέτα μορφής θα αντικατασταθεί από το περιεχόμενο αναφοράς. Αυτά τα αρχεία βρίσκονται στον κατάλογο μορφοτύπων."
 
-#: setup.php:600
+#: setup.php:609
 #, fuzzy
 msgid "Ping Threshold Notifications"
 msgstr "Ειδοποιήσεις κατωφλιού Ping"
 
-#: setup.php:605
+#: setup.php:614
 #, fuzzy
 msgid "Warning Latency Notification"
 msgstr "Ειδοποίηση καθυστέρησης προειδοποίησης"
 
-#: setup.php:606
+#: setup.php:615
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "Εάν μια συσκευή έχει καθυστέρηση πτώσης στρογγυλής εκκένωσης πάνω από το κατώφλι προειδοποίησης και πάνω από την παρακάτω κρισιμότητα, η εγγραφή μηνυμάτων ηλεκτρονικού ταχυδρομείου στη συσκευή θα λάβει ειδοποίηση μέσω ηλεκτρονικού ταχυδρομείου. Επιλέξτε \"Απενεργοποιημένο\" για απενεργοποίηση. Η Thold Plugin είναι απαραίτητη για να ενεργοποιήσετε αυτή τη λειτουργία."
 
-#: setup.php:612
+#: setup.php:621
 #, fuzzy
 msgid "Alert Latency Notification"
 msgstr "Ειδοποίηση καθυστέρησης ειδοποίησης"
 
-#: setup.php:613
+#: setup.php:622
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "Εάν μια συσκευή έχει καθυστέρηση πτήσης στρογγυλής εκκένωσης πάνω από το κατώτατο όριο ειδοποίησης και πάνω από την παρακάτω κρισιμότητα, η εγγραφή μηνυμάτων ηλεκτρονικού ταχυδρομείου στη συσκευή θα λάβει ειδοποίηση μέσω ηλεκτρονικού ταχυδρομείου. Επιλέξτε \"Απενεργοποιημένο\" για απενεργοποίηση. Η Thold Plugin είναι απαραίτητη για να ενεργοποιήσετε αυτή τη λειτουργία."
 
-#: setup.php:619
+#: setup.php:628
 #, fuzzy
 msgid "How Often to Resend Emails"
 msgstr "Πόσο συχνά στέλνετε μηνύματα ηλεκτρονικού ταχυδρομείου"
 
-#: setup.php:620
+#: setup.php:629
 #, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr "Πόσο συχνά πρέπει να αποστέλλονται ειδοποιήσεις ηλεκτρονικού ταχυδρομείου σε συνδρομητές για αυτές τις συσκευές αν υπερβαίνουν τα όρια λανθάνουσας κατάστασης"
 
-#: setup.php:624
+#: setup.php:633
 #, fuzzy
 msgid "Every Occurrence"
 msgstr "Κάθε εμφάνιση"
 
-#: setup.php:625 setup.php:626
+#: setup.php:634 setup.php:635
 #, php-format
 msgid "Every %d Minutes"
 msgstr "Κάθε %d λεπτά"
 
-#: setup.php:627
+#: setup.php:636
 #, fuzzy
 msgid "Every Hour"
 msgstr "Κάθε ώρα"
 
-#: setup.php:628 setup.php:629
+#: setup.php:637 setup.php:638
 #, fuzzy, php-format
 msgid "Every %d Hours"
 msgstr "Κάθε% d Ώρες"
 
-#: setup.php:633
+#: setup.php:642
 #, fuzzy
 msgid "Reboot Notifications"
 msgstr "Ειδοποιήσεις επανεκκίνησης"
 
-#: setup.php:638
+#: setup.php:647
 #, fuzzy
 msgid "Send Reboot Notifications"
 msgstr "Αποστολή Ειδοποιήσεων επανεκκίνησης"
 
-#: setup.php:640
+#: setup.php:649
 #, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "Πρέπει να αποστέλλονται ειδοποιήσεις επανεκκίνησης συσκευών στους χρήστες;"
 
-#: setup.php:644
+#: setup.php:653
 #, fuzzy
 msgid "Send one Email to all addresses"
 msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου"
 
-#: setup.php:645
+#: setup.php:654
 msgid "If checked, the system will send one Email only to all addresses."
 msgstr ""
 
-#: setup.php:650
+#: setup.php:659
 #, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "Συμπεριλάβετε λίστες ειδοποιήσεων κατωφλίου"
 
-#: setup.php:652
+#: setup.php:661
 #, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "Πρέπει επίσης να ειδοποιούνται οι λίστες ειδοποιήσεων κατωφλίου"
 
-#: setup.php:656
+#: setup.php:665
 msgid "Subject"
 msgstr "Θέμα"
 
-#: setup.php:657
+#: setup.php:666
 #, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "Καταχωρίστε ένα θέμα μηνύματος επανεκκίνησης για την ειδοποίηση επανεκκίνησης."
 
-#: setup.php:659
+#: setup.php:668
 #, fuzzy
 msgid "Cacti Device Reboot Notification"
 msgstr "Αναφορά επανεκκίνησης συσκευής Cacti"
 
-#: setup.php:664
+#: setup.php:673
 msgid "Email Body"
 msgstr "Σώμα ηλεκτρονικού ταχυδρομείου"
 
-#: setup.php:665
+#: setup.php:674
 #, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr "Εισαγάγετε ένα σώμα ηλεκτρονικού ταχυδρομείου που θα συμπεριληφθεί στο μήνυμα Ειδοποίηση επανεκκίνησης. Αυτήν τη στιγμή, η αποδεκτή μόνο ετικέτα αντικατάστασης που είναι αποδεκτή είναι &lt;DETAILS&gt;"
 
-#: setup.php:669
+#: setup.php:678
 #, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr "<h1> Παρακολούθηση επανεκκίνησης παρακολούθησης </h1><p> Οι ακόλουθες συσκευές επανεκκινήθηκαν. Δείτε τις λεπτομέρειες παρακάτω για περισσότερες πληροφορίες. </p><br><DETAILS>"
 
-#: setup.php:672
+#: setup.php:681
 #, fuzzy
 msgid "Notification Email Addresses"
 msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου ειδοποιήσεων"
 
-#: setup.php:677
+#: setup.php:686
 msgid "From Name"
 msgstr "Από Όνομα"
 
-#: setup.php:678
+#: setup.php:687
 #, fuzzy
 msgid "Enter the Email Name to send the notifications from"
 msgstr "Καταχωρίστε το όνομα ηλεκτρονικού ταχυδρομείου για να στείλετε τη φόρμα ειδοποιήσεων"
 
-#: setup.php:684
+#: setup.php:693
 msgid "From Address"
 msgstr "Από Διεύθυνση"
 
-#: setup.php:685
+#: setup.php:694
 #, fuzzy
 msgid "Enter the Email Address to send the notification from"
 msgstr "Καταχωρίστε τη διεύθυνση ηλεκτρονικού ταχυδρομείου για να στείλετε την ειδοποίηση από"
 
-#: setup.php:691
+#: setup.php:700
 #, fuzzy
 msgid "Notification List"
 msgstr "Λίστα ειδοποιήσεων"
 
-#: setup.php:692
+#: setup.php:701
 #, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr "Επιλέξτε μια λίστα ειδοποιήσεων παρακάτω. Θα ειδοποιηθούν όλα τα μηνύματα ηλεκτρονικού ταχυδρομείου που έχουν εγγραφεί στη λίστα ειδοποιήσεων."
 
-#: setup.php:699
+#: setup.php:708
 #, fuzzy
 msgid "Email Addresses"
 msgstr "Διευθύνσεις ηλεκτρονικού ταχυδρομείου"
 
-#: setup.php:700
+#: setup.php:709
 #, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr "Εισαγάγετε έναν κατάλογο γραμματοκιβωτίων διευθύνσεων ηλεκτρονικού ταχυδρομείου για να ενημερώσετε για ένα συμβάν επανεκκίνησης."
 
-#: setup.php:720
+#: setup.php:729
 msgid "Server"
 msgstr ""
 
-#: setup.php:725
+#: setup.php:734
 msgid "Printer"
 msgstr ""
 
-#: setup.php:730
+#: setup.php:739
 msgid "Desktop PC"
 msgstr ""
 
-#: setup.php:735
+#: setup.php:744
 msgid "Laptop/notebook"
 msgstr ""
 
-#: setup.php:740
+#: setup.php:749
 msgid "Wifi"
 msgstr ""
 
-#: setup.php:745
+#: setup.php:754
 msgid "Wired network"
 msgstr ""
 
-#: setup.php:750
+#: setup.php:759
 msgid "Database"
 msgstr ""
 
-#: setup.php:755
+#: setup.php:764
 msgid "Clock"
 msgstr ""
 
-#: setup.php:760
+#: setup.php:769
 msgid "Asterisk"
 msgstr ""
 
-#: setup.php:765
+#: setup.php:774
 msgid "Harddisk"
 msgstr ""
 
-#: setup.php:770
+#: setup.php:779
 msgid "Boxes"
 msgstr ""
 
-#: setup.php:775
+#: setup.php:784
 msgid "Phone"
 msgstr ""
 
-#: setup.php:780
+#: setup.php:789
 msgid "Cloud"
 msgstr ""
 
-#: setup.php:829
+#: setup.php:838
 #, fuzzy
 msgid "Do not Change"
 msgstr "Μην αλλάξεις"
 
-#: setup.php:830 setup.php:831 setup.php:832 setup.php:833 setup.php:834
-#: setup.php:835 setup.php:836 setup.php:837 setup.php:838 setup.php:839
-#: setup.php:840 setup.php:841 setup.php:842 setup.php:843 setup.php:844
-#: setup.php:845
+#: setup.php:839 setup.php:840 setup.php:841 setup.php:842 setup.php:843
+#: setup.php:844 setup.php:845 setup.php:846 setup.php:847 setup.php:848
+#: setup.php:849 setup.php:850 setup.php:851 setup.php:852 setup.php:853
+#: setup.php:854
 #, fuzzy, php-format
 msgid "%d Percent Above Average"
 msgstr "% d Ποσοστό άνω του μέσου όρου"
 
-#: setup.php:862
+#: setup.php:871
 #, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "Ρυθμίσεις παρακολούθησης συσκευών"
 
-#: setup.php:869
+#: setup.php:878
 #, fuzzy
 msgid "Monitor Device"
 msgstr "Συσκευή παρακολούθησης"
 
-#: setup.php:870
+#: setup.php:879
 #, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
 msgstr "Επιλέξτε αυτό το πλαίσιο για να παρακολουθήσετε αυτή τη συσκευή στην καρτέλα Monitor."
 
-#: setup.php:882
+#: setup.php:891
 #, fuzzy
 msgid "Device Criticality"
 msgstr "Κριτική συσκευής"
 
-#: setup.php:883
+#: setup.php:892
 #, fuzzy
 msgid "What is the Criticality of this Device."
 msgstr "Ποια είναι η κρισιμότητα αυτής της συσκευής."
 
-#: setup.php:891
+#: setup.php:900
 #, fuzzy
 msgid "Ping Warning Threshold"
 msgstr "Κατώφλι Προειδοποίησης Ping"
 
-#: setup.php:892
+#: setup.php:901
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "Εάν η καθυστέρηση στρογγυλής αποστολής μέσω οποιασδήποτε από τις προκαθορισμένες μεθόδους Cacti ping ανεβαίνει πάνω από αυτό το όριο, καταγράψτε μια προειδοποίηση ή στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου με βάση τη ρύθμιση Criticality και Monitor της συσκευής. Η μονάδα είναι σε χιλιοστά του δευτερολέπτου. Η ρύθμιση στο 0 απενεργοποιείται. Η Thold Plugin απαιτείται για να αξιοποιήσει αυτή τη λειτουργικότητα."
 
-#: setup.php:896 setup.php:907
+#: setup.php:905 setup.php:916
 #, fuzzy
 msgid "milliseconds"
 msgstr "χιλιοστά του δευτερολέπτου"
 
-#: setup.php:902
+#: setup.php:911
 #, fuzzy
 msgid "Ping Alert Threshold"
 msgstr "Ελάχιστο όριο ειδοποίησης Ping"
 
-#: setup.php:903
+#: setup.php:912
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "Εάν η λανθάνουσα περίοδος γύρου μέσω οποιασδήποτε από τις προκαθορισμένες μεθόδους Cacti ping ανεβαίνει πάνω από αυτό το όριο, καταγράψτε μια ειδοποίηση ή στείλτε ένα μήνυμα ηλεκτρονικού ταχυδρομείου με βάση τη ρύθμιση Criticality και Monitor της συσκευής. Η μονάδα είναι σε χιλιοστά του δευτερολέπτου. Η ρύθμιση στο 0 απενεργοποιείται. Η Thold Plugin απαιτείται για να αξιοποιήσει αυτή τη λειτουργικότητα."
 
-#: setup.php:913
+#: setup.php:922
 #, fuzzy
 msgid "Re-Baseline Warning"
 msgstr "Προειδοποίηση εκ νέου αναφοράς"
 
-#: setup.php:914
+#: setup.php:923
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
 msgstr "Το ποσοστό πάνω από το τρέχον μέσο χρόνο ping για να ληφθεί υπόψη ένα κατώφλι προειδοποίησης. Αν ενημερωθεί, αυτό θα προσαρμόσει αυτόματα το Κατώφλι Προειδοποίησης Ping."
 
-#: setup.php:922
+#: setup.php:931
 #, fuzzy
 msgid "Re-Baseline Alert"
 msgstr "Ειδοποίηση εκ νέου αναφοράς"
 
-#: setup.php:923
+#: setup.php:932
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
 msgstr "Το ποσοστό πάνω από το τρέχον μέσο χρόνο ping για να ληφθεί υπόψη ένα όριο ειδοποίησης. Αν ενημερωθεί, αυτό θα ρυθμίσει αυτόματα το όριο ειδοποίησης Ping."
 
-#: setup.php:931
+#: setup.php:940
 #, fuzzy
 msgid "Down Device Message"
 msgstr "Μήνυμα συσκευής κάτω"
 
-#: setup.php:932
+#: setup.php:941
 #, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
 msgstr "Αυτό είναι το μήνυμα που θα εμφανιστεί όταν αυτή η συσκευή αναφερθεί ως κάτω."
 
-#: setup.php:948
+#: setup.php:957
 #, fuzzy
-#| msgid "Device:"
 msgid "Device icon"
 msgstr "设备："
 
-#: setup.php:949
+#: setup.php:958
 msgid "You can select device icon."
 msgstr ""
 
-#: setup.php:1038
+#: setup.php:1047
 #, fuzzy
 msgid "Monitoring"
 msgstr "Παρακολούθηση"
@@ -1257,12 +1254,16 @@ msgstr "Παρακολούθηση"
 #~ msgstr "Παρακολούθηση κατωφλιού Ping Plugin Παρακολούθησης Pac"
 
 #, fuzzy
-#~ msgid "The following Devices have breached their Alert Notification Threshold."
-#~ msgstr "Οι ακόλουθες συσκευές έχουν παραβιάσει το όριο ειδοποίησης ειδοποιήσεων."
-
-#, fuzzy
 #~ msgid "Current Ping"
 #~ msgstr "Τρέχον Ping"
+
+#, fuzzy
+#~ msgid "Links:"
+#~ msgstr "Σύνδεσμοι"
+
+#, fuzzy
+#~ msgid "The following Devices have breached their Alert Notification Threshold."
+#~ msgstr "Οι ακόλουθες συσκευές έχουν παραβιάσει το όριο ειδοποίησης ειδοποιήσεων."
 
 #, fuzzy
 #~ msgid "The following Devices have breached their Warning Notification Threshold."
@@ -1271,10 +1272,6 @@ msgstr "Παρακολούθηση"
 #, fuzzy
 #~ msgid "Up %"
 #~ msgstr "Πάνω %"
-
-#, fuzzy
-#~ msgid "Links:"
-#~ msgstr "Σύνδεσμοι"
 
 #, fuzzy
 #~ msgid "View Syslog Messages"
