@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-22 10:12-0400\n"
+"POT-Creation-Date: 2026-09-24 09:19-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: monitor.php:37 poller_functions.php:620 setup.php:447
+#: monitor.php:37 poller_functions.php:620 setup.php:655
 msgid "Disabled"
 msgstr ""
 
-#: monitor.php:38 poller_functions.php:621 setup.php:65 setup.php:96
-#: setup.php:448
+#: monitor.php:38 poller_functions.php:621 setup.php:85 setup.php:138
+#: setup.php:656
 msgid "Low"
 msgstr ""
 
-#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:66
-#: setup.php:97 setup.php:449
+#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:86
+#: setup.php:139 setup.php:657
 msgid "Medium"
 msgstr ""
 
-#: monitor.php:40 poller_functions.php:623 setup.php:67 setup.php:98
-#: setup.php:450
+#: monitor.php:40 poller_functions.php:623 setup.php:87 setup.php:140
+#: setup.php:658
 msgid "High"
 msgstr ""
 
-#: monitor.php:41 poller_functions.php:624 setup.php:68 setup.php:99
-#: setup.php:451
+#: monitor.php:41 poller_functions.php:624 setup.php:88 setup.php:141
+#: setup.php:659
 msgid "Mission Critical"
 msgstr ""
 
@@ -129,19 +129,19 @@ msgstr ""
 msgid "Devices not Monitored"
 msgstr ""
 
-#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:577 setup.php:589
+#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:785 setup.php:797
 msgid "Default"
 msgstr ""
 
-#: monitor.php:91 setup.php:590
+#: monitor.php:91 setup.php:798
 msgid "List"
 msgstr ""
 
-#: monitor.php:92 setup.php:591
+#: monitor.php:92 setup.php:799
 msgid "Names only"
 msgstr ""
 
-#: monitor.php:93 setup.php:592
+#: monitor.php:93 setup.php:800
 msgid "Tiles"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Tiles & Time"
 msgstr ""
 
-#: monitor.php:99 monitor_controller.php:490 setup.php:579
+#: monitor.php:99 monitor_controller.php:490 setup.php:787
 msgid "Tree"
 msgstr ""
 
@@ -157,7 +157,7 @@ msgstr ""
 msgid "Site"
 msgstr ""
 
-#: monitor.php:101 setup.php:580
+#: monitor.php:101 setup.php:788
 msgid "Device Template"
 msgstr ""
 
@@ -270,11 +270,11 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: monitor_controller.php:435 setup.php:584
+#: monitor_controller.php:435 setup.php:792
 msgid "View"
 msgstr ""
 
-#: monitor_controller.php:436 setup.php:572
+#: monitor_controller.php:436 setup.php:780
 msgid "Grouping"
 msgstr ""
 
@@ -341,7 +341,7 @@ msgid "%s Alerts for downed Devices"
 msgstr ""
 
 #: monitor_controller.php:467 monitor_render.php:914 poller_functions.php:544
-#: poller_functions.php:551 setup.php:72 setup.php:103
+#: poller_functions.php:551 setup.php:92 setup.php:145
 msgid "Criticality"
 msgstr ""
 
@@ -557,7 +557,7 @@ msgstr ""
 msgid "Unspecified"
 msgstr ""
 
-#: monitor_controller.php:1210 setup.php:64 setup.php:95 setup.php:705
+#: monitor_controller.php:1210 setup.php:84 setup.php:137 setup.php:913
 msgid "None"
 msgstr ""
 
@@ -657,440 +657,440 @@ msgstr ""
 msgid "You will receive notifications every time the Device is above its threshold."
 msgstr ""
 
-#: setup.php:63 setup.php:94
+#: setup.php:83 setup.php:136
 msgid "Any"
 msgstr ""
 
-#: setup.php:360
+#: setup.php:507
 #, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr ""
 
-#: setup.php:367
+#: setup.php:514
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
 msgstr ""
 
-#: setup.php:391
+#: setup.php:538
 msgid "Update this Field"
 msgstr ""
 
-#: setup.php:409
+#: setup.php:568
 msgid "Change Monitoring Options"
 msgstr ""
 
-#: setup.php:410
+#: setup.php:569
 msgid "Enable Monitoring"
 msgstr ""
 
-#: setup.php:411
+#: setup.php:570
 msgid "Disable Monitoring"
 msgstr ""
 
-#: setup.php:455
+#: setup.php:663
 msgid "Indefinitely"
 msgstr ""
 
-#: setup.php:456
+#: setup.php:664
 #, php-format
 msgid "%d Month"
 msgstr ""
 
-#: setup.php:457 setup.php:458 setup.php:459 setup.php:460
+#: setup.php:665 setup.php:666 setup.php:667 setup.php:668
 #, php-format
 msgid "%d Months"
 msgstr ""
 
-#: setup.php:461
+#: setup.php:669
 #, php-format
 msgid "%d Year"
 msgstr ""
 
-#: setup.php:474
+#: setup.php:682
 msgid "Normal User"
 msgstr ""
 
-#: setup.php:477 setup.php:531
+#: setup.php:685 setup.php:739
 msgid "Monitor Settings"
 msgstr ""
 
-#: setup.php:482 setup.php:548
+#: setup.php:690 setup.php:756
 msgid "Alarm Sound"
 msgstr ""
 
-#: setup.php:483 setup.php:549
+#: setup.php:691 setup.php:757
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr ""
 
-#: setup.php:489 setup.php:555
+#: setup.php:697 setup.php:763
 msgid "Loop Alarm Sound"
 msgstr ""
 
-#: setup.php:490 setup.php:556
+#: setup.php:698 setup.php:764
 msgid "Play the above sound on a loop when a Device goes down."
 msgstr ""
 
-#: setup.php:494 setup.php:567
+#: setup.php:702 setup.php:775
 msgid "Show Icon Legend"
 msgstr ""
 
-#: setup.php:495 setup.php:568
+#: setup.php:703 setup.php:776
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr ""
 
-#: setup.php:499
+#: setup.php:707
 msgid "Show Uptime"
 msgstr ""
 
-#: setup.php:500
+#: setup.php:708
 msgid "Check this to show Uptime on the Monitor display"
 msgstr ""
 
-#: setup.php:504
+#: setup.php:712
 msgid "Zoom to Errors"
 msgstr ""
 
-#: setup.php:505 setup.php:515
+#: setup.php:713 setup.php:723
 msgid "Check this to zoom to errored items on the Monitor display"
 msgstr ""
 
-#: setup.php:509
+#: setup.php:717
 msgid "Zoom Background"
 msgstr ""
 
-#: setup.php:510
+#: setup.php:718
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr ""
 
-#: setup.php:514
+#: setup.php:722
 msgid "Zoom Fontsize"
 msgstr ""
 
-#: setup.php:527 setup.php:827 setup.php:829
+#: setup.php:735 setup.php:1073 setup.php:1075
 msgid "Monitor"
 msgstr ""
 
-#: setup.php:536
+#: setup.php:744
 msgid "Enable on new devices"
 msgstr ""
 
-#: setup.php:537
+#: setup.php:745
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr ""
 
-#: setup.php:541
+#: setup.php:749
 msgid "Notification/Reboot Log Retention"
 msgstr ""
 
-#: setup.php:542
+#: setup.php:750
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr ""
 
-#: setup.php:560
+#: setup.php:768
 msgid "Refresh Interval"
 msgstr ""
 
-#: setup.php:561
+#: setup.php:769
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
 msgstr ""
 
-#: setup.php:573
+#: setup.php:781
 msgid "This is how monitor will Group Devices."
 msgstr ""
 
-#: setup.php:578
+#: setup.php:786
 msgid "Default with permissions"
 msgstr ""
 
-#: setup.php:585
+#: setup.php:793
 msgid "This is how monitor will render Devices."
 msgstr ""
 
-#: setup.php:593
+#: setup.php:801
 msgid "Tiles & Downtime"
 msgstr ""
 
-#: setup.php:597
+#: setup.php:805
 msgid "Notification Report Format"
 msgstr ""
 
-#: setup.php:602
+#: setup.php:810
 msgid "Format File to Use"
 msgstr ""
 
-#: setup.php:605
+#: setup.php:813
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr ""
 
-#: setup.php:609
+#: setup.php:817
 msgid "Ping Threshold Notifications"
 msgstr ""
 
-#: setup.php:614
+#: setup.php:822
 msgid "Warning Latency Notification"
 msgstr ""
 
-#: setup.php:615
+#: setup.php:823
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr ""
 
-#: setup.php:621
+#: setup.php:829
 msgid "Alert Latency Notification"
 msgstr ""
 
-#: setup.php:622
+#: setup.php:830
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr ""
 
-#: setup.php:628
+#: setup.php:836
 msgid "How Often to Resend Emails"
 msgstr ""
 
-#: setup.php:629
+#: setup.php:837
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr ""
 
-#: setup.php:633
+#: setup.php:841
 msgid "Every Occurrence"
 msgstr ""
 
-#: setup.php:634 setup.php:635
+#: setup.php:842 setup.php:843
 #, php-format
 msgid "Every %d Minutes"
 msgstr ""
 
-#: setup.php:636
+#: setup.php:844
 msgid "Every Hour"
 msgstr ""
 
-#: setup.php:637 setup.php:638
+#: setup.php:845 setup.php:846
 #, php-format
 msgid "Every %d Hours"
 msgstr ""
 
-#: setup.php:642
+#: setup.php:850
 msgid "Reboot Notifications"
 msgstr ""
 
-#: setup.php:647
+#: setup.php:855
 msgid "Send Reboot Notifications"
 msgstr ""
 
-#: setup.php:649
+#: setup.php:857
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr ""
 
-#: setup.php:653
+#: setup.php:861
 msgid "Send one Email to all addresses"
 msgstr ""
 
-#: setup.php:654
+#: setup.php:862
 msgid "If checked, the system will send one Email only to all addresses."
 msgstr ""
 
-#: setup.php:659
+#: setup.php:867
 msgid "Include Threshold Alert Lists"
 msgstr ""
 
-#: setup.php:661
+#: setup.php:869
 msgid "Should Threshold Alert Lists also receive Notification"
 msgstr ""
 
-#: setup.php:665
+#: setup.php:873
 msgid "Subject"
 msgstr ""
 
-#: setup.php:666
+#: setup.php:874
 msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr ""
 
-#: setup.php:668
+#: setup.php:876
 msgid "Cacti Device Reboot Notification"
 msgstr ""
 
-#: setup.php:673
+#: setup.php:881
 msgid "Email Body"
 msgstr ""
 
-#: setup.php:674
+#: setup.php:882
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr ""
 
-#: setup.php:678
+#: setup.php:886
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr ""
 
-#: setup.php:681
+#: setup.php:889
 msgid "Notification Email Addresses"
 msgstr ""
 
-#: setup.php:686
+#: setup.php:894
 msgid "From Name"
 msgstr ""
 
-#: setup.php:687
+#: setup.php:895
 msgid "Enter the Email Name to send the notifications from"
 msgstr ""
 
-#: setup.php:693
+#: setup.php:901
 msgid "From Address"
 msgstr ""
 
-#: setup.php:694
+#: setup.php:902
 msgid "Enter the Email Address to send the notification from"
 msgstr ""
 
-#: setup.php:700
+#: setup.php:908
 msgid "Notification List"
 msgstr ""
 
-#: setup.php:701
+#: setup.php:909
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr ""
 
-#: setup.php:708
+#: setup.php:916
 msgid "Email Addresses"
 msgstr ""
 
-#: setup.php:709
+#: setup.php:917
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr ""
 
-#: setup.php:729
+#: setup.php:950
 msgid "Server"
 msgstr ""
 
-#: setup.php:734
+#: setup.php:955
 msgid "Printer"
 msgstr ""
 
-#: setup.php:739
+#: setup.php:960
 msgid "Desktop PC"
 msgstr ""
 
-#: setup.php:744
+#: setup.php:965
 msgid "Laptop/notebook"
 msgstr ""
 
-#: setup.php:749
+#: setup.php:970
 msgid "Wifi"
 msgstr ""
 
-#: setup.php:754
+#: setup.php:975
 msgid "Wired network"
 msgstr ""
 
-#: setup.php:759
+#: setup.php:980
 msgid "Database"
 msgstr ""
 
-#: setup.php:764
+#: setup.php:985
 msgid "Clock"
 msgstr ""
 
-#: setup.php:769
+#: setup.php:990
 msgid "Asterisk"
 msgstr ""
 
-#: setup.php:774
+#: setup.php:995
 msgid "Harddisk"
 msgstr ""
 
-#: setup.php:779
+#: setup.php:1000
 msgid "Boxes"
 msgstr ""
 
-#: setup.php:784
+#: setup.php:1005
 msgid "Phone"
 msgstr ""
 
-#: setup.php:789
+#: setup.php:1010
 msgid "Cloud"
 msgstr ""
 
-#: setup.php:838
+#: setup.php:1107
 msgid "Do not Change"
 msgstr ""
 
-#: setup.php:839 setup.php:840 setup.php:841 setup.php:842 setup.php:843
-#: setup.php:844 setup.php:845 setup.php:846 setup.php:847 setup.php:848
-#: setup.php:849 setup.php:850 setup.php:851 setup.php:852 setup.php:853
-#: setup.php:854
+#: setup.php:1108 setup.php:1109 setup.php:1110 setup.php:1111 setup.php:1112
+#: setup.php:1113 setup.php:1114 setup.php:1115 setup.php:1116 setup.php:1117
+#: setup.php:1118 setup.php:1119 setup.php:1120 setup.php:1121 setup.php:1122
+#: setup.php:1123
 #, php-format
 msgid "%d Percent Above Average"
 msgstr ""
 
-#: setup.php:871
+#: setup.php:1140
 msgid "Device Monitoring Settings"
 msgstr ""
 
-#: setup.php:878
+#: setup.php:1147
 msgid "Monitor Device"
 msgstr ""
 
-#: setup.php:879
+#: setup.php:1148
 msgid "Check this box to monitor this Device on the Monitor Tab."
 msgstr ""
 
-#: setup.php:891
+#: setup.php:1160
 msgid "Device Criticality"
 msgstr ""
 
-#: setup.php:892
+#: setup.php:1161
 msgid "What is the Criticality of this Device."
 msgstr ""
 
-#: setup.php:900
+#: setup.php:1169
 msgid "Ping Warning Threshold"
 msgstr ""
 
-#: setup.php:901
+#: setup.php:1170
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr ""
 
-#: setup.php:905 setup.php:916
+#: setup.php:1174 setup.php:1185
 msgid "milliseconds"
 msgstr ""
 
-#: setup.php:911
+#: setup.php:1180
 msgid "Ping Alert Threshold"
 msgstr ""
 
-#: setup.php:912
+#: setup.php:1181
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr ""
 
-#: setup.php:922
+#: setup.php:1191
 msgid "Re-Baseline Warning"
 msgstr ""
 
-#: setup.php:923
+#: setup.php:1192
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
 msgstr ""
 
-#: setup.php:931
+#: setup.php:1200
 msgid "Re-Baseline Alert"
 msgstr ""
 
-#: setup.php:932
+#: setup.php:1201
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
 msgstr ""
 
-#: setup.php:940
+#: setup.php:1209
 msgid "Down Device Message"
 msgstr ""
 
-#: setup.php:941
+#: setup.php:1210
 msgid "This is the message that will be displayed when this Device is reported as down."
 msgstr ""
 
-#: setup.php:957
+#: setup.php:1226
 msgid "Device icon"
 msgstr ""
 
-#: setup.php:958
+#: setup.php:1227
 msgid "You can select device icon."
 msgstr ""
 
-#: setup.php:1047
+#: setup.php:1355
 msgid "Monitoring"
 msgstr ""

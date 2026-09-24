@@ -209,9 +209,9 @@ function monitor_device_table_bottom() {
 }
 
 /**
- * Plugin uninstall hook: drops all of this plugin's database tables.
- * Called by Cacti's plugin architecture when the plugin is
- * uninstalled.
+ * Plugin uninstall hook: drops this plugin's notify history, reboot
+ * history, and uptime tables. Called by Cacti's plugin architecture
+ * when the plugin is uninstalled.
  *
  * @return void
  */
@@ -625,9 +625,11 @@ function monitor_scan_dir() {
  * @global array $criticalities          Populated here with the map of
  *                                       criticality level => display
  *                                       label.
- * @global int   $page_refresh_interval  Reserved/declared for parity
- *                                       with other functions in this
- *                                       file; not used directly here.
+ * @global array $page_refresh_interval  Cacti's page-refresh-interval
+ *                                       option list (value => label);
+ *                                       used directly as the
+ *                                       'monitor_refresh' setting
+ *                                       field's dropdown options.
  * @global array $config                 Cacti global configuration
  *                                       array; used to include the
  *                                       reports library.
@@ -1030,9 +1032,10 @@ function monitor_config_arrays() {
  *
  * @param int $refresh The default refresh interval being overridden.
  *
- * @return int The plugin's configured refresh interval when on
- *            monitor.php and validly configured, otherwise the
- *            unmodified $refresh value.
+ * @return int|string The plugin's configured monitor_refresh value
+ *                    (as stored, typically a numeric string) when on
+ *                    monitor.php and validly configured, otherwise the
+ *                    unmodified int $refresh value.
  */
 function monitor_top_graph_refresh($refresh) {
 	if (get_current_page() != 'monitor.php') {
