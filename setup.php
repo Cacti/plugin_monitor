@@ -23,6 +23,16 @@
  +-------------------------------------------------------------------------+
 */
 
+/**
+ * Plugin install hook: registers all of this plugin's Cacti hooks
+ * (header tabs, navigation text, config form/settings/arrays,
+ * poller_bottom, page_head, device save/action/remove integration, and
+ * device list filter/SQL/table hooks), registers its viewer realm, sets
+ * default settings, and creates its database tables. Called by Cacti's
+ * plugin architecture when the plugin is installed.
+ *
+ * @return void
+ */
 function plugin_monitor_install() {
 	// core plugin functionality
 	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitor_show_tab', 'setup.php');
@@ -58,6 +68,16 @@ function plugin_monitor_install() {
 	monitor_setup_table();
 }
 
+/**
+ * Device_filters hook: adds a 'Criticality' filter option to Cacti's
+ * device list filter form. Called by Cacti's host list page via the
+ * 'device_filters' hook.
+ *
+ * @param array $filters The device list's filter definitions array
+ *                       being built up.
+ *
+ * @return array The $filters array with the criticality filter added.
+ */
 function monitor_device_filters($filters) {
 	$criticalities = [
 		'-1' => __('Any', 'monitor'),
@@ -81,6 +101,17 @@ function monitor_device_filters($filters) {
 	return $filters;
 }
 
+/**
+ * Device_sql_where hook: appends a criticality condition to the device
+ * list's SQL WHERE clause when a specific criticality filter is
+ * selected. Called by Cacti's host list page via the
+ * 'device_sql_where' hook.
+ *
+ * @param string $sql_where The SQL WHERE clause being built up.
+ *
+ * @return string The $sql_where string with the criticality condition
+ *               appended, if applicable.
+ */
 function monitor_device_sql_where($sql_where) {
 	if (get_request_var('criticality') >= 0) {
 		$sql_where .= ($sql_where != '' ? ' AND ' : 'WHERE ') . ' monitor_criticality = ' . get_request_var('criticality');
@@ -89,6 +120,17 @@ function monitor_device_sql_where($sql_where) {
 	return $sql_where;
 }
 
+/**
+ * Device_table_bottom hook: on Cacti versions prior to 1.3.0 (which
+ * lack native support for plugin-added filter fields), injects the
+ * criticality filter's &lt;select&gt; element into the device list's
+ * filter row via client-side JS and wires up its change handler to
+ * reapply the page filter. On 1.3.0+, this is a no-op since the
+ * 'device_filters' hook handles rendering natively. Called by Cacti's
+ * host list page via the 'device_table_bottom' hook.
+ *
+ * @return void
+ */
 function monitor_device_table_bottom() {
 	$criticalities = [
 		'-1' => __('Any', 'monitor'),
@@ -166,12 +208,30 @@ function monitor_device_table_bottom() {
 	}
 }
 
+/**
+ * Plugin uninstall hook: drops all of this plugin's database tables.
+ * Called by Cacti's plugin architecture when the plugin is
+ * uninstalled.
+ *
+ * @return void
+ */
 function plugin_monitor_uninstall() {
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
 	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
 }
 
+/**
+ * Page_head hook: emits the &lt;style&gt; tags for the plugin's common
+ * stylesheet and, if present, the currently selected theme's monitor
+ * stylesheet. Called by Cacti's page rendering via the 'page_head'
+ * hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       check for the theme stylesheet's existence.
+ */
 function plugin_monitor_page_head() {
 	global $config;
 
@@ -182,6 +242,17 @@ function plugin_monitor_page_head() {
 	}
 }
 
+/**
+ * Plugin config-check hook: ensures the plugin's schema is up to date
+ * by delegating to monitor_check_upgrade(), and normalizes the
+ * configured refresh interval to a sane 1-300 second range. Called by
+ * Cacti's plugin architecture on relevant page loads.
+ *
+ * @return bool Always true.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       include the database library.
+ */
 function plugin_monitor_check_config() {
 	global $config;
 	// Here we will check to ensure everything is configured
@@ -197,6 +268,13 @@ function plugin_monitor_check_config() {
 	return true;
 }
 
+/**
+ * Plugin upgrade hook: brings the plugin's schema up to date by
+ * delegating to monitor_check_upgrade(). Called by Cacti's plugin
+ * architecture when the plugin is upgraded to a new version.
+ *
+ * @return bool Always false.
+ */
 function plugin_monitor_upgrade() {
 	// Here we will upgrade to the newest version
 	monitor_check_upgrade();
@@ -204,6 +282,16 @@ function plugin_monitor_upgrade() {
 	return false;
 }
 
+/**
+ * Checks whether the plugin's recorded database version differs from
+ * its actual (INFO file) version and, if so, re-creates/updates its
+ * database tables and columns, re-registers its page_head hook, and
+ * updates the plugin_config record. Only runs on plugins.php/
+ * monitor.php page loads. Called from plugin_monitor_check_config()
+ * and plugin_monitor_upgrade().
+ *
+ * @return void
+ */
 function monitor_check_upgrade() {
 	$files = ['plugins.php', 'monitor.php'];
 
@@ -245,6 +333,17 @@ function monitor_check_upgrade() {
 	}
 }
 
+/**
+ * Reads and returns this plugin's version/author/metadata info from its
+ * INFO file. Called wherever plugin metadata is needed (e.g.
+ * monitor_check_upgrade()).
+ *
+ * @return array The plugin's info array, as parsed from the INFO
+ *              file's '[info]' section.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the plugin's INFO file.
+ */
 function plugin_monitor_version() {
 	global $config;
 	$info = parse_ini_file($config['base_path'] . '/plugins/monitor/INFO', true);
@@ -252,6 +351,25 @@ function plugin_monitor_version() {
 	return $info['info'];
 }
 
+/**
+ * Device_action_execute hook: performs the selected bulk device action
+ * (enabling/disabling monitoring, or applying monitoring settings field
+ * updates, including computing baseline-relative warn/alert thresholds)
+ * against each selected device. Called by Cacti's host list bulk-action
+ * handling via the 'device_action_execute' hook.
+ *
+ * @param string $action The bulk action name being executed.
+ *
+ * @return string The unmodified $action value.
+ *
+ * @global array $config           Reserved/declared for parity with
+ *                                other functions in this file; not
+ *                                used directly here.
+ * @global array $fields_host_edit The host edit form's field
+ *                                definitions, used to determine which
+ *                                monitoring fields were submitted for
+ *                                update.
+ */
 function monitor_device_action_execute($action) {
 	global $config, $fields_host_edit;
 
@@ -328,6 +446,15 @@ function monitor_device_action_execute($action) {
 	return $action;
 }
 
+/**
+ * Device_remove hook: cleans up all of this plugin's per-device data
+ * (notify/reboot history, uptime) for one or more deleted devices.
+ * Called by Cacti's host admin via the 'device_remove' hook.
+ *
+ * @param array $devices The list of deleted device ids.
+ *
+ * @return array The unmodified $devices array.
+ */
 function monitor_device_remove($devices) {
 	db_execute('DELETE FROM plugin_monitor_notify_history WHERE host_id IN(' . implode(',', $devices) . ')');
 	db_execute('DELETE FROM plugin_monitor_reboot_history WHERE host_id IN(' . implode(',', $devices) . ')');
@@ -336,6 +463,26 @@ function monitor_device_remove($devices) {
 	return $devices;
 }
 
+/**
+ * Device_action_prepare hook: renders the bulk-action confirmation page
+ * content for this plugin's device actions - a simple confirmation
+ * listing for enable/disable, or a settings-update form (with
+ * per-field 'update this field' checkboxes) for the monitoring settings
+ * action. Called by Cacti's host list bulk-action confirmation page via
+ * the 'device_action_prepare' hook.
+ *
+ * @param array $save The bulk-action save context, including
+ *                    'drp_action' and 'host_list'.
+ *
+ * @return array The unmodified $save array.
+ *
+ * @global array $host_list        Reserved/declared for parity with
+ *                                other functions in this file; not
+ *                                used directly here.
+ * @global array $fields_host_edit The host edit form's field
+ *                                definitions, used as the basis for
+ *                                the settings-update form fields.
+ */
 function monitor_device_action_prepare($save) {
 	global $host_list, $fields_host_edit;
 
@@ -405,6 +552,18 @@ function monitor_device_action_prepare($save) {
 	}
 }
 
+/**
+ * Device_action_array hook: registers this plugin's bulk device actions
+ * (change monitoring options, enable/disable monitoring) in the host
+ * list's bulk-actions dropdown. Called by Cacti's host list via the
+ * 'device_action_array' hook.
+ *
+ * @param array $device_action_array Map of action value => label being
+ *                                   built up.
+ *
+ * @return array The $device_action_array with this plugin's actions
+ *              added.
+ */
 function monitor_device_action_array($device_action_array) {
 	$device_action_array['monitor_settings'] = __('Change Monitoring Options', 'monitor');
 	$device_action_array['monitor_enable']   = __('Enable Monitoring', 'monitor');
@@ -413,6 +572,18 @@ function monitor_device_action_array($device_action_array) {
 	return $device_action_array;
 }
 
+/**
+ * Scans the plugin's sounds/ directory for available alert sound files
+ * (.wav/.mp3), returning them as a settings option list with a 'None'
+ * option prepended. Called from monitor_config_settings() to populate
+ * the alert-sound selection dropdowns.
+ *
+ * @return array Map of filename => filename for each available sound
+ *              file, plus a leading 'None' entry.
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       locate the sounds directory.
+ */
 function monitor_scan_dir() {
 	global $config;
 
@@ -432,6 +603,41 @@ function monitor_scan_dir() {
 	return $files;
 }
 
+/**
+ * Config_settings hook: registers this plugin's 'Monitor' settings tab
+ * and all of its configuration fields (criticality levels, refresh
+ * interval, alert sounds, report format, and related monitoring
+ * options). Called by Cacti's settings framework via the
+ * 'config_settings' hook.
+ *
+ * @return void
+ *
+ * @global array $tabs                   Cacti's settings tabs
+ *                                       registry; appended with this
+ *                                       plugin's tab.
+ * @global array $formats                Populated here with the
+ *                                       available report format files
+ *                                       when on this plugin's settings
+ *                                       tab.
+ * @global array $settings               Cacti's settings fields
+ *                                       registry; appended with this
+ *                                       plugin's fields.
+ * @global array $criticalities          Populated here with the map of
+ *                                       criticality level => display
+ *                                       label.
+ * @global int   $page_refresh_interval  Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $config                 Cacti global configuration
+ *                                       array; used to include the
+ *                                       reports library.
+ * @global array $settings_user          Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ * @global array $tabs_graphs            Reserved/declared for parity
+ *                                       with other functions in this
+ *                                       file; not used directly here.
+ */
 function monitor_config_settings() {
 	global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
@@ -721,6 +927,19 @@ function monitor_config_settings() {
 	}
 }
 
+/**
+ * Config_arrays hook: initializes the available Font Awesome device-
+ * status icon option list (falling back to a plain display-label map on
+ * older Cacti versions lacking form_dropicon()) and triggers a schema
+ * upgrade check. Called by Cacti's plugin framework via the
+ * 'config_arrays' hook on every page load.
+ *
+ * @return void
+ *
+ * @global array $fa_icons Populated here with the map of icon key =>
+ *                         icon definition (or, on older Cacti, icon
+ *                         key => display label).
+ */
 function monitor_config_arrays() {
 	global $fa_icons;
 
@@ -803,6 +1022,18 @@ function monitor_config_arrays() {
 	monitor_check_upgrade();
 }
 
+/**
+ * Top_graph_refresh hook: overrides Cacti's page auto-refresh interval
+ * with this plugin's configured monitor_refresh setting while viewing
+ * monitor.php. Called by Cacti's page rendering via the
+ * 'top_graph_refresh' hook.
+ *
+ * @param int $refresh The default refresh interval being overridden.
+ *
+ * @return int The plugin's configured refresh interval when on
+ *            monitor.php and validly configured, otherwise the
+ *            unmodified $refresh value.
+ */
 function monitor_top_graph_refresh($refresh) {
 	if (get_current_page() != 'monitor.php') {
 		return $refresh;
@@ -817,6 +1048,18 @@ function monitor_top_graph_refresh($refresh) {
 	return $r;
 }
 
+/**
+ * Top_header_tabs/top_graph_header_tabs hook: triggers a schema upgrade
+ * check, then prints the Monitor tab icon/link in Cacti's page header,
+ * using the 'down' (active) icon when currently viewing monitor.php.
+ * Called by Cacti's header rendering via the
+ * 'top_header_tabs'/'top_graph_header_tabs' hooks.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       build the tab's URL and image paths.
+ */
 function monitor_show_tab() {
 	global $config;
 
@@ -831,6 +1074,29 @@ function monitor_show_tab() {
 	}
 }
 
+/**
+ * Config_form hook: injects this plugin's monitoring settings fields
+ * (enable checkbox, criticality, ping warn/alert thresholds and their
+ * baseline-rebase drop-downs, down-device message, device icon) into
+ * the host edit form, right after the bulk-walk-size field (or
+ * 'disabled' as a fallback anchor point). Called by Cacti's host edit
+ * page via the 'config_form' hook.
+ *
+ * @return void
+ *
+ * @global array $config           Reserved/declared for parity with
+ *                                other functions in this file; not
+ *                                used directly here.
+ * @global array $fields_host_edit The host edit form's field
+ *                                definitions array; replaced here with
+ *                                a version containing this plugin's
+ *                                injected fields.
+ * @global array $criticalities    Map of criticality level => display
+ *                                label, used for the criticality
+ *                                drop-down.
+ * @global array $fa_icons         Map of icon key => icon definition,
+ *                                used for the device icon selector.
+ */
 function monitor_config_form() {
 	global $config, $fields_host_edit, $criticalities, $fa_icons;
 
@@ -967,6 +1233,19 @@ function monitor_config_form() {
 	$fields_host_edit = $fields_host_edit3;
 }
 
+/**
+ * Determines the default 'Monitor Device' checkbox state for a new
+ * (not-yet-saved) host, based on the globally configured
+ * 'monitor_new_enabled' setting. Called from monitor_config_form() when
+ * building the host edit form for a new device.
+ *
+ * @param int|string $host_id The host id being edited; only new (empty
+ *                           or non-numeric) hosts get the configured
+ *                           default.
+ *
+ * @return string The default value ('' or 'on') for the monitor
+ *               checkbox.
+ */
 function monitor_get_default($host_id) {
 	$monitor_new_device = '';
 
@@ -977,6 +1256,23 @@ function monitor_get_default($host_id) {
 	return $monitor_new_device;
 }
 
+/**
+ * Api_device_save hook: validates and persists this plugin's submitted
+ * monitoring fields (enable flag, down-device message, criticality,
+ * ping warn/alert thresholds, icon) onto the host save data,
+ * recomputing the warn/alert thresholds from the device's current ping
+ * time when a baseline-rebase percentage was submitted. Called by
+ * Cacti's host save flow via the 'api_device_save' hook.
+ *
+ * @param array $save The host's save data array being built up.
+ *
+ * @return array The $save array with this plugin's monitoring fields
+ *              added/validated.
+ *
+ * @global array $fa_icons Map of valid icon key => icon definition,
+ *                        used to validate the submitted icon
+ *                        selection.
+ */
 function monitor_api_device_save($save) {
 	global $fa_icons;
 
@@ -1043,12 +1339,30 @@ function monitor_api_device_save($save) {
 	return $save;
 }
 
+/**
+ * Draw_navigation_text hook: registers the breadcrumb/navigation title
+ * entry for this plugin's monitor.php page. Called by Cacti's
+ * navigation framework via the 'draw_navigation_text' hook.
+ *
+ * @param array $nav The navigation entries array being built up.
+ *
+ * @return array The $nav array with this plugin's entry added.
+ */
 function monitor_draw_navigation_text($nav) {
 	$nav['monitor.php:'] = ['title' => __('Monitoring', 'monitor'), 'mapping' => '', 'url' => 'monitor.php', 'level' => '0'];
 
 	return $nav;
 }
 
+/**
+ * Creates (if not already present) all of this plugin's database
+ * tables (notify/reboot history, uptime, dashboards), ensures the host
+ * table uses DYNAMIC row format (needed for its added TEXT column),
+ * and adds this plugin's monitoring columns to the host table. Called
+ * from plugin_monitor_install() and monitor_check_upgrade().
+ *
+ * @return void
+ */
 function monitor_setup_table() {
 	if (!db_table_exists('plugin_monitor_notify_history')) {
 		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
@@ -1124,6 +1438,18 @@ function monitor_setup_table() {
 	db_execute('SET SESSION innodb_strict_mode=1');
 }
 
+/**
+ * Poller_bottom hook: on the main poller (poller_id 1), launches this
+ * plugin's poller_monitor.php script as a background process at the
+ * end of each Cacti polling cycle. Called by Cacti's poller via the
+ * 'poller_bottom' hook.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to
+ *                       check the poller id and locate the PHP binary
+ *                       and this plugin's poller script.
+ */
 function monitor_poller_bottom() {
 	global $config;
 
