@@ -83,6 +83,18 @@ $GLOBALS['__test_db_calls'] = array();
 $GLOBALS['__test_request']  = array();
 $GLOBALS['__test_db_fixtures'] = array();
 
+if (!function_exists('get_md5_include_js')) {
+	function get_md5_include_js($path, $async = false) {
+		return "<script type='text/javascript' src='" . $path . "'></script>";
+	}
+}
+
+if (!function_exists('get_md5_include_css')) {
+	function get_md5_include_css($path) {
+		return "<link href='" . $path . "' type='text/css' rel='stylesheet'>";
+	}
+}
+
 if (!function_exists('monitor_test_mock_db')) {
 	function monitor_test_mock_db($fn, $match, $result) {
 		$GLOBALS['__test_db_fixtures'][] = array('fn' => $fn, 'match' => $match, 'result' => $result);

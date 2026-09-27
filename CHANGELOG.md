@@ -2,6 +2,7 @@
 
 --- 2.9 ---
 
+* security: Add a version-safe CSP nonce (`plugin_monitor_csp_nonce()`) to every inline `<script>` tag so pages stay compatible with Cacti's Content-Security-Policy nonce enforcement, while falling back cleanly on older Cacti releases that lack the `CactiSecureHeaders` class
 * issue#188: Fix incorrect variable, missing default value
 * issue#189: Fixing issues with tooltips generating recursion errors
 * issue#221: Fix JavaScript issues in develop
