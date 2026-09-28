@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-22 10:12-0400\n"
+"POT-Creation-Date: 2026-09-27 11:34-0400\n"
 "PO-Revision-Date: 2026-01-16 03:18+0000\n"
 "Last-Translator: sucharlie <su.charlie@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\n"
@@ -13,28 +13,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: monitor.php:37 poller_functions.php:620 setup.php:447
+#: monitor.php:37 poller_functions.php:620 setup.php:671
 #, fuzzy
 msgid "Disabled"
 msgstr "停用"
 
-#: monitor.php:38 poller_functions.php:621 setup.php:65 setup.php:96
-#: setup.php:448
+#: monitor.php:38 poller_functions.php:621 setup.php:101 setup.php:154
+#: setup.php:672
 msgid "Low"
 msgstr "低"
 
-#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:66
-#: setup.php:97 setup.php:449
+#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:102
+#: setup.php:155 setup.php:673
 msgid "Medium"
 msgstr "中"
 
-#: monitor.php:40 poller_functions.php:623 setup.php:67 setup.php:98
-#: setup.php:450
+#: monitor.php:40 poller_functions.php:623 setup.php:103 setup.php:156
+#: setup.php:674
 msgid "High"
 msgstr "高"
 
-#: monitor.php:41 poller_functions.php:624 setup.php:68 setup.php:99
-#: setup.php:451
+#: monitor.php:41 poller_functions.php:624 setup.php:104 setup.php:157
+#: setup.php:675
 #, fuzzy
 msgid "Mission Critical"
 msgstr "關鍵任務"
@@ -144,20 +144,20 @@ msgstr ""
 msgid "Devices not Monitored"
 msgstr "設備監控設置"
 
-#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:577 setup.php:589
+#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:801 setup.php:813
 #, fuzzy
 msgid "Default"
 msgstr "默认"
 
-#: monitor.php:91 setup.php:590
+#: monitor.php:91 setup.php:814
 msgid "List"
 msgstr "清單"
 
-#: monitor.php:92 setup.php:591
+#: monitor.php:92 setup.php:815
 msgid "Names only"
 msgstr ""
 
-#: monitor.php:93 setup.php:592
+#: monitor.php:93 setup.php:816
 msgid "Tiles"
 msgstr "瓷磚"
 
@@ -166,7 +166,7 @@ msgstr "瓷磚"
 msgid "Tiles & Time"
 msgstr "瓷磚和時間"
 
-#: monitor.php:99 monitor_controller.php:490 setup.php:579
+#: monitor.php:99 monitor_controller.php:490 setup.php:803
 #, fuzzy
 msgid "Tree"
 msgstr "樹"
@@ -176,7 +176,7 @@ msgstr "樹"
 msgid "Site"
 msgstr "網站"
 
-#: monitor.php:101 setup.php:580
+#: monitor.php:101 setup.php:804
 #, fuzzy
 msgid "Device Template"
 msgstr "設備模板"
@@ -311,12 +311,12 @@ msgstr "佈局"
 msgid "Status"
 msgstr "狀態"
 
-#: monitor_controller.php:435 setup.php:584
+#: monitor_controller.php:435 setup.php:808
 #, fuzzy
 msgid "View"
 msgstr "查看"
 
-#: monitor_controller.php:436 setup.php:572
+#: monitor_controller.php:436 setup.php:796
 msgid "Grouping"
 msgstr "商品群組"
 
@@ -394,7 +394,7 @@ msgid "%s Alerts for downed Devices"
 msgstr "％s已停機設備的警報"
 
 #: monitor_controller.php:467 monitor_render.php:914 poller_functions.php:544
-#: poller_functions.php:551 setup.php:72 setup.php:103
+#: poller_functions.php:551 setup.php:108 setup.php:161
 #, fuzzy
 msgid "Criticality"
 msgstr "臨界"
@@ -644,7 +644,7 @@ msgstr "從不"
 msgid "Unspecified"
 msgstr ""
 
-#: monitor_controller.php:1210 setup.php:64 setup.php:95 setup.php:705
+#: monitor_controller.php:1210 setup.php:100 setup.php:153 setup.php:929
 #, fuzzy
 msgid "None"
 msgstr "無"
@@ -761,518 +761,518 @@ msgstr "如果設備高於其閾值，您將每隔％d分鐘收到通知。"
 msgid "You will receive notifications every time the Device is above its threshold."
 msgstr "每次設備高於其閾值時，您都會收到通知。"
 
-#: setup.php:63 setup.php:94
+#: setup.php:99 setup.php:152
 #, fuzzy
 msgid "Any"
 msgstr "任何"
 
-#: setup.php:360
+#: setup.php:523
 #, fuzzy, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "點擊“繼續”以對這些設備進行％s監控"
 
-#: setup.php:367
+#: setup.php:530
 #, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
 msgstr "單擊“繼續”以更改以下設備的監控設置。請記得選中“更新此字段”以指明要更新的列。"
 
-#: setup.php:391
+#: setup.php:554
 #, fuzzy
 msgid "Update this Field"
 msgstr "更新此字段"
 
-#: setup.php:409
+#: setup.php:584
 #, fuzzy
 msgid "Change Monitoring Options"
 msgstr "更改監控選項"
 
-#: setup.php:410
+#: setup.php:585
 msgid "Enable Monitoring"
 msgstr "啟用監控"
 
-#: setup.php:411
+#: setup.php:586
 #, fuzzy
 msgid "Disable Monitoring"
 msgstr "禁用監控"
 
-#: setup.php:455
+#: setup.php:679
 #, fuzzy
 msgid "Indefinitely"
 msgstr "無限期地"
 
-#: setup.php:456
+#: setup.php:680
 #, fuzzy, php-format
 msgid "%d Month"
 msgstr "%d月"
 
-#: setup.php:457 setup.php:458 setup.php:459 setup.php:460
+#: setup.php:681 setup.php:682 setup.php:683 setup.php:684
 #, fuzzy, php-format
 msgid "%d Months"
 msgstr "%d個月"
 
-#: setup.php:461
+#: setup.php:685
 #, fuzzy, php-format
 msgid "%d Year"
 msgstr "%d年"
 
-#: setup.php:474
+#: setup.php:698
 #, fuzzy
 msgid "Normal User"
 msgstr "普通用戶"
 
-#: setup.php:477 setup.php:531
+#: setup.php:701 setup.php:755
 #, fuzzy
 msgid "Monitor Settings"
 msgstr "監控設置"
 
-#: setup.php:482 setup.php:548
+#: setup.php:706 setup.php:772
 #, fuzzy
 msgid "Alarm Sound"
 msgstr "鬧鈴聲"
 
-#: setup.php:483 setup.php:549
+#: setup.php:707 setup.php:773
 #, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr "這是設備發生故障時播放的聲音文件。"
 
-#: setup.php:489 setup.php:555
+#: setup.php:713 setup.php:779
 #, fuzzy
 msgid "Loop Alarm Sound"
 msgstr "鬧鈴聲"
 
-#: setup.php:490 setup.php:556
+#: setup.php:714 setup.php:780
 #, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
 msgstr "這是設備發生故障時播放的聲音文件。"
 
-#: setup.php:494 setup.php:567
+#: setup.php:718 setup.php:791
 #, fuzzy
 msgid "Show Icon Legend"
 msgstr "顯示圖標圖例"
 
-#: setup.php:495 setup.php:568
+#: setup.php:719 setup.php:792
 #, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
 
-#: setup.php:499
+#: setup.php:723
 #, fuzzy
 msgid "Show Uptime"
 msgstr "顯示正常運行時間"
 
-#: setup.php:500
+#: setup.php:724
 #, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
 msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
 
-#: setup.php:504
+#: setup.php:728
 #, fuzzy
 msgid "Zoom to Errors"
 msgstr "放大到錯誤"
 
-#: setup.php:505 setup.php:515
+#: setup.php:729 setup.php:739
 #, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
 
-#: setup.php:509
+#: setup.php:733
 #, fuzzy
 msgid "Zoom Background"
 msgstr "縮放背景"
 
-#: setup.php:510
+#: setup.php:734
 #, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr "監視器顯示屏上縮放錯誤的背景顏色"
 
-#: setup.php:514
+#: setup.php:738
 #, fuzzy
 msgid "Zoom Fontsize"
 msgstr "縮放字體"
 
-#: setup.php:527 setup.php:827 setup.php:829
+#: setup.php:751 setup.php:1089 setup.php:1091
 msgid "Monitor"
 msgstr "監控"
 
-#: setup.php:536
+#: setup.php:760
 #, fuzzy
 msgid "Enable on new devices"
 msgstr "在新設備上啟用"
 
-#: setup.php:537
+#: setup.php:761
 #, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr "選中此選項可在創建新設備時自動啟用監控"
 
-#: setup.php:541
+#: setup.php:765
 #, fuzzy
 msgid "Notification/Reboot Log Retention"
 msgstr "通知/重新啟動日誌保留"
 
-#: setup.php:542
+#: setup.php:766
 #, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "保持通知並重新啟動日誌這幾天。"
 
-#: setup.php:560
+#: setup.php:784
 #, fuzzy
 msgid "Refresh Interval"
 msgstr "刷新間隔"
 
-#: setup.php:561
+#: setup.php:785
 #, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
 msgstr "這是頁面刷新前的秒數。 （1  -  300）"
 
-#: setup.php:573
+#: setup.php:797
 #, fuzzy
 msgid "This is how monitor will Group Devices."
 msgstr "這就是監視器組設備的方式。"
 
-#: setup.php:578
+#: setup.php:802
 #, fuzzy
 msgid "Default with permissions"
 msgstr "默認有權限"
 
-#: setup.php:585
+#: setup.php:809
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "這是監視器呈現設備的方式。"
 
-#: setup.php:593
+#: setup.php:817
 #, fuzzy
 msgid "Tiles & Downtime"
 msgstr "瓷磚和停機時間"
 
-#: setup.php:597
+#: setup.php:821
 #, fuzzy
 msgid "Notification Report Format"
 msgstr "通知報告格式"
 
-#: setup.php:602
+#: setup.php:826
 #, fuzzy
 msgid "Format File to Use"
 msgstr "格式化文件以使用"
 
-#: setup.php:605
+#: setup.php:829
 #, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr "選擇要使用的自定義html包裝器和CSS文件。此文件包含用於包裝報表的html和CSS。如果它不僅包含CSS，那麼您需要放置一個特殊的<REPORT>標籤裡面的文件。此格式標記將替換為報告內容。這些文件位於“formats”目錄中。"
 
-#: setup.php:609
+#: setup.php:833
 #, fuzzy
 msgid "Ping Threshold Notifications"
 msgstr "Ping閾值通知"
 
-#: setup.php:614
+#: setup.php:838
 #, fuzzy
 msgid "Warning Latency Notification"
 msgstr "警告延遲通知"
 
-#: setup.php:615
+#: setup.php:839
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "如果設備的巡航Ping延遲高於警告閾值且高於以下嚴重性，則訂閱設備的電子郵件將收到電子郵件通知。選擇“已禁用”以禁用。需要Thold插件才能啟用此功能。"
 
-#: setup.php:621
+#: setup.php:845
 #, fuzzy
 msgid "Alert Latency Notification"
 msgstr "警報延遲通知"
 
-#: setup.php:622
+#: setup.php:846
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "如果設備的響鈴Ping延遲高於警報閾值且高於以下嚴重性，則訂閱設備的電子郵件將收到電子郵件通知。選擇“已禁用”以禁用。需要Thold插件才能啟用此功能。"
 
-#: setup.php:628
+#: setup.php:852
 #, fuzzy
 msgid "How Often to Resend Emails"
 msgstr "重發電子郵件的頻率"
 
-#: setup.php:629
+#: setup.php:853
 #, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr "如果電子郵件通知超過其延遲閾值，應該多久向這些設備的訂閱者發送通知"
 
-#: setup.php:633
+#: setup.php:857
 #, fuzzy
 msgid "Every Occurrence"
 msgstr "每次出現"
 
-#: setup.php:634 setup.php:635
+#: setup.php:858 setup.php:859
 #, fuzzy, php-format
 msgid "Every %d Minutes"
 msgstr "每 %d 分鐘"
 
-#: setup.php:636
+#: setup.php:860
 #, fuzzy
 msgid "Every Hour"
 msgstr "每隔一小時"
 
-#: setup.php:637 setup.php:638
+#: setup.php:861 setup.php:862
 #, fuzzy, php-format
 msgid "Every %d Hours"
 msgstr "每個 %d 小時"
 
-#: setup.php:642
+#: setup.php:866
 #, fuzzy
 msgid "Reboot Notifications"
 msgstr "重新啟動通知"
 
-#: setup.php:647
+#: setup.php:871
 #, fuzzy
 msgid "Send Reboot Notifications"
 msgstr "發送重啟通知"
 
-#: setup.php:649
+#: setup.php:873
 #, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "是否應將設備重新啟動通知發送給用戶？"
 
-#: setup.php:653
+#: setup.php:877
 #, fuzzy
 msgid "Send one Email to all addresses"
 msgstr "電子郵件信箱"
 
-#: setup.php:654
+#: setup.php:878
 msgid "If checked, the system will send one Email only to all addresses."
 msgstr ""
 
-#: setup.php:659
+#: setup.php:883
 #, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "包括閾值警報列表"
 
-#: setup.php:661
+#: setup.php:885
 #, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "閾值警報列表是否也會收到通知"
 
-#: setup.php:665
+#: setup.php:889
 #, fuzzy
 msgid "Subject"
 msgstr "主旨"
 
-#: setup.php:666
+#: setup.php:890
 #, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "輸入Reboot Nofication的Reboot消息主題。"
 
-#: setup.php:668
+#: setup.php:892
 #, fuzzy
 msgid "Cacti Device Reboot Notification"
 msgstr "仙人掌設備重啟Nofication"
 
-#: setup.php:673
+#: setup.php:897
 msgid "Email Body"
 msgstr "郵件內文"
 
-#: setup.php:674
+#: setup.php:898
 #, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr "輸入要包含在“重新啟動通知”消息中的電子郵件正文。目前，唯一支持的替換標籤是&lt;DETAILS&gt;"
 
-#: setup.php:678
+#: setup.php:902
 #, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr "<h1>監控重啟通知</h1><p>以下設備已重新啟動。有關其他信息，請參閱以下詳細</p><br><DETAILS>"
 
-#: setup.php:681
+#: setup.php:905
 msgid "Notification Email Addresses"
 msgstr "電子郵件通知地址"
 
-#: setup.php:686
+#: setup.php:910
 #, fuzzy
 msgid "From Name"
 msgstr "寄件者名稱"
 
-#: setup.php:687
+#: setup.php:911
 #, fuzzy
 msgid "Enter the Email Name to send the notifications from"
 msgstr "輸入電子郵件名稱以發送通知表單"
 
-#: setup.php:693
+#: setup.php:917
 msgid "From Address"
 msgstr "寄件者電子郵件地址"
 
-#: setup.php:694
+#: setup.php:918
 #, fuzzy
 msgid "Enter the Email Address to send the notification from"
 msgstr "輸入電子郵件地址以發送通知"
 
-#: setup.php:700
+#: setup.php:924
 #, fuzzy
 msgid "Notification List"
 msgstr "通知清單"
 
-#: setup.php:701
+#: setup.php:925
 #, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr "選擇下面的通知列表。訂閱通知列表的所有電子郵件都將收到通知。"
 
-#: setup.php:708
+#: setup.php:932
 msgid "Email Addresses"
 msgstr "電子郵件信箱"
 
-#: setup.php:709
+#: setup.php:933
 #, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr "輸入逗號分隔的電子郵件地址列表以通知重新啟動事件。"
 
-#: setup.php:729
+#: setup.php:966
 msgid "Server"
 msgstr ""
 
-#: setup.php:734
+#: setup.php:971
 msgid "Printer"
 msgstr ""
 
-#: setup.php:739
+#: setup.php:976
 msgid "Desktop PC"
 msgstr ""
 
-#: setup.php:744
+#: setup.php:981
 msgid "Laptop/notebook"
 msgstr ""
 
-#: setup.php:749
+#: setup.php:986
 msgid "Wifi"
 msgstr ""
 
-#: setup.php:754
+#: setup.php:991
 msgid "Wired network"
 msgstr ""
 
-#: setup.php:759
+#: setup.php:996
 msgid "Database"
 msgstr ""
 
-#: setup.php:764
+#: setup.php:1001
 msgid "Clock"
 msgstr ""
 
-#: setup.php:769
+#: setup.php:1006
 msgid "Asterisk"
 msgstr ""
 
-#: setup.php:774
+#: setup.php:1011
 msgid "Harddisk"
 msgstr ""
 
-#: setup.php:779
+#: setup.php:1016
 msgid "Boxes"
 msgstr ""
 
-#: setup.php:784
+#: setup.php:1021
 msgid "Phone"
 msgstr ""
 
-#: setup.php:789
+#: setup.php:1026
 msgid "Cloud"
 msgstr ""
 
-#: setup.php:838
+#: setup.php:1123
 #, fuzzy
 msgid "Do not Change"
 msgstr "不要換"
 
-#: setup.php:839 setup.php:840 setup.php:841 setup.php:842 setup.php:843
-#: setup.php:844 setup.php:845 setup.php:846 setup.php:847 setup.php:848
-#: setup.php:849 setup.php:850 setup.php:851 setup.php:852 setup.php:853
-#: setup.php:854
+#: setup.php:1124 setup.php:1125 setup.php:1126 setup.php:1127 setup.php:1128
+#: setup.php:1129 setup.php:1130 setup.php:1131 setup.php:1132 setup.php:1133
+#: setup.php:1134 setup.php:1135 setup.php:1136 setup.php:1137 setup.php:1138
+#: setup.php:1139
 #, fuzzy, php-format
 msgid "%d Percent Above Average"
 msgstr "％d％平均值以上"
 
-#: setup.php:871
+#: setup.php:1156
 #, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "設備監控設置"
 
-#: setup.php:878
+#: setup.php:1163
 #, fuzzy
 msgid "Monitor Device"
 msgstr "監控設備"
 
-#: setup.php:879
+#: setup.php:1164
 #, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
 msgstr "選中此框以在“監視器”選項卡上監視此設備。"
 
-#: setup.php:891
+#: setup.php:1176
 #, fuzzy
 msgid "Device Criticality"
 msgstr "設備嚴重性"
 
-#: setup.php:892
+#: setup.php:1177
 #, fuzzy
 msgid "What is the Criticality of this Device."
 msgstr "這個設備的重要性是什麼？"
 
-#: setup.php:900
+#: setup.php:1185
 #, fuzzy
 msgid "Ping Warning Threshold"
 msgstr "Ping警告閾值"
 
-#: setup.php:901
+#: setup.php:1186
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "如果通過任何預定義的Cacti ping方法的往返延遲超過此閾值，請根據“設備嚴重性和監視器”設置記錄警告或發送電子郵件。單位是毫秒。設置為0禁用。 Thold插件需要利用此功能。"
 
-#: setup.php:905 setup.php:916
+#: setup.php:1190 setup.php:1201
 msgid "milliseconds"
 msgstr "毫秒"
 
-#: setup.php:911
+#: setup.php:1196
 #, fuzzy
 msgid "Ping Alert Threshold"
 msgstr "Ping警報閾值"
 
-#: setup.php:912
+#: setup.php:1197
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "如果通過任何預定義的Cacti ping方法的往返延遲超過此閾值，請記錄警報或根據“設備嚴重性和監視器”設置發送電子郵件。單位是毫秒。設置為0禁用。 Thold插件需要利用此功能。"
 
-#: setup.php:922
+#: setup.php:1207
 #, fuzzy
 msgid "Re-Baseline Warning"
 msgstr "重新基線警告"
 
-#: setup.php:923
+#: setup.php:1208
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
 msgstr "高於當前平均ping時間的百分比，以考慮警告閾值。如果更新，這將自動調整Ping警告閾值。"
 
-#: setup.php:931
+#: setup.php:1216
 #, fuzzy
 msgid "Re-Baseline Alert"
 msgstr "重新基線警報"
 
-#: setup.php:932
+#: setup.php:1217
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
 msgstr "高於當前平均ping時間的百分比，以考慮警報閾值。如果更新，這將自動調整Ping警報閾值。"
 
-#: setup.php:940
+#: setup.php:1225
 #, fuzzy
 msgid "Down Device Message"
 msgstr "關閉設備消息"
 
-#: setup.php:941
+#: setup.php:1226
 #, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
 msgstr "這是將此設備報告為關閉時將顯示的消息。"
 
-#: setup.php:957
+#: setup.php:1242
 #, fuzzy
 msgid "Device icon"
 msgstr "裝置："
 
-#: setup.php:958
+#: setup.php:1243
 msgid "You can select device icon."
 msgstr ""
 
-#: setup.php:1047
+#: setup.php:1371
 msgid "Monitoring"
 msgstr "監控"
 
