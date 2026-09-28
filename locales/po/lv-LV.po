@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-22 10:12-0400\n"
+"POT-Creation-Date: 2026-09-27 11:34-0400\n"
 "PO-Revision-Date: 2024-10-17 16:22+0000\n"
 "Last-Translator: Coool (github.com/Coool) <coool@mail.lv>\n"
 "Language-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\n"
@@ -18,27 +18,27 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
 "X-Generator: Weblate 4.8.1\n"
 
-#: monitor.php:37 poller_functions.php:620 setup.php:447
+#: monitor.php:37 poller_functions.php:620 setup.php:671
 msgid "Disabled"
 msgstr "Atspējots"
 
-#: monitor.php:38 poller_functions.php:621 setup.php:65 setup.php:96
-#: setup.php:448
+#: monitor.php:38 poller_functions.php:621 setup.php:101 setup.php:154
+#: setup.php:672
 msgid "Low"
 msgstr "Zems"
 
-#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:66
-#: setup.php:97 setup.php:449
+#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:102
+#: setup.php:155 setup.php:673
 msgid "Medium"
 msgstr "Vidējs"
 
-#: monitor.php:40 poller_functions.php:623 setup.php:67 setup.php:98
-#: setup.php:450
+#: monitor.php:40 poller_functions.php:623 setup.php:103 setup.php:156
+#: setup.php:674
 msgid "High"
 msgstr "Augsts"
 
-#: monitor.php:41 poller_functions.php:624 setup.php:68 setup.php:99
-#: setup.php:451
+#: monitor.php:41 poller_functions.php:624 setup.php:104 setup.php:157
+#: setup.php:675
 msgid "Mission Critical"
 msgstr "Kritiski svarīgs"
 
@@ -132,19 +132,19 @@ msgstr ""
 msgid "Devices not Monitored"
 msgstr "Ierīces uzraudzības iestatījumi"
 
-#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:577 setup.php:589
+#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:801 setup.php:813
 msgid "Default"
 msgstr "Noklusējuma"
 
-#: monitor.php:91 setup.php:590
+#: monitor.php:91 setup.php:814
 msgid "List"
 msgstr "Saraksts"
 
-#: monitor.php:92 setup.php:591
+#: monitor.php:92 setup.php:815
 msgid "Names only"
 msgstr ""
 
-#: monitor.php:93 setup.php:592
+#: monitor.php:93 setup.php:816
 msgid "Tiles"
 msgstr "Flīzes"
 
@@ -152,7 +152,7 @@ msgstr "Flīzes"
 msgid "Tiles & Time"
 msgstr "Flīzes un laiks"
 
-#: monitor.php:99 monitor_controller.php:490 setup.php:579
+#: monitor.php:99 monitor_controller.php:490 setup.php:803
 msgid "Tree"
 msgstr "Koks"
 
@@ -160,7 +160,7 @@ msgstr "Koks"
 msgid "Site"
 msgstr "Atrašanās vieta"
 
-#: monitor.php:101 setup.php:580
+#: monitor.php:101 setup.php:804
 msgid "Device Template"
 msgstr "Ierīces veidne"
 
@@ -274,11 +274,11 @@ msgstr "Izkārtojums"
 msgid "Status"
 msgstr "Statuss"
 
-#: monitor_controller.php:435 setup.php:584
+#: monitor_controller.php:435 setup.php:808
 msgid "View"
 msgstr "Skats"
 
-#: monitor_controller.php:436 setup.php:572
+#: monitor_controller.php:436 setup.php:796
 msgid "Grouping"
 msgstr "Grupēšana"
 
@@ -345,7 +345,7 @@ msgid "%s Alerts for downed Devices"
 msgstr "%s skaņas brīdinājumi neaktīvām ierīcēm"
 
 #: monitor_controller.php:467 monitor_render.php:914 poller_functions.php:544
-#: poller_functions.php:551 setup.php:72 setup.php:103
+#: poller_functions.php:551 setup.php:108 setup.php:161
 msgid "Criticality"
 msgstr "Kritiskums"
 
@@ -561,7 +561,7 @@ msgstr "Nekad"
 msgid "Unspecified"
 msgstr "Nav norādīta"
 
-#: monitor_controller.php:1210 setup.php:64 setup.php:95 setup.php:705
+#: monitor_controller.php:1210 setup.php:100 setup.php:153 setup.php:929
 msgid "None"
 msgstr "Neviena"
 
@@ -662,443 +662,443 @@ msgstr "Jūs saņemsiet paziņojumus ik pēc %d minūtēm, ja Ierīce pārsniedz
 msgid "You will receive notifications every time the Device is above its threshold."
 msgstr "Jūs saņemsiet paziņojumus katru reizi, kad Ierīce pārsniedz tā robežvērtību."
 
-#: setup.php:63 setup.php:94
+#: setup.php:99 setup.php:152
 msgid "Any"
 msgstr "Jebkuru"
 
-#: setup.php:360
+#: setup.php:523
 #, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "Noklikšķiniet 'Turpināt', lai %s uzraudzītu šo(-īs) ierīci(-es)"
 
-#: setup.php:367
+#: setup.php:530
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
 msgstr "Noklikšķiniet 'Turpināt', lai mainītu uzraudzības iestatījumus izvēlētājai(-ām) ierīcei(-ēm). Atcerieties atķeksēt 'Atsvaidzināt šo lauku', lai norādītu, kuras kolonnas atsvaidzināt."
 
-#: setup.php:391
+#: setup.php:554
 msgid "Update this Field"
 msgstr "Atsvaidzināt šo lauku"
 
-#: setup.php:409
+#: setup.php:584
 msgid "Change Monitoring Options"
 msgstr "Mainīt uzraudzības iestatījumus"
 
-#: setup.php:410
+#: setup.php:585
 msgid "Enable Monitoring"
 msgstr "Iespējot uzraudzību"
 
-#: setup.php:411
+#: setup.php:586
 msgid "Disable Monitoring"
 msgstr "Atspējot uzraudzību"
 
-#: setup.php:455
+#: setup.php:679
 msgid "Indefinitely"
 msgstr "Neierobežota"
 
-#: setup.php:456
+#: setup.php:680
 #, php-format
 msgid "%d Month"
 msgstr "%d mēnesis"
 
-#: setup.php:457 setup.php:458 setup.php:459 setup.php:460
+#: setup.php:681 setup.php:682 setup.php:683 setup.php:684
 #, php-format
 msgid "%d Months"
 msgstr "%d mēneši"
 
-#: setup.php:461
+#: setup.php:685
 #, php-format
 msgid "%d Year"
 msgstr "%d gads"
 
-#: setup.php:474
+#: setup.php:698
 msgid "Normal User"
 msgstr "Parasts lietotājs"
 
-#: setup.php:477 setup.php:531
+#: setup.php:701 setup.php:755
 msgid "Monitor Settings"
 msgstr "Uzraudzības iestatījumi"
 
-#: setup.php:482 setup.php:548
+#: setup.php:706 setup.php:772
 msgid "Alarm Sound"
 msgstr "Trauksmes skaņa"
 
-#: setup.php:483 setup.php:549
+#: setup.php:707 setup.php:773
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr "Skaņas fails, kas tiks atskaņots, kad ierīce ir neaktīva."
 
-#: setup.php:489 setup.php:555
+#: setup.php:713 setup.php:779
 msgid "Loop Alarm Sound"
 msgstr "Nepārtraukti atskaņot trauksmes skaņu"
 
-#: setup.php:490 setup.php:556
+#: setup.php:714 setup.php:780
 msgid "Play the above sound on a loop when a Device goes down."
 msgstr "Nepārtraukti atskaņot iepriekš norādīto skaņas failu, kad ierīce ir neaktīva."
 
-#: setup.php:494 setup.php:567
+#: setup.php:718 setup.php:791
 msgid "Show Icon Legend"
 msgstr "Rādīt ikonas leģendu"
 
-#: setup.php:495 setup.php:568
+#: setup.php:719 setup.php:792
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr "Atķeksējiet, lai uzraudzības displejā rādītu ikonas leģendu"
 
-#: setup.php:499
+#: setup.php:723
 msgid "Show Uptime"
 msgstr "Rādīt darbošanās laiku"
 
-#: setup.php:500
+#: setup.php:724
 msgid "Check this to show Uptime on the Monitor display"
 msgstr "Atķeksējiet, lai uzraudzības displejā rādītu darbošanās laiku"
 
-#: setup.php:504
+#: setup.php:728
 msgid "Zoom to Errors"
 msgstr "Pietuvināt kļūdām"
 
-#: setup.php:505 setup.php:515
+#: setup.php:729 setup.php:739
 msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "Atķeksējiet šo, lai uzraudzības displejā tuvinātu kļūdainajām vienībām"
 
-#: setup.php:509
+#: setup.php:733
 msgid "Zoom Background"
 msgstr "Tālummaiņas fons"
 
-#: setup.php:510
+#: setup.php:734
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr "Fona krāsa tuvinātām kļūdām uzraudzības displejā"
 
-#: setup.php:514
+#: setup.php:738
 msgid "Zoom Fontsize"
 msgstr "Tālummaiņas fonta izmērs"
 
-#: setup.php:527 setup.php:827 setup.php:829
+#: setup.php:751 setup.php:1089 setup.php:1091
 msgid "Monitor"
 msgstr "Uzraudzīt"
 
-#: setup.php:536
+#: setup.php:760
 msgid "Enable on new devices"
 msgstr "Iespējot jaunām ierīcēm"
 
-#: setup.php:537
+#: setup.php:761
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr "Atķeksējiet šo, lai automātiski iespējotu uzraudzīt jaunizveidotās ierīces"
 
-#: setup.php:541
+#: setup.php:765
 msgid "Notification/Reboot Log Retention"
 msgstr "Paziņojumu/Pārstartēšanas žurnāla uzglabāšana"
 
-#: setup.php:542
+#: setup.php:766
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "Cik dienas uzglabāt paziņojumu un pārstartēšanas žurnālus."
 
-#: setup.php:560
+#: setup.php:784
 msgid "Refresh Interval"
 msgstr "Atsvaidzināšanas intervāls"
 
-#: setup.php:561
+#: setup.php:785
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
 msgstr "Laiks sekundēs, kad lapa tiek atsvaidzināta.  (1 - 300)"
 
-#: setup.php:573
+#: setup.php:797
 msgid "This is how monitor will Group Devices."
 msgstr "Šādi uzraudzība grupēs ierīces."
 
-#: setup.php:578
+#: setup.php:802
 msgid "Default with permissions"
 msgstr "Noklusējums ar atļaujām"
 
-#: setup.php:585
+#: setup.php:809
 msgid "This is how monitor will render Devices."
 msgstr "Šādi uzraudzība atveidos ierīces."
 
-#: setup.php:593
+#: setup.php:817
 msgid "Tiles & Downtime"
 msgstr "Flīzes un dīkstāves"
 
-#: setup.php:597
+#: setup.php:821
 msgid "Notification Report Format"
 msgstr "Paziņojuma atskaites formāts"
 
-#: setup.php:602
+#: setup.php:826
 msgid "Format File to Use"
 msgstr "Izmantotais faila formāts"
 
-#: setup.php:605
+#: setup.php:829
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr "Izvēlieties pielāgotu HTML noformējuma un CSS failu.  Šis fails satur gan HTML, gan CSS kodu, kas noformē jūsu atskaites izskatu.  Ja tas satur kaut ko vairāk par CSS kodu, tad failā jāievieto īpašs tags <REPORT>.  Šis <REPORT> tags tiks aizstāts ar atskaites saturu.   Šie faili atrodas 'formats' mapē."
 
-#: setup.php:609
+#: setup.php:833
 msgid "Ping Threshold Notifications"
 msgstr "Ping robežvērtības paziņojumi"
 
-#: setup.php:614
+#: setup.php:838
 msgid "Warning Latency Notification"
 msgstr "Brīdinājums - latentuma paziņojums"
 
-#: setup.php:615
+#: setup.php:839
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "Ja ierīces apiešanas (turp un atpakaļ) latentums laiks pārsniedz brīdinājuma, bet nepārsniedz kritisko robežvērtību, ierīces abonenti saņems e-pasta ziņojumus.  Lai atspējotu, atķeksējiet 'Atspējot'.   Lai iespējotu šo funkciju, ir nepieciešams Thold spraudnis."
 
-#: setup.php:621
+#: setup.php:845
 msgid "Alert Latency Notification"
 msgstr "Trauksme - latentuma paziņojums"
 
-#: setup.php:622
+#: setup.php:846
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "Ja ierīces apiešanas (turp un atpakaļ) latentums laiks pārsniedz trauksmes, bet nepārsniedz kritisko robežvērtību, ierīces abonenti saņems e-pasta ziņojumus.  Lai atspējotu, atķeksējiet 'Atspējot'.   Lai iespējotu šo funkciju, ir nepieciešams Thold spraudnis."
 
-#: setup.php:628
+#: setup.php:852
 msgid "How Often to Resend Emails"
 msgstr "Cik bieži atkārtoti nosūtīt e-pastus"
 
-#: setup.php:629
+#: setup.php:853
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr "Cik bieži šo ierīču abonenti saņems e-pasta paziņojumus, ja tiek pārsniegtas latentuma robežvērtības"
 
-#: setup.php:633
+#: setup.php:857
 msgid "Every Occurrence"
 msgstr "Katru reizi, kad tas notiek"
 
-#: setup.php:634 setup.php:635
+#: setup.php:858 setup.php:859
 #, php-format
 msgid "Every %d Minutes"
 msgstr "Ik pēc %d minūtēm"
 
-#: setup.php:636
+#: setup.php:860
 msgid "Every Hour"
 msgstr "Katru stundu"
 
-#: setup.php:637 setup.php:638
+#: setup.php:861 setup.php:862
 #, php-format
 msgid "Every %d Hours"
 msgstr "Ik pēc %d stundām"
 
-#: setup.php:642
+#: setup.php:866
 msgid "Reboot Notifications"
 msgstr "Pārstartēšanas paziņojumi"
 
-#: setup.php:647
+#: setup.php:871
 msgid "Send Reboot Notifications"
 msgstr "Nosūtīt pārstartēšanas paziņojumus"
 
-#: setup.php:649
+#: setup.php:873
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "Vai lietotājiem nosūtīt paziņojumus par ierīces pārstartēšanos?"
 
-#: setup.php:653
+#: setup.php:877
 #, fuzzy
 msgid "Send one Email to all addresses"
 msgstr "E-pasta adreses"
 
-#: setup.php:654
+#: setup.php:878
 msgid "If checked, the system will send one Email only to all addresses."
 msgstr ""
 
-#: setup.php:659
+#: setup.php:883
 msgid "Include Threshold Alert Lists"
 msgstr "Iekļaut robežvērtības trauksmes sarakstus"
 
-#: setup.php:661
+#: setup.php:885
 msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "Nosūtīt paziņojumu arī robežvērtības trauksmes sarakstiem"
 
-#: setup.php:665
+#: setup.php:889
 msgid "Subject"
 msgstr "Temats"
 
-#: setup.php:666
+#: setup.php:890
 msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "Ievadiet pārstartēšanas paziņojuma tematu."
 
-#: setup.php:668
+#: setup.php:892
 msgid "Cacti Device Reboot Notification"
 msgstr "Cacti ierīces pārstartēšanas paziņojums"
 
-#: setup.php:673
+#: setup.php:897
 msgid "Email Body"
 msgstr "E-pasta saturs"
 
-#: setup.php:674
+#: setup.php:898
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr "Ievadiet e-pasta saturu, ko iekļaut pārstartēšanas ziņojumā.  Pašlaik vienīgais atbalstītais aizstājējtags ir &#060;DETAILS&#062;"
 
-#: setup.php:678
+#: setup.php:902
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr "<h1>Uzraudzības pārstartēšanas paziņojums</h1><p>Sekojošas ierīces tika pārstartētas.  Papildinformāciju skatiet zemāk.</p><br><DETAILS>"
 
-#: setup.php:681
+#: setup.php:905
 msgid "Notification Email Addresses"
 msgstr "Paziņojumu e-pasta adreses"
 
-#: setup.php:686
+#: setup.php:910
 msgid "From Name"
 msgstr "No kā (sūtītājs)"
 
-#: setup.php:687
+#: setup.php:911
 msgid "Enter the Email Name to send the notifications from"
 msgstr "Ievadiet e-pasta sūtītāja vārdu, no kura nosūtīs paziņojumus"
 
-#: setup.php:693
+#: setup.php:917
 msgid "From Address"
 msgstr "No adrese (sūtītāja e-pasta adrese)"
 
-#: setup.php:694
+#: setup.php:918
 msgid "Enter the Email Address to send the notification from"
 msgstr "Ievadiet e-pasta adresi, no kuras nosūtīs paziņojumu"
 
-#: setup.php:700
+#: setup.php:924
 msgid "Notification List"
 msgstr "Paziņojumu saraksts"
 
-#: setup.php:701
+#: setup.php:925
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr "Atlasiet paziņojumu sarakstu.   Visi e-pasti paziņojumu sarakstā saņems paziņojumus."
 
-#: setup.php:708
+#: setup.php:932
 msgid "Email Addresses"
 msgstr "E-pasta adreses"
 
-#: setup.php:709
+#: setup.php:933
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr "Ievadiet ar komatu atdalītus e-pastus. Saraksts tiks izmantots, lai informētu par pārstartēšanas notikumu."
 
-#: setup.php:729
+#: setup.php:966
 msgid "Server"
 msgstr ""
 
-#: setup.php:734
+#: setup.php:971
 msgid "Printer"
 msgstr ""
 
-#: setup.php:739
+#: setup.php:976
 msgid "Desktop PC"
 msgstr ""
 
-#: setup.php:744
+#: setup.php:981
 msgid "Laptop/notebook"
 msgstr ""
 
-#: setup.php:749
+#: setup.php:986
 msgid "Wifi"
 msgstr ""
 
-#: setup.php:754
+#: setup.php:991
 msgid "Wired network"
 msgstr ""
 
-#: setup.php:759
+#: setup.php:996
 msgid "Database"
 msgstr ""
 
-#: setup.php:764
+#: setup.php:1001
 msgid "Clock"
 msgstr ""
 
-#: setup.php:769
+#: setup.php:1006
 msgid "Asterisk"
 msgstr ""
 
-#: setup.php:774
+#: setup.php:1011
 msgid "Harddisk"
 msgstr ""
 
-#: setup.php:779
+#: setup.php:1016
 msgid "Boxes"
 msgstr ""
 
-#: setup.php:784
+#: setup.php:1021
 msgid "Phone"
 msgstr ""
 
-#: setup.php:789
+#: setup.php:1026
 msgid "Cloud"
 msgstr ""
 
-#: setup.php:838
+#: setup.php:1123
 msgid "Do not Change"
 msgstr "Nemainīt"
 
-#: setup.php:839 setup.php:840 setup.php:841 setup.php:842 setup.php:843
-#: setup.php:844 setup.php:845 setup.php:846 setup.php:847 setup.php:848
-#: setup.php:849 setup.php:850 setup.php:851 setup.php:852 setup.php:853
-#: setup.php:854
+#: setup.php:1124 setup.php:1125 setup.php:1126 setup.php:1127 setup.php:1128
+#: setup.php:1129 setup.php:1130 setup.php:1131 setup.php:1132 setup.php:1133
+#: setup.php:1134 setup.php:1135 setup.php:1136 setup.php:1137 setup.php:1138
+#: setup.php:1139
 #, php-format
 msgid "%d Percent Above Average"
 msgstr "%d procenti virs vidējā"
 
-#: setup.php:871
+#: setup.php:1156
 msgid "Device Monitoring Settings"
 msgstr "Ierīces uzraudzības iestatījumi"
 
-#: setup.php:878
+#: setup.php:1163
 msgid "Monitor Device"
 msgstr "Uzraudzīt ierīci"
 
-#: setup.php:879
+#: setup.php:1164
 msgid "Check this box to monitor this Device on the Monitor Tab."
 msgstr "Atķeksējiet, lai uzraudzītu šo ierīci Uzraudzīt cilnē."
 
-#: setup.php:891
+#: setup.php:1176
 msgid "Device Criticality"
 msgstr "Ierīces svarīgums"
 
-#: setup.php:892
+#: setup.php:1177
 msgid "What is the Criticality of this Device."
 msgstr "Kāda ir šīs ierīces nozīme."
 
-#: setup.php:900
+#: setup.php:1185
 msgid "Ping Warning Threshold"
 msgstr "Ping brīdinājuma robežvērtība"
 
-#: setup.php:901
+#: setup.php:1186
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "Ja apiešanas (turp un atpakaļ) latentums, izmantojot jebkādu no iepriekš definētajām Cacti ping metodēm, pārsniedz šo robežvērtību, reģistrē brīdinājumu vai nosūta e-pastu, pamatojoties uz iekārtas kritiskuma un uzraudzības iestatījumiem.  Vienība - milisekunde.   Iestatot uz 0 tiek atspējots. Lai izmantotu šo iespēju, ir nepieciešams Thold spraudnis."
 
-#: setup.php:905 setup.php:916
+#: setup.php:1190 setup.php:1201
 msgid "milliseconds"
 msgstr "milisekundes"
 
-#: setup.php:911
+#: setup.php:1196
 msgid "Ping Alert Threshold"
 msgstr "Ping trauksmes robežvērtība"
 
-#: setup.php:912
+#: setup.php:1197
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "Ja apiešanas (turp un atpakaļ) latentums, izmantojot jebkādu no iepriekš definētajām Cacti ping metodēm, pārsniedz šo robežvērtību, reģistrē trauksmi vai nosūta e-pastu, pamatojoties uz iekārtas kritiskuma un uzraudzības iestatījumiem.  Vienība - milisekunde.  Iestatot uz 0 tiek atspējots. Lai izmantotu šo iespēju, ir nepieciešams Thold spraudnis."
 
-#: setup.php:922
+#: setup.php:1207
 msgid "Re-Baseline Warning"
 msgstr "Sākotnējā stāvokļa atjaunošanas brīdinājums"
 
-#: setup.php:923
+#: setup.php:1208
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
 msgstr "Procentuālā daļa virs pašreizējā vidējā ping laika, lai aprēķinātu brīdinājuma robežvērtību.  Atjauninot vērtību, tas automātiski pielāgos ping brīdinājuma robežvērtību."
 
-#: setup.php:931
+#: setup.php:1216
 msgid "Re-Baseline Alert"
 msgstr "Sākotnējā stāvokļa atjaunošanas trauksme"
 
-#: setup.php:932
+#: setup.php:1217
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
 msgstr "Procentuālā daļa virs pašreizējā vidējā ping laika, lai aprēķinātu trauksmes robežvērtību.  Atjauninot vērtību, tas automātiski pielāgos ping trauksmes robežvērtību."
 
-#: setup.php:940
+#: setup.php:1225
 msgid "Down Device Message"
 msgstr "Neaktīvas ierīces ziņojums"
 
-#: setup.php:941
+#: setup.php:1226
 msgid "This is the message that will be displayed when this Device is reported as down."
 msgstr "Ziņojums, kas tiks parādīts, kad ierīce ir neaktīva (nedarbojoša, bezsaistē, izslēgta)."
 
-#: setup.php:957
+#: setup.php:1242
 #, fuzzy
 msgid "Device icon"
 msgstr "Ierīce:"
 
-#: setup.php:958
+#: setup.php:1243
 msgid "You can select device icon."
 msgstr ""
 
-#: setup.php:1047
+#: setup.php:1371
 msgid "Monitoring"
 msgstr "Uzraudzība"
 
