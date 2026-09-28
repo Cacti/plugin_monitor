@@ -618,10 +618,10 @@ function monitorPrintJsBootstrap(array $config, string $mbcolor, string $monitor
 		]
 	];
 
-	print '<script type="text/javascript">window.monitorPageConfig = ' .
+	print '<script type="text/javascript" ' . plugin_monitor_csp_nonce() . '>window.monitorPageConfig = ' .
 		json_encode($monitor_js_config, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) .
 		';</script>';
-	print '<script type="text/javascript" src="' . html_escape($config['url_path'] . 'plugins/monitor/js/monitor.js') . '"></script>';
+	print get_md5_include_js('plugins/monitor/js/monitor.js');
 }
 
 /**
