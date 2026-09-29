@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-27 11:34-0400\n"
+"POT-Creation-Date: 2026-09-28 16:06-0400\n"
 "PO-Revision-Date: 2026-09-24 21:00+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\n"
@@ -18,1084 +18,1075 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
 
-#: monitor.php:37 poller_functions.php:620 setup.php:671
+#: monitor.php poller_functions.php setup.php
 msgid "Disabled"
 msgstr "გათიშულია"
 
-#: monitor.php:38 poller_functions.php:621 setup.php:101 setup.php:154
-#: setup.php:672
+#: monitor.php poller_functions.php setup.php
 msgid "Low"
 msgstr "დაბალი"
 
-#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:102
-#: setup.php:155 setup.php:673
+#: monitor.php poller_functions.php setup.php
 msgid "Medium"
 msgstr "საშუალო"
 
-#: monitor.php:40 poller_functions.php:623 setup.php:103 setup.php:156
-#: setup.php:674
+#: monitor.php poller_functions.php setup.php
 msgid "High"
 msgstr "მაღალი"
 
-#: monitor.php:41 poller_functions.php:624 setup.php:104 setup.php:157
-#: setup.php:675
+#: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "კრიტიკულად მნიშვნელოვანი"
 
-#: monitor.php:58 monitor_render.php:703
+#: monitor.php monitor_render.php
 msgid "Unknown"
 msgstr "უცნობი"
 
-#: monitor.php:59
+#: monitor.php
 msgid "Down"
 msgstr "გამორთ"
 
-#: monitor.php:60
+#: monitor.php
 msgid "Recovering"
 msgstr "მიმდინარეობს აღდგენა"
 
-#: monitor.php:61
+#: monitor.php
 msgid "Up"
 msgstr "ჩართ"
 
-#: monitor.php:62
+#: monitor.php
 msgid "Triggered"
 msgstr "დატრიგერებულია"
 
-#: monitor.php:63
+#: monitor.php
 msgid "Triggered (Muted/Acked)"
 msgstr "დატრიგერებულია (დადუმებულია/მიღებულია)"
 
-#: monitor.php:64
+#: monitor.php
 msgid "Down (Muted/Acked)"
 msgstr "გამორთ (დადუმებული/დადასტურებული)"
 
-#: monitor.php:65
+#: monitor.php
 msgid "No Availability Check"
 msgstr "ხელმისაწვდომობის შემოწმების გარეშე"
 
-#: monitor.php:66
+#: monitor.php
 msgid "Warning Ping"
 msgstr "გაფრთხილების პინგი"
 
-#: monitor.php:67
+#: monitor.php
 msgid "Alert Ping"
 msgstr "პინგის განგაში"
 
-#: monitor.php:71
+#: monitor.php
 msgid "Extra Small"
 msgstr "ძალიან პატარა"
 
-#: monitor.php:72
+#: monitor.php
 msgid "Small"
 msgstr "პატარა"
 
-#: monitor.php:74
+#: monitor.php
 msgid "Large"
 msgstr "დიდი"
 
-#: monitor.php:75
+#: monitor.php
 msgid "Extra Large"
 msgstr "ძალიან დიდი"
 
-#: monitor.php:76
+#: monitor.php
 msgid "Zoom"
 msgstr "მასშტაბი"
 
-#: monitor.php:80 monitor_controller.php:276
+#: monitor.php monitor_controller.php
 msgid "All Devices"
 msgstr "ყველა მოწყობილობა"
 
-#: monitor.php:81 monitor_controller.php:280
+#: monitor.php monitor_controller.php
 msgid "All Monitored Devices"
 msgstr "ყველა მოწყობილობა მონიტორინგის ქვეშ"
 
-#: monitor.php:82
+#: monitor.php
 msgid "Not Up"
 msgstr "ჩართული არაა"
 
-#: monitor.php:83
+#: monitor.php
 msgid "Not Up or Triggered"
 msgstr ""
 
-#: monitor.php:84
+#: monitor.php
 msgid "Not Up, Triggered or Breached"
 msgstr ""
 
-#: monitor.php:85 monitor_controller.php:268
+#: monitor.php monitor_controller.php
 msgid "Devices without Thresholds"
 msgstr ""
 
-#: monitor.php:86
+#: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "მოწყობილობის მონიტორინგის პარამეტრები"
 
-#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:801 setup.php:813
+#: monitor.php setup.php
 msgid "Default"
 msgstr "ნაგულისხმევი"
 
-#: monitor.php:91 setup.php:814
+#: monitor.php setup.php
 msgid "List"
 msgstr "სია"
 
-#: monitor.php:92 setup.php:815
+#: monitor.php setup.php
 msgid "Names only"
 msgstr ""
 
-#: monitor.php:93 setup.php:816
+#: monitor.php setup.php
 msgid "Tiles"
 msgstr "მოზაიკა"
 
-#: monitor.php:94
+#: monitor.php
 msgid "Tiles & Time"
 msgstr "ფილები და დრო"
 
-#: monitor.php:99 monitor_controller.php:490 setup.php:803
+#: monitor.php monitor_controller.php setup.php
 msgid "Tree"
 msgstr "ხე"
 
-#: monitor.php:100 monitor_render.php:909
+#: monitor.php monitor_render.php
 msgid "Site"
 msgstr "საიტი"
 
-#: monitor.php:101 setup.php:804
+#: monitor.php setup.php
 msgid "Device Template"
 msgstr "მოწყობილობის შაბლონი"
 
-#: monitor.php:106
+#: monitor.php
 msgid "Full"
 msgstr "მთლიანი"
 
-#: monitor.php:107
+#: monitor.php
 msgid "10 Chars"
 msgstr "10 სიმბოლო"
 
-#: monitor.php:108
+#: monitor.php
 msgid "20 Chars"
 msgstr "20 სიმბოლო"
 
-#: monitor.php:109
+#: monitor.php
 msgid "30 Chars"
 msgstr "30 სიმბოლო"
 
-#: monitor.php:110
+#: monitor.php
 msgid "40 Chars"
 msgstr "40 სიმბოლო"
 
-#: monitor.php:111
+#: monitor.php
 msgid "50 Chars"
 msgstr "50 სიმბოლო"
 
-#: monitor.php:112
+#: monitor.php
 msgid "75 Chars"
 msgstr "75 სიმბ"
 
-#: monitor.php:113
+#: monitor.php
 msgid "100 Chars"
 msgstr "100 სიმბოლო"
 
-#: monitor_controller.php:90
+#: monitor_controller.php
 msgid "New Dashboard"
 msgstr "ახალი სამუშაო დაფა"
 
-#: monitor_controller.php:93
+#: monitor_controller.php
 msgid "Dashboard"
 msgstr "სამუშაო დაფა"
 
-#: monitor_controller.php:93
+#: monitor_controller.php
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
 msgstr ""
 
-#: monitor_controller.php:95
+#: monitor_controller.php
 msgid "Create New Dashboard"
 msgstr "ახალი სამუშაო დაფის შექმნა"
 
-#: monitor_controller.php:111 monitor_render.php:965
+#: monitor_controller.php monitor_render.php
 msgid "Monitored Devices"
 msgstr "მოწყობილობები მონიტორინგის ქვეშ"
 
-#: monitor_controller.php:272
+#: monitor_controller.php
 #, fuzzy
 msgid "Not Monitored Devices"
 msgstr "მოწყობილობები მონიტორინგის ქვეშ"
 
-#: monitor_controller.php:284
+#: monitor_controller.php
 msgid "Monitored Devices either Down or Recovering"
 msgstr ""
 
-#: monitor_controller.php:288
+#: monitor_controller.php
 msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
 msgstr ""
 
-#: monitor_controller.php:292
+#: monitor_controller.php
 msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
 msgstr ""
 
-#: monitor_controller.php:296
+#: monitor_controller.php
 #, php-format
 msgid "Unknown monitoring status (%s)"
 msgstr ""
 
-#: monitor_controller.php:301
+#: monitor_controller.php
 msgid ", and All Criticalities"
 msgstr ""
 
-#: monitor_controller.php:305
+#: monitor_controller.php
 msgid ", and of Low Criticality or Higher"
 msgstr ""
 
-#: monitor_controller.php:309
+#: monitor_controller.php
 msgid ", and of Medium Criticality or Higher"
 msgstr ""
 
-#: monitor_controller.php:313
+#: monitor_controller.php
 msgid ", and of High Criticality or Higher"
 msgstr ""
 
-#: monitor_controller.php:317
+#: monitor_controller.php
 msgid ", and of Mission Critical Status"
 msgstr ""
 
-#: monitor_controller.php:322
+#: monitor_controller.php
 msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
 msgstr ""
 
-#: monitor_controller.php:368
+#: monitor_controller.php
 msgid "Unsaved"
 msgstr "შეუნახავი"
 
-#: monitor_controller.php:433
+#: monitor_controller.php
 msgid "Layout"
 msgstr "განლაგება"
 
-#: monitor_controller.php:434 monitor_render.php:919
+#: monitor_controller.php monitor_render.php
 msgid "Status"
 msgstr "სტატუსი"
 
-#: monitor_controller.php:435 setup.php:808
+#: monitor_controller.php setup.php
 msgid "View"
 msgstr "ხედი"
 
-#: monitor_controller.php:436 setup.php:796
+#: monitor_controller.php setup.php
 msgid "Grouping"
 msgstr "დაჯგუფება"
 
-#: monitor_controller.php:437 monitor_render.php:963 monitor_render.php:1043
+#: monitor_controller.php monitor_render.php
 msgid "Devices"
 msgstr "მოწყობილობები"
 
-#: monitor_controller.php:440 monitor_controller.php:539
+#: monitor_controller.php
 msgid "Refresh"
 msgstr "განახლება"
 
-#: monitor_controller.php:440
+#: monitor_controller.php
 msgid "Refresh the Device List"
 msgstr ""
 
-#: monitor_controller.php:441
+#: monitor_controller.php
 msgid "Clear"
 msgstr "გასუფთავება"
 
-#: monitor_controller.php:441
+#: monitor_controller.php
 msgid "Clear the set filter"
 msgstr ""
 
-#: monitor_controller.php:442 monitor_controller.php:617
+#: monitor_controller.php
 msgid "Save"
 msgstr "შენახვა"
 
-#: monitor_controller.php:442
+#: monitor_controller.php
 msgid "Save Filter Settings"
 msgstr "ფილტრის პარამეტრების შენახვა"
 
-#: monitor_controller.php:443
+#: monitor_controller.php
 msgid "New"
 msgstr "ახალი"
 
-#: monitor_controller.php:443
+#: monitor_controller.php
 msgid "Save New Dashboard"
 msgstr ""
 
-#: monitor_controller.php:446
+#: monitor_controller.php
 msgid "Rename"
 msgstr "სახელის გადარქმევა"
 
-#: monitor_controller.php:446
+#: monitor_controller.php
 msgid "Rename Dashboard"
 msgstr "სამუშაო დაფის სახელის გადარქმევა"
 
-#: monitor_controller.php:447
+#: monitor_controller.php
 msgid "Delete"
 msgstr "წაშლა"
 
-#: monitor_controller.php:447
+#: monitor_controller.php
 msgid "Delete Dashboard"
 msgstr "სამუშაო დაფის წაშლა"
 
-#: monitor_controller.php:450
+#: monitor_controller.php
 #, php-format
 msgid "%s Alert for downed Devices"
 msgstr ""
 
-#: monitor_controller.php:450
+#: monitor_controller.php
 #, php-format
 msgid "%s Alerts for downed Devices"
 msgstr ""
 
-#: monitor_controller.php:467 monitor_render.php:914 poller_functions.php:544
-#: poller_functions.php:551 setup.php:108 setup.php:161
+#: monitor_controller.php monitor_render.php poller_functions.php setup.php
 msgid "Criticality"
 msgstr "კრიტიკულობა"
 
-#: monitor_controller.php:470
+#: monitor_controller.php
 msgid "Size"
 msgstr "ზომა"
 
-#: monitor_controller.php:474
+#: monitor_controller.php
 msgid "Trim"
 msgstr "წაკვეთა"
 
-#: monitor_controller.php:484
+#: monitor_controller.php
 msgid "All Trees"
 msgstr "ყველა ხე"
 
-#: monitor_controller.php:485 monitor_render.php:571
+#: monitor_controller.php monitor_render.php
 msgid "Non-Tree Devices"
 msgstr "მოწყობილობები ხის გარეშე"
 
-#: monitor_controller.php:506
+#: monitor_controller.php
 msgid "All Sites"
 msgstr "ყველა საიტი"
 
-#: monitor_controller.php:507 monitor_render.php:154
+#: monitor_controller.php monitor_render.php
 msgid "Non-Site Devices"
 msgstr "არასაიტის მოწყობილობები"
 
-#: monitor_controller.php:512
+#: monitor_controller.php
 msgid "Sites"
 msgstr "საიტები"
 
-#: monitor_controller.php:531
+#: monitor_controller.php
 msgid "All Templates"
 msgstr "ყველა შაბლონი"
 
-#: monitor_controller.php:532
+#: monitor_controller.php
 msgid "Non-Templated Devices"
 msgstr "არადაშაბლონებული მოწყობილობები"
 
-#: monitor_controller.php:536
+#: monitor_controller.php
 msgid "Template"
 msgstr "ნიმუში"
 
-#: monitor_controller.php:615
+#: monitor_controller.php
 msgid " [ Filter Settings Saved ]"
 msgstr ""
 
-#: monitor_controller.php:616
+#: monitor_controller.php
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: monitor_controller.php:638
+#: monitor_controller.php
 #, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr ""
 
-#: monitor_controller.php:638
+#: monitor_controller.php
 #, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
 msgstr ""
 
-#: monitor_controller.php:638
+#: monitor_controller.php
 msgid "[ Showing only first 30 Devices ]"
 msgstr ""
 
-#: monitor_controller.php:662
+#: monitor_controller.php
 msgid "Search"
 msgstr "ძებნა"
 
-#: monitor_controller.php:684
+#: monitor_controller.php
 msgid "Mute"
 msgstr "დადუმება"
 
-#: monitor_controller.php:686
+#: monitor_controller.php
 msgid "Acknowledge"
 msgstr "დამოწმება"
 
-#: monitor_controller.php:697
+#: monitor_controller.php
 msgid "Un-Mute"
 msgstr "დადუმების გაუქმება"
 
-#: monitor_controller.php:699
+#: monitor_controller.php
 msgid "Reset"
 msgstr "ჩამოყრა"
 
-#: monitor_controller.php:726
+#: monitor_controller.php
 #, php-format
 msgid "Dashboard '%s' Removed."
 msgstr "სამუშაო მაგიდა '%s' წაიშალა."
 
-#: monitor_controller.php:735
+#: monitor_controller.php
 #, php-format
 msgid "Dashboard '%s' is not owned by you."
 msgstr ""
 
-#: monitor_controller.php:849
+#: monitor_controller.php
 #, php-format
 msgid "Dashboard '%s' has been Saved!"
 msgstr ""
 
-#: monitor_controller.php:852
+#: monitor_controller.php
 #, php-format
 msgid "Dashboard '%s' could not be Saved!"
 msgstr ""
 
-#: monitor_controller.php:1020
+#: monitor_controller.php
 msgid "Edit Device"
 msgstr "მოწყობილობის ჩასწორება"
 
-#: monitor_controller.php:1032
+#: monitor_controller.php
 msgid "View Graphs"
 msgstr "გრაფიკების ნახვა"
 
-#: monitor_controller.php:1045
+#: monitor_controller.php
 msgid "View Thresholds/Alerts"
 msgstr "ზღვრების/განგაშების ნახვა"
 
-#: monitor_controller.php:1069
+#: monitor_controller.php
 msgid "View Device Syslog Alerts"
 msgstr ""
 
-#: monitor_controller.php:1074
+#: monitor_controller.php
 msgid "View Device Syslog Entries"
 msgstr ""
 
-#: monitor_controller.php:1097
+#: monitor_controller.php
 msgid "Device Status Information"
 msgstr ""
 
-#: monitor_controller.php:1100
+#: monitor_controller.php
 msgid "Device:"
 msgstr "მოწყობილობა:"
 
-#: monitor_controller.php:1103
+#: monitor_controller.php
 msgid "Site:"
 msgstr "საიტი:"
 
-#: monitor_controller.php:1107 monitor_controller.php:1155
+#: monitor_controller.php
 msgid "Location:"
 msgstr "მდებარეობა:"
 
-#: monitor_controller.php:1111
+#: monitor_controller.php
 msgid "Criticality:"
 msgstr "კრიტიკულობა:"
 
-#: monitor_controller.php:1115
+#: monitor_controller.php
 msgid "Status:"
 msgstr "სტატუსი:"
 
-#: monitor_controller.php:1119
+#: monitor_controller.php
 msgid "Admin Note:"
 msgstr "ადმინისტრატორის შენიშვნა:"
 
-#: monitor_controller.php:1123
+#: monitor_controller.php
 msgid "IP/Hostname:"
 msgstr "IP/ჰოსტის სახელი:"
 
-#: monitor_controller.php:1127
+#: monitor_controller.php
 msgid "Curr/Avg:"
 msgstr "მიმდ/საშ:"
 
-#: monitor_controller.php:1128 monitor_render.php:1086
+#: monitor_controller.php monitor_render.php
 #, php-format
 msgid "%d ms"
 msgstr "%d მწმ"
 
-#: monitor_controller.php:1131
+#: monitor_controller.php
 msgid "Warn/Alert:"
 msgstr "გაფრთხილება/განგაში:"
 
-#: monitor_controller.php:1132 monitor_render.php:1092
+#: monitor_controller.php monitor_render.php
 #, php-format
 msgid "%0.2d ms"
 msgstr "%0.2d მწმ"
 
-#: monitor_controller.php:1135
+#: monitor_controller.php
 msgid "Last Fail:"
 msgstr "ბოლო ჩავარდნა:"
 
-#: monitor_controller.php:1139
+#: monitor_controller.php
 msgid "Time In State:"
 msgstr "დრო მდგომარეობაში:"
 
-#: monitor_controller.php:1143
+#: monitor_controller.php
 msgid "Availability:"
 msgstr "ხელმისაწვდომობა:"
 
-#: monitor_controller.php:1147
+#: monitor_controller.php
 msgid "Agent Uptime:"
 msgstr "აგენტის ჩართულობის დრო:"
 
-#: monitor_controller.php:1148 monitor_render.php:1088
+#: monitor_controller.php monitor_render.php
 msgid "N/A"
 msgstr "N/A"
 
-#: monitor_controller.php:1151
+#: monitor_controller.php
 msgid "Sys Description:"
 msgstr "სის აღწერა:"
 
-#: monitor_controller.php:1159
+#: monitor_controller.php
 msgid "Contact:"
 msgstr "კონტაქტი:"
 
-#: monitor_controller.php:1163
+#: monitor_controller.php
 msgid "Notes:"
 msgstr "შენიშვნები:"
 
-#: monitor_controller.php:1198 monitor_render.php:1070 monitor_render.php:1098
+#: monitor_controller.php monitor_render.php
 msgid "Never"
 msgstr "არასდროს"
 
-#: monitor_controller.php:1202
+#: monitor_controller.php
 msgid "Unspecified"
 msgstr "მითითებული არაა"
 
-#: monitor_controller.php:1210 setup.php:100 setup.php:153 setup.php:929
+#: monitor_controller.php setup.php
 msgid "None"
 msgstr "არცერთი"
 
-#: monitor_render.php:61 monitor_render.php:474
+#: monitor_render.php
 msgid "Non-Site Device"
 msgstr "არა-საიტის მოწყობილობები"
 
-#: monitor_render.php:435
+#: monitor_render.php
 msgid "Root Branch"
 msgstr "ძირითადი ბრენჩი"
 
-#: monitor_render.php:503
+#: monitor_render.php
 #, php-format
 msgid "Tree: %s"
 msgstr "ხე: %s"
 
-#: monitor_render.php:522
+#: monitor_render.php
 #, php-format
 msgid "Branch: %s"
 msgstr "ბრენჩი: %s"
 
-#: monitor_render.php:830
+#: monitor_render.php
 msgid "Just Up"
 msgstr "უბრალოდ მაღლა"
 
-#: monitor_render.php:894 poller_functions.php:301 poller_functions.php:543
-#: poller_functions.php:550
+#: monitor_render.php poller_functions.php
 msgid "Hostname"
 msgstr "ჰოსტის სახელი"
 
-#: monitor_render.php:896
+#: monitor_render.php
 msgid "Hostname of device"
 msgstr "მოწყობილობის ჰოსტის სახელი"
 
-#: monitor_render.php:899
+#: monitor_render.php
 msgid "ID"
 msgstr "ID"
 
-#: monitor_render.php:904 poller_functions.php:300
+#: monitor_render.php poller_functions.php
 msgid "Description"
 msgstr "აღწერა"
 
-#: monitor_render.php:924
+#: monitor_render.php
 msgid "Length in Status"
 msgstr ""
 
-#: monitor_render.php:929
+#: monitor_render.php
 msgid "Averages"
 msgstr "საშუალოები"
 
-#: monitor_render.php:934
+#: monitor_render.php
 msgid "Warning"
 msgstr "გაფრთხილება"
 
-#: monitor_render.php:939
+#: monitor_render.php
 msgid "Admin"
 msgstr "ადმინი"
 
-#: monitor_render.php:941
+#: monitor_render.php
 msgid "Monitor Text Column represents 'Admin'"
 msgstr ""
 
-#: monitor_render.php:945
+#: monitor_render.php
 msgid "Notes"
 msgstr "შენიშვნები"
 
-#: monitor_render.php:950
+#: monitor_render.php
 msgid "Availability"
 msgstr "წვდომადობა"
 
-#: monitor_render.php:955
+#: monitor_render.php
 msgid "Last Fail"
 msgstr "ბოლო ჩავარდნა"
 
-#: poller_functions.php:323
+#: poller_functions.php
 msgid "Description: "
 msgstr "აღწერა: "
 
-#: poller_functions.php:324
+#: poller_functions.php
 msgid "Hostname: "
 msgstr "ჰოსტის სახელი: "
 
-#: poller_functions.php:499
+#: poller_functions.php
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
 msgstr ""
 
-#: poller_functions.php:505
+#: poller_functions.php
 msgid "Cacti Monitoring Site"
 msgstr "Cacti-ის მონიტორინგის საიტი"
 
-#: poller_functions.php:508 poller_functions.php:509
+#: poller_functions.php
 #, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
 msgstr ""
 
-#: poller_functions.php:511 poller_functions.php:512
+#: poller_functions.php
 msgid "You will receive notifications every time the Device is above its threshold."
 msgstr ""
 
-#: setup.php:99 setup.php:152
+#: setup.php
 msgid "Any"
 msgstr "ნებისმიერი"
 
-#: setup.php:523
+#: setup.php
 #, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr ""
 
-#: setup.php:530
+#: setup.php
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
 msgstr ""
 
-#: setup.php:554
+#: setup.php
 msgid "Update this Field"
 msgstr "ამ ველის განახლება"
 
-#: setup.php:584
+#: setup.php
 msgid "Change Monitoring Options"
 msgstr ""
 
-#: setup.php:585
+#: setup.php
 msgid "Enable Monitoring"
 msgstr "მონიტორინგის ჩართვა"
 
-#: setup.php:586
+#: setup.php
 msgid "Disable Monitoring"
 msgstr "მონიტორინგის გამორთვა"
 
-#: setup.php:679
+#: setup.php
 msgid "Indefinitely"
 msgstr "განუსაზღვრელად"
 
-#: setup.php:680
+#: setup.php
 #, php-format
 msgid "%d Month"
 msgstr "%d თვე"
 
-#: setup.php:681 setup.php:682 setup.php:683 setup.php:684
+#: setup.php
 #, php-format
 msgid "%d Months"
 msgstr "%d თვე"
 
-#: setup.php:685
+#: setup.php
 #, php-format
 msgid "%d Year"
 msgstr "%d წელი"
 
-#: setup.php:698
+#: setup.php
 msgid "Normal User"
 msgstr "ნორმალური მომხმარებელი"
 
-#: setup.php:701 setup.php:755
+#: setup.php
 msgid "Monitor Settings"
 msgstr "მონიტორის მორგება"
 
-#: setup.php:706 setup.php:772
+#: setup.php
 msgid "Alarm Sound"
 msgstr "განგაშის ხმა"
 
-#: setup.php:707 setup.php:773
+#: setup.php
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr ""
 
-#: setup.php:713 setup.php:779
+#: setup.php
 msgid "Loop Alarm Sound"
 msgstr "განგაშის ხმის გამეორება"
 
-#: setup.php:714 setup.php:780
+#: setup.php
 msgid "Play the above sound on a loop when a Device goes down."
 msgstr ""
 
-#: setup.php:718 setup.php:791
+#: setup.php
 msgid "Show Icon Legend"
 msgstr "ხატულების ახსნის ჩვენება"
 
-#: setup.php:719 setup.php:792
+#: setup.php
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr ""
 
-#: setup.php:723
+#: setup.php
 msgid "Show Uptime"
 msgstr "ჩართულობის დროის ჩვენება"
 
-#: setup.php:724
+#: setup.php
 msgid "Check this to show Uptime on the Monitor display"
 msgstr ""
 
-#: setup.php:728
+#: setup.php
 msgid "Zoom to Errors"
 msgstr "გადიდება შეცდომებზე"
 
-#: setup.php:729 setup.php:739
+#: setup.php
 msgid "Check this to zoom to errored items on the Monitor display"
 msgstr ""
 
-#: setup.php:733
+#: setup.php
 msgid "Zoom Background"
 msgstr "ფონის გადიდება"
 
-#: setup.php:734
+#: setup.php
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr ""
 
-#: setup.php:738
+#: setup.php
 msgid "Zoom Fontsize"
 msgstr "ფონტის ზომის გადიდება"
 
-#: setup.php:751 setup.php:1089 setup.php:1091
+#: setup.php
 msgid "Monitor"
 msgstr "მონიტორი"
 
-#: setup.php:760
+#: setup.php
 msgid "Enable on new devices"
 msgstr ""
 
-#: setup.php:761
+#: setup.php
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr ""
 
-#: setup.php:765
+#: setup.php
 msgid "Notification/Reboot Log Retention"
 msgstr "გაფრთხილების/გადატვირთვის ჟურნალის შენარჩუნება"
 
-#: setup.php:766
+#: setup.php
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr ""
 
-#: setup.php:784
+#: setup.php
 msgid "Refresh Interval"
 msgstr "განახლების შუალედი"
 
-#: setup.php:785
+#: setup.php
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
 msgstr ""
 
-#: setup.php:797
+#: setup.php
 msgid "This is how monitor will Group Devices."
 msgstr ""
 
-#: setup.php:802
+#: setup.php
 msgid "Default with permissions"
 msgstr ""
 
-#: setup.php:809
+#: setup.php
 msgid "This is how monitor will render Devices."
 msgstr ""
 
-#: setup.php:817
+#: setup.php
 msgid "Tiles & Downtime"
 msgstr "ფილები და გათიშვის დრო"
 
-#: setup.php:821
+#: setup.php
 msgid "Notification Report Format"
 msgstr "გაფრთხილების ანგარიშის ფორმატი"
 
-#: setup.php:826
+#: setup.php
 msgid "Format File to Use"
 msgstr ""
 
-#: setup.php:829
+#: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr ""
 
-#: setup.php:833
+#: setup.php
 msgid "Ping Threshold Notifications"
 msgstr "პინგის ზღვრის გაფრთხილებები"
 
-#: setup.php:838
+#: setup.php
 msgid "Warning Latency Notification"
 msgstr "გაფრთხილების დაყოვნების შეტყობინება"
 
-#: setup.php:839
+#: setup.php
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr ""
 
-#: setup.php:845
+#: setup.php
 msgid "Alert Latency Notification"
 msgstr "განგაშის დაყოვნების შეტყობინება"
 
-#: setup.php:846
+#: setup.php
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr ""
 
-#: setup.php:852
+#: setup.php
 msgid "How Often to Resend Emails"
 msgstr ""
 
-#: setup.php:853
+#: setup.php
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr ""
 
-#: setup.php:857
+#: setup.php
 msgid "Every Occurrence"
 msgstr "ყოველი მოხდენა"
 
-#: setup.php:858 setup.php:859
+#: setup.php
 #, php-format
 msgid "Every %d Minutes"
 msgstr "ყოველ %d წუთში"
 
-#: setup.php:860
+#: setup.php
 msgid "Every Hour"
 msgstr "ყოველ საათში"
 
-#: setup.php:861 setup.php:862
+#: setup.php
 #, php-format
 msgid "Every %d Hours"
 msgstr "ყოველ %d საათში"
 
-#: setup.php:866
+#: setup.php
 msgid "Reboot Notifications"
 msgstr "გადატვირთვის გაფრთხილებები"
 
-#: setup.php:871
+#: setup.php
 msgid "Send Reboot Notifications"
 msgstr "გადატვირთვის გაფრთხილებების გაგზავნა"
 
-#: setup.php:873
+#: setup.php
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr ""
 
-#: setup.php:877
+#: setup.php
 #, fuzzy
 msgid "Send one Email to all addresses"
 msgstr "ელფოსტის მისამართები"
 
-#: setup.php:878
+#: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
 msgstr ""
 
-#: setup.php:883
+#: setup.php
 msgid "Include Threshold Alert Lists"
 msgstr ""
 
-#: setup.php:885
+#: setup.php
 msgid "Should Threshold Alert Lists also receive Notification"
 msgstr ""
 
-#: setup.php:889
+#: setup.php
 msgid "Subject"
 msgstr "თემა"
 
-#: setup.php:890
+#: setup.php
 msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr ""
 
-#: setup.php:892
+#: setup.php
 msgid "Cacti Device Reboot Notification"
 msgstr ""
 
-#: setup.php:897
+#: setup.php
 msgid "Email Body"
 msgstr "ელფოსტის სხეული"
 
-#: setup.php:898
+#: setup.php
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr ""
 
-#: setup.php:902
+#: setup.php
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr ""
 
-#: setup.php:905
+#: setup.php
 msgid "Notification Email Addresses"
 msgstr "გაფრთხილების ელფოსტის მისამართები"
 
-#: setup.php:910
+#: setup.php
 msgid "From Name"
 msgstr "რა სახელისგან"
 
-#: setup.php:911
+#: setup.php
 msgid "Enter the Email Name to send the notifications from"
 msgstr ""
 
-#: setup.php:917
+#: setup.php
 msgid "From Address"
 msgstr "მისამართიდან"
 
-#: setup.php:918
+#: setup.php
 msgid "Enter the Email Address to send the notification from"
 msgstr ""
 
-#: setup.php:924
+#: setup.php
 msgid "Notification List"
 msgstr "გაფრთხილებების სია"
 
-#: setup.php:925
+#: setup.php
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr ""
 
-#: setup.php:932
+#: setup.php
 msgid "Email Addresses"
 msgstr "ელფოსტის მისამართები"
 
-#: setup.php:933
+#: setup.php
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr ""
 
-#: setup.php:966
+#: setup.php
 msgid "Server"
 msgstr ""
 
-#: setup.php:971
+#: setup.php
 msgid "Printer"
 msgstr ""
 
-#: setup.php:976
+#: setup.php
 msgid "Desktop PC"
 msgstr ""
 
-#: setup.php:981
+#: setup.php
 msgid "Laptop/notebook"
 msgstr ""
 
-#: setup.php:986
+#: setup.php
 msgid "Wifi"
 msgstr ""
 
-#: setup.php:991
+#: setup.php
 msgid "Wired network"
 msgstr ""
 
-#: setup.php:996
+#: setup.php
 msgid "Database"
 msgstr ""
 
-#: setup.php:1001
+#: setup.php
 msgid "Clock"
 msgstr ""
 
-#: setup.php:1006
+#: setup.php
 msgid "Asterisk"
 msgstr ""
 
-#: setup.php:1011
+#: setup.php
 msgid "Harddisk"
 msgstr ""
 
-#: setup.php:1016
+#: setup.php
 msgid "Boxes"
 msgstr ""
 
-#: setup.php:1021
+#: setup.php
 msgid "Phone"
 msgstr ""
 
-#: setup.php:1026
+#: setup.php
 msgid "Cloud"
 msgstr ""
 
-#: setup.php:1123
+#: setup.php
 msgid "Do not Change"
 msgstr "არ შეცვალო"
 
-#: setup.php:1124 setup.php:1125 setup.php:1126 setup.php:1127 setup.php:1128
-#: setup.php:1129 setup.php:1130 setup.php:1131 setup.php:1132 setup.php:1133
-#: setup.php:1134 setup.php:1135 setup.php:1136 setup.php:1137 setup.php:1138
-#: setup.php:1139
+#: setup.php
 #, php-format
 msgid "%d Percent Above Average"
 msgstr ""
 
-#: setup.php:1156
+#: setup.php
 msgid "Device Monitoring Settings"
 msgstr "მოწყობილობის მონიტორინგის პარამეტრები"
 
-#: setup.php:1163
+#: setup.php
 msgid "Monitor Device"
 msgstr "მოწყობილობის მონიტორი"
 
-#: setup.php:1164
+#: setup.php
 msgid "Check this box to monitor this Device on the Monitor Tab."
 msgstr ""
 
-#: setup.php:1176
+#: setup.php
 msgid "Device Criticality"
 msgstr "მოწყობილობის კრიტიკულობა"
 
-#: setup.php:1177
+#: setup.php
 msgid "What is the Criticality of this Device."
 msgstr ""
 
-#: setup.php:1185
+#: setup.php
 msgid "Ping Warning Threshold"
 msgstr ""
 
-#: setup.php:1186
+#: setup.php
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr ""
 
-#: setup.php:1190 setup.php:1201
+#: setup.php
 msgid "milliseconds"
 msgstr "მილიწამი"
 
-#: setup.php:1196
+#: setup.php
 msgid "Ping Alert Threshold"
 msgstr "პინგის განგაშის ზღვარი"
 
-#: setup.php:1197
+#: setup.php
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr ""
 
-#: setup.php:1207
+#: setup.php
 msgid "Re-Baseline Warning"
 msgstr "გაფრთხილების თავიდან გასწორება საბაზისო ხაზზე"
 
-#: setup.php:1208
+#: setup.php
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
 msgstr ""
 
-#: setup.php:1216
+#: setup.php
 msgid "Re-Baseline Alert"
 msgstr "საბაზისო ხაზის განგაში თავიდან"
 
-#: setup.php:1217
+#: setup.php
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
 msgstr ""
 
-#: setup.php:1225
+#: setup.php
 msgid "Down Device Message"
 msgstr ""
 
-#: setup.php:1226
+#: setup.php
 msgid "This is the message that will be displayed when this Device is reported as down."
 msgstr ""
 
-#: setup.php:1242
+#: setup.php
 msgid "Device icon"
 msgstr "მოწყობილობის ხატულა"
 
-#: setup.php:1243
+#: setup.php
 msgid "You can select device icon."
 msgstr ""
 
-#: setup.php:1371
+#: setup.php
 msgid "Monitoring"
 msgstr "მონიტორინგი"
 
