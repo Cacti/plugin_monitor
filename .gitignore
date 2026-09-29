@@ -23,3 +23,4 @@ locales/po/*.mo
 locales/LC_MESSAGES/*.mo
 vendor/
 .omc/
+locales/po/*.po
