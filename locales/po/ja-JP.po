@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-27 11:34-0400\n"
+"POT-Creation-Date: 2026-09-28 16:06-0400\n"
 "PO-Revision-Date: 2024-11-22 02:12+0000\n"
 "Last-Translator: Nakayama Kito <nakayamakito@icloud.com>\n"
 "Language-Team: Japanese <http://translate.cacti.net/projects/cacti/monitor/ja/>\n"
@@ -13,1229 +13,1220 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.8.1\n"
 
-#: monitor.php:37 poller_functions.php:620 setup.php:671
+#: monitor.php poller_functions.php setup.php
 msgid "Disabled"
 msgstr "無効"
 
-#: monitor.php:38 poller_functions.php:621 setup.php:101 setup.php:154
-#: setup.php:672
+#: monitor.php poller_functions.php setup.php
 msgid "Low"
 msgstr "低い"
 
-#: monitor.php:39 monitor.php:73 poller_functions.php:622 setup.php:102
-#: setup.php:155 setup.php:673
+#: monitor.php poller_functions.php setup.php
 msgid "Medium"
 msgstr "中"
 
-#: monitor.php:40 poller_functions.php:623 setup.php:103 setup.php:156
-#: setup.php:674
+#: monitor.php poller_functions.php setup.php
 msgid "High"
 msgstr "高い"
 
-#: monitor.php:41 poller_functions.php:624 setup.php:104 setup.php:157
-#: setup.php:675
+#: monitor.php poller_functions.php setup.php
 #, fuzzy
 msgid "Mission Critical"
 msgstr "ミッションクリティカル"
 
-#: monitor.php:58 monitor_render.php:703
+#: monitor.php monitor_render.php
 msgid "Unknown"
 msgstr "不明"
 
-#: monitor.php:59
+#: monitor.php
 msgid "Down"
 msgstr "下"
 
-#: monitor.php:60
+#: monitor.php
 msgid "Recovering"
 msgstr "復元中"
 
-#: monitor.php:61
+#: monitor.php
 msgid "Up"
 msgstr "上"
 
-#: monitor.php:62
+#: monitor.php
 msgid "Triggered"
 msgstr "トリガーされた"
 
-#: monitor.php:63
+#: monitor.php
 #, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "ダウン（ミュート/アック）"
 
-#: monitor.php:64
+#: monitor.php
 #, fuzzy
 msgid "Down (Muted/Acked)"
 msgstr "ダウン（ミュート/アック）"
 
-#: monitor.php:65
+#: monitor.php
 #, fuzzy
 msgid "No Availability Check"
 msgstr "空室状況チェックなし"
 
-#: monitor.php:66
+#: monitor.php
 #, fuzzy
 msgid "Warning Ping"
 msgstr "警告ping"
 
-#: monitor.php:67
+#: monitor.php
 #, fuzzy
 msgid "Alert Ping"
 msgstr "アラートping"
 
-#: monitor.php:71
+#: monitor.php
 msgid "Extra Small"
 msgstr "特小"
 
-#: monitor.php:72
+#: monitor.php
 msgid "Small"
 msgstr "小"
 
-#: monitor.php:74
+#: monitor.php
 msgid "Large"
 msgstr "大"
 
-#: monitor.php:75
+#: monitor.php
 msgid "Extra Large"
 msgstr "Extra Large"
 
-#: monitor.php:76
+#: monitor.php
 msgid "Zoom"
 msgstr "ズーム"
 
-#: monitor.php:80 monitor_controller.php:276
+#: monitor.php monitor_controller.php
 #, fuzzy
 msgid "All Devices"
 msgstr "デバイス"
 
-#: monitor.php:81 monitor_controller.php:280
+#: monitor.php monitor_controller.php
 #, fuzzy
 msgid "All Monitored Devices"
 msgstr "すべての監視対象デバイス"
 
-#: monitor.php:82
+#: monitor.php
 #, fuzzy
 msgid "Not Up"
 msgstr "上"
 
-#: monitor.php:83
+#: monitor.php
 #, fuzzy
 msgid "Not Up or Triggered"
 msgstr "起動していないまたはトリガーされた"
 
-#: monitor.php:84
+#: monitor.php
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "起動していない、トリガーされている、または違反している"
 
-#: monitor.php:85 monitor_controller.php:268
+#: monitor.php monitor_controller.php
 msgid "Devices without Thresholds"
 msgstr ""
 
-#: monitor.php:86
+#: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "デバイス監視設定"
 
-#: monitor.php:90 monitor.php:98 monitor.php:105 setup.php:801 setup.php:813
+#: monitor.php setup.php
 msgid "Default"
 msgstr "デフォルト"
 
-#: monitor.php:91 setup.php:814
+#: monitor.php setup.php
 msgid "List"
 msgstr "リスト"
 
-#: monitor.php:92 setup.php:815
+#: monitor.php setup.php
 msgid "Names only"
 msgstr ""
 
-#: monitor.php:93 setup.php:816
+#: monitor.php setup.php
 msgid "Tiles"
 msgstr "タイル"
 
-#: monitor.php:94
+#: monitor.php
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "タイルと時間"
 
-#: monitor.php:99 monitor_controller.php:490 setup.php:803
+#: monitor.php monitor_controller.php setup.php
 msgid "Tree"
 msgstr "ツリー"
 
-#: monitor.php:100 monitor_render.php:909
+#: monitor.php monitor_render.php
 msgid "Site"
 msgstr "サイト"
 
-#: monitor.php:101 setup.php:804
+#: monitor.php setup.php
 msgid "Device Template"
 msgstr "デバイステンプレート"
 
-#: monitor.php:106
+#: monitor.php
 msgid "Full"
 msgstr "フル"
 
-#: monitor.php:107
+#: monitor.php
 #, fuzzy
 msgid "10 Chars"
 msgstr "10文字"
 
-#: monitor.php:108
+#: monitor.php
 #, fuzzy
 msgid "20 Chars"
 msgstr "20文字"
 
-#: monitor.php:109
+#: monitor.php
 #, fuzzy
 msgid "30 Chars"
 msgstr "30文字"
 
-#: monitor.php:110
+#: monitor.php
 #, fuzzy
 msgid "40 Chars"
 msgstr "40文字"
 
-#: monitor.php:111
+#: monitor.php
 #, fuzzy
 msgid "50 Chars"
 msgstr "50文字"
 
-#: monitor.php:112
+#: monitor.php
 #, fuzzy
 msgid "75 Chars"
 msgstr "75文字"
 
-#: monitor.php:113
+#: monitor.php
 #, fuzzy
 msgid "100 Chars"
 msgstr "100文字"
 
-#: monitor_controller.php:90
+#: monitor_controller.php
 #, fuzzy
 msgid "New Dashboard"
 msgstr "新しいダッシュボード"
 
-#: monitor_controller.php:93
+#: monitor_controller.php
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: monitor_controller.php:93
+#: monitor_controller.php
 #, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
 msgstr "ダッシュボード名を入力し、「保存」を押して続行します。それ以外の場合は「キャンセル」を押します。"
 
-#: monitor_controller.php:95
+#: monitor_controller.php
 #, fuzzy
 msgid "Create New Dashboard"
 msgstr "新しいダッシュボードを作成する"
 
-#: monitor_controller.php:111 monitor_render.php:965
+#: monitor_controller.php monitor_render.php
 #, fuzzy
 msgid "Monitored Devices"
 msgstr "監視対象デバイス"
 
-#: monitor_controller.php:272
+#: monitor_controller.php
 #, fuzzy
 msgid "Not Monitored Devices"
 msgstr "監視対象デバイス"
 
-#: monitor_controller.php:284
+#: monitor_controller.php
 #, fuzzy
 msgid "Monitored Devices either Down or Recovering"
 msgstr "監視対象デバイスが停止中または回復中"
 
-#: monitor_controller.php:288
+#: monitor_controller.php
 #, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
 msgstr "監視対象デバイスがダウン、回復中、またはトリガーされたしきい値を使用"
 
-#: monitor_controller.php:292
+#: monitor_controller.php
 #, fuzzy
 msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
 msgstr "監視対象デバイスがダウン、回復中、またはしきい値が違反またはトリガーされた"
 
-#: monitor_controller.php:296
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "Unknown monitoring status (%s)"
 msgstr "不明な監視ステータス（％s）"
 
-#: monitor_controller.php:301
+#: monitor_controller.php
 #, fuzzy
 msgid ", and All Criticalities"
 msgstr "、そしてすべての重要性"
 
-#: monitor_controller.php:305
+#: monitor_controller.php
 #, fuzzy
 msgid ", and of Low Criticality or Higher"
 msgstr "、および低重要度以上の"
 
-#: monitor_controller.php:309
+#: monitor_controller.php
 #, fuzzy
 msgid ", and of Medium Criticality or Higher"
 msgstr "中程度以上の重要度"
 
-#: monitor_controller.php:313
+#: monitor_controller.php
 #, fuzzy
 msgid ", and of High Criticality or Higher"
 msgstr "、そして高臨界度以上"
 
-#: monitor_controller.php:317
+#: monitor_controller.php
 #, fuzzy
 msgid ", and of Mission Critical Status"
 msgstr "ミッションクリティカルステータス"
 
-#: monitor_controller.php:322
+#: monitor_controller.php
 #, fuzzy
 msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
 msgstr "</div><div class=\"center monitorFooterTextBold\">最初に[Devices]ページから監視対象の適格なデバイスを選択してください。 </div>"
 
-#: monitor_controller.php:368
+#: monitor_controller.php
 msgid "Unsaved"
 msgstr "未保存"
 
-#: monitor_controller.php:433
+#: monitor_controller.php
 msgid "Layout"
 msgstr "レイアウト"
 
-#: monitor_controller.php:434 monitor_render.php:919
+#: monitor_controller.php monitor_render.php
 msgid "Status"
 msgstr "状態"
 
-#: monitor_controller.php:435 setup.php:808
+#: monitor_controller.php setup.php
 msgid "View"
 msgstr "表示"
 
-#: monitor_controller.php:436 setup.php:796
+#: monitor_controller.php setup.php
 msgid "Grouping"
 msgstr "グループ化"
 
-#: monitor_controller.php:437 monitor_render.php:963 monitor_render.php:1043
+#: monitor_controller.php monitor_render.php
 msgid "Devices"
 msgstr "デバイス"
 
-#: monitor_controller.php:440 monitor_controller.php:539
+#: monitor_controller.php
 msgid "Refresh"
 msgstr "更新"
 
-#: monitor_controller.php:440
+#: monitor_controller.php
 #, fuzzy
 msgid "Refresh the Device List"
 msgstr "デバイスリストを更新する"
 
-#: monitor_controller.php:441
+#: monitor_controller.php
 msgid "Clear"
 msgstr ""
 
-#: monitor_controller.php:441
+#: monitor_controller.php
 msgid "Clear the set filter"
 msgstr ""
 
-#: monitor_controller.php:442 monitor_controller.php:617
+#: monitor_controller.php
 msgid "Save"
 msgstr "保存"
 
-#: monitor_controller.php:442
+#: monitor_controller.php
 #, fuzzy
 msgid "Save Filter Settings"
 msgstr "フィルタ設定を保存"
 
-#: monitor_controller.php:443
+#: monitor_controller.php
 msgid "New"
 msgstr "新規"
 
-#: monitor_controller.php:443
+#: monitor_controller.php
 #, fuzzy
 msgid "Save New Dashboard"
 msgstr "新しいダッシュボードを保存"
 
-#: monitor_controller.php:446
+#: monitor_controller.php
 msgid "Rename"
 msgstr "名前の変更"
 
-#: monitor_controller.php:446
+#: monitor_controller.php
 #, fuzzy
 msgid "Rename Dashboard"
 msgstr "ダッシュボードの名前を変更する"
 
-#: monitor_controller.php:447
+#: monitor_controller.php
 msgid "Delete"
 msgstr "削除"
 
-#: monitor_controller.php:447
+#: monitor_controller.php
 #, fuzzy
 msgid "Delete Dashboard"
 msgstr "ダッシュボードを削除する"
 
-#: monitor_controller.php:450
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "%s Alert for downed Devices"
 msgstr "停止したデバイスの％sアラート"
 
-#: monitor_controller.php:450
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "%s Alerts for downed Devices"
 msgstr "停止したデバイスの％sアラート"
 
-#: monitor_controller.php:467 monitor_render.php:914 poller_functions.php:544
-#: poller_functions.php:551 setup.php:108 setup.php:161
+#: monitor_controller.php monitor_render.php poller_functions.php setup.php
 #, fuzzy
 msgid "Criticality"
 msgstr "重要度"
 
-#: monitor_controller.php:470
+#: monitor_controller.php
 msgid "Size"
 msgstr "サイズ"
 
-#: monitor_controller.php:474
+#: monitor_controller.php
 #, fuzzy
 msgid "Trim"
 msgstr "トリム"
 
-#: monitor_controller.php:484
+#: monitor_controller.php
 #, fuzzy
 msgid "All Trees"
 msgstr "すべての木"
 
-#: monitor_controller.php:485 monitor_render.php:571
+#: monitor_controller.php monitor_render.php
 #, fuzzy
 msgid "Non-Tree Devices"
 msgstr "非ツリーデバイス"
 
-#: monitor_controller.php:506
+#: monitor_controller.php
 msgid "All Sites"
 msgstr "すべてのサイト"
 
-#: monitor_controller.php:507 monitor_render.php:154
+#: monitor_controller.php monitor_render.php
 #, fuzzy
 msgid "Non-Site Devices"
 msgstr "非ツリーデバイス"
 
-#: monitor_controller.php:512
+#: monitor_controller.php
 msgid "Sites"
 msgstr "サイト"
 
-#: monitor_controller.php:531
+#: monitor_controller.php
 msgid "All Templates"
 msgstr "全てのテンプレート"
 
-#: monitor_controller.php:532
+#: monitor_controller.php
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "非テンプレートデバイス"
 
-#: monitor_controller.php:536
+#: monitor_controller.php
 msgid "Template"
 msgstr "テンプレート"
 
-#: monitor_controller.php:615
+#: monitor_controller.php
 #, fuzzy
 msgid " [ Filter Settings Saved ]"
 msgstr "[保存したフィルタ設定]"
 
-#: monitor_controller.php:616
+#: monitor_controller.php
 msgid "Cancel"
 msgstr "取り消し"
 
-#: monitor_controller.php:638
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[ <i id=\"timer\">％d</i>秒後にもう一度更新]"
 
-#: monitor_controller.php:638
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
 msgstr "監視フィルタ[最終更新日：％s]"
 
-#: monitor_controller.php:638
+#: monitor_controller.php
 msgid "[ Showing only first 30 Devices ]"
 msgstr ""
 
-#: monitor_controller.php:662
+#: monitor_controller.php
 msgid "Search"
 msgstr "検索"
 
-#: monitor_controller.php:684
+#: monitor_controller.php
 msgid "Mute"
 msgstr "ミュート"
 
-#: monitor_controller.php:686
+#: monitor_controller.php
 msgid "Acknowledge"
 msgstr "承認"
 
-#: monitor_controller.php:697
+#: monitor_controller.php
 #, fuzzy
 msgid "Un-Mute"
 msgstr "ミュート解除"
 
-#: monitor_controller.php:699
+#: monitor_controller.php
 msgid "Reset"
 msgstr "リセット"
 
-#: monitor_controller.php:726
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "Dashboard '%s' Removed."
 msgstr "ダッシュボード '%s'が削除されました。"
 
-#: monitor_controller.php:735
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "Dashboard '%s' is not owned by you."
 msgstr "ダッシュボード「%s」はあなたが所有していません。"
 
-#: monitor_controller.php:849
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "Dashboard '%s' has been Saved!"
 msgstr "ダッシュボード「%s」が保存されました！"
 
-#: monitor_controller.php:852
+#: monitor_controller.php
 #, fuzzy, php-format
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "ダッシュボード「%s」を保存できませんでした。"
 
-#: monitor_controller.php:1020
+#: monitor_controller.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "デバイスを編集"
 
-#: monitor_controller.php:1032
+#: monitor_controller.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "グラフを表示する"
 
-#: monitor_controller.php:1045
+#: monitor_controller.php
 #, fuzzy
 msgid "View Thresholds/Alerts"
 msgstr "しきい値を表示"
 
-#: monitor_controller.php:1069
+#: monitor_controller.php
 #, fuzzy
 msgid "View Device Syslog Alerts"
 msgstr "Syslogアラートを表示する"
 
-#: monitor_controller.php:1074
+#: monitor_controller.php
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Syslogアラートを表示する"
 
-#: monitor_controller.php:1097
+#: monitor_controller.php
 #, fuzzy
 msgid "Device Status Information"
 msgstr "デバイスステータス情報"
 
-#: monitor_controller.php:1100
+#: monitor_controller.php
 msgid "Device:"
 msgstr "機器:"
 
-#: monitor_controller.php:1103
+#: monitor_controller.php
 #, fuzzy
 msgid "Site:"
 msgstr "サイト"
 
-#: monitor_controller.php:1107 monitor_controller.php:1155
+#: monitor_controller.php
 msgid "Location:"
 msgstr "位置:"
 
-#: monitor_controller.php:1111
+#: monitor_controller.php
 #, fuzzy
 msgid "Criticality:"
 msgstr "重要度："
 
-#: monitor_controller.php:1115
+#: monitor_controller.php
 msgid "Status:"
 msgstr "ステータス:"
 
-#: monitor_controller.php:1119
+#: monitor_controller.php
 #, fuzzy
 msgid "Admin Note:"
 msgstr "管理者用メモ："
 
-#: monitor_controller.php:1123
+#: monitor_controller.php
 #, fuzzy
 msgid "IP/Hostname:"
 msgstr "IP /ホスト名："
 
-#: monitor_controller.php:1127
+#: monitor_controller.php
 #, fuzzy
 msgid "Curr/Avg:"
 msgstr "Curr / Avg："
 
-#: monitor_controller.php:1128 monitor_render.php:1086
+#: monitor_controller.php monitor_render.php
 #, fuzzy, php-format
 msgid "%d ms"
 msgstr "％d ms"
 
-#: monitor_controller.php:1131
+#: monitor_controller.php
 #, fuzzy
 msgid "Warn/Alert:"
 msgstr "警告/アラート："
 
-#: monitor_controller.php:1132 monitor_render.php:1092
+#: monitor_controller.php monitor_render.php
 #, fuzzy, php-format
 msgid "%0.2d ms"
 msgstr "％0.2d ms"
 
-#: monitor_controller.php:1135
+#: monitor_controller.php
 #, fuzzy
 msgid "Last Fail:"
 msgstr "最後の失敗："
 
-#: monitor_controller.php:1139
+#: monitor_controller.php
 #, fuzzy
 msgid "Time In State:"
 msgstr "状態の時間："
 
-#: monitor_controller.php:1143
+#: monitor_controller.php
 msgid "Availability:"
 msgstr "利用可:"
 
-#: monitor_controller.php:1147
+#: monitor_controller.php
 #, fuzzy
 msgid "Agent Uptime:"
 msgstr "エージェント稼働時間："
 
-#: monitor_controller.php:1148 monitor_render.php:1088
+#: monitor_controller.php monitor_render.php
 msgid "N/A"
 msgstr "該当なし"
 
-#: monitor_controller.php:1151
+#: monitor_controller.php
 #, fuzzy
 msgid "Sys Description:"
 msgstr "システムの説明："
 
-#: monitor_controller.php:1159
+#: monitor_controller.php
 msgid "Contact:"
 msgstr "連絡先:"
 
-#: monitor_controller.php:1163
+#: monitor_controller.php
 msgid "Notes:"
 msgstr "注意:"
 
-#: monitor_controller.php:1198 monitor_render.php:1070 monitor_render.php:1098
+#: monitor_controller.php monitor_render.php
 msgid "Never"
 msgstr "決して"
 
-#: monitor_controller.php:1202
+#: monitor_controller.php
 msgid "Unspecified"
 msgstr ""
 
-#: monitor_controller.php:1210 setup.php:100 setup.php:153 setup.php:929
+#: monitor_controller.php setup.php
 msgid "None"
 msgstr "なし"
 
-#: monitor_render.php:61 monitor_render.php:474
+#: monitor_render.php
 #, fuzzy
 msgid "Non-Site Device"
 msgstr "非ツリーデバイス"
 
-#: monitor_render.php:435
+#: monitor_render.php
 #, fuzzy
 msgid "Root Branch"
 msgstr "ルートブランチ"
 
-#: monitor_render.php:503
+#: monitor_render.php
 #, php-format
 msgid "Tree: %s"
 msgstr "木: %s"
 
-#: monitor_render.php:522
+#: monitor_render.php
 #, fuzzy, php-format
 msgid "Branch: %s"
 msgstr "支店：％s"
 
-#: monitor_render.php:830
+#: monitor_render.php
 #, fuzzy
 msgid "Just Up"
 msgstr "ジャストアップ"
 
-#: monitor_render.php:894 poller_functions.php:301 poller_functions.php:543
-#: poller_functions.php:550
+#: monitor_render.php poller_functions.php
 msgid "Hostname"
 msgstr "ホスト名"
 
-#: monitor_render.php:896
+#: monitor_render.php
 #, fuzzy
 msgid "Hostname of device"
 msgstr "デバイスのホスト名"
 
-#: monitor_render.php:899
+#: monitor_render.php
 msgid "ID"
 msgstr ""
 
-#: monitor_render.php:904 poller_functions.php:300
+#: monitor_render.php poller_functions.php
 msgid "Description"
 msgstr "説明"
 
-#: monitor_render.php:924
+#: monitor_render.php
 #, fuzzy
 msgid "Length in Status"
 msgstr "ステータスの長さ"
 
-#: monitor_render.php:929
+#: monitor_render.php
 #, fuzzy
 msgid "Averages"
 msgstr "平均"
 
-#: monitor_render.php:934
+#: monitor_render.php
 msgid "Warning"
 msgstr "警告"
 
-#: monitor_render.php:939
+#: monitor_render.php
 msgid "Admin"
 msgstr "管理者"
 
-#: monitor_render.php:941
+#: monitor_render.php
 msgid "Monitor Text Column represents 'Admin'"
 msgstr ""
 
-#: monitor_render.php:945
+#: monitor_render.php
 msgid "Notes"
 msgstr "ノート"
 
-#: monitor_render.php:950
+#: monitor_render.php
 msgid "Availability"
 msgstr "有効性"
 
-#: monitor_render.php:955
+#: monitor_render.php
 #, fuzzy
 msgid "Last Fail"
 msgstr "最後の失敗"
 
-#: poller_functions.php:323
+#: poller_functions.php
 msgid "Description: "
 msgstr "説明: "
 
-#: poller_functions.php:324
+#: poller_functions.php
 #, fuzzy
 msgid "Hostname: "
 msgstr "ホスト："
 
-#: poller_functions.php:499
+#: poller_functions.php
 #, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
 msgstr "次のレポートは、ping待ち時間のしきい値を超えたデバイスを識別します。下記のURLにあるCactiシステムに関連するデバイスに加入しているため、このレポートを受信しています。"
 
-#: poller_functions.php:505
+#: poller_functions.php
 #, fuzzy
 msgid "Cacti Monitoring Site"
 msgstr "監視オプションの変更"
 
-#: poller_functions.php:508 poller_functions.php:509
+#: poller_functions.php
 #, fuzzy, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
 msgstr "デバイスがしきい値を超えると、％d分ごとに通知を受け取ります。"
 
-#: poller_functions.php:511 poller_functions.php:512
+#: poller_functions.php
 #, fuzzy
 msgid "You will receive notifications every time the Device is above its threshold."
 msgstr "デバイスがしきい値を超えるたびに通知を受け取ります。"
 
-#: setup.php:99 setup.php:152
+#: setup.php
 msgid "Any"
 msgstr "任意"
 
-#: setup.php:523
+#: setup.php
 #, fuzzy, php-format
 msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "これらのデバイスで％sモニタリングを継続する"
 
-#: setup.php:530
+#: setup.php
 #, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
 msgstr "[続行]をクリックして、次のデバイスの監視設定を変更します。更新する列を指定するには、[このフィールドを更新する]をオンにしてください。"
 
-#: setup.php:554
+#: setup.php
 #, fuzzy
 msgid "Update this Field"
 msgstr "このフィールドを更新する"
 
-#: setup.php:584
+#: setup.php
 #, fuzzy
 msgid "Change Monitoring Options"
 msgstr "監視オプションの変更"
 
-#: setup.php:585
+#: setup.php
 #, fuzzy
 msgid "Enable Monitoring"
 msgstr "監視を有効にする"
 
-#: setup.php:586
+#: setup.php
 #, fuzzy
 msgid "Disable Monitoring"
 msgstr "監視を無効にする"
 
-#: setup.php:679
+#: setup.php
 #, fuzzy
 msgid "Indefinitely"
 msgstr "無期限に"
 
-#: setup.php:680
+#: setup.php
 #, fuzzy, php-format
 msgid "%d Month"
 msgstr "％d月"
 
-#: setup.php:681 setup.php:682 setup.php:683 setup.php:684
+#: setup.php
 #, fuzzy, php-format
 msgid "%d Months"
 msgstr "％d月"
 
-#: setup.php:685
+#: setup.php
 #, fuzzy, php-format
 msgid "%d Year"
 msgstr "％d年"
 
-#: setup.php:698
+#: setup.php
 #, fuzzy
 msgid "Normal User"
 msgstr "使用するフォーマットファイル"
 
-#: setup.php:701 setup.php:755
+#: setup.php
 #, fuzzy
 msgid "Monitor Settings"
 msgstr "モニター設定"
 
-#: setup.php:706 setup.php:772
+#: setup.php
 #, fuzzy
 msgid "Alarm Sound"
 msgstr "警報音"
 
-#: setup.php:707 setup.php:773
+#: setup.php
 #, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
 msgstr "これは、デバイスが停止したときに再生されるサウンドファイルです。"
 
-#: setup.php:713 setup.php:779
+#: setup.php
 #, fuzzy
 msgid "Loop Alarm Sound"
 msgstr "警報音"
 
-#: setup.php:714 setup.php:780
+#: setup.php
 #, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
 msgstr "これは、デバイスが停止したときに再生されるサウンドファイルです。"
 
-#: setup.php:718 setup.php:791
+#: setup.php
 #, fuzzy
 msgid "Show Icon Legend"
 msgstr "アイコンの凡例を表示"
 
-#: setup.php:719 setup.php:792
+#: setup.php
 #, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
 msgstr "これをチェックすると、モニターディスプレイにアイコンの凡例が表示されます。"
 
-#: setup.php:723
+#: setup.php
 #, fuzzy
 msgid "Show Uptime"
 msgstr "稼働時間を表示"
 
-#: setup.php:724
+#: setup.php
 #, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
 msgstr "これをチェックすると、モニターディスプレイにアイコンの凡例が表示されます。"
 
-#: setup.php:728
+#: setup.php
 #, fuzzy
 msgid "Zoom to Errors"
 msgstr "エラーにズーム"
 
-#: setup.php:729 setup.php:739
+#: setup.php
 #, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
 msgstr "これをチェックすると、モニターディスプレイにアイコンの凡例が表示されます。"
 
-#: setup.php:733
+#: setup.php
 #, fuzzy
 msgid "Zoom Background"
 msgstr "背景をズーム"
 
-#: setup.php:734
+#: setup.php
 #, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
 msgstr "モニターディスプレイのズームエラーの背景色"
 
-#: setup.php:738
+#: setup.php
 #, fuzzy
 msgid "Zoom Fontsize"
 msgstr "ズームフォントサイズ"
 
-#: setup.php:751 setup.php:1089 setup.php:1091
+#: setup.php
 msgid "Monitor"
 msgstr "モニター"
 
-#: setup.php:760
+#: setup.php
 #, fuzzy
 msgid "Enable on new devices"
 msgstr "新しいデバイスで有効にする"
 
-#: setup.php:761
+#: setup.php
 #, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr "これをチェックすると、新しいデバイスを作成するときにモニタリングを自動的に有効にします"
 
-#: setup.php:765
+#: setup.php
 #, fuzzy
 msgid "Notification/Reboot Log Retention"
 msgstr "通知/再起動ログの保存"
 
-#: setup.php:766
+#: setup.php
 #, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
 msgstr "この日数だけ通知を保持し、ログを再起動します。"
 
-#: setup.php:784
+#: setup.php
 msgid "Refresh Interval"
 msgstr "ãªãã¬ãã·ã¥éé"
 
-#: setup.php:785
+#: setup.php
 #, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
 msgstr "これは、ページが更新されるまでの秒数です。 （1〜300）"
 
-#: setup.php:797
+#: setup.php
 #, fuzzy
 msgid "This is how monitor will Group Devices."
 msgstr "これはモニタがデバイスをグループ化する方法です。"
 
-#: setup.php:802
+#: setup.php
 #, fuzzy
 msgid "Default with permissions"
 msgstr "権限付きのデフォルト"
 
-#: setup.php:809
+#: setup.php
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "これは、モニタがデバイスをレンダリングする方法です。"
 
-#: setup.php:817
+#: setup.php
 #, fuzzy
 msgid "Tiles & Downtime"
 msgstr "タイルとダウンタイム"
 
-#: setup.php:821
+#: setup.php
 #, fuzzy
 msgid "Notification Report Format"
 msgstr "通知レポートの形式"
 
-#: setup.php:826
+#: setup.php
 #, fuzzy
 msgid "Format File to Use"
 msgstr "使用するフォーマットファイル"
 
-#: setup.php:829
+#: setup.php
 #, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr "使用するカスタムHTMLラッパーとCSSファイルを選択します。このファイルには、レポートをまとめるためのHTMLとCSSの両方が含まれています。それが単なるCSS以上のものを含んでいるなら、あなたは特別なものを置く必要があります。 <REPORT>ファイル内のタグ。このフォーマットタグはレポートの内容に置き換えられます。これらのファイルは 'format'ディレクトリにあります。"
 
-#: setup.php:833
+#: setup.php
 #, fuzzy
 msgid "Ping Threshold Notifications"
 msgstr "pingしきい値通知"
 
-#: setup.php:838
+#: setup.php
 #, fuzzy
 msgid "Warning Latency Notification"
 msgstr "警告待ち時間通知"
 
-#: setup.php:839
+#: setup.php
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "デバイスが警告しきい値を超え、重要度を下回るラウンドトリップping待ち時間を持つ場合、そのデバイスへの購読メールは電子メール通知を受け取ります。無効にするには「無効」を選択します。 Tholdプラグインはこの機能を有効にするために必要です。"
 
-#: setup.php:845
+#: setup.php
 #, fuzzy
 msgid "Alert Latency Notification"
 msgstr "アラート待ち時間通知"
 
-#: setup.php:846
+#: setup.php
 #, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
 msgstr "デバイスのアラートしきい値を超え、重要度を下回るラウンドトリップping待ち時間がデバイスに設定されている場合、デバイスへの購読電子メールは電子メール通知を受け取ります。無効にするには「無効」を選択します。 Tholdプラグインはこの機能を有効にするために必要です。"
 
-#: setup.php:852
+#: setup.php
 #, fuzzy
 msgid "How Often to Resend Emails"
 msgstr "メールを再送信する頻度"
 
-#: setup.php:853
+#: setup.php
 #, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
 msgstr "ユーザが待ち時間のしきい値を超えている場合、これらのデバイスのサブスクライバに電子メール通知を送信する頻度"
 
-#: setup.php:857
+#: setup.php
 #, fuzzy
 msgid "Every Occurrence"
 msgstr "すべての発生"
 
-#: setup.php:858 setup.php:859
+#: setup.php
 #, php-format
 msgid "Every %d Minutes"
 msgstr "%d 分ごと"
 
-#: setup.php:860
+#: setup.php
 #, fuzzy
 msgid "Every Hour"
 msgstr "毎時"
 
-#: setup.php:861 setup.php:862
+#: setup.php
 #, fuzzy, php-format
 msgid "Every %d Hours"
 msgstr "％d時間ごと"
 
-#: setup.php:866
+#: setup.php
 #, fuzzy
 msgid "Reboot Notifications"
 msgstr "再起動通知"
 
-#: setup.php:871
+#: setup.php
 #, fuzzy
 msgid "Send Reboot Notifications"
 msgstr "再起動通知を送信する"
 
-#: setup.php:873
+#: setup.php
 #, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "デバイス再起動通知をユーザーに送信する必要がありますか？"
 
-#: setup.php:877
+#: setup.php
 #, fuzzy
 msgid "Send one Email to all addresses"
 msgstr "E メールアドレス"
 
-#: setup.php:878
+#: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
 msgstr ""
 
-#: setup.php:883
+#: setup.php
 #, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "しきい値アラートリストを含める"
 
-#: setup.php:885
+#: setup.php
 #, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
 msgstr "しきい値アラートリストも通知を受け取る必要があります"
 
-#: setup.php:889
+#: setup.php
 msgid "Subject"
 msgstr "件名"
 
-#: setup.php:890
+#: setup.php
 #, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
 msgstr "再起動通知の再起動メッセージの件名を入力します。"
 
-#: setup.php:892
+#: setup.php
 #, fuzzy
 msgid "Cacti Device Reboot Notification"
 msgstr "Cactiデバイス再起動通知"
 
-#: setup.php:897
+#: setup.php
 msgid "Email Body"
 msgstr "Eメールの本文"
 
-#: setup.php:898
+#: setup.php
 #, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
 msgstr "再起動通知メッセージに含めるEメール本文を入力します。現在サポートされているサポートされている代替タグは&lt;DETAILS&gt;のみです。"
 
-#: setup.php:902
+#: setup.php
 #, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
 msgstr "<h1>再起動通知を監視する</h1><p>次のデバイスが再起動されました。追加情報については、以下の詳細を参照してください。 </p><br><DETAILS>"
 
-#: setup.php:905
+#: setup.php
 msgid "Notification Email Addresses"
 msgstr "通知メールアドレス"
 
-#: setup.php:910
+#: setup.php
 msgid "From Name"
 msgstr "差出人名"
 
-#: setup.php:911
+#: setup.php
 #, fuzzy
 msgid "Enter the Email Name to send the notifications from"
 msgstr "通知フォームを送信するためのEメール名を入力してください"
 
-#: setup.php:917
+#: setup.php
 msgid "From Address"
 msgstr "送信元アドレス"
 
-#: setup.php:918
+#: setup.php
 #, fuzzy
 msgid "Enter the Email Address to send the notification from"
 msgstr "通知を送信するEメールアドレスを入力してください"
 
-#: setup.php:924
+#: setup.php
 #, fuzzy
 msgid "Notification List"
 msgstr "通知リスト"
 
-#: setup.php:925
+#: setup.php
 #, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
 msgstr "下の通知リストを選択してください。通知リストに登録しているすべてのEメールに通知されます。"
 
-#: setup.php:932
+#: setup.php
 msgid "Email Addresses"
 msgstr "E メールアドレス"
 
-#: setup.php:933
+#: setup.php
 #, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
 msgstr "再起動イベントを通知する電子メールアドレスのカンマ区切りリストを入力します。"
 
-#: setup.php:966
+#: setup.php
 msgid "Server"
 msgstr ""
 
-#: setup.php:971
+#: setup.php
 msgid "Printer"
 msgstr ""
 
-#: setup.php:976
+#: setup.php
 msgid "Desktop PC"
 msgstr ""
 
-#: setup.php:981
+#: setup.php
 msgid "Laptop/notebook"
 msgstr ""
 
-#: setup.php:986
+#: setup.php
 msgid "Wifi"
 msgstr ""
 
-#: setup.php:991
+#: setup.php
 msgid "Wired network"
 msgstr ""
 
-#: setup.php:996
+#: setup.php
 msgid "Database"
 msgstr ""
 
-#: setup.php:1001
+#: setup.php
 msgid "Clock"
 msgstr ""
 
-#: setup.php:1006
+#: setup.php
 msgid "Asterisk"
 msgstr ""
 
-#: setup.php:1011
+#: setup.php
 msgid "Harddisk"
 msgstr ""
 
-#: setup.php:1016
+#: setup.php
 msgid "Boxes"
 msgstr ""
 
-#: setup.php:1021
+#: setup.php
 msgid "Phone"
 msgstr ""
 
-#: setup.php:1026
+#: setup.php
 msgid "Cloud"
 msgstr ""
 
-#: setup.php:1123
+#: setup.php
 #, fuzzy
 msgid "Do not Change"
 msgstr "変えないで"
 
-#: setup.php:1124 setup.php:1125 setup.php:1126 setup.php:1127 setup.php:1128
-#: setup.php:1129 setup.php:1130 setup.php:1131 setup.php:1132 setup.php:1133
-#: setup.php:1134 setup.php:1135 setup.php:1136 setup.php:1137 setup.php:1138
-#: setup.php:1139
+#: setup.php
 #, fuzzy, php-format
 msgid "%d Percent Above Average"
 msgstr "平均以上の％dパーセント"
 
-#: setup.php:1156
+#: setup.php
 #, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "デバイス監視設定"
 
-#: setup.php:1163
+#: setup.php
 #, fuzzy
 msgid "Monitor Device"
 msgstr "モニター装置"
 
-#: setup.php:1164
+#: setup.php
 #, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
 msgstr "[監視]タブでこのデバイスを監視するには、このボックスをオンにします。"
 
-#: setup.php:1176
+#: setup.php
 #, fuzzy
 msgid "Device Criticality"
 msgstr "デバイスの重要度"
 
-#: setup.php:1177
+#: setup.php
 #, fuzzy
 msgid "What is the Criticality of this Device."
 msgstr "この装置の重要性は何ですか。"
 
-#: setup.php:1185
+#: setup.php
 #, fuzzy
 msgid "Ping Warning Threshold"
 msgstr "ping警告しきい値"
 
-#: setup.php:1186
+#: setup.php
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "事前定義されたCacti ping方式のいずれかによる往復遅延がこのしきい値を超えると、警告を記録するか、[Devices Criticality]および[Monitor]設定に基づいて電子メールを送信します。単位はミリ秒です。 0に設定すると無効になります。 Tholdプラグインはこの機能を活用するために必要です。"
 
-#: setup.php:1190 setup.php:1201
+#: setup.php
 msgid "milliseconds"
 msgstr "ミリ秒"
 
-#: setup.php:1196
+#: setup.php
 #, fuzzy
 msgid "Ping Alert Threshold"
 msgstr "pingアラートしきい値"
 
-#: setup.php:1197
+#: setup.php
 #, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
 msgstr "事前定義されたCacti ping方式のいずれかによる往復遅延がこのしきい値を超えた場合は、Devices Criticality and Monitor設定に基づいてアラートをログに記録するか、電子メールを送信してください。単位はミリ秒です。 0に設定すると無効になります。 Tholdプラグインはこの機能を活用するために必要です。"
 
-#: setup.php:1207
+#: setup.php
 #, fuzzy
 msgid "Re-Baseline Warning"
 msgstr "ベースライン再警告"
 
-#: setup.php:1208
+#: setup.php
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
 msgstr "警告しきい値を考慮するための現在の平均ping時間を超える割合。更新された場合、これはPing警告しきい値を自動的に調整します。"
 
-#: setup.php:1216
+#: setup.php
 #, fuzzy
 msgid "Re-Baseline Alert"
 msgstr "ベースライン再警告"
 
-#: setup.php:1217
+#: setup.php
 #, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
 msgstr "アラートしきい値を考慮するための現在の平均ping時間を超える割合。更新された場合、これはPingアラートしきい値を自動的に調整します。"
 
-#: setup.php:1225
+#: setup.php
 #, fuzzy
 msgid "Down Device Message"
 msgstr "ダウンデバイスメッセージ"
 
-#: setup.php:1226
+#: setup.php
 #, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
 msgstr "これは、このデバイスが停止したと報告されたときに表示されるメッセージです。"
 
-#: setup.php:1242
+#: setup.php
 #, fuzzy
 msgid "Device icon"
 msgstr "機器:"
 
-#: setup.php:1243
+#: setup.php
 msgid "You can select device icon."
 msgstr ""
 
-#: setup.php:1371
+#: setup.php
 msgid "Monitoring"
 msgstr "モニタリング"
 
