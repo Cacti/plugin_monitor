@@ -667,7 +667,7 @@ function monitor_scan_dir() {
 function monitor_config_settings() {
 	global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
-	require_once($config['base_path'] . '/lib/reports.php');
+	include_once($config['base_path'] . '/lib/reports.php');
 
 	if (get_nfilter_request_var('tab') == 'monitor') {
 		$formats = reports_get_format_files();
