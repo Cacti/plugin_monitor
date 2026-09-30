@@ -95,6 +95,12 @@ if (!function_exists('get_md5_include_css')) {
 	}
 }
 
+if (!function_exists('get_selected_theme')) {
+	function get_selected_theme() {
+		return $GLOBALS['__test_selected_theme'] ?? 'modern';
+	}
+}
+
 if (!function_exists('monitor_test_mock_db')) {
 	function monitor_test_mock_db($fn, $match, $result) {
 		$GLOBALS['__test_db_fixtures'][] = array('fn' => $fn, 'match' => $match, 'result' => $result);
@@ -304,6 +310,8 @@ if (!function_exists('__esc')) {
 
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $also_print = false, $log_type = '', $level = 0) {
+		$args = func_get_args();
+		$GLOBALS["__test_cacti_log"][] = isset($args[0]) ? (string) $args[0] : "";
 	}
 }
 
