@@ -3,7 +3,6 @@
         "themes/"
     ],
     "expected": [
-        ".mdl_style.rb",
         "CHANGELOG.md",
         "INFO",
         "LICENSE",
@@ -20,7 +19,6 @@
         "monitor.php",
         "monitor_controller.php",
         "monitor_render.php",
-        "phpunit.xml",
         "poller_functions.php",
         "poller_monitor.php",
         "setup.php",
