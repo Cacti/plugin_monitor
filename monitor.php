@@ -26,7 +26,7 @@
 $guest_account = true;
 
 chdir('../../');
-include_once('./include/auth.php');
+require_once('./include/auth.php');
 
 set_default_action();
 

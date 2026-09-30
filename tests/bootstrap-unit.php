@@ -209,6 +209,16 @@ if (!function_exists('api_plugin_db_add_column')) {
 
 if (!function_exists('api_plugin_db_table_create')) {
 	function api_plugin_db_table_create($plugin, $table, $data) {
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'api_plugin_db_table_create', 'plugin' => $plugin, 'table' => $table, 'data' => $data, 'sql' => $table);
+
+		return true;
+	}
+}
+
+if (!function_exists('db_update_table')) {
+	function db_update_table($table, $data) {
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'db_update_table', 'table' => $table, 'data' => $data, 'sql' => $table);
+
 		return true;
 	}
 }

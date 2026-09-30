@@ -50,6 +50,10 @@ function plugin_monitor_csp_nonce(): string {
  * @return void
  */
 function plugin_monitor_install() {
+	global $config;
+
+	require_once($config['base_path'] . '/plugins/monitor/includes/database.php');
+
 	// core plugin functionality
 	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitor_show_tab', 'setup.php');
 	api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitor_show_tab', 'setup.php');
@@ -232,9 +236,11 @@ function monitor_device_table_bottom() {
  * @return void
  */
 function plugin_monitor_uninstall() {
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
+	global $config;
+
+	require_once($config['base_path'] . '/plugins/monitor/includes/database.php');
+
+	monitor_drop_tables();
 }
 
 /**
@@ -274,7 +280,7 @@ function plugin_monitor_check_config() {
 	// Here we will check to ensure everything is configured
 	monitor_check_upgrade();
 
-	include_once($config['library_path'] . '/database.php');
+	require_once($config['library_path'] . '/database.php');
 	$r = read_config_option('monitor_refresh');
 
 	if ($r == '' || $r < 1 || $r > 300) {
@@ -315,19 +321,21 @@ function monitor_check_upgrade() {
 		return;
 	}
 
+	global $config;
+
+	require_once($config['base_path'] . '/plugins/monitor/includes/database.php');
+
 	$info    = plugin_monitor_version();
 	$current = $info['version'];
 	$old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory = "monitor"');
 
 	if ($current != $old) {
 		monitor_setup_table();
+		monitor_upgrade_tables();
 
 		api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php', 1);
 
 		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
-
-		db_execute('ALTER TABLE plugin_monitor_uptime
-			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
 
 		api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
 
@@ -659,7 +667,7 @@ function monitor_scan_dir() {
 function monitor_config_settings() {
 	global $tabs, $formats, $settings, $criticalities, $page_refresh_interval, $config, $settings_user, $tabs_graphs;
 
-	include_once($config['base_path'] . '/lib/reports.php');
+	require_once($config['base_path'] . '/lib/reports.php');
 
 	if (get_nfilter_request_var('tab') == 'monitor') {
 		$formats = reports_get_format_files();
@@ -1374,90 +1382,6 @@ function monitor_draw_navigation_text($nav) {
 }
 
 /**
- * Creates (if not already present) all of this plugin's database
- * tables (notify/reboot history, uptime, dashboards), ensures the host
- * table uses DYNAMIC row format (needed for its added TEXT column),
- * and adds this plugin's monitoring columns to the host table. Called
- * from plugin_monitor_install() and monitor_check_upgrade().
- *
- * @return void
- */
-function monitor_setup_table() {
-	if (!db_table_exists('plugin_monitor_notify_history')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
-			id int(10) unsigned NOT NULL AUTO_INCREMENT,
-			host_id int(10) unsigned DEFAULT NULL,
-			notify_type tinyint(3) unsigned DEFAULT NULL,
-			ping_time double DEFAULT NULL,
-			ping_threshold int(10) unsigned DEFAULT NULL,
-			notification_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-			notes varchar(255) DEFAULT NULL,
-			PRIMARY KEY (id),
-			UNIQUE KEY unique_key (host_id,notify_type,notification_time))
-			ENGINE=InnoDB
-			COMMENT='Stores Notification Event History'");
-	}
-
-	if (!db_table_exists('plugin_monitor_reboot_history')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_reboot_history (
-			id int(10) unsigned NOT NULL AUTO_INCREMENT,
-			host_id int(10) unsigned DEFAULT NULL,
-			reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-			log_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-			PRIMARY KEY (id),
-			KEY host_id (host_id),
-			KEY log_time (log_time),
-			KEY reboot_time (reboot_time))
-			ENGINE=InnoDB
-			COMMENT='Keeps Track of Device Reboot Times'");
-	}
-
-	if (!db_table_exists('plugin_monitor_uptime')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_uptime (
-			host_id int(10) unsigned DEFAULT '0',
-			uptime bigint(20) unsigned DEFAULT '0',
-			PRIMARY KEY (host_id),
-			KEY uptime (uptime))
-			ENGINE=InnoDB
-			COMMENT='Keeps Track of the Devices last uptime to track agent restarts and reboots'");
-	}
-
-	if (!db_table_exists('plugin_monitor_dashboards')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_dashboards (
-			id int(10) unsigned auto_increment,
-			user_id int(10) unsigned DEFAULT '0',
-			name varchar(128) DEFAULT '',
-			url varchar(1024) DEFAULT '',
-			PRIMARY KEY (id),
-			KEY user_id (user_id))
-			ENGINE=InnoDB
-			COMMENT='Stores predefined dashboard information for a user or users'");
-	}
-
-	if (db_table_exists('host')) {
-		$row_format = db_fetch_cell("SELECT ROW_FORMAT
-			FROM information_schema.tables
-			WHERE TABLE_SCHEMA = DATABASE()
-			AND TABLE_NAME = 'host'");
-
-		if (strtoupper((string) $row_format) !== 'DYNAMIC') {
-			db_execute('ALTER TABLE host ROW_FORMAT=DYNAMIC');
-		}
-	}
-
-	db_execute('SET SESSION innodb_strict_mode=0');
-
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'text', 'NULL' => false]);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
-
-	db_execute('SET SESSION innodb_strict_mode=1');
-}
-
-/**
  * Poller_bottom hook: on the main poller (poller_id 1), launches this
  * plugin's poller_monitor.php script as a background process at the
  * end of each Cacti polling cycle. Called by Cacti's poller via the
@@ -1473,7 +1397,7 @@ function monitor_poller_bottom() {
 	global $config;
 
 	if ($config['poller_id'] == 1) {
-		include_once($config['library_path'] . '/poller.php');
+		require_once($config['library_path'] . '/poller.php');
 
 		$command_string = trim(read_config_option('path_php_binary'));
 

@@ -1047,8 +1047,8 @@ function monitorGetAjaxStatusLinks(array $host, array $config): string {
 	}
 
 	if (api_plugin_is_enabled('syslog') && api_plugin_user_realm_auth('syslog.php')) {
-		include($config['base_path'] . '/plugins/syslog/config.php');
-		include_once($config['base_path'] . '/plugins/syslog/functions.php');
+		require($config['base_path'] . '/plugins/syslog/config.php');
+		require_once($config['base_path'] . '/plugins/syslog/functions.php');
 
 		$syslog_logs = syslog_db_fetch_cell_prepared(
 			'SELECT count(*)
