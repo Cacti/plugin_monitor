@@ -48,6 +48,18 @@ it('creates every table the plugin owns', function () {
 	}
 });
 
+it('does not keep plugin ownership of the user-owned dashboards table', function () {
+	monitor_setup_table();
+
+	$disowned = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+		return $call['fn'] === 'db_execute'
+			&& stripos($call['sql'], 'DELETE FROM plugin_db_changes') !== false
+			&& stripos($call['sql'], 'plugin_monitor_dashboards') !== false;
+	});
+
+	expect($disowned)->not->toBeEmpty();
+});
+
 it('launches poller_monitor.php in the background on the primary poller', function () {
 	$GLOBALS['__test_config_options']['path_php_binary'] = '/usr/bin/php';
 

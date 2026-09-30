@@ -108,6 +108,21 @@ function monitor_dashboards_table_data(): array {
 }
 
 /**
+ * Removes the plugin_db_changes 'create' ownership record for the user-owned
+ * dashboards table so api_plugin_db_changes_remove() (run by
+ * api_plugin_uninstall()) does not drop it, preserving user dashboards across
+ * an uninstall.
+ *
+ * @return void
+ */
+function monitor_disown_dashboards_table() {
+	db_execute("DELETE FROM plugin_db_changes
+		WHERE plugin = 'monitor'
+		AND `table` = 'plugin_monitor_dashboards'
+		AND method = 'create'");
+}
+
+/**
  * Creates this plugin's own tables through Cacti's tracked plugin table
  * API and ensures the core host table carries the monitoring columns this
  * plugin relies on. Called from plugin_monitor_install() and (idempotently)
@@ -120,6 +135,9 @@ function monitor_setup_table() {
 	api_plugin_db_table_create('monitor', 'plugin_monitor_reboot_history', monitor_reboot_history_table_data());
 	api_plugin_db_table_create('monitor', 'plugin_monitor_uptime', monitor_uptime_table_data());
 	api_plugin_db_table_create('monitor', 'plugin_monitor_dashboards', monitor_dashboards_table_data());
+
+	/* dashboards holds user data: create it but do not record plugin ownership, so uninstall preserves it. */
+	monitor_disown_dashboards_table();
 
 	if (db_table_exists('host')) {
 		$row_format = db_fetch_cell("SELECT ROW_FORMAT
@@ -167,6 +185,8 @@ function monitor_upgrade_tables() {
 			api_plugin_db_table_create('monitor', $table, $table_data);
 		}
 	}
+
+	monitor_disown_dashboards_table();
 }
 
 /**
