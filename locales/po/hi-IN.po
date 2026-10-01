@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:11-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,530 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "नया डैशबोर्ड"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Dashboard"
+msgstr "डैशबोर्ड"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "डैशबोर्ड नाम दर्ज करें और फिर जारी रखने के लिए 'सहेजें' दबाएं, अन्यथा 'रद्द करें' दबाएं"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "नया डैशबोर्ड बनाएं"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "मॉनिटर किए गए उपकरण"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "मॉनिटर किए गए उपकरण"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "डिवाइस"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "सभी मॉनिटर किए गए उपकरण"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "मॉनिटर किए गए डिवाइस या तो डाउन या रिकवरिंग हैं"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ट्रिगर थ्रेशोल्ड के साथ"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ब्रेक्ड या ट्रिगर थ्रेशोल्ड के साथ"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "अज्ञात निगरानी स्थिति ( %s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr ", और सभी आलोचनाएँ"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr ", और कम आलोचना या उच्चतर"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr ", और मध्यम आलोचना या उच्चतर"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr ", और उच्च आलोचना या उच्चतर"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr ", और मिशन क्रिटिकल स्टेटस का"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\"> डिवाइस पेज से मॉनिटर करने के लिए पहले योग्य डिवाइस का चयन करना याद रखें! </div>"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Unsaved"
+msgstr "न सहेजा गया"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "नक्शा"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "ऑर्डर स्थिति"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "देखें"
+
+#: includes/controller.php setup.php
+#, fuzzy
+msgid "Grouping"
+msgstr "समूहीकरण"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "डिवाइस"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "रीफ्रैश करो"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "डिवाइस सूची को ताज़ा करें"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "सेव करें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "फ़िल्टर सेटिंग्स सहेजें"
+
+#: includes/controller.php
+msgid "New"
+msgstr "नया"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "नया डैशबोर्ड सहेजें"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "नाम बदलें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "डैशबोर्ड का नाम बदलें"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "हटाएं"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "डैशबोर्ड हटाएं"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "डाउन किए गए उपकरणों के लिए %s अलर्ट"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "डाउन किए गए उपकरणों के लिए% अलर्ट"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "निर्णायक मोड़"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "आकार"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Trim"
+msgstr "ट्रिम"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "सभी पेड़"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "गैर-पेड़ उपकरण"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "वृक्षugiou"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Sites"
+msgstr "सभी पेड़"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "गैर-पेड़ उपकरण"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "साइटां"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Templates"
+msgstr "सभी टेम्पलेट"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "गैर-अस्थायी उपकरण"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "खाका"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[फ़िल्टर सेटिंग्स सहेजा गया]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "कैंसिल करें"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[ <i id=\"timer\">% D</i> सेकंड में फिर से ताज़ा करें]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "फ़िल्टर फ़िल्टर करें [अंतिम ताज़ा करें: %s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "खोजें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Mute"
+msgstr "मूक"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Acknowledge"
+msgstr "स्वीकार करते हैं"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "संयुक्त राष्ट्र के म्यूट"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "पुनः सेट करें"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "डैशबोर्ड '%s' निकाला गया।"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "डैशबोर्ड '%s' आपके स्वामित्व में नहीं है।"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "डैशबोर्ड '%s' सहेजा गया है!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "डैशबोर्ड '%s' सहेजा नहीं जा सका!"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "उपकरण संपादित करें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "रेखांकन देखें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "थ्रेसहोल्ड देखें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "Syslog अलर्ट देखें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "Syslog अलर्ट देखें"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "डिवाइस स्थिति की जानकारी"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "उपकरणः"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "साइट"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "स्थान:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "निर्णायक मोड़:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Status:"
+msgstr "ऑर्डर स्थिति"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "व्यवस्थापक नोट:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "आईपी / होस्ट का नाम:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "कुर / औसत:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "% d मि"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "चेतावनी दें / अलर्ट:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "% 0.2d एमएस"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "अंतिम विफल:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "राज्य में समय:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Availability:"
+msgstr "उपलब्धता"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "एजेंट अपटाइम:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "लागू नहीं"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "Sys विवरण:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "संपर्क:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Notes:"
+msgstr "नोट"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "कभी नहीं"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "कोई नहीं"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "गैर-पेड़ उपकरण"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "जड़ शाखा"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "पेड़"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "शाखा: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "बस ऊपर"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "होस्टनांऽ"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "डिवाइस का होस्टनाम"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "विवरण"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "साइट"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "स्थिति में लंबाई"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "औसत"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "चेतावनी"
+
+#: includes/render.php
+#, fuzzy
+msgid "Admin"
+msgstr "व्यवस्थापक"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "नोट"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "उपलब्धता"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "अंतिम असफलता"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +556,6 @@ msgstr "उच्च"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "महत्वपूर्ण मिशन"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "अज्ञात"
 
 #: monitor.php
 msgid "Down"
@@ -103,16 +623,6 @@ msgstr "अतिरिक्त छोटे"
 msgid "Zoom"
 msgstr "ज़ूम करो"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "डिवाइस"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "सभी मॉनिटर किए गए उपकरण"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -127,10 +637,6 @@ msgstr "अप या ट्रिगर नहीं है"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "नॉट अप, ट्रिगर्ड या ब्रेक्ड"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -158,14 +664,6 @@ msgstr "टाइल्स"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "टाइलें और समय"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "वृक्षugiou"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "साइट"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -211,504 +709,6 @@ msgstr "75 शुल्क"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 शुल्क"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "नया डैशबोर्ड"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Dashboard"
-msgstr "डैशबोर्ड"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "डैशबोर्ड नाम दर्ज करें और फिर जारी रखने के लिए 'सहेजें' दबाएं, अन्यथा 'रद्द करें' दबाएं"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "नया डैशबोर्ड बनाएं"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "मॉनिटर किए गए उपकरण"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "मॉनिटर किए गए उपकरण"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "मॉनिटर किए गए डिवाइस या तो डाउन या रिकवरिंग हैं"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ट्रिगर थ्रेशोल्ड के साथ"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ब्रेक्ड या ट्रिगर थ्रेशोल्ड के साथ"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "अज्ञात निगरानी स्थिति ( %s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr ", और सभी आलोचनाएँ"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr ", और कम आलोचना या उच्चतर"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr ", और मध्यम आलोचना या उच्चतर"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr ", और उच्च आलोचना या उच्चतर"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr ", और मिशन क्रिटिकल स्टेटस का"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\"> डिवाइस पेज से मॉनिटर करने के लिए पहले योग्य डिवाइस का चयन करना याद रखें! </div>"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Unsaved"
-msgstr "न सहेजा गया"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "नक्शा"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "ऑर्डर स्थिति"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "देखें"
-
-#: monitor_controller.php setup.php
-#, fuzzy
-msgid "Grouping"
-msgstr "समूहीकरण"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "डिवाइस"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "रीफ्रैश करो"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "डिवाइस सूची को ताज़ा करें"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "सेव करें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "फ़िल्टर सेटिंग्स सहेजें"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "नया"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "नया डैशबोर्ड सहेजें"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "नाम बदलें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "डैशबोर्ड का नाम बदलें"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "हटाएं"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "डैशबोर्ड हटाएं"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "डाउन किए गए उपकरणों के लिए %s अलर्ट"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "डाउन किए गए उपकरणों के लिए% अलर्ट"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "निर्णायक मोड़"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "आकार"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Trim"
-msgstr "ट्रिम"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "सभी पेड़"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "गैर-पेड़ उपकरण"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Sites"
-msgstr "सभी पेड़"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "गैर-पेड़ उपकरण"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "साइटां"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Templates"
-msgstr "सभी टेम्पलेट"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "गैर-अस्थायी उपकरण"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "खाका"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[फ़िल्टर सेटिंग्स सहेजा गया]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "कैंसिल करें"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[ <i id=\"timer\">% D</i> सेकंड में फिर से ताज़ा करें]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "फ़िल्टर फ़िल्टर करें [अंतिम ताज़ा करें: %s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "खोजें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Mute"
-msgstr "मूक"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Acknowledge"
-msgstr "स्वीकार करते हैं"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "संयुक्त राष्ट्र के म्यूट"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "पुनः सेट करें"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "डैशबोर्ड '%s' निकाला गया।"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "डैशबोर्ड '%s' आपके स्वामित्व में नहीं है।"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "डैशबोर्ड '%s' सहेजा गया है!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "डैशबोर्ड '%s' सहेजा नहीं जा सका!"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "उपकरण संपादित करें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "रेखांकन देखें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "थ्रेसहोल्ड देखें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "Syslog अलर्ट देखें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "Syslog अलर्ट देखें"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "डिवाइस स्थिति की जानकारी"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "उपकरणः"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "साइट"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "स्थान:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "निर्णायक मोड़:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Status:"
-msgstr "ऑर्डर स्थिति"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "व्यवस्थापक नोट:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "आईपी / होस्ट का नाम:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "कुर / औसत:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "% d मि"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "चेतावनी दें / अलर्ट:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "% 0.2d एमएस"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "अंतिम विफल:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "राज्य में समय:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Availability:"
-msgstr "उपलब्धता"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "एजेंट अपटाइम:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "लागू नहीं"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "Sys विवरण:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "संपर्क:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Notes:"
-msgstr "नोट"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "कभी नहीं"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "कोई नहीं"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "गैर-पेड़ उपकरण"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "जड़ शाखा"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "पेड़"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "शाखा: %s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "बस ऊपर"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "होस्टनांऽ"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "डिवाइस का होस्टनाम"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "विवरण"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "स्थिति में लंबाई"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "औसत"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "चेतावनी"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Admin"
-msgstr "व्यवस्थापक"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "नोट"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "उपलब्धता"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "अंतिम असफलता"
 
 #: poller_functions.php
 #, fuzzy
