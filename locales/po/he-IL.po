@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:10-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,520 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "לוח מחוונים חדש"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "לוח בקרה"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "הזן את שם לוח המחוונים ואז לחץ על 'שמור' כדי להמשיך, אחרת לחץ על 'ביטול'"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "צור לוח מחוונים חדש"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "התקנים מנוטרים"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "התקנים מנוטרים"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "כל התקנים פיקוח"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "התקנים מנוטרלים או למטה או שחזור"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "התקנים מנוטרלים או למטה, שחזור, או עם סף מפעילה"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "ניטור התקנים או למטה, השחזור, או עם חרט או סף מפעילה"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "מצב ניטור לא ידוע ( %s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr ", ואת כל קריטיות"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr ", וכן של ביקורתיות נמוכה או גבוהה יותר"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr ", וכן של קריטי בינוני או גבוה יותר"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr ", וכן של קריטי גבוה או גבוה יותר"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr ", וכן של מצב קריטי המשימה"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\" style=\";text-align:right;direction:rtl\"> זכור תחילה לבחור התקנים כשירים להיות פיקוח מדף התקנים! </div>"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "לא נשמר"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "פריסה"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "סטטוס"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "הצג"
+
+#: includes/controller.php setup.php
+#, fuzzy
+msgid "Grouping"
+msgstr "קיבוץ"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "רענן"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "רענן את רשימת ההתקנים"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "שמור"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "שמור הגדרות מסנן"
+
+#: includes/controller.php
+msgid "New"
+msgstr "חדש"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "שמור לוח מחוונים חדש"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "שינוי שם"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "שנה את שם לוח המחוונים"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "מחק"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "מחק את לוח המחוונים"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "התראת %s עבור התקנים שהורדו"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s התראות עבור התקנים שהורדו"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "קריטיות"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "גודל"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Trim"
+msgstr "מְטוּפָּח"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "כל העצים"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "התקנים שאינם-עץ"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "עץ"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "כל האתרים"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "התקנים שאינם-עץ"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "אתרים"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Templates"
+msgstr "כל התבניות"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "התקנים שאינם מתויגים"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "תבנית"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[סינון הגדרות שמורים]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "ביטול"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[רענון שוב ב- <i id=\"timer\">% d</i> שניות]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "צג מסנן [רענון אחרון: %s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "חיפוש"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "השתק"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "& אשר@ info"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "ללא השתקה"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "איפוס"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "לוח המחוונים '%s' הוסר."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "לוח המחוונים '%s' אינו בבעלותך."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "לוח המחוונים '%s' נשמר!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "לא ניתן לשמור את לוח המחוונים '%s'!"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "ערוך את המכשיר"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "הצג גרפים"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "הצג ספים"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "הצג התראות Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "הצג התראות Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "מידע על סטטוס המכשיר"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "×× ×ª×× ××ª ×××§×× ×©× Epos ×ª×××¦×, ×××××ª ×××©×ª× × ×××¢×¨××ª PATH ××××××¨ ××¦××. ×¤×©×× ××× \"say\", ×××¨×ª ××× ××ª ×× ×ª×× ×××× ××ª×× ××ª ×××§×× ××ªÖ¾ ×××¨×¦× ×©× Epos."
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "אתר"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "מיקום:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "קריטי:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "סטטוס:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "הערה למנהל המערכת:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP / Hostname:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "Curr / Avg:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "% d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "התראה / התראה:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "% 0.2 ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "נכשל אחרון:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "זמן המדינה:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "זמינות:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "הסוכן Uptime:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "לא זמין"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "Sys תיאור:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "איש קשר:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "הערות:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "לעולם לא"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "ללא"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "התקנים שאינם-עץ"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "ענף רוט"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "עץ: %s"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "סניף: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "לא ידוע"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "רק למעלה"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Hostname"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "שם מארח של המכשיר"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "תיאור"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "אתר"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "אורך הסטטוס"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "ממוצעים"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "אזהרה"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "מנהל"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "הערות"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "זמינות"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "נכשל אחרון"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +546,6 @@ msgstr "גבוה"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "משימה קריטית"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "לא ידוע"
 
 #: monitor.php
 msgid "Down"
@@ -100,16 +610,6 @@ msgstr "אקסטרה לארג'"
 msgid "Zoom"
 msgstr "זום"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "כל התקנים פיקוח"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -124,10 +624,6 @@ msgstr "לא למעלה או טריגר"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "לא למעלה, הופעל או הופר"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -154,14 +650,6 @@ msgstr "אריח"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "אריחים וזמן"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "עץ"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "אתר"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -206,494 +694,6 @@ msgstr "75 תווים"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 תווים"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "לוח מחוונים חדש"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "לוח בקרה"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "הזן את שם לוח המחוונים ואז לחץ על 'שמור' כדי להמשיך, אחרת לחץ על 'ביטול'"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "צור לוח מחוונים חדש"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "התקנים מנוטרים"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "התקנים מנוטרים"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "התקנים מנוטרלים או למטה או שחזור"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "התקנים מנוטרלים או למטה, שחזור, או עם סף מפעילה"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "ניטור התקנים או למטה, השחזור, או עם חרט או סף מפעילה"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "מצב ניטור לא ידוע ( %s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr ", ואת כל קריטיות"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr ", וכן של ביקורתיות נמוכה או גבוהה יותר"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr ", וכן של קריטי בינוני או גבוה יותר"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr ", וכן של קריטי גבוה או גבוה יותר"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr ", וכן של מצב קריטי המשימה"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\" style=\";text-align:right;direction:rtl\"> זכור תחילה לבחור התקנים כשירים להיות פיקוח מדף התקנים! </div>"
-
-#: monitor_controller.php
-msgid "Unsaved"
-msgstr "לא נשמר"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "פריסה"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "סטטוס"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "הצג"
-
-#: monitor_controller.php setup.php
-#, fuzzy
-msgid "Grouping"
-msgstr "קיבוץ"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "רענן"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "רענן את רשימת ההתקנים"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "שמור"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "שמור הגדרות מסנן"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "חדש"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "שמור לוח מחוונים חדש"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "שינוי שם"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "שנה את שם לוח המחוונים"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "מחק"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "מחק את לוח המחוונים"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "התראת %s עבור התקנים שהורדו"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s התראות עבור התקנים שהורדו"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "קריטיות"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "גודל"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Trim"
-msgstr "מְטוּפָּח"
-
-#: monitor_controller.php
-msgid "All Trees"
-msgstr "כל העצים"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "התקנים שאינם-עץ"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "כל האתרים"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "התקנים שאינם-עץ"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "אתרים"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Templates"
-msgstr "כל התבניות"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "התקנים שאינם מתויגים"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "תבנית"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[סינון הגדרות שמורים]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "ביטול"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[רענון שוב ב- <i id=\"timer\">% d</i> שניות]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "צג מסנן [רענון אחרון: %s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "חיפוש"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "השתק"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "& אשר@ info"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "ללא השתקה"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "איפוס"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "לוח המחוונים '%s' הוסר."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "לוח המחוונים '%s' אינו בבעלותך."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "לוח המחוונים '%s' נשמר!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "לא ניתן לשמור את לוח המחוונים '%s'!"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "ערוך את המכשיר"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "הצג גרפים"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "הצג ספים"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "הצג התראות Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "הצג התראות Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "מידע על סטטוס המכשיר"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "×× ×ª×× ××ª ×××§×× ×©× Epos ×ª×××¦×, ×××××ª ×××©×ª× × ×××¢×¨××ª PATH ××××××¨ ××¦××. ×¤×©×× ××× \"say\", ×××¨×ª ××× ××ª ×× ×ª×× ×××× ××ª×× ××ª ×××§×× ××ªÖ¾ ×××¨×¦× ×©× Epos."
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "אתר"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "מיקום:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "קריטי:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "סטטוס:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "הערה למנהל המערכת:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP / Hostname:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "Curr / Avg:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "% d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "התראה / התראה:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "% 0.2 ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "נכשל אחרון:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "זמן המדינה:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "זמינות:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "הסוכן Uptime:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "לא זמין"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "Sys תיאור:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "איש קשר:"
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "הערות:"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "לעולם לא"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "ללא"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "התקנים שאינם-עץ"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "ענף רוט"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "עץ: %s"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "סניף: %s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "רק למעלה"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "Hostname"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "שם מארח של המכשיר"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "תיאור"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "אורך הסטטוס"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "ממוצעים"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "אזהרה"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "מנהל"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "הערות"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "זמינות"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "נכשל אחרון"
 
 #: poller_functions.php
 msgid "Description: "
