@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-10-17 16:22+0000\n"
 "Last-Translator: Coool (github.com/Coool) <coool@mail.lv>\n"
 "Language-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\n"
@@ -17,6 +17,470 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
 "X-Generator: Weblate 4.8.1\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Jauns informācijas panelis"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Informācijas panelis"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Lai turpinātu, ievadiet informācijas paneļa nosaukumu un tad nospiediet 'Saglabāt', pretējā gadījumā nospiediet 'Atcelt'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Izveidot jaunu informācijas panelis"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Uzraudzītās ierīces"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "Uzraudzītās ierīces"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "Ierīces"
+
+#: includes/controller.php monitor.php
+msgid "All Monitored Devices"
+msgstr "Visas uzraudzītās ierīces"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down or Recovering"
+msgstr "Uzraudzītās ierīces, vai nu nedarbojošas, vai nu atgūstas"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas vai ar nostrādājušām robežvērtībām"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas, vai ir ar pārsniegtām vai ar nostrādājušām robežvērtībām"
+
+#: includes/controller.php
+#, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "Nezināms uzraudzības statuss (%s)"
+
+#: includes/controller.php
+msgid ", and All Criticalities"
+msgstr ", un visi kritiskie brīži"
+
+#: includes/controller.php
+msgid ", and of Low Criticality or Higher"
+msgstr ", un zemi kritiskie un augstāki brīži"
+
+#: includes/controller.php
+msgid ", and of Medium Criticality or Higher"
+msgstr ", un vidēji kritiskie un augstāki brīži"
+
+#: includes/controller.php
+msgid ", and of High Criticality or Higher"
+msgstr ", un augstu kritiskie un augstāki brīži"
+
+#: includes/controller.php
+msgid ", and of Mission Critical Status"
+msgstr ", un kritiskie statusa brīži"
+
+#: includes/controller.php
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\">Atcerieties, ka vispirms ir jāizvēlas ierīces, kuras vēlaties uzraudzīt, Ierīču lapā!</div></div></div>"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Nesaglabāts"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Izkārtojums"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "Statuss"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Skats"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Grupēšana"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Ierīces"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Atsvaidzināt"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Atsvaidzināt ierīču sarakstu"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Saglabāt"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Saglabāt filtra iestatījumus"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Jauns"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Saglabāt jauno informācijas paneli"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Pārdēvēt"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Pārdēvēt informācijas paneli"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Dzēst"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Dzēst informācijas paneli"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s skaņas brīdinājums neaktīvām ierīcēm"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s skaņas brīdinājumi neaktīvām ierīcēm"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Kritiskums"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Izmērs"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Apgriezt"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Visas koka"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Ierīces, kas nav kokā"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Koks"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Visas ar atrašanās vietu"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Ierīces, kurām nav atrašanās vieta"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Atrašanās vietas"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "Visas ar veidnēm"
+
+#: includes/controller.php
+msgid "Non-Templated Devices"
+msgstr "Ierīces bez veidnēm"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Veidne"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Filtra iestatījumi saglabāti ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Atsvaidzinās atkal pēc <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> sekundēm ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Uzraudzības filtrs [ Pēdējā atsvaidzināšana: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Rāda tikai pirmās 30 ierīces ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Meklēt"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Izslēgt skaņu"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Ņemt vērā (atzīt)"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Ieslēgt skaņu"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Atiestatīt"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Informācijas panelis '%s' noņemts."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Informācijas panelis '%s' nepieder jums."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Informācijas panelis '%s' saglabāts!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Informācijas paneli '%s' nevarēja saglabāt!"
+
+#: includes/controller.php
+msgid "Edit Device"
+msgstr "Rediģēt ierīci"
+
+#: includes/controller.php
+msgid "View Graphs"
+msgstr "Skatīt grafikus"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Skatīt robežvērtības/trauksmes brīdinājumus"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Skatīt ierīces sistēmas žurnāla trauksmes brīdinājumus"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Skatīt ierīces sistēmas žurnāla ierakstus"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Ierīces statusa informācija"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Ierīce:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Atrašanās vieta:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Atrašanās vieta:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Kritiskums:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Statuss:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Administratora piezīme:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Resursdatora nosaukums:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Pašreizējais/Vidējais:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Brīdināt/Izziņot trauksmi:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Pēdējā kļūme:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Stāvokļa laika statuss:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Pieejamība:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Aģenta darbošanās laiks:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Nav pieejams"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Sistēmas apraksts:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Kontaktinformācija:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Piezīmes:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Nekad"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Nav norādīta"
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "Neviena"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Ierīce, kurai nav atrašanās vieta"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Saknes atzars"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Koks: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Atzars: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Nezināms"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Tikko atguvies"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Resursdatora nosaukums"
+
+#: includes/render.php
+msgid "Hostname of device"
+msgstr "Ierīces resursdatora nosaukums"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Apraksts"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "Atrašanās vieta"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "Stāvokļa ilguma statuss"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Vidējie rādītāji"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Brīdinājums"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Administrators"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "Piezīmes"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "Pieejamība"
+
+#: includes/render.php
+msgid "Last Fail"
+msgstr "Pēdējā kļūme"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -37,10 +501,6 @@ msgstr "Augsts"
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "Kritiski svarīgs"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "Nezināms"
 
 #: monitor.php
 msgid "Down"
@@ -98,15 +558,6 @@ msgstr "Ļoti liels"
 msgid "Zoom"
 msgstr "Palielināt"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Ierīces"
-
-#: monitor.php monitor_controller.php
-msgid "All Monitored Devices"
-msgstr "Visas uzraudzītās ierīces"
-
 #: monitor.php
 msgid "Not Up"
 msgstr "Nedarbojas"
@@ -118,10 +569,6 @@ msgstr "Nedarbojas vai nostrādājušas robežvērtības"
 #: monitor.php
 msgid "Not Up, Triggered or Breached"
 msgstr "Nedarbojas, nostrādājušas vai pārsniegtas robežvērtības"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -147,14 +594,6 @@ msgstr "Flīzes"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "Flīzes un laiks"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "Koks"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "Atrašanās vieta"
 
 #: monitor.php setup.php
 msgid "Device Template"
@@ -191,445 +630,6 @@ msgstr "75 rakstzīmes"
 #: monitor.php
 msgid "100 Chars"
 msgstr "100 rakstzīmes"
-
-#: monitor_controller.php
-msgid "New Dashboard"
-msgstr "Jauns informācijas panelis"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "Informācijas panelis"
-
-#: monitor_controller.php
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Lai turpinātu, ievadiet informācijas paneļa nosaukumu un tad nospiediet 'Saglabāt', pretējā gadījumā nospiediet 'Atcelt'"
-
-#: monitor_controller.php
-msgid "Create New Dashboard"
-msgstr "Izveidot jaunu informācijas panelis"
-
-#: monitor_controller.php monitor_render.php
-msgid "Monitored Devices"
-msgstr "Uzraudzītās ierīces"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Uzraudzītās ierīces"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Uzraudzītās ierīces, vai nu nedarbojošas, vai nu atgūstas"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas vai ar nostrādājušām robežvērtībām"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas, vai ir ar pārsniegtām vai ar nostrādājušām robežvērtībām"
-
-#: monitor_controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Nezināms uzraudzības statuss (%s)"
-
-#: monitor_controller.php
-msgid ", and All Criticalities"
-msgstr ", un visi kritiskie brīži"
-
-#: monitor_controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr ", un zemi kritiskie un augstāki brīži"
-
-#: monitor_controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr ", un vidēji kritiskie un augstāki brīži"
-
-#: monitor_controller.php
-msgid ", and of High Criticality or Higher"
-msgstr ", un augstu kritiskie un augstāki brīži"
-
-#: monitor_controller.php
-msgid ", and of Mission Critical Status"
-msgstr ", un kritiskie statusa brīži"
-
-#: monitor_controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">Atcerieties, ka vispirms ir jāizvēlas ierīces, kuras vēlaties uzraudzīt, Ierīču lapā!</div></div></div>"
-
-#: monitor_controller.php
-msgid "Unsaved"
-msgstr "Nesaglabāts"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "Izkārtojums"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "Statuss"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "Skats"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "Grupēšana"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "Ierīces"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "Atsvaidzināt"
-
-#: monitor_controller.php
-msgid "Refresh the Device List"
-msgstr "Atsvaidzināt ierīču sarakstu"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "Saglabāt"
-
-#: monitor_controller.php
-msgid "Save Filter Settings"
-msgstr "Saglabāt filtra iestatījumus"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "Jauns"
-
-#: monitor_controller.php
-msgid "Save New Dashboard"
-msgstr "Saglabāt jauno informācijas paneli"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "Pārdēvēt"
-
-#: monitor_controller.php
-msgid "Rename Dashboard"
-msgstr "Pārdēvēt informācijas paneli"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "Dzēst"
-
-#: monitor_controller.php
-msgid "Delete Dashboard"
-msgstr "Dzēst informācijas paneli"
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alert for downed Devices"
-msgstr "%s skaņas brīdinājums neaktīvām ierīcēm"
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s skaņas brīdinājumi neaktīvām ierīcēm"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-msgid "Criticality"
-msgstr "Kritiskums"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "Izmērs"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "Apgriezt"
-
-#: monitor_controller.php
-msgid "All Trees"
-msgstr "Visas koka"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Tree Devices"
-msgstr "Ierīces, kas nav kokā"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "Visas ar atrašanās vietu"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Site Devices"
-msgstr "Ierīces, kurām nav atrašanās vieta"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "Atrašanās vietas"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "Visas ar veidnēm"
-
-#: monitor_controller.php
-msgid "Non-Templated Devices"
-msgstr "Ierīces bez veidnēm"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "Veidne"
-
-#: monitor_controller.php
-msgid " [ Filter Settings Saved ]"
-msgstr " [ Filtra iestatījumi saglabāti ]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "Atcelt"
-
-#: monitor_controller.php
-#, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr " [ Atsvaidzinās atkal pēc <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> sekundēm ]"
-
-#: monitor_controller.php
-#, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Uzraudzības filtrs [ Pēdējā atsvaidzināšana: %s ]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr "[ Rāda tikai pirmās 30 ierīces ]"
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "Meklēt"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "Izslēgt skaņu"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "Ņemt vērā (atzīt)"
-
-#: monitor_controller.php
-msgid "Un-Mute"
-msgstr "Ieslēgt skaņu"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "Atiestatīt"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "Informācijas panelis '%s' noņemts."
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "Informācijas panelis '%s' nepieder jums."
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "Informācijas panelis '%s' saglabāts!"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "Informācijas paneli '%s' nevarēja saglabāt!"
-
-#: monitor_controller.php
-msgid "Edit Device"
-msgstr "Rediģēt ierīci"
-
-#: monitor_controller.php
-msgid "View Graphs"
-msgstr "Skatīt grafikus"
-
-#: monitor_controller.php
-msgid "View Thresholds/Alerts"
-msgstr "Skatīt robežvērtības/trauksmes brīdinājumus"
-
-#: monitor_controller.php
-msgid "View Device Syslog Alerts"
-msgstr "Skatīt ierīces sistēmas žurnāla trauksmes brīdinājumus"
-
-#: monitor_controller.php
-msgid "View Device Syslog Entries"
-msgstr "Skatīt ierīces sistēmas žurnāla ierakstus"
-
-#: monitor_controller.php
-msgid "Device Status Information"
-msgstr "Ierīces statusa informācija"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "Ierīce:"
-
-#: monitor_controller.php
-msgid "Site:"
-msgstr "Atrašanās vieta:"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "Atrašanās vieta:"
-
-#: monitor_controller.php
-msgid "Criticality:"
-msgstr "Kritiskums:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "Statuss:"
-
-#: monitor_controller.php
-msgid "Admin Note:"
-msgstr "Administratora piezīme:"
-
-#: monitor_controller.php
-msgid "IP/Hostname:"
-msgstr "IP/Resursdatora nosaukums:"
-
-#: monitor_controller.php
-msgid "Curr/Avg:"
-msgstr "Pašreizējais/Vidējais:"
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%d ms"
-msgstr "%d ms"
-
-#: monitor_controller.php
-msgid "Warn/Alert:"
-msgstr "Brīdināt/Izziņot trauksmi:"
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%0.2d ms"
-msgstr "%0.2d ms"
-
-#: monitor_controller.php
-msgid "Last Fail:"
-msgstr "Pēdējā kļūme:"
-
-#: monitor_controller.php
-msgid "Time In State:"
-msgstr "Stāvokļa laika statuss:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "Pieejamība:"
-
-#: monitor_controller.php
-msgid "Agent Uptime:"
-msgstr "Aģenta darbošanās laiks:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "Nav pieejams"
-
-#: monitor_controller.php
-msgid "Sys Description:"
-msgstr "Sistēmas apraksts:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "Kontaktinformācija:"
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "Piezīmes:"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "Nekad"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr "Nav norādīta"
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "Neviena"
-
-#: monitor_render.php
-msgid "Non-Site Device"
-msgstr "Ierīce, kurai nav atrašanās vieta"
-
-#: monitor_render.php
-msgid "Root Branch"
-msgstr "Saknes atzars"
-
-#: monitor_render.php
-#, php-format
-msgid "Tree: %s"
-msgstr "Koks: %s"
-
-#: monitor_render.php
-#, php-format
-msgid "Branch: %s"
-msgstr "Atzars: %s"
-
-#: monitor_render.php
-msgid "Just Up"
-msgstr "Tikko atguvies"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "Resursdatora nosaukums"
-
-#: monitor_render.php
-msgid "Hostname of device"
-msgstr "Ierīces resursdatora nosaukums"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "Apraksts"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "Stāvokļa ilguma statuss"
-
-#: monitor_render.php
-msgid "Averages"
-msgstr "Vidējie rādītāji"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "Brīdinājums"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "Administrators"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "Piezīmes"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "Pieejamība"
-
-#: monitor_render.php
-msgid "Last Fail"
-msgstr "Pēdējā kļūme"
 
 #: poller_functions.php
 msgid "Description: "
