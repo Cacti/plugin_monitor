@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,523 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "Ново табло за управление"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Табло"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Въведете името на таблото за управление и след това натиснете „Запазване“, за да продължите, иначе натиснете „Отказ“"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "Създайте ново табло за управление"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "Контролирани устройства"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "Контролирани устройства"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "Устройства"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "Всички наблюдавани устройства"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "Контролирани устройства или надолу или възстановяване"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "Контролирани устройства или надолу, възстановяване или с пуснати прагове"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "Контролирани устройства или надолу, възстановяване или с нарушени или задействани прагове"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "Неизвестно състояние на мониторинга ( %s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr "и Всички критични фактори"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr "и с ниска критичност или по-висока"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr "и средна критичност или по-висока"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr "и с висока критичност или по-висока"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr "и на Критичното състояние на мисията"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\"> Не забравяйте първо да изберете подходящите Устройства, които да бъдат наблюдавани от страницата Устройства! </div>"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Unsaved"
+msgstr "Незапазено"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Оформление"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "Статус"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Преглед"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Групиране"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Устройства"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Обновяване"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "Обновете списъка с устройства"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Запази"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "Запазване на настройките на филтъра"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Нов"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "Запазване на ново табло за управление"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Преименуване"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "Преименувайте таблото за управление"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Изтрий"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "Изтриване на таблото за управление"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Сигнал за свалени устройства"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Сигнали за свалени устройства"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "Критично"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Размер"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Trim"
+msgstr "Подстригване"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "Всички дървета"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "Устройства без дърво"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "‎درخت"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Sites"
+msgstr "Всички дървета"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "Устройства без дърво"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "за инжектиране e предната страна на бедрата"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Templates"
+msgstr "Всички шаблони"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "Устройства без шаблони"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Шаблон"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[Настройки на филтъра са запазени]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Отказ"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[Опресняване отново в <i id=\"timer\">% d</i> секунди]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Монитор филтър [Последно обновяване: %s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Търсене"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Заглуши"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Уведомяване@ info"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "Un-Mute"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Изчистване"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Таблото за управление „%s“ е премахнато."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Таблото за управление „%s“ не е ваша собственост."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Таблото за управление „%s“ е запазено!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Таблото за управление „%s“ не можа да бъде запазено!"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "Редактиране на устройството"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "Преглед на графиките"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "Преглед на праговете"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "Преглед на сигнали в Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "Преглед на сигнали в Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "Информация за състоянието на устройството"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Изделие:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "Tочка на продажба"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Място:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "Критично:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Статус:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "Забележка за администратора:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP / Hostname:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "Curr / Ср:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "% d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "Предупредете / сигнал:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "% 0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "Последно неизпълнение:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "Време в състояние:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Наличност:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "Допускане на агент:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Няма"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "Описание на Sys:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Контакт:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Notes:"
+msgstr "Бележки"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Никога"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "Няма"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "Устройства без дърво"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "Root Branch"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "Дърво: %s"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "Клон: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "알려지지 않음"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "Просто нагоре"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Име на хост"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "Име на хост на устройство"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Описание"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "Tочка на продажба"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "Дължина в статус"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "Средна"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Внимание"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Администратор"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "Бележки"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "Наличност"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Последна провал"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +549,6 @@ msgstr "Висок"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Критична мисия"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "알려지지 않음"
 
 #: monitor.php
 msgid "Down"
@@ -100,16 +613,6 @@ msgstr "Много Голям"
 msgid "Zoom"
 msgstr "Увеличение"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Устройства"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "Всички наблюдавани устройства"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -124,10 +627,6 @@ msgstr "Не е нагоре или е активирано"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "Не е горе, не е задействан или е нарушен"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -155,14 +654,6 @@ msgstr "Фаянсови плочки"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Плочки и време"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "‎درخت"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "Tочка на продажба"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -207,497 +698,6 @@ msgstr "75 символа"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 символа"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "Ново табло за управление"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "Табло"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Въведете името на таблото за управление и след това натиснете „Запазване“, за да продължите, иначе натиснете „Отказ“"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "Създайте ново табло за управление"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "Контролирани устройства"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Контролирани устройства"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Контролирани устройства или надолу или възстановяване"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Контролирани устройства или надолу, възстановяване или с пуснати прагове"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Контролирани устройства или надолу, възстановяване или с нарушени или задействани прагове"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Неизвестно състояние на мониторинга ( %s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "и Всички критични фактори"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "и с ниска критичност или по-висока"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "и средна критичност или по-висока"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "и с висока критичност или по-висока"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "и на Критичното състояние на мисията"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\"> Не забравяйте първо да изберете подходящите Устройства, които да бъдат наблюдавани от страницата Устройства! </div>"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Unsaved"
-msgstr "Незапазено"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "Оформление"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "Статус"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "Преглед"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "Групиране"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "Устройства"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "Обновяване"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "Обновете списъка с устройства"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "Запази"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "Запазване на настройките на филтъра"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "Нов"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "Запазване на ново табло за управление"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "Преименуване"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "Преименувайте таблото за управление"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "Изтрий"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "Изтриване на таблото за управление"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "%s Сигнал за свалени устройства"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s Сигнали за свалени устройства"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "Критично"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "Размер"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Trim"
-msgstr "Подстригване"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "Всички дървета"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "Устройства без дърво"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Sites"
-msgstr "Всички дървета"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "Устройства без дърво"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "за инжектиране e предната страна на бедрата"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Templates"
-msgstr "Всички шаблони"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "Устройства без шаблони"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "Шаблон"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[Настройки на филтъра са запазени]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "Отказ"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[Опресняване отново в <i id=\"timer\">% d</i> секунди]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Монитор филтър [Последно обновяване: %s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "Търсене"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "Заглуши"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "Уведомяване@ info"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "Un-Mute"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "Изчистване"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "Таблото за управление „%s“ е премахнато."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "Таблото за управление „%s“ не е ваша собственост."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "Таблото за управление „%s“ е запазено!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "Таблото за управление „%s“ не можа да бъде запазено!"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "Редактиране на устройството"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "Преглед на графиките"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "Преглед на праговете"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "Преглед на сигнали в Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "Преглед на сигнали в Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "Информация за състоянието на устройството"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "Изделие:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "Tочка на продажба"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "Място:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "Критично:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "Статус:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "Забележка за администратора:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP / Hostname:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "Curr / Ср:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "% d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "Предупредете / сигнал:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "% 0.2d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "Последно неизпълнение:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "Време в състояние:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "Наличност:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "Допускане на агент:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "Няма"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "Описание на Sys:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "Контакт:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Notes:"
-msgstr "Бележки"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "Никога"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "Няма"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "Устройства без дърво"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "Root Branch"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "Дърво: %s"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "Клон: %s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "Просто нагоре"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "Име на хост"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "Име на хост на устройство"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "Описание"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "Дължина в статус"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "Средна"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "Внимание"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "Администратор"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "Бележки"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "Наличност"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Последна провал"
 
 #: poller_functions.php
 msgid "Description: "
