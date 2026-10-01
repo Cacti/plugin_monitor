@@ -107,11 +107,11 @@ it('updates the stored plugin_config version when it drifts', function () {
 });
 
 it('launches the poller with a php fallback when no binary is configured', function () {
-$GLOBALS['config']['poller_id'] = 1;
-$GLOBALS['__test_exec_calls']   = array();
+	$GLOBALS['config']['poller_id'] = 1;
+	$GLOBALS['__test_exec_calls']   = array();
 
-monitor_poller_bottom();
+	monitor_poller_bottom();
 
-expect($GLOBALS['__test_exec_calls'])->not->toBeEmpty();
-expect($GLOBALS['__test_exec_calls'][0]['command'])->toBe('php');
+	expect($GLOBALS['__test_exec_calls'])->not->toBeEmpty();
+	expect($GLOBALS['__test_exec_calls'][0]['command'])->toBe('php');
 });
