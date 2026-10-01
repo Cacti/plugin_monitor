@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,519 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "Νέος πίνακας ελέγχου"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Πίνακας Ελέγχου"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Εισαγάγετε το Όνομα του Πίνακα ελέγχου και, στη συνέχεια, πατήστε \"Αποθήκευση\" για να συνεχίσετε, αλλιώς πατήστε \"Ακύρωση\""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "Δημιουργία νέου πίνακα ελέγχου"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "Παρακολούθηση συσκευών"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "Παρακολούθηση συσκευών"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "Τύπος Συσκευής"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "Όλες οι παρακολουθούμενες συσκευές"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "Παρακολούθηση συσκευών είτε Κάτω είτε Ανάκτηση"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "Παρακολούθηση συσκευών είτε Κάτω, Ανάκτηση ή Με Καθορισμένα Κατώτατα Όρια"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "Παρακολούθηση συσκευών είτε Κάτω, Ανάκτηση, είτε με κατώφλια που έχουν παραβιαστεί ή ξεκινήσει"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "Άγνωστη κατάσταση παρακολούθησης ( %s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr ", και Όλα τα κρισιμότητας"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr ", και χαμηλής κριτικής ή υψηλότερης"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr ", και μεσαίου κριτικού χαρακτήρα ή υψηλότερου"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr ", και Υψηλού Κρίσιμου ή Υψηλότερου"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr ", και της κρίσιμης κατάστασης αποστολής"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\"> Θυμηθείτε πρώτα να επιλέξετε τις Επιλέξιμες συσκευές που θα παρακολουθούνται από τη σελίδα Συσκευές! </div>"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Μη αποθηκευμένο"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Διάταξη"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "Κατάσταση"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Προβολή"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Ομαδοποίηση"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Τύπος Συσκευής"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "Ανανεώστε τη λίστα συσκευών"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "Αποθήκευση ρυθμίσεων φίλτρου"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Νέο"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "Αποθήκευση νέου πίνακα ελέγχου"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Μετονομασία"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "Μετονομασία πίνακα ελέγχου"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "Διαγραφή πίνακα ελέγχου"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Ειδοποίηση για κατεβασμένες συσκευές"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Ειδοποιήσεις για κατεβασμένες συσκευές"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Κρισιμότητα"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Κινητήρας"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "Όλα τα δέντρα"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "Μη-Tree Devices"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Δέντρο"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Όλα τα Αξιοθέατα"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "Μη-Tree Devices"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Ιστοσελίδες"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Templates"
+msgstr "Όλα τα πρότυπα"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "Μη προτυποποιημένες συσκευές"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Πρότυπο"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[Αποθηκευμένες ρυθμίσεις φίλτρου]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[Ανανέωση ξανά σε <i id=\"timer\">% d</i> δευτερόλεπτα]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Φίλτρο οθόνης [Τελευταία ανανέωση: %s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Σίγαση"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Αναγνώριση"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "Απενεργοποίηση σίγασης"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Επαναφορά"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Ο πίνακας ελέγχου \"%s\" καταργήθηκε."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Ο πίνακας ελέγχου \"%s\" δεν σας ανήκει."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Ο πίνακας ελέγχου \"%s\" αποθηκεύτηκε!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Δεν ήταν δυνατή η αποθήκευση του πίνακα ελέγχου \"%s\"!"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "Επεξεργασία συσκευής"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "Προβολή γραφημάτων"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "Προβολή ορίων"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "Προβολή ειδοποιήσεων Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "Προβολή ειδοποιήσεων Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "Πληροφορίες κατάστασης συσκευής"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "设备："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "Ιστοσελίδα"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Τοποθεσία:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "Κριτική:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Κατάσταση:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "Σημείωση διαχειριστή:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP / Hostname:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "Curr / Μέσος όρος:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "% d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "Προειδοποίηση / ειδοποίηση:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "% 0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "Τελευταία αποτυχία:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "Ώρα στην Πολιτεία:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Διαθεσιμότητα:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "Χρόνος αναμονής του παράγοντα:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Μη Διαθέσιμο"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "Sys Περιγραφή:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Επαφή"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Notes:"
+msgstr "Σημειώσεις"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Ποτέ"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "Κανένα"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "Μη-Tree Devices"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "Υποκατάστημα ρίζας"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "Δέντρο: %s"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "Υποκατάστημα: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "Ακριβώς επάνω"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Νέο όνομα φιλοξενίας"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "Όνομα κεντρικού υπολογιστή της συσκευής"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "Ιστοσελίδα"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "Μήκος κατάστασης"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "Μέσοι όροι"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Προσοχή"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Διαχειριστής"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "Διαθεσιμότητα"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Τελευταία αποτυχία"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +545,6 @@ msgstr "Υψηλή"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Κρίσιμη αποστολή"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "Άγνωστο"
 
 #: monitor.php
 msgid "Down"
@@ -99,16 +608,6 @@ msgstr "Πολύ Μεγάλο"
 msgid "Zoom"
 msgstr "Μεγέθυνση"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Τύπος Συσκευής"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "Όλες οι παρακολουθούμενες συσκευές"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -123,10 +622,6 @@ msgstr "Όχι επάνω ή ενεργοποιημένη"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "Όχι επάνω, ενεργοποιημένο ή παραβιασμένο"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -154,14 +649,6 @@ msgstr "Πλακάκια"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Πλακάκια &amp; Ώρα"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "Δέντρο"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "Ιστοσελίδα"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -206,493 +693,6 @@ msgstr "75 χαρακτήρες"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 χαρακτήρες"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "Νέος πίνακας ελέγχου"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "Πίνακας Ελέγχου"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Εισαγάγετε το Όνομα του Πίνακα ελέγχου και, στη συνέχεια, πατήστε \"Αποθήκευση\" για να συνεχίσετε, αλλιώς πατήστε \"Ακύρωση\""
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "Δημιουργία νέου πίνακα ελέγχου"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "Παρακολούθηση συσκευών"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Παρακολούθηση συσκευών"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Παρακολούθηση συσκευών είτε Κάτω είτε Ανάκτηση"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Παρακολούθηση συσκευών είτε Κάτω, Ανάκτηση ή Με Καθορισμένα Κατώτατα Όρια"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Παρακολούθηση συσκευών είτε Κάτω, Ανάκτηση, είτε με κατώφλια που έχουν παραβιαστεί ή ξεκινήσει"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Άγνωστη κατάσταση παρακολούθησης ( %s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr ", και Όλα τα κρισιμότητας"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr ", και χαμηλής κριτικής ή υψηλότερης"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr ", και μεσαίου κριτικού χαρακτήρα ή υψηλότερου"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr ", και Υψηλού Κρίσιμου ή Υψηλότερου"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr ", και της κρίσιμης κατάστασης αποστολής"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\"> Θυμηθείτε πρώτα να επιλέξετε τις Επιλέξιμες συσκευές που θα παρακολουθούνται από τη σελίδα Συσκευές! </div>"
-
-#: monitor_controller.php
-msgid "Unsaved"
-msgstr "Μη αποθηκευμένο"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "Διάταξη"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "Κατάσταση"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "Προβολή"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "Ομαδοποίηση"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "Τύπος Συσκευής"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "Ανανέωση"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "Ανανεώστε τη λίστα συσκευών"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "Αποθήκευση"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "Αποθήκευση ρυθμίσεων φίλτρου"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "Νέο"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "Αποθήκευση νέου πίνακα ελέγχου"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "Μετονομασία"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "Μετονομασία πίνακα ελέγχου"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "Διαγραφή πίνακα ελέγχου"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "%s Ειδοποίηση για κατεβασμένες συσκευές"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s Ειδοποιήσεις για κατεβασμένες συσκευές"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-msgid "Criticality"
-msgstr "Κρισιμότητα"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "Μέγεθος"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "Κινητήρας"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "Όλα τα δέντρα"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "Μη-Tree Devices"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "Όλα τα Αξιοθέατα"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "Μη-Tree Devices"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "Ιστοσελίδες"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Templates"
-msgstr "Όλα τα πρότυπα"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "Μη προτυποποιημένες συσκευές"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "Πρότυπο"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[Αποθηκευμένες ρυθμίσεις φίλτρου]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "Ακύρωση"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[Ανανέωση ξανά σε <i id=\"timer\">% d</i> δευτερόλεπτα]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Φίλτρο οθόνης [Τελευταία ανανέωση: %s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "Αναζήτηση"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "Σίγαση"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "Αναγνώριση"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "Απενεργοποίηση σίγασης"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "Επαναφορά"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "Ο πίνακας ελέγχου \"%s\" καταργήθηκε."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "Ο πίνακας ελέγχου \"%s\" δεν σας ανήκει."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "Ο πίνακας ελέγχου \"%s\" αποθηκεύτηκε!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "Δεν ήταν δυνατή η αποθήκευση του πίνακα ελέγχου \"%s\"!"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "Επεξεργασία συσκευής"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "Προβολή γραφημάτων"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "Προβολή ορίων"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "Προβολή ειδοποιήσεων Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "Προβολή ειδοποιήσεων Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "Πληροφορίες κατάστασης συσκευής"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "设备："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "Ιστοσελίδα"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "Τοποθεσία:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "Κριτική:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "Κατάσταση:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "Σημείωση διαχειριστή:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP / Hostname:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "Curr / Μέσος όρος:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "% d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "Προειδοποίηση / ειδοποίηση:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "% 0.2d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "Τελευταία αποτυχία:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "Ώρα στην Πολιτεία:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "Διαθεσιμότητα:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "Χρόνος αναμονής του παράγοντα:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "Μη Διαθέσιμο"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "Sys Περιγραφή:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "Επαφή"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Notes:"
-msgstr "Σημειώσεις"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "Ποτέ"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "Κανένα"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "Μη-Tree Devices"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "Υποκατάστημα ρίζας"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "Δέντρο: %s"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "Υποκατάστημα: %s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "Ακριβώς επάνω"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "Νέο όνομα φιλοξενίας"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "Όνομα κεντρικού υπολογιστή της συσκευής"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "Περιγραφή"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "Μήκος κατάστασης"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "Μέσοι όροι"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "Προσοχή"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "Διαχειριστής"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "Σημειώσεις"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "Διαθεσιμότητα"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Τελευταία αποτυχία"
 
 #: poller_functions.php
 msgid "Description: "
