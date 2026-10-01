@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:12-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,517 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "Nuova dashboard"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Bacheca"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Immettere il nome del dashboard e quindi premere \"Salva\" per continuare, altrimenti premere \"Annulla\""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "Crea nuovo dashboard"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "Dispositivi monitorati"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "Dispositivi monitorati"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "Dispositivi"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "Tutti i dispositivi monitorati"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "Dispositivi monitorati sia Down che Recupero"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "Dispositivi monitorati sia verso il basso, il recupero o con soglie attivate"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "Dispositivi monitorati sia verso il basso, il recupero, o con soglie superate o attivate"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "Stato di monitoraggio sconosciuto (%s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr "e tutte le criticità"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr "e di bassa criticità o di criticità più elevata"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr "e di Media Criticità o di Criticità Media o Superiore"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr "e di Alta Criticità o di Alta Criticità o Superiore"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr "e dello status di Mission Critical Status"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\">Ricordati di selezionare prima i dispositivi idonei da monitorare dalla pagina Dispositivi!"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Non salvato"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Layout"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "Stato"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Vedi"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Raggruppa"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Dispositivi"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Aggiorna"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "Aggiornare l'elenco dei dispositivi"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Salva"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "Salvare le impostazioni del filtro"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Nuovo"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "Salva nuova dashboard"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Rinomina"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "Rinomina dashboard"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Elimina"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "Elimina dashboard"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Allarme per i dispositivi abbattuti"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Avvisi per i dispositivi abbattuti"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "Criticità"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Dimensione"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Taglia"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "Tutti gli alberi"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "Dispositivi non ad albero"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Albero"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Tutti i Siti"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "Dispositivi non ad albero"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Siti"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "Tutti i Modelli"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "Dispositivi non esemplari"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Modello"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr " Impostazioni filtro salvate ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Annulla"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Aggiorna di nuovo in <i id=\"timer\">%d</i> Secondi ]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Filtro di monitoraggio [ Ultimo aggiornamento: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Cerca"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Silenzia"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Confermare"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "Disattivare il silenziamento"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Reset"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Dashboard \"%s\" rimosso."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "La dashboard \"%s\" non è di tua proprietà."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "La dashboard \"%s\" è stata salvata!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Impossibile salvare la dashboard \"%s\"."
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "Modifica apparecchio"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "Visualizza i grafici"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "Visualizza Soglie"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "Visualizza gli avvisi di Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "Visualizza gli avvisi di Syslog"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "Informazioni sullo stato del dispositivo"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Dispositivo:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "Sito"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Località:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "Criticità:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Stato:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "Nota dell'amministrazione:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP/nome host:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "Curr/Avg:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "Avviso / Allarme:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "Ultimo fallimento:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "Time In State:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Disponibilità:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "Agente Uptime:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "Descrizione del sistema:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Contatto:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Note:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Mai"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "Nessuno"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "Dispositivi non ad albero"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "Ramo delle radici"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "Albero: %s"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "Ramo: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Sconosciuto"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "Just Up"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Nome Host"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "Nome del dispositivo"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Descrizione"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "Sito"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "Lunghezza in stato"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "Medie"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Attenzione"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Amministratore"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "Note"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "Disponibilità"
+
+#: includes/render.php
+msgid "Last Fail"
+msgstr "Ultimo fallito"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +543,6 @@ msgstr "Alta"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Critico per la missione"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "Sconosciuto"
 
 #: monitor.php
 msgid "Down"
@@ -98,16 +605,6 @@ msgstr "Molto grande"
 msgid "Zoom"
 msgstr "Zoom"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Dispositivi"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "Tutti i dispositivi monitorati"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -122,10 +619,6 @@ msgstr "Non su o innescato"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "Non su, innescato o rotto"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -152,14 +645,6 @@ msgstr "Tiles"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Piastrelle & Tempo"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "Albero"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "Sito"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -204,491 +689,6 @@ msgstr "75 caratteri"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 caratteri"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "Nuova dashboard"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "Bacheca"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Immettere il nome del dashboard e quindi premere \"Salva\" per continuare, altrimenti premere \"Annulla\""
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "Crea nuovo dashboard"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "Dispositivi monitorati"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Dispositivi monitorati"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Dispositivi monitorati sia Down che Recupero"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Dispositivi monitorati sia verso il basso, il recupero o con soglie attivate"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Dispositivi monitorati sia verso il basso, il recupero, o con soglie superate o attivate"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Stato di monitoraggio sconosciuto (%s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "e tutte le criticità"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "e di bassa criticità o di criticità più elevata"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "e di Media Criticità o di Criticità Media o Superiore"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "e di Alta Criticità o di Alta Criticità o Superiore"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "e dello status di Mission Critical Status"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">Ricordati di selezionare prima i dispositivi idonei da monitorare dalla pagina Dispositivi!"
-
-#: monitor_controller.php
-msgid "Unsaved"
-msgstr "Non salvato"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "Layout"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "Stato"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "Vedi"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "Raggruppa"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "Dispositivi"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "Aggiorna"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "Aggiornare l'elenco dei dispositivi"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "Salva"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "Salvare le impostazioni del filtro"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "Nuovo"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "Salva nuova dashboard"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "Rinomina"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "Rinomina dashboard"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "Elimina"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "Elimina dashboard"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "%s Allarme per i dispositivi abbattuti"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s Avvisi per i dispositivi abbattuti"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "Criticità"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "Dimensione"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "Taglia"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "Tutti gli alberi"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "Dispositivi non ad albero"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "Tutti i Siti"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "Dispositivi non ad albero"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "Siti"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "Tutti i Modelli"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "Dispositivi non esemplari"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "Modello"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr " Impostazioni filtro salvate ]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "Annulla"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr " [ Aggiorna di nuovo in <i id=\"timer\">%d</i> Secondi ]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Filtro di monitoraggio [ Ultimo aggiornamento: %s ]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "Cerca"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "Silenzia"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "Confermare"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "Disattivare il silenziamento"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "Reset"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "Dashboard \"%s\" rimosso."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "La dashboard \"%s\" non è di tua proprietà."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "La dashboard \"%s\" è stata salvata!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "Impossibile salvare la dashboard \"%s\"."
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "Modifica apparecchio"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "Visualizza i grafici"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "Visualizza Soglie"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "Visualizza gli avvisi di Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "Visualizza gli avvisi di Syslog"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "Informazioni sullo stato del dispositivo"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "Dispositivo:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "Sito"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "Località:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "Criticità:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "Stato:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "Nota dell'amministrazione:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP/nome host:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "Curr/Avg:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "%d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "Avviso / Allarme:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "%0.2d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "Ultimo fallimento:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "Time In State:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "Disponibilità:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "Agente Uptime:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "N/A"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "Descrizione del sistema:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "Contatto:"
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "Note:"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "Mai"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "Nessuno"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "Dispositivi non ad albero"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "Ramo delle radici"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "Albero: %s"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "Ramo: %s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "Just Up"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "Nome Host"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "Nome del dispositivo"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "Descrizione"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "Lunghezza in stato"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "Medie"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "Attenzione"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "Amministratore"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "Note"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "Disponibilità"
-
-#: monitor_render.php
-msgid "Last Fail"
-msgstr "Ultimo fallito"
 
 #: poller_functions.php
 msgid "Description: "
