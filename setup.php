@@ -259,8 +259,8 @@ function plugin_monitor_page_head() {
 
 	print get_md5_include_css('plugins/monitor/css/monitor.css') . PHP_EOL;
 
-	if (file_exists($config['base_path'] . '/plugins/monitor/css/' . get_selected_theme() . '/monitor.css')) {
-		print get_md5_include_css('plugins/monitor/css/' . get_selected_theme() . '/monitor.css') . PHP_EOL;
+	if (file_exists($config['base_path'] . '/plugins/monitor/css/' . get_selected_theme() . '.css')) {
+		print get_md5_include_css('plugins/monitor/css/' . get_selected_theme() . '.css') . PHP_EOL;
 	}
 }
 

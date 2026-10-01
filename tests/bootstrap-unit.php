@@ -367,7 +367,7 @@ function test_set_request(array $vars): void {
 	$GLOBALS['__test_request'] = $vars;
 }
 
-// validateRequestVars() is not stubbed here: monitor_controller.php declares
+// validateRequestVars() is not stubbed here: includes/controller.php declares
 // it unconditionally, so a global stub would fatal with a redeclare error
 // once a test loads that file via loadPluginSource()/monitor_test_load().
 

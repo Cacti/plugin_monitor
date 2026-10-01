@@ -7,7 +7,7 @@
 
 /*
  * Unit coverage for plugin_monitor_page_head()'s stylesheet selection in
- * setup.php, including the per-theme override loaded from css/<theme>/monitor.css.
+ * setup.php, including the per-theme override loaded from css/<theme>.css.
  */
 
 beforeAll(function () {
@@ -18,11 +18,11 @@ afterEach(function () {
 	unset($GLOBALS['__test_selected_theme']);
 });
 
-it('links the per-theme stylesheet from css/<theme>/ when it exists', function () {
+it('links the per-theme stylesheet from css/ when it exists', function () {
 	$restore = $GLOBALS['config']['base_path'];
 	$base    = sys_get_temp_dir() . '/monitor-ph-' . uniqid();
-	mkdir($base . '/plugins/monitor/css/modern', 0777, true);
-	file_put_contents($base . '/plugins/monitor/css/modern/monitor.css', '');
+	mkdir($base . '/plugins/monitor/css', 0777, true);
+	file_put_contents($base . '/plugins/monitor/css/modern.css', '');
 	$GLOBALS['__test_selected_theme'] = 'modern';
 	$GLOBALS['config']['base_path']   = $base;
 
@@ -35,7 +35,7 @@ it('links the per-theme stylesheet from css/<theme>/ when it exists', function (
 		$GLOBALS['config']['base_path'] = $restore;
 	}
 
-	expect($output)->toContain('plugins/monitor/css/modern/monitor.css');
+	expect($output)->toContain('plugins/monitor/css/modern.css');
 });
 
 it('emits only the base stylesheet when no per-theme override exists', function () {
