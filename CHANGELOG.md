@@ -1,5 +1,13 @@
 ## Changelog
 
+--- 3.0 ---
+
+* feature: Adopt the Cacti plugin table API and relocate schema provisioning into includes/database.php
+* feature: Add a fleet-wide manifest.json with upgrade-time file pruning
+* feature: Consolidate per-theme override stylesheets from themes/ into css/
+* dev: Rename includes/db_functions.php to includes/functions.php and move bundled libraries under includes/
+* dev: Set the Cacti compatibility floor to 1.2.29
+
 --- 2.9 ---
 
 * dev: Measure CI coverage with xdebug instead of pcov so the plugin's own sources are instrumented (pcov auto-scopes to the Composer root and skipped cacti/plugins/, leaving the patch-coverage gate with nothing to measure)

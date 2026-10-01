@@ -18,6 +18,10 @@
 
 beforeAll(function () {
 	require_once __DIR__ . '/../../setup.php';
+	// Define the schema functions (monitor_setup_table, monitor_upgrade_tables)
+	// from the real checkout so monitor_check_upgrade() can run while base_path
+	// is sandboxed for the upgrade-time prune.
+	require_once dirname(__DIR__, 2) . '/includes/database.php';
 
 	$stubLibraryPath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'monitor-test-lib-stub';
 
@@ -36,6 +40,22 @@ beforeEach(function () {
 	$GLOBALS['__test_db_calls']       = array();
 	$GLOBALS['__test_config_options'] = array();
 	$_SERVER['PHP_SELF']              = '/monitor.php';
+
+	// Sandbox base_path (with a minimal INFO + empty includes/database.php stub)
+	// so any upgrade-path test runs monitor_prune_files() against a
+	// throwaway tree, never the real checkout.
+	$GLOBALS['__monitor_base_restore'] = $GLOBALS['config']['base_path'];
+	$base = sys_get_temp_dir() . '/monitor-test-' . uniqid();
+	mkdir($base . '/plugins/monitor/includes', 0777, true);
+	file_put_contents($base . '/plugins/monitor/INFO', "[info]\nversion = 9.9.9\nname = monitor\nlongname = Monitor\nauthor = x\nhomepage = x\n");
+	file_put_contents($base . '/plugins/monitor/includes/database.php', "<?php\n");
+	$GLOBALS['config']['base_path'] = $base;
+});
+
+afterEach(function () {
+	if (isset($GLOBALS['__monitor_base_restore'])) {
+		$GLOBALS['config']['base_path'] = $GLOBALS['__monitor_base_restore'];
+	}
 });
 
 it('drops every table it owns on uninstall', function () {
@@ -84,4 +104,14 @@ it('updates the stored plugin_config version when it drifts', function () {
 	$sql = implode("\n", array_column($GLOBALS['__test_db_calls'], 'sql'));
 
 	expect($sql)->toContain('ALTER TABLE host');
+});
+
+it('launches the poller with a php fallback when no binary is configured', function () {
+	$GLOBALS['config']['poller_id'] = 1;
+	$GLOBALS['__test_exec_calls']   = array();
+
+	monitor_poller_bottom();
+
+	expect($GLOBALS['__test_exec_calls'])->not->toBeEmpty();
+	expect($GLOBALS['__test_exec_calls'][0]['command'])->toBe('php');
 });

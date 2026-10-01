@@ -28,7 +28,7 @@
     <source>
         <include>
             <file>setup.php</file>
-            <file>db_functions.php</file>
+            <file>includes/functions.php</file>
             <file>poller_functions.php</file>
         </include>
     </source>

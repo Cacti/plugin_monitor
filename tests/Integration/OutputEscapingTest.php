@@ -16,14 +16,14 @@
 $root = dirname(__DIR__, 2);
 
 dataset('escaped_outputs', [
-	['monitor_controller.php', "html_escape(get_request_var('downhosts'))"],
-	['monitor_controller.php', "html_escape(get_request_var('mute'))"],
-	['monitor_controller.php', "html_escape(get_request_var('tree'))"],
-	['monitor_controller.php', "html_escape(get_request_var('site'))"],
-	['monitor_controller.php', "html_escape(get_request_var('template'))"],
-	['monitor_controller.php', "html_escape(get_request_var('size'))"],
-	['monitor_controller.php', "html_escape(get_request_var('trim'))"],
-	['monitor_render.php',     "rawurlencode(get_request_var('rfilter'))"],
+	['includes/controller.php', "html_escape(get_request_var('downhosts'))"],
+	['includes/controller.php', "html_escape(get_request_var('mute'))"],
+	['includes/controller.php', "html_escape(get_request_var('tree'))"],
+	['includes/controller.php', "html_escape(get_request_var('site'))"],
+	['includes/controller.php', "html_escape(get_request_var('template'))"],
+	['includes/controller.php', "html_escape(get_request_var('size'))"],
+	['includes/controller.php', "html_escape(get_request_var('trim'))"],
+	['includes/render.php',     "rawurlencode(get_request_var('rfilter'))"],
 ]);
 
 it('escapes request values before printing them', function (string $file, string $pattern) use ($root) {
@@ -31,13 +31,13 @@ it('escapes request values before printing them', function (string $file, string
 })->with('escaped_outputs');
 
 dataset('raw_reuse', [
-	['monitor_controller.php', "get_request_var('downhosts') . '\"><input id=\"mute\" type=\"hidden\" value=\"' . get_request_var('mute')"],
-	['monitor_controller.php', "get_request_var('tree') . '\"></td>'"],
-	['monitor_controller.php', "get_request_var('site') . '\"></td>'"],
-	['monitor_controller.php', "get_request_var('template') . '\"></td>'"],
-	['monitor_controller.php', "get_request_var('size') . '\"></td>'"],
-	['monitor_controller.php', "get_request_var('trim') . '\"></td>'"],
-	['monitor_render.php',     "monitor.php?rfilter=' . get_request_var('rfilter')"],
+	['includes/controller.php', "get_request_var('downhosts') . '\"><input id=\"mute\" type=\"hidden\" value=\"' . get_request_var('mute')"],
+	['includes/controller.php', "get_request_var('tree') . '\"></td>'"],
+	['includes/controller.php', "get_request_var('site') . '\"></td>'"],
+	['includes/controller.php', "get_request_var('template') . '\"></td>'"],
+	['includes/controller.php', "get_request_var('size') . '\"></td>'"],
+	['includes/controller.php', "get_request_var('trim') . '\"></td>'"],
+	['includes/render.php',     "monitor.php?rfilter=' . get_request_var('rfilter')"],
 ]);
 
 it('never concatenates a raw request value into markup', function (string $file, string $pattern) use ($root) {

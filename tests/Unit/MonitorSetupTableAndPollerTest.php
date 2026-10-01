@@ -17,6 +17,7 @@
 
 beforeAll(function () {
 	require_once __DIR__ . '/../../setup.php';
+	require_once __DIR__ . '/../../includes/database.php';
 
 	$stubLibraryPath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'monitor-test-lib-stub';
 
@@ -45,6 +46,18 @@ it('creates every table the plugin owns', function () {
 	foreach (array('plugin_monitor_notify_history', 'plugin_monitor_reboot_history', 'plugin_monitor_uptime') as $table) {
 		expect($sql)->toContain($table);
 	}
+});
+
+it('does not keep plugin ownership of the user-owned dashboards table', function () {
+	monitor_setup_table();
+
+	$disowned = array_filter($GLOBALS['__test_db_calls'], function ($call) {
+		return $call['fn'] === 'db_execute'
+			&& stripos($call['sql'], 'DELETE FROM plugin_db_changes') !== false
+			&& stripos($call['sql'], 'plugin_monitor_dashboards') !== false;
+	});
+
+	expect($disowned)->not->toBeEmpty();
 });
 
 it('launches poller_monitor.php in the background on the primary poller', function () {

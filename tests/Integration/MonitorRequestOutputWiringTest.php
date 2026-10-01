@@ -8,14 +8,14 @@
 */
 
 dataset('output_hardening', [
-	'controller downhosts' => ['monitor_controller.php', "html_escape(get_request_var('downhosts'))"],
-	'controller mute'      => ['monitor_controller.php', "html_escape(get_request_var('mute'))"],
-	'controller tree'      => ['monitor_controller.php', "html_escape(get_request_var('tree'))"],
-	'controller site'      => ['monitor_controller.php', "html_escape(get_request_var('site'))"],
-	'controller template'  => ['monitor_controller.php', "html_escape(get_request_var('template'))"],
-	'controller size'      => ['monitor_controller.php', "html_escape(get_request_var('size'))"],
-	'controller trim'      => ['monitor_controller.php', "html_escape(get_request_var('trim'))"],
-	'render rfilter'       => ['monitor_render.php', "rawurlencode(get_request_var('rfilter'))"],
+	'controller downhosts' => ['includes/controller.php', "html_escape(get_request_var('downhosts'))"],
+	'controller mute'      => ['includes/controller.php', "html_escape(get_request_var('mute'))"],
+	'controller tree'      => ['includes/controller.php', "html_escape(get_request_var('tree'))"],
+	'controller site'      => ['includes/controller.php', "html_escape(get_request_var('site'))"],
+	'controller template'  => ['includes/controller.php', "html_escape(get_request_var('template'))"],
+	'controller size'      => ['includes/controller.php', "html_escape(get_request_var('size'))"],
+	'controller trim'      => ['includes/controller.php', "html_escape(get_request_var('trim'))"],
+	'render rfilter'       => ['includes/render.php', "rawurlencode(get_request_var('rfilter'))"],
 ]);
 
 it('keeps expected output hardening in place', function (string $file, string $pattern) {

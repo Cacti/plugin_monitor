@@ -20,32 +20,30 @@ When generating code for this repository:
 
 ### Key Dependencies
 - Cacti core framework (`api_plugin_*`, `db_*`, `read_config_option()`, `get_filter_request_var()`)
-- `themes/` CSS overlays, `sounds/` audible alert assets, `js/` client-side dashboard code
+- `css/` CSS overlays, `sounds/` audible alert assets, `js/` client-side dashboard code
 
 ## Project Structure
 
 ```
-monitor/                    # Repository root (install to plugins/monitor/ in Cacti)
-├── js/                       # Dashboard client-side logic
-├── sounds/                      # Alert sound assets
-├── themes/                        # CSS theme overlays (monitor.css)
-├── tests/                            # Test suite
-├── db_functions.php                    # SQL filter/join helpers and status/device query utilities
-├── monitor.php                           # Web entrypoint/bootstrap (session/request setup)
-├── monitor_controller.php                  # Action flow, filter handling, page orchestration
-├── monitor_render.php                        # Dashboard/group rendering and view-specific output
-├── poller_functions.php                        # Poller helper logic (uptime checks, notifications, email payloads)
-├── poller_monitor.php                            # Background poller entry point (CLI: --help, --version, --debug)
-├── INFO                                            # Plugin metadata (name, version, compat)
+monitor/                 # Repository root (install to plugins/monitor/ in Cacti)
+├── js/                  # Dashboard client-side logic
+├── sounds/              # Alert sound assets
+├── css/                 # CSS theme overlays (monitor.css)
+├── tests/               # Test suite
+├── includes/            # functions.php (DB/query helpers), controller.php (action flow), render.php (rendering), database.php (schema)
+├── monitor.php          # Web entrypoint/bootstrap (session/request setup)
+├── poller_functions.php # Poller helper logic (uptime checks, notifications, email payloads)
+├── poller_monitor.php   # Background poller entry point (CLI: --help, --version, --debug)
+├── INFO                 # Plugin metadata (name, version, compat)
 ├── README.md
-└── setup.php                                         # Plugin install/uninstall/upgrade hooks, hook registration, config
+└── setup.php            # Plugin install/uninstall/upgrade hooks, hook registration, config
 ```
 
 ## Naming Conventions
 
 ### Function Names
 - Procedural functions use **lowerCamelCase**, the `monitor_` prefix, or the required `plugin_monitor_` lifecycle prefix, matching current file conventions — keep plugin hook callback names exactly synchronized between their definitions and their `api_plugin_register_hook()` registration strings.
-- Keep top-level entrypoints lightweight; place reusable logic in the appropriate helper file (`db_functions.php`, `poller_functions.php`).
+- Keep top-level entrypoints lightweight; place reusable logic in the appropriate helper file (`includes/functions.php`, `poller_functions.php`).
 
 ### Database Tables
 Plugin tables are prefixed `plugin_monitor_`. Reuse existing table names and avoid introducing parallel schema variants; keep schema evolution inside the existing setup/upgrade lifecycle functions in `setup.php`.
@@ -100,9 +98,9 @@ Use gettext calls with the `monitor` domain for user-facing strings: `__('Text',
 ### File Responsibilities
 - `setup.php`: plugin lifecycle, hook registration, config arrays/settings, install/upgrade table management.
 - `monitor.php`: web entrypoint/bootstrap, includes, session/request setup.
-- `monitor_controller.php`: action flow, filter handling, page orchestration.
-- `monitor_render.php`: dashboard/group rendering and view-specific output.
-- `db_functions.php`: SQL filter/join helpers and status/device query utilities.
+- `includes/controller.php`: action flow, filter handling, page orchestration.
+- `includes/render.php`: dashboard/group rendering and view-specific output.
+- `includes/functions.php`: SQL filter/join helpers and status/device query utilities.
 - `poller_monitor.php`: CLI poller entrypoint.
 - `poller_functions.php`: poller helper logic (uptime checks, notifications, email payload building).
 
@@ -175,3 +173,7 @@ existing code or adding new code, not just in dedicated cleanup passes:
   line, `@param` lines, a blank comment line, then `@return`. Infer parameter/return types from
   actual usage; don't change the function's real type-hints in the same pass (let static analysis
   flag mismatches separately). Skip vendored third-party library files.
+
+## File manifest & upgrade pruning
+
+The plugin ships a root `manifest.json` with three arrays: `tombstones` (files/directories older versions shipped that have since moved or been removed), `expected` (the top-level files and directories that ship today, directories written with a trailing `/`), and `whitelist` (paths holding user data that must never be touched). Keep `expected` current: CI runs `tests/bin/validate-manifest.php`, which fails on any drift between `expected` and the real top-level tree (it ignores `tests/`, `phpunit.xml`, `.git*`, `.md*`, and whitelisted paths). Custom customer CSS/theme files belong in `expected`, and stylesheets live in `css/` (not `themes/`). On upgrade, `monitor_prune_files()` deletes the tombstoned paths, the dev-only `tests/` tree, and the `phpunit.xml` test config, leaves `whitelist`, `.git*`, and `.md*` alone, and logs (without removing) any top-level entry the manifest does not account for. As a safety measure it refuses any tombstone that resolves outside the plugin directory (a tampered manifest.json) and logs a warning for any file or directory it cannot remove. When you move or delete a shipped file, add its old path to `tombstones` and update `expected` in the same change.

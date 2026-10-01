@@ -26,7 +26,7 @@
 $guest_account = true;
 
 chdir('../../');
-include_once('./include/auth.php');
+require_once('./include/auth.php');
 
 set_default_action();
 
@@ -126,9 +126,9 @@ if (!isset($_SESSION['monitor_muted_hosts'])) {
 	$_SESSION['monitor_muted_hosts'] = [];
 }
 
-include_once __DIR__ . '/db_functions.php';
-include_once __DIR__ . '/monitor_render.php';
-include_once __DIR__ . '/monitor_controller.php';
+include_once __DIR__ . '/includes/functions.php';
+include_once __DIR__ . '/includes/render.php';
+include_once __DIR__ . '/includes/controller.php';
 
 validateRequestVars();
 

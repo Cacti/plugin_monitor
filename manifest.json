@@ -1,0 +1,29 @@
+{
+    "tombstones": [
+        "db_functions.php",
+        "monitor_controller.php",
+        "monitor_render.php",
+        "sonar-project.properties",
+        "themes/"
+    ],
+    "expected": [
+        "CHANGELOG.md",
+        "INFO",
+        "LICENSE",
+        "README.md",
+        "css/",
+        "docs/",
+        "images/",
+        "includes/",
+        "index.php",
+        "js/",
+        "locales/",
+        "manifest.json",
+        "monitor.php",
+        "poller_functions.php",
+        "poller_monitor.php",
+        "setup.php",
+        "sounds/"
+    ],
+    "whitelist": []
+}

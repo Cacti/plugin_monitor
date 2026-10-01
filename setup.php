@@ -50,6 +50,10 @@ function plugin_monitor_csp_nonce(): string {
  * @return void
  */
 function plugin_monitor_install() {
+	global $config;
+
+	require_once($config['base_path'] . '/plugins/monitor/includes/database.php');
+
 	// core plugin functionality
 	api_plugin_register_hook('monitor', 'top_header_tabs', 'monitor_show_tab', 'setup.php');
 	api_plugin_register_hook('monitor', 'top_graph_header_tabs', 'monitor_show_tab', 'setup.php');
@@ -232,9 +236,11 @@ function monitor_device_table_bottom() {
  * @return void
  */
 function plugin_monitor_uninstall() {
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_notify_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_reboot_history');
-	db_execute('DROP TABLE IF EXISTS plugin_monitor_uptime');
+	global $config;
+
+	require_once($config['base_path'] . '/plugins/monitor/includes/database.php');
+
+	monitor_drop_tables();
 }
 
 /**
@@ -253,8 +259,8 @@ function plugin_monitor_page_head() {
 
 	print get_md5_include_css('plugins/monitor/css/monitor.css') . PHP_EOL;
 
-	if (file_exists($config['base_path'] . '/plugins/monitor/themes/' . get_selected_theme() . '/monitor.css')) {
-		print get_md5_include_css('plugins/monitor/themes/' . get_selected_theme() . '/monitor.css') . PHP_EOL;
+	if (file_exists($config['base_path'] . '/plugins/monitor/css/' . get_selected_theme() . '.css')) {
+		print get_md5_include_css('plugins/monitor/css/' . get_selected_theme() . '.css') . PHP_EOL;
 	}
 }
 
@@ -274,7 +280,7 @@ function plugin_monitor_check_config() {
 	// Here we will check to ensure everything is configured
 	monitor_check_upgrade();
 
-	include_once($config['library_path'] . '/database.php');
+	require_once($config['library_path'] . '/database.php');
 	$r = read_config_option('monitor_refresh');
 
 	if ($r == '' || $r < 1 || $r > 300) {
@@ -315,19 +321,21 @@ function monitor_check_upgrade() {
 		return;
 	}
 
+	global $config;
+
+	require_once($config['base_path'] . '/plugins/monitor/includes/database.php');
+
 	$info    = plugin_monitor_version();
 	$current = $info['version'];
 	$old     = db_fetch_cell('SELECT version FROM plugin_config WHERE directory = "monitor"');
 
 	if ($current != $old) {
 		monitor_setup_table();
+		monitor_upgrade_tables();
 
 		api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php', 1);
 
 		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
-
-		db_execute('ALTER TABLE plugin_monitor_uptime
-			MODIFY COLUMN uptime BIGINT unsigned NOT NULL default "0"');
 
 		api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
 
@@ -346,6 +354,9 @@ function monitor_check_upgrade() {
 				]
 			);
 		}
+
+		// Remove files tombstoned in manifest.json plus the dev-only tests/ tree.
+		monitor_prune_files();
 	}
 }
 
@@ -1374,90 +1385,6 @@ function monitor_draw_navigation_text($nav) {
 }
 
 /**
- * Creates (if not already present) all of this plugin's database
- * tables (notify/reboot history, uptime, dashboards), ensures the host
- * table uses DYNAMIC row format (needed for its added TEXT column),
- * and adds this plugin's monitoring columns to the host table. Called
- * from plugin_monitor_install() and monitor_check_upgrade().
- *
- * @return void
- */
-function monitor_setup_table() {
-	if (!db_table_exists('plugin_monitor_notify_history')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_notify_history (
-			id int(10) unsigned NOT NULL AUTO_INCREMENT,
-			host_id int(10) unsigned DEFAULT NULL,
-			notify_type tinyint(3) unsigned DEFAULT NULL,
-			ping_time double DEFAULT NULL,
-			ping_threshold int(10) unsigned DEFAULT NULL,
-			notification_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-			notes varchar(255) DEFAULT NULL,
-			PRIMARY KEY (id),
-			UNIQUE KEY unique_key (host_id,notify_type,notification_time))
-			ENGINE=InnoDB
-			COMMENT='Stores Notification Event History'");
-	}
-
-	if (!db_table_exists('plugin_monitor_reboot_history')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_reboot_history (
-			id int(10) unsigned NOT NULL AUTO_INCREMENT,
-			host_id int(10) unsigned DEFAULT NULL,
-			reboot_time timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-			log_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-			PRIMARY KEY (id),
-			KEY host_id (host_id),
-			KEY log_time (log_time),
-			KEY reboot_time (reboot_time))
-			ENGINE=InnoDB
-			COMMENT='Keeps Track of Device Reboot Times'");
-	}
-
-	if (!db_table_exists('plugin_monitor_uptime')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_uptime (
-			host_id int(10) unsigned DEFAULT '0',
-			uptime bigint(20) unsigned DEFAULT '0',
-			PRIMARY KEY (host_id),
-			KEY uptime (uptime))
-			ENGINE=InnoDB
-			COMMENT='Keeps Track of the Devices last uptime to track agent restarts and reboots'");
-	}
-
-	if (!db_table_exists('plugin_monitor_dashboards')) {
-		db_execute("CREATE TABLE IF NOT EXISTS plugin_monitor_dashboards (
-			id int(10) unsigned auto_increment,
-			user_id int(10) unsigned DEFAULT '0',
-			name varchar(128) DEFAULT '',
-			url varchar(1024) DEFAULT '',
-			PRIMARY KEY (id),
-			KEY user_id (user_id))
-			ENGINE=InnoDB
-			COMMENT='Stores predefined dashboard information for a user or users'");
-	}
-
-	if (db_table_exists('host')) {
-		$row_format = db_fetch_cell("SELECT ROW_FORMAT
-			FROM information_schema.tables
-			WHERE TABLE_SCHEMA = DATABASE()
-			AND TABLE_NAME = 'host'");
-
-		if (strtoupper((string) $row_format) !== 'DYNAMIC') {
-			db_execute('ALTER TABLE host ROW_FORMAT=DYNAMIC');
-		}
-	}
-
-	db_execute('SET SESSION innodb_strict_mode=0');
-
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor', 'type' => 'char(3)', 'NULL' => true, 'default' => 'on']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_text', 'type' => 'text', 'NULL' => false]);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_criticality', 'type' => 'tinyint', 'unsigned' => true, 'NULL' => false, 'default' => '0']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_warn', 'type' => 'double', 'NULL' => false, 'default' => '0']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_alert', 'type' => 'double', 'NULL' => false, 'default' => '0']);
-	api_plugin_db_add_column('monitor', 'host', ['name' => 'monitor_icon', 'type' => 'varchar(30)', 'NULL' => false, 'default' => '']);
-
-	db_execute('SET SESSION innodb_strict_mode=1');
-}
-
-/**
  * Poller_bottom hook: on the main poller (poller_id 1), launches this
  * plugin's poller_monitor.php script as a background process at the
  * end of each Cacti polling cycle. Called by Cacti's poller via the
@@ -1473,7 +1400,7 @@ function monitor_poller_bottom() {
 	global $config;
 
 	if ($config['poller_id'] == 1) {
-		include_once($config['library_path'] . '/poller.php');
+		require_once($config['library_path'] . '/poller.php');
 
 		$command_string = trim(read_config_option('path_php_binary'));
 
@@ -1485,4 +1412,174 @@ function monitor_poller_bottom() {
 
 		exec_background($command_string, $extra_args);
 	}
+}
+
+/**
+ * Removes files and directories that a previous version of this plugin
+ * shipped but that have since moved or been deleted, using the tombstone
+ * and whitelist lists in manifest.json. Whitelisted (user-data) paths and
+ * any VCS metadata (.git*) are never touched; the dev-only tests/ tree is
+ * removed. Any path that resolves outside the plugin directory (a tampered
+ * manifest.json) is refused, and any file/directory that cannot be removed
+ * (e.g. read-only) is reported to the Cacti log. Any top-level entry that is
+ * neither expected nor a tombstone nor whitelisted is logged to the Cacti
+ * log and left in place. Called on a plugin version change.
+ *
+ * @return void
+ *
+ * @global array $config Cacti global configuration array; used to resolve
+ *                       the plugin directory.
+ */
+function monitor_prune_files(): void {
+	global $config;
+
+	$plugin_dir    = $config['base_path'] . '/plugins/monitor';
+	$manifest_path = $plugin_dir . '/manifest.json';
+
+	if (!is_readable($manifest_path)) {
+		return;
+	}
+
+	$manifest = json_decode((string) file_get_contents($manifest_path), true);
+
+	if (!is_array($manifest)) {
+		cacti_log('WARNING: monitor manifest.json could not be parsed; skipping file prune', false, 'MONITOR');
+
+		return;
+	}
+
+	$tombstones = isset($manifest['tombstones']) && is_array($manifest['tombstones']) ? $manifest['tombstones'] : [];
+	$expected   = isset($manifest['expected'])   && is_array($manifest['expected'])   ? $manifest['expected']   : [];
+	$whitelist  = isset($manifest['whitelist'])  && is_array($manifest['whitelist'])  ? $manifest['whitelist']  : [];
+
+	$protected = function (string $rel) use ($whitelist): bool {
+		if (strncmp($rel, '.git', 4) === 0 || strncmp($rel, '.md', 3) === 0) {
+			return true;
+		}
+
+		foreach ($whitelist as $entry) {
+			$entry = trim((string) $entry, '/');
+
+			if ($entry !== '' && ($rel === $entry
+				|| strncmp($rel, $entry . '/', strlen($entry) + 1) === 0
+				|| strncmp($entry, $rel . '/', strlen($rel) + 1) === 0)) {
+				return true;
+			}
+		}
+
+		return false;
+	};
+
+	// Security: resolve the plugin directory so a tampered manifest.json
+	// cannot steer the prune outside of it.
+	$plugin_real = realpath($plugin_dir);
+
+	// Remove tombstoned (moved/deleted) paths plus the dev-only tests/
+	// tree and the phpunit.xml test configuration.
+	$remove   = $tombstones;
+	$remove[] = 'tests/';
+	$remove[] = 'phpunit.xml';
+
+	foreach ($remove as $rel) {
+		$rel = trim((string) $rel, '/');
+
+		if ($rel === '' || $protected($rel)) {
+			continue;
+		}
+
+		// A tombstone must never contain '.'/'..' segments; a tampered manifest
+		// could use them to escape the plugin directory or target its root.
+		$segments = explode('/', $rel);
+
+		if (in_array('.', $segments, true) || in_array('..', $segments, true)) {
+			cacti_log(sprintf('WARNING: monitor prune refused to remove %s: path contains a traversal segment (tampered manifest.json?)', $rel), false, 'MONITOR');
+
+			continue;
+		}
+
+		$path = $plugin_dir . '/' . $rel;
+
+		if (!is_link($path) && !file_exists($path)) {
+			continue;
+		}
+
+		// Refuse any path that, after resolving symlinks and ../ segments,
+		// escapes the plugin directory (protects user data from a tampered
+		// manifest.json).
+		$anchor = is_link($path) ? dirname($path) : $path;
+		$real   = realpath($anchor);
+
+		if ($real === false || ($real !== $plugin_real && strncmp($real, $plugin_real . DIRECTORY_SEPARATOR, strlen((string) $plugin_real) + 1) !== 0)) {
+			cacti_log(sprintf('WARNING: monitor prune refused to remove %s: path resolves outside the plugin directory (tampered manifest.json?)', $rel), false, 'MONITOR');
+
+			continue;
+		}
+
+		if (is_dir($path) && !is_link($path)) {
+			$removed = monitor_rmtree($path);
+		} else {
+			$removed = @unlink($path);
+		}
+
+		if (!$removed) {
+			cacti_log(sprintf('WARNING: monitor upgrade could not remove %s (check file/directory permissions)', $rel), false, 'MONITOR');
+		}
+	}
+
+	// Surface any top-level entry the manifest does not account for.
+	$known = [];
+
+	foreach (array_merge($expected, $tombstones) as $entry) {
+		$top = explode('/', trim((string) $entry, '/'))[0];
+
+		if ($top !== '') {
+			$known[$top] = true;
+		}
+	}
+
+	$entries = scandir($plugin_dir);
+
+	foreach (($entries !== false ? $entries : []) as $entry) {
+		if ($entry === '.' || $entry === '..' || $entry === 'tests' || $entry === 'phpunit.xml' || $protected($entry) || isset($known[$entry])) {
+			continue;
+		}
+
+		cacti_log(sprintf('WARNING: monitor upgrade found a file/directory not described in manifest.json: %s (left in place)', $entry), false, 'MONITOR');
+	}
+}
+
+/**
+ * Recursively deletes a directory and its contents. Symlinks are removed
+ * without being followed. Helper for monitor_prune_files().
+ *
+ * @param string $dir Absolute path to the directory to remove.
+ *
+ * @return bool True if the directory and everything under it was removed;
+ *              false if any entry could not be deleted.
+ */
+function monitor_rmtree(string $dir): bool {
+	$entries = scandir($dir);
+	$ok      = true;
+
+	foreach (($entries !== false ? $entries : []) as $entry) {
+		if ($entry === '.' || $entry === '..') {
+			continue;
+		}
+
+		$path = $dir . '/' . $entry;
+
+		if (is_dir($path) && !is_link($path)) {
+			if (!monitor_rmtree($path)) {
+				$ok = false;
+			}
+		} elseif (!@unlink($path)) {
+			$ok = false;
+		}
+	}
+
+	if (!@rmdir($dir)) {
+		$ok = false;
+	}
+
+	return $ok;
 }

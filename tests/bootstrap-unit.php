@@ -95,6 +95,12 @@ if (!function_exists('get_md5_include_css')) {
 	}
 }
 
+if (!function_exists('get_selected_theme')) {
+	function get_selected_theme() {
+		return $GLOBALS['__test_selected_theme'] ?? 'modern';
+	}
+}
+
 if (!function_exists('monitor_test_mock_db')) {
 	function monitor_test_mock_db($fn, $match, $result) {
 		$GLOBALS['__test_db_fixtures'][] = array('fn' => $fn, 'match' => $match, 'result' => $result);
@@ -209,6 +215,16 @@ if (!function_exists('api_plugin_db_add_column')) {
 
 if (!function_exists('api_plugin_db_table_create')) {
 	function api_plugin_db_table_create($plugin, $table, $data) {
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'api_plugin_db_table_create', 'plugin' => $plugin, 'table' => $table, 'data' => $data, 'sql' => $table);
+
+		return true;
+	}
+}
+
+if (!function_exists('db_update_table')) {
+	function db_update_table($table, $data) {
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'db_update_table', 'table' => $table, 'data' => $data, 'sql' => $table);
+
 		return true;
 	}
 }
@@ -294,6 +310,8 @@ if (!function_exists('__esc')) {
 
 if (!function_exists('cacti_log')) {
 	function cacti_log($message, $also_print = false, $log_type = '', $level = 0) {
+		$args = func_get_args();
+		$GLOBALS["__test_cacti_log"][] = isset($args[0]) ? (string) $args[0] : "";
 	}
 }
 
@@ -349,7 +367,7 @@ function test_set_request(array $vars): void {
 	$GLOBALS['__test_request'] = $vars;
 }
 
-// validateRequestVars() is not stubbed here: monitor_controller.php declares
+// validateRequestVars() is not stubbed here: includes/controller.php declares
 // it unconditionally, so a global stub would fatal with a redeclare error
 // once a test loads that file via loadPluginSource()/monitor_test_load().
 
