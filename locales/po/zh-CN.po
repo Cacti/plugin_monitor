@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: monitor on cacti 1.1.34\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2024-06-23 04:08+0000\n"
 "Last-Translator: tql <fttx31@126.com>\n"
 "Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/monitor/zh_Hans/>\n"
@@ -17,6 +17,470 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.8.1\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "新仪表盘"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "仪表盘"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "输入仪表板名称，然后按“保存”继续，否则按“取消”"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "创建新的工作台"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "已监控设备"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "已监控设备"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "设备"
+
+#: includes/controller.php monitor.php
+msgid "All Monitored Devices"
+msgstr "所有受监控的设备"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down or Recovering"
+msgstr "受监控的设备处于关闭或恢复状态"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "受监控的设备处于关闭，恢复，触发阈值状态"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "受监控的设备处于关闭，恢复，违反或触发阈值状态"
+
+#: includes/controller.php
+#, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "未知监控状态（%s）"
+
+#: includes/controller.php
+msgid ", and All Criticalities"
+msgstr "，和所有严重性"
+
+#: includes/controller.php
+msgid ", and of Low Criticality or Higher"
+msgstr "，低关键或更高"
+
+#: includes/controller.php
+msgid ", and of Medium Criticality or Higher"
+msgstr "，中等或更高"
+
+#: includes/controller.php
+msgid ", and of High Criticality or Higher"
+msgstr "，高危等级或更高"
+
+#: includes/controller.php
+msgid ", and of Mission Critical Status"
+msgstr "，以及任务关键状态"
+
+#: includes/controller.php
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\">记得首先从“设备”页面中选择符合条件的要监控的设备!</div></div></div>"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "未保存"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "布局"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "状态"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "显示"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "分组"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "设备"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "刷新"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "刷新设备列表"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "保存"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "保存过滤器设置"
+
+#: includes/controller.php
+msgid "New"
+msgstr "新"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "保存新的仪表盘"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "重命名"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "仪表盘重命名"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "删除"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "删除仪表盘"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s 宕机设备的警报"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s 宕机设备的警报"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "临界"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "大小"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "裁剪"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "所有树"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "非树设备"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "树"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "全部网站"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "非现场设备"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "网站"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "所有模板"
+
+#: includes/controller.php
+msgid "Non-Templated Devices"
+msgstr "非模板设备"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "模板"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [已保存筛选设置]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "取消"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [在<i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i>秒内再次刷新]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "监视器筛选器[上次刷新：%s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[仅显示前30个设备]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "搜索"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "静音"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "确认"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "取消静音"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "重置"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "仪表板'%s'已删除。"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "仪表板' %s'不归您所有。"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "仪表板' %s'已保存！"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "仪表板'%s'无法保存！"
+
+#: includes/controller.php
+msgid "Edit Device"
+msgstr "编辑设备"
+
+#: includes/controller.php
+msgid "View Graphs"
+msgstr "查看图表"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "查看阈值/警报"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "查看设备系统日志警报"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "查看设备系统日志条目"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "设备状态信息"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "设备："
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "站点:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "位置："
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "重要性："
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "状态："
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "管理员注意："
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/主机名："
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "当前/平均："
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "警告/警报："
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "最后失败："
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "时间状态："
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "可用性："
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "代理运行时间："
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "不可用"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "系统描述："
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "联系："
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "记录："
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "从不"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "未指定"
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "无"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "非现场设备"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "根分支"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "树: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "分支: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "未知"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "刚起来"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "主机名"
+
+#: includes/render.php
+msgid "Hostname of device"
+msgstr "设备主机名"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "描述"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "站点"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "状态长度"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "平均值"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "警告"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "管理员"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "注释"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "可用性"
+
+#: includes/render.php
+msgid "Last Fail"
+msgstr "上次失败"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -37,10 +501,6 @@ msgstr "高"
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "关键任务"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "未知"
 
 #: monitor.php
 msgid "Down"
@@ -98,15 +558,6 @@ msgstr "超大"
 msgid "Zoom"
 msgstr "缩放"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "设备"
-
-#: monitor.php monitor_controller.php
-msgid "All Monitored Devices"
-msgstr "所有受监控的设备"
-
 #: monitor.php
 msgid "Not Up"
 msgstr "不在线"
@@ -118,10 +569,6 @@ msgstr "不起来或触发"
 #: monitor.php
 msgid "Not Up, Triggered or Breached"
 msgstr "未启动、触发或违反"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -147,14 +594,6 @@ msgstr "图块"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "图块和时间"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "树"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "站点"
 
 #: monitor.php setup.php
 msgid "Device Template"
@@ -191,445 +630,6 @@ msgstr "75个字符"
 #: monitor.php
 msgid "100 Chars"
 msgstr "100个字符"
-
-#: monitor_controller.php
-msgid "New Dashboard"
-msgstr "新仪表盘"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "仪表盘"
-
-#: monitor_controller.php
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "输入仪表板名称，然后按“保存”继续，否则按“取消”"
-
-#: monitor_controller.php
-msgid "Create New Dashboard"
-msgstr "创建新的工作台"
-
-#: monitor_controller.php monitor_render.php
-msgid "Monitored Devices"
-msgstr "已监控设备"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "已监控设备"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr "受监控的设备处于关闭或恢复状态"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "受监控的设备处于关闭，恢复，触发阈值状态"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "受监控的设备处于关闭，恢复，违反或触发阈值状态"
-
-#: monitor_controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "未知监控状态（%s）"
-
-#: monitor_controller.php
-msgid ", and All Criticalities"
-msgstr "，和所有严重性"
-
-#: monitor_controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr "，低关键或更高"
-
-#: monitor_controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr "，中等或更高"
-
-#: monitor_controller.php
-msgid ", and of High Criticality or Higher"
-msgstr "，高危等级或更高"
-
-#: monitor_controller.php
-msgid ", and of Mission Critical Status"
-msgstr "，以及任务关键状态"
-
-#: monitor_controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">记得首先从“设备”页面中选择符合条件的要监控的设备!</div></div></div>"
-
-#: monitor_controller.php
-msgid "Unsaved"
-msgstr "未保存"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "布局"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "状态"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "显示"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "分组"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "设备"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "刷新"
-
-#: monitor_controller.php
-msgid "Refresh the Device List"
-msgstr "刷新设备列表"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "保存"
-
-#: monitor_controller.php
-msgid "Save Filter Settings"
-msgstr "保存过滤器设置"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "新"
-
-#: monitor_controller.php
-msgid "Save New Dashboard"
-msgstr "保存新的仪表盘"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "重命名"
-
-#: monitor_controller.php
-msgid "Rename Dashboard"
-msgstr "仪表盘重命名"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "删除"
-
-#: monitor_controller.php
-msgid "Delete Dashboard"
-msgstr "删除仪表盘"
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alert for downed Devices"
-msgstr "%s 宕机设备的警报"
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s 宕机设备的警报"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-msgid "Criticality"
-msgstr "临界"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "大小"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "裁剪"
-
-#: monitor_controller.php
-msgid "All Trees"
-msgstr "所有树"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Tree Devices"
-msgstr "非树设备"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "全部网站"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Site Devices"
-msgstr "非现场设备"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "网站"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "所有模板"
-
-#: monitor_controller.php
-msgid "Non-Templated Devices"
-msgstr "非模板设备"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "模板"
-
-#: monitor_controller.php
-msgid " [ Filter Settings Saved ]"
-msgstr " [已保存筛选设置]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "取消"
-
-#: monitor_controller.php
-#, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr " [在<i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i>秒内再次刷新]"
-
-#: monitor_controller.php
-#, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "监视器筛选器[上次刷新：%s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr "[仅显示前30个设备]"
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "搜索"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "静音"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "确认"
-
-#: monitor_controller.php
-msgid "Un-Mute"
-msgstr "取消静音"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "重置"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "仪表板'%s'已删除。"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "仪表板' %s'不归您所有。"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "仪表板' %s'已保存！"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "仪表板'%s'无法保存！"
-
-#: monitor_controller.php
-msgid "Edit Device"
-msgstr "编辑设备"
-
-#: monitor_controller.php
-msgid "View Graphs"
-msgstr "查看图表"
-
-#: monitor_controller.php
-msgid "View Thresholds/Alerts"
-msgstr "查看阈值/警报"
-
-#: monitor_controller.php
-msgid "View Device Syslog Alerts"
-msgstr "查看设备系统日志警报"
-
-#: monitor_controller.php
-msgid "View Device Syslog Entries"
-msgstr "查看设备系统日志条目"
-
-#: monitor_controller.php
-msgid "Device Status Information"
-msgstr "设备状态信息"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "设备："
-
-#: monitor_controller.php
-msgid "Site:"
-msgstr "站点:"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "位置："
-
-#: monitor_controller.php
-msgid "Criticality:"
-msgstr "重要性："
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "状态："
-
-#: monitor_controller.php
-msgid "Admin Note:"
-msgstr "管理员注意："
-
-#: monitor_controller.php
-msgid "IP/Hostname:"
-msgstr "IP/主机名："
-
-#: monitor_controller.php
-msgid "Curr/Avg:"
-msgstr "当前/平均："
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%d ms"
-msgstr "%d ms"
-
-#: monitor_controller.php
-msgid "Warn/Alert:"
-msgstr "警告/警报："
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%0.2d ms"
-msgstr "%0.2d ms"
-
-#: monitor_controller.php
-msgid "Last Fail:"
-msgstr "最后失败："
-
-#: monitor_controller.php
-msgid "Time In State:"
-msgstr "时间状态："
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "可用性："
-
-#: monitor_controller.php
-msgid "Agent Uptime:"
-msgstr "代理运行时间："
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "不可用"
-
-#: monitor_controller.php
-msgid "Sys Description:"
-msgstr "系统描述："
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "联系："
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "记录："
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "从不"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr "未指定"
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "无"
-
-#: monitor_render.php
-msgid "Non-Site Device"
-msgstr "非现场设备"
-
-#: monitor_render.php
-msgid "Root Branch"
-msgstr "根分支"
-
-#: monitor_render.php
-#, php-format
-msgid "Tree: %s"
-msgstr "树: %s"
-
-#: monitor_render.php
-#, php-format
-msgid "Branch: %s"
-msgstr "分支: %s"
-
-#: monitor_render.php
-msgid "Just Up"
-msgstr "刚起来"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "主机名"
-
-#: monitor_render.php
-msgid "Hostname of device"
-msgstr "设备主机名"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "描述"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "状态长度"
-
-#: monitor_render.php
-msgid "Averages"
-msgstr "平均值"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "警告"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "管理员"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "注释"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "可用性"
-
-#: monitor_render.php
-msgid "Last Fail"
-msgstr "上次失败"
 
 #: poller_functions.php
 msgid "Description: "
