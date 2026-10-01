@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2026-09-12 08:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\n"
@@ -12,6 +12,470 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Ny instrumentpanel"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Kontrollpanel"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Ange instrumentpanelens namn och tryck sedan på \"Spara\" för att fortsätta, annars tryck på \"Avbryt"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Skapa ny instrumentpanel"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Övervakade enheter"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "Övervakade enheter"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "Enheter"
+
+#: includes/controller.php monitor.php
+msgid "All Monitored Devices"
+msgstr "Alla övervakade enheter"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down or Recovering"
+msgstr "Övervakade enheter som antingen är nere eller återhämtar sig"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har utlösta tröskelvärden"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har överträdda eller utlösta tröskelvärden"
+
+#: includes/controller.php
+#, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "Okänd övervakningsstatus (%s)"
+
+#: includes/controller.php
+msgid ", and All Criticalities"
+msgstr "och alla kritiska punkter"
+
+#: includes/controller.php
+msgid ", and of Low Criticality or Higher"
+msgstr "och av låg kritikalitet eller högre"
+
+#: includes/controller.php
+msgid ", and of Medium Criticality or Higher"
+msgstr "och av medelkritisk eller högre grad"
+
+#: includes/controller.php
+msgid ", and of High Criticality or Higher"
+msgstr "och som är mycket kritiska eller högre"
+
+#: includes/controller.php
+msgid ", and of Mission Critical Status"
+msgstr "och av Mission Critical Status"
+
+#: includes/controller.php
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\">Kom ihåg att först välja de enheter som ska övervakas på sidan Devices!</div></div></div>"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Inte sparad"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Layout"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "Status"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Visa"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Gruppering"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Enheter"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Uppdatera"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Uppdatera enhetslistan"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Spara"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Spara filterinställningar"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Ny"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Spara ny instrumentpanel"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Byt namn"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Byt namn på instrumentpanelen"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Ta bort"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Ta bort instrumentpanelen"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Varning för nedstängda enheter"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Varningar för nedstängda enheter"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Kritiskhet"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Storlek"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Trim"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Alla träd"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Enheter utan träd"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Träd"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Alla webbplatser"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Enheter utanför platsen"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Webbsidor"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "Alla mallar"
+
+#: includes/controller.php
+msgid "Non-Templated Devices"
+msgstr "Icke-planerade enheter"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Mall"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Filterinställningar sparade ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Uppdatera igen inom <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Sekunder ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Monitor Filter [ Senaste uppdatering: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Visar endast de 30 första enheterna ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Sök"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Tysta"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Kvittera"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Avstängd"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Återställ"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Instrumentpanel '%s' Borttagen."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Dashboard '%s' ägs inte av dig."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Instrumentpanelen '%s' har sparats!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Instrumentpanelen '%s' kunde inte sparas!"
+
+#: includes/controller.php
+msgid "Edit Device"
+msgstr "Redigera enhet"
+
+#: includes/controller.php
+msgid "View Graphs"
+msgstr "Se grafer"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Visa trösklar/varningar"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Visa enhetens Syslog-meddelanden"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Visa enhetens Syslog-poster"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Information om enhetsstatus"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Enhet:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Webbplats:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Plats:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Kritiskhet:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Status:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Admin Notera:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Hostnamn:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Kurva/Avg:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Varning/Alert:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Sista misslyckandet:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Tid i staten:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Tillgänglighet:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Agentens drifttid:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Sys Beskrivning:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Kontakt:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Anteckningar:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Aldrig"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Ospecificerad"
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "inget"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Enhet utanför platsen"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Rot Gren"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Träd: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Gren: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Okänd"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Bara upp"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Värdnamn"
+
+#: includes/render.php
+msgid "Hostname of device"
+msgstr "Enhetens värdnamn"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Beskrivning"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "Webbplats"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "Längd i status"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Medelvärden"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Varning"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Admin"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "Anteckningar"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "Åtkomstbarhet"
+
+#: includes/render.php
+msgid "Last Fail"
+msgstr "Sista misslyckandet"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +496,6 @@ msgstr "Hög"
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "Systemkritiskt"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "Okänd"
 
 #: monitor.php
 msgid "Down"
@@ -93,15 +553,6 @@ msgstr "Extra stor"
 msgid "Zoom"
 msgstr "Zooma"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Enheter"
-
-#: monitor.php monitor_controller.php
-msgid "All Monitored Devices"
-msgstr "Alla övervakade enheter"
-
 #: monitor.php
 msgid "Not Up"
 msgstr "Uppe"
@@ -113,10 +564,6 @@ msgstr "Inte uppe eller utlöst"
 #: monitor.php
 msgid "Not Up, Triggered or Breached"
 msgstr "Inte uppe, utlöst eller utsatt för intrång"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -142,14 +589,6 @@ msgstr "Rutor"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "Plattor och tid"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "Träd"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "Webbplats"
 
 #: monitor.php setup.php
 msgid "Device Template"
@@ -186,445 +625,6 @@ msgstr "75 tecken"
 #: monitor.php
 msgid "100 Chars"
 msgstr "100 tecken"
-
-#: monitor_controller.php
-msgid "New Dashboard"
-msgstr "Ny instrumentpanel"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "Kontrollpanel"
-
-#: monitor_controller.php
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Ange instrumentpanelens namn och tryck sedan på \"Spara\" för att fortsätta, annars tryck på \"Avbryt"
-
-#: monitor_controller.php
-msgid "Create New Dashboard"
-msgstr "Skapa ny instrumentpanel"
-
-#: monitor_controller.php monitor_render.php
-msgid "Monitored Devices"
-msgstr "Övervakade enheter"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Övervakade enheter"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Övervakade enheter som antingen är nere eller återhämtar sig"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har utlösta tröskelvärden"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har överträdda eller utlösta tröskelvärden"
-
-#: monitor_controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Okänd övervakningsstatus (%s)"
-
-#: monitor_controller.php
-msgid ", and All Criticalities"
-msgstr "och alla kritiska punkter"
-
-#: monitor_controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr "och av låg kritikalitet eller högre"
-
-#: monitor_controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr "och av medelkritisk eller högre grad"
-
-#: monitor_controller.php
-msgid ", and of High Criticality or Higher"
-msgstr "och som är mycket kritiska eller högre"
-
-#: monitor_controller.php
-msgid ", and of Mission Critical Status"
-msgstr "och av Mission Critical Status"
-
-#: monitor_controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">Kom ihåg att först välja de enheter som ska övervakas på sidan Devices!</div></div></div>"
-
-#: monitor_controller.php
-msgid "Unsaved"
-msgstr "Inte sparad"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "Layout"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "Status"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "Visa"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "Gruppering"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "Enheter"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "Uppdatera"
-
-#: monitor_controller.php
-msgid "Refresh the Device List"
-msgstr "Uppdatera enhetslistan"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "Spara"
-
-#: monitor_controller.php
-msgid "Save Filter Settings"
-msgstr "Spara filterinställningar"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "Ny"
-
-#: monitor_controller.php
-msgid "Save New Dashboard"
-msgstr "Spara ny instrumentpanel"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "Byt namn"
-
-#: monitor_controller.php
-msgid "Rename Dashboard"
-msgstr "Byt namn på instrumentpanelen"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "Ta bort"
-
-#: monitor_controller.php
-msgid "Delete Dashboard"
-msgstr "Ta bort instrumentpanelen"
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alert for downed Devices"
-msgstr "%s Varning för nedstängda enheter"
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s Varningar för nedstängda enheter"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-msgid "Criticality"
-msgstr "Kritiskhet"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "Storlek"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "Trim"
-
-#: monitor_controller.php
-msgid "All Trees"
-msgstr "Alla träd"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Tree Devices"
-msgstr "Enheter utan träd"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "Alla webbplatser"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Site Devices"
-msgstr "Enheter utanför platsen"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "Webbsidor"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "Alla mallar"
-
-#: monitor_controller.php
-msgid "Non-Templated Devices"
-msgstr "Icke-planerade enheter"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "Mall"
-
-#: monitor_controller.php
-msgid " [ Filter Settings Saved ]"
-msgstr " [ Filterinställningar sparade ]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: monitor_controller.php
-#, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr " [ Uppdatera igen inom <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Sekunder ]"
-
-#: monitor_controller.php
-#, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Monitor Filter [ Senaste uppdatering: %s ]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr "[ Visar endast de 30 första enheterna ]"
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "Sök"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "Tysta"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "Kvittera"
-
-#: monitor_controller.php
-msgid "Un-Mute"
-msgstr "Avstängd"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "Återställ"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "Instrumentpanel '%s' Borttagen."
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "Dashboard '%s' ägs inte av dig."
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "Instrumentpanelen '%s' har sparats!"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "Instrumentpanelen '%s' kunde inte sparas!"
-
-#: monitor_controller.php
-msgid "Edit Device"
-msgstr "Redigera enhet"
-
-#: monitor_controller.php
-msgid "View Graphs"
-msgstr "Se grafer"
-
-#: monitor_controller.php
-msgid "View Thresholds/Alerts"
-msgstr "Visa trösklar/varningar"
-
-#: monitor_controller.php
-msgid "View Device Syslog Alerts"
-msgstr "Visa enhetens Syslog-meddelanden"
-
-#: monitor_controller.php
-msgid "View Device Syslog Entries"
-msgstr "Visa enhetens Syslog-poster"
-
-#: monitor_controller.php
-msgid "Device Status Information"
-msgstr "Information om enhetsstatus"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "Enhet:"
-
-#: monitor_controller.php
-msgid "Site:"
-msgstr "Webbplats:"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "Plats:"
-
-#: monitor_controller.php
-msgid "Criticality:"
-msgstr "Kritiskhet:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "Status:"
-
-#: monitor_controller.php
-msgid "Admin Note:"
-msgstr "Admin Notera:"
-
-#: monitor_controller.php
-msgid "IP/Hostname:"
-msgstr "IP/Hostnamn:"
-
-#: monitor_controller.php
-msgid "Curr/Avg:"
-msgstr "Kurva/Avg:"
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%d ms"
-msgstr "%d ms"
-
-#: monitor_controller.php
-msgid "Warn/Alert:"
-msgstr "Varning/Alert:"
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%0.2d ms"
-msgstr "%0.2d ms"
-
-#: monitor_controller.php
-msgid "Last Fail:"
-msgstr "Sista misslyckandet:"
-
-#: monitor_controller.php
-msgid "Time In State:"
-msgstr "Tid i staten:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "Tillgänglighet:"
-
-#: monitor_controller.php
-msgid "Agent Uptime:"
-msgstr "Agentens drifttid:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "N/A"
-
-#: monitor_controller.php
-msgid "Sys Description:"
-msgstr "Sys Beskrivning:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "Kontakt:"
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "Anteckningar:"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "Aldrig"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr "Ospecificerad"
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "inget"
-
-#: monitor_render.php
-msgid "Non-Site Device"
-msgstr "Enhet utanför platsen"
-
-#: monitor_render.php
-msgid "Root Branch"
-msgstr "Rot Gren"
-
-#: monitor_render.php
-#, php-format
-msgid "Tree: %s"
-msgstr "Träd: %s"
-
-#: monitor_render.php
-#, php-format
-msgid "Branch: %s"
-msgstr "Gren: %s"
-
-#: monitor_render.php
-msgid "Just Up"
-msgstr "Bara upp"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "Värdnamn"
-
-#: monitor_render.php
-msgid "Hostname of device"
-msgstr "Enhetens värdnamn"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "Beskrivning"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "Längd i status"
-
-#: monitor_render.php
-msgid "Averages"
-msgstr "Medelvärden"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "Varning"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "Admin"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "Anteckningar"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "Åtkomstbarhet"
-
-#: monitor_render.php
-msgid "Last Fail"
-msgstr "Sista misslyckandet"
 
 #: poller_functions.php
 msgid "Description: "
