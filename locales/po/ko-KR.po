@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:13-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,519 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "새 대시 보드"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "대시보드"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "대시 보드 이름을 입력 한 다음 '저장'을 눌러 계속하거나 '취소'를 누르십시오."
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "새 대시 보드 만들기"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "모니터링되는 장치"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "모니터링되는 장치"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "장치"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "모든 감시 장치"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "다운되거나 복구되는 모니터링 대상 장치"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "모니터링 된 장치의 작동 중지, 복구 또는 트리거 임계 값"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "모니터링 된 장치가 중단, 복구 또는 위반 또는 트리거 임계 값"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "알 수없는 모니터링 상태 ( %s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr ", 및 모든 중요성"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr ", 낮은 중요도 또는 그 이상"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr ", 중간 중요도 이상"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr ", 높은 중요도 이상"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr ", 그리고 Mission Critical Status"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\"> 먼저 장치 페이지에서 모니터 할 대상 장치를 선택하십시오! </div>"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Unsaved"
+msgstr "저장되지 않음"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "레이아웃"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "상태"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "보기"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "그룹화"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "장치"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "새로고침"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "장치 목록 새로 고침"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "저장"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "필터 설정 저장"
+
+#: includes/controller.php
+msgid "New"
+msgstr "신규"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "새 대시 보드 저장"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "이름 변경"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "대시 보드 이름 변경"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "삭제"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "대시 보드 삭제"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "다운 된 장치에 대한  %s 경고"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s 다운 된 장치에 대한 경고"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "중요성"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "크기"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "손질"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "모든 나무"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "비 트리 장치"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "나무"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "모든 사이트"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "비 트리 장치"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "사이트"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "모든 템플릿"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "템플릿이없는 장치"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "템플릿"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[저장된 필터 설정]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "취소"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[ <i id=\"timer\">% d</i> 초 후에 다시 새로 고침]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "모니터 필터 [마지막 새로 고침 :  %s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "검색"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "음소거"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "확인"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "음소거 해제"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "초기화"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "대시 보드 '%s'이 (가) 제거되었습니다."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "대시 보드 '%s'은 (는) 귀하의 소유가 아닙니다."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "대시 보드 '%s'이 (가) 저장되었습니다!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "대시 보드 '%s'을 (를) 저장할 수 없습니다!"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "장치 편집"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "그래프보기"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "임계 값보기"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "Syslog 경고보기"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "Syslog 경고보기"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "장치 상태 정보"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "장치:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "사이트"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "위치:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "중요도 :"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "상태:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "관리자 참고 사항 :"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP / 호스트 이름 :"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "Curr / Avg :"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "% d 밀리 초"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "경고 / 경고 :"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "% 0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "마지막 실패 :"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "주에있는 시간 :"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "유효성:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "에이전트 가동 시간 :"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "시스템 설명 :"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "연락처:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "노트:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "안함"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "없음"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "비 트리 장치"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "루트 지점"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "나무"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "지점 :  %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "알 수 없음"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "바로 위로"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "호스트명"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "장치의 호스트 이름"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "설명"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "사이트"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "상태의 길이"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "평균"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "경고"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "관리자"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "노트"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "예약가능 상태설정"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "마지막 실패"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +545,6 @@ msgstr "높음"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "미션 크리티컬"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "알 수 없음"
 
 #: monitor.php
 msgid "Down"
@@ -99,16 +608,6 @@ msgstr "아주 크게"
 msgid "Zoom"
 msgstr "확대/축소"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "장치"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "모든 감시 장치"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -123,10 +622,6 @@ msgstr "업 또는 트리거되지 않음"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "업, 트리거 또는 위반되지 않음"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -153,14 +648,6 @@ msgstr "타일"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "타일 및 시간"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "나무"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "사이트"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -205,493 +692,6 @@ msgstr "75 자"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 자"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "새 대시 보드"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "대시보드"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "대시 보드 이름을 입력 한 다음 '저장'을 눌러 계속하거나 '취소'를 누르십시오."
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "새 대시 보드 만들기"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "모니터링되는 장치"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "모니터링되는 장치"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "다운되거나 복구되는 모니터링 대상 장치"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "모니터링 된 장치의 작동 중지, 복구 또는 트리거 임계 값"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "모니터링 된 장치가 중단, 복구 또는 위반 또는 트리거 임계 값"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "알 수없는 모니터링 상태 ( %s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr ", 및 모든 중요성"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr ", 낮은 중요도 또는 그 이상"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr ", 중간 중요도 이상"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr ", 높은 중요도 이상"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr ", 그리고 Mission Critical Status"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\"> 먼저 장치 페이지에서 모니터 할 대상 장치를 선택하십시오! </div>"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Unsaved"
-msgstr "저장되지 않음"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "레이아웃"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "상태"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "보기"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "그룹화"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "장치"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "새로고침"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "장치 목록 새로 고침"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "저장"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "필터 설정 저장"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "신규"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "새 대시 보드 저장"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "이름 변경"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "대시 보드 이름 변경"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "삭제"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "대시 보드 삭제"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "다운 된 장치에 대한  %s 경고"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s 다운 된 장치에 대한 경고"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "중요성"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "크기"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "손질"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "모든 나무"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "비 트리 장치"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "모든 사이트"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "비 트리 장치"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "사이트"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "모든 템플릿"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "템플릿이없는 장치"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "템플릿"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[저장된 필터 설정]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "취소"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[ <i id=\"timer\">% d</i> 초 후에 다시 새로 고침]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "모니터 필터 [마지막 새로 고침 :  %s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "검색"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "음소거"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "확인"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "음소거 해제"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "초기화"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "대시 보드 '%s'이 (가) 제거되었습니다."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "대시 보드 '%s'은 (는) 귀하의 소유가 아닙니다."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "대시 보드 '%s'이 (가) 저장되었습니다!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "대시 보드 '%s'을 (를) 저장할 수 없습니다!"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "장치 편집"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "그래프보기"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "임계 값보기"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "Syslog 경고보기"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "Syslog 경고보기"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "장치 상태 정보"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "장치:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "사이트"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "위치:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "중요도 :"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "상태:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "관리자 참고 사항 :"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP / 호스트 이름 :"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "Curr / Avg :"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "% d 밀리 초"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "경고 / 경고 :"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "% 0.2d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "마지막 실패 :"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "주에있는 시간 :"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "유효성:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "에이전트 가동 시간 :"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "N/A"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "시스템 설명 :"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "연락처:"
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "노트:"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "안함"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "없음"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "비 트리 장치"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "루트 지점"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "나무"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "지점 :  %s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "바로 위로"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "호스트명"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "장치의 호스트 이름"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "설명"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "상태의 길이"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "평균"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "경고"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "관리자"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "노트"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "예약가능 상태설정"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "마지막 실패"
 
 #: poller_functions.php
 msgid "Description: "
