@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:15-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,521 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "Trang tổng quan mới"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Nhập Tên trang tổng quan và sau đó nhấn 'Lưu' để tiếp tục, nếu không nhấn 'Hủy'"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "Tạo trang tổng quan mới"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "Thiết bị được giám sát"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "Thiết bị được giám sát"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "Thiết bị"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "Tất cả các thiết bị được giám sát"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "Các thiết bị được giám sát xuống hoặc khôi phục"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng kích hoạt"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng vi phạm hoặc kích hoạt"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "Trạng thái giám sát không xác định ( %s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr "và tất cả các chỉ trích"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr "và có mức độ quan trọng thấp hoặc cao hơn"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr "và có mức độ quan trọng trung bình trở lên"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr "và có tính phê phán cao hoặc cao hơn"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr "và về tình trạng quan trọng của nhiệm vụ"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\"> Hãy nhớ trước tiên chọn Thiết bị đủ điều kiện để được Giám sát từ trang Thiết bị! </div>"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Unsaved"
+msgstr "Chưa được lưu"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Bố cục"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "Trạng thái"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Xem"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Nhóm"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Thiết bị"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Làm mới"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "Làm mới danh sách thiết bị"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Lưu"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "Lưu cài đặt bộ lọc"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Mới"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "Lưu trang tổng quan mới"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Đổi tên"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "Đổi tên Trang tổng quan"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Xóa"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "Xóa trang tổng quan"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Thông báo cho các thiết bị bị giảm"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Cảnh báo cho các thiết bị bị giảm"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "Quan trọng"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Kích thước"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Trim"
+msgstr "Xén"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "Tất cả các cây"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "Thiết bị không phải cây"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Cây thân gỗ"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Tất cả các trang web"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "Thiết bị không phải cây"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Websites"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "Các mẫu"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "Thiết bị không có khuôn mẫu"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Mẫu"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[Đã lưu cài đặt bộ lọc]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Hủy"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[Làm mới lại sau <i id=\"timer\">% d</i> giây]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Bộ lọc màn hình [Làm mới lần cuối: %s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Tắt tiếng"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Acknowledge"
+msgstr "Công nhận"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "Không tắt tiếng"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Đặt lại"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Trang tổng quan '%s' đã bị xóa."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Trang tổng quan '%s' không thuộc sở hữu của bạn."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Trang tổng quan '%s' đã được Lưu!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Không thể lưu trang tổng quan '%s'!"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "Chỉnh sửa thiết bị"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "Xem đồ thị"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "Xem Ngưỡng"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "Xem cảnh báo nhật ký hệ thống"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "Xem cảnh báo nhật ký hệ thống"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "Thông tin trạng thái thiết bị"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Thiết bị:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "Trang"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Địa điểm:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "Tính quan trọng:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Trạng thái:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "Lưu ý của quản trị viên:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP / Tên máy chủ:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "Curr / Trung bình:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "% d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "Cảnh báo / Cảnh báo:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "% 0,2đ ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "Thất bại cuối cùng:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "Thời gian ở bang:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Khả dụng:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "Thời gian hoạt động của đại lý:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "Mô tả Sys:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Liên hệ:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Ghi chú:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Không bao giờ"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "Không"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "Thiết bị không phải cây"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "Chi nhánh gốc"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "Cây"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "Chi nhánh: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Không xác định"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "Chỉ cần lên"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Tên máy chủ"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "Tên máy chủ của thiết bị"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Mô tả"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "Trang"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "Độ dài trong trạng thái"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "Trung bình"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Cảnh báo"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Quản trị viên"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "Ghi chú"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "Tình trạng"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Thất bại cuối cùng"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +547,6 @@ msgstr "Cao"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Nhiệm vụ quan trọng"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "Không xác định"
 
 #: monitor.php
 msgid "Down"
@@ -100,16 +611,6 @@ msgstr "Cực lớn"
 msgid "Zoom"
 msgstr "Phóng to"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Thiết bị"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "Tất cả các thiết bị được giám sát"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -124,10 +625,6 @@ msgstr "Không lên hoặc kích hoạt"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "Không lên, kích hoạt hoặc vi phạm"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -154,14 +651,6 @@ msgstr "Gạch"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Gạch &amp; Thời gian"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "Cây thân gỗ"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "Trang"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -206,495 +695,6 @@ msgstr "75 ký tự"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 ký tự"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "Trang tổng quan mới"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "Bảng điều khiển"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Nhập Tên trang tổng quan và sau đó nhấn 'Lưu' để tiếp tục, nếu không nhấn 'Hủy'"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "Tạo trang tổng quan mới"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "Thiết bị được giám sát"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Thiết bị được giám sát"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Các thiết bị được giám sát xuống hoặc khôi phục"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng kích hoạt"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng vi phạm hoặc kích hoạt"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Trạng thái giám sát không xác định ( %s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "và tất cả các chỉ trích"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "và có mức độ quan trọng thấp hoặc cao hơn"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "và có mức độ quan trọng trung bình trở lên"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "và có tính phê phán cao hoặc cao hơn"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "và về tình trạng quan trọng của nhiệm vụ"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\"> Hãy nhớ trước tiên chọn Thiết bị đủ điều kiện để được Giám sát từ trang Thiết bị! </div>"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Unsaved"
-msgstr "Chưa được lưu"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "Bố cục"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "Trạng thái"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "Xem"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "Nhóm"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "Thiết bị"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "Làm mới"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "Làm mới danh sách thiết bị"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "Lưu"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "Lưu cài đặt bộ lọc"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "Mới"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "Lưu trang tổng quan mới"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "Đổi tên"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "Đổi tên Trang tổng quan"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "Xóa"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "Xóa trang tổng quan"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "%s Thông báo cho các thiết bị bị giảm"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "%s Cảnh báo cho các thiết bị bị giảm"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "Quan trọng"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "Kích thước"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Trim"
-msgstr "Xén"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "Tất cả các cây"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "Thiết bị không phải cây"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "Tất cả các trang web"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "Thiết bị không phải cây"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "Websites"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "Các mẫu"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "Thiết bị không có khuôn mẫu"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "Mẫu"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[Đã lưu cài đặt bộ lọc]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "Hủy"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[Làm mới lại sau <i id=\"timer\">% d</i> giây]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Bộ lọc màn hình [Làm mới lần cuối: %s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "Tìm kiếm"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "Tắt tiếng"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Acknowledge"
-msgstr "Công nhận"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "Không tắt tiếng"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "Đặt lại"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "Trang tổng quan '%s' đã bị xóa."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "Trang tổng quan '%s' không thuộc sở hữu của bạn."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "Trang tổng quan '%s' đã được Lưu!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "Không thể lưu trang tổng quan '%s'!"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "Chỉnh sửa thiết bị"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "Xem đồ thị"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "Xem Ngưỡng"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "Xem cảnh báo nhật ký hệ thống"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "Xem cảnh báo nhật ký hệ thống"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "Thông tin trạng thái thiết bị"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "Thiết bị:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "Trang"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "Địa điểm:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "Tính quan trọng:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "Trạng thái:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "Lưu ý của quản trị viên:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP / Tên máy chủ:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "Curr / Trung bình:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "% d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "Cảnh báo / Cảnh báo:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "% 0,2đ ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "Thất bại cuối cùng:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "Thời gian ở bang:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "Khả dụng:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "Thời gian hoạt động của đại lý:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "N/A"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "Mô tả Sys:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "Liên hệ:"
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "Ghi chú:"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "Không bao giờ"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "Không"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "Thiết bị không phải cây"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "Chi nhánh gốc"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "Cây"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "Chi nhánh: %s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "Chỉ cần lên"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "Tên máy chủ"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "Tên máy chủ của thiết bị"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "Mô tả"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "Độ dài trong trạng thái"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "Trung bình"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "Cảnh báo"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "Quản trị viên"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "Ghi chú"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "Tình trạng"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Thất bại cuối cùng"
 
 #: poller_functions.php
 msgid "Description: "
