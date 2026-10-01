@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2026-09-24 21:00+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\n"
@@ -17,6 +17,468 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.11.4\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "ახალი სამუშაო დაფა"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "სამუშაო დაფა"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr ""
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "ახალი სამუშაო დაფის შექმნა"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "მოწყობილობები მონიტორინგის ქვეშ"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "მოწყობილობები მონიტორინგის ქვეშ"
+
+#: includes/controller.php monitor.php
+msgid "All Devices"
+msgstr "ყველა მოწყობილობა"
+
+#: includes/controller.php monitor.php
+msgid "All Monitored Devices"
+msgstr "ყველა მოწყობილობა მონიტორინგის ქვეშ"
+
+#: includes/controller.php
+msgid "Monitored Devices either Down or Recovering"
+msgstr ""
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr ""
+
+#: includes/controller.php
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr ""
+
+#: includes/controller.php
+msgid ", and All Criticalities"
+msgstr ""
+
+#: includes/controller.php
+msgid ", and of Low Criticality or Higher"
+msgstr ""
+
+#: includes/controller.php
+msgid ", and of Medium Criticality or Higher"
+msgstr ""
+
+#: includes/controller.php
+msgid ", and of High Criticality or Higher"
+msgstr ""
+
+#: includes/controller.php
+msgid ", and of Mission Critical Status"
+msgstr ""
+
+#: includes/controller.php
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr ""
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "შეუნახავი"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "განლაგება"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "სტატუსი"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "ხედი"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "დაჯგუფება"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "მოწყობილობები"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "განახლება"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "გასუფთავება"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "შენახვა"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "ფილტრის პარამეტრების შენახვა"
+
+#: includes/controller.php
+msgid "New"
+msgstr "ახალი"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr ""
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "სახელის გადარქმევა"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "სამუშაო დაფის სახელის გადარქმევა"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "წაშლა"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "სამუშაო დაფის წაშლა"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "კრიტიკულობა"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "ზომა"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "წაკვეთა"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "ყველა ხე"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "მოწყობილობები ხის გარეშე"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "ხე"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "ყველა საიტი"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "არასაიტის მოწყობილობები"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "საიტები"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "ყველა შაბლონი"
+
+#: includes/controller.php
+msgid "Non-Templated Devices"
+msgstr "არადაშაბლონებული მოწყობილობები"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "ნიმუში"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "ძებნა"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "დადუმება"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "დამოწმება"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "დადუმების გაუქმება"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "ჩამოყრა"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "სამუშაო მაგიდა '%s' წაიშალა."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr ""
+
+#: includes/controller.php
+msgid "Edit Device"
+msgstr "მოწყობილობის ჩასწორება"
+
+#: includes/controller.php
+msgid "View Graphs"
+msgstr "გრაფიკების ნახვა"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "ზღვრების/განგაშების ნახვა"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr ""
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr ""
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr ""
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "მოწყობილობა:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "საიტი:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "მდებარეობა:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "კრიტიკულობა:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "სტატუსი:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "ადმინისტრატორის შენიშვნა:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/ჰოსტის სახელი:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "მიმდ/საშ:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d მწმ"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "გაფრთხილება/განგაში:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d მწმ"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "ბოლო ჩავარდნა:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "დრო მდგომარეობაში:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "ხელმისაწვდომობა:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "აგენტის ჩართულობის დრო:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "სის აღწერა:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "კონტაქტი:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "შენიშვნები:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "არასდროს"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "მითითებული არაა"
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "არცერთი"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "არა-საიტის მოწყობილობები"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "ძირითადი ბრენჩი"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "ხე: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "ბრენჩი: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "უცნობი"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "უბრალოდ მაღლა"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "ჰოსტის სახელი"
+
+#: includes/render.php
+msgid "Hostname of device"
+msgstr "მოწყობილობის ჰოსტის სახელი"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "აღწერა"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "საიტი"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr ""
+
+#: includes/render.php
+msgid "Averages"
+msgstr "საშუალოები"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "გაფრთხილება"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "ადმინი"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "შენიშვნები"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "წვდომადობა"
+
+#: includes/render.php
+msgid "Last Fail"
+msgstr "ბოლო ჩავარდნა"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -37,10 +499,6 @@ msgstr "მაღალი"
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "კრიტიკულად მნიშვნელოვანი"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "უცნობი"
 
 #: monitor.php
 msgid "Down"
@@ -98,14 +556,6 @@ msgstr "ძალიან დიდი"
 msgid "Zoom"
 msgstr "მასშტაბი"
 
-#: monitor.php monitor_controller.php
-msgid "All Devices"
-msgstr "ყველა მოწყობილობა"
-
-#: monitor.php monitor_controller.php
-msgid "All Monitored Devices"
-msgstr "ყველა მოწყობილობა მონიტორინგის ქვეშ"
-
 #: monitor.php
 msgid "Not Up"
 msgstr "ჩართული არაა"
@@ -116,10 +566,6 @@ msgstr ""
 
 #: monitor.php
 msgid "Not Up, Triggered or Breached"
-msgstr ""
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
 msgstr ""
 
 #: monitor.php
@@ -146,14 +592,6 @@ msgstr "მოზაიკა"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "ფილები და დრო"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "ხე"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "საიტი"
 
 #: monitor.php setup.php
 msgid "Device Template"
@@ -190,444 +628,6 @@ msgstr "75 სიმბ"
 #: monitor.php
 msgid "100 Chars"
 msgstr "100 სიმბოლო"
-
-#: monitor_controller.php
-msgid "New Dashboard"
-msgstr "ახალი სამუშაო დაფა"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "სამუშაო დაფა"
-
-#: monitor_controller.php
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Create New Dashboard"
-msgstr "ახალი სამუშაო დაფის შექმნა"
-
-#: monitor_controller.php monitor_render.php
-msgid "Monitored Devices"
-msgstr "მოწყობილობები მონიტორინგის ქვეშ"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "მოწყობილობები მონიტორინგის ქვეშ"
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr ""
-
-#: monitor_controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr ""
-
-#: monitor_controller.php
-msgid ", and All Criticalities"
-msgstr ""
-
-#: monitor_controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr ""
-
-#: monitor_controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr ""
-
-#: monitor_controller.php
-msgid ", and of High Criticality or Higher"
-msgstr ""
-
-#: monitor_controller.php
-msgid ", and of Mission Critical Status"
-msgstr ""
-
-#: monitor_controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Unsaved"
-msgstr "შეუნახავი"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "განლაგება"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "სტატუსი"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "ხედი"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "დაჯგუფება"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "მოწყობილობები"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "განახლება"
-
-#: monitor_controller.php
-msgid "Refresh the Device List"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr "გასუფთავება"
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "შენახვა"
-
-#: monitor_controller.php
-msgid "Save Filter Settings"
-msgstr "ფილტრის პარამეტრების შენახვა"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "ახალი"
-
-#: monitor_controller.php
-msgid "Save New Dashboard"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "სახელის გადარქმევა"
-
-#: monitor_controller.php
-msgid "Rename Dashboard"
-msgstr "სამუშაო დაფის სახელის გადარქმევა"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "წაშლა"
-
-#: monitor_controller.php
-msgid "Delete Dashboard"
-msgstr "სამუშაო დაფის წაშლა"
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alert for downed Devices"
-msgstr ""
-
-#: monitor_controller.php
-#, php-format
-msgid "%s Alerts for downed Devices"
-msgstr ""
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-msgid "Criticality"
-msgstr "კრიტიკულობა"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "ზომა"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "წაკვეთა"
-
-#: monitor_controller.php
-msgid "All Trees"
-msgstr "ყველა ხე"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Tree Devices"
-msgstr "მოწყობილობები ხის გარეშე"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "ყველა საიტი"
-
-#: monitor_controller.php monitor_render.php
-msgid "Non-Site Devices"
-msgstr "არასაიტის მოწყობილობები"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "საიტები"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "ყველა შაბლონი"
-
-#: monitor_controller.php
-msgid "Non-Templated Devices"
-msgstr "არადაშაბლონებული მოწყობილობები"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "ნიმუში"
-
-#: monitor_controller.php
-msgid " [ Filter Settings Saved ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "გაუქმება"
-
-#: monitor_controller.php
-#, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr ""
-
-#: monitor_controller.php
-#, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "ძებნა"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "დადუმება"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "დამოწმება"
-
-#: monitor_controller.php
-msgid "Un-Mute"
-msgstr "დადუმების გაუქმება"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "ჩამოყრა"
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "სამუშაო მაგიდა '%s' წაიშალა."
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr ""
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr ""
-
-#: monitor_controller.php
-#, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Edit Device"
-msgstr "მოწყობილობის ჩასწორება"
-
-#: monitor_controller.php
-msgid "View Graphs"
-msgstr "გრაფიკების ნახვა"
-
-#: monitor_controller.php
-msgid "View Thresholds/Alerts"
-msgstr "ზღვრების/განგაშების ნახვა"
-
-#: monitor_controller.php
-msgid "View Device Syslog Alerts"
-msgstr ""
-
-#: monitor_controller.php
-msgid "View Device Syslog Entries"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Device Status Information"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "მოწყობილობა:"
-
-#: monitor_controller.php
-msgid "Site:"
-msgstr "საიტი:"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "მდებარეობა:"
-
-#: monitor_controller.php
-msgid "Criticality:"
-msgstr "კრიტიკულობა:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "სტატუსი:"
-
-#: monitor_controller.php
-msgid "Admin Note:"
-msgstr "ადმინისტრატორის შენიშვნა:"
-
-#: monitor_controller.php
-msgid "IP/Hostname:"
-msgstr "IP/ჰოსტის სახელი:"
-
-#: monitor_controller.php
-msgid "Curr/Avg:"
-msgstr "მიმდ/საშ:"
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%d ms"
-msgstr "%d მწმ"
-
-#: monitor_controller.php
-msgid "Warn/Alert:"
-msgstr "გაფრთხილება/განგაში:"
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%0.2d ms"
-msgstr "%0.2d მწმ"
-
-#: monitor_controller.php
-msgid "Last Fail:"
-msgstr "ბოლო ჩავარდნა:"
-
-#: monitor_controller.php
-msgid "Time In State:"
-msgstr "დრო მდგომარეობაში:"
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "ხელმისაწვდომობა:"
-
-#: monitor_controller.php
-msgid "Agent Uptime:"
-msgstr "აგენტის ჩართულობის დრო:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "N/A"
-
-#: monitor_controller.php
-msgid "Sys Description:"
-msgstr "სის აღწერა:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "კონტაქტი:"
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "შენიშვნები:"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "არასდროს"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr "მითითებული არაა"
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "არცერთი"
-
-#: monitor_render.php
-msgid "Non-Site Device"
-msgstr "არა-საიტის მოწყობილობები"
-
-#: monitor_render.php
-msgid "Root Branch"
-msgstr "ძირითადი ბრენჩი"
-
-#: monitor_render.php
-#, php-format
-msgid "Tree: %s"
-msgstr "ხე: %s"
-
-#: monitor_render.php
-#, php-format
-msgid "Branch: %s"
-msgstr "ბრენჩი: %s"
-
-#: monitor_render.php
-msgid "Just Up"
-msgstr "უბრალოდ მაღლა"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "ჰოსტის სახელი"
-
-#: monitor_render.php
-msgid "Hostname of device"
-msgstr "მოწყობილობის ჰოსტის სახელი"
-
-#: monitor_render.php
-msgid "ID"
-msgstr "ID"
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "აღწერა"
-
-#: monitor_render.php
-msgid "Length in Status"
-msgstr ""
-
-#: monitor_render.php
-msgid "Averages"
-msgstr "საშუალოები"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "გაფრთხილება"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "ადმინი"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "შენიშვნები"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "წვდომადობა"
-
-#: monitor_render.php
-msgid "Last Fail"
-msgstr "ბოლო ჩავარდნა"
 
 #: poller_functions.php
 msgid "Description: "
