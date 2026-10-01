@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2026-01-16 03:18+0000\n"
 "Last-Translator: sucharlie <su.charlie@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\n"
@@ -12,6 +12,545 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.11.4\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "新儀表板"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "控制台"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "輸入儀表板名稱，然後按“保存”繼續，否則按“取消”"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "新增儀表板"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "監控的設備"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "監控的設備"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "設備"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "所有受監控的設備"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "受監控設備已關閉或正在恢復"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "受監控的設備可以是“關閉”，“恢復”或“具有觸發閾值”"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "受監控設備已關閉，恢復或具有違反或觸發閾值"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "未知監控狀態（％s）"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr "和所有重要性"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr "，低臨界或更高"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr "，以及中等臨界或更高"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr "，以及高臨界或更高"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr "和關鍵任務狀態"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\">請記住首先從“設備”頁面選擇要監控的符合條件的設備！ </div>"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Unsaved"
+msgstr "未保存"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "佈局"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Status"
+msgstr "狀態"
+
+#: includes/controller.php setup.php
+#, fuzzy
+msgid "View"
+msgstr "查看"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "商品群組"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Devices"
+msgstr "設備"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh"
+msgstr "重新整理"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "刷新設備列表"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save"
+msgstr "儲存"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "保存過濾器設置"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New"
+msgstr "新增"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "保存新儀錶盤"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename"
+msgstr "重新命名"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "重命名儀表板"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete"
+msgstr "刪除"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "刪除儀表板"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "％s已停止設備的警報"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "％s已停機設備的警報"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "臨界"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Size"
+msgstr "尺寸"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "特林"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "所有樹木"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "非樹設備"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Tree"
+msgstr "樹"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "所有網站"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "非樹設備"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sites"
+msgstr "網站"
+
+#: includes/controller.php
+msgid "All Templates"
+msgstr "所有模板"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "非模板化設備"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Template"
+msgstr "模板"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[已保存過濾器設置]"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Cancel"
+msgstr "取消"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[再次刷新<i id=\"timer\">％d</i>秒]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "監控過濾器[上次刷新：％s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Search"
+msgstr "搜尋"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "靜音"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "確認"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "取消靜音"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Reset"
+msgstr "重置"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "儀表板'%s'已刪除。"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "儀表板“ %s”不歸您所有。"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "儀表板“ %s”已保存！"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "儀表板“ %s”無法保存！"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "編輯設備"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "查看圖表"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "查看閾值"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "查看Syslog警報"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "查看Syslog警報"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "設備狀態信息"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device:"
+msgstr "裝置："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "網站："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Location:"
+msgstr "地點:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "重要性："
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "狀態："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "管理員注意："
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP /主機名："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "CURR /平均："
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%d ms"
+msgstr "％d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "警告/警報："
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "％0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "最後的失敗："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "國家時間："
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "可用性："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "代理正常運行時間"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "N/A"
+msgstr "不适用"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "系統描述："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Contact:"
+msgstr "聯繫方式："
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "筆記："
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Never"
+msgstr "從不"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+#, fuzzy
+msgid "None"
+msgstr "無"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "非樹設備"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "根科"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "樹"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "分支：％s"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Unknown"
+msgstr "未知"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "剛起來"
+
+#: includes/render.php poller_functions.php
+#, fuzzy
+msgid "Hostname"
+msgstr "主機名稱"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "設備的主機名"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+#, fuzzy
+msgid "Description"
+msgstr "描述"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Site"
+msgstr "網站"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "狀態長度"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "平均值"
+
+#: includes/render.php
+#, fuzzy
+msgid "Warning"
+msgstr "警告"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "管理員"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Notes"
+msgstr "備註"
+
+#: includes/render.php
+#, fuzzy
+msgid "Availability"
+msgstr "可用性"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "最後的失敗"
 
 #: monitor.php poller_functions.php setup.php
 #, fuzzy
@@ -34,11 +573,6 @@ msgstr "高"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "關鍵任務"
-
-#: monitor.php monitor_render.php
-#, fuzzy
-msgid "Unknown"
-msgstr "未知"
 
 #: monitor.php
 #, fuzzy
@@ -106,16 +640,6 @@ msgstr "超大"
 msgid "Zoom"
 msgstr "縮放"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "設備"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "所有受監控的設備"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -130,10 +654,6 @@ msgstr "未啟動或觸發"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "不起來，觸發或違反"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -161,16 +681,6 @@ msgstr "瓷磚"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "瓷磚和時間"
-
-#: monitor.php monitor_controller.php setup.php
-#, fuzzy
-msgid "Tree"
-msgstr "樹"
-
-#: monitor.php monitor_render.php
-#, fuzzy
-msgid "Site"
-msgstr "網站"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -215,516 +725,6 @@ msgstr "75個字符"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100個字符"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "新儀表板"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "控制台"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "輸入儀表板名稱，然後按“保存”繼續，否則按“取消”"
-
-#: monitor_controller.php
-msgid "Create New Dashboard"
-msgstr "新增儀表板"
-
-#: monitor_controller.php monitor_render.php
-msgid "Monitored Devices"
-msgstr "監控的設備"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "監控的設備"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "受監控設備已關閉或正在恢復"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "受監控的設備可以是“關閉”，“恢復”或“具有觸發閾值”"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "受監控設備已關閉，恢復或具有違反或觸發閾值"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "未知監控狀態（％s）"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "和所有重要性"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "，低臨界或更高"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "，以及中等臨界或更高"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "，以及高臨界或更高"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "和關鍵任務狀態"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">請記住首先從“設備”頁面選擇要監控的符合條件的設備！ </div>"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Unsaved"
-msgstr "未保存"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "佈局"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Status"
-msgstr "狀態"
-
-#: monitor_controller.php setup.php
-#, fuzzy
-msgid "View"
-msgstr "查看"
-
-#: monitor_controller.php setup.php
-msgid "Grouping"
-msgstr "商品群組"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Devices"
-msgstr "設備"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh"
-msgstr "重新整理"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "刷新設備列表"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save"
-msgstr "儲存"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "保存過濾器設置"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New"
-msgstr "新增"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "保存新儀錶盤"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename"
-msgstr "重新命名"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "重命名儀表板"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete"
-msgstr "刪除"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "刪除儀表板"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "％s已停止設備的警報"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "％s已停機設備的警報"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "臨界"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Size"
-msgstr "尺寸"
-
-#: monitor_controller.php
-msgid "Trim"
-msgstr "特林"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "所有樹木"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "非樹設備"
-
-#: monitor_controller.php
-msgid "All Sites"
-msgstr "所有網站"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "非樹設備"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sites"
-msgstr "網站"
-
-#: monitor_controller.php
-msgid "All Templates"
-msgstr "所有模板"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "非模板化設備"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Template"
-msgstr "模板"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[已保存過濾器設置]"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Cancel"
-msgstr "取消"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[再次刷新<i id=\"timer\">％d</i>秒]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "監控過濾器[上次刷新：％s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Search"
-msgstr "搜尋"
-
-#: monitor_controller.php
-msgid "Mute"
-msgstr "靜音"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "確認"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "取消靜音"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Reset"
-msgstr "重置"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "儀表板'%s'已刪除。"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "儀表板“ %s”不歸您所有。"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "儀表板“ %s”已保存！"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "儀表板“ %s”無法保存！"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "編輯設備"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "查看圖表"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "查看閾值"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "查看Syslog警報"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "查看Syslog警報"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "設備狀態信息"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device:"
-msgstr "裝置："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "網站："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Location:"
-msgstr "地點:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "重要性："
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "狀態："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "管理員注意："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP /主機名："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "CURR /平均："
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%d ms"
-msgstr "％d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "警告/警報："
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "％0.2d ms"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "最後的失敗："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "國家時間："
-
-#: monitor_controller.php
-msgid "Availability:"
-msgstr "可用性："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "代理正常運行時間"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "N/A"
-msgstr "不适用"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "系統描述："
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Contact:"
-msgstr "聯繫方式："
-
-#: monitor_controller.php
-msgid "Notes:"
-msgstr "筆記："
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Never"
-msgstr "從不"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-#, fuzzy
-msgid "None"
-msgstr "無"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "非樹設備"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "根科"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "樹"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "分支：％s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "剛起來"
-
-#: monitor_render.php poller_functions.php
-#, fuzzy
-msgid "Hostname"
-msgstr "主機名稱"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "設備的主機名"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-#, fuzzy
-msgid "Description"
-msgstr "描述"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "狀態長度"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "平均值"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Warning"
-msgstr "警告"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "管理員"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-#, fuzzy
-msgid "Notes"
-msgstr "備註"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Availability"
-msgstr "可用性"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "最後的失敗"
 
 #: poller_functions.php
 msgid "Description: "
