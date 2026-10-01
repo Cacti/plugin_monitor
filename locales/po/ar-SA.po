@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-28 16:06-0400\n"
+"POT-Creation-Date: 2026-09-30 21:27-0400\n"
 "PO-Revision-Date: 2020-12-28 20:08-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,6 +11,526 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
+
+#: includes/controller.php
+#, fuzzy
+msgid "New Dashboard"
+msgstr "لوحة تحكم جديدة"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "لوحة المؤشرات"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "أدخل اسم لوحة التحكم ثم اضغط على \"حفظ\" للمتابعة ، وإلا اضغط على \"إلغاء\""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Create New Dashboard"
+msgstr "إنشاء لوحة تحكم جديدة"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Monitored Devices"
+msgstr "أجهزة مراقبة"
+
+#: includes/controller.php monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Not Monitored Devices"
+msgstr "أجهزة مراقبة"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Devices"
+msgstr "الأجهزة"
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "جميع الأجهزة المراقبة"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down or Recovering"
+msgstr "الأجهزة المراقبة إما لأسفل أو الاسترداد"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+msgstr "الأجهزة التي تتم مراقبتها إما لأسفل أو استرداد أو مع تشغيل العتبات"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+msgstr "الأجهزة التي تتم مراقبتها إما لأسفل أو استرداد أو مع عتبات مشغولة أو مشغولة"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Unknown monitoring status (%s)"
+msgstr "حالة مراقبة غير معروفة (٪ s)"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and All Criticalities"
+msgstr "و كل الأمور الحرجة"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Low Criticality or Higher"
+msgstr "وقليلة الأهمية أو عالية"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Medium Criticality or Higher"
+msgstr "، ومن الحرج المتوسط أو العالي"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of High Criticality or Higher"
+msgstr "، ومن الحرج الشديد أو العالي"
+
+#: includes/controller.php
+#, fuzzy
+msgid ", and of Mission Critical Status"
+msgstr "، والحالة المهمة الحرجة"
+
+#: includes/controller.php
+#, fuzzy
+msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+msgstr "</div><div class=\"center monitorFooterTextBold\" style=\";text-align:right;direction:rtl\"> تذكر أولاً تحديد الأجهزة المؤهلة المطلوب مراقبتها من صفحة \"الأجهزة\"! </div>"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Unsaved"
+msgstr "لم يتم الحفظ"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "التصميم"
+
+#: includes/controller.php includes/render.php
+msgid "Status"
+msgstr "الحالة"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "عرض"
+
+#: includes/controller.php setup.php
+#, fuzzy
+msgid "Grouping"
+msgstr "تجمع"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "الأجهزة"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "تحديث"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Refresh the Device List"
+msgstr "تحديث قائمة الأجهزة"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr ""
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr ""
+
+#: includes/controller.php
+msgid "Save"
+msgstr "حفظ"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save Filter Settings"
+msgstr "حفظ إعدادات التصفية"
+
+#: includes/controller.php
+msgid "New"
+msgstr "جديد"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Save New Dashboard"
+msgstr "حفظ لوحة القيادة الجديدة"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "إعادة التسمية"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Rename Dashboard"
+msgstr "إعادة تسمية لوحة المعلومات"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "حذف"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Delete Dashboard"
+msgstr "حذف لوحة القيادة"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alert for downed Devices"
+msgstr "٪ s تنبيه للأجهزة التي تم إسقاطها"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "٪ s تنبيهات للأجهزة التي تم إسقاطها"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+#, fuzzy
+msgid "Criticality"
+msgstr "الحرجية"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "مداخل خلفية الحجم"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Trim"
+msgstr "تقليم"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Trees"
+msgstr "جميع الأشجار"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Tree Devices"
+msgstr "الأجهزة غير شجرة"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "شجرة"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Sites"
+msgstr "جميع الأشجار"
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Non-Site Devices"
+msgstr "الأجهزة غير شجرة"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "المواقع"
+
+#: includes/controller.php
+#, fuzzy
+msgid "All Templates"
+msgstr "جميع القوالب"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Non-Templated Devices"
+msgstr "أجهزة غير معبدة"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "قالب"
+
+#: includes/controller.php
+#, fuzzy
+msgid " [ Filter Settings Saved ]"
+msgstr "[إعدادات التصفية المحفوظة]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr "[التحديث مرة أخرى في <i id=\"timer\">٪ d</i> ثوانٍ]"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "مرشح الشاشة [التحديث الأخير:٪ s]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr ""
+
+#: includes/controller.php
+msgid "Search"
+msgstr "بحث"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Mute"
+msgstr "كتم الصوت"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "اعترف"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Un-Mute"
+msgstr "إلغاء كتم الصوت"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "تمت إزالة لوحة التحكم \"%s\"."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "لوحة التحكم \"%s\" ليست مملوكة لك."
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "تم حفظ لوحة التحكم \"%s\"!"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "تعذر حفظ لوحة التحكم \"%s\"!"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Edit Device"
+msgstr "تحرير الجهاز"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Graphs"
+msgstr "عرض الرسوم البيانية"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Thresholds/Alerts"
+msgstr "عرض العتبات"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Alerts"
+msgstr "عرض تنبيهات سيسلوغ"
+
+#: includes/controller.php
+#, fuzzy
+msgid "View Device Syslog Entries"
+msgstr "عرض تنبيهات سيسلوغ"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Status Information"
+msgstr "معلومات حالة الجهاز"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "الجهاز:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Site:"
+msgstr "موضع، موقع، مقر"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "موقعك:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Criticality:"
+msgstr "الحرجية:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "الحالة:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Admin Note:"
+msgstr "ملاحظة المسؤول:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "IP/Hostname:"
+msgstr "IP / اسم المضيف:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Curr/Avg:"
+msgstr "داء / متوسط:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d جزء من الثانية"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Warn/Alert:"
+msgstr "تحذير / تنبيه:"
+
+#: includes/controller.php includes/render.php
+#, fuzzy, php-format
+msgid "%0.2d ms"
+msgstr "٪ 0.2d مللي ثانية"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Last Fail:"
+msgstr "فشل الماضي:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Time In State:"
+msgstr "الوقت في الدولة:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Availability:"
+msgstr "متوفر"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Agent Uptime:"
+msgstr "الجهوزية الوكيل:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Sys Description:"
+msgstr "تميز الكلية:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "بيانتت اتصال"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Notes:"
+msgstr "الملاحظات"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "أبدا"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr ""
+
+#: includes/controller.php setup.php
+msgid "None"
+msgstr "لا شيء"
+
+#: includes/render.php
+#, fuzzy
+msgid "Non-Site Device"
+msgstr "الأجهزة غير شجرة"
+
+#: includes/render.php
+#, fuzzy
+msgid "Root Branch"
+msgstr "فرع الجذر"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Tree: %s"
+msgstr "الأشجار"
+
+#: includes/render.php
+#, fuzzy, php-format
+msgid "Branch: %s"
+msgstr "الفرع:٪ s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "غير معروف"
+
+#: includes/render.php
+#, fuzzy
+msgid "Just Up"
+msgstr "فقط لأعلى"
+
+#: includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "اسم الخادم"
+
+#: includes/render.php
+#, fuzzy
+msgid "Hostname of device"
+msgstr "اسم المضيف للجهاز"
+
+#: includes/render.php
+msgid "ID"
+msgstr ""
+
+#: includes/render.php poller_functions.php
+msgid "Description"
+msgstr "الوصف"
+
+#: includes/render.php monitor.php
+msgid "Site"
+msgstr "موضع، موقع، مقر"
+
+#: includes/render.php
+#, fuzzy
+msgid "Length in Status"
+msgstr "طول في الوضع"
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "المتوسطات"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "تحذير"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "تمت إضافة المشرف"
+
+#: includes/render.php
+msgid "Monitor Text Column represents 'Admin'"
+msgstr ""
+
+#: includes/render.php
+msgid "Notes"
+msgstr "الملاحظات"
+
+#: includes/render.php
+msgid "Availability"
+msgstr "متوفر"
+
+#: includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "فشل الماضي"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -32,10 +552,6 @@ msgstr "عالي"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "المهمة الحرجة"
-
-#: monitor.php monitor_render.php
-msgid "Unknown"
-msgstr "غير معروف"
 
 #: monitor.php
 msgid "Down"
@@ -101,16 +617,6 @@ msgstr "صغير جدا"
 msgid "Zoom"
 msgstr "تكبير"
 
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Devices"
-msgstr "الأجهزة"
-
-#: monitor.php monitor_controller.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "جميع الأجهزة المراقبة"
-
 #: monitor.php
 #, fuzzy
 msgid "Not Up"
@@ -125,10 +631,6 @@ msgstr "لا يصل أو تحريكها"
 #, fuzzy
 msgid "Not Up, Triggered or Breached"
 msgstr "لا يصل ، أثار أو خرق"
-
-#: monitor.php monitor_controller.php
-msgid "Devices without Thresholds"
-msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -155,14 +657,6 @@ msgstr "البلاط"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "البلاط والوقت"
-
-#: monitor.php monitor_controller.php setup.php
-msgid "Tree"
-msgstr "شجرة"
-
-#: monitor.php monitor_render.php
-msgid "Site"
-msgstr "موضع، موقع، مقر"
 
 #: monitor.php setup.php
 #, fuzzy
@@ -207,500 +701,6 @@ msgstr "75 حرف"
 #, fuzzy
 msgid "100 Chars"
 msgstr "100 حرف"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "New Dashboard"
-msgstr "لوحة تحكم جديدة"
-
-#: monitor_controller.php
-msgid "Dashboard"
-msgstr "لوحة المؤشرات"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "أدخل اسم لوحة التحكم ثم اضغط على \"حفظ\" للمتابعة ، وإلا اضغط على \"إلغاء\""
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Create New Dashboard"
-msgstr "إنشاء لوحة تحكم جديدة"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Monitored Devices"
-msgstr "أجهزة مراقبة"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "أجهزة مراقبة"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "الأجهزة المراقبة إما لأسفل أو الاسترداد"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "الأجهزة التي تتم مراقبتها إما لأسفل أو استرداد أو مع تشغيل العتبات"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "الأجهزة التي تتم مراقبتها إما لأسفل أو استرداد أو مع عتبات مشغولة أو مشغولة"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "حالة مراقبة غير معروفة (٪ s)"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "و كل الأمور الحرجة"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "وقليلة الأهمية أو عالية"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "، ومن الحرج المتوسط أو العالي"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "، ومن الحرج الشديد أو العالي"
-
-#: monitor_controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "، والحالة المهمة الحرجة"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\" style=\";text-align:right;direction:rtl\"> تذكر أولاً تحديد الأجهزة المؤهلة المطلوب مراقبتها من صفحة \"الأجهزة\"! </div>"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Unsaved"
-msgstr "لم يتم الحفظ"
-
-#: monitor_controller.php
-msgid "Layout"
-msgstr "التصميم"
-
-#: monitor_controller.php monitor_render.php
-msgid "Status"
-msgstr "الحالة"
-
-#: monitor_controller.php setup.php
-msgid "View"
-msgstr "عرض"
-
-#: monitor_controller.php setup.php
-#, fuzzy
-msgid "Grouping"
-msgstr "تجمع"
-
-#: monitor_controller.php monitor_render.php
-msgid "Devices"
-msgstr "الأجهزة"
-
-#: monitor_controller.php
-msgid "Refresh"
-msgstr "تحديث"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Refresh the Device List"
-msgstr "تحديث قائمة الأجهزة"
-
-#: monitor_controller.php
-msgid "Clear"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Clear the set filter"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Save"
-msgstr "حفظ"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save Filter Settings"
-msgstr "حفظ إعدادات التصفية"
-
-#: monitor_controller.php
-msgid "New"
-msgstr "جديد"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Save New Dashboard"
-msgstr "حفظ لوحة القيادة الجديدة"
-
-#: monitor_controller.php
-msgid "Rename"
-msgstr "إعادة التسمية"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Rename Dashboard"
-msgstr "إعادة تسمية لوحة المعلومات"
-
-#: monitor_controller.php
-msgid "Delete"
-msgstr "حذف"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Delete Dashboard"
-msgstr "حذف لوحة القيادة"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alert for downed Devices"
-msgstr "٪ s تنبيه للأجهزة التي تم إسقاطها"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "%s Alerts for downed Devices"
-msgstr "٪ s تنبيهات للأجهزة التي تم إسقاطها"
-
-#: monitor_controller.php monitor_render.php poller_functions.php setup.php
-#, fuzzy
-msgid "Criticality"
-msgstr "الحرجية"
-
-#: monitor_controller.php
-msgid "Size"
-msgstr "مداخل خلفية الحجم"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Trim"
-msgstr "تقليم"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Trees"
-msgstr "جميع الأشجار"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Tree Devices"
-msgstr "الأجهزة غير شجرة"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Sites"
-msgstr "جميع الأشجار"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy
-msgid "Non-Site Devices"
-msgstr "الأجهزة غير شجرة"
-
-#: monitor_controller.php
-msgid "Sites"
-msgstr "المواقع"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "All Templates"
-msgstr "جميع القوالب"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Non-Templated Devices"
-msgstr "أجهزة غير معبدة"
-
-#: monitor_controller.php
-msgid "Template"
-msgstr "قالب"
-
-#: monitor_controller.php
-#, fuzzy
-msgid " [ Filter Settings Saved ]"
-msgstr "[إعدادات التصفية المحفوظة]"
-
-#: monitor_controller.php
-msgid "Cancel"
-msgstr "إلغاء"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[التحديث مرة أخرى في <i id=\"timer\">٪ d</i> ثوانٍ]"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "مرشح الشاشة [التحديث الأخير:٪ s]"
-
-#: monitor_controller.php
-msgid "[ Showing only first 30 Devices ]"
-msgstr ""
-
-#: monitor_controller.php
-msgid "Search"
-msgstr "بحث"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Mute"
-msgstr "كتم الصوت"
-
-#: monitor_controller.php
-msgid "Acknowledge"
-msgstr "اعترف"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Un-Mute"
-msgstr "إلغاء كتم الصوت"
-
-#: monitor_controller.php
-msgid "Reset"
-msgstr "إعادة تعيين"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' Removed."
-msgstr "تمت إزالة لوحة التحكم \"%s\"."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' is not owned by you."
-msgstr "لوحة التحكم \"%s\" ليست مملوكة لك."
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' has been Saved!"
-msgstr "تم حفظ لوحة التحكم \"%s\"!"
-
-#: monitor_controller.php
-#, fuzzy, php-format
-msgid "Dashboard '%s' could not be Saved!"
-msgstr "تعذر حفظ لوحة التحكم \"%s\"!"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Edit Device"
-msgstr "تحرير الجهاز"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Graphs"
-msgstr "عرض الرسوم البيانية"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Thresholds/Alerts"
-msgstr "عرض العتبات"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Alerts"
-msgstr "عرض تنبيهات سيسلوغ"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "View Device Syslog Entries"
-msgstr "عرض تنبيهات سيسلوغ"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Device Status Information"
-msgstr "معلومات حالة الجهاز"
-
-#: monitor_controller.php
-msgid "Device:"
-msgstr "الجهاز:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Site:"
-msgstr "موضع، موقع، مقر"
-
-#: monitor_controller.php
-msgid "Location:"
-msgstr "موقعك:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Criticality:"
-msgstr "الحرجية:"
-
-#: monitor_controller.php
-msgid "Status:"
-msgstr "الحالة:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Admin Note:"
-msgstr "ملاحظة المسؤول:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "IP/Hostname:"
-msgstr "IP / اسم المضيف:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Curr/Avg:"
-msgstr "داء / متوسط:"
-
-#: monitor_controller.php monitor_render.php
-#, php-format
-msgid "%d ms"
-msgstr "%d جزء من الثانية"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Warn/Alert:"
-msgstr "تحذير / تنبيه:"
-
-#: monitor_controller.php monitor_render.php
-#, fuzzy, php-format
-msgid "%0.2d ms"
-msgstr "٪ 0.2d مللي ثانية"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Last Fail:"
-msgstr "فشل الماضي:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Time In State:"
-msgstr "الوقت في الدولة:"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Availability:"
-msgstr "متوفر"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Agent Uptime:"
-msgstr "الجهوزية الوكيل:"
-
-#: monitor_controller.php monitor_render.php
-msgid "N/A"
-msgstr "N/A"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Sys Description:"
-msgstr "تميز الكلية:"
-
-#: monitor_controller.php
-msgid "Contact:"
-msgstr "بيانتت اتصال"
-
-#: monitor_controller.php
-#, fuzzy
-msgid "Notes:"
-msgstr "الملاحظات"
-
-#: monitor_controller.php monitor_render.php
-msgid "Never"
-msgstr "أبدا"
-
-#: monitor_controller.php
-msgid "Unspecified"
-msgstr ""
-
-#: monitor_controller.php setup.php
-msgid "None"
-msgstr "لا شيء"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Non-Site Device"
-msgstr "الأجهزة غير شجرة"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Root Branch"
-msgstr "فرع الجذر"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Tree: %s"
-msgstr "الأشجار"
-
-#: monitor_render.php
-#, fuzzy, php-format
-msgid "Branch: %s"
-msgstr "الفرع:٪ s"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Just Up"
-msgstr "فقط لأعلى"
-
-#: monitor_render.php poller_functions.php
-msgid "Hostname"
-msgstr "اسم الخادم"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "اسم المضيف للجهاز"
-
-#: monitor_render.php
-msgid "ID"
-msgstr ""
-
-#: monitor_render.php poller_functions.php
-msgid "Description"
-msgstr "الوصف"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Length in Status"
-msgstr "طول في الوضع"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Averages"
-msgstr "المتوسطات"
-
-#: monitor_render.php
-msgid "Warning"
-msgstr "تحذير"
-
-#: monitor_render.php
-msgid "Admin"
-msgstr "تمت إضافة المشرف"
-
-#: monitor_render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
-
-#: monitor_render.php
-msgid "Notes"
-msgstr "الملاحظات"
-
-#: monitor_render.php
-msgid "Availability"
-msgstr "متوفر"
-
-#: monitor_render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "فشل الماضي"
 
 #: poller_functions.php
 #, fuzzy
