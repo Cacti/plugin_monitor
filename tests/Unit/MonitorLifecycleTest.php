@@ -42,7 +42,7 @@ beforeEach(function () {
 	$_SERVER['PHP_SELF']              = '/monitor.php';
 
 	// Sandbox base_path (with a minimal INFO + empty includes/database.php stub)
-	// so any upgrade-path test runs plugin_monitor_prune_files() against a
+	// so any upgrade-path test runs monitor_prune_files() against a
 	// throwaway tree, never the real checkout.
 	$GLOBALS['__monitor_base_restore'] = $GLOBALS['config']['base_path'];
 	$base = sys_get_temp_dir() . '/monitor-test-' . uniqid();
