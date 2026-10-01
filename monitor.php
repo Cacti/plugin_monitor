@@ -126,7 +126,7 @@ if (!isset($_SESSION['monitor_muted_hosts'])) {
 	$_SESSION['monitor_muted_hosts'] = [];
 }
 
-include_once __DIR__ . '/includes/db_functions.php';
+include_once __DIR__ . '/includes/functions.php';
 include_once __DIR__ . '/includes/render.php';
 include_once __DIR__ . '/includes/controller.php';
 

@@ -3,13 +3,13 @@
  +-------------------------------------------------------------------------+
  | Copyright (C) 2004-2026 The Cacti Group                                 |
  +-------------------------------------------------------------------------+
- | Exercises includes/db_functions.php through the Cacti stubs in bootstrap-unit.php.|
+ | Exercises includes/functions.php through the Cacti stubs in bootstrap-unit.php.|
  | These load and run plugin code, unlike the source-matching rules in     |
  | tests/Integration.                                                      |
  +-------------------------------------------------------------------------+
 */
 
-require_once dirname(__DIR__, 2) . '/includes/db_functions.php';
+require_once dirname(__DIR__, 2) . '/includes/functions.php';
 
 it('selects the breached threshold clause for status 2', function () {
 	test_set_request(['status' => '2']);
