@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-30 21:27-0400\nPO-Revision-Date: 2026-10-05 09:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-30 21:27-0400\nPO-Revision-Date: 2026-10-06 10:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -23,17 +23,15 @@ msgstr "Övervakade enheter"
 
 #: includes/controller.php monitor.php
 msgid "Devices without Thresholds"
-msgstr ""
+msgstr "Enheter utan tröskelvärden"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Not Monitored Devices"
-msgstr "Övervakade enheter"
+msgstr "Ej övervakade enheter"
 
 #: includes/controller.php monitor.php
-#, fuzzy
 msgid "All Devices"
-msgstr "Enheter"
+msgstr "Alla enheter"
 
 #: includes/controller.php monitor.php
 msgid "All Monitored Devices"
@@ -114,11 +112,11 @@ msgstr "Uppdatera enhetslistan"
 
 #: includes/controller.php
 msgid "Clear"
-msgstr ""
+msgstr "Rensa"
 
 #: includes/controller.php
 msgid "Clear the set filter"
-msgstr ""
+msgstr "Rensa det angivna filtret"
 
 #: includes/controller.php
 msgid "Save"
@@ -422,7 +420,7 @@ msgstr "Enhetens värdnamn"
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: includes/render.php poller_functions.php
 msgid "Description"
@@ -433,7 +431,6 @@ msgid "Site"
 msgstr "Webbplats"
 
 #: includes/render.php
-#, fuzzy
 msgid "Length in Status"
 msgstr "Längd i status"
 
@@ -451,7 +448,7 @@ msgstr "Admin"
 
 #: includes/render.php
 msgid "Monitor Text Column represents 'Admin'"
-msgstr ""
+msgstr "Textkolumnen Monitor representerar ’Administratör’"
 
 #: includes/render.php
 msgid "Notes"
@@ -554,9 +551,8 @@ msgid "Not Up, Triggered or Breached"
 msgstr "Inte uppe, utlöst eller utsatt för intrång"
 
 #: monitor.php
-#, fuzzy
 msgid "Devices not Monitored"
-msgstr "Inställningar för enhetsövervakning"
+msgstr "Ej övervakade enheter"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -568,7 +564,7 @@ msgstr "Lista"
 
 #: monitor.php setup.php
 msgid "Names only"
-msgstr ""
+msgstr "Endast namn"
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -773,7 +769,7 @@ msgstr "Uppdateringsintervall"
 
 #: setup.php
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr "Detta är den tid i sekunder som återstår innan sidan uppdateras.  (1 - 300)"
+msgstr "Detta är den tid i sekunder som återstår innan sidan uppdateras.  (1–300)"
 
 #: setup.php
 msgid "This is how monitor will Group Devices."
@@ -862,13 +858,12 @@ msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "Ska meddelanden om omstart av enheter skickas till användare?"
 
 #: setup.php
-#, fuzzy
 msgid "Send one Email to all addresses"
-msgstr "E-postadresser"
+msgstr "Skicka ett e-postmeddelande till alla adresser"
 
 #: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
-msgstr ""
+msgstr "Om detta är markerat skickar systemet endast ett e-postmeddelande till alla adresser."
 
 #: setup.php
 msgid "Include Threshold Alert Lists"
@@ -940,55 +935,55 @@ msgstr "Ange en kommaseparerad lista med e-postadresser som ska informeras om en
 
 #: setup.php
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: setup.php
 msgid "Printer"
-msgstr ""
+msgstr "Skrivare"
 
 #: setup.php
 msgid "Desktop PC"
-msgstr ""
+msgstr "Stationär dator"
 
 #: setup.php
 msgid "Laptop/notebook"
-msgstr ""
+msgstr "Bärbar dator"
 
 #: setup.php
 msgid "Wifi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: setup.php
 msgid "Wired network"
-msgstr ""
+msgstr "Trådbundet nätverk"
 
 #: setup.php
 msgid "Database"
-msgstr ""
+msgstr "Databas"
 
 #: setup.php
 msgid "Clock"
-msgstr ""
+msgstr "Klocka"
 
 #: setup.php
 msgid "Asterisk"
-msgstr ""
+msgstr "Asterisk"
 
 #: setup.php
 msgid "Harddisk"
-msgstr ""
+msgstr "Hårddisk"
 
 #: setup.php
 msgid "Boxes"
-msgstr ""
+msgstr "Rutor"
 
 #: setup.php
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: setup.php
 msgid "Cloud"
-msgstr ""
+msgstr "Moln"
 
 #: setup.php
 msgid "Do not Change"
@@ -1064,13 +1059,12 @@ msgid "This is the message that will be displayed when this Device is reported a
 msgstr "Det här är det meddelande som visas när den här enheten rapporteras vara nere."
 
 #: setup.php
-#, fuzzy
 msgid "Device icon"
-msgstr "Enhet:"
+msgstr "Enhetsikon"
 
 #: setup.php
 msgid "You can select device icon."
-msgstr ""
+msgstr "Du kan välja enhetsikon."
 
 #: setup.php
 msgid "Monitoring"
