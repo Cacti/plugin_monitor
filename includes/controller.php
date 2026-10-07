@@ -122,10 +122,10 @@ function drawPage(): void {
 	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
-		print "<div class='center monitor_legend'>";
+		print "<div class='monitorLegend'>";
 
 		foreach ($iclasses as $index => $class) {
-			print "<div class='monitor_legend_cell center $class" . "Full'>" . $icolorsdisplay[$index] . '</div>';
+			print "<div class='monitorLegendItem $class" . "Full'>" . $icolorsdisplay[$index] . '</div>';
 		}
 
 		print '</div>';

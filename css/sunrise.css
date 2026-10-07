@@ -21,17 +21,6 @@
  +-------------------------------------------------------------------------+
 */
 
-.monitor_legend {
-	position: fixed;
-	left: 0;
-	bottom: 24px;
-	display: flex;
-	flex-flow: row wrap;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-}
-
 .monitorFooter {
 	display: none;
 }
@@ -54,10 +43,6 @@
 
 .monitorFooterTextBold {
 	color: white;
-}
-
-.monitor_legend {
-	background-color: #1D1F21;
 }
 
 .deviceThresholdFull {

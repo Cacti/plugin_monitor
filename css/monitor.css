@@ -83,25 +83,69 @@
 	display: block;
 }
 
-.monitor_legend {
-	position: fixed;
-	left: 0;
-	bottom: 0;
+/*
+ * Status legend. Rendered as an evenly sized, wrapping flex row (flex: 1 1 0
+ * gives every chip the same width) of rounded chips with spacing between them.
+ * A legend is a colour key, so the chips use their own solid, opaque colours
+ * with white text to stay legible on every theme rather than inheriting the
+ * subtle tile tints. Per-theme tuning lives in each theme's css (see
+ * deepness.css for the emerald-accented variant).
+ */
+.monitorLegend {
 	display: flex;
-	flex-flow: row wrap;
-	margin-left: auto;
-	margin-right: auto;
+	flex-wrap: wrap;
+	gap: 4px;
 	width: 100%;
+	margin-top: 4px;
 }
 
-.monitor_legend_cell {
-	padding: 0px;
-	display: column;
+.monitorLegend .monitorLegendItem {
+	flex: 1 1 0;
+	text-align: center;
 	white-space: nowrap;
-	min-width: 120px;
-	font-size: 11px;
-	flex: 1 14%;
-	font-weight: normal;
+	padding: 4px 6px;
+	border-radius: 3px;
+	color: #ffffff;
+}
+
+.monitorLegend .deviceUpFull {
+	background-color: #2f8f3a;
+}
+
+.monitorLegend .deviceDownFull {
+	background-color: #a12820;
+}
+
+.monitorLegend .deviceDownMutedFull {
+	background-color: #93302a;
+}
+
+.monitorLegend .deviceRecoveringFull {
+	background-color: #9a6a1a;
+}
+
+.monitorLegend .deviceThresholdFull {
+	background-color: #a85712;
+}
+
+.monitorLegend .deviceThresholdMutedFull {
+	background-color: #6a4a9c;
+}
+
+.monitorLegend .deviceWarningFull {
+	background-color: #7d6f18;
+}
+
+.monitorLegend .deviceAlertFull {
+	background-color: #86407a;
+}
+
+.monitorLegend .deviceUnknownFull {
+	background-color: #5f5f57;
+}
+
+.monitorLegend .deviceUnmonitoredFull {
+	background-color: #3f6a8a;
 }
 
 /* extra small styles */

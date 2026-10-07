@@ -21,10 +21,6 @@
  +-------------------------------------------------------------------------+
 */
 
-.monitor_legend {
-	background-color: snow;
-}
-
 .deviceThresholdFull {
 	background-color: rgba(242, 25, 36, 0.4);
 	text-align: center;
