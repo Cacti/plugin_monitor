@@ -332,7 +332,7 @@ function monitor_legend(array $iclasses, array $icolorsdisplay): void {
 	print "<div class='monitorLegend' style='--monitor-chip-min: calc({$chip_min}ch + 1.5rem)'>";
 
 	foreach ($iclasses as $index => $class) {
-		print "<div class='monitorLegendItem $class" . "Full'>" . $icolorsdisplay[$index] . '</div>';
+		print "<div class='monitorLegendItem $class" . "Full'>" . html_escape($icolorsdisplay[$index]) . '</div>';
 	}
 
 	print '</div>';
