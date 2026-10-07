@@ -122,21 +122,7 @@ function drawPage(): void {
 	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
-		// Size every chip to the longest label so the legend stays a row of
-		// equal chips as it wraps (CSS can't measure the widest sibling).
-		$chip_min = 0;
-
-		foreach ($iclasses as $index => $class) {
-			$chip_min = max($chip_min, mb_strlen($icolorsdisplay[$index]));
-		}
-
-		print "<div class='monitorLegend' style='--monitor-chip-min: calc({$chip_min}ch + 1.5rem)'>";
-
-		foreach ($iclasses as $index => $class) {
-			print "<div class='monitorLegendItem $class" . "Full'>" . $icolorsdisplay[$index] . '</div>';
-		}
-
-		print '</div>';
+		monitor_legend($iclasses, $icolorsdisplay);
 	}
 
 	// If the host is down, we need to insert the embedded wav file
