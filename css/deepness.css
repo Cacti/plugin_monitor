@@ -49,10 +49,15 @@
 	padding-bottom: 120px;
 }
 
-/* emerald-accented Up chip to harmonise with the Deepness palette */
+/* emerald-accented Up to harmonise with the Deepness palette (legend chip,
+   device icon and list status pill all track the same emerald) */
 .monitorLegend .deviceUpFull {
 	background-color: #197a54;
 }
+
+.mon_icon.deviceUp { color: #197a54 !important; }
+
+.monitorStatus.deviceUp { background-color: #197a54; }
 
 .deviceThresholdFull {
 	background-color: rgba(242, 25, 36, 0.4);
