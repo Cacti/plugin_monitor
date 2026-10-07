@@ -84,24 +84,23 @@
 }
 
 /*
- * Status legend. Rendered as an evenly sized, wrapping flex row (flex: 1 1 0
- * gives every chip the same width) of rounded chips with spacing between them.
+ * Status legend. Rendered as a wrapping CSS grid whose columns share one width
+ * (seeded from the longest label via --monitor-chip-min) so every chip is equal
+ * width across all rows, as rounded chips with spacing between them.
  * A legend is a colour key, so the chips use their own solid, opaque colours
  * with white text to stay legible on every theme rather than inheriting the
  * subtle tile tints. Per-theme tuning lives in each theme's css (see
  * deepness.css for the emerald-accented variant).
  */
 .monitorLegend {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(var(--monitor-chip-min, 8ch), 1fr));
 	gap: 4px;
 	width: 100%;
 	margin-top: 4px;
 }
 
 .monitorLegend .monitorLegendItem {
-	flex: 1 1 0;
-	min-width: var(--monitor-chip-min, max-content);
 	text-align: center;
 	white-space: nowrap;
 	padding: 4px 6px;

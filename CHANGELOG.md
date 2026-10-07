@@ -8,6 +8,7 @@
 * feature: Redesign the status legend as evenly sized, rounded colour chips with solid, theme-appropriate colours across every theme (including Deepness), matching the thold and syslog legends
 * feature: Colour the device-tile icons and the List-view status pill from the same legend palette, adopt the Cacti pill design for the List view (colouring the pill instead of the whole row), and keep legend chips from overflowing their bounds
 * dev: Size every status-legend chip to the longest label so the chips stay equal width as the legend wraps responsively
+* dev: Lay the status legend out as a CSS grid so every chip is truly equal width across wrapped rows (a shared min-width under flex-wrap still let a partial final row stretch its chips)
 * dev: Rename includes/db_functions.php to includes/functions.php and move bundled libraries under includes/
 * dev: Set the Cacti compatibility floor to 1.2.29
 
