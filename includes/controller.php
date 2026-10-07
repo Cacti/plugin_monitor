@@ -1041,8 +1041,17 @@ function monitorGetAjaxStatusLinks(array $host, array $config): string {
 	}
 
 	if (api_plugin_is_enabled('syslog') && api_plugin_user_realm_auth('syslog.php')) {
-		require($config['base_path'] . '/plugins/syslog/config.php');
-		require_once($config['base_path'] . '/plugins/syslog/functions.php');
+		$syslog_path = $config['base_path'] . '/plugins/syslog';
+
+		// Syslog 2.x relocated its helpers under includes/; older releases kept
+		// config.php and functions.php in the plugin root. Load whichever exists.
+		if (file_exists($syslog_path . '/includes/database.php')) {
+			require_once($syslog_path . '/includes/functions.php');
+			require_once($syslog_path . '/includes/database.php');
+		} else {
+			require($syslog_path . '/config.php');
+			require_once($syslog_path . '/functions.php');
+		}
 
 		$syslog_logs = syslog_db_fetch_cell_prepared(
 			'SELECT count(*)
