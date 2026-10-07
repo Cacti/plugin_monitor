@@ -1103,11 +1103,9 @@ function renderHostList(array $host): string {
 	$iclass   = $iclasses[$host['status']];
 	$sdisplay = getHostStatusDescription($host['real_status']);
 
-	$row_class = "{$iclass}Full";
-
 	ob_start();
 
-	print "<tr class='tableRow line{$host['id']} selectable $row_class'>";
+	print "<tr class='tableRow line{$host['id']} selectable'>";
 
 	$url = $host['anchor'];
 
@@ -1116,7 +1114,7 @@ function renderHostList(array $host): string {
 	form_selectable_cell($host['description'], $host['id'], '', 'left');
 	form_selectable_cell($host['site_name'], $host['id'], '', 'left');
 	form_selectable_cell($host_crit, $host['id'], '', 'left');
-	form_selectable_cell($sdisplay, $host['id'], '', 'center');
+	form_selectable_cell("<span class='monitorStatus deviceStatus $iclass'>" . html_escape($sdisplay) . '</span>', $host['id'], '', 'center');
 	form_selectable_cell($dt, $host['id'], '', 'center');
 	form_selectable_cell($host_avg, $host['id'], '', 'left');
 	form_selectable_cell($host_warn, $host['id'], '', 'left');
