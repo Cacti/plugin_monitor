@@ -5,6 +5,7 @@
 * feature: Adopt the Cacti plugin table API and relocate schema provisioning into includes/database.php
 * feature: Add a fleet-wide manifest.json with upgrade-time file pruning
 * feature: Consolidate per-theme override stylesheets from themes/ into css/
+* feature: Redesign the status legend as evenly sized, rounded colour chips with solid, theme-appropriate colours across every theme (including Deepness), matching the thold and syslog legends
 * dev: Rename includes/db_functions.php to includes/functions.php and move bundled libraries under includes/
 * dev: Set the Cacti compatibility floor to 1.2.29
 
