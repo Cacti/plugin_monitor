@@ -310,3 +310,30 @@ function getHostNonTreeArray(): array {
 
 	return $leafs;
 }
+
+/**
+ * Render the Monitor status legend as a row of equal-width, rounded colour
+ * chips (one per interface/device status). Each chip is sized to the longest
+ * label via the --monitor-chip-min custom property so the grid stays a row of
+ * equal chips as it wraps.
+ *
+ * @param array $iclasses       Status index => CSS status class (the chip carries "<class>Full").
+ * @param array $icolorsdisplay Status index => human-readable label.
+ *
+ * @return void Outputs the legend HTML directly.
+ */
+function monitor_legend(array $iclasses, array $icolorsdisplay): void {
+	$chip_min = 0;
+
+	foreach ($iclasses as $index => $class) {
+		$chip_min = max($chip_min, mb_strlen($icolorsdisplay[$index]));
+	}
+
+	print "<div class='monitorLegend' style='--monitor-chip-min: calc({$chip_min}ch + 1.5rem)'>";
+
+	foreach ($iclasses as $index => $class) {
+		print "<div class='monitorLegendItem $class" . "Full'>" . $icolorsdisplay[$index] . '</div>';
+	}
+
+	print '</div>';
+}
