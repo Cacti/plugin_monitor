@@ -334,7 +334,7 @@ function monitor_check_upgrade() {
 		monitor_setup_table();
 		monitor_upgrade_tables();
 
-		api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php', 1);
+		api_plugin_register_hook('monitor', 'page_head', 'plugin_monitor_page_head', 'setup.php', true);
 
 		db_execute('ALTER TABLE host MODIFY COLUMN monitor char(3) DEFAULT "on"');
 

@@ -2,6 +2,7 @@
 
 --- 3.0 ---
 
+* bug: Pass a boolean (not the integer 1) to api_plugin_register_hook()'s $enable argument so the hook registration stays type-correct under Cacti 1.3's strict bool type-hint (the int only coerces while the file lacks declare(strict_types=1))
 * feature: Adopt the Cacti plugin table API and relocate schema provisioning into includes/database.php
 * feature: Add a fleet-wide manifest.json with upgrade-time file pruning
 * feature: Consolidate per-theme override stylesheets from themes/ into css/
