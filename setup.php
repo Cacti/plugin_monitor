@@ -176,53 +176,54 @@ function monitor_device_table_bottom() {
 		?>
 		<script type='text/javascript' <?php print plugin_monitor_csp_nonce(); ?>>
 		$(function() {
-			$('#rows').parent().after('<?php print $select; ?>');
-			<?php if (get_selected_theme() != 'classic') {?>
-			/* Cacti core may have already converted this select to select2 by
-			 * the time this runs; don't also layer a selectmenu widget on it,
-			 * but still wire up applyFilter() either way */
-			if (!$('#criticality').hasClass('select2-hidden-accessible')) {
-				$('#criticality').selectmenu({
-					change: function() {
-						applyFilter();
-					}
-				});
-			} else {
-				$('#criticality').on('change', function() {
-					applyFilter();
-				});
+			// Newer Cacti renders this filter from the device_filters hook and
+			// wires its own change handler and widget. Only inject and wire it on
+			// older releases that lack that support; doing both double-binds the
+			// control and drives a select2 change/selection:update recursion.
+			if ($('#criticality').length) {
+				return;
 			}
-			<?php } else { ?>
-			$('#criticality').change(function() {
+
+			$('#rows').parent().after('<?php print $select; ?>');
+
+			<?php if (get_selected_theme() != 'classic') { ?>
+			// Match the widget engine core uses for the other filter selects so
+			// the control never carries two widgets at once.
+			if ($.fn.select2 != null) {
+				$('#criticality').select2();
+			} else if ($.fn.selectmenu != null) {
+				$('#criticality').selectmenu();
+			}
+			<?php } ?>
+
+			$('#criticality').off('change.monitor').on('change.monitor', function() {
 				applyFilter();
 			});
-			<?php } ?>
+
+			window.applyFilter = function() {
+				var strURL  = 'host.php';
+				strURL += '?host_status=' + $('#host_status').val();
+
+				if ($('#availability_method').length) {
+					strURL += '&availability_method=' + $('#availability_method').val();
+				}
+
+				strURL += '&host_template_id=' + $('#host_template_id').val();
+				strURL += '&site_id=' + $('#site_id').val();
+				strURL += '&criticality=' + $('#criticality').val();
+				strURL += '&poller_id=' + $('#poller_id').val();
+				strURL += '&location=' + $('#location').val();
+				strURL += '&rows=' + $('#rows').val();
+				strURL += '&filter=' + $('#filter').val();
+				strURL += '&header=false';
+
+				if (typeof loadUrl == 'undefined') {
+					loadPageNoHeader(strURL);
+				} else {
+					loadUrl({ url: strURL });
+				}
+			};
 		});
-
-		applyFilter = function() {
-			strURL  = 'host.php';
-			strURL += '?host_status=' + $('#host_status').val();
-
-			if ($('#availability_method').length) {
-				strURL += '&availability_method=' + $('#availability_method').val();
-			}
-
-			strURL += '&host_template_id=' + $('#host_template_id').val();
-			strURL += '&site_id=' + $('#site_id').val();
-			strURL += '&criticality=' + $('#criticality').val();
-			strURL += '&poller_id=' + $('#poller_id').val();
-			strURL += '&location=' + $('#location').val();
-			strURL += '&rows=' + $('#rows').val();
-			strURL += '&filter=' + $('#filter').val();
-			strURL += '&header=false';
-
-			if (typeof loadUrl == 'undefined') {
-				loadPageNoHeader(strURL);
-			} else {
-				loadUrl({ url: strURL });
-			}
-		};
-
 		</script>
 		<?php
 	}
