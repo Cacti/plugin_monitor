@@ -337,7 +337,11 @@ function drawFilterDropdown(string $id, string $title, array $settings = [], mix
 
 	if (cacti_sizeof($settings)) {
 		print '<td>' . html_escape($title) . '</td>';
-		print '<td><select id="' . $id . '" title="' . html_escape($title) . '">' . PHP_EOL;
+
+		// Cacti 1.2.32 added the select2 class helpers; only tag the select on versions that theme it.
+		$select_class = version_compare(CACTI_VERSION, '1.2.32', '>=') ? ' class="select2-nosearch"' : '';
+
+		print '<td><select id="' . $id . '"' . $select_class . ' title="' . html_escape($title) . '">' . PHP_EOL;
 
 		foreach ($settings as $setting_value => $setting_name) {
 			if ($value == null || $value == '') {
