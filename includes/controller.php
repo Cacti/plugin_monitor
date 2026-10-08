@@ -122,7 +122,9 @@ function drawPage(): void {
 	html_end_box();
 
 	if (read_user_setting('monitor_legend', read_config_option('monitor_legend'))) {
+		print '<div class="center monitorLegendFooter">';
 		monitor_legend($iclasses, $icolorsdisplay);
+		print '</div>';
 	}
 
 	// If the host is down, we need to insert the embedded wav file
