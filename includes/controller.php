@@ -1047,8 +1047,25 @@ function monitorGetAjaxStatusLinks(array $host, array $config): string {
 	}
 
 	if (api_plugin_is_enabled('syslog') && api_plugin_user_realm_auth('syslog.php')) {
-		require($config['base_path'] . '/plugins/syslog/config.php');
-		require_once($config['base_path'] . '/plugins/syslog/functions.php');
+		$syslog_path = $config['base_path'] . '/plugins/syslog';
+
+		// Syslog exposes its DB helpers in one of two layouts: newer code keeps
+		// them under includes/ (setup.php loads functions.php + database.php),
+		// while older code keeps config.php + functions.php in the plugin root.
+		// Detect whichever is present rather than keying off a release number.
+		if (file_exists($syslog_path . '/includes/database.php')) {
+			require_once($syslog_path . '/setup.php');
+		} else {
+			require($syslog_path . '/config.php');
+			require_once($syslog_path . '/functions.php');
+		}
+
+		// Open the Syslog database connection so the queries below run against
+		// the configured Syslog database (which may be separate from Cacti's)
+		// instead of silently falling back to Cacti's default connection.
+		if (function_exists('syslog_connect')) {
+			syslog_connect();
+		}
 
 		$syslog_logs = syslog_db_fetch_cell_prepared(
 			'SELECT count(*)
