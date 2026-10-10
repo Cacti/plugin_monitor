@@ -247,6 +247,10 @@ function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): 
 	foreach ($groups as $gid => $group) {
 		$worst = monitorGroupWorstStatusClass($group['hosts']);
 
+		// Let groups with many devices span several grid columns so their tiles
+		// flow across the page instead of stacking into one tall, narrow column.
+		$span = (int) min(4, max(1, (int) ceil(cacti_sizeof($group['hosts']) / 6)));
+
 		$body = "<div class='monitor_container'>";
 
 		foreach ($group['hosts'] as $host) {
@@ -255,7 +259,7 @@ function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): 
 
 		$body .= '</div>';
 
-		$out .= "<div class='monitorPanel monitorGroupCard' data-group='" . html_escape((string) $gid) . "'>
+		$out .= "<div class='monitorPanel monitorGroupCard' data-group='" . html_escape((string) $gid) . "' data-span='$span' style='grid-column: span $span;'>
 			<div class='monitorPanelHeader monitorGroupTitle $worst'><i class='fas fa-grip-vertical monitorGroupDrag'></i> " . html_escape($group['label']) . "</div>
 			<div class='monitorPanelBody'>$body</div>
 		</div>";
@@ -675,6 +679,77 @@ function monitorRenderNonTreeSection(): string {
 }
 
 /**
+ * Render tree grouping as device cards (one card per tree, plus a Non-Tree
+ * card), mirroring the Site and Device Template card layouts.
+ *
+ * @param array $tree_list Allowed trees for the current filter.
+ *
+ * @return string
+ */
+function monitorRenderTreeCards(array $tree_list): string {
+	$groups = [];
+	$maxlen = monitorGetTreeRenderMaxLength();
+
+	if (cacti_sizeof($tree_list)) {
+		$tree_ids = [];
+
+		foreach ($tree_list as $tree) {
+			$tree_ids[$tree['id']] = $tree['id'];
+		}
+
+		$sql_where = '';
+		$sql_join  = '';
+		renderWhereJoin($sql_where, $sql_join);
+
+		$hosts = db_fetch_assoc('SELECT DISTINCT h.*, gt.id AS graph_tree_id, gt.name AS graph_tree_name
+			FROM host AS h
+			INNER JOIN graph_tree_items AS gti
+			ON h.id = gti.host_id
+			INNER JOIN graph_tree AS gt
+			ON gt.id = gti.graph_tree_id
+			' . $sql_join . '
+			' . $sql_where . '
+			AND gti.host_id > 0
+			AND gti.graph_tree_id IN (' . implode(',', $tree_ids) . ')
+			ORDER BY gt.sequence, h.description');
+
+		if (cacti_sizeof($hosts)) {
+			[$hosts] = monitorFilterAllowedHosts($hosts);
+
+			foreach ($hosts as $host) {
+				$gid = 'tree_' . $host['graph_tree_id'];
+
+				if (!isset($groups[$gid])) {
+					$groups[$gid] = ['label' => $host['graph_tree_name'], 'hosts' => []];
+				}
+
+				$groups[$gid]['hosts'][] = $host;
+			}
+		}
+	}
+
+	// Devices not attached to any tree get their own card, unless a specific
+	// tree is selected in the filter.
+	if (get_request_var('tree') < 0) {
+		$nontree = getHostNonTreeArray();
+
+		if (cacti_sizeof($nontree)) {
+			[$nontree] = monitorFilterAllowedHosts($nontree);
+
+			if (cacti_sizeof($nontree)) {
+				$groups['nontree'] = ['label' => __('Non-Tree Devices', 'monitor'), 'hosts' => $nontree];
+			}
+		}
+	}
+
+	if (!cacti_sizeof($groups)) {
+		return '';
+	}
+
+	return monitorRenderGroupCards('tree', $groups, $maxlen);
+}
+
+/**
  * Render monitor tree grouping view, including tree and non-tree sections.
  *
  * @return string
@@ -692,6 +767,12 @@ function renderTree(): string {
 		$tree_list = get_allowed_trees(false, false, $sql_where, 'sequence');
 	} else {
 		$tree_list = [];
+	}
+
+	// Card-based views group each tree (and non-tree devices) into panels, the
+	// same as the Site and Device Template groupings.
+	if (monitorUseCardLayout()) {
+		return monitorRenderTreeCards($tree_list);
 	}
 
 	$function = 'renderHeader' . ucfirst(get_request_var('view'));
