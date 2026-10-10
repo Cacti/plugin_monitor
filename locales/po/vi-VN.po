@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2020-12-28 20:15-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -257,6 +257,15 @@ msgid "Cancel"
 msgstr "Hủy"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "Mẫu thiết bị"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[Làm mới lại sau <i id=\"timer\">% d</i> giây]"
@@ -336,6 +345,10 @@ msgstr "Xem cảnh báo nhật ký hệ thống"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Xem cảnh báo nhật ký hệ thống"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -442,6 +455,164 @@ msgstr ""
 msgid "None"
 msgstr "Không"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "Hiển thị thời gian hoạt động"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Mô tả"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Tên máy chủ"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Trang"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "Mẫu thiết bị"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Địa điểm:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Liên hệ:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "Thông tin trạng thái thiết bị"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Tình trạng"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "% 0,2đ ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "Ping hiện tại"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Tình trạng"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Thất bại cuối cùng"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Vô hiệu hóa"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "Triggered"
+msgstr "Kích hoạt"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "Xem Ngưỡng"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Thiết bị"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "Thiết bị:"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -471,9 +642,15 @@ msgstr "Không xác định"
 msgid "Just Up"
 msgstr "Chỉ cần lên"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Tên máy chủ"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Địa điểm:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -483,14 +660,6 @@ msgstr "Tên máy chủ của thiết bị"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Mô tả"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Trang"
 
 #: includes/render.php
 #, fuzzy
@@ -517,19 +686,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Ghi chú"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Tình trạng"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Thất bại cuối cùng"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Vô hiệu hóa"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -563,11 +719,6 @@ msgstr "Lên trên"
 
 #: monitor.php
 #, fuzzy
-msgid "Triggered"
-msgstr "Kích hoạt"
-
-#: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "Xuống (Tắt / Acked)"
 
@@ -590,6 +741,10 @@ msgstr "Cảnh báo Ping"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "Thông báo Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -651,11 +806,6 @@ msgstr "Gạch"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Gạch &amp; Thời gian"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "Mẫu thiết bị"
 
 #: monitor.php
 msgid "Full"
@@ -1242,10 +1392,6 @@ msgstr "Giám sát"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Cacti Monitor Plugin Ping Thông báo ngưỡng"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "Ping hiện tại"
 
 #, fuzzy
 #~ msgid "Links:"
