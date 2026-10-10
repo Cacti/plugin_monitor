@@ -1309,8 +1309,8 @@ function ajaxStatus(): void {
 	$size = get_request_var('size');
 	$host = monitorLoadAjaxStatusHost($id, $thold_hosts, $config);
 
-	if (!cacti_sizeof($host)) {
-		cacti_log('Attempted to retrieve status for missing Device ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
+	if (!cacti_sizeof($host) || !is_device_allowed($host['id'])) {
+		cacti_log('Attempted to retrieve status for missing or disallowed Device ' . $id, false, 'MONITOR', POLLER_VERBOSITY_HIGH);
 
 		return;
 	}
@@ -1355,7 +1355,7 @@ function ajaxHostPanel(): void {
 
 	$host = monitorLoadAjaxStatusHost(get_request_var('id'), $thold_hosts, $config);
 
-	if (!cacti_sizeof($host)) {
+	if (!cacti_sizeof($host) || !is_device_allowed($host['id'])) {
 		return;
 	}
 
@@ -1505,7 +1505,7 @@ function monitorPanelServiceChecks(array $host, array $config): string {
 	$check_col  = db_column_exists('plugin_servcheck_test', 'last_check') ? 'last_check' : 'lastcheck';
 	$has_result = db_column_exists('plugin_servcheck_test', 'last_result');
 
-	$cols = 'id, name, enabled, triggered, failures' . ($has_result ? ', last_result' : '');
+	$cols = "id, name, enabled, triggered, failures, $check_col AS check_time" . ($has_result ? ', last_result' : '');
 
 	$tests = db_fetch_assoc_prepared(
 		"SELECT $cols
@@ -1522,13 +1522,15 @@ function monitorPanelServiceChecks(array $host, array $config): string {
 	$rows = '';
 
 	foreach ($tests as $t) {
+		$never_run = ($t['check_time'] == '' || substr((string) $t['check_time'], 0, 4) === '0000');
+
 		if ($t['enabled'] == '') {
 			$cls   = 'deviceUnmonitored';
 			$label = __('Disabled', 'monitor');
 		} elseif ($t['triggered'] > 0 || ($has_result && $t['last_result'] != 'ok' && $t['last_result'] != 'not yet')) {
 			$cls   = 'deviceServiceCheck';
 			$label = __('Failing', 'monitor');
-		} elseif ($has_result && $t['last_result'] == 'not yet') {
+		} elseif ($never_run || ($has_result && $t['last_result'] == 'not yet')) {
 			$cls   = 'deviceUnknown';
 			$label = __('Not tested', 'monitor');
 		} else {
@@ -1552,7 +1554,7 @@ function monitorPanelServiceChecks(array $host, array $config): string {
  * @return string
  */
 function monitorPanelTholds(array $host, array $config): string {
-	if (!api_plugin_is_enabled('thold') || !db_table_exists('thold_data')) {
+	if (!api_plugin_is_enabled('thold') || !api_plugin_user_realm_auth('thold_graph.php') || !db_table_exists('thold_data')) {
 		return '';
 	}
 
@@ -1696,10 +1698,14 @@ function monitorPanelLinks(array $host, array $config): string {
 	}
 
 	if ($host['hostname'] != '') {
-		$scheme = (filter_var($host['hostname'], FILTER_VALIDATE_IP) || preg_match('/^[a-z0-9.\-]+$/i', $host['hostname'])) ? 'http://' : '';
+		$hostname = $host['hostname'];
+		$is_ipv6  = filter_var($hostname, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+		$valid    = $is_ipv6 || filter_var($hostname, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false || preg_match('/^[a-z0-9.\-]+$/i', $hostname);
 
-		if ($scheme != '') {
-			$device = html_escape($scheme . $host['hostname']);
+		if ($valid) {
+			// IPv6 literals must be bracketed to form a valid http authority.
+			$authority = $is_ipv6 ? '[' . $hostname . ']' : $hostname;
+			$device    = html_escape('http://' . $authority);
 			$links .= "<li><a class='monitorLink' href='$device' target='_blank' rel='noopener noreferrer'><i class='fas fa-external-link-alt'></i> " . __('Open Actual Device', 'monitor') . '</a></li>';
 		}
 	}
