@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2020-12-28 20:10-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -257,6 +257,15 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "תבנית מכשיר"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[רענון שוב ב- <i id=\"timer\">% d</i> שניות]"
@@ -335,6 +344,10 @@ msgstr "הצג התראות Syslog"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "הצג התראות Syslog"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -441,6 +454,164 @@ msgstr ""
 msgid "None"
 msgstr "ללא"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "הצג זמן עבודה"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "תיאור"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Hostname"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "אתר"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "תבנית מכשיר"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "מיקום:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "איש קשר:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "מידע על סטטוס המכשיר"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "זמינות"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "% 0.2 ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "פינג הנוכחי"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "זמינות"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "נכשל אחרון"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "לא זמין"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "Triggered"
+msgstr "טריגר"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "הצג ספים"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "×× ×ª×× ××ª ×××§×× ×©× Epos ×ª×××¦×, ×××××ª ×××©×ª× × ×××¢×¨××ª PATH ××××××¨ ××¦××. ×¤×©×× ××× \"say\", ×××¨×ª ××× ××ª ×× ×ª×× ×××× ××ª×× ××ª ×××§×× ××ªÖ¾ ×××¨×¦× ×©× Epos."
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -470,9 +641,15 @@ msgstr "לא ידוע"
 msgid "Just Up"
 msgstr "רק למעלה"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Hostname"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "מיקום:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -482,14 +659,6 @@ msgstr "שם מארח של המכשיר"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "תיאור"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "אתר"
 
 #: includes/render.php
 #, fuzzy
@@ -516,19 +685,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "הערות"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "זמינות"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "נכשל אחרון"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "לא זמין"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -562,11 +718,6 @@ msgstr "למעלה"
 
 #: monitor.php
 #, fuzzy
-msgid "Triggered"
-msgstr "טריגר"
-
-#: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "למטה (מושתק / מושמט)"
 
@@ -589,6 +740,10 @@ msgstr "אזהרה Ping"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "התראה Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -650,11 +805,6 @@ msgstr "אריח"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "אריחים וזמן"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "תבנית מכשיר"
 
 #: monitor.php
 msgid "Full"
@@ -1242,10 +1392,6 @@ msgstr "מעקב"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "תוסף לפקח תוסף Ping סף"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "פינג הנוכחי"
 
 #, fuzzy
 #~ msgid "Links:"
