@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -259,6 +259,15 @@ msgid "Cancel"
 msgstr "Отказ"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "Шаблон на устройството"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[Опресняване отново в <i id=\"timer\">% d</i> секунди]"
@@ -337,6 +346,10 @@ msgstr "Преглед на сигнали в Syslog"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Преглед на сигнали в Syslog"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -444,6 +457,164 @@ msgstr ""
 msgid "None"
 msgstr "Няма"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "Показване на Uptime"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Описание"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Име на хост"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Tочка на продажба"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "Шаблон на устройството"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Място:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Контакт:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "Информация за състоянието на устройството"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Наличност"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "% 0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "Текущ пинг"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Наличност"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Последна провал"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Изключен"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "Triggered"
+msgstr "Задействани"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "Преглед на праговете"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Устройства"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "Изделие:"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -473,9 +644,15 @@ msgstr "알려지지 않음"
 msgid "Just Up"
 msgstr "Просто нагоре"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Име на хост"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Място:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -485,14 +662,6 @@ msgstr "Име на хост на устройство"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Описание"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Tочка на продажба"
 
 #: includes/render.php
 #, fuzzy
@@ -519,19 +688,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Бележки"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Наличност"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Последна провал"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Изключен"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -565,11 +721,6 @@ msgstr "Нагоре"
 
 #: monitor.php
 #, fuzzy
-msgid "Triggered"
-msgstr "Задействани"
-
-#: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "Надолу (заглушен / Acked)"
 
@@ -592,6 +743,10 @@ msgstr "Предупреждение Ping"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "Предупреди пинг"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -654,11 +809,6 @@ msgstr "Фаянсови плочки"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Плочки и време"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "Шаблон на устройството"
 
 #: monitor.php
 msgid "Full"
@@ -1249,10 +1399,6 @@ msgstr "мониторинг"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Уведомяване за Ping Праг на плагина за монитор"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "Текущ пинг"
 
 #, fuzzy
 #~ msgid "Links:"
