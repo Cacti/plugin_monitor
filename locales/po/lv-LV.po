@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2024-10-17 16:22+0000\n"
 "Last-Translator: Coool (github.com/Coool) <coool@mail.lv>\n"
 "Language-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\n"
@@ -236,6 +236,16 @@ msgid "Cancel"
 msgstr "Atcelt"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+#| msgid "Device Template"
+msgid "Device Detail Panels"
+msgstr "Ierīces veidne"
+
+#: includes/controller.php
 #, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr " [ Atsvaidzinās atkal pēc <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> sekundēm ]"
@@ -308,6 +318,10 @@ msgstr "Skatīt ierīces sistēmas žurnāla trauksmes brīdinājumus"
 #: includes/controller.php
 msgid "View Device Syslog Entries"
 msgstr "Skatīt ierīces sistēmas žurnāla ierakstus"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 msgid "Device Status Information"
@@ -403,6 +417,166 @@ msgstr "Nav norādīta"
 msgid "None"
 msgstr "Neviena"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Show Uptime"
+msgid "SNMP Uptime"
+msgstr "Rādīt darbošanās laiku"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Apraksts"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Resursdatora nosaukums"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Atrašanās vieta"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Ierīces veidne"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Atrašanās vieta:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Kontaktinformācija:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Device Status Information"
+msgid "Host Information"
+msgstr "Ierīces statusa informācija"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Pieejamība"
+
+#: includes/controller.php
+#, fuzzy, php-format
+#| msgid "%0.2d ms"
+msgid "%0.2f ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Current Ping"
+msgid "Current / Average Ping"
+msgstr "Pašreizējais Ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Pieejamība"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Pēdējā kļūme"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Atspējots"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "Nostrādājušas robežvērtības"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "View Thresholds/Alerts"
+msgid "Thresholds"
+msgstr "Skatīt robežvērtības/trauksmes brīdinājumus"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Ierīces"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "Ierīce:"
+
 #: includes/render.php
 msgid "Non-Site Device"
 msgstr "Ierīce, kurai nav atrašanās vieta"
@@ -429,9 +603,15 @@ msgstr "Nezināms"
 msgid "Just Up"
 msgstr "Tikko atguvies"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Resursdatora nosaukums"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Atrašanās vieta:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 msgid "Hostname of device"
@@ -440,14 +620,6 @@ msgstr "Ierīces resursdatora nosaukums"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Apraksts"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Atrašanās vieta"
 
 #: includes/render.php
 #, fuzzy
@@ -473,18 +645,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Piezīmes"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Pieejamība"
-
-#: includes/render.php
-msgid "Last Fail"
-msgstr "Pēdējā kļūme"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Atspējots"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -515,10 +675,6 @@ msgid "Up"
 msgstr "Aktīva (darbojoša, tiešsaistē, ieslēgta)"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "Nostrādājušas robežvērtības"
-
-#: monitor.php
 msgid "Triggered (Muted/Acked)"
 msgstr "Nostrādājušas robežvērtības (Izslēgta skaņa/Atzīts)"
 
@@ -537,6 +693,10 @@ msgstr "Sasniegta brīdinājuma ping robežvērtība"
 #: monitor.php
 msgid "Alert Ping"
 msgstr "Sasniegta trauksmes ping robežvērtība"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -594,10 +754,6 @@ msgstr "Flīzes"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "Flīzes un laiks"
-
-#: monitor.php setup.php
-msgid "Device Template"
-msgstr "Ierīces veidne"
 
 #: monitor.php
 msgid "Full"
@@ -1098,9 +1254,6 @@ msgstr "Uzraudzība"
 
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Cacti uzraudzības spraudņa ping robežvērtības paziņojums"
-
-#~ msgid "Current Ping"
-#~ msgstr "Pašreizējais Ping"
 
 #~ msgid "The following Devices have breached their Alert Notification Threshold."
 #~ msgstr "Sekojošās ierīces ir pārsniegušas tā trauksmes paziņojuma robežvērtību."
