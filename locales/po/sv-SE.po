@@ -1,5 +1,17 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-30 21:27-0400\nPO-Revision-Date: 2026-10-06 10:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"PO-Revision-Date: 2026-10-06 10:18+0000\n"
+"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
+"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\n"
+"Language: sv-SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -217,6 +229,16 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+#| msgid "Device Template"
+msgid "Device Detail Panels"
+msgstr "Enhetsmall"
+
+#: includes/controller.php
 #, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr " [ Uppdatera igen inom <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Sekunder ]"
@@ -289,6 +311,10 @@ msgstr "Visa enhetens Syslog-meddelanden"
 #: includes/controller.php
 msgid "View Device Syslog Entries"
 msgstr "Visa enhetens Syslog-poster"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 msgid "Device Status Information"
@@ -384,6 +410,168 @@ msgstr "Ospecificerad"
 msgid "None"
 msgstr "Ingen"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Show Uptime"
+msgid "SNMP Uptime"
+msgstr "Visa drifttid"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Beskrivning"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Värdnamn"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Webbplats"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Enhetsmall"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Plats:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Kontakt:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Device Status Information"
+msgid "Host Information"
+msgstr "Information om enhetsstatus"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Åtkomstbarhet"
+
+#: includes/controller.php
+#, fuzzy, php-format
+#| msgid "%0.2d ms"
+msgid "%0.2f ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Current Ping"
+msgid "Current / Average Ping"
+msgstr "Aktuell ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Åtkomstbarhet"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Sista misslyckandet"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Inaktiverad"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "Utlöst"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "View Thresholds/Alerts"
+msgid "Thresholds"
+msgstr "Visa trösklar/varningar"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "All Devices"
+msgid "Open Actual Device"
+msgstr "Alla enheter"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Device icon"
+msgid "Device Links"
+msgstr "Enhetsikon"
+
 #: includes/render.php
 msgid "Non-Site Device"
 msgstr "Enhet utanför platsen"
@@ -410,9 +598,15 @@ msgstr "Okänd"
 msgid "Just Up"
 msgstr "Bara upp"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Värdnamn"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Plats:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 msgid "Hostname of device"
@@ -421,14 +615,6 @@ msgstr "Enhetens värdnamn"
 #: includes/render.php
 msgid "ID"
 msgstr "ID"
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Beskrivning"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Webbplats"
 
 #: includes/render.php
 msgid "Length in Status"
@@ -453,18 +639,6 @@ msgstr "Textkolumnen Monitor representerar ’Administratör’"
 #: includes/render.php
 msgid "Notes"
 msgstr "Anteckningar"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Åtkomstbarhet"
-
-#: includes/render.php
-msgid "Last Fail"
-msgstr "Sista misslyckandet"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Inaktiverad"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -495,10 +669,6 @@ msgid "Up"
 msgstr "Uppe"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "Utlöst"
-
-#: monitor.php
 msgid "Triggered (Muted/Acked)"
 msgstr "Utlöst (Muted/Acked)"
 
@@ -517,6 +687,10 @@ msgstr "Varning Ping"
 #: monitor.php
 msgid "Alert Ping"
 msgstr "Varning Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -573,10 +747,6 @@ msgstr "Rutor"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "Plattor och tid"
-
-#: monitor.php setup.php
-msgid "Device Template"
-msgstr "Enhetsmall"
 
 #: monitor.php
 msgid "Full"
@@ -1075,9 +1245,6 @@ msgstr "Övervakning"
 
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Avisering från Cacti-övervakningstillägget tröskelvärde för ping"
-
-#~ msgid "Current Ping"
-#~ msgstr "Aktuell ping"
 
 #, fuzzy
 #~ msgid "Links:"
