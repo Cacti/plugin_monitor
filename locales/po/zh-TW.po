@@ -1,5 +1,17 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-09-30 21:27-0400\nPO-Revision-Date: 2026-10-06 10:18+0000\nLast-Translator: YU HAO HUANG <mix@b51.tw>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"PO-Revision-Date: 2026-10-06 10:18+0000\n"
+"Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
+"Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 #, fuzzy
@@ -256,6 +268,15 @@ msgid "Cancel"
 msgstr "取消"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "設備模板"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[再次刷新<i id=\"timer\">％d</i>秒]"
@@ -335,6 +356,10 @@ msgstr "查看Syslog警報"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "查看Syslog警報"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -446,6 +471,166 @@ msgstr ""
 msgid "None"
 msgstr "無"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "顯示正常運行時間"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+#, fuzzy
+msgid "Description"
+msgstr "描述"
+
+#: includes/controller.php includes/render.php poller_functions.php
+#, fuzzy
+msgid "Hostname"
+msgstr "主機名稱"
+
+#: includes/controller.php includes/render.php monitor.php
+#, fuzzy
+msgid "Site"
+msgstr "網站"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "設備模板"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Location"
+msgstr "地點:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Contact"
+msgstr "聯繫方式："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "設備狀態信息"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Availability Method"
+msgstr "可用性"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "％0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "目前的Ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Availability"
+msgstr "可用性"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "最後的失敗"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+#, fuzzy
+msgid "Disabled"
+msgstr "停用"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "Triggered"
+msgstr "觸發"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "查看閾值"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "設備"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "裝置："
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -476,10 +661,14 @@ msgstr "未知"
 msgid "Just Up"
 msgstr "剛起來"
 
-#: includes/render.php poller_functions.php
+#: includes/render.php
 #, fuzzy
-msgid "Hostname"
-msgstr "主機名稱"
+msgid "Actions"
+msgstr "地點:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -489,16 +678,6 @@ msgstr "設備的主機名"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-#, fuzzy
-msgid "Description"
-msgstr "描述"
-
-#: includes/render.php monitor.php
-#, fuzzy
-msgid "Site"
-msgstr "網站"
 
 #: includes/render.php
 #, fuzzy
@@ -527,21 +706,6 @@ msgstr ""
 #, fuzzy
 msgid "Notes"
 msgstr "備註"
-
-#: includes/render.php
-#, fuzzy
-msgid "Availability"
-msgstr "可用性"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "最後的失敗"
-
-#: monitor.php poller_functions.php setup.php
-#, fuzzy
-msgid "Disabled"
-msgstr "停用"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -577,11 +741,6 @@ msgstr "向上"
 
 #: monitor.php
 #, fuzzy
-msgid "Triggered"
-msgstr "觸發"
-
-#: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "向下（靜音/罷工）"
 
@@ -604,6 +763,10 @@ msgstr "警告Ping"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "警報Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -666,11 +829,6 @@ msgstr "瓷磚"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "瓷磚和時間"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "設備模板"
 
 #: monitor.php
 msgid "Full"
@@ -1259,10 +1417,6 @@ msgstr "監控"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Cacti Monitor插件Ping閾值通知"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "目前的Ping"
 
 #, fuzzy
 #~ msgid "Links:"
