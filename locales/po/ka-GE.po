@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2026-09-24 21:00+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\n"
@@ -235,6 +235,16 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+#| msgid "Device Template"
+msgid "Device Detail Panels"
+msgstr "მოწყობილობის შაბლონი"
+
+#: includes/controller.php
 #, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr ""
@@ -306,6 +316,10 @@ msgstr ""
 
 #: includes/controller.php
 msgid "View Device Syslog Entries"
+msgstr ""
+
+#: includes/controller.php
+msgid "View Failing Service Check"
 msgstr ""
 
 #: includes/controller.php
@@ -402,6 +416,166 @@ msgstr "მითითებული არაა"
 msgid "None"
 msgstr "არცერთი"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Show Uptime"
+msgid "SNMP Uptime"
+msgstr "ჩართულობის დროის ჩვენება"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "აღწერა"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "ჰოსტის სახელი"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "საიტი"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "მოწყობილობის შაბლონი"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "მდებარეობა:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "კონტაქტი:"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "წვდომადობა"
+
+#: includes/controller.php
+#, fuzzy, php-format
+#| msgid "%0.2d ms"
+msgid "%0.2f ms"
+msgstr "%0.2d მწმ"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Current Ping"
+msgid "Current / Average Ping"
+msgstr "მიმდინარე პინგი"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "წვდომადობა"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "ბოლო ჩავარდნა"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "გათიშულია"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "დატრიგერებულია"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "View Thresholds/Alerts"
+msgid "Thresholds"
+msgstr "ზღვრების/განგაშების ნახვა"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "All Devices"
+msgid "Open Actual Device"
+msgstr "ყველა მოწყობილობა"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Device icon"
+msgid "Device Links"
+msgstr "მოწყობილობის ხატულა"
+
 #: includes/render.php
 msgid "Non-Site Device"
 msgstr "არა-საიტის მოწყობილობები"
@@ -428,9 +602,15 @@ msgstr "უცნობი"
 msgid "Just Up"
 msgstr "უბრალოდ მაღლა"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "ჰოსტის სახელი"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "მდებარეობა:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 msgid "Hostname of device"
@@ -439,14 +619,6 @@ msgstr "მოწყობილობის ჰოსტის სახელ�
 #: includes/render.php
 msgid "ID"
 msgstr "ID"
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "აღწერა"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "საიტი"
 
 #: includes/render.php
 msgid "Length in Status"
@@ -471,18 +643,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "შენიშვნები"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "წვდომადობა"
-
-#: includes/render.php
-msgid "Last Fail"
-msgstr "ბოლო ჩავარდნა"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "გათიშულია"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -513,10 +673,6 @@ msgid "Up"
 msgstr "ჩართ"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "დატრიგერებულია"
-
-#: monitor.php
 msgid "Triggered (Muted/Acked)"
 msgstr "დატრიგერებულია (დადუმებულია/მიღებულია)"
 
@@ -535,6 +691,10 @@ msgstr "გაფრთხილების პინგი"
 #: monitor.php
 msgid "Alert Ping"
 msgstr "პინგის განგაში"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -592,10 +752,6 @@ msgstr "მოზაიკა"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "ფილები და დრო"
-
-#: monitor.php setup.php
-msgid "Device Template"
-msgstr "მოწყობილობის შაბლონი"
 
 #: monitor.php
 msgid "Full"
@@ -1092,6 +1248,3 @@ msgstr "მონიტორინგი"
 
 #~ msgid "All Monitored"
 #~ msgstr "ყველა მონიტორინგის ქვეშ"
-
-#~ msgid "Current Ping"
-#~ msgstr "მიმდინარე პინგი"
