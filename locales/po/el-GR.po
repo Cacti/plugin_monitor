@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -255,6 +255,15 @@ msgid "Cancel"
 msgstr "Ακύρωση"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "Πρότυπο συσκευής"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[Ανανέωση ξανά σε <i id=\"timer\">% d</i> δευτερόλεπτα]"
@@ -333,6 +342,10 @@ msgstr "Προβολή ειδοποιήσεων Syslog"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Προβολή ειδοποιήσεων Syslog"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -440,6 +453,164 @@ msgstr ""
 msgid "None"
 msgstr "Κανένα"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "Εμφάνιση χρόνου λειτουργίας"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Νέο όνομα φιλοξενίας"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Ιστοσελίδα"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "Πρότυπο συσκευής"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Τοποθεσία:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Επαφή"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "Πληροφορίες κατάστασης συσκευής"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Διαθεσιμότητα"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "% 0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "Τρέχον Ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Διαθεσιμότητα"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Τελευταία αποτυχία"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "Triggered"
+msgstr "Ξεκίνησε"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "Προβολή ορίων"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Τύπος Συσκευής"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "设备："
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -469,9 +640,15 @@ msgstr "Άγνωστο"
 msgid "Just Up"
 msgstr "Ακριβώς επάνω"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Νέο όνομα φιλοξενίας"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Τοποθεσία:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -481,14 +658,6 @@ msgstr "Όνομα κεντρικού υπολογιστή της συσκευή
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Περιγραφή"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Ιστοσελίδα"
 
 #: includes/render.php
 #, fuzzy
@@ -515,19 +684,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Σημειώσεις"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Διαθεσιμότητα"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Τελευταία αποτυχία"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Απενεργοποιημένο"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -560,11 +716,6 @@ msgstr "Πάνω"
 
 #: monitor.php
 #, fuzzy
-msgid "Triggered"
-msgstr "Ξεκίνησε"
-
-#: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "Κάτω (με σίγαση / παραμονή)"
 
@@ -587,6 +738,10 @@ msgstr "Προειδοποίηση Ping"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "Alert Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -649,11 +804,6 @@ msgstr "Πλακάκια"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Πλακάκια &amp; Ώρα"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "Πρότυπο συσκευής"
 
 #: monitor.php
 msgid "Full"
@@ -1243,10 +1393,6 @@ msgstr "Παρακολούθηση"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Παρακολούθηση κατωφλιού Ping Plugin Παρακολούθησης Pac"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "Τρέχον Ping"
 
 #, fuzzy
 #~ msgid "Links:"
