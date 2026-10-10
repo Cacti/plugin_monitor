@@ -628,6 +628,15 @@ function monitorRenderTreeTitleSections(array $titles, int $maxlen): string {
 }
 
 /**
+ * Translatable label for the card/section holding devices not on any tree.
+ *
+ * @return string
+ */
+function monitorNonTreeLabel(): string {
+	return __('Non-Tree Devices', 'monitor');
+}
+
+/**
  * Render section for monitored hosts that are not attached to any tree.
  *
  * @return string
@@ -664,7 +673,7 @@ function monitorRenderNonTreeSection(): string {
 
 	$result .= "<div class='monitorTableHeader'>
         <div class='navBarNavigation'>
-            <div class='navBarNavigationNone'>" . __('Non-Tree Devices', 'monitor') . "</div>
+            <div class='navBarNavigationNone'>" . monitorNonTreeLabel() . "</div>
         </div>
     </div>
     <div class='monitor_container'>";
@@ -687,8 +696,8 @@ function monitorRenderNonTreeSection(): string {
  * @return string
  */
 function monitorRenderTreeCards(array $tree_list): string {
-	$groups = [];
-	$maxlen = monitorGetTreeRenderMaxLength();
+	$groups   = [];
+	$host_ids = [];
 
 	if (cacti_sizeof($tree_list)) {
 		$tree_ids = [];
@@ -714,7 +723,8 @@ function monitorRenderTreeCards(array $tree_list): string {
 			ORDER BY gt.sequence, h.description');
 
 		if (cacti_sizeof($hosts)) {
-			[$hosts] = monitorFilterAllowedHosts($hosts);
+			[$hosts, $ids] = monitorFilterAllowedHosts($hosts);
+			$host_ids      = array_merge($host_ids, $ids);
 
 			foreach ($hosts as $host) {
 				$gid = 'tree_' . $host['graph_tree_id'];
@@ -734,10 +744,11 @@ function monitorRenderTreeCards(array $tree_list): string {
 		$nontree = getHostNonTreeArray();
 
 		if (cacti_sizeof($nontree)) {
-			[$nontree] = monitorFilterAllowedHosts($nontree);
+			[$nontree, $ids] = monitorFilterAllowedHosts($nontree);
 
 			if (cacti_sizeof($nontree)) {
-				$groups['nontree'] = ['label' => __('Non-Tree Devices', 'monitor'), 'hosts' => $nontree];
+				$host_ids          = array_merge($host_ids, $ids);
+				$groups['nontree'] = ['label' => monitorNonTreeLabel(), 'hosts' => $nontree];
 			}
 		}
 	}
@@ -745,6 +756,18 @@ function monitorRenderTreeCards(array $tree_list): string {
 	if (!cacti_sizeof($groups)) {
 		return '';
 	}
+
+	// Size the trim length from the hosts actually rendered here (including the
+	// Non-Tree card) so labels aren't trimmed against unrelated tree devices.
+	$maxlen = 10;
+
+	if (get_request_var('view') == 'default' && cacti_sizeof($host_ids)) {
+		$maxlen = (int) db_fetch_cell('SELECT MAX(LENGTH(description))
+			FROM host AS h
+			WHERE id IN (' . implode(',', $host_ids) . ')');
+	}
+
+	$maxlen = getMonitorTrimLength($maxlen);
 
 	return monitorRenderGroupCards('tree', $groups, $maxlen);
 }

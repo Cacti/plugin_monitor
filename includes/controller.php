@@ -105,7 +105,7 @@ function monitorDashboardOwnedByUser(int $dashboard): bool {
 function saveCardOrder(): void {
 	$grouping = get_nfilter_request_var('grouping');
 
-	if (!in_array($grouping, ['site', 'template'], true)) {
+	if (!in_array($grouping, ['site', 'template', 'tree'], true)) {
 		return;
 	}
 
@@ -114,7 +114,14 @@ function saveCardOrder(): void {
 
 	if (is_array($order)) {
 		foreach ($order as $gid) {
-			$ids[] = (string) (int) $gid;
+			// Group ids may be numeric (site/template) or string tokens such as
+			// "tree_12" and "nontree", so preserve the string while stripping
+			// anything outside a safe id character set.
+			$gid = preg_replace('/[^a-zA-Z0-9_]/', '', (string) $gid);
+
+			if ($gid !== '') {
+				$ids[] = $gid;
+			}
 		}
 	}
 

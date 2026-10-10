@@ -653,6 +653,23 @@
 	gap: 10px;
 	align-items: start;
 	width: 100%;
+	container-type: inline-size;
+}
+
+/* Cap each card's span to the number of 260px tracks the grid can actually
+   show at its current width (track + 10px gap), so a wide card never forces an
+   extra implicit track and horizontal overflow on narrow layouts. */
+@container (max-width: 529px) {
+	.monitorGroupCard { grid-column: auto !important; }
+}
+
+@container (min-width: 530px) and (max-width: 799px) {
+	.monitorGroupCard[data-span="3"],
+	.monitorGroupCard[data-span="4"] { grid-column: span 2 !important; }
+}
+
+@container (min-width: 800px) and (max-width: 1069px) {
+	.monitorGroupCard[data-span="4"] { grid-column: span 3 !important; }
 }
 
 .monitorGroupCard .monitorPanelBody {
