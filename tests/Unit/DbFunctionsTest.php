@@ -57,3 +57,66 @@ it('appends the optional suffix', function () {
 
 	expect($where)->toContain('OR h.id IS NULL');
 });
+
+it('returns no service checks when the servcheck plugin is disabled', function () {
+	monitor_test_reset_db_mocks();
+
+	expect(getHostTriggeredServchecks(['hostname' => 'dev1.example.com']))->toBe([]);
+});
+
+it('returns no service checks when the host has no hostname', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+
+	expect(getHostTriggeredServchecks(['hostname' => '']))->toBe([]);
+	expect(getHostTriggeredServchecks([]))->toBe([]);
+});
+
+it('returns no service checks when the servcheck table is absent', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+
+	expect(getHostTriggeredServchecks(['hostname' => 'dev1.example.com']))->toBe([]);
+});
+
+it('binds the hostname twice and uses the v0.4 result predicate', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_servcheck_test.last_check', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_servcheck_test.last_result', true);
+
+	$seen = null;
+	monitor_test_mock_db('db_fetch_assoc_prepared', fn ($sql) => str_contains($sql, 'plugin_servcheck_test'), function ($sql, $params) use (&$seen) {
+		$seen = ['sql' => $sql, 'params' => $params];
+
+		return [['id' => 7, 'name' => 'HTTP', 'triggered' => 1]];
+	});
+
+	$result = getHostTriggeredServchecks(['hostname' => 'dev1.example.com']);
+
+	expect($result)->toBe([['id' => 7, 'name' => 'HTTP', 'triggered' => 1]]);
+	expect($seen['params'])->toBe(['dev1.example.com', 'dev1.example.com']);
+	expect($seen['sql'])->toContain('last_check > 0')
+		->and($seen['sql'])->toContain("last_result != 'ok'")
+		->and($seen['sql'])->toContain('last_error');
+});
+
+it('falls back to lastcheck and the failures predicate on the v0.3 schema', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+
+	$seen = null;
+	monitor_test_mock_db('db_fetch_assoc_prepared', fn ($sql) => str_contains($sql, 'plugin_servcheck_test'), function ($sql, $params) use (&$seen) {
+		$seen = ['sql' => $sql, 'params' => $params];
+
+		return [];
+	});
+
+	getHostTriggeredServchecks(['hostname' => 'dev2']);
+
+	expect($seen['sql'])->toContain('lastcheck > 0')
+		->and($seen['sql'])->toContain('failures > 0')
+		->and($seen['sql'])->not->toContain('last_result');
+});

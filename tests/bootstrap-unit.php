@@ -161,7 +161,7 @@ if (!function_exists('db_fetch_assoc')) {
 
 if (!function_exists('db_fetch_assoc_prepared')) {
 	function db_fetch_assoc_prepared($sql, $params = array()) {
-		return array();
+		return monitor_test_db_result('db_fetch_assoc_prepared', $sql, $params, array());
 	}
 }
 
@@ -197,7 +197,13 @@ if (!function_exists('db_index_exists')) {
 
 if (!function_exists('db_column_exists')) {
 	function db_column_exists($table, $column) {
-		return false;
+		return monitor_test_db_result('db_column_exists', $table . '.' . $column, array(), false);
+	}
+}
+
+if (!function_exists('api_plugin_is_enabled')) {
+	function api_plugin_is_enabled($plugin) {
+		return monitor_test_db_result('api_plugin_is_enabled', $plugin, array(), false);
 	}
 }
 

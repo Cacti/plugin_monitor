@@ -998,9 +998,11 @@ function monitorLoadAjaxStatusHost(mixed $id, array $thold_hosts, array $config)
 	if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
 		$host['status'] = 4;
 		$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id'];
-	} elseif ($host['status'] == 3) {
+	} elseif ($host['status'] == 3 && api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
 		// A triggered/failing service check also promotes an otherwise Up
-		// device to a Triggered state, pointing at the failing check.
+		// device to a Triggered state, pointing at the failing check. Gated by
+		// the servcheck realm so unauthorized users neither see the promoted
+		// status nor receive the direct history URL.
 		$servchecks = getHostTriggeredServchecks($host);
 
 		if (cacti_sizeof($servchecks)) {

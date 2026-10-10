@@ -70,6 +70,12 @@ function checkTholds(): array {
  * is considered failing when it is enabled, has run at least once, and is
  * either in a triggered down state or its last result was not successful.
  *
+ * The query adapts to the installed servcheck schema: released v0.3 names the
+ * check-time column `lastcheck` and keeps result data in plugin_servcheck_log,
+ * while v0.4+ renamed it to `last_check` and added last_result/last_error to
+ * the test table. When the result columns are absent the triggered/failures
+ * counters are used to detect a failing check.
+ *
  * @param array $host Host row (requires the 'hostname' key).
  *
  * @return array Failing servcheck test rows, ordered most severe first.
@@ -83,14 +89,28 @@ function getHostTriggeredServchecks(array $host): array {
 		return [];
 	}
 
+	if (!db_table_exists('plugin_servcheck_test')) {
+		return [];
+	}
+
+	$check_col = db_column_exists('plugin_servcheck_test', 'last_check') ? 'last_check' : 'lastcheck';
+
+	if (db_column_exists('plugin_servcheck_test', 'last_result')) {
+		$select         = 'id, name, triggered, last_result, last_error';
+		$fail_predicate = "(triggered > 0 OR (last_result != 'ok' AND last_result != 'not yet'))";
+	} else {
+		$select         = 'id, name, triggered';
+		$fail_predicate = '(triggered > 0 OR failures > 0)';
+	}
+
 	return db_fetch_assoc_prepared(
-		"SELECT id, name, triggered, last_result, last_error
+		"SELECT $select
 		FROM plugin_servcheck_test
 		WHERE enabled = 'on'
 		AND (hostname = ? OR ipaddress = ?)
-		AND last_check > 0
-		AND (triggered > 0 OR (last_result != 'ok' AND last_result != 'not yet'))
-		ORDER BY triggered DESC, last_check DESC",
+		AND $check_col > 0
+		AND $fail_predicate
+		ORDER BY triggered DESC, $check_col DESC",
 		[$host['hostname'], $host['hostname']]
 	);
 }
