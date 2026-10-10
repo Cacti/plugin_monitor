@@ -63,6 +63,39 @@ function checkTholds(): array {
 }
 
 /**
+ * Get failing/triggered service checks for a host.
+ *
+ * The servcheck plugin keys its tests by hostname/ipaddress rather than by
+ * Cacti host id, so matching is done against the device's hostname. A check
+ * is considered failing when it is enabled, has run at least once, and is
+ * either in a triggered down state or its last result was not successful.
+ *
+ * @param array $host Host row (requires the 'hostname' key).
+ *
+ * @return array Failing servcheck test rows, ordered most severe first.
+ */
+function getHostTriggeredServchecks(array $host): array {
+	if (!api_plugin_is_enabled('servcheck')) {
+		return [];
+	}
+
+	if (!isset($host['hostname']) || $host['hostname'] == '') {
+		return [];
+	}
+
+	return db_fetch_assoc_prepared(
+		"SELECT id, name, triggered, last_result, last_error
+		FROM plugin_servcheck_test
+		WHERE enabled = 'on'
+		AND (hostname = ? OR ipaddress = ?)
+		AND last_check > 0
+		AND (triggered > 0 OR (last_result != 'ok' AND last_result != 'not yet'))
+		ORDER BY triggered DESC, last_check DESC",
+		[$host['hostname'], $host['hostname']]
+	);
+}
+
+/**
  * Append an IN-clause fragment to an existing SQL where string.
  *
  * @param string $sql_where  SQL where fragment, updated in place.

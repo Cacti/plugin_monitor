@@ -56,7 +56,10 @@ function renderDefault(): string {
 
 	$poller_interval = read_config_option('poller_interval');
 
-	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	// Only the List view paginates; all other views show every matching device.
+	if (get_request_var('view') == 'list') {
+		$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	}
 
 	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Device', 'monitor') . " ') AS site_name,
         CAST(IF(availability_method = 0, '0',
@@ -149,7 +152,10 @@ function renderSite(): string {
 
 	renderWhereJoin($sql_where, $sql_join);
 
-	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	// Only the List view paginates; all other views show every matching device.
+	if (get_request_var('view') == 'list') {
+		$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	}
 
 	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Devices', 'monitor') . " ') AS site_name
 		FROM host AS h
@@ -272,7 +278,10 @@ function renderTemplate(): string {
 
 	renderWhereJoin($sql_where, $sql_join);
 
-	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	// Only the List view paginates; all other views show every matching device.
+	if (get_request_var('view') == 'list') {
+		$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	}
 
 	if (get_request_var('template') > 0) {
 		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id = ' . get_request_var('template');

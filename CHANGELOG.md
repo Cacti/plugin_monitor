@@ -2,6 +2,9 @@
 
 --- 3.0 ---
 
+* feature: Add a plugin_servcheck integration so a triggered/failing service check on a device promotes its hover status to Triggered and adds a hover glyph linking to the failing check, alongside the existing thold and syslog integrations
+* bug: Restrict the Rows filter to the List view so non-list views always show all devices, and hide the Rows dropdown entirely on non-list pages
+* bug: Fix the Tiles & Time tile bounding box so it grows to encompass the host glyph, hostname and uptime instead of overflowing into neighbouring tiles
 * bug: Pass a boolean (not the integer 1) to api_plugin_register_hook()'s $enable argument so the hook registration stays type-correct under Cacti 1.3's strict bool type-hint (the int only coerces while the file lacks declare(strict_types=1))
 * feature: Adopt the Cacti plugin table API and relocate schema provisioning into includes/database.php
 * feature: Add a fleet-wide manifest.json with upgrade-time file pruning

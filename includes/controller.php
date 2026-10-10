@@ -434,7 +434,11 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
 	drawFilterDropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
 	drawFilterDropdown('view', __('View', 'monitor'), $monitor_view_type);
 	drawFilterDropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
-	drawFilterDropdown('rows', __('Devices', 'monitor'), $item_rows);
+
+	// The Rows filter only applies to the List view; other views show all devices.
+	if (get_request_var('view') == 'list') {
+		drawFilterDropdown('rows', __('Devices', 'monitor'), $item_rows);
+	}
 
 	print '<td><span>' . PHP_EOL;
 	print '<input type="submit" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
@@ -559,6 +563,8 @@ function monitorRenderHiddenFilterInputs(): void {
 
 	if (get_request_var('view') == 'list') {
 		print '<td><input type="hidden" id="size" value="' . html_escape(get_request_var('size')) . '"></td>' . PHP_EOL;
+	} else {
+		print '<td><input type="hidden" id="rows" value="' . html_escape(get_request_var('rows')) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') != 'default') {
@@ -992,6 +998,15 @@ function monitorLoadAjaxStatusHost(mixed $id, array $thold_hosts, array $config)
 	if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
 		$host['status'] = 4;
 		$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id'];
+	} elseif ($host['status'] == 3) {
+		// A triggered/failing service check also promotes an otherwise Up
+		// device to a Triggered state, pointing at the failing check.
+		$servchecks = getHostTriggeredServchecks($host);
+
+		if (cacti_sizeof($servchecks)) {
+			$host['status'] = 4;
+			$host['anchor'] = $config['url_path'] . 'plugins/servcheck/servcheck_test.php?action=history&id=' . $servchecks[0]['id'];
+		}
 	}
 
 	if ($host['availability_method'] == 0) {
@@ -1089,6 +1104,15 @@ function monitorGetAjaxStatusLinks(array $host, array $config): string {
 		if ($syslog_host) {
 			$syslog_link = html_escape($config['url_path'] . 'plugins/syslog/syslog/syslog.php?reset=1&tab=syslog&host_id=' . $syslog_host);
 			$links .= '<div><a title="' . __esc('View Device Syslog Entries', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $syslog_link . '"><i class="fas fa-life-ring deviceUp monitorLinkIcon"></i></a></div>';
+		}
+	}
+
+	if (api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
+		$servchecks = getHostTriggeredServchecks($host);
+
+		if (cacti_sizeof($servchecks)) {
+			$servcheck_link = html_escape($config['url_path'] . 'plugins/servcheck/servcheck_test.php?action=history&id=' . $servchecks[0]['id']);
+			$links .= '<div><a title="' . __esc('View Failing Service Check', 'monitor') . '" class="pic hyperLink monitorLink" href="' . $servcheck_link . '"><i class="fas fa-heartbeat deviceDown monitorLinkIcon"></i></a></div>';
 		}
 	}
 
