@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2024-06-25 16:31+0000\n"
 "Last-Translator: fabricio tavares maciel <fabricio.tavares@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.cacti.net/projects/cacti/monitor/pt_BR/>\n"
@@ -253,6 +253,15 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "Modelo do dispositivo"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr " [Refresque Novamente em <i id=\"timer\">%d</i> Segundos]"
@@ -331,6 +340,10 @@ msgstr "Exibir alertas do Syslog"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Exibir alertas do Syslog"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -437,6 +450,163 @@ msgstr ""
 msgid "None"
 msgstr "Nenhum"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "Mostrar Uptime"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Descrição"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Hostname"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Site"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "Modelo do dispositivo"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Localização:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Contato:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "Informações sobre o status do dispositivo"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Disponibilidade"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "Ping Corrente"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Disponibilidade"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Última falha"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Desativado"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "Acionado"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "Ver Limiares"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Dispositivos"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "Eszköz:"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -466,9 +636,15 @@ msgstr "Desconhecido"
 msgid "Just Up"
 msgstr "Só para cima"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Hostname"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Localização:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -478,14 +654,6 @@ msgstr "Nome do host do dispositivo"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Descrição"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Site"
 
 #: includes/render.php
 #, fuzzy
@@ -512,19 +680,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Notas"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Disponibilidade"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Última falha"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Desativado"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -557,10 +712,6 @@ msgid "Up"
 msgstr "Up"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "Acionado"
-
-#: monitor.php
 msgid "Triggered (Muted/Acked)"
 msgstr "Acionado (Silenciado/Ciente)"
 
@@ -582,6 +733,10 @@ msgstr "Ping de Aviso"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "Ping de alerta"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -640,11 +795,6 @@ msgstr "Azulejado"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "Azulejado & Tempo"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "Modelo do dispositivo"
 
 #: monitor.php
 msgid "Full"
@@ -1228,10 +1378,6 @@ msgstr "Monitoramento"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Notificação de limiar de limiar de ping-ping do monitor Cacti"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "Ping Corrente"
 
 #, fuzzy
 #~ msgid "Links:"
