@@ -207,6 +207,34 @@ if (!function_exists('api_plugin_is_enabled')) {
 	}
 }
 
+if (!function_exists('api_plugin_user_realm_auth')) {
+	function api_plugin_user_realm_auth($file) {
+		return monitor_test_db_result('api_plugin_user_realm_auth', $file, array(), false);
+	}
+}
+
+if (!function_exists('array_rekey')) {
+	function array_rekey($array, $key, $value_array) {
+		$return_array = array();
+
+		if (!empty($array)) {
+			foreach ($array as $item) {
+				$item_key = $item[$key];
+
+				if (is_array($value_array)) {
+					foreach ($value_array as $value) {
+						$return_array[$item_key][$value] = $item[$value];
+					}
+				} else {
+					$return_array[$item_key] = $item[$value_array];
+				}
+			}
+		}
+
+		return $return_array;
+	}
+}
+
 if (!function_exists('db_table_exists')) {
 	function db_table_exists($table) {
 		return monitor_test_db_result('db_table_exists', $table, array(), false);

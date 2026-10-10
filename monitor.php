@@ -52,6 +52,7 @@ $iclasses = [
 	7 => 'deviceWarning',
 	8 => 'deviceAlert',
 	9 => 'deviceThresholdMuted',
+	10 => 'deviceServiceCheck',
 ];
 
 $icolorsdisplay = [
@@ -65,6 +66,7 @@ $icolorsdisplay = [
 	6 => __('No Availability Check', 'monitor'),
 	7 => __('Warning Ping', 'monitor'),
 	8 => __('Alert Ping', 'monitor'),
+	10 => __('Service Check Failed', 'monitor'),
 ];
 
 $classes = [
@@ -113,7 +115,7 @@ $monitor_trim = [
 	100 => __('100 Chars', 'monitor'),
 ];
 
-global $thold_hosts, $maxchars;
+global $thold_hosts, $servcheck_hosts, $maxchars;
 
 $dozoomrefresh   = false;
 $dozoombgndcolor = false;
@@ -134,9 +136,15 @@ validateRequestVars();
 
 $thold_hosts = checkTholds();
 
+$servcheck_hosts = checkServchecks();
+
 switch (get_nfilter_request_var('action')) {
 	case 'ajax_status':
 		ajaxStatus();
+
+		break;
+	case 'ajax_hostpanel':
+		ajaxHostPanel();
 
 		break;
 	case 'ajax_mute_all':

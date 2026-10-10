@@ -672,7 +672,7 @@ function renderTree(): string {
  * @return int
  */
 function getHostStatus(array $host, bool $real = false): int {
-	global $thold_hosts, $iclasses;
+	global $thold_hosts, $servcheck_hosts, $iclasses;
 
 	// If the host has been muted, show the muted Icon
 	if ($host['status'] != 1 && in_array($host['id'], $thold_hosts, true)) {
@@ -688,6 +688,8 @@ function getHostStatus(array $host, bool $real = false): int {
 			$host['status'] = 8;
 		} elseif ($host['cur_time'] > $host['monitor_warn'] && !empty($host['monitor_warn'])) {
 			$host['status'] = 7;
+		} elseif (isset($servcheck_hosts) && array_key_exists($host['id'], $servcheck_hosts)) {
+			$host['status'] = 10;
 		}
 	}
 
@@ -899,6 +901,11 @@ function renderHeaderTilesadt(): string {
  */
 function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 	$display_text = [
+		'nosort_actions' => [
+			'display' => __('Actions', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Open the device detail panels', 'monitor')
+		],
 		'hostname' => [
 			'display' => __('Hostname', 'monitor'),
 			'sort'    => 'ASC',
@@ -1118,6 +1125,9 @@ function renderHostList(array $host): string {
 
 	$url = $host['anchor'];
 
+	$actions = "<a class='monitorActions pic' href='#' data-id='" . $host['id'] . "' title='" . __esc('Device Detail Panels', 'monitor') . "'><i class='fas fa-layer-group'></i></a>";
+
+	form_selectable_cell($actions, $host['id'], '1%', 'center');
 	form_selectable_cell(filter_value($host['hostname'], '', $url), $host['id'], '', 'left');
 	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host['description'], $host['id'], '', 'left');

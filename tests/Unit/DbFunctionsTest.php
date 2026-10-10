@@ -120,3 +120,89 @@ it('falls back to lastcheck and the failures predicate on the v0.3 schema', func
 		->and($seen['sql'])->toContain('failures > 0')
 		->and($seen['sql'])->not->toContain('last_result');
 });
+
+it('returns no service-check hosts when the plugin is disabled', function () {
+	monitor_test_reset_db_mocks();
+
+	expect(checkServchecks())->toBe([]);
+});
+
+it('returns no service-check hosts without the servcheck realm', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+
+	expect(checkServchecks())->toBe([]);
+});
+
+it('returns no service-check hosts when the servcheck table is absent', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('api_plugin_user_realm_auth', 'servcheck_test.php', true);
+
+	expect(checkServchecks())->toBe([]);
+});
+
+it('maps failing checks to host ids using the v0.4 predicate', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('api_plugin_user_realm_auth', 'servcheck_test.php', true);
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_servcheck_test.last_check', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_servcheck_test.last_result', true);
+
+	$seen = null;
+	monitor_test_mock_db('db_fetch_assoc', fn ($sql) => str_contains($sql, 'plugin_servcheck_test'), function ($sql) use (&$seen) {
+		$seen = $sql;
+
+		return [['id' => 5], ['id' => 9]];
+	});
+
+	expect(checkServchecks())->toBe([5 => 5, 9 => 9]);
+	expect($seen)->toContain('sct.last_check > 0')
+		->and($seen)->toContain("sct.last_result != 'ok'");
+});
+
+it('falls back to the v0.3 predicate for the service-check host set', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('api_plugin_user_realm_auth', 'servcheck_test.php', true);
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+
+	$seen = null;
+	monitor_test_mock_db('db_fetch_assoc', fn ($sql) => str_contains($sql, 'plugin_servcheck_test'), function ($sql) use (&$seen) {
+		$seen = $sql;
+
+		return [];
+	});
+
+	expect(checkServchecks())->toBe([]);
+	expect($seen)->toContain('sct.lastcheck > 0')
+		->and($seen)->toContain('sct.failures > 0')
+		->and($seen)->not->toContain('last_result');
+});
+
+it('adds failing service-check hosts to the triggered status filter', function () {
+	test_set_request(['status' => '1', 'crit' => '0', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+	$GLOBALS['servcheck_hosts'] = [5 => 5, 9 => 9];
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.id IN (5,9)');
+
+	unset($GLOBALS['servcheck_hosts']);
+});
+
+it('omits the service-check clause when none are failing', function () {
+	test_set_request(['status' => '2', 'crit' => '0', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+	$GLOBALS['servcheck_hosts'] = [];
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->not->toContain('h.id IN');
+
+	unset($GLOBALS['servcheck_hosts']);
+});

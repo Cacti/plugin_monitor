@@ -620,7 +620,9 @@ function monitorPrintJsBootstrap(array $config, string $mbcolor, string $monitor
 		'messages'      => [
 			'filterSaved' => __(' [ Filter Settings Saved ]', 'monitor'),
 			'cancel'      => __('Cancel', 'monitor'),
-			'save'        => __('Save', 'monitor')
+			'save'        => __('Save', 'monitor'),
+			'loading'     => __('Loading...', 'monitor'),
+			'deviceDetails' => __('Device Detail Panels', 'monitor')
 		]
 	];
 
@@ -999,14 +1001,14 @@ function monitorLoadAjaxStatusHost(mixed $id, array $thold_hosts, array $config)
 		$host['status'] = 4;
 		$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id'];
 	} elseif ($host['status'] == 3 && api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
-		// A triggered/failing service check also promotes an otherwise Up
-		// device to a Triggered state, pointing at the failing check. Gated by
-		// the servcheck realm so unauthorized users neither see the promoted
-		// status nor receive the direct history URL.
+		// A triggered/failing service check promotes an otherwise Up device to
+		// the distinct Service Check Failed status, pointing at the failing
+		// check. Gated by the servcheck realm so unauthorized users neither see
+		// the promoted status nor receive the direct history URL.
 		$servchecks = getHostTriggeredServchecks($host);
 
 		if (cacti_sizeof($servchecks)) {
-			$host['status'] = 4;
+			$host['status'] = 10;
 			$host['anchor'] = $config['url_path'] . 'plugins/servcheck/servcheck_test.php?action=history&id=' . $servchecks[0]['id'];
 		}
 	}
@@ -1254,4 +1256,379 @@ function ajaxStatus(): void {
 	}
 
 	print monitorRenderAjaxStatusTooltip($host, $size, $links, $site, $sdisplay, $iclass, $criticalities);
+}
+
+/**
+ * Handle AJAX request for the List-view device detail panel and print its HTML.
+ *
+ * Renders a stack of intropage-style cards (host info, data collection, service
+ * checks, thresholds, recent syslog, device links) for a single device.
+ *
+ * @return void
+ */
+function ajaxHostPanel(): void {
+	global $thold_hosts, $config, $iclasses;
+
+	validateRequestVars();
+
+	if (!isset_request_var('id') || !get_filter_request_var('id')) {
+		return;
+	}
+
+	$host = monitorLoadAjaxStatusHost(get_request_var('id'), $thold_hosts, $config);
+
+	if (!cacti_sizeof($host)) {
+		return;
+	}
+
+	print "<div class='monitorPanels'>";
+	print monitorPanelHostInfo($host, $iclasses);
+	print monitorPanelCollection($host);
+	print monitorPanelServiceChecks($host, $config);
+	print monitorPanelTholds($host, $config);
+	print monitorPanelSyslog($host, $config);
+	print monitorPanelLinks($host, $config);
+	print '</div>';
+}
+
+/**
+ * Wrap panel body HTML in a titled intropage-style card.
+ *
+ * @param string $title Card title.
+ * @param string $body  Pre-built, escaped card body HTML.
+ * @param string $icon  Font Awesome icon class (e.g. fa-server).
+ *
+ * @return string
+ */
+function monitorPanelCard(string $title, string $body, string $icon = 'fa-info-circle'): string {
+	return "<div class='monitorPanel'>
+		<div class='monitorPanelHeader'><i class='fas $icon'></i> " . html_escape($title) . "</div>
+		<div class='monitorPanelBody'>$body</div>
+	</div>";
+}
+
+/**
+ * Build one label/value list row for a panel body.
+ *
+ * @param string $label Human-readable label (escaped here).
+ * @param string $value Pre-built value HTML (caller escapes plain text).
+ *
+ * @return string
+ */
+function monitorPanelRow(string $label, string $value): string {
+	return '<li><span class="monitorPanelLabel">' . html_escape($label) . '</span><span class="monitorPanelValue">' . $value . '</span></li>';
+}
+
+/**
+ * Map a host availability_method id to a readable label.
+ *
+ * @param int $method Availability method id.
+ *
+ * @return string
+ */
+function monitorAvailabilityMethodLabel(int $method): string {
+	$labels = [
+		0 => __('None', 'monitor'),
+		1 => __('SNMP and Ping', 'monitor'),
+		2 => __('SNMP Uptime', 'monitor'),
+		3 => __('Ping', 'monitor'),
+		4 => __('SNMP or Ping', 'monitor'),
+		5 => __('SNMP Get SysDesc', 'monitor'),
+		6 => __('SNMP Get Next', 'monitor'),
+	];
+
+	return $labels[$method] ?? __('Method %d', $method, 'monitor');
+}
+
+/**
+ * Render the Host Information panel card.
+ *
+ * @param array $host     Host row with computed status fields.
+ * @param array $iclasses Status index => CSS class map.
+ *
+ * @return string
+ */
+function monitorPanelHostInfo(array $host, array $iclasses): string {
+	$iclass   = $iclasses[$host['status']] ?? 'deviceUnknown';
+	$sdisplay = getHostStatusDescription($host['real_status']);
+
+	$site = db_fetch_cell_prepared('SELECT name FROM sites WHERE id = ?', [$host['site_id']]);
+	$tmpl = db_fetch_cell_prepared('SELECT name FROM host_template WHERE id = ?', [$host['host_template_id']]);
+
+	$body  = '<ul class="monitorPanelProps">';
+	$body .= monitorPanelRow(__('Description', 'monitor'), html_escape($host['description']));
+	$body .= monitorPanelRow(__('Hostname', 'monitor'), html_escape($host['hostname']));
+	$body .= monitorPanelRow(__('Status', 'monitor'), "<span class='monitorStatus deviceStatus $iclass'>" . html_escape($sdisplay) . '</span>');
+	$body .= monitorPanelRow(__('Site', 'monitor'), html_escape($site != '' ? $site : __('None', 'monitor')));
+	$body .= monitorPanelRow(__('Device Template', 'monitor'), html_escape($tmpl != '' ? $tmpl : __('None', 'monitor')));
+	$body .= monitorPanelRow(__('Location', 'monitor'), html_escape($host['location'] != '' ? $host['location'] : __('Unspecified', 'monitor')));
+
+	if (isset($host['snmp_sysUptimeInstance']) && $host['snmp_sysUptimeInstance'] > 0) {
+		$body .= monitorPanelRow(__('SNMP Uptime', 'monitor'), html_escape(monitorPrintHostTime($host['snmp_sysUptimeInstance'])));
+	}
+
+	if (isset($host['snmp_sysContact']) && $host['snmp_sysContact'] != '') {
+		$body .= monitorPanelRow(__('Contact', 'monitor'), html_escape(monitorTrim($host['snmp_sysContact'])));
+	}
+
+	$body .= '</ul>';
+
+	return monitorPanelCard(__('Host Information', 'monitor'), $body, 'fa-server');
+}
+
+/**
+ * Render the Data Collection timing panel card.
+ *
+ * @param array $host Host row.
+ *
+ * @return string
+ */
+function monitorPanelCollection(array $host): string {
+	$body  = '<ul class="monitorPanelProps">';
+	$body .= monitorPanelRow(__('Availability Method', 'monitor'), html_escape(monitorAvailabilityMethodLabel((int) $host['availability_method'])));
+
+	if ($host['availability_method'] > 0) {
+		$body .= monitorPanelRow(__('Current / Average Ping', 'monitor'), html_escape(__('%0.2f ms', $host['cur_time'], 'monitor') . ' / ' . __('%0.2f ms', $host['avg_time'], 'monitor')));
+		$body .= monitorPanelRow(__('Min / Max Ping', 'monitor'), html_escape(__('%0.2f ms', $host['min_time'], 'monitor') . ' / ' . __('%0.2f ms', $host['max_time'], 'monitor')));
+	}
+
+	$body .= monitorPanelRow(__('Availability', 'monitor'), html_escape(round($host['availability'], 2) . ' %'));
+	$body .= monitorPanelRow(__('Total / Failed Polls', 'monitor'), html_escape($host['total_polls'] . ' / ' . $host['failed_polls']));
+
+	if (isset($host['status_rec_date']) && strtotime($host['status_rec_date']) > 943916400) {
+		$body .= monitorPanelRow(__('In Current Status Since', 'monitor'), html_escape($host['status_rec_date']));
+	}
+
+	$fail = $host['status_fail_date'];
+
+	if (strtotime((string) $fail) < 86400) {
+		$fail = __('Never', 'monitor');
+	}
+
+	$body .= monitorPanelRow(__('Last Fail', 'monitor'), html_escape($fail));
+	$body .= '</ul>';
+
+	return monitorPanelCard(__('Data Collection', 'monitor'), $body, 'fa-stopwatch');
+}
+
+/**
+ * Render the Service Checks panel card (servcheck plugin, schema-aware).
+ *
+ * @param array $host   Host row.
+ * @param array $config Global Cacti config.
+ *
+ * @return string
+ */
+function monitorPanelServiceChecks(array $host, array $config): string {
+	if (!api_plugin_is_enabled('servcheck') || !api_plugin_user_realm_auth('servcheck_test.php') || !db_table_exists('plugin_servcheck_test')) {
+		return '';
+	}
+
+	$check_col  = db_column_exists('plugin_servcheck_test', 'last_check') ? 'last_check' : 'lastcheck';
+	$has_result = db_column_exists('plugin_servcheck_test', 'last_result');
+
+	$cols = 'id, name, enabled, triggered, failures' . ($has_result ? ', last_result' : '');
+
+	$tests = db_fetch_assoc_prepared(
+		"SELECT $cols
+		FROM plugin_servcheck_test
+		WHERE hostname = ? OR ipaddress = ?
+		ORDER BY name",
+		[$host['hostname'], $host['hostname']]
+	);
+
+	if (!cacti_sizeof($tests)) {
+		return '';
+	}
+
+	$rows = '';
+
+	foreach ($tests as $t) {
+		if ($t['enabled'] == '') {
+			$cls   = 'deviceUnmonitored';
+			$label = __('Disabled', 'monitor');
+		} elseif ($t['triggered'] > 0 || ($has_result && $t['last_result'] != 'ok' && $t['last_result'] != 'not yet')) {
+			$cls   = 'deviceServiceCheck';
+			$label = __('Failing', 'monitor');
+		} elseif ($has_result && $t['last_result'] == 'not yet') {
+			$cls   = 'deviceUnknown';
+			$label = __('Not tested', 'monitor');
+		} else {
+			$cls   = 'deviceUp';
+			$label = __('OK', 'monitor');
+		}
+
+		$link  = html_escape($config['url_path'] . 'plugins/servcheck/servcheck_test.php?action=history&id=' . $t['id']);
+		$rows .= "<li><a class='monitorLink' href='$link'>" . html_escape($t['name']) . "</a><span class='monitorStatus deviceStatus $cls'>" . html_escape($label) . '</span></li>';
+	}
+
+	return monitorPanelCard(__('Service Checks', 'monitor'), '<ul class="monitorPanelProps">' . $rows . '</ul>', 'fa-heartbeat');
+}
+
+/**
+ * Render the Thresholds panel card (thold plugin).
+ *
+ * @param array $host   Host row.
+ * @param array $config Global Cacti config.
+ *
+ * @return string
+ */
+function monitorPanelTholds(array $host, array $config): string {
+	if (!api_plugin_is_enabled('thold') || !db_table_exists('thold_data')) {
+		return '';
+	}
+
+	$tholds = db_fetch_assoc_prepared(
+		'SELECT *
+		FROM thold_data
+		WHERE host_id = ?
+		ORDER BY id',
+		[$host['id']]
+	);
+
+	if (!cacti_sizeof($tholds)) {
+		return '';
+	}
+
+	$rows = '';
+
+	foreach ($tholds as $t) {
+		$name = $t['name_cache'] ?? ($t['name'] ?? __('Threshold %d', $t['id'], 'monitor'));
+
+		if (isset($t['thold_enabled']) && $t['thold_enabled'] != 'on') {
+			$cls   = 'deviceUnmonitored';
+			$label = __('Disabled', 'monitor');
+		} elseif ((isset($t['thold_alert']) && $t['thold_alert'] != 0) || (isset($t['bl_alert']) && $t['bl_alert'] > 0)) {
+			$cls   = 'deviceThreshold';
+			$label = __('Triggered', 'monitor');
+		} else {
+			$cls   = 'deviceUp';
+			$label = __('OK', 'monitor');
+		}
+
+		$link  = html_escape($config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id']);
+		$rows .= "<li><a class='monitorLink' href='$link'>" . html_escape($name) . "</a><span class='monitorStatus deviceStatus $cls'>" . html_escape($label) . '</span></li>';
+	}
+
+	return monitorPanelCard(__('Thresholds', 'monitor'), '<ul class="monitorPanelProps">' . $rows . '</ul>', 'fa-tasks');
+}
+
+/**
+ * Render the recent Syslog panel card (syslog plugin, last hour).
+ *
+ * @param array $host   Host row.
+ * @param array $config Global Cacti config.
+ *
+ * @return string
+ */
+function monitorPanelSyslog(array $host, array $config): string {
+	if (!api_plugin_is_enabled('syslog') || !api_plugin_user_realm_auth('syslog.php')) {
+		return '';
+	}
+
+	$rows = monitorSyslogRecentForHost($host, $config);
+
+	if ($rows === null) {
+		return '';
+	}
+
+	if (!cacti_sizeof($rows)) {
+		$body = '<ul class="monitorPanelProps"><li><span class="monitorPanelValue">' . __('No syslog messages in the last hour.', 'monitor') . '</span></li></ul>';
+
+		return monitorPanelCard(__('Syslog (last hour)', 'monitor'), $body, 'fa-life-ring');
+	}
+
+	$list = '';
+
+	foreach ($rows as $r) {
+		$time    = isset($r['logtime']) ? html_escape($r['logtime']) : '';
+		$message = isset($r['message']) ? html_escape($r['message']) : '';
+		$list   .= "<li><span class='monitorSyslogTime'>$time</span><span class='monitorSyslogMsg'>$message</span></li>";
+	}
+
+	return monitorPanelCard(__('Syslog (last hour)', 'monitor'), '<ul class="monitorPanelSyslog">' . $list . '</ul>', 'fa-life-ring');
+}
+
+/**
+ * Fetch recent syslog rows for a host within the last hour.
+ *
+ * Loads the syslog plugin's DB helpers (supporting both includes/ and legacy
+ * layouts) and queries its configured database. Returns null when syslog is
+ * not queryable, otherwise an array of rows (possibly empty).
+ *
+ * @param array $host   Host row.
+ * @param array $config Global Cacti config.
+ *
+ * @return array|null
+ */
+function monitorSyslogRecentForHost(array $host, array $config): ?array {
+	$syslog_path = $config['base_path'] . '/plugins/syslog';
+
+	if (file_exists($syslog_path . '/includes/database.php')) {
+		require_once($syslog_path . '/setup.php');
+	} elseif (file_exists($syslog_path . '/config.php')) {
+		require($syslog_path . '/config.php');
+		require_once($syslog_path . '/functions.php');
+	} else {
+		return null;
+	}
+
+	if (!function_exists('syslog_db_fetch_assoc_prepared')) {
+		return null;
+	}
+
+	if (function_exists('syslog_connect')) {
+		syslog_connect();
+	}
+
+	$rows = syslog_db_fetch_assoc_prepared(
+		"SELECT logtime, message
+		FROM syslog_logs
+		WHERE host = ?
+		AND logtime > DATE_SUB(NOW(), INTERVAL 1 HOUR)
+		ORDER BY logtime DESC
+		LIMIT 20",
+		[$host['hostname']]
+	);
+
+	return is_array($rows) ? $rows : [];
+}
+
+/**
+ * Render the Device Links panel card (edit, graphs, device address).
+ *
+ * @param array $host   Host row.
+ * @param array $config Global Cacti config.
+ *
+ * @return string
+ */
+function monitorPanelLinks(array $host, array $config): string {
+	$links = '';
+
+	if (api_plugin_user_realm_auth('host.php')) {
+		$edit  = html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']);
+		$links .= "<li><a class='monitorLink' href='$edit'><i class='fas fa-pen-square'></i> " . __('Edit Device', 'monitor') . '</a></li>';
+	}
+
+	$graphs = db_fetch_cell_prepared('SELECT COUNT(*) FROM graph_local WHERE host_id = ?', [$host['id']]);
+
+	if ($graphs > 0) {
+		$glink  = html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id']);
+		$links .= "<li><a class='monitorLink' href='$glink'><i class='fa fa-chart-line'></i> " . __('View Graphs', 'monitor') . '</a></li>';
+	}
+
+	if ($host['hostname'] != '') {
+		$scheme = (filter_var($host['hostname'], FILTER_VALIDATE_IP) || preg_match('/^[a-z0-9.\-]+$/i', $host['hostname'])) ? 'http://' : '';
+
+		if ($scheme != '') {
+			$device = html_escape($scheme . $host['hostname']);
+			$links .= "<li><a class='monitorLink' href='$device' target='_blank' rel='noopener noreferrer'><i class='fas fa-external-link-alt'></i> " . __('Open Actual Device', 'monitor') . '</a></li>';
+		}
+	}
+
+	if ($links == '') {
+		return '';
+	}
+
+	return monitorPanelCard(__('Device Links', 'monitor'), '<ul class="monitorPanelLinks">' . $links . '</ul>', 'fa-link');
 }

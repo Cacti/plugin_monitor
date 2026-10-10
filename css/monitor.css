@@ -159,6 +159,10 @@
 	background-color: #3f6a8a;
 }
 
+.monitorLegend .deviceServiceCheckFull {
+	background-color: #157f87;
+}
+
 /* Device status icons share the legend's solid palette so a tile's colour
    matches its legend key. Core themes set .deviceXxx colours with !important,
    so these need it too. */
@@ -172,6 +176,7 @@
 .mon_icon.deviceAlert { color: #86407a !important; }
 .mon_icon.deviceUnknown { color: #5f5f57 !important; }
 .mon_icon.deviceUnmonitored { color: #3f6a8a !important; }
+.mon_icon.deviceServiceCheck { color: #157f87 !important; }
 
 /* List-view status pill: adopts the Cacti deviceStatus pill shape and uses the
    same solid palette as the legend chips (colour the pill, not the row). */
@@ -193,6 +198,7 @@
 .monitorStatus.deviceAlert { background-color: #86407a; }
 .monitorStatus.deviceUnknown { background-color: #5f5f57; }
 .monitorStatus.deviceUnmonitored { background-color: #3f6a8a; }
+.monitorStatus.deviceServiceCheck { background-color: #157f87; }
 
 /* extra small styles */
 .monitor_exsmall {
@@ -535,5 +541,105 @@
 
 .cactiPageBottom {
 	z-index: -1;
+}
+
+/* List-view Actions column icon */
+.monitorActions {
+	font-size: 16px;
+}
+
+/* Device detail panels (intropage-style cards) in the Actions dialog */
+.monitorPanels {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.monitorPanel {
+	border: 1px solid rgba(128, 128, 128, 0.35);
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.monitorPanelHeader {
+	background-color: rgba(128, 128, 128, 0.15);
+	padding: 6px 10px;
+	font-weight: bold;
+}
+
+.monitorPanelHeader i {
+	margin-right: 6px;
+}
+
+.monitorPanelBody {
+	padding: 6px 10px;
+}
+
+.monitorPanelProps,
+.monitorPanelLinks,
+.monitorPanelSyslog {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.monitorPanelProps li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	padding: 3px 0;
+	border-bottom: 1px dotted rgba(128, 128, 128, 0.2);
+}
+
+.monitorPanelProps li:last-child {
+	border-bottom: none;
+}
+
+.monitorPanelLabel {
+	color: gray;
+	white-space: nowrap;
+}
+
+.monitorPanelValue {
+	text-align: right;
+	word-break: break-word;
+}
+
+.monitorPanelLinks li {
+	padding: 3px 0;
+}
+
+.monitorPanelLinks i {
+	width: 18px;
+	text-align: center;
+	margin-right: 4px;
+}
+
+.monitorPanelSyslog li {
+	display: flex;
+	gap: 8px;
+	padding: 2px 0;
+	font-size: 12px;
+	border-bottom: 1px dotted rgba(128, 128, 128, 0.2);
+}
+
+.monitorPanelSyslog li:last-child {
+	border-bottom: none;
+}
+
+.monitorSyslogTime {
+	color: gray;
+	white-space: nowrap;
+}
+
+.monitorSyslogMsg {
+	word-break: break-word;
+}
+
+.monitorPanelLoading {
+	padding: 20px;
+	text-align: center;
+	color: gray;
 }
 
