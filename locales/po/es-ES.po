@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2021-09-22 14:09+0000\n"
 "Last-Translator: Tadeo Briceño <tadeobriceno@vencable.com>\n"
 "Language-Team: Spanish <http://translate.cacti.net/projects/cacti/monitor/es/>\n"
@@ -243,6 +243,16 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+#| msgid "Device Template"
+msgid "Device Detail Panels"
+msgstr "Plantilla de Dispositivo"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "Volver a actualizar en <i id=\"timer\">%d</i> segundos"
@@ -318,6 +328,10 @@ msgstr "Ver alertas de Syslog"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Ver alertas de Syslog"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -415,6 +429,163 @@ msgstr ""
 msgid "None"
 msgstr "Ninguno"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "Mostrar tiempo de actividad"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Descripción"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Nombre de equipo"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Sitio"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Plantilla de Dispositivo"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Ubicación:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Contacto:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "Estado de dispositivo"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Disponibilidad"
+
+#: includes/controller.php
+#, fuzzy, php-format
+#| msgid "%0.2d ms"
+msgid "%0.2f ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "Ping de alerta"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Disponibilidad"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Ultima falla:"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "Activado"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "Ver umbrales"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Dispositivos"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "Tamaño de icono del dispositivo"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -442,9 +613,15 @@ msgstr "Desconocido"
 msgid "Just Up"
 msgstr "Recién recuperado"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Nombre de equipo"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Ubicación:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -454,14 +631,6 @@ msgstr "Nombre de host del dispositivo"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Descripción"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Sitio"
 
 #: includes/render.php
 #, fuzzy
@@ -488,19 +657,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Notas"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Disponibilidad"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Ultima falla:"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Deshabilitado"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -531,10 +687,6 @@ msgid "Up"
 msgstr "Arriba"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "Activado"
-
-#: monitor.php
 #, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "Caído (Silenciado/Reconocido)"
@@ -554,6 +706,10 @@ msgstr "Ping de advertencia"
 #: monitor.php
 msgid "Alert Ping"
 msgstr "Ping de alerta"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -612,10 +768,6 @@ msgstr "Mosaicos"
 #: monitor.php
 msgid "Tiles & Time"
 msgstr "Mosaicos y tiempo"
-
-#: monitor.php setup.php
-msgid "Device Template"
-msgstr "Plantilla de Dispositivo"
 
 #: monitor.php
 msgid "Full"
@@ -1157,10 +1309,6 @@ msgstr "Monitoreando"
 
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Notificación de umbral de Ping para el Plugin Monitor de Cacti"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "Ping de alerta"
 
 #~ msgid "Device Grouping"
 #~ msgstr "Agrupamiento de dispositivos"
