@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2024-12-09 15:49+0000\n"
 "Last-Translator: Anton Zhuravlev <baka109g@gmail.com>\n"
 "Language-Team: Russian <http://translate.cacti.net/projects/cacti/monitor/ru/>\n"
@@ -238,6 +238,16 @@ msgid "Cancel"
 msgstr "Отмена"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+#| msgid "Device Template"
+msgid "Device Detail Panels"
+msgstr "Шаблон Устройства"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr " [ Обновить снова в <i id=\"таймер\">%d</i> Секунды ]"
@@ -314,6 +324,10 @@ msgstr "Просмотр уведомлений системного журна�
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Просмотр уведомлений системного журнала"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -411,6 +425,164 @@ msgstr "Не определен"
 msgid "None"
 msgstr "Нет"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Show Uptime"
+msgid "SNMP Uptime"
+msgstr "Показать время работы"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Описание"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Имя хоста"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Узел"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Шаблон Устройства"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Местоположение:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Контактная информация:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "Информация о состоянии устройства"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Доступность"
+
+#: includes/controller.php
+#, fuzzy, php-format
+#| msgid "%0.2d ms"
+msgid "%0.2f ms"
+msgstr "%0.2d мс"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Current Ping"
+msgid "Current / Average Ping"
+msgstr "Текущий Ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Доступность"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Последний провал"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Выключен"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "Просмотренный"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "Просмотр Пороговые значения"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Устройства"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "Устройство:"
+
 #: includes/render.php
 msgid "Non-Site Device"
 msgstr "Устройства без узла"
@@ -438,9 +610,15 @@ msgstr "Неизвестно"
 msgid "Just Up"
 msgstr "Просто вверх"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Имя хоста"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Местоположение:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 msgid "Hostname of device"
@@ -449,14 +627,6 @@ msgstr "Имя хоста устройства"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Описание"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Узел"
 
 #: includes/render.php
 #, fuzzy
@@ -482,18 +652,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Заметки"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Доступность"
-
-#: includes/render.php
-msgid "Last Fail"
-msgstr "Последний провал"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Выключен"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -524,10 +682,6 @@ msgid "Up"
 msgstr "Вкл"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "Просмотренный"
-
-#: monitor.php
 #, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "Вниз (приглушенный/принятый к сведению)"
@@ -549,6 +703,10 @@ msgstr "Предупреждение Ping"
 #: monitor.php
 msgid "Alert Ping"
 msgstr "Тревога Пинг"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -608,10 +766,6 @@ msgstr "Плитки"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Плитка и время"
-
-#: monitor.php setup.php
-msgid "Device Template"
-msgstr "Шаблон Устройства"
 
 #: monitor.php
 msgid "Full"
@@ -1155,9 +1309,6 @@ msgstr "Мониторинг"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Уведомление о пороговом уровне сигнала подключаемого модуля монитора Cacti Monitor"
-
-#~ msgid "Current Ping"
-#~ msgstr "Текущий Ping"
 
 #, fuzzy
 #~ msgid "Links:"
