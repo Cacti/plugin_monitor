@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2024-01-31 14:27+0000\n"
 "Last-Translator: Edwin Lankamp <edwin.lankamp@gmail.com>\n"
 "Language-Team: Dutch <http://translate.cacti.net/projects/cacti/monitor/nl/>\n"
@@ -256,6 +256,16 @@ msgid "Cancel"
 msgstr "Annuleer"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+#| msgid "Device Template"
+msgid "Device Detail Panels"
+msgstr "Apparaattemplate"
+
+#: includes/controller.php
 #, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr " [ Opnieuw verversen in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconden ]"
@@ -334,6 +344,10 @@ msgstr "Bekijk Syslog Alerts"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Bekijk Syslog Alerts"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -439,6 +453,162 @@ msgstr ""
 msgid "None"
 msgstr "Geen"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "Toon uptime"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Omschrijving"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "Hostname"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Website"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Apparaattemplate"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "Locatie:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "Contactpersoon:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "Informatie over de status van het apparaat"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "Beschikbaarheid"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "Huidige Ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Beschikbaarheid"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "Laatste mislukking"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "Geactiveerd"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "Bekijk Drempels"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "Apparaten"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "Apparaat:"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -468,9 +638,15 @@ msgstr "Onbekend"
 msgid "Just Up"
 msgstr "Gewoon omhoog"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "Hostname"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "Locatie:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -480,14 +656,6 @@ msgstr "Hostnaam van het apparaat"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "Omschrijving"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "Website"
 
 #: includes/render.php
 #, fuzzy
@@ -514,19 +682,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "Notities"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "Beschikbaarheid"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "Laatste mislukking"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "Uitgeschakeld"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -558,10 +713,6 @@ msgid "Up"
 msgstr "Online"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "Geactiveerd"
-
-#: monitor.php
 #, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "Omlaag (gedempt/gecontroleerd)"
@@ -585,6 +736,10 @@ msgstr "Waarschuwingsping"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "Waarschuwingsping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -645,10 +800,6 @@ msgstr "Tegels"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "Tegels & Tijd"
-
-#: monitor.php setup.php
-msgid "Device Template"
-msgstr "Apparaattemplate"
 
 #: monitor.php
 msgid "Full"
@@ -1230,10 +1381,6 @@ msgstr "Monitoring"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Cactusmonitor Plugin Ping Threshold Notification"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "Huidige Ping"
 
 #, fuzzy
 #~ msgid "Links:"
