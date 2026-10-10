@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2024-11-22 02:12+0000\n"
 "Last-Translator: Nakayama Kito <nakayamakito@icloud.com>\n"
 "Language-Team: Japanese <http://translate.cacti.net/projects/cacti/monitor/ja/>\n"
@@ -257,6 +257,16 @@ msgid "Cancel"
 msgstr "取り消し"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+#| msgid "Device Template"
+msgid "Device Detail Panels"
+msgstr "デバイステンプレート"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[ <i id=\"timer\">％d</i>秒後にもう一度更新]"
@@ -335,6 +345,10 @@ msgstr "Syslogアラートを表示する"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Syslogアラートを表示する"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -441,6 +455,162 @@ msgstr ""
 msgid "None"
 msgstr "なし"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "稼働時間を表示"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "説明"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "ホスト名"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "サイト"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "デバイステンプレート"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "位置:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "連絡先:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "デバイスステータス情報"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "有効性"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "％0.2d ms"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "現在のping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "有効性"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "最後の失敗"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "無効"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr "トリガーされた"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "しきい値を表示"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "デバイス"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "機器:"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -470,9 +640,15 @@ msgstr "不明"
 msgid "Just Up"
 msgstr "ジャストアップ"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "ホスト名"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "位置:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -482,14 +658,6 @@ msgstr "デバイスのホスト名"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "説明"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "サイト"
 
 #: includes/render.php
 #, fuzzy
@@ -516,19 +684,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "ノート"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "有効性"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "最後の失敗"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "無効"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -560,10 +715,6 @@ msgid "Up"
 msgstr "上"
 
 #: monitor.php
-msgid "Triggered"
-msgstr "トリガーされた"
-
-#: monitor.php
 #, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "ダウン（ミュート/アック）"
@@ -587,6 +738,10 @@ msgstr "警告ping"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "アラートping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 msgid "Extra Small"
@@ -648,10 +803,6 @@ msgstr "タイル"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "タイルと時間"
-
-#: monitor.php setup.php
-msgid "Device Template"
-msgstr "デバイステンプレート"
 
 #: monitor.php
 msgid "Full"
@@ -1237,10 +1388,6 @@ msgstr "モニタリング"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "Cacti Monitorプラグインpingしきい値通知"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "現在のping"
 
 #, fuzzy
 #~ msgid "Links:"
