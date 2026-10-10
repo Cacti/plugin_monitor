@@ -81,6 +81,51 @@ function closeTip() {
 	$(document).tooltip('close');
 }
 
+function saveCardOrder(grid) {
+	const grouping = grid.data('grouping');
+
+	const order = grid
+		.find('.monitorGroupCard')
+		.map((i, el) => $(el).data('group'))
+		.get();
+
+	const post = {
+		action: 'ajax_saveorder',
+		grouping,
+		dashboard: $('#dashboard').val(),
+		order,
+		__csrf_magic: csrfMagicToken
+	};
+
+	$.post('monitor.php?header=false', post);
+}
+
+function openHostPanel(id) {
+	if (id === undefined || id === null || id === '') {
+		return;
+	}
+
+	let dlg = $('#monitorPanelDialog');
+
+	if (dlg.length === 0) {
+		dlg = $('<div id="monitorPanelDialog"></div>').appendTo('body');
+	}
+
+	dlg.html(`<div class='monitorPanelLoading'>${monitorMessages.loading || 'Loading...'}</div>`);
+
+	dlg.dialog({
+		title: monitorMessages.deviceDetails || 'Device Details',
+		width: 720,
+		height: 620,
+		modal: true,
+		position: { at: 'center top+60px', of: globalThis }
+	});
+
+	$.get(`monitor.php?action=ajax_hostpanel&header=false&id=${id}`, (data) => {
+		dlg.html(data);
+	});
+}
+
 function applyFilter(action = '') {
 	clearTimeout(myTimer);
 	$('.mon_icon').unbind();
@@ -308,6 +353,24 @@ $(() => {
 		event.preventDefault();
 		applyFilter('change');
 	});
+
+	$(document).on('click', '.monitorActions', (event) => {
+		event.preventDefault();
+		openHostPanel($(event.currentTarget).data('id'));
+	});
+
+	if ($.fn.sortable) {
+		$('.monitorGroupGrid').sortable({
+			items: '.monitorGroupCard',
+			handle: '.monitorGroupDrag',
+			placeholder: 'monitorGroupPlaceholder',
+			forcePlaceholderSize: true,
+			tolerance: 'pointer',
+			update(event, ui) {
+				saveCardOrder($(event.target));
+			}
+		});
+	}
 
 	$('.monitor_device_frame').find('i').tooltip({
 		items: '.mon_icon',

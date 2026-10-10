@@ -63,6 +63,104 @@ function checkTholds(): array {
 }
 
 /**
+ * Get failing/triggered service checks for a host.
+ *
+ * The servcheck plugin keys its tests by hostname/ipaddress rather than by
+ * Cacti host id, so matching is done against the device's hostname. A check
+ * is considered failing when it is enabled, has run at least once, and is
+ * either in a triggered down state or its last result was not successful.
+ *
+ * The query adapts to the installed servcheck schema: released v0.3 names the
+ * check-time column `lastcheck` and keeps result data in plugin_servcheck_log,
+ * while v0.4+ renamed it to `last_check` and added last_result/last_error to
+ * the test table. When the result columns are absent the triggered/failures
+ * counters are used to detect a failing check.
+ *
+ * @param array $host Host row (requires the 'hostname' key).
+ *
+ * @return array Failing servcheck test rows, ordered most severe first.
+ */
+function getHostTriggeredServchecks(array $host): array {
+	if (!api_plugin_is_enabled('servcheck')) {
+		return [];
+	}
+
+	if (!isset($host['hostname']) || $host['hostname'] == '') {
+		return [];
+	}
+
+	if (!db_table_exists('plugin_servcheck_test')) {
+		return [];
+	}
+
+	$check_col = db_column_exists('plugin_servcheck_test', 'last_check') ? 'last_check' : 'lastcheck';
+
+	if (db_column_exists('plugin_servcheck_test', 'last_result')) {
+		$select         = 'id, name, triggered, last_result, last_error';
+		$fail_predicate = "(triggered > 0 OR (last_result != 'ok' AND last_result != 'not yet'))";
+	} else {
+		$select         = 'id, name, triggered';
+		$fail_predicate = '(triggered > 0 OR failures > 0)';
+	}
+
+	return db_fetch_assoc_prepared(
+		"SELECT $select
+		FROM plugin_servcheck_test
+		WHERE enabled = 'on'
+		AND (hostname = ? OR ipaddress = ?)
+		AND $check_col > 0
+		AND $fail_predicate
+		ORDER BY triggered DESC, $check_col DESC",
+		[$host['hostname'], $host['hostname']]
+	);
+}
+
+/**
+ * Get host ids that currently have a failing/triggered service check.
+ *
+ * Mirrors checkTholds() for the servcheck plugin: it resolves the servcheck
+ * tests (keyed by hostname/ipaddress) that are failing into Cacti host ids so
+ * the monitor board, list and status filters can flag them. Realm-gated so the
+ * promoted status is only visible to users with Service Check access, and
+ * schema-aware across servcheck v0.3 (lastcheck/failures) and v0.4+
+ * (last_check/last_result).
+ *
+ * @return array Map of host_id => host_id.
+ */
+function checkServchecks(): array {
+	$servcheck_hosts = [];
+
+	if (!api_plugin_is_enabled('servcheck') || !api_plugin_user_realm_auth('servcheck_test.php')) {
+		return $servcheck_hosts;
+	}
+
+	if (!db_table_exists('plugin_servcheck_test')) {
+		return $servcheck_hosts;
+	}
+
+	$check_col = db_column_exists('plugin_servcheck_test', 'last_check') ? 'last_check' : 'lastcheck';
+
+	if (db_column_exists('plugin_servcheck_test', 'last_result')) {
+		$fail_predicate = "(sct.triggered > 0 OR (sct.last_result != 'ok' AND sct.last_result != 'not yet'))";
+	} else {
+		$fail_predicate = '(sct.triggered > 0 OR sct.failures > 0)';
+	}
+
+	return array_rekey(
+		db_fetch_assoc("SELECT DISTINCT h.id
+			FROM host AS h
+			INNER JOIN plugin_servcheck_test AS sct
+			ON (sct.hostname = h.hostname OR sct.ipaddress = h.hostname)
+			WHERE sct.enabled = 'on'
+			AND sct.$check_col > 0
+			AND $fail_predicate
+			AND h.deleted = ''"),
+		'id',
+		'id'
+	);
+}
+
+/**
  * Append an IN-clause fragment to an existing SQL where string.
  *
  * @param string $sql_where  SQL where fragment, updated in place.
@@ -93,6 +191,8 @@ function renderGroupConcat(string &$sql_where, string $sql_join, string $sql_fie
  * @return void
  */
 function renderWhereJoin(string &$sql_where, string &$sql_join): void {
+	global $servcheck_hosts;
+
 	if (get_request_var('crit') > 0) {
 		$awhere = 'h.monitor_criticality >= ' . get_request_var('crit');
 	} else {
@@ -155,6 +255,9 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 	} elseif (get_request_var('status') == '1' || get_request_var('status') == 2) {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
+		$servcheck_where = (isset($servcheck_hosts) && cacti_sizeof($servcheck_hosts)) ? '
+			OR h.id IN (' . implode(',', array_map('intval', $servcheck_hosts)) . ')' : '';
+
 		$sql_where = 'WHERE h.disabled = ""
 			AND h.monitor = "on"
 			AND h.deleted = ""
@@ -162,7 +265,7 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 			OR ' . getTholdWhere() . '
 			OR ((h.availability_method > 0 OR h.snmp_version > 0)
 				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
-				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0)))
+				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0)))' . $servcheck_where . '
 			)' . $awhere;
 	} elseif (get_request_var('status') == -1) {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';

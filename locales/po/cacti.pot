@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -233,6 +233,14 @@ msgid "Cancel"
 msgstr ""
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr ""
+
+#: includes/controller.php
 #, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr ""
@@ -304,6 +312,10 @@ msgstr ""
 
 #: includes/controller.php
 msgid "View Device Syslog Entries"
+msgstr ""
+
+#: includes/controller.php
+msgid "View Failing Service Check"
 msgstr ""
 
 #: includes/controller.php
@@ -400,6 +412,149 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr ""
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr ""
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr ""
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr ""
+
+#: includes/controller.php
+msgid "Location"
+msgstr ""
+
+#: includes/controller.php
+msgid "Contact"
+msgstr ""
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr ""
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr ""
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr ""
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr ""
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr ""
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+msgid "Triggered"
+msgstr ""
+
+#: includes/controller.php
+msgid "Thresholds"
+msgstr ""
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr ""
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr ""
+
 #: includes/render.php
 msgid "Non-Site Device"
 msgstr ""
@@ -426,8 +581,12 @@ msgstr ""
 msgid "Just Up"
 msgstr ""
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
+#: includes/render.php
+msgid "Actions"
+msgstr ""
+
+#: includes/render.php
+msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
@@ -436,14 +595,6 @@ msgstr ""
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr ""
-
-#: includes/render.php monitor.php
-msgid "Site"
 msgstr ""
 
 #: includes/render.php
@@ -468,18 +619,6 @@ msgstr ""
 
 #: includes/render.php
 msgid "Notes"
-msgstr ""
-
-#: includes/render.php
-msgid "Availability"
-msgstr ""
-
-#: includes/render.php
-msgid "Last Fail"
-msgstr ""
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
 msgstr ""
 
 #: monitor.php poller_functions.php setup.php
@@ -511,10 +650,6 @@ msgid "Up"
 msgstr ""
 
 #: monitor.php
-msgid "Triggered"
-msgstr ""
-
-#: monitor.php
 msgid "Triggered (Muted/Acked)"
 msgstr ""
 
@@ -532,6 +667,10 @@ msgstr ""
 
 #: monitor.php
 msgid "Alert Ping"
+msgstr ""
+
+#: monitor.php
+msgid "Service Check Failed"
 msgstr ""
 
 #: monitor.php
@@ -588,10 +727,6 @@ msgstr ""
 
 #: monitor.php
 msgid "Tiles & Time"
-msgstr ""
-
-#: monitor.php setup.php
-msgid "Device Template"
 msgstr ""
 
 #: monitor.php

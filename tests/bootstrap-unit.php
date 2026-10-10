@@ -161,7 +161,7 @@ if (!function_exists('db_fetch_assoc')) {
 
 if (!function_exists('db_fetch_assoc_prepared')) {
 	function db_fetch_assoc_prepared($sql, $params = array()) {
-		return array();
+		return monitor_test_db_result('db_fetch_assoc_prepared', $sql, $params, array());
 	}
 }
 
@@ -197,7 +197,41 @@ if (!function_exists('db_index_exists')) {
 
 if (!function_exists('db_column_exists')) {
 	function db_column_exists($table, $column) {
-		return false;
+		return monitor_test_db_result('db_column_exists', $table . '.' . $column, array(), false);
+	}
+}
+
+if (!function_exists('api_plugin_is_enabled')) {
+	function api_plugin_is_enabled($plugin) {
+		return monitor_test_db_result('api_plugin_is_enabled', $plugin, array(), false);
+	}
+}
+
+if (!function_exists('api_plugin_user_realm_auth')) {
+	function api_plugin_user_realm_auth($file) {
+		return monitor_test_db_result('api_plugin_user_realm_auth', $file, array(), false);
+	}
+}
+
+if (!function_exists('array_rekey')) {
+	function array_rekey($array, $key, $value_array) {
+		$return_array = array();
+
+		if (!empty($array)) {
+			foreach ($array as $item) {
+				$item_key = $item[$key];
+
+				if (is_array($value_array)) {
+					foreach ($value_array as $value) {
+						$return_array[$item_key][$value] = $item[$value];
+					}
+				} else {
+					$return_array[$item_key] = $item[$value_array];
+				}
+			}
+		}
+
+		return $return_array;
 	}
 }
 
@@ -209,6 +243,20 @@ if (!function_exists('db_table_exists')) {
 
 if (!function_exists('api_plugin_db_add_column')) {
 	function api_plugin_db_add_column($plugin, $table, $data) {
+		return true;
+	}
+}
+
+if (!function_exists('db_add_column')) {
+	function db_add_column($table, $data) {
+		return true;
+	}
+}
+
+if (!function_exists('db_remove_column')) {
+	function db_remove_column($table, $column) {
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'db_remove_column', 'table' => $table, 'column' => $column, 'sql' => $table);
+
 		return true;
 	}
 }

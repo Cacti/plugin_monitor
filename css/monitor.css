@@ -159,6 +159,10 @@
 	background-color: #3f6a8a;
 }
 
+.monitorLegend .deviceServiceCheckFull {
+	background-color: #157f87;
+}
+
 /* Device status icons share the legend's solid palette so a tile's colour
    matches its legend key. Core themes set .deviceXxx colours with !important,
    so these need it too. */
@@ -172,6 +176,7 @@
 .mon_icon.deviceAlert { color: #86407a !important; }
 .mon_icon.deviceUnknown { color: #5f5f57 !important; }
 .mon_icon.deviceUnmonitored { color: #3f6a8a !important; }
+.mon_icon.deviceServiceCheck { color: #157f87 !important; }
 
 /* List-view status pill: adopts the Cacti deviceStatus pill shape and uses the
    same solid palette as the legend chips (colour the pill, not the row). */
@@ -193,6 +198,7 @@
 .monitorStatus.deviceAlert { background-color: #86407a; }
 .monitorStatus.deviceUnknown { background-color: #5f5f57; }
 .monitorStatus.deviceUnmonitored { background-color: #3f6a8a; }
+.monitorStatus.deviceServiceCheck { background-color: #157f87; }
 
 /* extra small styles */
 .monitor_exsmall {
@@ -214,8 +220,9 @@
 }
 
 .monitor_exsmall_tilesadt {
-	height: 35px;
+	min-height: 35px;
 	width: 94px;
+	box-sizing: border-box;
 }
 
 .monitor_exsmall td {
@@ -255,8 +262,9 @@
 }
 
 .monitor_small_tilesadt {
-	height: 45px;
+	min-height: 45px;
 	width: 94px;
+	box-sizing: border-box;
 }
 
 .monitor_small i, .monitor_small_tiles i, .monitor_small_tilesadt i {
@@ -298,8 +306,9 @@
 }
 
 .monitor_medium_tilesadt {
-	height: 65px;
+	min-height: 65px;
 	width: 108px;
+	box-sizing: border-box;
 }
 
 .monitor_medium i, .monitor_medium_tiles i, .monitor_medium_tilesadt i {
@@ -350,8 +359,9 @@
 }
 
 .monitor_large_tilesadt {
-	height: 102px;
+	min-height: 102px;
 	width: 128px;
+	box-sizing: border-box;
 	justify-content: center;
 }
 
@@ -399,8 +409,9 @@
 }
 
 .monitor_exlarge_tilesadt {
-	height: 148px;
+	min-height: 148px;
 	width: 128px;
+	box-sizing: border-box;
 }
 
 .monitor_exlarge i, .monitor_exlarge_tiles i, .monitor_exlarge_tilesadt i {
@@ -450,8 +461,9 @@
 }
 
 .monitor_errorzoom_tilesadt {
-	height: 102px;
+	min-height: 102px;
 	width: 128px;
+	box-sizing: border-box;
 	justify-content: center;
 }
 
@@ -530,4 +542,147 @@
 .cactiPageBottom {
 	z-index: -1;
 }
+
+/* List-view Actions column icon */
+.monitorActions {
+	font-size: 16px;
+}
+
+/* Device detail panels (intropage-style cards) in the Actions dialog */
+.monitorPanels {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.monitorPanel {
+	border: 1px solid rgba(128, 128, 128, 0.35);
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.monitorPanelHeader {
+	background-color: rgba(128, 128, 128, 0.15);
+	padding: 6px 10px;
+	font-weight: bold;
+}
+
+.monitorPanelHeader i {
+	margin-right: 6px;
+}
+
+.monitorPanelBody {
+	padding: 6px 10px;
+}
+
+.monitorPanelProps,
+.monitorPanelLinks,
+.monitorPanelSyslog {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.monitorPanelProps li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	padding: 3px 0;
+	border-bottom: 1px dotted rgba(128, 128, 128, 0.2);
+}
+
+.monitorPanelProps li:last-child {
+	border-bottom: none;
+}
+
+.monitorPanelLabel {
+	color: gray;
+	white-space: nowrap;
+}
+
+.monitorPanelValue {
+	text-align: right;
+	word-break: break-word;
+}
+
+.monitorPanelLinks li {
+	padding: 3px 0;
+}
+
+.monitorPanelLinks i {
+	width: 18px;
+	text-align: center;
+	margin-right: 4px;
+}
+
+.monitorPanelSyslog li {
+	display: flex;
+	gap: 8px;
+	padding: 2px 0;
+	font-size: 12px;
+	border-bottom: 1px dotted rgba(128, 128, 128, 0.2);
+}
+
+.monitorPanelSyslog li:last-child {
+	border-bottom: none;
+}
+
+.monitorSyslogTime {
+	color: gray;
+	white-space: nowrap;
+}
+
+.monitorSyslogMsg {
+	word-break: break-word;
+}
+
+.monitorPanelLoading {
+	padding: 20px;
+	text-align: center;
+	color: gray;
+}
+
+/* Grouping card grid: responsive, flows full screen up to ~8 columns and
+   shrinks to fewer columns as the viewport narrows. */
+.monitorGroupGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 10px;
+	align-items: start;
+	width: 100%;
+}
+
+.monitorGroupCard .monitorPanelBody {
+	padding: 6px;
+}
+
+.monitorGroupCard .monitor_container {
+	justify-content: flex-start;
+}
+
+.monitorGroupDrag {
+	cursor: move;
+	margin-right: 6px;
+	opacity: 0.65;
+}
+
+.monitorGroupPlaceholder {
+	border: 2px dashed rgba(128, 128, 128, 0.5);
+	border-radius: 6px;
+	min-height: 60px;
+}
+
+/* Group card titles coloured by the group's worst device status. */
+.monitorGroupTitle.deviceUp { background-color: #2b8235; color: #ffffff; }
+.monitorGroupTitle.deviceDown { background-color: #a12820; color: #ffffff; }
+.monitorGroupTitle.deviceDownMuted { background-color: #93302a; color: #ffffff; }
+.monitorGroupTitle.deviceRecovering { background-color: #9a6a1a; color: #ffffff; }
+.monitorGroupTitle.deviceThreshold { background-color: #a85712; color: #ffffff; }
+.monitorGroupTitle.deviceThresholdMuted { background-color: #6a4a9c; color: #ffffff; }
+.monitorGroupTitle.deviceWarning { background-color: #7d6f18; color: #ffffff; }
+.monitorGroupTitle.deviceAlert { background-color: #86407a; color: #ffffff; }
+.monitorGroupTitle.deviceUnknown { background-color: #5f5f57; color: #ffffff; }
+.monitorGroupTitle.deviceUnmonitored { background-color: #3f6a8a; color: #ffffff; }
+.monitorGroupTitle.deviceServiceCheck { background-color: #157f87; color: #ffffff; }
 

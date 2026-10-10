@@ -95,16 +95,74 @@ function monitor_uptime_table_data(): array {
  */
 function monitor_dashboards_table_data(): array {
 	$data              = [];
-	$data['columns'][] = ['name' => 'id',      'type' => 'int(10)',       'unsigned' => true, 'NULL' => false, 'auto_increment' => true];
-	$data['columns'][] = ['name' => 'user_id', 'type' => 'int(10)',       'unsigned' => true, 'NULL' => true, 'default' => 0];
-	$data['columns'][] = ['name' => 'name',    'type' => 'varchar(128)',  'NULL' => true, 'default' => ''];
-	$data['columns'][] = ['name' => 'url',     'type' => 'varchar(1024)', 'NULL' => true, 'default' => ''];
+	$data['columns'][] = ['name' => 'id',         'type' => 'int(10)',       'unsigned' => true, 'NULL' => false, 'auto_increment' => true];
+	$data['columns'][] = ['name' => 'user_id',    'type' => 'int(10)',       'unsigned' => true, 'NULL' => true, 'default' => 0];
+	$data['columns'][] = ['name' => 'name',       'type' => 'varchar(128)',  'NULL' => true, 'default' => ''];
+	$data['columns'][] = ['name' => 'properties', 'type' => 'varchar(4096)', 'NULL' => true, 'default' => ''];
 	$data['primary']   = ['id'];
 	$data['keys'][]    = ['name' => 'user_id', 'columns' => ['user_id']];
 	$data['type']      = 'InnoDB';
 	$data['comment']   = 'Stores predefined dashboard information for a user or users';
 
 	return $data;
+}
+
+/**
+ * Parse a legacy dashboard url string (monitor.php?a=b&c=d) into the current
+ * properties structure, a JSON object of the dashboard's filter variables.
+ *
+ * @param string $url Legacy stored url value.
+ *
+ * @return array{vars: array<string,string>}
+ */
+function monitor_url_to_properties(string $url): array {
+	$url  = str_replace('monitor.php?', '', (string) $url);
+	$vars = [];
+
+	if ($url !== '') {
+		foreach (explode('&', $url) as $pair) {
+			$kv = explode('=', $pair, 2);
+
+			if ($kv[0] !== '' && isset($kv[1])) {
+				$vars[$kv[0]] = urldecode($kv[1]);
+			}
+		}
+	}
+
+	return ['vars' => $vars];
+}
+
+/**
+ * Restructure plugin_monitor_dashboards from the legacy raw-url column to the
+ * JSON `properties` column: add the column, migrate each row's url into the
+ * properties structure, then drop the now-redundant url column.
+ *
+ * @return void
+ */
+function monitor_migrate_dashboard_properties() {
+	if (!db_table_exists('plugin_monitor_dashboards')) {
+		return;
+	}
+
+	if (!db_column_exists('plugin_monitor_dashboards', 'properties')) {
+		api_plugin_db_add_column('monitor', 'plugin_monitor_dashboards', ['name' => 'properties', 'type' => 'varchar(4096)', 'NULL' => true, 'default' => '', 'after' => 'name']);
+	}
+
+	if (db_column_exists('plugin_monitor_dashboards', 'url')) {
+		$rows = db_fetch_assoc("SELECT id, url
+			FROM plugin_monitor_dashboards
+			WHERE properties IS NULL
+			OR properties = ''");
+
+		if (cacti_sizeof($rows)) {
+			foreach ($rows as $r) {
+				db_execute_prepared('UPDATE plugin_monitor_dashboards SET properties = ? WHERE id = ?',
+					[json_encode(monitor_url_to_properties($r['url'])), $r['id']]);
+			}
+		}
+
+		db_remove_column('plugin_monitor_dashboards', 'url');
+	}
 }
 
 /**
@@ -171,6 +229,8 @@ function monitor_setup_table() {
  * @return void
  */
 function monitor_upgrade_tables() {
+	monitor_migrate_dashboard_properties();
+
 	$tables = [
 		'plugin_monitor_notify_history' => monitor_notify_history_table_data(),
 		'plugin_monitor_reboot_history' => monitor_reboot_history_table_data(),

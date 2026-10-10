@@ -56,7 +56,10 @@ function renderDefault(): string {
 
 	$poller_interval = read_config_option('poller_interval');
 
-	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	// Only the List view paginates; all other views show every matching device.
+	if (get_request_var('view') == 'list') {
+		$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	}
 
 	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Device', 'monitor') . " ') AS site_name,
         CAST(IF(availability_method = 0, '0',
@@ -124,6 +127,146 @@ function renderDefault(): string {
 }
 
 /**
+ * Whether the current view uses the device-tile card layout (as opposed to the
+ * name grid or paginated list), and so supports grouped card panels.
+ *
+ * @return bool
+ */
+function monitorUseCardLayout(): bool {
+	return in_array(get_request_var('view'), ['default', 'tiles', 'tilesadt'], true);
+}
+
+/**
+ * Resolve the worst (most severe) device status CSS class across a group so the
+ * group's card title can be coloured to match (down/breached/triggered/etc.).
+ *
+ * @param array $hosts Host rows in the group.
+ *
+ * @return string Status CSS class (e.g. deviceDown), defaulting to deviceUp.
+ */
+function monitorGroupWorstStatusClass(array $hosts): string {
+	global $iclasses;
+
+	$rank      = [1 => 100, 8 => 90, 4 => 80, 10 => 75, 9 => 70, 5 => 65, 7 => 60, 2 => 50, 0 => 40, 6 => 30, 3 => 10];
+	$worst     = 3;
+	$worst_val = -1;
+
+	foreach ($hosts as $host) {
+		$status = getHostStatus($host);
+		$value  = $rank[$status] ?? 0;
+
+		if ($value > $worst_val) {
+			$worst_val = $value;
+			$worst     = $status;
+		}
+	}
+
+	return $iclasses[$worst] ?? 'deviceUp';
+}
+
+/**
+ * Load the saved card ordering for a grouping from the active dashboard's
+ * properties, falling back to the per-user setting.
+ *
+ * @param string $grouping Grouping key (site/template).
+ *
+ * @return array Ordered list of group ids, or empty when none saved.
+ */
+function monitorGetCardOrder(string $grouping): array {
+	$dashboard = get_request_var('dashboard');
+
+	if ($dashboard > 0 && monitorDashboardOwnedByUser($dashboard)) {
+		$props = monitorGetDashboardProperties($dashboard);
+
+		if (isset($props['cardorder'][$grouping]) && is_array($props['cardorder'][$grouping])) {
+			return $props['cardorder'][$grouping];
+		}
+	}
+
+	$json = read_user_setting('monitor_cardorder');
+
+	if ($json != '') {
+		$order = json_decode($json, true);
+
+		if (isset($order[$grouping]) && is_array($order[$grouping])) {
+			return $order[$grouping];
+		}
+	}
+
+	return [];
+}
+
+/**
+ * Reorder a group map to honour a saved id ordering, appending any groups not
+ * present in the saved order.
+ *
+ * @param array $groups Map of group id => group data.
+ * @param array $order  Saved list of group ids.
+ *
+ * @return array Reordered group map.
+ */
+function monitorApplyCardOrder(array $groups, array $order): array {
+	if (!cacti_sizeof($order)) {
+		return $groups;
+	}
+
+	$ordered = [];
+
+	foreach ($order as $gid) {
+		$gid = (string) $gid;
+
+		if (isset($groups[$gid])) {
+			$ordered[$gid] = $groups[$gid];
+			unset($groups[$gid]);
+		}
+	}
+
+	foreach ($groups as $gid => $group) {
+		$ordered[$gid] = $group;
+	}
+
+	return $ordered;
+}
+
+/**
+ * Render a set of grouped device cards (one card/panel per group) in a
+ * responsive grid, with saved ordering applied and each title coloured by the
+ * group's worst device status.
+ *
+ * @param string $grouping Grouping key (site/template).
+ * @param array  $groups   Map of group id => ['label' => string, 'hosts' => array].
+ * @param int    $maxlen   Trim length for host titles.
+ *
+ * @return string
+ */
+function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): string {
+	$groups = monitorApplyCardOrder($groups, monitorGetCardOrder($grouping));
+
+	$out = "<div class='monitorGroupGrid' data-grouping='" . html_escape($grouping) . "'>";
+
+	foreach ($groups as $gid => $group) {
+		$worst = monitorGroupWorstStatusClass($group['hosts']);
+
+		$body = "<div class='monitor_container'>";
+
+		foreach ($group['hosts'] as $host) {
+			$body .= renderHost($host, true, $maxlen);
+		}
+
+		$body .= '</div>';
+
+		$out .= "<div class='monitorPanel monitorGroupCard' data-group='" . html_escape((string) $gid) . "'>
+			<div class='monitorPanelHeader monitorGroupTitle $worst'><i class='fas fa-grip-vertical monitorGroupDrag'></i> " . html_escape($group['label']) . "</div>
+			<div class='monitorPanelBody'>$body</div>
+		</div>";
+	}
+
+	$out .= '</div>';
+
+	return $out;
+}
+
+/**
  * Render host output grouped by site.
  *
  * @return string
@@ -149,7 +292,10 @@ function renderSite(): string {
 
 	renderWhereJoin($sql_where, $sql_join);
 
-	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	// Only the List view paginates; all other views show every matching device.
+	if (get_request_var('view') == 'list') {
+		$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	}
 
 	$hosts_sql = ("SELECT DISTINCT h.*, IFNULL(s.name,' " . __('Non-Site Devices', 'monitor') . " ') AS site_name
 		FROM host AS h
@@ -162,85 +308,56 @@ function renderSite(): string {
 
 	$hosts = db_fetch_assoc($hosts_sql);
 
-	$ctemp = -1;
-	$ptemp = -1;
+	if (!cacti_sizeof($hosts)) {
+		return $result;
+	}
 
-	if (cacti_sizeof($hosts)) {
-		$suppressGroups = false;
-		$function       = 'renderSuppressgroups' . ucfirst(get_request_var('view'));
+	[$hosts, $host_ids] = monitorFilterAllowedHosts($hosts);
 
-		if (function_exists($function)) {
-			$suppressGroups = $function();
-		}
+	if (!cacti_sizeof($hosts)) {
+		return $result;
+	}
 
-		$function = 'renderHeader' . ucfirst(get_request_var('view'));
+	$maxlen = 10;
 
-		if (function_exists($function)) {
-			// Call the custom render_header_ function
-			$result .= $function();
-			$suppressGroups = true;
-		}
+	if (get_request_var('view') == 'default' && cacti_sizeof($host_ids)) {
+		$maxlen = (int) db_fetch_cell('SELECT MAX(LENGTH(description))
+			FROM host AS h
+			WHERE id IN (' . implode(',', $host_ids) . ')');
+	}
 
-		foreach ($hosts as $index => $host) {
-			if (is_device_allowed($host['id'])) {
-				$host_ids[] = $host['id'];
-			} else {
-				unset($hosts[$index]);
-			}
-		}
+	$maxlen = getMonitorTrimLength($maxlen);
 
-		// Determine the correct width of the cell
-		$maxlen = 10;
-
-		if (get_request_var('view') == 'default') {
-			$maxlen = db_fetch_cell('SELECT MAX(LENGTH(description))
-				FROM host AS h
-				WHERE id IN (' . implode(',', $host_ids) . ')');
-		}
-		$maxlen = getMonitorTrimLength($maxlen);
-
-		$class   = get_request_var('size');
-		$csuffix = get_request_var('view');
-
-		if ($csuffix == 'default') {
-			$csuffix = '';
-		}
+	if (monitorUseCardLayout()) {
+		$groups = [];
 
 		foreach ($hosts as $host) {
-			$ctemp = $host['site_id'];
+			$gid = (string) $host['site_id'];
 
-			if (!$suppressGroups) {
-				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= '</div>';
-				}
-
-				if ($ctemp != $ptemp) {
-					$result .= "<div class='monitorTableHeader'>
-						<div class='navBarNavigation'>
-							<div class='navBarNavigationNone'>" . html_escape($host['site_name']) . "</div>
-						</div>
-					</div>
-					<div class='monitor_container'>";
-				}
+			if (!isset($groups[$gid])) {
+				$groups[$gid] = ['label' => $host['site_name'], 'hosts' => []];
 			}
 
-			$result .= renderHost($host, true, $maxlen);
-
-			if ($ctemp != $ptemp) {
-				$ptemp = $ctemp;
-			}
+			$groups[$gid]['hosts'][] = $host;
 		}
 
-		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= '</div>';
-		}
+		return monitorRenderGroupCards('site', $groups, $maxlen);
+	}
 
-		$function = 'renderFooter' . ucfirst(get_request_var('view'));
+	$function = 'renderHeader' . ucfirst(get_request_var('view'));
 
-		if (function_exists($function)) {
-			// Call the custom render_footer_ function
-			$result .= $function();
-		}
+	if (function_exists($function)) {
+		$result .= $function();
+	}
+
+	foreach ($hosts as $host) {
+		$result .= renderHost($host, true, $maxlen);
+	}
+
+	$function = 'renderFooter' . ucfirst(get_request_var('view'));
+
+	if (function_exists($function)) {
+		$result .= $function();
 	}
 
 	return $result;
@@ -272,7 +389,10 @@ function renderTemplate(): string {
 
 	renderWhereJoin($sql_where, $sql_join);
 
-	$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	// Only the List view paginates; all other views show every matching device.
+	if (get_request_var('view') == 'list') {
+		$sql_limit = ' LIMIT ' . ($rows * (get_request_var('page') - 1)) . ',' . $rows;
+	}
 
 	if (get_request_var('template') > 0) {
 		$sql_where .= ($sql_where == '' ? '' : 'AND ') . 'ht.id = ' . get_request_var('template');
@@ -294,85 +414,57 @@ function renderTemplate(): string {
 		ORDER BY ht.name, h.description
 		$sql_limit");
 
-	$ctemp = -1;
-	$ptemp = -1;
+	if (!cacti_sizeof($hosts)) {
+		return $result;
+	}
 
-	if (cacti_sizeof($hosts)) {
-		$suppressGroups = false;
-		$function       = 'renderSuppressgroups' . ucfirst(get_request_var('view'));
+	[$hosts, $host_ids] = monitorFilterAllowedHosts($hosts);
 
-		if (function_exists($function)) {
-			$suppressGroups = $function();
-		}
+	if (!cacti_sizeof($hosts)) {
+		return $result;
+	}
 
-		$function = 'renderHeader' . ucfirst(get_request_var('view'));
+	$maxlen = 10;
 
-		if (function_exists($function)) {
-			// Call the custom render_header_ function
-			$result .= $function();
-			$suppressGroups = true;
-		}
+	if (get_request_var('view') == 'default' && cacti_sizeof($host_ids)) {
+		$maxlen = (int) db_fetch_cell('SELECT MAX(LENGTH(description))
+			FROM host AS h
+			WHERE id IN (' . implode(',', $host_ids) . ')');
+	}
 
-		foreach ($hosts as $index => $host) {
-			if (is_device_allowed($host['id'])) {
-				$host_ids[] = $host['id'];
-			} else {
-				unset($hosts[$index]);
-			}
-		}
+	$maxlen = getMonitorTrimLength($maxlen);
 
-		// Determine the correct width of the cell
-		$maxlen = 10;
-
-		if (get_request_var('view') == 'default') {
-			$maxlen = db_fetch_cell('SELECT MAX(LENGTH(description))
-				FROM host AS h
-				WHERE id IN (' . implode(',', $host_ids) . ')');
-		}
-		$maxlen = getMonitorTrimLength($maxlen);
-
-		$class   = get_request_var('size');
-		$csuffix = get_request_var('view');
-
-		if ($csuffix == 'default') {
-			$csuffix = '';
-		}
+	if (monitorUseCardLayout()) {
+		$groups = [];
 
 		foreach ($hosts as $host) {
-			$ctemp = $host['host_template_id'];
+			$gid   = (string) $host['host_template_id'];
+			$label = $host['host_template_name'] != '' ? $host['host_template_name'] : __('Non-Templated Devices', 'monitor');
 
-			if (!$suppressGroups) {
-				if ($ctemp != $ptemp && $ptemp > 0) {
-					$result .= '</div>';
-				}
-
-				if ($ctemp != $ptemp) {
-					$result .= "<div class='monitorTableHeader'>
-						<div class='navBarNavigation'>
-							<div class='navBarNavigationNone'>" . html_escape($host['host_template_name']) . "</div>
-						</div>
-					</div>
-					<div class='monitor_container'>";
-				}
+			if (!isset($groups[$gid])) {
+				$groups[$gid] = ['label' => $label, 'hosts' => []];
 			}
 
-			$result .= renderHost($host, true, $maxlen);
-
-			if ($ctemp != $ptemp) {
-				$ptemp = $ctemp;
-			}
+			$groups[$gid]['hosts'][] = $host;
 		}
 
-		if ($ptemp == $ctemp && !$suppressGroups) {
-			$result .= '</div>';
-		}
+		return monitorRenderGroupCards('template', $groups, $maxlen);
+	}
 
-		$function = 'renderFooter' . ucfirst(get_request_var('view'));
+	$function = 'renderHeader' . ucfirst(get_request_var('view'));
 
-		if (function_exists($function)) {
-			// Call the custom render_footer_ function
-			$result .= $function();
-		}
+	if (function_exists($function)) {
+		$result .= $function();
+	}
+
+	foreach ($hosts as $host) {
+		$result .= renderHost($host, true, $maxlen);
+	}
+
+	$function = 'renderFooter' . ucfirst(get_request_var('view'));
+
+	if (function_exists($function)) {
+		$result .= $function();
 	}
 
 	return $result;
@@ -663,7 +755,7 @@ function renderTree(): string {
  * @return int
  */
 function getHostStatus(array $host, bool $real = false): int {
-	global $thold_hosts, $iclasses;
+	global $thold_hosts, $servcheck_hosts, $iclasses;
 
 	// If the host has been muted, show the muted Icon
 	if ($host['status'] != 1 && in_array($host['id'], $thold_hosts, true)) {
@@ -679,6 +771,8 @@ function getHostStatus(array $host, bool $real = false): int {
 			$host['status'] = 8;
 		} elseif ($host['cur_time'] > $host['monitor_warn'] && !empty($host['monitor_warn'])) {
 			$host['status'] = 7;
+		} elseif (isset($servcheck_hosts) && array_key_exists($host['id'], $servcheck_hosts)) {
+			$host['status'] = 10;
 		}
 	}
 
@@ -890,6 +984,11 @@ function renderHeaderTilesadt(): string {
  */
 function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 	$display_text = [
+		'nosort_actions' => [
+			'display' => __('Actions', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Open the device detail panels', 'monitor')
+		],
 		'hostname' => [
 			'display' => __('Hostname', 'monitor'),
 			'sort'    => 'ASC',
@@ -1109,6 +1208,9 @@ function renderHostList(array $host): string {
 
 	$url = $host['anchor'];
 
+	$actions = "<a class='monitorActions pic' href='#' data-id='" . $host['id'] . "' title='" . __esc('Device Detail Panels', 'monitor') . "'><i class='fas fa-layer-group'></i></a>";
+
+	form_selectable_cell($actions, $host['id'], '1%', 'center');
 	form_selectable_cell(filter_value($host['hostname'], '', $url), $host['id'], '', 'left');
 	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host['description'], $host['id'], '', 'left');
