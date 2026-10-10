@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2020-12-28 20:08-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -260,6 +260,15 @@ msgid "Cancel"
 msgstr "إلغاء"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "قالب الجهاز"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[التحديث مرة أخرى في <i id=\"timer\">٪ d</i> ثوانٍ]"
@@ -339,6 +348,10 @@ msgstr "عرض تنبيهات سيسلوغ"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "عرض تنبيهات سيسلوغ"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -447,6 +460,164 @@ msgstr ""
 msgid "None"
 msgstr "لا شيء"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "إظهار الجهوزية"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "الوصف"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "اسم الخادم"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "موضع، موقع، مقر"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "قالب الجهاز"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "موقعك:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "بيانتت اتصال"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "معلومات حالة الجهاز"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "متوفر"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "٪ 0.2d مللي ثانية"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "بينغ الحالي"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "متوفر"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "فشل الماضي"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "معطل"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "Triggered"
+msgstr "أثار"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "عرض العتبات"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "الأجهزة"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "الجهاز:"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -476,9 +647,15 @@ msgstr "غير معروف"
 msgid "Just Up"
 msgstr "فقط لأعلى"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "اسم الخادم"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "موقعك:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -488,14 +665,6 @@ msgstr "اسم المضيف للجهاز"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "الوصف"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "موضع، موقع، مقر"
 
 #: includes/render.php
 #, fuzzy
@@ -522,19 +691,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "الملاحظات"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "متوفر"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "فشل الماضي"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "معطل"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -567,11 +723,6 @@ msgstr "أعلى"
 
 #: monitor.php
 #, fuzzy
-msgid "Triggered"
-msgstr "أثار"
-
-#: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "لأسفل (صامت / أرسين)"
 
@@ -594,6 +745,10 @@ msgstr "تحذير بينغ"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "تنبيه بينغ"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -657,11 +812,6 @@ msgstr "البلاط"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "البلاط والوقت"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "قالب الجهاز"
 
 #: monitor.php
 msgid "Full"
@@ -1248,10 +1398,6 @@ msgstr "التوقعات"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "الصبار رصد البرنامج المساعد بينغ عتبة الإخطار"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "بينغ الحالي"
 
 #, fuzzy
 #~ msgid "Links:"
