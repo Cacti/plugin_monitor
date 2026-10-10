@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-09-30 21:27-0400\n"
+"POT-Creation-Date: 2026-10-10 18:20-0400\n"
 "PO-Revision-Date: 2020-12-28 20:11-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -261,6 +261,15 @@ msgid "Cancel"
 msgstr "कैंसिल करें"
 
 #: includes/controller.php
+msgid "Loading..."
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Device Detail Panels"
+msgstr "डिवाइस टेम्पलेट"
+
+#: includes/controller.php
 #, fuzzy, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
 msgstr "[ <i id=\"timer\">% D</i> सेकंड में फिर से ताज़ा करें]"
@@ -341,6 +350,10 @@ msgstr "Syslog अलर्ट देखें"
 #, fuzzy
 msgid "View Device Syslog Entries"
 msgstr "Syslog अलर्ट देखें"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -450,6 +463,164 @@ msgstr ""
 msgid "None"
 msgstr "कोई नहीं"
 
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "SNMP Uptime"
+msgstr "दिखावा करना"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr ""
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr ""
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "विवरण"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Hostname"
+msgstr "होस्टनांऽ"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "साइट"
+
+#: includes/controller.php monitor.php setup.php
+#, fuzzy
+msgid "Device Template"
+msgstr "डिवाइस टेम्पलेट"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Location"
+msgstr "स्थान:"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact"
+msgstr "संपर्क:"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Host Information"
+msgstr "डिवाइस स्थिति की जानकारी"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Availability"
+msgid "Availability Method"
+msgstr "उपलब्धता"
+
+#: includes/controller.php
+#, fuzzy, php-format
+msgid "%0.2f ms"
+msgstr "% 0.2d एमएस"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Current / Average Ping"
+msgstr "वर्तमान पिंग"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "उपलब्धता"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr ""
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Last Fail"
+msgstr "अंतिम असफलता"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr ""
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "अक्षम"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr ""
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr ""
+
+#: includes/controller.php
+msgid "OK"
+msgstr ""
+
+#: includes/controller.php
+msgid "Service Checks"
+msgstr ""
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr ""
+
+#: includes/controller.php monitor.php
+#, fuzzy
+msgid "Triggered"
+msgstr "उत्प्रेरित"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Thresholds"
+msgstr "थ्रेसहोल्ड देखें"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr ""
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr ""
+
+#: includes/controller.php
+#, fuzzy
+msgid "Open Actual Device"
+msgstr "डिवाइस"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Device Links"
+msgstr "उपकरणः"
+
 #: includes/render.php
 #, fuzzy
 msgid "Non-Site Device"
@@ -479,9 +650,15 @@ msgstr "अज्ञात"
 msgid "Just Up"
 msgstr "बस ऊपर"
 
-#: includes/render.php poller_functions.php
-msgid "Hostname"
-msgstr "होस्टनांऽ"
+#: includes/render.php
+#, fuzzy
+#| msgid "Location:"
+msgid "Actions"
+msgstr "स्थान:"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr ""
 
 #: includes/render.php
 #, fuzzy
@@ -491,14 +668,6 @@ msgstr "डिवाइस का होस्टनाम"
 #: includes/render.php
 msgid "ID"
 msgstr ""
-
-#: includes/render.php poller_functions.php
-msgid "Description"
-msgstr "विवरण"
-
-#: includes/render.php monitor.php
-msgid "Site"
-msgstr "साइट"
 
 #: includes/render.php
 #, fuzzy
@@ -526,19 +695,6 @@ msgstr ""
 #: includes/render.php
 msgid "Notes"
 msgstr "नोट"
-
-#: includes/render.php
-msgid "Availability"
-msgstr "उपलब्धता"
-
-#: includes/render.php
-#, fuzzy
-msgid "Last Fail"
-msgstr "अंतिम असफलता"
-
-#: monitor.php poller_functions.php setup.php
-msgid "Disabled"
-msgstr "अक्षम"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -572,11 +728,6 @@ msgstr "ऊपर"
 
 #: monitor.php
 #, fuzzy
-msgid "Triggered"
-msgstr "उत्प्रेरित"
-
-#: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
 msgstr "डाउन (म्यूट / Acked)"
 
@@ -599,6 +750,10 @@ msgstr "चेतावनी पिंग"
 #, fuzzy
 msgid "Alert Ping"
 msgstr "अलर्ट पिंग"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr ""
 
 #: monitor.php
 #, fuzzy
@@ -664,11 +819,6 @@ msgstr "टाइल्स"
 #, fuzzy
 msgid "Tiles & Time"
 msgstr "टाइलें और समय"
-
-#: monitor.php setup.php
-#, fuzzy
-msgid "Device Template"
-msgstr "डिवाइस टेम्पलेट"
 
 #: monitor.php
 #, fuzzy
@@ -1263,10 +1413,6 @@ msgstr "निगरानी"
 #, fuzzy
 #~ msgid "Cacti Monitor Plugin Ping Threshold Notification"
 #~ msgstr "कैक्टि मॉनिटर प्लगिन पिंग थ्रेसहोल्ड अधिसूचना"
-
-#, fuzzy
-#~ msgid "Current Ping"
-#~ msgstr "वर्तमान पिंग"
 
 #, fuzzy
 #~ msgid "Links:"
