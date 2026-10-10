@@ -71,10 +71,34 @@ function loadDashboardSettings(): void {
 }
 
 /**
+ * Whether the given dashboard is owned by the current user (shared dashboards
+ * use user_id 0 and are not owned by anyone).
+ *
+ * @param int $dashboard Dashboard id.
+ *
+ * @return bool
+ */
+function monitorDashboardOwnedByUser(int $dashboard): bool {
+	if ($dashboard <= 0) {
+		return false;
+	}
+
+	$owner = db_fetch_cell_prepared(
+		'SELECT user_id
+		FROM plugin_monitor_dashboards
+		WHERE id = ?',
+		[$dashboard]
+	);
+
+	return $owner !== null && $owner !== '' && (int) $owner === (int) ($_SESSION['sess_user_id'] ?? -1);
+}
+
+/**
  * Persist a grouping's card ordering after a drag/drop reorder.
  *
- * Stores the ordered group id list in the active dashboard's properties when a
- * dashboard is selected, otherwise in the per-user monitor_cardorder setting.
+ * Stores the ordered group id list in the dashboard's properties when the user
+ * owns the selected dashboard, otherwise (shared/read-only dashboard or none)
+ * in the per-user monitor_cardorder setting.
  *
  * @return void
  */
@@ -85,17 +109,18 @@ function saveCardOrder(): void {
 		return;
 	}
 
-	$ids = [];
+	$ids   = [];
+	$order = isset_request_var('order') ? get_nfilter_request_var('order') : [];
 
-	if (isset($_POST['order']) && is_array($_POST['order'])) {
-		foreach ($_POST['order'] as $gid) {
+	if (is_array($order)) {
+		foreach ($order as $gid) {
 			$ids[] = (string) (int) $gid;
 		}
 	}
 
 	$dashboard = isset_request_var('dashboard') ? get_filter_request_var('dashboard') : 0;
 
-	if ($dashboard > 0) {
+	if (monitorDashboardOwnedByUser($dashboard)) {
 		$props = monitorGetDashboardProperties($dashboard);
 
 		if (!isset($props['cardorder']) || !is_array($props['cardorder'])) {

@@ -175,7 +175,7 @@ function monitorGroupWorstStatusClass(array $hosts): string {
 function monitorGetCardOrder(string $grouping): array {
 	$dashboard = get_request_var('dashboard');
 
-	if ($dashboard > 0) {
+	if ($dashboard > 0 && monitorDashboardOwnedByUser($dashboard)) {
 		$props = monitorGetDashboardProperties($dashboard);
 
 		if (isset($props['cardorder'][$grouping]) && is_array($props['cardorder'][$grouping])) {
