@@ -24,7 +24,35 @@
 */
 
 /**
- * Load saved dashboard URL parameters into request scope.
+ * Decode a dashboard's stored properties JSON into an array.
+ *
+ * @param int $dashboard Dashboard id.
+ *
+ * @return array Decoded properties, or an empty array when none/invalid.
+ */
+function monitorGetDashboardProperties(int $dashboard): array {
+	if ($dashboard <= 0) {
+		return [];
+	}
+
+	$json = db_fetch_cell_prepared(
+		'SELECT properties
+		FROM plugin_monitor_dashboards
+		WHERE id = ?',
+		[$dashboard]
+	);
+
+	if ($json == '') {
+		return [];
+	}
+
+	$props = json_decode($json, true);
+
+	return is_array($props) ? $props : [];
+}
+
+/**
+ * Load saved dashboard filter variables into request scope.
  *
  * @return void
  */
@@ -32,25 +60,66 @@ function loadDashboardSettings(): void {
 	$dashboard = get_filter_request_var('dashboard');
 
 	if ($dashboard > 0) {
-		$db_settings = db_fetch_cell_prepared(
-			'SELECT url
-			FROM plugin_monitor_dashboards
-			WHERE id = ?',
-			[$dashboard]
-		);
+		$props = monitorGetDashboardProperties($dashboard);
 
-		if ($db_settings != '') {
-			$db_settings = str_replace('monitor.php?', '', $db_settings);
-			$settings    = explode('&', $db_settings);
-
-			if (cacti_sizeof($settings)) {
-				foreach ($settings as $setting) {
-					[$name, $value] = explode('=', $setting);
-
-					set_request_var($name, $value);
-				}
+		if (isset($props['vars']) && is_array($props['vars'])) {
+			foreach ($props['vars'] as $name => $value) {
+				set_request_var($name, $value);
 			}
 		}
+	}
+}
+
+/**
+ * Persist a grouping's card ordering after a drag/drop reorder.
+ *
+ * Stores the ordered group id list in the active dashboard's properties when a
+ * dashboard is selected, otherwise in the per-user monitor_cardorder setting.
+ *
+ * @return void
+ */
+function saveCardOrder(): void {
+	$grouping = get_nfilter_request_var('grouping');
+
+	if (!in_array($grouping, ['site', 'template'], true)) {
+		return;
+	}
+
+	$ids = [];
+
+	if (isset($_POST['order']) && is_array($_POST['order'])) {
+		foreach ($_POST['order'] as $gid) {
+			$ids[] = (string) (int) $gid;
+		}
+	}
+
+	$dashboard = isset_request_var('dashboard') ? get_filter_request_var('dashboard') : 0;
+
+	if ($dashboard > 0) {
+		$props = monitorGetDashboardProperties($dashboard);
+
+		if (!isset($props['cardorder']) || !is_array($props['cardorder'])) {
+			$props['cardorder'] = [];
+		}
+
+		$props['cardorder'][$grouping] = $ids;
+
+		db_execute_prepared('UPDATE plugin_monitor_dashboards
+			SET properties = ?
+			WHERE id = ?
+			AND user_id = ?',
+			[json_encode($props), $dashboard, $_SESSION['sess_user_id']]);
+	} else {
+		$json  = read_user_setting('monitor_cardorder');
+		$order = $json != '' ? json_decode($json, true) : [];
+
+		if (!is_array($order)) {
+			$order = [];
+		}
+
+		$order[$grouping] = $ids;
+
+		set_user_setting('monitor_cardorder', json_encode($order));
 	}
 }
 
@@ -824,17 +893,18 @@ function saveSettings(): void {
 			}
 		}
 	} else {
-		$url = 'monitor.php' .
-			'?refresh=' . get_request_var('refresh') .
-			'&grouping=' . get_request_var('grouping') .
-			'&view=' . get_request_var('view') .
-			'&rows=' . get_request_var('rows') .
-			'&crit=' . get_request_var('crit') .
-			'&size=' . get_request_var('size') .
-			'&trim=' . get_request_var('trim') .
-			'&status=' . get_request_var('status') .
-			'&tree=' . get_request_var('tree') .
-			'&site=' . get_request_var('site');
+		$vars = [
+			'refresh'  => get_request_var('refresh'),
+			'grouping' => get_request_var('grouping'),
+			'view'     => get_request_var('view'),
+			'rows'     => get_request_var('rows'),
+			'crit'     => get_request_var('crit'),
+			'size'     => get_request_var('size'),
+			'trim'     => get_request_var('trim'),
+			'status'   => get_request_var('status'),
+			'tree'     => get_request_var('tree'),
+			'site'     => get_request_var('site'),
+		];
 
 		if (!isset_request_var('user')) {
 			$user = $_SESSION['sess_user_id'];
@@ -845,11 +915,19 @@ function saveSettings(): void {
 		$id   = get_request_var('dashboard');
 		$name = get_nfilter_request_var('name');
 
-		$save            = [];
-		$save['id']      = $id;
-		$save['name']    = $name;
-		$save['user_id'] = $user;
-		$save['url']     = $url;
+		// Preserve any saved card ordering already stored for this dashboard.
+		$existing = monitorGetDashboardProperties($id);
+		$props    = ['vars' => $vars];
+
+		if (isset($existing['cardorder'])) {
+			$props['cardorder'] = $existing['cardorder'];
+		}
+
+		$save               = [];
+		$save['id']         = $id;
+		$save['name']       = $name;
+		$save['user_id']    = $user;
+		$save['properties'] = json_encode($props);
 
 		$id = sql_save($save, 'plugin_monitor_dashboards');
 

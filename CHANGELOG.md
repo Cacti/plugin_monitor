@@ -2,6 +2,8 @@
 
 --- 3.0 ---
 
+* feature: Restructure plugin_monitor_dashboards to store filter state as a JSON `properties` object (migrating the legacy raw `url` into it and dropping the url column on upgrade), and construct dashboard URLs from that structure instead of persisting raw urls
+* feature: Render the Site and Device Template groupings as a responsive full-width grid of draggable card panels (up to 8 columns, shrinking on narrower screens) whose titles are coloured by each group's worst device status, persisting card order per dashboard or per user
 * feature: Add a distinct 'Service Check Failed' device status with its own legend chip, tile/list colour and status-filter coverage, driven by a realm-gated, schema-aware servcheck host set
 * feature: Add an Actions column to the List view that opens a device detail dialog of intropage-style panels (host information, data collection timing, service checks, thresholds, last-hour syslog, and device links)
 * feature: Add a plugin_servcheck integration so a triggered/failing service check on a device promotes its hover status and adds a hover glyph linking to the failing check, alongside the existing thold and syslog integrations

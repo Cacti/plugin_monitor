@@ -643,3 +643,46 @@
 	color: gray;
 }
 
+/* Grouping card grid: responsive, flows full screen up to ~8 columns and
+   shrinks to fewer columns as the viewport narrows. */
+.monitorGroupGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 10px;
+	align-items: start;
+	width: 100%;
+}
+
+.monitorGroupCard .monitorPanelBody {
+	padding: 6px;
+}
+
+.monitorGroupCard .monitor_container {
+	justify-content: flex-start;
+}
+
+.monitorGroupDrag {
+	cursor: move;
+	margin-right: 6px;
+	opacity: 0.65;
+}
+
+.monitorGroupPlaceholder {
+	border: 2px dashed rgba(128, 128, 128, 0.5);
+	border-radius: 6px;
+	min-height: 60px;
+}
+
+/* Group card titles coloured by the group's worst device status. */
+.monitorGroupTitle.deviceUp { background-color: #2b8235; color: #ffffff; }
+.monitorGroupTitle.deviceDown { background-color: #a12820; color: #ffffff; }
+.monitorGroupTitle.deviceDownMuted { background-color: #93302a; color: #ffffff; }
+.monitorGroupTitle.deviceRecovering { background-color: #9a6a1a; color: #ffffff; }
+.monitorGroupTitle.deviceThreshold { background-color: #a85712; color: #ffffff; }
+.monitorGroupTitle.deviceThresholdMuted { background-color: #6a4a9c; color: #ffffff; }
+.monitorGroupTitle.deviceWarning { background-color: #7d6f18; color: #ffffff; }
+.monitorGroupTitle.deviceAlert { background-color: #86407a; color: #ffffff; }
+.monitorGroupTitle.deviceUnknown { background-color: #5f5f57; color: #ffffff; }
+.monitorGroupTitle.deviceUnmonitored { background-color: #3f6a8a; color: #ffffff; }
+.monitorGroupTitle.deviceServiceCheck { background-color: #157f87; color: #ffffff; }
+

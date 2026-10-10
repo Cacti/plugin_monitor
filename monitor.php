@@ -147,6 +147,10 @@ switch (get_nfilter_request_var('action')) {
 		ajaxHostPanel();
 
 		break;
+	case 'ajax_saveorder':
+		saveCardOrder();
+
+		break;
 	case 'ajax_mute_all':
 		muteAllHosts();
 		drawPage();

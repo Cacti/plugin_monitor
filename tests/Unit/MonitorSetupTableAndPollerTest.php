@@ -77,3 +77,50 @@ it('does nothing on a non-primary poller', function () {
 
 	expect($GLOBALS['__test_exec_calls'])->toBeEmpty();
 });
+
+it('parses a legacy dashboard url into the properties vars structure', function () {
+	$props = monitor_url_to_properties('monitor.php?refresh=60&grouping=site&site=-1&rfilter=');
+
+	expect($props)->toBe([
+		'vars' => [
+			'refresh'  => '60',
+			'grouping' => 'site',
+			'site'     => '-1',
+			'rfilter'  => '',
+		],
+	]);
+});
+
+it('migrates legacy dashboard urls into properties and drops the url column', function () {
+	monitor_test_reset_db_mocks();
+	$GLOBALS['__test_db_calls'] = array();
+
+	monitor_test_mock_db('db_table_exists', 'plugin_monitor_dashboards', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_monitor_dashboards.url', true);
+	monitor_test_mock_db('db_fetch_assoc', 'plugin_monitor_dashboards', [
+		['id' => 1, 'url' => 'monitor.php?grouping=site&view=tiles'],
+	]);
+
+	monitor_migrate_dashboard_properties();
+
+	$updates = array_values(array_filter($GLOBALS['__test_db_calls'], fn ($c) => $c['fn'] === 'db_execute_prepared'));
+	$removed = array_filter($GLOBALS['__test_db_calls'], fn ($c) => $c['fn'] === 'db_remove_column' && $c['column'] === 'url');
+
+	expect($removed)->not->toBeEmpty();
+	expect($updates)->not->toBeEmpty();
+	expect($updates[0]['params'][0])->toContain('"grouping":"site"');
+});
+
+it('skips dashboard migration when the url column is already gone', function () {
+	monitor_test_reset_db_mocks();
+	$GLOBALS['__test_db_calls'] = array();
+
+	monitor_test_mock_db('db_table_exists', 'plugin_monitor_dashboards', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_monitor_dashboards.properties', true);
+
+	monitor_migrate_dashboard_properties();
+
+	$removed = array_filter($GLOBALS['__test_db_calls'], fn ($c) => $c['fn'] === 'db_remove_column');
+
+	expect($removed)->toBeEmpty();
+});

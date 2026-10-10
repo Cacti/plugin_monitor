@@ -247,6 +247,20 @@ if (!function_exists('api_plugin_db_add_column')) {
 	}
 }
 
+if (!function_exists('db_add_column')) {
+	function db_add_column($table, $data) {
+		return true;
+	}
+}
+
+if (!function_exists('db_remove_column')) {
+	function db_remove_column($table, $column) {
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'db_remove_column', 'table' => $table, 'column' => $column, 'sql' => $table);
+
+		return true;
+	}
+}
+
 if (!function_exists('api_plugin_db_table_create')) {
 	function api_plugin_db_table_create($plugin, $table, $data) {
 		$GLOBALS['__test_db_calls'][] = array('fn' => 'api_plugin_db_table_create', 'plugin' => $plugin, 'table' => $table, 'data' => $data, 'sql' => $table);
