@@ -12,7 +12,7 @@ dataset('output_hardening', [
 	'controller mute'      => ['includes/controller.php', "html_escape(get_request_var('mute'))"],
 	'controller tree'      => ['includes/controller.php', "html_escape(get_request_var('tree'))"],
 	'controller site'      => ['includes/controller.php', "html_escape(get_request_var('site'))"],
-	'controller template'  => ['includes/controller.php', "html_escape(get_request_var('template'))"],
+	'controller template'  => ['includes/controller.php', "html_escape(implode(',', monitorGetSelectedTemplates()))"],
 	'controller size'      => ['includes/controller.php', "html_escape(get_request_var('size'))"],
 	'controller trim'      => ['includes/controller.php', "html_escape(get_request_var('trim'))"],
 	'render rfilter'       => ['includes/render.php', "rawurlencode(get_request_var('rfilter'))"],
