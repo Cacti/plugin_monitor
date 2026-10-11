@@ -1237,12 +1237,6 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 			'tip'     => __('Administrative monitor message shown while the device is Down or Recovering', 'monitor'),
 			'align'   => 'left'
 		],
-		'notes' => [
-			'display' => __('Notes', 'monitor'),
-			'sort'    => 'ASC',
-			'align'   => 'left',
-			'tip'     => __('Free-form notes recorded for the device', 'monitor')
-		],
 		'availability' => [
 			'display' => __('Availability', 'monitor'),
 			'sort'    => 'DESC',
@@ -1480,7 +1474,6 @@ function renderHostList(array $host): string {
 	form_selectable_cell($host_avg, $host['id'], '', 'left');
 	form_selectable_cell($host_warn, $host['id'], '', 'left');
 	form_selectable_cell($host_admin, $host['id'], '', 'white-space:pre-wrap;text-align:left');
-	form_selectable_cell(str_replace(["\n", "\r"], [' ', ''], $host['notes']), $host['id'], '', 'white-space:pre-wrap;text-align:left');
 	form_selectable_cell(round($host['availability'], 2) . ' %', $host['id'], '', 'right');
 	form_selectable_cell($host_datefail, $host['id'], '', 'right');
 

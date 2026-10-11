@@ -1516,6 +1516,10 @@ function monitorPanelHostInfo(array $host, array $iclasses): string {
 		$body .= monitorPanelRow(__('Contact', 'monitor'), html_escape(monitorTrim($host['snmp_sysContact'])));
 	}
 
+	if (isset($host['notes']) && $host['notes'] != '') {
+		$body .= monitorPanelRow(__('Notes', 'monitor'), nl2br(html_escape($host['notes'])));
+	}
+
 	$body .= '</ul>';
 
 	return monitorPanelCard(__('Host Information', 'monitor'), $body, 'fa-server');
