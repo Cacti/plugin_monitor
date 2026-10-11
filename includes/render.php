@@ -1166,7 +1166,7 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 	$display_text = [
 		'nosort_actions' => [
 			'display' => __('Actions', 'monitor'),
-			'align'   => 'center',
+			'align'   => 'left',
 			'tip'     => __('Open the device detail panels', 'monitor')
 		],
 		'hostname' => [
@@ -1460,7 +1460,7 @@ function renderHostList(array $host): string {
 
 	$actions = "<a class='monitorActions pic' href='#' data-id='" . $host['id'] . "' title='" . __esc('Device Detail Panels', 'monitor') . "'><i class='fas fa-layer-group'></i></a>";
 
-	form_selectable_cell($actions, $host['id'], '1%', 'center');
+	form_selectable_cell($actions, $host['id'], '1%', 'left');
 	form_selectable_cell(filter_value($host['hostname'], '', $url), $host['id'], '', 'left');
 	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host['description'], $host['id'], '', 'left');

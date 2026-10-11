@@ -609,22 +609,43 @@
 
 /* Device detail panels (intropage-style cards) in the Actions dialog */
 .monitorPanels {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+	/* Plain block stacking (not flex) so a card can never collapse to its
+	   min-content width inside the jQuery UI dialog content box. */
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 /* Keep the Actions dialog body scrollable when the panels are taller than the
-   dialog, so nothing is cut off. */
+   dialog, and force the content box to always fill the dialog width. Some
+   theme/runtime combinations otherwise let the jQuery UI content box shrink to
+   its min-content width and drift to one side, squashing the panels into a
+   narrow strip. The !important/auto width and block display defeat any
+   inherited inline-block, float or flex-item sizing on the content box. */
+#monitorPanelDialog.ui-dialog-content,
 #monitorPanelDialog {
+	box-sizing: border-box;
+	display: block;
+	float: none;
+	width: auto !important;
+	min-width: 0;
+	flex: 1 1 auto;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 
 .monitorPanel {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 10px;
 	border: 1px solid rgba(128, 128, 128, 0.35);
 	border-radius: 6px;
 	overflow: hidden;
+}
+
+.monitorPanel:last-child {
+	margin-bottom: 0;
 }
 
 .monitorPanelHeader {
