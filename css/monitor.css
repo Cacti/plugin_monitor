@@ -607,6 +607,10 @@
 	font-size: 16px;
 }
 
+.monitorActions + .monitorActions {
+	margin-left: 8px;
+}
+
 /* Device detail panels (intropage-style cards) in the Actions dialog */
 .monitorPanels {
 	/* Plain block stacking (not flex) so a card can never collapse to its

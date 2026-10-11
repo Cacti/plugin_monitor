@@ -572,6 +572,11 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
 	}
 
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? getMuteText() : getUnmuteText()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', getMuteText(), 'monitor') : __('%s Alerts for downed Devices', getUnmuteText(), 'monitor')) . '">' . PHP_EOL;
+
+	if (api_plugin_user_realm_auth('host.php')) {
+		print '<input type="button" value="' . __esc('Devices', 'monitor') . '" id="devices" title="' . __esc('Go to the Devices management page', 'monitor') . '">' . PHP_EOL;
+	}
+
 	print '<input id="downhosts" type="hidden" value="' . html_escape(get_request_var('downhosts')) . '"><input id="mute" type="hidden" value="' . html_escape(get_request_var('mute')) . '">' . PHP_EOL;
 	print '</span></td>';
 }

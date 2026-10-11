@@ -1362,7 +1362,7 @@ function renderFooterList(int $total_rows, int $rows): string {
  * @return string
  */
 function renderHostList(array $host): string {
-	global $criticalities, $iclasses, $thold_counts, $servcheck_counts;
+	global $criticalities, $iclasses, $thold_counts, $servcheck_counts, $config;
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
@@ -1453,6 +1453,10 @@ function renderHostList(array $host): string {
 	$url = $host['anchor'];
 
 	$actions = "<a class='monitorActions pic' href='#' data-id='" . $host['id'] . "' title='" . __esc('Device Detail Panels', 'monitor') . "'><i class='fas fa-layer-group'></i></a>";
+
+	if (api_plugin_user_realm_auth('host.php')) {
+		$actions .= "<a class='monitorActions pic' href='" . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . "' title='" . __esc('Edit Device', 'monitor') . "'><i class='fas fa-pen-square'></i></a>";
+	}
 
 	form_selectable_cell($actions, $host['id'], '1%', 'left');
 	form_selectable_cell(filter_value($host['hostname'], '', $url), $host['id'], '', 'left');

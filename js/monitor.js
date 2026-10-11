@@ -133,7 +133,7 @@ function openHostPanel(id) {
 		maxHeight: maxHeight,
 		modal: false,
 		closeOnEscape: true,
-		position: { my: 'center top', at: 'center top+300', of: globalThis },
+		position: { my: 'center top', at: 'center top+150', of: globalThis },
 		open() {
 			// Pause the refresh countdown so the page does not reload underneath
 			// the open dialog.
@@ -349,6 +349,10 @@ $(() => {
 			muteUnmuteAudio(false);
 			applyFilter('ajax_unmute_all');
 		}
+	});
+
+	$('#devices').click(() => {
+		document.location = urlPath + 'host.php';
 	});
 
 	$('#refresh, #view, #rows, #trim, #crit, #grouping, #size, #status, #tree, #site').change(() => {
