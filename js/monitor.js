@@ -113,12 +113,24 @@ function openHostPanel(id) {
 
 	dlg.html(`<div class='monitorPanelLoading'>${monitorMessages.loading || 'Loading...'}</div>`);
 
+	const maxHeight = Math.max(360, $(globalThis).height() - 80);
+
 	dlg.dialog({
 		title: monitorMessages.deviceDetails || 'Device Details',
 		width: 720,
-		height: 620,
+		height: Math.min(760, maxHeight),
+		maxHeight: maxHeight,
 		modal: true,
-		position: { at: 'center top+60px', of: globalThis }
+		closeOnEscape: true,
+		position: { my: 'center', at: 'center', of: globalThis },
+		open() {
+			// Pause the refresh countdown so the page does not reload underneath
+			// the open dialog.
+			clearTimeout(myTimer);
+		},
+		close() {
+			myTimer = setTimeout(timeStep, 1000);
+		}
 	});
 
 	$.get(`monitor.php?action=ajax_hostpanel&header=false&id=${id}`, (data) => {

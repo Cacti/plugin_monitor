@@ -252,7 +252,11 @@ function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): 
 		// span maps to flex sizing in css (see .monitorGroupCard[data-span]).
 		$span = (int) min(4, max(1, (int) ceil(cacti_sizeof($group['hosts']) / 6)));
 
-		$body = "<div class='monitor_container'>";
+		// Size every tile to the longest (trimmed) description in view so long
+		// hostnames never overlap their neighbours. css widens the titles from
+		// this custom property.
+		$title_ch = max(8, min(40, $maxlen));
+		$body     = "<div class='monitor_container' style='--monitor-title-ch:$title_ch'>";
 
 		foreach ($group['hosts'] as $host) {
 			$body .= renderHost($host, true, $maxlen);
@@ -1196,6 +1200,15 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 		],
 	];
 
+	// Hide the Thresholds / Service Checks columns when their plugin is absent.
+	if (!api_plugin_is_enabled('thold')) {
+		unset($display_text['nosort_tholds']);
+	}
+
+	if (!api_plugin_is_enabled('servcheck')) {
+		unset($display_text['nosort_servchecks']);
+	}
+
 	ob_start();
 
 	$nav = html_nav_bar('monitor.php?rfilter=' . rawurlencode(get_request_var('rfilter')), MAX_DISPLAY_PAGES, get_request_var('page'), $rows, $total_rows, 12, __('Devices'), 'page', 'main');
@@ -1322,31 +1335,39 @@ function renderHostList(array $host): string {
 		$host_crit = "<span class='monitorPill monitorCrit monitorCrit0 monitorFilterPill' data-filter='crit' data-value='0' title='" . __esc('Criticality not set - click to filter unset devices (click again to clear)', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
 	}
 
-	// Ping latency pill (Warning/Alert) shown right of the Status column.
-	$ping_cell = '';
+	// Map the display status to the closest Status filter value so the status
+	// pill can filter (Up/Unknown/Unmonitored have no useful filter and stay
+	// inert).
+	$status_filter_map = [1 => '0', 2 => '0', 5 => '0', 4 => '1', 9 => '1', 7 => '7', 8 => '8', 10 => '10'];
 
+	// Ping latency pill (Warning/Alert) shown right of the Status column; a muted
+	// pill is shown when there is no ping alert so the column is never blank.
 	if (!empty($host['monitor_alert']) && $host['cur_time'] > $host['monitor_alert']) {
 		$ping_cell = "<span class='monitorPill deviceAlert monitorFilterPill' data-filter='status' data-value='8' title='" . __esc('Alert ping latency - click to filter (click again to clear)', 'monitor') . "'>" . __esc('Alert', 'monitor') . '</span>';
 	} elseif (!empty($host['monitor_warn']) && $host['cur_time'] > $host['monitor_warn']) {
 		$ping_cell = "<span class='monitorPill deviceWarning monitorFilterPill' data-filter='status' data-value='7' title='" . __esc('Warning ping latency - click to filter (click again to clear)', 'monitor') . "'>" . __esc('Warning', 'monitor') . '</span>';
+	} else {
+		$ping_cell = "<span class='monitorPill monitorPillMuted' title='" . __esc('No ping latency alert', 'monitor') . "'>" . __esc('OK', 'monitor') . '</span>';
 	}
 
-	// Thresholds pill: breached / triggered / total (thold plugin).
-	$thold_cell = '';
-
+	// Thresholds pill: breached / triggered / total (thold plugin); a muted
+	// 'Not Set' pill is shown when the device has no thresholds.
 	if (isset($thold_counts[$host['id']]) && $thold_counts[$host['id']]['total'] > 0) {
 		$tc         = $thold_counts[$host['id']];
 		$tcls       = ($tc['triggered'] > 0 || $tc['breached'] > 0) ? 'deviceThreshold' : 'monitorPillMuted';
 		$thold_cell = "<span class='monitorPill $tcls monitorFilterPill' data-filter='status' data-value='2' title='" . __esc('Breached / Triggered / Total thresholds - click to filter triggered or breached devices (click again to clear)', 'monitor') . "'>" . $tc['breached'] . ' / ' . $tc['triggered'] . ' / ' . $tc['total'] . '</span>';
+	} else {
+		$thold_cell = "<span class='monitorPill monitorPillMuted' title='" . __esc('No thresholds defined for this device', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
 	}
 
-	// Service checks pill: failed / total (servcheck plugin).
-	$servcheck_cell = '';
-
+	// Service checks pill: failed / total (servcheck plugin); a muted 'Not Set'
+	// pill is shown when the device has no service checks.
 	if (isset($servcheck_counts[$host['id']]) && $servcheck_counts[$host['id']]['total'] > 0) {
 		$sc             = $servcheck_counts[$host['id']];
 		$scls           = ($sc['failed'] > 0) ? 'deviceServiceCheck' : 'monitorPillMuted';
 		$servcheck_cell = "<span class='monitorPill $scls monitorFilterPill' data-filter='status' data-value='10' title='" . __esc('Failed / Total service checks - click to filter failing devices (click again to clear)', 'monitor') . "'>" . $sc['failed'] . ' / ' . $sc['total'] . '</span>';
+	} else {
+		$servcheck_cell = "<span class='monitorPill monitorPillMuted' title='" . __esc('No service checks defined for this device', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
 	}
 
 	if ($host['availability_method'] > 0) {
@@ -1384,10 +1405,26 @@ function renderHostList(array $host): string {
 	form_selectable_cell($host['description'], $host['id'], '', 'left');
 	form_selectable_cell($host['site_name'], $host['id'], '', 'left');
 	form_selectable_cell($host_crit, $host['id'], '', 'left');
-	form_selectable_cell("<span class='monitorStatus deviceStatus $iclass'>" . html_escape($sdisplay) . '</span>', $host['id'], '', 'center');
+
+	$rstatus = (int) $host['real_status'];
+
+	if (isset($status_filter_map[$rstatus])) {
+		$status_pill = "<span class='monitorStatus deviceStatus $iclass monitorFilterPill' data-filter='status' data-value='" . $status_filter_map[$rstatus] . "' title='" . __esc('Click to filter by this status (click again to clear)', 'monitor') . "'>" . html_escape($sdisplay) . '</span>';
+	} else {
+		$status_pill = "<span class='monitorStatus deviceStatus $iclass'>" . html_escape($sdisplay) . '</span>';
+	}
+
+	form_selectable_cell($status_pill, $host['id'], '', 'center');
 	form_selectable_cell($ping_cell, $host['id'], '', 'center');
-	form_selectable_cell($thold_cell, $host['id'], '', 'center');
-	form_selectable_cell($servcheck_cell, $host['id'], '', 'center');
+
+	if (api_plugin_is_enabled('thold')) {
+		form_selectable_cell($thold_cell, $host['id'], '', 'center');
+	}
+
+	if (api_plugin_is_enabled('servcheck')) {
+		form_selectable_cell($servcheck_cell, $host['id'], '', 'center');
+	}
+
 	form_selectable_cell($dt, $host['id'], '', 'center');
 	form_selectable_cell($host_avg, $host['id'], '', 'left');
 	form_selectable_cell($host_warn, $host['id'], '', 'left');

@@ -29,6 +29,13 @@
 	justify-content: space-between;
 }
 
+/* When the server sets --monitor-title-ch (the longest trimmed description in
+   view), widen every tile title to it so long hostnames wrap within their own
+   tile instead of blending into neighbours. */
+.monitor_container[style*='--monitor-title-ch'] [class$='_title'] {
+	width: calc(var(--monitor-title-ch, 11) * 1ch + 8px) !important;
+}
+
 .monitor_sub_container {
 	display: flex;
 	flex-wrap: wrap;
@@ -594,6 +601,13 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+}
+
+/* Keep the Actions dialog body scrollable when the panels are taller than the
+   dialog, so nothing is cut off. */
+#monitorPanelDialog {
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .monitorPanel {

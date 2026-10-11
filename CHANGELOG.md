@@ -2,6 +2,10 @@
 
 --- 3.0 ---
 
+* bug: Make the List-view Status pill clickable to filter by that status, show a muted 'OK' / 'Not Set' pill (instead of a blank cell) when a device has no ping alert, thresholds or service checks, and hide the Thresholds / Service Checks columns entirely when their plugin is not installed
+* bug: Size grouping-card tiles to the longest visible host description so long hostnames no longer overlap neighbouring tiles
+* bug: Center the device Actions dialog, make it taller and scrollable so panel text is not cut off, and pause the page refresh countdown while it is open
+* bug: Remove the stray 'Monitored Devices' box header on the Site grouping so it matches the other groupings
 * feature: Add clickable List-view pills — Thresholds (breached / triggered / total), Service Checks (failed / total), a Ping latency pill beside Status, and a Criticality pill (including a 'Not Set' pill for unset devices) — that toggle the matching filter on and off
 * feature: Add Status filter options for Warning Ping, Alert Ping and Service Check Failed, and make the Criticality 'None' selection filter to devices with no criticality set
 * bug: Give the busiest grouping cards (many devices) a full row of their own so their tiles span the whole page instead of being squeezed to part of the width beside smaller cards
