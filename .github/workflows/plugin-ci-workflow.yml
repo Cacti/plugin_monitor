@@ -77,6 +77,15 @@ jobs:
         # patch-coverage.php diffs against the base branch below.
         fetch-depth: 0
 
+    # Monitor declares `requires = thold:1.2.1` in its INFO file, so a Cacti
+    # that now reports install failures refuses to install Monitor without it.
+    - name: Checkout Thold Plugin
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        repository: Cacti/plugin_thold
+        ref: develop
+        path: cacti/plugins/thold
+
     - name: Install PHP ${{ matrix.php }}
       uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
       with:
@@ -167,6 +176,11 @@ jobs:
       run: |
         cd ${{ github.workspace }}/cacti
         sudo php cli/install_cacti.php --accept-eula --install --force
+
+    - name: Install Thold Plugin
+      run: |
+        cd ${{ github.workspace }}/cacti
+        sudo php cli/plugin_manage.php --plugin=thold --install --enable
 
     - name: Install Monitor Plugin
       run: |
