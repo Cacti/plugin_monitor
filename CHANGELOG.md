@@ -2,6 +2,8 @@
 
 --- 3.0 ---
 
+* bug: Lay the grouping cards out with a wrapping flexbox instead of a CSS grid so they always stretch to fill the full horizontal space; inside Cacti's shrink-to-fit html_start_box div the grid mis-counted its tracks and clipped the cards to roughly half the page width
+* bug: Default-order the Tree grouping cards by device count (busiest first), matching the Site and Device Template orderings while still honouring any saved drag order
 * feature: Restructure plugin_monitor_dashboards to store filter state as a JSON `properties` object (migrating the legacy raw `url` into it and dropping the url column on upgrade), and construct dashboard URLs from that structure instead of persisting raw urls
 * feature: Render the Site and Device Template groupings as a responsive full-width grid of draggable card panels (up to 8 columns, shrinking on narrower screens) whose titles are coloured by each group's worst device status, persisting card order per dashboard or per user
 * bug: Let a grouping card with many devices span several grid columns so it flows across the page instead of stacking into one tall, narrow column that scrolls off the screen

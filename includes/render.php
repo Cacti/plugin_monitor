@@ -247,8 +247,9 @@ function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): 
 	foreach ($groups as $gid => $group) {
 		$worst = monitorGroupWorstStatusClass($group['hosts']);
 
-		// Let groups with many devices span several grid columns so their tiles
-		// flow across the page instead of stacking into one tall, narrow column.
+		// Let groups with many devices take a wider card so their tiles flow
+		// across the page instead of stacking into one tall, narrow column. The
+		// span maps to flex sizing in css (see .monitorGroupCard[data-span]).
 		$span = (int) min(4, max(1, (int) ceil(cacti_sizeof($group['hosts']) / 6)));
 
 		$body = "<div class='monitor_container'>";
@@ -259,7 +260,7 @@ function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): 
 
 		$body .= '</div>';
 
-		$out .= "<div class='monitorPanel monitorGroupCard' data-group='" . html_escape((string) $gid) . "' data-span='$span' style='grid-column: span $span;'>
+		$out .= "<div class='monitorPanel monitorGroupCard' data-group='" . html_escape((string) $gid) . "' data-span='$span'>
 			<div class='monitorPanelHeader monitorGroupTitle $worst'><i class='fas fa-grip-vertical monitorGroupDrag'></i> " . html_escape($group['label']) . "</div>
 			<div class='monitorPanelBody'>$body</div>
 		</div>";
@@ -770,6 +771,12 @@ function monitorRenderTreeCards(array $tree_list): string {
 	}
 
 	$maxlen = getMonitorTrimLength($maxlen);
+
+	// Default-order the tree cards by device count (busiest first); any saved
+	// drag order the user set still wins in monitorRenderGroupCards().
+	uasort($groups, static function (array $a, array $b): int {
+		return cacti_sizeof($b['hosts']) <=> cacti_sizeof($a['hosts']);
+	});
 
 	return monitorRenderGroupCards('tree', $groups, $maxlen);
 }
