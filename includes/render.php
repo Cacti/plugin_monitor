@@ -724,7 +724,8 @@ function monitorRenderTreeCards(array $tree_list): string {
 
 		if (cacti_sizeof($hosts)) {
 			[$hosts, $ids] = monitorFilterAllowedHosts($hosts);
-			$host_ids      = array_merge($host_ids, $ids);
+
+			$host_ids = array_merge($host_ids, $ids);
 
 			foreach ($hosts as $host) {
 				$gid = 'tree_' . $host['graph_tree_id'];
@@ -747,7 +748,8 @@ function monitorRenderTreeCards(array $tree_list): string {
 			[$nontree, $ids] = monitorFilterAllowedHosts($nontree);
 
 			if (cacti_sizeof($nontree)) {
-				$host_ids          = array_merge($host_ids, $ids);
+				$host_ids = array_merge($host_ids, $ids);
+
 				$groups['nontree'] = ['label' => monitorNonTreeLabel(), 'hosts' => $nontree];
 			}
 		}

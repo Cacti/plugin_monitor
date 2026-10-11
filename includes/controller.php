@@ -117,7 +117,7 @@ function saveCardOrder(): void {
 			// Group ids may be numeric (site/template) or string tokens such as
 			// "tree_12" and "nontree", so preserve the string while stripping
 			// anything outside a safe id character set.
-			$gid = preg_replace('/[^a-zA-Z0-9_]/', '', (string) $gid);
+			$gid = (string) preg_replace('/[^a-zA-Z0-9_]/', '', (string) $gid);
 
 			if ($gid !== '') {
 				$ids[] = $gid;
