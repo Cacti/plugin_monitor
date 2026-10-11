@@ -34,6 +34,7 @@ set_default_action();
 $start = microtime(true);
 
 $criticalities = [
+	-1 => __('All', 'monitor'),
 	0 => __('Disabled', 'monitor'),
 	1 => __('Low', 'monitor'),
 	2 => __('Medium', 'monitor'),
@@ -84,6 +85,12 @@ $monitor_status = [
 	-3 => __('Devices not Monitored', 'monitor'),
 	-4 => __('Devices without Thresholds', 'monitor'),
 ];
+
+// Only offer the service-check scope when the servcheck plugin is installed
+// and the user has access to it.
+if (api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
+	$monitor_status[-5] = __('Devices without Service Checks', 'monitor');
+}
 
 // Additive event classes for the multi-select Events filter and the Events
 // column pills. Keys are stable filter tokens; a device can match several.

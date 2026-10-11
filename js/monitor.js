@@ -16,6 +16,17 @@ function setZoomErrorBackgrounds() {
 	}
 }
 
+// Multi-select filters (Events, Template) return an array when themed by
+// select2; a plain hidden input returns a comma string. Normalize to a comma
+// string for request/POST serialization.
+function serializeMultiVal(value) {
+	if (Array.isArray(value)) {
+		return value.join(',');
+	}
+
+	return value || '';
+}
+
 function setIntervalX(callback, delay, repetitions) {
 	let x = 0;
 	const intervalID = globalThis.setInterval(() => {
@@ -157,7 +168,7 @@ function applyFilter(action = '') {
 		strURL += `&grouping=${$('#grouping').val()}`;
 		strURL += `&tree=${$('#tree').val()}`;
 		strURL += `&site=${$('#site').val()}`;
-		strURL += `&template=${$('#template').val()}`;
+		strURL += `&template=${serializeMultiVal($('#template').val())}`;
 		strURL += `&view=${$('#view').val()}`;
 		strURL += `&rows=${$('#rows').val()}`;
 		strURL += `&crit=${$('#crit').val()}`;
@@ -183,7 +194,7 @@ function saveFilter() {
 		grouping: $('#grouping').val(),
 		tree: $('#tree').val(),
 		site: $('#site').val(),
-		template: $('#template').val(),
+		template: serializeMultiVal($('#template').val()),
 		view: $('#view').val(),
 		rows: $('#rows').val(),
 		crit: $('#crit').val(),
@@ -212,7 +223,7 @@ function saveNewDashboard(action) {
 		grouping: $('#grouping').val(),
 		tree: $('#tree').val(),
 		site: $('#site').val(),
-		template: $('#template').val(),
+		template: serializeMultiVal($('#template').val()),
 		view: $('#view').val(),
 		rows: $('#rows').val(),
 		crit: $('#crit').val(),
@@ -340,19 +351,20 @@ $(() => {
 		}
 	});
 
-	$('#refresh, #view, #rows, #trim, #crit, #grouping, #size, #status, #tree, #site, #template').change(() => {
+	$('#refresh, #view, #rows, #trim, #crit, #grouping, #size, #status, #tree, #site').change(() => {
 		applyFilter('change');
 	});
 
-	// Events multi-select: let the user tick several events with the dropdown
-	// staying open (reloading mid-selection would close it, since the filter is
-	// re-rendered), then apply once when the dropdown closes. A plain multiple
-	// select (no select2) has no dropdown to keep open, so it applies on change.
-	$('#events').on('select2:close', () => {
+	// Events and Template multi-selects: let the user tick several boxes with
+	// the dropdown staying open (reloading mid-selection would close it, since
+	// the filter is re-rendered), then apply once when the dropdown closes. A
+	// plain multiple select (no select2) has no dropdown to keep open, so it
+	// applies on change.
+	$('#events, #template').on('select2:close', () => {
 		applyFilter('change');
 	});
 
-	$('#events').on('change', function () {
+	$('#events, #template').on('change', function () {
 		if (!$(this).data('select2')) {
 			applyFilter('change');
 		}

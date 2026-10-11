@@ -392,16 +392,21 @@ function drawFilterDropdown(string $id, string $title, array $settings = [], mix
 /**
  * Render a checkbox-style multi-select filter (Cacti 'N Selected' widget).
  *
- * @param string $id       Filter field id/name.
- * @param string $title    Filter display title.
- * @param array  $settings Option map of value => label.
- * @param array  $selected Currently selected option values.
+ * @param string $id        Filter field id/name.
+ * @param string $title     Filter display title.
+ * @param array  $settings  Option map of value => label.
+ * @param array  $selected  Currently selected option values.
+ * @param string $countText Noun shown in the 'N Selected' widget label.
  *
  * @return void
  */
-function drawFilterMultiselect(string $id, string $title, array $settings, array $selected): void {
+function drawFilterMultiselect(string $id, string $title, array $settings, array $selected, string $countText = ''): void {
 	if (!cacti_sizeof($settings)) {
 		return;
+	}
+
+	if ($countText === '') {
+		$countText = $title;
 	}
 
 	print '<td>' . html_escape($title) . '</td>';
@@ -411,7 +416,7 @@ function drawFilterMultiselect(string $id, string $title, array $settings, array
 	// plain multiple select.
 	$select_class = version_compare(CACTI_VERSION, '1.2.32', '>=') ? ' class="select2-multi-count"' : '';
 
-	print '<td><select id="' . $id . '" name="' . $id . '[]" multiple' . $select_class . ' data-selectCountText="' . __esc('Events', 'monitor') . '" title="' . html_escape($title) . '">' . PHP_EOL;
+	print '<td><select id="' . $id . '" name="' . $id . '[]" multiple' . $select_class . ' data-selectCountText="' . html_escape($countText) . '" title="' . html_escape($title) . '">' . PHP_EOL;
 
 	foreach ($settings as $setting_value => $setting_name) {
 		$setting_selected = in_array((string) $setting_value, $selected, true) ? ' selected' : '';
@@ -443,6 +448,34 @@ function monitorGetSelectedEvents(): array {
 	$keys = array_map('trim', $keys);
 
 	return array_values(array_intersect($keys, array_keys($monitor_events)));
+}
+
+/**
+ * Resolve the selected, validated Device Template tokens from the request.
+ *
+ * Templates are a multi-select (checkbox) filter like Events. Tokens are
+ * host_template_id values; 0 represents Non-Templated devices. Legacy
+ * single-select sentinels (-1 All) are dropped so an empty result means
+ * 'all templates'.
+ *
+ * @return array List of valid, non-negative template id tokens.
+ */
+function monitorGetSelectedTemplates(): array {
+	$raw = get_nfilter_request_var('template');
+
+	if (is_array($raw)) {
+		$keys = $raw;
+	} elseif ($raw === '' || $raw === null) {
+		return [];
+	} else {
+		$keys = explode(',', (string) $raw);
+	}
+
+	$keys = array_filter(array_map('trim', $keys), static function ($k) {
+		return ctype_digit((string) $k);
+	});
+
+	return array_values(array_map('strval', array_map('intval', $keys)));
 }
 
 /**
@@ -619,12 +652,12 @@ function monitorRenderGroupingDropdowns(array $classes, array $criticalities, ar
 		);
 
 		if (cacti_sizeof($templates_allowed)) {
-			$templates_prefix = [-1 => __('All Templates', 'monitor')];
-			$templates_suffix = [-2 => __('Non-Templated Devices', 'monitor')];
-			$templates        = $templates_prefix + $templates_allowed + $templates_suffix;
+			// 0 = Non-Templated devices (host_template_id = 0). No selection
+			// means all templates, so there is no 'All' checkbox.
+			$templates = [0 => __('Non-Templated Devices', 'monitor')] + $templates_allowed;
 		}
 
-		drawFilterDropdown('template', __('Template', 'monitor'), $templates);
+		drawFilterMultiselect('template', __('Template', 'monitor'), $templates, monitorGetSelectedTemplates(), __('Templates', 'monitor'));
 	}
 
 	drawFilterDropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
@@ -645,7 +678,7 @@ function monitorRenderHiddenFilterInputs(): void {
 	}
 
 	if (get_request_var('grouping') != 'template') {
-		print '<td><input type="hidden" id="template" value="' . html_escape(get_request_var('template')) . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="template" value="' . html_escape(implode(',', monitorGetSelectedTemplates())) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') == 'list') {
@@ -900,6 +933,10 @@ function saveSettings(): void {
 						set_user_setting('monitor_events', implode(',', monitorGetSelectedEvents()));
 
 						break;
+					case 'template':
+						set_user_setting('monitor_template', implode(',', monitorGetSelectedTemplates()));
+
+						break;
 					case 'tree':
 						set_user_setting('monitor_tree', get_request_var('tree'));
 
@@ -1053,9 +1090,10 @@ function validateRequestVars(bool $force = false): void {
 			'default' => read_user_setting('monitor_site', '-1', $force)
 		],
 		'template' => [
-			'filter'  => FILTER_VALIDATE_INT,
+			'filter'  => FILTER_CALLBACK,
 			'pageset' => true,
-			'default' => read_user_setting('monitor_template', '-1', $force)
+			'options' => ['options' => 'sanitize_search_string'],
+			'default' => read_user_setting('monitor_template', '', $force)
 		],
 		'id' => [
 			'filter'  => FILTER_VALIDATE_INT,

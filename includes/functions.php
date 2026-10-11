@@ -373,6 +373,28 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 		}
 	}
 
+	// Multi-select Device Template filter (host_template_id IN list; 0 =
+	// Non-Templated). Empty selection means all templates.
+	if (get_request_var('grouping') == 'template') {
+		$tpl_raw = get_nfilter_request_var('template');
+
+		if (is_array($tpl_raw)) {
+			$tpls = $tpl_raw;
+		} elseif ($tpl_raw === '' || $tpl_raw === null) {
+			$tpls = [];
+		} else {
+			$tpls = explode(',', (string) $tpl_raw);
+		}
+
+		$tpls = array_map('intval', array_filter(array_map('trim', $tpls), static function ($t) {
+			return ctype_digit((string) $t);
+		}));
+
+		if (cacti_sizeof($tpls)) {
+			$awhere .= ($awhere == '' ? '' : ' AND ') . 'h.host_template_id IN (' . implode(',', $tpls) . ')';
+		}
+	}
+
 	// Additive Events filter (OR-combined) from the multi-select.
 	$events_raw = get_nfilter_request_var('events');
 
@@ -414,6 +436,18 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 		$sql_where = 'WHERE (h.disabled = ""
 			AND h.deleted = ""
 			AND td.id IS NULL)' . $awhere;
+	} elseif (get_request_var('status') == -5 && db_table_exists('plugin_servcheck_test')) {
+		// Devices without Service Checks (no enabled servcheck test matches the
+		// device hostname/ipaddress).
+		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
+
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.deleted = ""
+			AND NOT EXISTS (
+				SELECT 1 FROM plugin_servcheck_test AS sct
+				WHERE sct.enabled = "on"
+				AND (sct.hostname = h.hostname OR sct.ipaddress = h.hostname)
+			)' . $awhere;
 	} else {
 		// All Monitored Devices (default scope, status -1).
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';

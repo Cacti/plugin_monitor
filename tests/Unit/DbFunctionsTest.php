@@ -283,6 +283,39 @@ it('selects the without-thresholds scope for status -4', function () {
 	expect($where)->toContain('td.id IS NULL');
 });
 
+it('selects the without-service-checks scope for status -5', function () {
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+
+	test_set_request(['status' => '-5', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('NOT EXISTS')
+		->and($where)->toContain('plugin_servcheck_test');
+});
+
+it('filters by selected device templates for the template grouping', function () {
+	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'template', 'template' => '3,5', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.host_template_id IN (3,5)');
+});
+
+it('includes non-templated devices (template 0) in the template filter', function () {
+	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'template', 'template' => ['0'], 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.host_template_id IN (0)');
+});
+
 it('defaults to the monitored scope for status -1', function () {
 	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
 
