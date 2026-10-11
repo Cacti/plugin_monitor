@@ -206,3 +206,142 @@ it('omits the service-check clause when none are failing', function () {
 
 	unset($GLOBALS['servcheck_hosts']);
 });
+
+it('filters to unset criticality for the Not Set selection (crit 0)', function () {
+	test_set_request(['status' => '-2', 'crit' => '0', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.monitor_criticality = 0');
+});
+
+it('filters to the warning ping band for status 7', function () {
+	test_set_request(['status' => '7', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.cur_time > h.monitor_warn')
+		->and($where)->toContain('NOT (h.monitor_alert > 0 AND h.cur_time > h.monitor_alert)');
+});
+
+it('filters to the alert ping band for status 8', function () {
+	test_set_request(['status' => '8', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.cur_time > h.monitor_alert');
+});
+
+it('filters to failing service-check hosts for status 10', function () {
+	test_set_request(['status' => '10', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+	$GLOBALS['servcheck_hosts'] = [3 => 3, 8 => 8];
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.id IN (3,8)');
+
+	unset($GLOBALS['servcheck_hosts']);
+});
+
+it('uses an empty id set when no service checks fail for status 10', function () {
+	test_set_request(['status' => '10', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+	$GLOBALS['servcheck_hosts'] = [];
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.id IN (0)');
+
+	unset($GLOBALS['servcheck_hosts']);
+});
+
+it('returns empty threshold counts when thold is disabled', function () {
+	monitor_test_reset_db_mocks();
+
+	expect(monitorTholdCounts())->toBe([]);
+});
+
+it('maps per-host threshold counts', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'thold', true);
+	monitor_test_mock_db('db_table_exists', 'thold_data', true);
+
+	$seen = null;
+	monitor_test_mock_db('db_fetch_assoc', fn ($sql) => str_contains($sql, 'thold_data'), function ($sql) use (&$seen) {
+		$seen = $sql;
+
+		return [
+			['host_id' => 4, 'total' => 5, 'triggered' => 2, 'breached' => 1],
+		];
+	});
+
+	expect(monitorTholdCounts())->toBe([4 => ['total' => 5, 'triggered' => 2, 'breached' => 1]]);
+	expect($seen)->toContain('thold_data');
+});
+
+it('returns empty service-check counts when servcheck is disabled', function () {
+	monitor_test_reset_db_mocks();
+
+	expect(monitorServcheckCounts())->toBe([]);
+});
+
+it('returns empty service-check counts without the servcheck realm', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+
+	expect(monitorServcheckCounts())->toBe([]);
+});
+
+it('returns empty service-check counts when the table is absent', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('api_plugin_user_realm_auth', 'servcheck_test.php', true);
+
+	expect(monitorServcheckCounts())->toBe([]);
+});
+
+it('maps per-host service-check counts with the v0.4 predicate', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('api_plugin_user_realm_auth', 'servcheck_test.php', true);
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_servcheck_test.last_check', true);
+	monitor_test_mock_db('db_column_exists', fn ($key) => $key === 'plugin_servcheck_test.last_result', true);
+
+	$seen = null;
+	monitor_test_mock_db('db_fetch_assoc', fn ($sql) => str_contains($sql, 'plugin_servcheck_test'), function ($sql) use (&$seen) {
+		$seen = $sql;
+
+		return [['host_id' => 2, 'total' => 3, 'failed' => 1]];
+	});
+
+	expect(monitorServcheckCounts())->toBe([2 => ['total' => 3, 'failed' => 1]]);
+	expect($seen)->toContain("last_result != 'ok'");
+});
+
+it('falls back to the v0.3 predicate for service-check counts', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('api_plugin_user_realm_auth', 'servcheck_test.php', true);
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+
+	$seen = null;
+	monitor_test_mock_db('db_fetch_assoc', fn ($sql) => str_contains($sql, 'plugin_servcheck_test'), function ($sql) use (&$seen) {
+		$seen = $sql;
+
+		return [];
+	});
+
+	expect(monitorServcheckCounts())->toBe([]);
+	expect($seen)->toContain('sct.lastcheck > 0')
+		->and($seen)->toContain('sct.failures > 0');
+});
