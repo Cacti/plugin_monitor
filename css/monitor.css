@@ -31,9 +31,15 @@
 
 /* When the server sets --monitor-title-ch (the longest trimmed description in
    view), widen every tile title to it so long hostnames wrap within their own
-   tile instead of blending into neighbours. */
+   tile instead of blending into neighbours. inline-block keeps the title
+   centred under the glyph (via the frame's text-align) in every view, and
+   max-width stops it overflowing a fixed-width tile. */
 .monitor_container[style*='--monitor-title-ch'] [class$='_title'] {
+	display: inline-block;
 	width: calc(var(--monitor-title-ch, 11) * 1ch + 8px) !important;
+	max-width: 100%;
+	box-sizing: border-box;
+	vertical-align: top;
 }
 
 .monitor_sub_container {

@@ -94,7 +94,6 @@ $monitor_status = [
 $monitor_view_type = [
 	'default'  => __('Default', 'monitor'),
 	'list'     => __('List', 'monitor'),
-	'names'    => __('Names only', 'monitor'),
 	'tiles'    => __('Tiles', 'monitor'),
 	'tilesadt' => __('Tiles & Time', 'monitor')
 ];
