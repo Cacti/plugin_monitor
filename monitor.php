@@ -84,6 +84,9 @@ $monitor_status = [
 	0  => __('Not Up', 'monitor'),
 	1  => __('Not Up or Triggered', 'monitor'),
 	2  => __('Not Up, Triggered or Breached', 'monitor'),
+	7  => __('Warning Ping', 'monitor'),
+	8  => __('Alert Ping', 'monitor'),
+	10 => __('Service Check Failed', 'monitor'),
 	-4 => __('Devices without Thresholds', 'monitor'),
 	-3 => __('Devices not Monitored', 'monitor'),
 ];
@@ -137,6 +140,10 @@ validateRequestVars();
 $thold_hosts = checkTholds();
 
 $servcheck_hosts = checkServchecks();
+
+$thold_counts = monitorTholdCounts();
+
+$servcheck_counts = monitorServcheckCounts();
 
 switch (get_nfilter_request_var('action')) {
 	case 'ajax_status':

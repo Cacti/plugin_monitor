@@ -160,6 +160,91 @@ function checkServchecks(): array {
 	);
 }
 
+/** * Per-host threshold counts for the list-view Thresholds pill.
+ *
+ * @return array Map of host_id => ['total' => int, 'triggered' => int,
+ *               'breached' => int]. Empty when thold is unavailable.
+ */
+function monitorTholdCounts(): array {
+	if (!api_plugin_is_enabled('thold') || !db_table_exists('thold_data')) {
+		return [];
+	}
+
+	$rows = db_fetch_assoc("SELECT dl.host_id,
+		COUNT(DISTINCT td.id) AS total,
+		SUM(td.thold_enabled = 'on'
+			AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger)
+			OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger))) AS triggered,
+		SUM(td.thold_enabled = 'on'
+			AND td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger) AS breached
+		FROM thold_data AS td
+		INNER JOIN data_local AS dl
+		ON td.local_data_id = dl.id
+		WHERE td.thold_enabled = 'on'
+		GROUP BY dl.host_id");
+
+	$map = [];
+
+	foreach ($rows as $row) {
+		$map[$row['host_id']] = [
+			'total'     => (int) $row['total'],
+			'triggered' => (int) $row['triggered'],
+			'breached'  => (int) $row['breached'],
+		];
+	}
+
+	return $map;
+}
+
+/**
+ * Per-host service-check counts for the list-view Service Checks pill.
+ *
+ * Servcheck tests are keyed by hostname/ipaddress (no host id), schema-aware
+ * across servcheck v0.3 (lastcheck/failures) and v0.4+ (last_check/last_result),
+ * and realm-gated like checkServchecks().
+ *
+ * @return array Map of host_id => ['total' => int, 'failed' => int]. Empty when
+ *               servcheck is unavailable or not permitted.
+ */
+function monitorServcheckCounts(): array {
+	if (!api_plugin_is_enabled('servcheck') || !api_plugin_user_realm_auth('servcheck_test.php')) {
+		return [];
+	}
+
+	if (!db_table_exists('plugin_servcheck_test')) {
+		return [];
+	}
+
+	$check_col = db_column_exists('plugin_servcheck_test', 'last_check') ? 'last_check' : 'lastcheck';
+
+	if (db_column_exists('plugin_servcheck_test', 'last_result')) {
+		$fail_predicate = "(sct.triggered > 0 OR (sct.last_result != 'ok' AND sct.last_result != 'not yet'))";
+	} else {
+		$fail_predicate = '(sct.triggered > 0 OR sct.failures > 0)';
+	}
+
+	$rows = db_fetch_assoc("SELECT h.id AS host_id,
+		COUNT(DISTINCT sct.id) AS total,
+		SUM(sct.$check_col > 0 AND $fail_predicate) AS failed
+		FROM host AS h
+		INNER JOIN plugin_servcheck_test AS sct
+		ON (sct.hostname = h.hostname OR sct.ipaddress = h.hostname)
+		WHERE sct.enabled = 'on'
+		AND h.deleted = ''
+		GROUP BY h.id");
+
+	$map = [];
+
+	foreach ($rows as $row) {
+		$map[$row['host_id']] = [
+			'total'  => (int) $row['total'],
+			'failed' => (int) $row['failed'],
+		];
+	}
+
+	return $map;
+}
+
 /**
  * Append an IN-clause fragment to an existing SQL where string.
  *
@@ -195,6 +280,9 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 
 	if (get_request_var('crit') > 0) {
 		$awhere = 'h.monitor_criticality >= ' . get_request_var('crit');
+	} elseif (get_request_var('crit') == 0) {
+		// 'Not Set' pill / None selection: devices with no criticality assigned.
+		$awhere = 'h.monitor_criticality = 0';
 	} else {
 		$awhere = '';
 	}
@@ -267,6 +355,36 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
 				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0)))' . $servcheck_where . '
 			)' . $awhere;
+	} elseif (get_request_var('status') == '10') {
+		// Service Check Failed: devices with a failing/triggered service check.
+		$sql_join = '';
+
+		$servcheck_ids = (isset($servcheck_hosts) && cacti_sizeof($servcheck_hosts)) ? implode(',', array_map('intval', $servcheck_hosts)) : '0';
+
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.deleted = ""
+			AND h.id IN (' . $servcheck_ids . ')' . $awhere;
+	} elseif (get_request_var('status') == '7') {
+		// Warning Ping: up devices whose latency is over the warning (but not alert) threshold.
+		$sql_join = '';
+
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.monitor = "on"
+			AND h.deleted = ""
+			AND h.status = 3
+			AND h.monitor_warn > 0
+			AND h.cur_time > h.monitor_warn
+			AND NOT (h.monitor_alert > 0 AND h.cur_time > h.monitor_alert)' . $awhere;
+	} elseif (get_request_var('status') == '8') {
+		// Alert Ping: up devices whose latency is over the alert threshold.
+		$sql_join = '';
+
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.monitor = "on"
+			AND h.deleted = ""
+			AND h.status = 3
+			AND h.monitor_alert > 0
+			AND h.cur_time > h.monitor_alert' . $awhere;
 	} elseif (get_request_var('status') == -1) {
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 

@@ -359,6 +359,26 @@ $(() => {
 		openHostPanel($(event.currentTarget).data('id'));
 	});
 
+	$(document).on('click', '.monitorFilterPill', (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		const pill   = $(event.currentTarget);
+		const filter = pill.data('filter');
+		const value  = String(pill.data('value'));
+		const sel    = $('#' + filter);
+
+		if (!sel.length) {
+			return;
+		}
+
+		// Toggle: a pill whose filter is already active clears it back to the
+		// default (All), otherwise it applies the pill's filter value.
+		sel.val(String(sel.val()) === value ? '-1' : value);
+		sel.trigger('change');
+		applyFilter();
+	});
+
 	if ($.fn.sortable) {
 		$('.monitorGroupGrid').sortable({
 			items: '.monitorGroupCard',

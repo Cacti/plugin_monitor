@@ -1137,6 +1137,21 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 			'align'   => 'center',
 			'tip'     => __('Current monitored availability status of the device', 'monitor')
 		],
+		'nosort_ping' => [
+			'display' => __('Ping', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Ping latency alert state; click to filter by Warning or Alert Ping, click again to clear', 'monitor')
+		],
+		'nosort_tholds' => [
+			'display' => __('Thresholds', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Breached / Triggered / Total thresholds (thold plugin) on the device; click to filter triggered devices, click again to clear', 'monitor')
+		],
+		'nosort_servchecks' => [
+			'display' => __('Service Checks', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Failed / Total service checks (servcheck plugin) for the device; click to filter failing devices, click again to clear', 'monitor')
+		],
 		'instate' => [
 			'display' => __('Length in Status', 'monitor'),
 			'sort'    => 'ASC',
@@ -1283,7 +1298,7 @@ function renderFooterList(int $total_rows, int $rows): string {
  * @return string
  */
 function renderHostList(array $host): string {
-	global $criticalities, $iclasses;
+	global $criticalities, $iclasses, $thold_counts, $servcheck_counts;
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
@@ -1299,10 +1314,39 @@ function renderHostList(array $host): string {
 		$host_admin = '';
 	}
 
-	if (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0) {
-		$host_crit = $criticalities[$host['monitor_criticality']];
+	$crit_level = isset($host['monitor_criticality']) ? (int) $host['monitor_criticality'] : 0;
+
+	if ($crit_level > 0) {
+		$host_crit = "<span class='monitorPill monitorCrit monitorCrit$crit_level monitorFilterPill' data-filter='crit' data-value='$crit_level' title='" . __esc('Filter by this criticality (click again to clear)', 'monitor') . "'>" . html_escape($criticalities[$crit_level]) . '</span>';
 	} else {
-		$host_crit = '';
+		$host_crit = "<span class='monitorPill monitorCrit monitorCrit0 monitorFilterPill' data-filter='crit' data-value='0' title='" . __esc('Criticality not set - click to filter unset devices (click again to clear)', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
+	}
+
+	// Ping latency pill (Warning/Alert) shown right of the Status column.
+	$ping_cell = '';
+
+	if (!empty($host['monitor_alert']) && $host['cur_time'] > $host['monitor_alert']) {
+		$ping_cell = "<span class='monitorPill deviceAlert monitorFilterPill' data-filter='status' data-value='8' title='" . __esc('Alert ping latency - click to filter (click again to clear)', 'monitor') . "'>" . __esc('Alert', 'monitor') . '</span>';
+	} elseif (!empty($host['monitor_warn']) && $host['cur_time'] > $host['monitor_warn']) {
+		$ping_cell = "<span class='monitorPill deviceWarning monitorFilterPill' data-filter='status' data-value='7' title='" . __esc('Warning ping latency - click to filter (click again to clear)', 'monitor') . "'>" . __esc('Warning', 'monitor') . '</span>';
+	}
+
+	// Thresholds pill: breached / triggered / total (thold plugin).
+	$thold_cell = '';
+
+	if (isset($thold_counts[$host['id']]) && $thold_counts[$host['id']]['total'] > 0) {
+		$tc         = $thold_counts[$host['id']];
+		$tcls       = ($tc['triggered'] > 0 || $tc['breached'] > 0) ? 'deviceThreshold' : 'monitorPillMuted';
+		$thold_cell = "<span class='monitorPill $tcls monitorFilterPill' data-filter='status' data-value='2' title='" . __esc('Breached / Triggered / Total thresholds - click to filter triggered or breached devices (click again to clear)', 'monitor') . "'>" . $tc['breached'] . ' / ' . $tc['triggered'] . ' / ' . $tc['total'] . '</span>';
+	}
+
+	// Service checks pill: failed / total (servcheck plugin).
+	$servcheck_cell = '';
+
+	if (isset($servcheck_counts[$host['id']]) && $servcheck_counts[$host['id']]['total'] > 0) {
+		$sc             = $servcheck_counts[$host['id']];
+		$scls           = ($sc['failed'] > 0) ? 'deviceServiceCheck' : 'monitorPillMuted';
+		$servcheck_cell = "<span class='monitorPill $scls monitorFilterPill' data-filter='status' data-value='10' title='" . __esc('Failed / Total service checks - click to filter failing devices (click again to clear)', 'monitor') . "'>" . $sc['failed'] . ' / ' . $sc['total'] . '</span>';
 	}
 
 	if ($host['availability_method'] > 0) {
@@ -1341,6 +1385,9 @@ function renderHostList(array $host): string {
 	form_selectable_cell($host['site_name'], $host['id'], '', 'left');
 	form_selectable_cell($host_crit, $host['id'], '', 'left');
 	form_selectable_cell("<span class='monitorStatus deviceStatus $iclass'>" . html_escape($sdisplay) . '</span>', $host['id'], '', 'center');
+	form_selectable_cell($ping_cell, $host['id'], '', 'center');
+	form_selectable_cell($thold_cell, $host['id'], '', 'center');
+	form_selectable_cell($servcheck_cell, $host['id'], '', 'center');
 	form_selectable_cell($dt, $host['id'], '', 'center');
 	form_selectable_cell($host_avg, $host['id'], '', 'left');
 	form_selectable_cell($host_warn, $host['id'], '', 'left');
