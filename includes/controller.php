@@ -208,7 +208,7 @@ function drawPage(): void {
 	$function = 'render' . ucfirst(get_request_var('grouping'));
 
 	if (function_exists($function) && get_request_var('view') != 'list') {
-		if (get_request_var('grouping') == 'default' || get_request_var('grouping') == 'site') {
+		if (get_request_var('grouping') == 'default') {
 			html_start_box(__('Monitored Devices', 'monitor'), '100%', true, 3, 'center', '');
 		} else {
 			html_start_box('', '100%', true, 3, 'center', '');

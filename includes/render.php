@@ -962,14 +962,14 @@ function renderHost(array $host, bool $float = true, int $maxlen = 10): ?string 
 			$tis = get_timeinstate($host);
 
 			if ($monitor_times == 'on') {
-				$monitor_time_html = "<br><span class='monitor_device{$fclass} deviceDown'>$tis</span>";
+				$monitor_time_html = "<br><span class='monitor_device{$fclass} deviceDown monitor_uptime'>$tis</span>";
 			}
 			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</span>$monitor_time_html</a></div>";
 		} else {
 			$tis = get_uptime($host);
 
 			if ($monitor_times == 'on') {
-				$monitor_time_html = "<br><div class='monitor_device{$fclass} deviceUp'>$tis</div>";
+				$monitor_time_html = "<br><div class='monitor_device{$fclass} deviceUp monitor_uptime'>$tis</div>";
 			}
 
 			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</span>$monitor_time_html</a></div>";
@@ -1110,63 +1110,74 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 		'id' => [
 			'display' => __('ID', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Cacti internal device id', 'monitor')
 		],
 		'description' => [
 			'display' => __('Description', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Device description as set on the Devices page', 'monitor')
 		],
 		'site_name' => [
 			'display' => __('Site', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Site the device is assigned to', 'monitor')
 		],
 		'monitor_criticality' => [
 			'display' => __('Criticality', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Monitoring criticality assigned to the device', 'monitor')
 		],
 		'status' => [
 			'display' => __('Status', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'center'
+			'align'   => 'center',
+			'tip'     => __('Current monitored availability status of the device', 'monitor')
 		],
 		'instate' => [
 			'display' => __('Length in Status', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'center'
+			'align'   => 'center',
+			'tip'     => __('How long the device has been in its current status', 'monitor')
 		],
 		'avg_time' => [
 			'display' => __('Averages', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Current / average ping response time in milliseconds', 'monitor')
 		],
 		'monitor_warn' => [
 			'display' => __('Warning', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them', 'monitor')
 		],
 		'monitor_text' => [
 			'display' => __('Admin', 'monitor'),
 			'sort'    => 'ASC',
-			'tip'     => __('Monitor Text Column represents \'Admin\'', 'monitor'),
+			'tip'     => __('Administrative monitor message shown while the device is Down or Recovering', 'monitor'),
 			'align'   => 'left'
 		],
 		'notes' => [
 			'display' => __('Notes', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Free-form notes recorded for the device', 'monitor')
 		],
 		'availability' => [
 			'display' => __('Availability', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'right'
+			'align'   => 'right',
+			'tip'     => __('Percentage of successful availability checks over the retained history', 'monitor')
 		],
 		'status_fail_date' => [
 			'display' => __('Last Fail', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'right'
+			'align'   => 'right',
+			'tip'     => __('Date and time the device last failed its availability check', 'monitor')
 		],
 	];
 
@@ -1412,11 +1423,11 @@ function renderHostTilesadt(array $host): string {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$tis = get_timeinstate($host);
 
-		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceDown'>$tis</span></a></div>";
+		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceDown monitor_uptime'>$tis</span></a></div>";
 	} else {
 		$tis = get_uptime($host);
 
-		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceUp'>$tis</span></a></div>";
+		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceUp monitor_uptime'>$tis</span></a></div>";
 	}
 }
 

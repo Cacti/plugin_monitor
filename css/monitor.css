@@ -79,8 +79,18 @@
 }
 
 .monitor_device_frame a {
-	padding: 3px;
+	padding: 3px 3px 8px;
 	display: block;
+}
+
+/* Uptime/time-in-state line under a tile hostname: normal weight (not bold),
+   pulled up tight to the hostname, with the frame padding below separating
+   rows. */
+.monitor_uptime {
+	display: block;
+	font-weight: normal;
+	line-height: 1.1;
+	margin-top: -2px;
 }
 
 /*

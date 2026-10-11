@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-11 13:13-0400\n"
+"POT-Creation-Date: 2026-10-11 13:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Cacti Developers <developers@cacti.net>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
@@ -541,7 +541,31 @@ msgid "ID"
 msgstr ""
 
 #: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Current monitored availability status of the device"
+msgstr ""
+
+#: includes/render.php
 msgid "Length in Status"
+msgstr ""
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
 msgstr ""
 
 #: includes/render.php
@@ -549,7 +573,15 @@ msgid "Averages"
 msgstr ""
 
 #: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr ""
+
+#: includes/render.php
 msgid "Warning"
+msgstr ""
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
 msgstr ""
 
 #: includes/render.php
@@ -557,11 +589,23 @@ msgid "Admin"
 msgstr ""
 
 #: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "Administrative monitor message shown while the device is Down or Recovering"
 msgstr ""
 
 #: includes/render.php
 msgid "Notes"
+msgstr ""
+
+#: includes/render.php
+msgid "Free-form notes recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
 msgstr ""
 
 #: monitor.php poller_functions.php setup.php
