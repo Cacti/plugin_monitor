@@ -131,7 +131,7 @@ function openHostPanel(id) {
 		width: 720,
 		height: 'auto',
 		maxHeight: maxHeight,
-		modal: true,
+		modal: false,
 		closeOnEscape: true,
 		position: { my: 'center top', at: 'center top+300', of: globalThis },
 		open() {
