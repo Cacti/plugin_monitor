@@ -2,6 +2,8 @@
 
 --- 3.0 ---
 
+* bug: Give the busiest grouping cards (many devices) a full row of their own so their tiles span the whole page instead of being squeezed to part of the width beside smaller cards
+* bug: Remove the filter status/criticality summary footer and the "Remember to first select eligible Devices" prompt from the Monitor board
 * bug: Lay the grouping cards out with a wrapping flexbox instead of a CSS grid so they always stretch to fill the full horizontal space; inside Cacti's shrink-to-fit html_start_box div the grid mis-counted its tracks and clipped the cards to roughly half the page width
 * bug: Default-order the Tree grouping cards by device count (busiest first) while still honouring any saved drag order
 * feature: Restructure plugin_monitor_dashboards to store filter state as a JSON `properties` object (migrating the legacy raw `url` into it and dropping the url column on upgrade), and construct dashboard URLs from that structure instead of persisting raw urls
