@@ -316,6 +316,16 @@ it('includes non-templated devices (template 0) in the template filter', functio
 	expect($where)->toContain('h.host_template_id IN (0)');
 });
 
+it('applies no template filter when the template selection is empty', function () {
+	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'template', 'template' => '', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->not->toContain('h.host_template_id');
+});
+
 it('defaults to the monitored scope for status -1', function () {
 	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
 
