@@ -616,22 +616,13 @@
 	box-sizing: border-box;
 }
 
-/* Keep the Actions dialog body scrollable when the panels are taller than the
-   dialog, and force the content box to always fill the dialog width. Some
-   theme/runtime combinations otherwise let the jQuery UI content box shrink to
-   its min-content width and drift to one side, squashing the panels into a
-   narrow strip. The !important/auto width and block display defeat any
-   inherited inline-block, float or flex-item sizing on the content box. */
+/* Don't override the content box's overflow: the dialog sizes to its content
+   (height: auto in openHostPanel), so forcing overflow here created a scroll
+   box that fought the theme's own .ui-dialog .ui-dialog-content rules and
+   squashed the panels. Keep border-box only so padding can't overflow. */
 #monitorPanelDialog.ui-dialog-content,
 #monitorPanelDialog {
 	box-sizing: border-box;
-	display: block;
-	float: none;
-	width: auto !important;
-	min-width: 0;
-	flex: 1 1 auto;
-	overflow-y: auto;
-	overflow-x: hidden;
 }
 
 .monitorPanel {

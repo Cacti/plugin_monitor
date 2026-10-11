@@ -129,7 +129,7 @@ function openHostPanel(id) {
 	dlg.dialog({
 		title: monitorMessages.deviceDetails || 'Device Details',
 		width: 720,
-		height: Math.min(760, maxHeight),
+		height: 'auto',
 		maxHeight: maxHeight,
 		modal: true,
 		closeOnEscape: true,
