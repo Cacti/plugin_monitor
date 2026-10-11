@@ -390,6 +390,62 @@ function drawFilterDropdown(string $id, string $title, array $settings = [], mix
 }
 
 /**
+ * Render a checkbox-style multi-select filter (Cacti 'N Selected' widget).
+ *
+ * @param string $id       Filter field id/name.
+ * @param string $title    Filter display title.
+ * @param array  $settings Option map of value => label.
+ * @param array  $selected Currently selected option values.
+ *
+ * @return void
+ */
+function drawFilterMultiselect(string $id, string $title, array $settings, array $selected): void {
+	if (!cacti_sizeof($settings)) {
+		return;
+	}
+
+	print '<td>' . html_escape($title) . '</td>';
+
+	// Cacti 1.2.32+ themes a multiple <select> into the checkbox 'N Selected'
+	// widget via the select2-multi-count class; older versions fall back to a
+	// plain multiple select.
+	$select_class = version_compare(CACTI_VERSION, '1.2.32', '>=') ? ' class="select2-multi-count"' : '';
+
+	print '<td><select id="' . $id . '" name="' . $id . '[]" multiple' . $select_class . ' data-selectCountText="' . __esc('Events', 'monitor') . '" title="' . html_escape($title) . '">' . PHP_EOL;
+
+	foreach ($settings as $setting_value => $setting_name) {
+		$setting_selected = in_array((string) $setting_value, $selected, true) ? ' selected' : '';
+
+		print '<option value="' . html_escape($setting_value) . '"' . $setting_selected . '>' . html_escape($setting_name) . '</option>' . PHP_EOL;
+	}
+
+	print '</select></td>' . PHP_EOL;
+}
+
+/**
+ * Resolve the selected, validated Events filter tokens from the request.
+ *
+ * @return array List of valid event keys currently selected.
+ */
+function monitorGetSelectedEvents(): array {
+	global $monitor_events;
+
+	$raw = get_nfilter_request_var('events');
+
+	if (is_array($raw)) {
+		$keys = $raw;
+	} elseif ($raw === '' || $raw === null) {
+		return [];
+	} else {
+		$keys = explode(',', (string) $raw);
+	}
+
+	$keys = array_map('trim', $keys);
+
+	return array_values(array_intersect($keys, array_keys($monitor_events)));
+}
+
+/**
  * Build dashboard dropdown option map for current user context.
  *
  * @return array
@@ -459,9 +515,10 @@ function monitorGetZoomDropdownState(bool &$dozoombgndcolor): array {
  *
  * @return void
  */
-function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_view_type, array $monitor_grouping, array $item_rows, mixed $mon_zoom_status): void {
+function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_events, array $monitor_view_type, array $monitor_grouping, array $item_rows, mixed $mon_zoom_status): void {
 	drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
-	drawFilterDropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
+	drawFilterDropdown('status', __('Show', 'monitor'), $monitor_status, $mon_zoom_status);
+	drawFilterMultiselect('events', __('Events', 'monitor'), $monitor_events, monitorGetSelectedEvents());
 	drawFilterDropdown('view', __('View', 'monitor'), $monitor_view_type);
 	drawFilterDropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
 
@@ -669,7 +726,7 @@ function monitorPrintJsBootstrap(array $config, string $mbcolor, string $monitor
  */
 function drawFilterAndStatus(): void {
 	global $config, $criticalities, $page_refresh_interval, $classes, $monitor_grouping;
-	global $monitor_view_type, $monitor_status, $monitor_trim;
+	global $monitor_view_type, $monitor_status, $monitor_events, $monitor_trim;
 	global $dozoombgndcolor, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $mon_zoom_state;
 	global $new_form, $new_title, $item_rows;
 
@@ -686,6 +743,7 @@ function drawFilterAndStatus(): void {
 	monitorRenderPrimaryFilterRow(
 		monitorGetDashboardOptions(),
 		$monitor_status,
+		$monitor_events,
 		$monitor_view_type,
 		$monitor_grouping,
 		$item_rows,
@@ -838,6 +896,10 @@ function saveSettings(): void {
 						set_user_setting('monitor_status', get_request_var('status'));
 
 						break;
+					case 'events':
+						set_user_setting('monitor_events', implode(',', monitorGetSelectedEvents()));
+
+						break;
 					case 'tree':
 						set_user_setting('monitor_tree', get_request_var('tree'));
 
@@ -973,6 +1035,12 @@ function validateRequestVars(bool $force = false): void {
 			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
 			'default' => read_user_setting('monitor_status', '-1', $force)
+		],
+		'events' => [
+			'filter'  => FILTER_CALLBACK,
+			'pageset' => true,
+			'options' => ['options' => 'sanitize_search_string'],
+			'default' => read_user_setting('monitor_events', '', $force)
 		],
 		'tree' => [
 			'filter'  => FILTER_VALIDATE_INT,

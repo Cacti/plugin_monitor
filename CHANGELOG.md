@@ -2,7 +2,9 @@
 
 --- 3.0 ---
 
-* bug: Make the List-view Status pill clickable to filter by that status, show a muted 'OK' / 'Not Set' pill (instead of a blank cell) when a device has no ping alert, thresholds or service checks, and hide the Thresholds / Service Checks columns entirely when their plugin is not installed
+* feature: Replace the single Status column/filter with a multi-select Events filter (additive) and an Events column that shows a short pill per active event (Down, Recovering, Triggered, Down/Triggered M/A, Warn/Alert Ping, Failed Svc), 'None' when clean; the Status scope dropdown now only selects All Monitored / All Devices / Not Monitored / Without Thresholds
+* bug: Centre the tile hostname under the glyph and keep it clickable in the Tiles & Time view
+* bug: Remove the 'Names only' View option from the dropdown (the renderer is retained for direct ?view=names use)
 * bug: Size grouping-card tiles to the longest visible host description so long hostnames no longer overlap neighbouring tiles
 * bug: Center the device Actions dialog, make it taller and scrollable so panel text is not cut off, and pause the page refresh countdown while it is open
 * bug: Remove the stray 'Monitored Devices' box header on the Site grouping so it matches the other groupings

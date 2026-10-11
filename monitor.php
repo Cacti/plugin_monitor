@@ -79,16 +79,23 @@ $classes = [
 ];
 
 $monitor_status = [
-	-2 => __('All Devices', 'monitor'),
 	-1 => __('All Monitored Devices', 'monitor'),
-	0  => __('Not Up', 'monitor'),
-	1  => __('Not Up or Triggered', 'monitor'),
-	2  => __('Not Up, Triggered or Breached', 'monitor'),
-	7  => __('Warning Ping', 'monitor'),
-	8  => __('Alert Ping', 'monitor'),
-	10 => __('Service Check Failed', 'monitor'),
-	-4 => __('Devices without Thresholds', 'monitor'),
+	-2 => __('All Devices', 'monitor'),
 	-3 => __('Devices not Monitored', 'monitor'),
+	-4 => __('Devices without Thresholds', 'monitor'),
+];
+
+// Additive event classes for the multi-select Events filter and the Events
+// column pills. Keys are stable filter tokens; a device can match several.
+$monitor_events = [
+	'down'         => __('Down', 'monitor'),
+	'recovering'   => __('Recovering', 'monitor'),
+	'triggered'    => __('Triggered', 'monitor'),
+	'down_ma'      => __('Down (M/A)', 'monitor'),
+	'triggered_ma' => __('Triggered (M/A)', 'monitor'),
+	'warn_ping'    => __('Warn Ping', 'monitor'),
+	'alert_ping'   => __('Alert Ping', 'monitor'),
+	'failed_svc'   => __('Failed Svc', 'monitor'),
 ];
 
 $monitor_view_type = [

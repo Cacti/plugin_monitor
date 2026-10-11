@@ -181,30 +181,66 @@ it('falls back to the v0.3 predicate for the service-check host set', function (
 		->and($seen)->not->toContain('last_result');
 });
 
-it('adds failing service-check hosts to the triggered status filter', function () {
-	test_set_request(['status' => '1', 'crit' => '0', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
-	$GLOBALS['servcheck_hosts'] = [5 => 5, 9 => 9];
+it('builds no event predicate when none are selected', function () {
+	$GLOBALS['thold_hosts']     = [1 => 1];
+	$GLOBALS['servcheck_hosts'] = [2 => 2];
 
-	$where = '';
-	$join  = '';
-	renderWhereJoin($where, $join);
+	expect(monitorEventFilterSql([]))->toBe('');
 
-	expect($where)->toContain('h.id IN (5,9)');
-
-	unset($GLOBALS['servcheck_hosts']);
+	unset($GLOBALS['thold_hosts'], $GLOBALS['servcheck_hosts']);
 });
 
-it('omits the service-check clause when none are failing', function () {
-	test_set_request(['status' => '2', 'crit' => '0', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
-	$GLOBALS['servcheck_hosts'] = [];
+it('ORs the selected event predicates together', function () {
+	$GLOBALS['thold_hosts']            = [4 => 4, 7 => 7];
+	$GLOBALS['servcheck_hosts']        = [8 => 8];
+	$_SESSION['monitor_muted_hosts']   = [9 => 9];
+
+	$sql = monitorEventFilterSql(['down', 'triggered', 'alert_ping', 'failed_svc']);
+
+	expect($sql)->toStartWith('(')->and($sql)->toEndWith(')')
+		->and($sql)->toContain(' OR ')
+		->and($sql)->toContain('h.status = 1 AND h.id NOT IN (9)')
+		->and($sql)->toContain('h.id IN (4,7) AND h.id NOT IN (9)')
+		->and($sql)->toContain('h.cur_time > h.monitor_alert')
+		->and($sql)->toContain('h.id IN (8)');
+
+	unset($GLOBALS['thold_hosts'], $GLOBALS['servcheck_hosts'], $_SESSION['monitor_muted_hosts']);
+});
+
+it('uses empty id sets for muted/thold/servcheck events when none exist', function () {
+	unset($GLOBALS['thold_hosts'], $GLOBALS['servcheck_hosts'], $_SESSION['monitor_muted_hosts']);
+
+	$sql = monitorEventFilterSql(['triggered', 'failed_svc', 'down_ma']);
+
+	expect($sql)->toContain('h.id IN (0)')
+		->and($sql)->toContain('h.id NOT IN (0)');
+});
+
+it('ignores unknown event keys', function () {
+	expect(monitorEventFilterSql(['bogus', 'nope']))->toBe('');
+});
+
+it('appends the OR-combined event filter to the scope query', function () {
+	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1', 'events' => 'down,recovering']);
 
 	$where = '';
 	$join  = '';
 	renderWhereJoin($where, $join);
 
-	expect($where)->not->toContain('h.id IN');
+	expect($where)->toContain('h.monitor = "on"')
+		->and($where)->toContain('(h.status = 1')
+		->and($where)->toContain('(h.status = 2)')
+		->and($where)->toContain(' OR ');
+});
 
-	unset($GLOBALS['servcheck_hosts']);
+it('accepts the events filter as an array (native multi-select submit)', function () {
+	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1', 'events' => ['warn_ping']]);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.cur_time > h.monitor_warn');
 });
 
 it('filters to unset criticality for the Not Set selection (crit 0)', function () {
@@ -217,51 +253,44 @@ it('filters to unset criticality for the Not Set selection (crit 0)', function (
 	expect($where)->toContain('h.monitor_criticality = 0');
 });
 
-it('filters to the warning ping band for status 7', function () {
-	test_set_request(['status' => '7', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+it('selects the all-devices scope for status -2', function () {
+	test_set_request(['status' => '-2', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
 
 	$where = '';
 	$join  = '';
 	renderWhereJoin($where, $join);
 
-	expect($where)->toContain('h.cur_time > h.monitor_warn')
-		->and($where)->toContain('NOT (h.monitor_alert > 0 AND h.cur_time > h.monitor_alert)');
+	expect($where)->toContain('h.disabled = ""')->and($where)->not->toContain('h.monitor = "on"');
 });
 
-it('filters to the alert ping band for status 8', function () {
-	test_set_request(['status' => '8', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+it('selects the not-monitored scope for status -3', function () {
+	test_set_request(['status' => '-3', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
 
 	$where = '';
 	$join  = '';
 	renderWhereJoin($where, $join);
 
-	expect($where)->toContain('h.cur_time > h.monitor_alert');
+	expect($where)->toContain('h.monitor = ""');
 });
 
-it('filters to failing service-check hosts for status 10', function () {
-	test_set_request(['status' => '10', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
-	$GLOBALS['servcheck_hosts'] = [3 => 3, 8 => 8];
+it('selects the without-thresholds scope for status -4', function () {
+	test_set_request(['status' => '-4', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
 
 	$where = '';
 	$join  = '';
 	renderWhereJoin($where, $join);
 
-	expect($where)->toContain('h.id IN (3,8)');
-
-	unset($GLOBALS['servcheck_hosts']);
+	expect($where)->toContain('td.id IS NULL');
 });
 
-it('uses an empty id set when no service checks fail for status 10', function () {
-	test_set_request(['status' => '10', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
-	$GLOBALS['servcheck_hosts'] = [];
+it('defaults to the monitored scope for status -1', function () {
+	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
 
 	$where = '';
 	$join  = '';
 	renderWhereJoin($where, $join);
 
-	expect($where)->toContain('h.id IN (0)');
-
-	unset($GLOBALS['servcheck_hosts']);
+	expect($where)->toContain('h.monitor = "on"')->and($where)->toContain('td.thold_enabled');
 });
 
 it('returns empty threshold counts when thold is disabled', function () {

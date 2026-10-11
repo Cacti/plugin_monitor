@@ -166,6 +166,9 @@ function applyFilter(action = '') {
 		strURL += `&mute=${$('#mute').val()}`;
 		strURL += `&rfilter=${base64_encode($('#rfilter').val())}`;
 		strURL += `&status=${$('#status').val()}`;
+
+		const events = $('#events').val();
+		strURL += `&events=${events ? events.join(',') : ''}`;
 	}
 
 	loadIt(strURL);
@@ -384,9 +387,23 @@ $(() => {
 			return;
 		}
 
-		// Toggle: a pill whose filter is already active clears it back to the
-		// default (All), otherwise it applies the pill's filter value.
-		sel.val(String(sel.val()) === value ? '-1' : value);
+		if (sel.prop('multiple')) {
+			// Additive multi-select (Events): toggle this value in or out of the
+			// current selection.
+			let current = sel.val() || [];
+
+			if (current.indexOf(value) >= 0) {
+				current = current.filter((v) => v !== value);
+			} else {
+				current = current.concat([value]);
+			}
+
+			sel.val(current);
+		} else {
+			// Single-select (Criticality / Show): toggle on, or clear to default.
+			sel.val(String(sel.val()) === value ? '-1' : value);
+		}
+
 		sel.trigger('change');
 		applyFilter();
 	});

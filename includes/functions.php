@@ -268,6 +268,54 @@ function renderGroupConcat(string &$sql_where, string $sql_join, string $sql_fie
 }
 
 /**
+ * Build the additive (OR-combined) SQL predicate for the selected Events.
+ *
+ * Each event maps to a host-table predicate; a device matches when it satisfies
+ * any selected event. Triggered/muted sets come from the precomputed thold,
+ * servcheck and session mute id lists.
+ *
+ * @param array $events Validated event keys currently selected.
+ *
+ * @return string Parenthesised OR predicate, or '' when nothing is selected.
+ */
+function monitorEventFilterSql(array $events): string {
+	global $thold_hosts, $servcheck_hosts;
+
+	if (!cacti_sizeof($events)) {
+		return '';
+	}
+
+	$thold_ids     = (isset($thold_hosts) && cacti_sizeof($thold_hosts)) ? implode(',', array_map('intval', $thold_hosts)) : '0';
+	$servcheck_ids = (isset($servcheck_hosts) && cacti_sizeof($servcheck_hosts)) ? implode(',', array_map('intval', $servcheck_hosts)) : '0';
+	$muted         = (isset($_SESSION['monitor_muted_hosts']) && cacti_sizeof($_SESSION['monitor_muted_hosts'])) ? implode(',', array_map('intval', $_SESSION['monitor_muted_hosts'])) : '0';
+
+	$map = [
+		'down'         => "(h.status = 1 AND h.id NOT IN ($muted))",
+		'recovering'   => '(h.status = 2)',
+		'triggered'    => "(h.id IN ($thold_ids) AND h.id NOT IN ($muted))",
+		'down_ma'      => "(h.status = 1 AND h.id IN ($muted))",
+		'triggered_ma' => "(h.id IN ($thold_ids) AND h.id IN ($muted))",
+		'warn_ping'    => '(h.status = 3 AND h.monitor_warn > 0 AND h.cur_time > h.monitor_warn AND NOT (h.monitor_alert > 0 AND h.cur_time > h.monitor_alert))',
+		'alert_ping'   => '(h.status = 3 AND h.monitor_alert > 0 AND h.cur_time > h.monitor_alert)',
+		'failed_svc'   => "(h.id IN ($servcheck_ids))",
+	];
+
+	$preds = [];
+
+	foreach ($events as $event) {
+		if (isset($map[$event])) {
+			$preds[] = $map[$event];
+		}
+	}
+
+	if (!cacti_sizeof($preds)) {
+		return '';
+	}
+
+	return '(' . implode(' OR ', $preds) . ')';
+}
+
+/**
  * Build core monitor host query join/where fragments from current filters.
  *
  * @param string $sql_where SQL where fragment, updated in place.
@@ -325,67 +373,49 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 		}
 	}
 
+	// Additive Events filter (OR-combined) from the multi-select.
+	$events_raw = get_nfilter_request_var('events');
+
+	if (is_array($events_raw)) {
+		$events = $events_raw;
+	} elseif ($events_raw === '' || $events_raw === null) {
+		$events = [];
+	} else {
+		$events = array_map('trim', explode(',', (string) $events_raw));
+	}
+
+	$event_sql = monitorEventFilterSql($events);
+
+	if ($event_sql !== '') {
+		$awhere .= ($awhere != '' ? ' AND ' : '') . $event_sql;
+	}
+
 	if (!empty($awhere)) {
 		$awhere = ' AND ' . $awhere;
 	}
 
-	if (get_request_var('status') == '0') {
-		$sql_join  = '';
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = "on"
-			AND h.status < 3
-			AND h.deleted = ""
-			AND (h.availability_method > 0
-				OR h.snmp_version > 0
-				OR (h.cur_time >= h.monitor_warn AND h.monitor_warn > 0)
-				OR (h.cur_time >= h.monitor_alert AND h.monitor_alert > 0)
-			)' . $awhere;
-	} elseif (get_request_var('status') == '1' || get_request_var('status') == 2) {
+	if (get_request_var('status') == -2) {
+		// All Devices (monitored or not).
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
-		$servcheck_where = (isset($servcheck_hosts) && cacti_sizeof($servcheck_hosts)) ? '
-			OR h.id IN (' . implode(',', array_map('intval', $servcheck_hosts)) . ')' : '';
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.deleted = ""' . $awhere;
+	} elseif (get_request_var('status') == -3) {
+		// Devices not Monitored.
+		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
 		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = "on"
-			AND h.deleted = ""
-			AND (h.status < 3
-			OR ' . getTholdWhere() . '
-			OR ((h.availability_method > 0 OR h.snmp_version > 0)
-				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
-				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0)))' . $servcheck_where . '
-			)' . $awhere;
-	} elseif (get_request_var('status') == '10') {
-		// Service Check Failed: devices with a failing/triggered service check.
-		$sql_join = '';
+			AND h.monitor = ""
+			AND h.deleted = ""' . $awhere;
+	} elseif (get_request_var('status') == -4) {
+		// Devices without Thresholds.
+		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
-		$servcheck_ids = (isset($servcheck_hosts) && cacti_sizeof($servcheck_hosts)) ? implode(',', array_map('intval', $servcheck_hosts)) : '0';
-
-		$sql_where = 'WHERE h.disabled = ""
+		$sql_where = 'WHERE (h.disabled = ""
 			AND h.deleted = ""
-			AND h.id IN (' . $servcheck_ids . ')' . $awhere;
-	} elseif (get_request_var('status') == '7') {
-		// Warning Ping: up devices whose latency is over the warning (but not alert) threshold.
-		$sql_join = '';
-
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = "on"
-			AND h.deleted = ""
-			AND h.status = 3
-			AND h.monitor_warn > 0
-			AND h.cur_time > h.monitor_warn
-			AND NOT (h.monitor_alert > 0 AND h.cur_time > h.monitor_alert)' . $awhere;
-	} elseif (get_request_var('status') == '8') {
-		// Alert Ping: up devices whose latency is over the alert threshold.
-		$sql_join = '';
-
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = "on"
-			AND h.deleted = ""
-			AND h.status = 3
-			AND h.monitor_alert > 0
-			AND h.cur_time > h.monitor_alert' . $awhere;
-	} elseif (get_request_var('status') == -1) {
+			AND td.id IS NULL)' . $awhere;
+	} else {
+		// All Monitored Devices (default scope, status -1).
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
 		$sql_where = 'WHERE h.disabled = ""
@@ -395,23 +425,6 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 				OR ((td.thold_enabled="on" AND td.thold_alert > 0)
 				OR td.id IS NULL)
 			)' . $awhere;
-	} elseif (get_request_var('status') == -2) {
-		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.deleted = ""' . $awhere;
-	} elseif (get_request_var('status') == -3) {
-		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = ""
-			AND h.deleted = ""' . $awhere;
-	} else {
-		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-
-		$sql_where = 'WHERE (h.disabled = ""
-			AND h.deleted = ""
-			AND td.id IS NULL)' . $awhere;
 	}
 }
 

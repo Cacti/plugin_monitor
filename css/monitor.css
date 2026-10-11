@@ -223,8 +223,8 @@
 .monitorStatus.deviceUnmonitored { background-color: #3f6a8a; }
 .monitorStatus.deviceServiceCheck { background-color: #157f87; }
 
-/* Clickable list-view pills (ping, thresholds, service checks, criticality).
-   Share the status palette for alert-type pills and a graduated, deliberately
+/* Clickable list-view pills (events, thresholds, service checks, criticality).
+   Share the status palette for event pills and a graduated, deliberately
    non-alarming palette for criticality (no red for Mission Critical). */
 .monitorPill {
 	display: inline-block;
@@ -234,6 +234,7 @@
 	white-space: nowrap;
 	font-size: 11px;
 	line-height: 1.5;
+	margin: 1px;
 }
 
 .monitorFilterPill {
@@ -241,9 +242,13 @@
 }
 
 .monitorPillMuted { background-color: #5f5f57; }
+.monitorPill.deviceDown { background-color: #a12820; }
+.monitorPill.deviceDownMuted { background-color: #93302a; }
+.monitorPill.deviceRecovering { background-color: #9a6a1a; }
 .monitorPill.deviceWarning { background-color: #7d6f18; }
 .monitorPill.deviceAlert { background-color: #86407a; }
 .monitorPill.deviceThreshold { background-color: #a85712; }
+.monitorPill.deviceThresholdMuted { background-color: #6a4a9c; }
 .monitorPill.deviceServiceCheck { background-color: #157f87; }
 
 /* Criticality: Not Set (grey) -> Low (blue) -> Medium (teal) -> High (amber)
