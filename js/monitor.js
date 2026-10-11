@@ -344,6 +344,20 @@ $(() => {
 		applyFilter('change');
 	});
 
+	// Events multi-select: let the user tick several events with the dropdown
+	// staying open (reloading mid-selection would close it, since the filter is
+	// re-rendered), then apply once when the dropdown closes. A plain multiple
+	// select (no select2) has no dropdown to keep open, so it applies on change.
+	$('#events').on('select2:close', () => {
+		applyFilter('change');
+	});
+
+	$('#events').on('change', function () {
+		if (!$(this).data('select2')) {
+			applyFilter('change');
+		}
+	});
+
 	$('#dashboard').change(() => {
 		applyFilter('dashboard');
 	});
@@ -389,7 +403,8 @@ $(() => {
 
 		if (sel.prop('multiple')) {
 			// Additive multi-select (Events): toggle this value in or out of the
-			// current selection.
+			// current selection, sync the select2 widget without firing the
+			// generic change (which is debounced), then apply immediately.
 			let current = sel.val() || [];
 
 			if (current.indexOf(value) >= 0) {
@@ -398,14 +413,13 @@ $(() => {
 				current = current.concat([value]);
 			}
 
-			sel.val(current);
+			sel.val(current).trigger('change.select2');
+			applyFilter();
 		} else {
 			// Single-select (Criticality / Show): toggle on, or clear to default.
-			sel.val(String(sel.val()) === value ? '-1' : value);
+			// The bound change handler applies the filter.
+			sel.val(String(sel.val()) === value ? '-1' : value).trigger('change');
 		}
-
-		sel.trigger('change');
-		applyFilter();
 	});
 
 	if ($.fn.sortable) {
