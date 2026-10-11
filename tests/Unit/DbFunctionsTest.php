@@ -296,6 +296,17 @@ it('selects the without-service-checks scope for status -5', function () {
 		->and($where)->toContain('plugin_servcheck_test');
 });
 
+it('searches both description and location for the rfilter term', function () {
+	test_set_request(['status' => '-2', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => 'dc1', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	expect($where)->toContain('h.description RLIKE')
+		->and($where)->toContain('h.location RLIKE');
+});
+
 it('filters by selected device templates for the template grouping', function () {
 	test_set_request(['status' => '-1', 'crit' => '-1', 'grouping' => 'template', 'template' => '3,5', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
 

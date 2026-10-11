@@ -344,7 +344,7 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$awhere .= ($awhere == '' ? '' : ' AND ') . " h.description RLIKE '" . get_request_var('rfilter') . "'";
+		$awhere .= ($awhere == '' ? '' : ' AND ') . " (h.description RLIKE '" . get_request_var('rfilter') . "' OR h.location RLIKE '" . get_request_var('rfilter') . "')";
 	}
 
 	if (get_request_var('grouping') == 'tree') {

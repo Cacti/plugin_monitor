@@ -551,14 +551,8 @@ function monitorGetZoomDropdownState(bool &$dozoombgndcolor): array {
 function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_events, array $monitor_view_type, array $monitor_grouping, array $item_rows, mixed $mon_zoom_status): void {
 	drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
 	drawFilterDropdown('status', __('Show', 'monitor'), $monitor_status, $mon_zoom_status);
-	drawFilterMultiselect('events', __('Events', 'monitor'), $monitor_events, monitorGetSelectedEvents());
 	drawFilterDropdown('view', __('View', 'monitor'), $monitor_view_type);
 	drawFilterDropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
-
-	// The Rows filter only applies to the List view; other views show all devices.
-	if (get_request_var('view') == 'list') {
-		drawFilterDropdown('rows', __('Devices', 'monitor'), $item_rows);
-	}
 
 	print '<td><span>' . PHP_EOL;
 	print '<input type="submit" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
@@ -593,6 +587,8 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
  * @return void
  */
 function monitorRenderGroupingDropdowns(array $classes, array $criticalities, array $monitor_trim, array $page_refresh_interval, mixed $mon_zoom_size): void {
+	global $item_rows;
+
 	drawFilterDropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
 	if (get_request_var('view') != 'list') {
@@ -663,6 +659,11 @@ function monitorRenderGroupingDropdowns(array $classes, array $criticalities, ar
 		}
 
 		drawFilterMultiselect('template', __('Template', 'monitor'), $templates, monitorGetSelectedTemplates(), __('Templates', 'monitor'));
+	}
+
+	// The Rows filter only applies to the List view; other views show all devices.
+	if (get_request_var('view') == 'list') {
+		drawFilterDropdown('rows', __('Rows', 'monitor'), $item_rows);
 	}
 
 	drawFilterDropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
@@ -795,6 +796,7 @@ function drawFilterAndStatus(): void {
 	print '<tr>' . PHP_EOL;
 	print '<td>' . __('Search', 'monitor') . '</td>';
 	print '<td><input type="text" size="30" id="rfilter" value="' . html_escape_request_var('rfilter') . '"></input></td>';
+	drawFilterMultiselect('events', __('Events', 'monitor'), $monitor_events, monitorGetSelectedEvents());
 	monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim, $page_refresh_interval, $mon_zoom_size);
 	monitorRenderHiddenFilterInputs();
 

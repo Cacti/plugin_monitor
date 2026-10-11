@@ -1169,23 +1169,29 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 			'align'   => 'left',
 			'tip'     => __('Open the device detail panels', 'monitor')
 		],
-		'id' => [
-			'display' => __('ID', 'monitor'),
-			'sort'    => 'ASC',
-			'align'   => 'left',
-			'tip'     => __('Cacti internal device id', 'monitor')
-		],
 		'description' => [
 			'display' => __('Description', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left',
 			'tip'     => __('Device description as set on the Devices page', 'monitor')
 		],
+		'location' => [
+			'display' => __('Location', 'monitor'),
+			'sort'    => 'ASC',
+			'align'   => 'left',
+			'tip'     => __('Physical location recorded for the device', 'monitor')
+		],
 		'site_name' => [
 			'display' => __('Site', 'monitor'),
 			'sort'    => 'ASC',
 			'align'   => 'left',
 			'tip'     => __('Site the device is assigned to', 'monitor')
+		],
+		'id' => [
+			'display' => __('ID', 'monitor'),
+			'sort'    => 'ASC',
+			'align'   => 'left',
+			'tip'     => __('Cacti internal device id', 'monitor')
 		],
 		'monitor_criticality' => [
 			'display' => __('Criticality', 'monitor'),
@@ -1208,18 +1214,6 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 			'align'   => 'center',
 			'tip'     => __('Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter', 'monitor')
 		],
-		'instate' => [
-			'display' => __('Length in Status', 'monitor'),
-			'sort'    => 'ASC',
-			'align'   => 'center',
-			'tip'     => __('How long the device has been in its current status', 'monitor')
-		],
-		'avg_time' => [
-			'display' => __('Averages', 'monitor'),
-			'sort'    => 'DESC',
-			'align'   => 'left',
-			'tip'     => __('Current / average ping response time in milliseconds', 'monitor')
-		],
 		'monitor_warn' => [
 			'display' => __('Warning', 'monitor'),
 			'sort'    => 'DESC',
@@ -1237,6 +1231,18 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 			'sort'    => 'DESC',
 			'align'   => 'right',
 			'tip'     => __('Percentage of successful availability checks over the retained history', 'monitor')
+		],
+		'avg_time' => [
+			'display' => __('Averages', 'monitor'),
+			'sort'    => 'DESC',
+			'align'   => 'right',
+			'tip'     => __('Current / average ping response time in milliseconds', 'monitor')
+		],
+		'instate' => [
+			'display' => __('Length in Status', 'monitor'),
+			'sort'    => 'ASC',
+			'align'   => 'right',
+			'tip'     => __('How long the device has been in its current status', 'monitor')
 		],
 		'status_fail_date' => [
 			'display' => __('Last Fail', 'monitor'),
@@ -1454,9 +1460,10 @@ function renderHostList(array $host): string {
 	}
 
 	form_selectable_cell($actions, $host['id'], '1%', 'left');
-	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host['description'], $host['id'], '', 'left');
+	form_selectable_cell($host['location'], $host['id'], '', 'left');
 	form_selectable_cell($host['site_name'], $host['id'], '', 'left');
+	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host_crit, $host['id'], '', 'left');
 	form_selectable_cell($events_cell, $host['id'], '', 'center');
 
@@ -1468,11 +1475,11 @@ function renderHostList(array $host): string {
 		form_selectable_cell($servcheck_cell, $host['id'], '', 'center');
 	}
 
-	form_selectable_cell($dt, $host['id'], '', 'center');
-	form_selectable_cell($host_avg, $host['id'], '', 'left');
 	form_selectable_cell($host_warn, $host['id'], '', 'left');
 	form_selectable_cell($host_admin, $host['id'], '', 'white-space:pre-wrap;text-align:left');
 	form_selectable_cell(round($host['availability'], 2) . ' %', $host['id'], '', 'right');
+	form_selectable_cell($host_avg, $host['id'], '', 'right');
+	form_selectable_cell($dt, $host['id'], '', 'right');
 	form_selectable_cell($host_datefail, $host['id'], '', 'right');
 
 	form_end_row();
