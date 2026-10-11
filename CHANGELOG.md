@@ -4,6 +4,9 @@
 
 * feature: Restructure plugin_monitor_dashboards to store filter state as a JSON `properties` object (migrating the legacy raw `url` into it and dropping the url column on upgrade), and construct dashboard URLs from that structure instead of persisting raw urls
 * feature: Render the Site and Device Template groupings as a responsive full-width grid of draggable card panels (up to 8 columns, shrinking on narrower screens) whose titles are coloured by each group's worst device status, persisting card order per dashboard or per user
+* bug: Let a grouping card with many devices span several grid columns so it flows across the page instead of stacking into one tall, narrow column that scrolls off the screen
+* bug: Render the Tree grouping as card panels (one per tree, plus a Non-Tree card) like the Site and Device Template groupings, instead of leaving it on the legacy section layout
+* bug: Force the grouping card title colours with !important so Cacti core's device-status classes can no longer override them and leave unreadable low-contrast text on a coloured header (e.g. a device template with down devices)
 * feature: Add a distinct 'Service Check Failed' device status with its own legend chip, tile/list colour and status-filter coverage, driven by a realm-gated, schema-aware servcheck host set
 * feature: Add an Actions column to the List view that opens a device detail dialog of intropage-style panels (host information, data collection timing, service checks, thresholds, last-hour syslog, and device links)
 * feature: Add a plugin_servcheck integration so a triggered/failing service check on a device promotes its hover status and adds a hover glyph linking to the failing check, alongside the existing thold and syslog integrations

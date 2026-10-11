@@ -644,13 +644,32 @@
 }
 
 /* Grouping card grid: responsive, flows full screen up to ~8 columns and
-   shrinks to fewer columns as the viewport narrows. */
+   shrinks to fewer columns as the viewport narrows. Large groups span several
+   columns (see data-span) so their devices flow across the page. */
 .monitorGroupGrid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	grid-auto-flow: row dense;
 	gap: 10px;
 	align-items: start;
 	width: 100%;
+	container-type: inline-size;
+}
+
+/* Cap each card's span to the number of 260px tracks the grid can actually
+   show at its current width (track + 10px gap), so a wide card never forces an
+   extra implicit track and horizontal overflow on narrow layouts. */
+@container (max-width: 529px) {
+	.monitorGroupCard { grid-column: auto !important; }
+}
+
+@container (min-width: 530px) and (max-width: 799px) {
+	.monitorGroupCard[data-span="3"],
+	.monitorGroupCard[data-span="4"] { grid-column: span 2 !important; }
+}
+
+@container (min-width: 800px) and (max-width: 1069px) {
+	.monitorGroupCard[data-span="4"] { grid-column: span 3 !important; }
 }
 
 .monitorGroupCard .monitorPanelBody {
@@ -673,16 +692,19 @@
 	min-height: 60px;
 }
 
-/* Group card titles coloured by the group's worst device status. */
-.monitorGroupTitle.deviceUp { background-color: #2b8235; color: #ffffff; }
-.monitorGroupTitle.deviceDown { background-color: #a12820; color: #ffffff; }
-.monitorGroupTitle.deviceDownMuted { background-color: #93302a; color: #ffffff; }
-.monitorGroupTitle.deviceRecovering { background-color: #9a6a1a; color: #ffffff; }
-.monitorGroupTitle.deviceThreshold { background-color: #a85712; color: #ffffff; }
-.monitorGroupTitle.deviceThresholdMuted { background-color: #6a4a9c; color: #ffffff; }
-.monitorGroupTitle.deviceWarning { background-color: #7d6f18; color: #ffffff; }
-.monitorGroupTitle.deviceAlert { background-color: #86407a; color: #ffffff; }
-.monitorGroupTitle.deviceUnknown { background-color: #5f5f57; color: #ffffff; }
-.monitorGroupTitle.deviceUnmonitored { background-color: #3f6a8a; color: #ffffff; }
-.monitorGroupTitle.deviceServiceCheck { background-color: #157f87; color: #ffffff; }
+/* Group card titles coloured by the group's worst device status. Marked
+   !important so the Cacti core device-status classes (e.g. .deviceDown, which
+   force a red text/background) cannot override the title's palette and leave
+   unreadable low-contrast text on the coloured header. */
+.monitorGroupTitle.deviceUp { background-color: #2b8235 !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceDown { background-color: #a12820 !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceDownMuted { background-color: #93302a !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceRecovering { background-color: #9a6a1a !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceThreshold { background-color: #a85712 !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceThresholdMuted { background-color: #6a4a9c !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceWarning { background-color: #7d6f18 !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceAlert { background-color: #86407a !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceUnknown { background-color: #5f5f57 !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceUnmonitored { background-color: #3f6a8a !important; color: #ffffff !important; }
+.monitorGroupTitle.deviceServiceCheck { background-color: #157f87 !important; color: #ffffff !important; }
 
