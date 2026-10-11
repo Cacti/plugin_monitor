@@ -648,8 +648,7 @@
    content inside a shrink-to-fit `display:table` box (html_start_box with
    $div=true), which breaks grid auto-fill track counting and clipped the cards
    to roughly half the page. Flexbox grows each card to fill its row regardless
-   of that containing block, so a lone busy card spans the whole width while
-   smaller cards share a row. */
+   of that containing block. */
 .monitorGroupGrid {
 	display: flex;
 	flex-wrap: wrap;
@@ -664,12 +663,13 @@
 	box-sizing: border-box;
 }
 
-/* Busier groups get a wider basis (one extra 260px + 10px gap per step) and a
-   matching flex-grow, so when several cards share a row the busier ones take
-   proportionally more space; a card alone on a row always fills it. */
+/* A busier group (span 2) gets a wider basis and matching flex-grow so it takes
+   proportionally more room when sharing a row with smaller cards. The busiest
+   groups (span 3-4) take a full row of their own so their many tiles flow the
+   whole page width instead of being squeezed beside smaller cards. */
 .monitorGroupCard[data-span="2"] { flex-grow: 2; flex-basis: 530px; }
-.monitorGroupCard[data-span="3"] { flex-grow: 3; flex-basis: 800px; }
-.monitorGroupCard[data-span="4"] { flex-grow: 4; flex-basis: 1070px; }
+.monitorGroupCard[data-span="3"],
+.monitorGroupCard[data-span="4"] { flex-basis: 100%; }
 
 .monitorGroupCard .monitorPanelBody {
 	padding: 6px;
