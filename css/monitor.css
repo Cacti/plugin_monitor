@@ -611,6 +611,11 @@
 	margin-left: 8px;
 }
 
+/* Graphs action glyph (orange), matching the convention used by HMIB. */
+.monitorGraph {
+	color: #cc6600;
+}
+
 /* Device detail panels (intropage-style cards) in the Actions dialog */
 .monitorPanels {
 	/* Plain block stacking (not flex) so a card can never collapse to its

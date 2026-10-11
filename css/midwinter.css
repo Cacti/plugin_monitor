@@ -361,3 +361,7 @@
 .monitorLog {
 	white-space: pre-wrap !important;
 }
+
+.monitorGraph {
+	color: #d6a13a;
+}

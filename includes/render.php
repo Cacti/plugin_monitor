@@ -1169,11 +1169,6 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 			'align'   => 'left',
 			'tip'     => __('Open the device detail panels', 'monitor')
 		],
-		'hostname' => [
-			'display' => __('Hostname', 'monitor'),
-			'sort'    => 'ASC',
-			'align'   => 'left', 'tip' => __('Hostname of device', 'monitor')
-		],
 		'id' => [
 			'display' => __('ID', 'monitor'),
 			'sort'    => 'ASC',
@@ -1450,16 +1445,15 @@ function renderHostList(array $host): string {
 
 	print "<tr class='tableRow line{$host['id']} selectable'>";
 
-	$url = $host['anchor'];
-
 	$actions = "<a class='monitorActions pic' href='#' data-id='" . $host['id'] . "' title='" . __esc('Device Detail Panels', 'monitor') . "'><i class='fas fa-layer-group'></i></a>";
+
+	$actions .= "<a class='monitorActions pic' href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id']) . "' title='" . __esc('View Graphs', 'monitor') . "'><i class='fas fa-chart-line monitorGraph'></i></a>";
 
 	if (api_plugin_user_realm_auth('host.php')) {
 		$actions .= "<a class='monitorActions pic' href='" . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . "' title='" . __esc('Edit Device', 'monitor') . "'><i class='fas fa-pen-square'></i></a>";
 	}
 
 	form_selectable_cell($actions, $host['id'], '1%', 'left');
-	form_selectable_cell(filter_value($host['hostname'], '', $url), $host['id'], '', 'left');
 	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host['description'], $host['id'], '', 'left');
 	form_selectable_cell($host['site_name'], $host['id'], '', 'left');
