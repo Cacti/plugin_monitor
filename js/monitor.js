@@ -133,7 +133,7 @@ function openHostPanel(id) {
 		maxHeight: maxHeight,
 		modal: false,
 		closeOnEscape: true,
-		position: { my: 'center top', at: 'center top+150', of: globalThis },
+		position: { my: 'center top', at: 'center top+80', of: globalThis },
 		open() {
 			// Pause the refresh countdown so the page does not reload underneath
 			// the open dialog.
