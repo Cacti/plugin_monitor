@@ -239,8 +239,6 @@ function drawPage(): void {
 		}
 	}
 
-	print '<div class="center monitorFooter">' . getFilterText() . '</div>';
-
 	bottom_footer();
 }
 
@@ -350,75 +348,6 @@ function muteUser(): void {
 function unmuteUser(): void {
 	set_request_var('mute', 'false');
 	set_user_setting('monitor_mute', 'false');
-}
-
-/**
- * Build footer text describing currently active monitor filters.
- *
- * @return string
- */
-function getFilterText(): string {
-	$filter = '<div class="center monitorFooterText">';
-
-	switch (get_request_var('status')) {
-		case '-4':
-			$filter .= __('Devices without Thresholds', 'monitor');
-
-			break;
-		case '-3':
-			$filter .= __('Not Monitored Devices', 'monitor');
-
-			break;
-		case '-2':
-			$filter .= __('All Devices', 'monitor');
-
-			break;
-		case '-1':
-			$filter .= __('All Monitored Devices', 'monitor');
-
-			break;
-		case '0':
-			$filter .= __('Monitored Devices either Down or Recovering', 'monitor');
-
-			break;
-		case '1':
-			$filter .= __('Monitored Devices either Down, Recovering, or with Triggered Thresholds', 'monitor');
-
-			break;
-		case '2':
-			$filter .= __('Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds', 'monitor');
-
-			break;
-		default:
-			$filter .= __('Unknown monitoring status (%s)', get_request_var('status'), 'monitor');
-	}
-
-	switch (get_request_var('crit')) {
-		case '0':
-			$filter .= __(', and All Criticalities', 'monitor');
-
-			break;
-		case '1':
-			$filter .= __(', and of Low Criticality or Higher', 'monitor');
-
-			break;
-		case '2':
-			$filter .= __(', and of Medium Criticality or Higher', 'monitor');
-
-			break;
-		case '3':
-			$filter .= __(', and of High Criticality or Higher', 'monitor');
-
-			break;
-		case '4':
-			$filter .= __(', and of Mission Critical Status', 'monitor');
-
-			break;
-	}
-
-	$filter .= __('</div><div class="center monitorFooterTextBold">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>', 'monitor');
-
-	return $filter;
 }
 
 /**
