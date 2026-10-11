@@ -160,7 +160,8 @@ function checkServchecks(): array {
 	);
 }
 
-/** * Per-host threshold counts for the list-view Thresholds pill.
+/**
+ * Per-host threshold counts for the list-view Thresholds pill.
  *
  * @return array Map of host_id => ['total' => int, 'triggered' => int,
  *               'breached' => int]. Empty when thold is unavailable.
@@ -436,9 +437,11 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 		$sql_where = 'WHERE (h.disabled = ""
 			AND h.deleted = ""
 			AND td.id IS NULL)' . $awhere;
-	} elseif (get_request_var('status') == -5 && db_table_exists('plugin_servcheck_test')) {
+	} elseif (get_request_var('status') == -5 && api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php') && db_table_exists('plugin_servcheck_test')) {
 		// Devices without Service Checks (no enabled servcheck test matches the
-		// device hostname/ipaddress).
+		// device hostname/ipaddress). Realm-gated server-side: hiding the scope
+		// option in monitor.php is not authorization, so a user without Service
+		// Check access cannot submit status=-5 to probe which devices have them.
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
 		$sql_where = 'WHERE h.disabled = ""
@@ -449,7 +452,11 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 				AND (sct.hostname = h.hostname OR sct.ipaddress = h.hostname)
 			)' . $awhere;
 	} else {
-		// All Monitored Devices (default scope, status -1).
+		// All Monitored Devices (default scope, status -1). validateRequestVars()
+		// normalizes any legacy availability-status code (0/1/2/...) or other
+		// out-of-range value saved by an older release to -1 before we get here,
+		// so this branch only ever serves the -1 scope rather than silently
+		// broadening a stale status into All Monitored Devices.
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
 		$sql_where = 'WHERE h.disabled = ""

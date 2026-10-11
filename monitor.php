@@ -102,8 +102,14 @@ $monitor_events = [
 	'triggered_ma' => __('Triggered (M/A)', 'monitor'),
 	'warn_ping'    => __('Warn Ping', 'monitor'),
 	'alert_ping'   => __('Alert Ping', 'monitor'),
-	'failed_svc'   => __('Failed Svc', 'monitor'),
 ];
+
+// Only offer the Failed Svc event when the servcheck plugin is installed and
+// the user has access to it; otherwise the service-check scope is always empty
+// and the option would only ever produce an empty result.
+if (api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
+	$monitor_events['failed_svc'] = __('Failed Svc', 'monitor');
+}
 
 $monitor_view_type = [
 	'default'  => __('Default', 'monitor'),
@@ -154,9 +160,17 @@ $thold_hosts = checkTholds();
 
 $servcheck_hosts = checkServchecks();
 
-$thold_counts = monitorTholdCounts();
+// The per-host Thresholds / Service Checks pill counts are only rendered in the
+// List view, so skip these two full grouped scans on every other request
+// (tiles/cards, tooltip and dialog AJAX, saves, and card-order updates).
+$thold_counts     = [];
+$servcheck_counts = [];
 
-$servcheck_counts = monitorServcheckCounts();
+if (get_request_var('view') == 'list') {
+	$thold_counts = monitorTholdCounts();
+
+	$servcheck_counts = monitorServcheckCounts();
+}
 
 switch (get_nfilter_request_var('action')) {
 	case 'ajax_status':

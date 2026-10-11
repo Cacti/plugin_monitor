@@ -1145,10 +1145,13 @@ function monitorHostEvents(array $host): array {
 		} elseif (!empty($host['monitor_warn']) && $host['cur_time'] > $host['monitor_warn']) {
 			$events[] = 'warn_ping';
 		}
+	}
 
-		if (isset($servcheck_hosts) && array_key_exists($host['id'], $servcheck_hosts)) {
-			$events[] = 'failed_svc';
-		}
+	// A failing service check is additive and independent of ping availability:
+	// monitorEventFilterSql('failed_svc') matches the host regardless of its Up/
+	// Down state, so a Down+Failed-Svc host must still get the Failed Svc pill.
+	if (isset($servcheck_hosts) && array_key_exists($host['id'], $servcheck_hosts)) {
+		$events[] = 'failed_svc';
 	}
 
 	return $events;
@@ -1257,7 +1260,7 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 		unset($display_text['nosort_tholds']);
 	}
 
-	if (!api_plugin_is_enabled('servcheck')) {
+	if (!api_plugin_is_enabled('servcheck') || !api_plugin_user_realm_auth('servcheck_test.php')) {
 		unset($display_text['nosort_servchecks']);
 	}
 
@@ -1382,9 +1385,9 @@ function renderHostList(array $host): string {
 	$crit_level = isset($host['monitor_criticality']) ? (int) $host['monitor_criticality'] : 0;
 
 	if ($crit_level > 0) {
-		$host_crit = "<span class='monitorPill monitorCrit monitorCrit$crit_level monitorFilterPill' data-filter='crit' data-value='$crit_level' title='" . __esc('Filter by this criticality (click again to clear)', 'monitor') . "'>" . html_escape($criticalities[$crit_level]) . '</span>';
+		$host_crit = "<span class='monitorPill monitorCrit monitorCrit$crit_level monitorFilterPill' role='button' tabindex='0' data-filter='crit' data-value='$crit_level' title='" . __esc('Filter by this criticality (click again to clear)', 'monitor') . "'>" . html_escape($criticalities[$crit_level]) . '</span>';
 	} else {
-		$host_crit = "<span class='monitorPill monitorCrit monitorCrit0 monitorFilterPill' data-filter='crit' data-value='0' title='" . __esc('Criticality not set - click to filter unset devices (click again to clear)', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
+		$host_crit = "<span class='monitorPill monitorCrit monitorCrit0 monitorFilterPill' role='button' tabindex='0' data-filter='crit' data-value='0' title='" . __esc('Criticality not set - click to filter unset devices (click again to clear)', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
 	}
 
 	// Events column: a short pill for every active event (a device can have
@@ -1398,7 +1401,7 @@ function renderHostList(array $host): string {
 
 		foreach ($event_keys as $ekey) {
 			if (isset($meta[$ekey])) {
-				$pills[] = "<span class='monitorPill " . $meta[$ekey]['class'] . " monitorFilterPill' data-filter='events' data-value='$ekey' title='" . __esc('Click to add or remove this event from the filter', 'monitor') . "'>" . html_escape($meta[$ekey]['label']) . '</span>';
+				$pills[] = "<span class='monitorPill " . $meta[$ekey]['class'] . " monitorFilterPill' role='button' tabindex='0' data-filter='events' data-value='$ekey' title='" . __esc('Click to add or remove this event from the filter', 'monitor') . "'>" . html_escape($meta[$ekey]['label']) . '</span>';
 			}
 		}
 
@@ -1413,7 +1416,7 @@ function renderHostList(array $host): string {
 	if (isset($thold_counts[$host['id']]) && $thold_counts[$host['id']]['total'] > 0) {
 		$tc         = $thold_counts[$host['id']];
 		$tcls       = ($tc['triggered'] > 0 || $tc['breached'] > 0) ? 'deviceThreshold' : 'monitorPillMuted';
-		$thold_cell = "<span class='monitorPill $tcls monitorFilterPill' data-filter='events' data-value='triggered' title='" . __esc('Breached / Triggered / Total thresholds - click to toggle the Triggered event filter', 'monitor') . "'>" . $tc['breached'] . ' / ' . $tc['triggered'] . ' / ' . $tc['total'] . '</span>';
+		$thold_cell = "<span class='monitorPill $tcls monitorFilterPill' role='button' tabindex='0' data-filter='events' data-value='triggered' title='" . __esc('Breached / Triggered / Total thresholds - click to toggle the Triggered event filter', 'monitor') . "'>" . $tc['breached'] . ' / ' . $tc['triggered'] . ' / ' . $tc['total'] . '</span>';
 	} else {
 		$thold_cell = "<span class='monitorPill monitorPillMuted' title='" . __esc('No thresholds defined for this device', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
 	}
@@ -1424,7 +1427,7 @@ function renderHostList(array $host): string {
 	if (isset($servcheck_counts[$host['id']]) && $servcheck_counts[$host['id']]['total'] > 0) {
 		$sc             = $servcheck_counts[$host['id']];
 		$scls           = ($sc['failed'] > 0) ? 'deviceServiceCheck' : 'monitorPillMuted';
-		$servcheck_cell = "<span class='monitorPill $scls monitorFilterPill' data-filter='events' data-value='failed_svc' title='" . __esc('Failed / Total service checks - click to toggle the Failed Svc event filter', 'monitor') . "'>" . $sc['failed'] . ' / ' . $sc['total'] . '</span>';
+		$servcheck_cell = "<span class='monitorPill $scls monitorFilterPill' role='button' tabindex='0' data-filter='events' data-value='failed_svc' title='" . __esc('Failed / Total service checks - click to toggle the Failed Svc event filter', 'monitor') . "'>" . $sc['failed'] . ' / ' . $sc['total'] . '</span>';
 	} else {
 		$servcheck_cell = "<span class='monitorPill monitorPillMuted' title='" . __esc('No service checks defined for this device', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
 	}
@@ -1471,7 +1474,7 @@ function renderHostList(array $host): string {
 		form_selectable_cell($thold_cell, $host['id'], '', 'center');
 	}
 
-	if (api_plugin_is_enabled('servcheck')) {
+	if (api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
 		form_selectable_cell($servcheck_cell, $host['id'], '', 'center');
 	}
 

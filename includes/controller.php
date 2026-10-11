@@ -969,6 +969,8 @@ function saveSettings(): void {
 			'size'     => get_request_var('size'),
 			'trim'     => get_request_var('trim'),
 			'status'   => get_request_var('status'),
+			'events'   => implode(',', monitorGetSelectedEvents()),
+			'template' => implode(',', monitorGetSelectedTemplates()),
 			'tree'     => get_request_var('tree'),
 			'site'     => get_request_var('site'),
 		];
@@ -1123,6 +1125,15 @@ function validateRequestVars(bool $force = false): void {
 	];
 
 	validate_store_request_vars($filters, 'sess_monitor');
+
+	// Normalize any legacy or stale Status scope. Older releases stored
+	// availability-status codes (0, 1, 2, ...) in this field; those are no longer
+	// valid scopes, so map anything outside the current scope set to -1 (All
+	// Monitored Devices) rather than letting it fall through and silently broaden
+	// a saved layout's event scope on upgrade.
+	if (!in_array((int) get_request_var('status'), [-1, -2, -3, -4, -5], true)) {
+		set_request_var('status', '-1');
+	}
 	// ================= input validation =================
 }
 

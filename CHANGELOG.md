@@ -8,8 +8,8 @@
 * bug: Size grouping-card tiles to the longest visible host description so long hostnames no longer overlap neighbouring tiles
 * bug: Center the device Actions dialog, make it taller and scrollable so panel text is not cut off, and pause the page refresh countdown while it is open
 * bug: Remove the stray 'Monitored Devices' box header on the Site grouping so it matches the other groupings
-* feature: Add clickable List-view pills — Thresholds (breached / triggered / total), Service Checks (failed / total), a Ping latency pill beside Status, and a Criticality pill (including a 'Not Set' pill for unset devices) — that toggle the matching filter on and off
-* feature: Add Status filter options for Warning Ping, Alert Ping and Service Check Failed, and make the Criticality 'None' selection filter to devices with no criticality set
+* feature: Add clickable List-view pills — Thresholds (breached / triggered / total), Service Checks (failed / total), Events, and a Criticality pill (including a 'Not Set' pill for unset devices) — that toggle the matching filter on and off
+* feature: Offer Warning Ping, Alert Ping and Service Check Failed as additive selections in the multi-select Events filter, and make the Criticality 'None' selection filter to devices with no criticality set
 * bug: Give the busiest grouping cards (many devices) a full row of their own so their tiles span the whole page instead of being squeezed to part of the width beside smaller cards
 * bug: Remove the filter status/criticality summary footer and the "Remember to first select eligible Devices" prompt from the Monitor board
 * bug: Lay the grouping cards out with a wrapping flexbox instead of a CSS grid so they always stretch to fill the full horizontal space; inside Cacti's shrink-to-fit html_start_box div the grid mis-counted its tracks and clipped the cards to roughly half the page width

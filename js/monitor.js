@@ -195,6 +195,7 @@ function saveFilter() {
 		tree: $('#tree').val(),
 		site: $('#site').val(),
 		template: serializeMultiVal($('#template').val()),
+		events: serializeMultiVal($('#events').val()),
 		view: $('#view').val(),
 		rows: $('#rows').val(),
 		crit: $('#crit').val(),
@@ -224,6 +225,7 @@ function saveNewDashboard(action) {
 		tree: $('#tree').val(),
 		site: $('#site').val(),
 		template: serializeMultiVal($('#template').val()),
+		events: serializeMultiVal($('#events').val()),
 		view: $('#view').val(),
 		rows: $('#rows').val(),
 		crit: $('#crit').val(),
@@ -435,6 +437,16 @@ $(() => {
 			// Single-select (Criticality / Show): toggle on, or clear to default.
 			// The bound change handler applies the filter.
 			sel.val(String(sel.val()) === value ? '-1' : value).trigger('change');
+		}
+	});
+
+	// The filter pills carry role="button" and tabindex="0"; activate them from
+	// the keyboard (Enter / Space) by reusing the click handler above, so they
+	// are operable without a mouse.
+	$(document).on('keydown', '.monitorFilterPill', (event) => {
+		if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar' || event.keyCode === 13 || event.keyCode === 32) {
+			event.preventDefault();
+			$(event.currentTarget).trigger('click');
 		}
 	});
 

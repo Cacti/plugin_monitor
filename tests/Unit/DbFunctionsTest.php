@@ -284,6 +284,8 @@ it('selects the without-thresholds scope for status -4', function () {
 });
 
 it('selects the without-service-checks scope for status -5', function () {
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('api_plugin_user_realm_auth', 'servcheck_test.php', true);
 	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
 
 	test_set_request(['status' => '-5', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
@@ -294,6 +296,22 @@ it('selects the without-service-checks scope for status -5', function () {
 
 	expect($where)->toContain('NOT EXISTS')
 		->and($where)->toContain('plugin_servcheck_test');
+});
+
+it('ignores the without-service-checks scope without the servcheck realm', function () {
+	monitor_test_reset_db_mocks();
+	monitor_test_mock_db('api_plugin_is_enabled', 'servcheck', true);
+	monitor_test_mock_db('db_table_exists', 'plugin_servcheck_test', true);
+
+	test_set_request(['status' => '-5', 'crit' => '-1', 'grouping' => 'default', 'rfilter' => '', 'tree' => '-1', 'site' => '-1']);
+
+	$where = '';
+	$join  = '';
+	renderWhereJoin($where, $join);
+
+	// Without servcheck_test.php realm access the -5 scope must not run its
+	// query; it falls back to the default All Monitored Devices scope.
+	expect($where)->not->toContain('plugin_servcheck_test');
 });
 
 it('searches both description and location for the rfilter term', function () {
