@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2024-11-22 02:12+0000\n"
 "Last-Translator: Nakayama Kito <nakayamakito@icloud.com>\n"
 "Language-Team: Japanese <http://translate.cacti.net/projects/cacti/monitor/ja/>\n"
@@ -37,75 +37,6 @@ msgstr "新しいダッシュボードを作成する"
 msgid "Monitored Devices"
 msgstr "監視対象デバイス"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "監視対象デバイス"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Devices"
-msgstr "デバイス"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "すべての監視対象デバイス"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "監視対象デバイスが停止中または回復中"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "監視対象デバイスがダウン、回復中、またはトリガーされたしきい値を使用"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "監視対象デバイスがダウン、回復中、またはしきい値が違反またはトリガーされた"
-
-#: includes/controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "不明な監視ステータス（％s）"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "、そしてすべての重要性"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "、および低重要度以上の"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "中程度以上の重要度"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "、そして高臨界度以上"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "ミッションクリティカルステータス"
-
-#: includes/controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">最初に[Devices]ページから監視対象の適格なデバイスを選択してください。 </div>"
-
 #: includes/controller.php
 msgid "Unsaved"
 msgstr "未保存"
@@ -114,9 +45,9 @@ msgstr "未保存"
 msgid "Layout"
 msgstr "レイアウト"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "状態"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -125,10 +56,6 @@ msgstr "表示"
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "グループ化"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "デバイス"
 
 #: includes/controller.php
 msgid "Refresh"
@@ -193,6 +120,14 @@ msgstr "停止したデバイスの％sアラート"
 msgid "%s Alerts for downed Devices"
 msgstr "停止したデバイスの％sアラート"
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "デバイス"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 #, fuzzy
 msgid "Criticality"
@@ -234,11 +169,7 @@ msgstr "非ツリーデバイス"
 msgid "Sites"
 msgstr "サイト"
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr "全てのテンプレート"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "非テンプレートデバイス"
@@ -246,6 +177,16 @@ msgstr "非テンプレートデバイス"
 #: includes/controller.php
 msgid "Template"
 msgstr "テンプレート"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "テンプレート"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -284,6 +225,10 @@ msgstr ""
 msgid "Search"
 msgstr "検索"
 
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
+
 #: includes/controller.php
 msgid "Mute"
 msgstr "ミュート"
@@ -321,12 +266,12 @@ msgstr "ダッシュボード「%s」が保存されました！"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "ダッシュボード「%s」を保存できませんでした。"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "デバイスを編集"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "グラフを表示する"
@@ -451,7 +396,7 @@ msgstr "決して"
 msgid "Unspecified"
 msgstr ""
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "なし"
 
@@ -489,9 +434,13 @@ msgstr ""
 msgid "Description"
 msgstr "説明"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "ホスト名"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "状態"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -501,7 +450,7 @@ msgstr "サイト"
 msgid "Device Template"
 msgstr "デバイステンプレート"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -512,6 +461,10 @@ msgstr "位置:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "連絡先:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "ノート"
 
 #: includes/controller.php
 #, fuzzy
@@ -575,7 +528,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -584,11 +537,11 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "トリガーされた"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Thresholds"
 msgstr "しきい値を表示"
@@ -640,6 +593,39 @@ msgstr "不明"
 msgid "Just Up"
 msgstr "ジャストアップ"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "下"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "復元中"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Down (M/A)"
+msgstr "ダウン（ミュート/アック）"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Triggered (M/A)"
+msgstr "ダウン（ミュート/アック）"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "警告"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Alert Ping"
+msgstr "アラートping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -651,12 +637,68 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "デバイスのホスト名"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
+msgstr ""
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Warning"
+msgstr "警告"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+msgid "Admin"
+msgstr "管理者"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "平均"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
@@ -665,25 +707,49 @@ msgid "Length in Status"
 msgstr "ステータスの長さ"
 
 #: includes/render.php
-#, fuzzy
-msgid "Averages"
-msgstr "平均"
-
-#: includes/render.php
-msgid "Warning"
-msgstr "警告"
-
-#: includes/render.php
-msgid "Admin"
-msgstr "管理者"
-
-#: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "How long the device has been in its current status"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "ノート"
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Not Set"
+msgstr "上"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -701,14 +767,6 @@ msgstr "高い"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "ミッションクリティカル"
-
-#: monitor.php
-msgid "Down"
-msgstr "下"
-
-#: monitor.php
-msgid "Recovering"
-msgstr "復元中"
 
 #: monitor.php
 msgid "Up"
@@ -733,11 +791,6 @@ msgstr "空室状況チェックなし"
 #, fuzzy
 msgid "Warning Ping"
 msgstr "警告ping"
-
-#: monitor.php
-#, fuzzy
-msgid "Alert Ping"
-msgstr "アラートping"
 
 #: monitor.php
 msgid "Service Check Failed"
@@ -765,23 +818,26 @@ msgstr "ズーム"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up"
-msgstr "上"
+msgid "All Monitored Devices"
+msgstr "すべての監視対象デバイス"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up or Triggered"
-msgstr "起動していないまたはトリガーされた"
-
-#: monitor.php
-#, fuzzy
-msgid "Not Up, Triggered or Breached"
-msgstr "起動していない、トリガーされている、または違反している"
+msgid "All Devices"
+msgstr "デバイス"
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "デバイス監視設定"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -790,10 +846,6 @@ msgstr "デフォルト"
 #: monitor.php setup.php
 msgid "List"
 msgstr "リスト"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -1048,6 +1100,10 @@ msgstr "権限付きのデフォルト"
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "これは、モニタがデバイスをレンダリングする方法です。"
+
+#: setup.php
+msgid "Names only"
+msgstr ""
 
 #: setup.php
 #, fuzzy
@@ -1380,6 +1436,65 @@ msgstr ""
 #: setup.php
 msgid "Monitoring"
 msgstr "モニタリング"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "監視対象デバイス"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "監視対象デバイスが停止中または回復中"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "監視対象デバイスがダウン、回復中、またはトリガーされたしきい値を使用"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "監視対象デバイスがダウン、回復中、またはしきい値が違反またはトリガーされた"
+
+#, fuzzy, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "不明な監視ステータス（％s）"
+
+#, fuzzy
+#~ msgid ", and All Criticalities"
+#~ msgstr "、そしてすべての重要性"
+
+#, fuzzy
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr "、および低重要度以上の"
+
+#, fuzzy
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr "中程度以上の重要度"
+
+#, fuzzy
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr "、そして高臨界度以上"
+
+#, fuzzy
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr "ミッションクリティカルステータス"
+
+#, fuzzy
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\">最初に[Devices]ページから監視対象の適格なデバイスを選択してください。 </div>"
+
+#~ msgid "All Templates"
+#~ msgstr "全てのテンプレート"
+
+#, fuzzy
+#~ msgid "Hostname of device"
+#~ msgstr "デバイスのホスト名"
+
+#, fuzzy
+#~ msgid "Not Up or Triggered"
+#~ msgstr "起動していないまたはトリガーされた"
+
+#, fuzzy
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "起動していない、トリガーされている、または違反している"
 
 #, fuzzy
 #~ msgid "All Monitored"
