@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2020-12-28 20:09-0500\n"
 "Last-Translator: Larry Adams <larryjadams@comcast.net>\n"
 "Language-Team: German <http://translate.cacti.net/projects/cacti/monitor/de-DE/>\n"
@@ -36,75 +36,6 @@ msgstr "Neues Dashboard erstellen"
 msgid "Monitored Devices"
 msgstr "Überwachte Geräte"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Überwachte Geräte"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Zielsysteme"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "Alle überwachten Geräte"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Überwachte Geräte entweder ausgefallen oder wiederhergestellt"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Überwachte Geräte entweder heruntergefahren, wiederhergestellt oder mit ausgelösten Schwellenwerten"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Überwachte Geräte entweder heruntergefahren, wiederhergestellt oder mit unterbrochenen oder getriggerten Schwellenwerten."
-
-#: includes/controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Unbekannter Überwachungszustand (%s)"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "und alle kritischen Punkte"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "und von niedriger Kritikalität oder höher."
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "und von mittlerer Kritikalität oder höher."
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "und von hoher Kritikalität oder höherem Niveau."
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "und des kritischen Status der Mission"
-
-#: includes/controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">Erinnern Sie sich daran, zuerst auf der Seite Geräte geeignete Geräte auszuwählen, die überwacht werden sollen!</div>"
-
 #: includes/controller.php
 #, fuzzy
 msgid "Unsaved"
@@ -114,9 +45,9 @@ msgstr "Nicht gespeichert"
 msgid "Layout"
 msgstr "Layout"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "Status"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -125,10 +56,6 @@ msgstr "Ansicht"
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "Gruppieren"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "Zielsysteme"
 
 #: includes/controller.php
 msgid "Refresh"
@@ -192,6 +119,14 @@ msgstr "%s Warnmeldung für ausgefallene Geräte"
 msgid "%s Alerts for downed Devices"
 msgstr "%s Warnmeldungen für ausgefallene Geräte"
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Zielsysteme"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 #, fuzzy
 msgid "Criticality"
@@ -232,11 +167,7 @@ msgstr "Nicht-Baum-Geräte"
 msgid "Sites"
 msgstr "Standorte"
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr "Alle Vorlagen"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "Nicht vorkonfigurierte Geräte"
@@ -244,6 +175,16 @@ msgstr "Nicht vorkonfigurierte Geräte"
 #: includes/controller.php
 msgid "Template"
 msgstr "Vorlage"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "Vorlage"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -282,6 +223,10 @@ msgstr ""
 msgid "Search"
 msgstr "Suche"
 
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
+
 #: includes/controller.php
 msgid "Mute"
 msgstr "Stumm"
@@ -319,12 +264,12 @@ msgstr "Dashboard '%s' wurde gespeichert!"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "Dashboard '%s' konnte nicht gespeichert werden!"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "Gerät bearbeiten"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "Graphen anschauen"
@@ -449,7 +394,7 @@ msgstr "Niemals"
 msgid "Unspecified"
 msgstr ""
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "Nichts"
 
@@ -487,9 +432,13 @@ msgstr ""
 msgid "Description"
 msgstr "Beschreibung"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "Zielsystemname"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Status"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -499,7 +448,7 @@ msgstr "Standort"
 msgid "Device Template"
 msgstr "Zielsystem Schablone"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -510,6 +459,10 @@ msgstr "Umgebung:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "Kontakt:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Notizen"
 
 #: includes/controller.php
 #, fuzzy
@@ -573,7 +526,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -582,11 +535,11 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "Getriggert"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Thresholds"
 msgstr "Schwellenwerte anzeigen"
@@ -638,6 +591,39 @@ msgstr "Unbekannt"
 msgid "Just Up"
 msgstr "Just Up"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Runter"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Wiederherstellend"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Down (M/A)"
+msgstr "Nach unten (stumm/gesperrt)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Triggered (M/A)"
+msgstr "Nach unten (stumm/gesperrt)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "Warnung"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Alert Ping"
+msgstr "Alarmping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -649,12 +635,67 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "Hostname des Gerätes"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
+msgstr ""
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Warnung"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Admin"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Durchschnitte"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
@@ -663,24 +704,50 @@ msgid "Length in Status"
 msgstr "Länge im Status"
 
 #: includes/render.php
-msgid "Averages"
-msgstr "Durchschnitte"
-
-#: includes/render.php
-msgid "Warning"
-msgstr "Warnung"
-
-#: includes/render.php
-msgid "Admin"
-msgstr "Admin"
-
-#: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "How long the device has been in its current status"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "Notizen"
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+#| msgid "Not Up"
+msgid "Not Set"
+msgstr "Nicht aktiv"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -698,14 +765,6 @@ msgstr "Hoch"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Missionskritisch"
-
-#: monitor.php
-msgid "Down"
-msgstr "Runter"
-
-#: monitor.php
-msgid "Recovering"
-msgstr "Wiederherstellend"
 
 #: monitor.php
 msgid "Up"
@@ -732,11 +791,6 @@ msgid "Warning Ping"
 msgstr "Warnhinweis Ping"
 
 #: monitor.php
-#, fuzzy
-msgid "Alert Ping"
-msgstr "Alarmping"
-
-#: monitor.php
 msgid "Service Check Failed"
 msgstr ""
 
@@ -761,23 +815,27 @@ msgid "Zoom"
 msgstr "Vergrössern"
 
 #: monitor.php
-msgid "Not Up"
-msgstr "Nicht aktiv"
+#, fuzzy
+msgid "All Monitored Devices"
+msgstr "Alle überwachten Geräte"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up or Triggered"
-msgstr "Nicht oben oder ausgelöst"
-
-#: monitor.php
-#, fuzzy
-msgid "Not Up, Triggered or Breached"
-msgstr "Nicht oben, ausgelöst oder verletzt"
+msgid "All Devices"
+msgstr "Zielsysteme"
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "Einstellungen zur Geräteüberwachung"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -786,10 +844,6 @@ msgstr "Voreinstellung"
 #: monitor.php setup.php
 msgid "List"
 msgstr "Liste"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -1045,6 +1099,10 @@ msgstr "Standard mit Berechtigungen"
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "So wird der Monitor Geräte darstellen."
+
+#: setup.php
+msgid "Names only"
+msgstr ""
 
 #: setup.php
 #, fuzzy
@@ -1375,6 +1433,65 @@ msgstr ""
 #: setup.php
 msgid "Monitoring"
 msgstr "Monitoring"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "Überwachte Geräte"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "Überwachte Geräte entweder ausgefallen oder wiederhergestellt"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "Überwachte Geräte entweder heruntergefahren, wiederhergestellt oder mit ausgelösten Schwellenwerten"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "Überwachte Geräte entweder heruntergefahren, wiederhergestellt oder mit unterbrochenen oder getriggerten Schwellenwerten."
+
+#, fuzzy, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "Unbekannter Überwachungszustand (%s)"
+
+#, fuzzy
+#~ msgid ", and All Criticalities"
+#~ msgstr "und alle kritischen Punkte"
+
+#, fuzzy
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr "und von niedriger Kritikalität oder höher."
+
+#, fuzzy
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr "und von mittlerer Kritikalität oder höher."
+
+#, fuzzy
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr "und von hoher Kritikalität oder höherem Niveau."
+
+#, fuzzy
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr "und des kritischen Status der Mission"
+
+#, fuzzy
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\">Erinnern Sie sich daran, zuerst auf der Seite Geräte geeignete Geräte auszuwählen, die überwacht werden sollen!</div>"
+
+#~ msgid "All Templates"
+#~ msgstr "Alle Vorlagen"
+
+#, fuzzy
+#~ msgid "Hostname of device"
+#~ msgstr "Hostname des Gerätes"
+
+#, fuzzy
+#~ msgid "Not Up or Triggered"
+#~ msgstr "Nicht oben oder ausgelöst"
+
+#, fuzzy
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "Nicht oben, ausgelöst oder verletzt"
 
 #, fuzzy
 #~ msgid "All Monitored"
