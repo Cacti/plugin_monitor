@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2020-12-28 20:10-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -36,75 +36,6 @@ msgstr "צור לוח מחוונים חדש"
 msgid "Monitored Devices"
 msgstr "התקנים מנוטרים"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "התקנים מנוטרים"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "כל התקנים פיקוח"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "התקנים מנוטרלים או למטה או שחזור"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "התקנים מנוטרלים או למטה, שחזור, או עם סף מפעילה"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "ניטור התקנים או למטה, השחזור, או עם חרט או סף מפעילה"
-
-#: includes/controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "מצב ניטור לא ידוע ( %s)"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr ", ואת כל קריטיות"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr ", וכן של ביקורתיות נמוכה או גבוהה יותר"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr ", וכן של קריטי בינוני או גבוה יותר"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr ", וכן של קריטי גבוה או גבוה יותר"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr ", וכן של מצב קריטי המשימה"
-
-#: includes/controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\" style=\";text-align:right;direction:rtl\"> זכור תחילה לבחור התקנים כשירים להיות פיקוח מדף התקנים! </div>"
-
 #: includes/controller.php
 msgid "Unsaved"
 msgstr "לא נשמר"
@@ -113,9 +44,9 @@ msgstr "לא נשמר"
 msgid "Layout"
 msgstr "פריסה"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "סטטוס"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -125,10 +56,6 @@ msgstr "הצג"
 #, fuzzy
 msgid "Grouping"
 msgstr "קיבוץ"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
 
 #: includes/controller.php
 msgid "Refresh"
@@ -193,6 +120,14 @@ msgstr "התראת %s עבור התקנים שהורדו"
 msgid "%s Alerts for downed Devices"
 msgstr "%s התראות עבור התקנים שהורדו"
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 #, fuzzy
 msgid "Criticality"
@@ -233,12 +168,7 @@ msgstr "התקנים שאינם-עץ"
 msgid "Sites"
 msgstr "אתרים"
 
-#: includes/controller.php
-#, fuzzy
-msgid "All Templates"
-msgstr "כל התבניות"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "התקנים שאינם מתויגים"
@@ -246,6 +176,16 @@ msgstr "התקנים שאינם מתויגים"
 #: includes/controller.php
 msgid "Template"
 msgstr "תבנית"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "תבנית"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -282,6 +222,10 @@ msgstr ""
 #: includes/controller.php
 msgid "Search"
 msgstr "חיפוש"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
 
 #: includes/controller.php
 msgid "Mute"
@@ -320,12 +264,12 @@ msgstr "לוח המחוונים '%s' נשמר!"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "לא ניתן לשמור את לוח המחוונים '%s'!"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "ערוך את המכשיר"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "הצג גרפים"
@@ -450,7 +394,7 @@ msgstr "לעולם לא"
 msgid "Unspecified"
 msgstr ""
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "ללא"
 
@@ -488,9 +432,13 @@ msgstr ""
 msgid "Description"
 msgstr "תיאור"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "Hostname"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "סטטוס"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -501,7 +449,7 @@ msgstr "אתר"
 msgid "Device Template"
 msgstr "תבנית מכשיר"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -512,6 +460,10 @@ msgstr "מיקום:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "איש קשר:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "הערות"
 
 #: includes/controller.php
 #, fuzzy
@@ -575,7 +527,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -584,12 +536,12 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 #, fuzzy
 msgid "Triggered"
 msgstr "טריגר"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Thresholds"
 msgstr "הצג ספים"
@@ -641,6 +593,40 @@ msgstr "לא ידוע"
 msgid "Just Up"
 msgstr "רק למעלה"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "למטה"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Recovering"
+msgstr "שחזור"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Down (M/A)"
+msgstr "למטה (מושתק / מושמט)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Triggered (M/A)"
+msgstr "למטה (מושתק / מושמט)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "אזהרה"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Alert Ping"
+msgstr "התראה Ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -652,12 +638,68 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "שם מארח של המכשיר"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
+msgstr ""
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Warning"
+msgstr "אזהרה"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+msgid "Admin"
+msgstr "מנהל"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "ממוצעים"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
@@ -666,25 +708,49 @@ msgid "Length in Status"
 msgstr "אורך הסטטוס"
 
 #: includes/render.php
-#, fuzzy
-msgid "Averages"
-msgstr "ממוצעים"
-
-#: includes/render.php
-msgid "Warning"
-msgstr "אזהרה"
-
-#: includes/render.php
-msgid "Admin"
-msgstr "מנהל"
-
-#: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "How long the device has been in its current status"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "הערות"
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Not Set"
+msgstr "לא למעלה"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -702,15 +768,6 @@ msgstr "גבוה"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "משימה קריטית"
-
-#: monitor.php
-msgid "Down"
-msgstr "למטה"
-
-#: monitor.php
-#, fuzzy
-msgid "Recovering"
-msgstr "שחזור"
 
 #: monitor.php
 msgid "Up"
@@ -735,11 +792,6 @@ msgstr "אין בדיקת זמינות"
 #, fuzzy
 msgid "Warning Ping"
 msgstr "אזהרה Ping"
-
-#: monitor.php
-#, fuzzy
-msgid "Alert Ping"
-msgstr "התראה Ping"
 
 #: monitor.php
 msgid "Service Check Failed"
@@ -767,23 +819,26 @@ msgstr "זום"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up"
-msgstr "לא למעלה"
+msgid "All Monitored Devices"
+msgstr "כל התקנים פיקוח"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up or Triggered"
-msgstr "לא למעלה או טריגר"
-
-#: monitor.php
-#, fuzzy
-msgid "Not Up, Triggered or Breached"
-msgstr "לא למעלה, הופעל או הופר"
+msgid "All Devices"
+msgstr "ניתן להתנתק מכל ההתקנים האחרים, כגון טלפון נייד או מחשב ציבורי, על ידי לחיצה על כפתור התנתקות מכל ההתקנים האחרים."
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "הגדרות ניטור התקנים"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -792,10 +847,6 @@ msgstr "ברירת מחדל"
 #: monitor.php setup.php
 msgid "List"
 msgstr "רשימה"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -1050,6 +1101,10 @@ msgstr "ברירת מחדל עם הרשאות"
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "זה איך לפקח יעבד התקנים."
+
+#: setup.php
+msgid "Names only"
+msgstr ""
 
 #: setup.php
 #, fuzzy
@@ -1384,6 +1439,66 @@ msgstr ""
 #, fuzzy
 msgid "Monitoring"
 msgstr "מעקב"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "התקנים מנוטרים"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "התקנים מנוטרלים או למטה או שחזור"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "התקנים מנוטרלים או למטה, שחזור, או עם סף מפעילה"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "ניטור התקנים או למטה, השחזור, או עם חרט או סף מפעילה"
+
+#, fuzzy, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "מצב ניטור לא ידוע ( %s)"
+
+#, fuzzy
+#~ msgid ", and All Criticalities"
+#~ msgstr ", ואת כל קריטיות"
+
+#, fuzzy
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr ", וכן של ביקורתיות נמוכה או גבוהה יותר"
+
+#, fuzzy
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr ", וכן של קריטי בינוני או גבוה יותר"
+
+#, fuzzy
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr ", וכן של קריטי גבוה או גבוה יותר"
+
+#, fuzzy
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr ", וכן של מצב קריטי המשימה"
+
+#, fuzzy
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\" style=\";text-align:right;direction:rtl\"> זכור תחילה לבחור התקנים כשירים להיות פיקוח מדף התקנים! </div>"
+
+#, fuzzy
+#~ msgid "All Templates"
+#~ msgstr "כל התבניות"
+
+#, fuzzy
+#~ msgid "Hostname of device"
+#~ msgstr "שם מארח של המכשיר"
+
+#, fuzzy
+#~ msgid "Not Up or Triggered"
+#~ msgstr "לא למעלה או טריגר"
+
+#, fuzzy
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "לא למעלה, הופעל או הופר"
 
 #, fuzzy
 #~ msgid "All Monitored"
