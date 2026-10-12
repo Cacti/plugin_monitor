@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2026-10-06 10:18+0000\n"
 "Last-Translator: YU HAO HUANG <mix@b51.tw>\n"
 "Language-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\n"
@@ -35,75 +35,6 @@ msgstr "新增儀表板"
 msgid "Monitored Devices"
 msgstr "監控的設備"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "監控的設備"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Devices"
-msgstr "設備"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "所有受監控的設備"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "受監控設備已關閉或正在恢復"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "受監控的設備可以是“關閉”，“恢復”或“具有觸發閾值”"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "受監控設備已關閉，恢復或具有違反或觸發閾值"
-
-#: includes/controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "未知監控狀態（％s）"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "和所有重要性"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "，低臨界或更高"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "，以及中等臨界或更高"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "，以及高臨界或更高"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "和關鍵任務狀態"
-
-#: includes/controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">請記住首先從“設備”頁面選擇要監控的符合條件的設備！ </div>"
-
 #: includes/controller.php
 #, fuzzy
 msgid "Unsaved"
@@ -113,10 +44,9 @@ msgstr "未保存"
 msgid "Layout"
 msgstr "佈局"
 
-#: includes/controller.php includes/render.php
-#, fuzzy
-msgid "Status"
-msgstr "狀態"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 #, fuzzy
@@ -126,11 +56,6 @@ msgstr "查看"
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "商品群組"
-
-#: includes/controller.php includes/render.php
-#, fuzzy
-msgid "Devices"
-msgstr "設備"
 
 #: includes/controller.php
 #, fuzzy
@@ -200,6 +125,15 @@ msgstr "％s已停止設備的警報"
 msgid "%s Alerts for downed Devices"
 msgstr "％s已停機設備的警報"
 
+#: includes/controller.php includes/render.php
+#, fuzzy
+msgid "Devices"
+msgstr "設備"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 #, fuzzy
 msgid "Criticality"
@@ -243,11 +177,7 @@ msgstr "非樹設備"
 msgid "Sites"
 msgstr "網站"
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr "所有模板"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "非模板化設備"
@@ -256,6 +186,15 @@ msgstr "非模板化設備"
 #, fuzzy
 msgid "Template"
 msgstr "模板"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Templates"
+msgstr "模板"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -293,6 +232,10 @@ msgstr ""
 #: includes/controller.php
 msgid "Search"
 msgstr "搜尋"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
 
 #: includes/controller.php
 msgid "Mute"
@@ -332,12 +275,12 @@ msgstr "儀表板“ %s”已保存！"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "儀表板“ %s”無法保存！"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "編輯設備"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "查看圖表"
@@ -466,7 +409,7 @@ msgstr "從不"
 msgid "Unspecified"
 msgstr ""
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 #, fuzzy
 msgid "None"
 msgstr "無"
@@ -506,10 +449,15 @@ msgstr ""
 msgid "Description"
 msgstr "描述"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 #, fuzzy
 msgid "Hostname"
 msgstr "主機名稱"
+
+#: includes/controller.php
+#, fuzzy
+msgid "Status"
+msgstr "狀態"
 
 #: includes/controller.php includes/render.php monitor.php
 #, fuzzy
@@ -521,7 +469,7 @@ msgstr "網站"
 msgid "Device Template"
 msgstr "設備模板"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Location"
 msgstr "地點:"
@@ -530,6 +478,11 @@ msgstr "地點:"
 #, fuzzy
 msgid "Contact"
 msgstr "聯繫方式："
+
+#: includes/controller.php
+#, fuzzy
+msgid "Notes"
+msgstr "備註"
 
 #: includes/controller.php
 #, fuzzy
@@ -594,7 +547,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -603,12 +556,12 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 #, fuzzy
 msgid "Triggered"
 msgstr "觸發"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Thresholds"
 msgstr "查看閾值"
@@ -661,6 +614,40 @@ msgstr "未知"
 msgid "Just Up"
 msgstr "剛起來"
 
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Down"
+msgstr "向下"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Recovering"
+msgstr "正在復原"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Down (M/A)"
+msgstr "向下（靜音/罷工）"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Triggered (M/A)"
+msgstr "向下（靜音/罷工）"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Warn Ping"
+msgstr "警告"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Alert Ping"
+msgstr "警報Ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 msgid "Actions"
@@ -671,12 +658,69 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "設備的主機名"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
+msgstr ""
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Warning"
+msgstr "警告"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+msgid "Admin"
+msgstr "管理員"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "平均值"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
@@ -685,27 +729,49 @@ msgid "Length in Status"
 msgstr "狀態長度"
 
 #: includes/render.php
-#, fuzzy
-msgid "Averages"
-msgstr "平均值"
+msgid "How long the device has been in its current status"
+msgstr ""
 
 #: includes/render.php
-#, fuzzy
-msgid "Warning"
-msgstr "警告"
+msgid "Date and time the device last failed its availability check"
+msgstr ""
 
 #: includes/render.php
-msgid "Admin"
-msgstr "管理員"
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
 
 #: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
 msgstr ""
 
 #: includes/render.php
 #, fuzzy
-msgid "Notes"
-msgstr "備註"
+msgid "Not Set"
+msgstr "不起來"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -723,16 +789,6 @@ msgstr "高"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "關鍵任務"
-
-#: monitor.php
-#, fuzzy
-msgid "Down"
-msgstr "向下"
-
-#: monitor.php
-#, fuzzy
-msgid "Recovering"
-msgstr "正在復原"
 
 #: monitor.php
 #, fuzzy
@@ -758,11 +814,6 @@ msgstr "無可用性檢查"
 #, fuzzy
 msgid "Warning Ping"
 msgstr "警告Ping"
-
-#: monitor.php
-#, fuzzy
-msgid "Alert Ping"
-msgstr "警報Ping"
 
 #: monitor.php
 msgid "Service Check Failed"
@@ -791,23 +842,26 @@ msgstr "縮放"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up"
-msgstr "不起來"
+msgid "All Monitored Devices"
+msgstr "所有受監控的設備"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up or Triggered"
-msgstr "未啟動或觸發"
-
-#: monitor.php
-#, fuzzy
-msgid "Not Up, Triggered or Breached"
-msgstr "不起來，觸發或違反"
+msgid "All Devices"
+msgstr "設備"
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "設備監控設置"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -816,10 +870,6 @@ msgstr "預設"
 #: monitor.php setup.php
 msgid "List"
 msgstr "清單"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -1075,6 +1125,10 @@ msgstr "默認有權限"
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "這是監視器呈現設備的方式。"
+
+#: setup.php
+msgid "Names only"
+msgstr ""
 
 #: setup.php
 #, fuzzy
@@ -1409,6 +1463,65 @@ msgstr ""
 #: setup.php
 msgid "Monitoring"
 msgstr "監控"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "監控的設備"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "受監控設備已關閉或正在恢復"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "受監控的設備可以是“關閉”，“恢復”或“具有觸發閾值”"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "受監控設備已關閉，恢復或具有違反或觸發閾值"
+
+#, fuzzy, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "未知監控狀態（％s）"
+
+#, fuzzy
+#~ msgid ", and All Criticalities"
+#~ msgstr "和所有重要性"
+
+#, fuzzy
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr "，低臨界或更高"
+
+#, fuzzy
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr "，以及中等臨界或更高"
+
+#, fuzzy
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr "，以及高臨界或更高"
+
+#, fuzzy
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr "和關鍵任務狀態"
+
+#, fuzzy
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\">請記住首先從“設備”頁面選擇要監控的符合條件的設備！ </div>"
+
+#~ msgid "All Templates"
+#~ msgstr "所有模板"
+
+#, fuzzy
+#~ msgid "Hostname of device"
+#~ msgstr "設備的主機名"
+
+#, fuzzy
+#~ msgid "Not Up or Triggered"
+#~ msgstr "未啟動或觸發"
+
+#, fuzzy
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "不起來，觸發或違反"
 
 #, fuzzy
 #~ msgid "All Monitored"
