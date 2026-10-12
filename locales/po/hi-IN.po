@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2020-12-28 20:11-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,75 +37,6 @@ msgstr "नया डैशबोर्ड बनाएं"
 msgid "Monitored Devices"
 msgstr "मॉनिटर किए गए उपकरण"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "मॉनिटर किए गए उपकरण"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Devices"
-msgstr "डिवाइस"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "सभी मॉनिटर किए गए उपकरण"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "मॉनिटर किए गए डिवाइस या तो डाउन या रिकवरिंग हैं"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ट्रिगर थ्रेशोल्ड के साथ"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ब्रेक्ड या ट्रिगर थ्रेशोल्ड के साथ"
-
-#: includes/controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "अज्ञात निगरानी स्थिति ( %s)"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr ", और सभी आलोचनाएँ"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr ", और कम आलोचना या उच्चतर"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr ", और मध्यम आलोचना या उच्चतर"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr ", और उच्च आलोचना या उच्चतर"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr ", और मिशन क्रिटिकल स्टेटस का"
-
-#: includes/controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\"> डिवाइस पेज से मॉनिटर करने के लिए पहले योग्य डिवाइस का चयन करना याद रखें! </div>"
-
 #: includes/controller.php
 #, fuzzy
 msgid "Unsaved"
@@ -115,9 +46,9 @@ msgstr "न सहेजा गया"
 msgid "Layout"
 msgstr "नक्शा"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "ऑर्डर स्थिति"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -127,10 +58,6 @@ msgstr "देखें"
 #, fuzzy
 msgid "Grouping"
 msgstr "समूहीकरण"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "डिवाइस"
 
 #: includes/controller.php
 msgid "Refresh"
@@ -195,6 +122,14 @@ msgstr "डाउन किए गए उपकरणों के लिए %s 
 msgid "%s Alerts for downed Devices"
 msgstr "डाउन किए गए उपकरणों के लिए% अलर्ट"
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "डिवाइस"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 #, fuzzy
 msgid "Criticality"
@@ -237,12 +172,7 @@ msgstr "गैर-पेड़ उपकरण"
 msgid "Sites"
 msgstr "साइटां"
 
-#: includes/controller.php
-#, fuzzy
-msgid "All Templates"
-msgstr "सभी टेम्पलेट"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "गैर-अस्थायी उपकरण"
@@ -250,6 +180,16 @@ msgstr "गैर-अस्थायी उपकरण"
 #: includes/controller.php
 msgid "Template"
 msgstr "खाका"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "खाका"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -286,6 +226,10 @@ msgstr ""
 #: includes/controller.php
 msgid "Search"
 msgstr "खोजें"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -326,12 +270,12 @@ msgstr "डैशबोर्ड '%s' सहेजा गया है!"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "डैशबोर्ड '%s' सहेजा नहीं जा सका!"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "उपकरण संपादित करें"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "रेखांकन देखें"
@@ -459,7 +403,7 @@ msgstr "कभी नहीं"
 msgid "Unspecified"
 msgstr ""
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "कोई नहीं"
 
@@ -497,9 +441,13 @@ msgstr ""
 msgid "Description"
 msgstr "विवरण"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "होस्टनांऽ"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "ऑर्डर स्थिति"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -510,7 +458,7 @@ msgstr "साइट"
 msgid "Device Template"
 msgstr "डिवाइस टेम्पलेट"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -521,6 +469,10 @@ msgstr "स्थान:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "संपर्क:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "नोट"
 
 #: includes/controller.php
 #, fuzzy
@@ -584,7 +536,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -593,12 +545,12 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 #, fuzzy
 msgid "Triggered"
 msgstr "उत्प्रेरित"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Thresholds"
 msgstr "थ्रेसहोल्ड देखें"
@@ -650,6 +602,40 @@ msgstr "अज्ञात"
 msgid "Just Up"
 msgstr "बस ऊपर"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "नीचे"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Recovering"
+msgstr "पुन: प्राप्त करना"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Down (M/A)"
+msgstr "डाउन (म्यूट / Acked)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Triggered (M/A)"
+msgstr "डाउन (म्यूट / Acked)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "चेतावनी"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Alert Ping"
+msgstr "अलर्ट पिंग"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -661,12 +647,69 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "डिवाइस का होस्टनाम"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
+msgstr ""
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Warning"
+msgstr "चेतावनी"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Admin"
+msgstr "व्यवस्थापक"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "औसत"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
@@ -675,26 +718,49 @@ msgid "Length in Status"
 msgstr "स्थिति में लंबाई"
 
 #: includes/render.php
-#, fuzzy
-msgid "Averages"
-msgstr "औसत"
-
-#: includes/render.php
-msgid "Warning"
-msgstr "चेतावनी"
-
-#: includes/render.php
-#, fuzzy
-msgid "Admin"
-msgstr "व्यवस्थापक"
-
-#: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "How long the device has been in its current status"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "नोट"
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Not Set"
+msgstr "उठा नहीं"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -712,15 +778,6 @@ msgstr "उच्च"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "महत्वपूर्ण मिशन"
-
-#: monitor.php
-msgid "Down"
-msgstr "नीचे"
-
-#: monitor.php
-#, fuzzy
-msgid "Recovering"
-msgstr "पुन: प्राप्त करना"
 
 #: monitor.php
 msgid "Up"
@@ -745,11 +802,6 @@ msgstr "कोई उपलब्धता जाँच नहीं"
 #, fuzzy
 msgid "Warning Ping"
 msgstr "चेतावनी पिंग"
-
-#: monitor.php
-#, fuzzy
-msgid "Alert Ping"
-msgstr "अलर्ट पिंग"
 
 #: monitor.php
 msgid "Service Check Failed"
@@ -780,23 +832,26 @@ msgstr "ज़ूम करो"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up"
-msgstr "उठा नहीं"
+msgid "All Monitored Devices"
+msgstr "सभी मॉनिटर किए गए उपकरण"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up or Triggered"
-msgstr "अप या ट्रिगर नहीं है"
-
-#: monitor.php
-#, fuzzy
-msgid "Not Up, Triggered or Breached"
-msgstr "नॉट अप, ट्रिगर्ड या ब्रेक्ड"
+msgid "All Devices"
+msgstr "डिवाइस"
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "डिवाइस मॉनिटरिंग सेटिंग्स"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -805,10 +860,6 @@ msgstr "डिफ़ॉल्ट"
 #: monitor.php setup.php
 msgid "List"
 msgstr "सूची"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 #, fuzzy
@@ -1066,6 +1117,10 @@ msgstr "अनुमतियों के साथ डिफ़ॉल्ट"
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "यह है कि मॉनिटर डिवाइसेस को कैसे रेंडर करेगा।"
+
+#: setup.php
+msgid "Names only"
+msgstr ""
 
 #: setup.php
 #, fuzzy
@@ -1405,6 +1460,66 @@ msgstr ""
 #, fuzzy
 msgid "Monitoring"
 msgstr "निगरानी"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "मॉनिटर किए गए उपकरण"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "मॉनिटर किए गए डिवाइस या तो डाउन या रिकवरिंग हैं"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ट्रिगर थ्रेशोल्ड के साथ"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "मॉनिटर किए गए डिवाइस या तो डाउन, रिकवरिंग, या ब्रेक्ड या ट्रिगर थ्रेशोल्ड के साथ"
+
+#, fuzzy, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "अज्ञात निगरानी स्थिति ( %s)"
+
+#, fuzzy
+#~ msgid ", and All Criticalities"
+#~ msgstr ", और सभी आलोचनाएँ"
+
+#, fuzzy
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr ", और कम आलोचना या उच्चतर"
+
+#, fuzzy
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr ", और मध्यम आलोचना या उच्चतर"
+
+#, fuzzy
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr ", और उच्च आलोचना या उच्चतर"
+
+#, fuzzy
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr ", और मिशन क्रिटिकल स्टेटस का"
+
+#, fuzzy
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\"> डिवाइस पेज से मॉनिटर करने के लिए पहले योग्य डिवाइस का चयन करना याद रखें! </div>"
+
+#, fuzzy
+#~ msgid "All Templates"
+#~ msgstr "सभी टेम्पलेट"
+
+#, fuzzy
+#~ msgid "Hostname of device"
+#~ msgstr "डिवाइस का होस्टनाम"
+
+#, fuzzy
+#~ msgid "Not Up or Triggered"
+#~ msgstr "अप या ट्रिगर नहीं है"
+
+#, fuzzy
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "नॉट अप, ट्रिगर्ड या ब्रेक्ड"
 
 #, fuzzy
 #~ msgid "All Monitored"
