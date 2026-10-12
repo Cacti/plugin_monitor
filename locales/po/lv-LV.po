@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2024-10-17 16:22+0000\n"
 "Last-Translator: Coool (github.com/Coool) <coool@mail.lv>\n"
 "Language-Team: Latvian <http://translate.cacti.net/projects/cacti/monitor/lv/>\n"
@@ -38,65 +38,6 @@ msgstr "Izveidot jaunu informācijas panelis"
 msgid "Monitored Devices"
 msgstr "Uzraudzītās ierīces"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Uzraudzītās ierīces"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Ierīces"
-
-#: includes/controller.php monitor.php
-msgid "All Monitored Devices"
-msgstr "Visas uzraudzītās ierīces"
-
-#: includes/controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Uzraudzītās ierīces, vai nu nedarbojošas, vai nu atgūstas"
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas vai ar nostrādājušām robežvērtībām"
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas, vai ir ar pārsniegtām vai ar nostrādājušām robežvērtībām"
-
-#: includes/controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Nezināms uzraudzības statuss (%s)"
-
-#: includes/controller.php
-msgid ", and All Criticalities"
-msgstr ", un visi kritiskie brīži"
-
-#: includes/controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr ", un zemi kritiskie un augstāki brīži"
-
-#: includes/controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr ", un vidēji kritiskie un augstāki brīži"
-
-#: includes/controller.php
-msgid ", and of High Criticality or Higher"
-msgstr ", un augstu kritiskie un augstāki brīži"
-
-#: includes/controller.php
-msgid ", and of Mission Critical Status"
-msgstr ", un kritiskie statusa brīži"
-
-#: includes/controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">Atcerieties, ka vispirms ir jāizvēlas ierīces, kuras vēlaties uzraudzīt, Ierīču lapā!</div></div></div>"
-
 #: includes/controller.php
 msgid "Unsaved"
 msgstr "Nesaglabāts"
@@ -105,9 +46,9 @@ msgstr "Nesaglabāts"
 msgid "Layout"
 msgstr "Izkārtojums"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "Statuss"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -116,10 +57,6 @@ msgstr "Skats"
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "Grupēšana"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "Ierīces"
 
 #: includes/controller.php
 msgid "Refresh"
@@ -179,6 +116,14 @@ msgstr "%s skaņas brīdinājums neaktīvām ierīcēm"
 msgid "%s Alerts for downed Devices"
 msgstr "%s skaņas brīdinājumi neaktīvām ierīcēm"
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Ierīces"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 msgid "Criticality"
 msgstr "Kritiskums"
@@ -215,17 +160,23 @@ msgstr "Ierīces, kurām nav atrašanās vieta"
 msgid "Sites"
 msgstr "Atrašanās vietas"
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr "Visas ar veidnēm"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
 msgstr "Ierīces bez veidnēm"
 
 #: includes/controller.php
 msgid "Template"
 msgstr "Veidne"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "Veidne"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 msgid " [ Filter Settings Saved ]"
@@ -263,6 +214,10 @@ msgstr "[ Rāda tikai pirmās 30 ierīces ]"
 msgid "Search"
 msgstr "Meklēt"
 
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
+
 #: includes/controller.php
 msgid "Mute"
 msgstr "Izslēgt skaņu"
@@ -299,11 +254,11 @@ msgstr "Informācijas panelis '%s' saglabāts!"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "Informācijas paneli '%s' nevarēja saglabāt!"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Edit Device"
 msgstr "Rediģēt ierīci"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "View Graphs"
 msgstr "Skatīt grafikus"
 
@@ -413,7 +368,7 @@ msgstr "Nekad"
 msgid "Unspecified"
 msgstr "Nav norādīta"
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "Neviena"
 
@@ -452,9 +407,13 @@ msgstr ""
 msgid "Description"
 msgstr "Apraksts"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "Resursdatora nosaukums"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Statuss"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -464,7 +423,7 @@ msgstr "Atrašanās vieta"
 msgid "Device Template"
 msgstr "Ierīces veidne"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -475,6 +434,10 @@ msgstr "Atrašanās vieta:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "Kontaktinformācija:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Piezīmes"
 
 #: includes/controller.php
 #, fuzzy
@@ -540,7 +503,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -549,11 +512,11 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "Nostrādājušas robežvērtības"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "View Thresholds/Alerts"
 msgid "Thresholds"
@@ -603,6 +566,40 @@ msgstr "Nezināms"
 msgid "Just Up"
 msgstr "Tikko atguvies"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Neaktīva (nedarbojoša, bezsaistē, izslēgta)"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Atgūstas"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Down (Muted/Acked)"
+msgid "Down (M/A)"
+msgstr "Neaktīva (nedarbojoša, bezsaistē, izslēgta) (Izslēgta skaņa/Atzīts)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Triggered (Muted/Acked)"
+msgid "Triggered (M/A)"
+msgstr "Nostrādājušas robežvērtības (Izslēgta skaņa/Atzīts)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "Brīdinājums"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Sasniegta trauksmes ping robežvērtība"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -614,11 +611,67 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-msgid "Hostname of device"
-msgstr "Ierīces resursdatora nosaukums"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
+msgstr ""
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Brīdinājums"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Administrators"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Vidējie rādītāji"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
@@ -627,24 +680,50 @@ msgid "Length in Status"
 msgstr "Stāvokļa ilguma statuss"
 
 #: includes/render.php
-msgid "Averages"
-msgstr "Vidējie rādītāji"
-
-#: includes/render.php
-msgid "Warning"
-msgstr "Brīdinājums"
-
-#: includes/render.php
-msgid "Admin"
-msgstr "Administrators"
-
-#: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "How long the device has been in its current status"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "Piezīmes"
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+#| msgid "Not Up"
+msgid "Not Set"
+msgstr "Nedarbojas"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -661,14 +740,6 @@ msgstr "Augsts"
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "Kritiski svarīgs"
-
-#: monitor.php
-msgid "Down"
-msgstr "Neaktīva (nedarbojoša, bezsaistē, izslēgta)"
-
-#: monitor.php
-msgid "Recovering"
-msgstr "Atgūstas"
 
 #: monitor.php
 msgid "Up"
@@ -689,10 +760,6 @@ msgstr "Netiek izmantota ping vai SNMP pieejamības pārbaude"
 #: monitor.php
 msgid "Warning Ping"
 msgstr "Sasniegta brīdinājuma ping robežvērtība"
-
-#: monitor.php
-msgid "Alert Ping"
-msgstr "Sasniegta trauksmes ping robežvērtība"
 
 #: monitor.php
 msgid "Service Check Failed"
@@ -719,21 +786,26 @@ msgid "Zoom"
 msgstr "Palielināt"
 
 #: monitor.php
-msgid "Not Up"
-msgstr "Nedarbojas"
+msgid "All Monitored Devices"
+msgstr "Visas uzraudzītās ierīces"
 
 #: monitor.php
-msgid "Not Up or Triggered"
-msgstr "Nedarbojas vai nostrādājušas robežvērtības"
-
-#: monitor.php
-msgid "Not Up, Triggered or Breached"
-msgstr "Nedarbojas, nostrādājušas vai pārsniegtas robežvērtības"
+#, fuzzy
+msgid "All Devices"
+msgstr "Ierīces"
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "Ierīces uzraudzības iestatījumi"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -742,10 +814,6 @@ msgstr "Noklusējuma"
 #: monitor.php setup.php
 msgid "List"
 msgstr "Saraksts"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -959,6 +1027,10 @@ msgstr "Noklusējums ar atļaujām"
 #: setup.php
 msgid "This is how monitor will render Devices."
 msgstr "Šādi uzraudzība atveidos ierīces."
+
+#: setup.php
+msgid "Names only"
+msgstr ""
 
 #: setup.php
 msgid "Tiles & Downtime"
@@ -1248,6 +1320,53 @@ msgstr ""
 #: setup.php
 msgid "Monitoring"
 msgstr "Uzraudzība"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "Uzraudzītās ierīces"
+
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "Uzraudzītās ierīces, vai nu nedarbojošas, vai nu atgūstas"
+
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas vai ar nostrādājušām robežvērtībām"
+
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "Uzraudzītās ierīces, kuras vai nu nedarbojošas, vai nu atgūstas, vai ir ar pārsniegtām vai ar nostrādājušām robežvērtībām"
+
+#, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "Nezināms uzraudzības statuss (%s)"
+
+#~ msgid ", and All Criticalities"
+#~ msgstr ", un visi kritiskie brīži"
+
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr ", un zemi kritiskie un augstāki brīži"
+
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr ", un vidēji kritiskie un augstāki brīži"
+
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr ", un augstu kritiskie un augstāki brīži"
+
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr ", un kritiskie statusa brīži"
+
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\">Atcerieties, ka vispirms ir jāizvēlas ierīces, kuras vēlaties uzraudzīt, Ierīču lapā!</div></div></div>"
+
+#~ msgid "All Templates"
+#~ msgstr "Visas ar veidnēm"
+
+#~ msgid "Hostname of device"
+#~ msgstr "Ierīces resursdatora nosaukums"
+
+#~ msgid "Not Up or Triggered"
+#~ msgstr "Nedarbojas vai nostrādājušas robežvērtības"
+
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "Nedarbojas, nostrādājušas vai pārsniegtas robežvērtības"
 
 #~ msgid "All Monitored"
 #~ msgstr "Visas uzraudzītās"
