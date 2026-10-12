@@ -247,11 +247,16 @@ function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): 
 	foreach ($groups as $gid => $group) {
 		$worst = monitorGroupWorstStatusClass($group['hosts']);
 
-		// Let groups with many devices span several grid columns so their tiles
-		// flow across the page instead of stacking into one tall, narrow column.
+		// Let groups with many devices take a wider card so their tiles flow
+		// across the page instead of stacking into one tall, narrow column. The
+		// span maps to flex sizing in css (see .monitorGroupCard[data-span]).
 		$span = (int) min(4, max(1, (int) ceil(cacti_sizeof($group['hosts']) / 6)));
 
-		$body = "<div class='monitor_container'>";
+		// Size every tile to the longest (trimmed) description in view so long
+		// hostnames never overlap their neighbours. css widens the titles from
+		// this custom property.
+		$title_ch = max(8, min(40, $maxlen));
+		$body     = "<div class='monitor_container' style='--monitor-title-ch:$title_ch'>";
 
 		foreach ($group['hosts'] as $host) {
 			$body .= renderHost($host, true, $maxlen);
@@ -259,7 +264,7 @@ function monitorRenderGroupCards(string $grouping, array $groups, int $maxlen): 
 
 		$body .= '</div>';
 
-		$out .= "<div class='monitorPanel monitorGroupCard' data-group='" . html_escape((string) $gid) . "' data-span='$span' style='grid-column: span $span;'>
+		$out .= "<div class='monitorPanel monitorGroupCard' data-group='" . html_escape((string) $gid) . "' data-span='$span'>
 			<div class='monitorPanelHeader monitorGroupTitle $worst'><i class='fas fa-grip-vertical monitorGroupDrag'></i> " . html_escape($group['label']) . "</div>
 			<div class='monitorPanelBody'>$body</div>
 		</div>";
@@ -771,6 +776,12 @@ function monitorRenderTreeCards(array $tree_list): string {
 
 	$maxlen = getMonitorTrimLength($maxlen);
 
+	// Default-order the tree cards by device count (busiest first); any saved
+	// drag order the user set still wins in monitorRenderGroupCards().
+	uasort($groups, static function (array $a, array $b): int {
+		return cacti_sizeof($b['hosts']) <=> cacti_sizeof($a['hosts']);
+	});
+
 	return monitorRenderGroupCards('tree', $groups, $maxlen);
 }
 
@@ -927,6 +938,10 @@ function renderHost(array $host, bool $float = true, int $maxlen = 10): ?string 
 
 	$host['anchor'] = $config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id'];
 
+	// Preserve the raw availability status (0-3) before it is collapsed into the
+	// single display status, so the Events column can detect every active event.
+	$host['raw_status'] = (int) $host['status'];
+
 	if ($host['status'] == 3 && array_key_exists($host['id'], $thold_hosts)) {
 		$host['status'] = 4;
 		$host['anchor'] = $config['url_path'] . 'plugins/thold/thold_graph.php?action=thold&reset=true&status=1&host_id=' . $host['id'];
@@ -955,14 +970,14 @@ function renderHost(array $host, bool $float = true, int $maxlen = 10): ?string 
 			$tis = get_timeinstate($host);
 
 			if ($monitor_times == 'on') {
-				$monitor_time_html = "<br><span class='monitor_device{$fclass} deviceDown'>$tis</span>";
+				$monitor_time_html = "<br><span class='monitor_device{$fclass} deviceDown monitor_uptime'>$tis</span>";
 			}
 			$result = "<div class='$fclass flash monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$iclass " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</span>$monitor_time_html</a></div>";
 		} else {
 			$tis = get_uptime($host);
 
 			if ($monitor_times == 'on') {
-				$monitor_time_html = "<br><div class='monitor_device{$fclass} deviceUp'>$tis</div>";
+				$monitor_time_html = "<br><div class='monitor_device{$fclass} deviceUp monitor_uptime'>$tis</div>";
 			}
 
 			$result = "<div class='$fclass monitor_device_frame'><a class='pic hyperLink' href='" . html_escape($host['anchor']) . "'><i id=" . $host['id'] . " class='$iclass " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>" . title_trim(html_escape($host['description']), $maxlen) . "</span>$monitor_time_html</a></div>";
@@ -1081,6 +1096,68 @@ function renderHeaderTilesadt(): string {
 }
 
 /**
+ * Event key => short label and status CSS class for the Events column pills.
+ *
+ * @return array
+ */
+function monitorEventMeta(): array {
+	return [
+		'down'         => ['label' => __('Down', 'monitor'),            'class' => 'deviceDown'],
+		'recovering'   => ['label' => __('Recovering', 'monitor'),      'class' => 'deviceRecovering'],
+		'triggered'    => ['label' => __('Triggered', 'monitor'),       'class' => 'deviceThreshold'],
+		'down_ma'      => ['label' => __('Down (M/A)', 'monitor'),       'class' => 'deviceDownMuted'],
+		'triggered_ma' => ['label' => __('Triggered (M/A)', 'monitor'),  'class' => 'deviceThresholdMuted'],
+		'warn_ping'    => ['label' => __('Warn Ping', 'monitor'),        'class' => 'deviceWarning'],
+		'alert_ping'   => ['label' => __('Alert Ping', 'monitor'),       'class' => 'deviceAlert'],
+		'failed_svc'   => ['label' => __('Failed Svc', 'monitor'),       'class' => 'deviceServiceCheck'],
+	];
+}
+
+/**
+ * Resolve every active event on a host for the Events column (a device can have
+ * several, e.g. Down and Triggered). Uses the preserved raw availability status
+ * plus the triggered-thold, failing-servcheck and session mute sets.
+ *
+ * @param array $host Host row data.
+ *
+ * @return array List of active event keys.
+ */
+function monitorHostEvents(array $host): array {
+	global $thold_hosts, $servcheck_hosts;
+
+	$raw    = isset($host['raw_status']) ? (int) $host['raw_status'] : (int) $host['status'];
+	$muted  = isset($_SESSION['monitor_muted_hosts']) && in_array($host['id'], $_SESSION['monitor_muted_hosts'], true);
+	$events = [];
+
+	if ($raw == 1) {
+		$events[] = $muted ? 'down_ma' : 'down';
+	} elseif ($raw == 2) {
+		$events[] = 'recovering';
+	}
+
+	if (isset($thold_hosts) && array_key_exists($host['id'], $thold_hosts)) {
+		$events[] = $muted ? 'triggered_ma' : 'triggered';
+	}
+
+	if ($raw == 3) {
+		if (!empty($host['monitor_alert']) && $host['cur_time'] > $host['monitor_alert']) {
+			$events[] = 'alert_ping';
+		} elseif (!empty($host['monitor_warn']) && $host['cur_time'] > $host['monitor_warn']) {
+			$events[] = 'warn_ping';
+		}
+	}
+
+	// A failing service check is additive and independent of ping availability:
+	// monitorEventFilterSql('failed_svc') matches the host regardless of its Up/
+	// Down state, so a Down+Failed-Svc host must still get the Failed Svc pill.
+	if (isset($servcheck_hosts) && array_key_exists($host['id'], $servcheck_hosts)) {
+		$events[] = 'failed_svc';
+	}
+
+	return $events;
+}
+
+/**
  * Render header and sortable column bar for list view.
  *
  * @param int $total_rows Total rows matching active filters.
@@ -1092,76 +1169,100 @@ function renderHeaderList(int $total_rows = 0, int $rows = 0): string {
 	$display_text = [
 		'nosort_actions' => [
 			'display' => __('Actions', 'monitor'),
-			'align'   => 'center',
+			'align'   => 'left',
 			'tip'     => __('Open the device detail panels', 'monitor')
-		],
-		'hostname' => [
-			'display' => __('Hostname', 'monitor'),
-			'sort'    => 'ASC',
-			'align'   => 'left', 'tip' => __('Hostname of device', 'monitor')
-		],
-		'id' => [
-			'display' => __('ID', 'monitor'),
-			'sort'    => 'ASC',
-			'align'   => 'left'
 		],
 		'description' => [
 			'display' => __('Description', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Device description as set on the Devices page', 'monitor')
+		],
+		'location' => [
+			'display' => __('Location', 'monitor'),
+			'sort'    => 'ASC',
+			'align'   => 'left',
+			'tip'     => __('Physical location recorded for the device', 'monitor')
 		],
 		'site_name' => [
 			'display' => __('Site', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Site the device is assigned to', 'monitor')
+		],
+		'id' => [
+			'display' => __('ID', 'monitor'),
+			'sort'    => 'ASC',
+			'align'   => 'left',
+			'tip'     => __('Cacti internal device id', 'monitor')
 		],
 		'monitor_criticality' => [
 			'display' => __('Criticality', 'monitor'),
 			'sort'    => 'ASC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Monitoring criticality assigned to the device', 'monitor')
 		],
-		'status' => [
-			'display' => __('Status', 'monitor'),
-			'sort'    => 'DESC',
-			'align'   => 'center'
+		'nosort_events' => [
+			'display' => __('Events', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter', 'monitor')
 		],
-		'instate' => [
-			'display' => __('Length in Status', 'monitor'),
-			'sort'    => 'ASC',
-			'align'   => 'center'
+		'nosort_tholds' => [
+			'display' => __('Thresholds', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter', 'monitor')
 		],
-		'avg_time' => [
-			'display' => __('Averages', 'monitor'),
-			'sort'    => 'DESC',
-			'align'   => 'left'
+		'nosort_servchecks' => [
+			'display' => __('Service Checks', 'monitor'),
+			'align'   => 'center',
+			'tip'     => __('Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter', 'monitor')
 		],
 		'monitor_warn' => [
 			'display' => __('Warning', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'left'
+			'align'   => 'left',
+			'tip'     => __('Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them', 'monitor')
 		],
 		'monitor_text' => [
 			'display' => __('Admin', 'monitor'),
 			'sort'    => 'ASC',
-			'tip'     => __('Monitor Text Column represents \'Admin\'', 'monitor'),
-			'align'   => 'left'
-		],
-		'notes' => [
-			'display' => __('Notes', 'monitor'),
-			'sort'    => 'ASC',
+			'tip'     => __('Administrative monitor message shown while the device is Down or Recovering', 'monitor'),
 			'align'   => 'left'
 		],
 		'availability' => [
 			'display' => __('Availability', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'right'
+			'align'   => 'right',
+			'tip'     => __('Percentage of successful availability checks over the retained history', 'monitor')
+		],
+		'avg_time' => [
+			'display' => __('Averages', 'monitor'),
+			'sort'    => 'DESC',
+			'align'   => 'right',
+			'tip'     => __('Current / average ping response time in milliseconds', 'monitor')
+		],
+		'instate' => [
+			'display' => __('Length in Status', 'monitor'),
+			'sort'    => 'ASC',
+			'align'   => 'right',
+			'tip'     => __('How long the device has been in its current status', 'monitor')
 		],
 		'status_fail_date' => [
 			'display' => __('Last Fail', 'monitor'),
 			'sort'    => 'DESC',
-			'align'   => 'right'
+			'align'   => 'right',
+			'tip'     => __('Date and time the device last failed its availability check', 'monitor')
 		],
 	];
+
+	// Hide the Thresholds / Service Checks columns when their plugin is absent.
+	if (!api_plugin_is_enabled('thold')) {
+		unset($display_text['nosort_tholds']);
+	}
+
+	if (!api_plugin_is_enabled('servcheck') || !api_plugin_user_realm_auth('servcheck_test.php')) {
+		unset($display_text['nosort_servchecks']);
+	}
 
 	ob_start();
 
@@ -1265,7 +1366,7 @@ function renderFooterList(int $total_rows, int $rows): string {
  * @return string
  */
 function renderHostList(array $host): string {
-	global $criticalities, $iclasses;
+	global $criticalities, $iclasses, $thold_counts, $servcheck_counts, $config;
 
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$dt = get_timeinstate($host);
@@ -1281,10 +1382,54 @@ function renderHostList(array $host): string {
 		$host_admin = '';
 	}
 
-	if (isset($host['monitor_criticality']) && $host['monitor_criticality'] > 0) {
-		$host_crit = $criticalities[$host['monitor_criticality']];
+	$crit_level = isset($host['monitor_criticality']) ? (int) $host['monitor_criticality'] : 0;
+
+	if ($crit_level > 0) {
+		$host_crit = "<span class='monitorPill monitorCrit monitorCrit$crit_level monitorFilterPill' role='button' tabindex='0' data-filter='crit' data-value='$crit_level' title='" . __esc('Filter by this criticality (click again to clear)', 'monitor') . "'>" . html_escape($criticalities[$crit_level]) . '</span>';
 	} else {
-		$host_crit = '';
+		$host_crit = "<span class='monitorPill monitorCrit monitorCrit0 monitorFilterPill' role='button' tabindex='0' data-filter='crit' data-value='0' title='" . __esc('Criticality not set - click to filter unset devices (click again to clear)', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
+	}
+
+	// Events column: a short pill for every active event (a device can have
+	// several, e.g. Down + Triggered); each pill toggles that event in the
+	// multi-select filter. A muted 'None' pill is shown when the device is clean.
+	$event_keys = monitorHostEvents($host);
+
+	if (cacti_sizeof($event_keys)) {
+		$meta  = monitorEventMeta();
+		$pills = [];
+
+		foreach ($event_keys as $ekey) {
+			if (isset($meta[$ekey])) {
+				$pills[] = "<span class='monitorPill " . $meta[$ekey]['class'] . " monitorFilterPill' role='button' tabindex='0' data-filter='events' data-value='$ekey' title='" . __esc('Click to add or remove this event from the filter', 'monitor') . "'>" . html_escape($meta[$ekey]['label']) . '</span>';
+			}
+		}
+
+		$events_cell = implode(' ', $pills);
+	} else {
+		$events_cell = "<span class='monitorPill monitorPillMuted'>" . __esc('None', 'monitor') . '</span>';
+	}
+
+	// Thresholds pill: breached / triggered / total (thold plugin); a muted
+	// 'Not Set' pill is shown when the device has no thresholds. Clicking toggles
+	// the Triggered event.
+	if (isset($thold_counts[$host['id']]) && $thold_counts[$host['id']]['total'] > 0) {
+		$tc         = $thold_counts[$host['id']];
+		$tcls       = ($tc['triggered'] > 0 || $tc['breached'] > 0) ? 'deviceThreshold' : 'monitorPillMuted';
+		$thold_cell = "<span class='monitorPill $tcls monitorFilterPill' role='button' tabindex='0' data-filter='events' data-value='triggered' title='" . __esc('Breached / Triggered / Total thresholds - click to toggle the Triggered event filter', 'monitor') . "'>" . $tc['breached'] . ' / ' . $tc['triggered'] . ' / ' . $tc['total'] . '</span>';
+	} else {
+		$thold_cell = "<span class='monitorPill monitorPillMuted' title='" . __esc('No thresholds defined for this device', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
+	}
+
+	// Service checks pill: failed / total (servcheck plugin); a muted 'Not Set'
+	// pill is shown when the device has no service checks. Clicking toggles the
+	// Failed Svc event.
+	if (isset($servcheck_counts[$host['id']]) && $servcheck_counts[$host['id']]['total'] > 0) {
+		$sc             = $servcheck_counts[$host['id']];
+		$scls           = ($sc['failed'] > 0) ? 'deviceServiceCheck' : 'monitorPillMuted';
+		$servcheck_cell = "<span class='monitorPill $scls monitorFilterPill' role='button' tabindex='0' data-filter='events' data-value='failed_svc' title='" . __esc('Failed / Total service checks - click to toggle the Failed Svc event filter', 'monitor') . "'>" . $sc['failed'] . ' / ' . $sc['total'] . '</span>';
+	} else {
+		$servcheck_cell = "<span class='monitorPill monitorPillMuted' title='" . __esc('No service checks defined for this device', 'monitor') . "'>" . __esc('Not Set', 'monitor') . '</span>';
 	}
 
 	if ($host['availability_method'] > 0) {
@@ -1305,30 +1450,39 @@ function renderHostList(array $host): string {
 
 	$host_datefail = $host['status_fail_date'];
 
-	$iclass   = $iclasses[$host['status']];
-	$sdisplay = getHostStatusDescription($host['real_status']);
-
 	ob_start();
 
 	print "<tr class='tableRow line{$host['id']} selectable'>";
 
-	$url = $host['anchor'];
-
 	$actions = "<a class='monitorActions pic' href='#' data-id='" . $host['id'] . "' title='" . __esc('Device Detail Panels', 'monitor') . "'><i class='fas fa-layer-group'></i></a>";
 
-	form_selectable_cell($actions, $host['id'], '1%', 'center');
-	form_selectable_cell(filter_value($host['hostname'], '', $url), $host['id'], '', 'left');
-	form_selectable_cell($host['id'], $host['id'], '', 'left');
+	$actions .= "<a class='monitorActions pic' href='" . html_escape($config['url_path'] . 'graph_view.php?action=preview&reset=1&host_id=' . $host['id']) . "' title='" . __esc('View Graphs', 'monitor') . "'><i class='fas fa-chart-line monitorGraph'></i></a>";
+
+	if (api_plugin_user_realm_auth('host.php')) {
+		$actions .= "<a class='monitorActions pic' href='" . html_escape($config['url_path'] . 'host.php?action=edit&id=' . $host['id']) . "' title='" . __esc('Edit Device', 'monitor') . "'><i class='fas fa-pen-square'></i></a>";
+	}
+
+	form_selectable_cell($actions, $host['id'], '1%', 'left');
 	form_selectable_cell($host['description'], $host['id'], '', 'left');
+	form_selectable_cell($host['location'], $host['id'], '', 'left');
 	form_selectable_cell($host['site_name'], $host['id'], '', 'left');
+	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host_crit, $host['id'], '', 'left');
-	form_selectable_cell("<span class='monitorStatus deviceStatus $iclass'>" . html_escape($sdisplay) . '</span>', $host['id'], '', 'center');
-	form_selectable_cell($dt, $host['id'], '', 'center');
-	form_selectable_cell($host_avg, $host['id'], '', 'left');
+	form_selectable_cell($events_cell, $host['id'], '', 'center');
+
+	if (api_plugin_is_enabled('thold')) {
+		form_selectable_cell($thold_cell, $host['id'], '', 'center');
+	}
+
+	if (api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
+		form_selectable_cell($servcheck_cell, $host['id'], '', 'center');
+	}
+
 	form_selectable_cell($host_warn, $host['id'], '', 'left');
 	form_selectable_cell($host_admin, $host['id'], '', 'white-space:pre-wrap;text-align:left');
-	form_selectable_cell(str_replace(["\n", "\r"], [' ', ''], $host['notes']), $host['id'], '', 'white-space:pre-wrap;text-align:left');
 	form_selectable_cell(round($host['availability'], 2) . ' %', $host['id'], '', 'right');
+	form_selectable_cell($host_avg, $host['id'], '', 'right');
+	form_selectable_cell($dt, $host['id'], '', 'right');
 	form_selectable_cell($host_datefail, $host['id'], '', 'right');
 
 	form_end_row();
@@ -1405,11 +1559,11 @@ function renderHostTilesadt(array $host): string {
 	if ($host['status'] < 2 || $host['status'] == 5) {
 		$tis = get_timeinstate($host);
 
-		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceDown'>$tis</span></a></div>";
+		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceDown monitor_uptime'>$tis</span></a></div>";
 	} else {
 		$tis = get_uptime($host);
 
-		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceUp'>$tis</span></a></div>";
+		return "<div class='{$fclass}_tilesadt monitor_device_frame'><a class='pic hyperLink textSubHeaderDark' href='" . html_escape($host['anchor']) . "'><i id='" . $host['id'] . "' class='$class " . $host['iclass'] . "'></i><br><span class='{$fclass}_title'>$name</span><br><span class='monitor_device_{$fclass} deviceUp monitor_uptime'>$tis</span></a></div>";
 	}
 }
 

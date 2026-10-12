@@ -20,7 +20,7 @@ dataset('escaped_outputs', [
 	['includes/controller.php', "html_escape(get_request_var('mute'))"],
 	['includes/controller.php', "html_escape(get_request_var('tree'))"],
 	['includes/controller.php', "html_escape(get_request_var('site'))"],
-	['includes/controller.php', "html_escape(get_request_var('template'))"],
+	['includes/controller.php', "html_escape(implode(',', monitorGetSelectedTemplates()))"],
 	['includes/controller.php', "html_escape(get_request_var('size'))"],
 	['includes/controller.php', "html_escape(get_request_var('trim'))"],
 	['includes/render.php',     "rawurlencode(get_request_var('rfilter'))"],

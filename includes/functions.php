@@ -161,6 +161,92 @@ function checkServchecks(): array {
 }
 
 /**
+ * Per-host threshold counts for the list-view Thresholds pill.
+ *
+ * @return array Map of host_id => ['total' => int, 'triggered' => int,
+ *               'breached' => int]. Empty when thold is unavailable.
+ */
+function monitorTholdCounts(): array {
+	if (!api_plugin_is_enabled('thold') || !db_table_exists('thold_data')) {
+		return [];
+	}
+
+	$rows = db_fetch_assoc("SELECT dl.host_id,
+		COUNT(DISTINCT td.id) AS total,
+		SUM(td.thold_enabled = 'on'
+			AND ((td.thold_alert != 0 AND td.thold_fail_count >= td.thold_fail_trigger)
+			OR (td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger))) AS triggered,
+		SUM(td.thold_enabled = 'on'
+			AND td.bl_alert > 0 AND td.bl_fail_count >= td.bl_fail_trigger) AS breached
+		FROM thold_data AS td
+		INNER JOIN data_local AS dl
+		ON td.local_data_id = dl.id
+		WHERE td.thold_enabled = 'on'
+		GROUP BY dl.host_id");
+
+	$map = [];
+
+	foreach ($rows as $row) {
+		$map[$row['host_id']] = [
+			'total'     => (int) $row['total'],
+			'triggered' => (int) $row['triggered'],
+			'breached'  => (int) $row['breached'],
+		];
+	}
+
+	return $map;
+}
+
+/**
+ * Per-host service-check counts for the list-view Service Checks pill.
+ *
+ * Servcheck tests are keyed by hostname/ipaddress (no host id), schema-aware
+ * across servcheck v0.3 (lastcheck/failures) and v0.4+ (last_check/last_result),
+ * and realm-gated like checkServchecks().
+ *
+ * @return array Map of host_id => ['total' => int, 'failed' => int]. Empty when
+ *               servcheck is unavailable or not permitted.
+ */
+function monitorServcheckCounts(): array {
+	if (!api_plugin_is_enabled('servcheck') || !api_plugin_user_realm_auth('servcheck_test.php')) {
+		return [];
+	}
+
+	if (!db_table_exists('plugin_servcheck_test')) {
+		return [];
+	}
+
+	$check_col = db_column_exists('plugin_servcheck_test', 'last_check') ? 'last_check' : 'lastcheck';
+
+	if (db_column_exists('plugin_servcheck_test', 'last_result')) {
+		$fail_predicate = "(sct.triggered > 0 OR (sct.last_result != 'ok' AND sct.last_result != 'not yet'))";
+	} else {
+		$fail_predicate = '(sct.triggered > 0 OR sct.failures > 0)';
+	}
+
+	$rows = db_fetch_assoc("SELECT h.id AS host_id,
+		COUNT(DISTINCT sct.id) AS total,
+		SUM(sct.$check_col > 0 AND $fail_predicate) AS failed
+		FROM host AS h
+		INNER JOIN plugin_servcheck_test AS sct
+		ON (sct.hostname = h.hostname OR sct.ipaddress = h.hostname)
+		WHERE sct.enabled = 'on'
+		AND h.deleted = ''
+		GROUP BY h.id");
+
+	$map = [];
+
+	foreach ($rows as $row) {
+		$map[$row['host_id']] = [
+			'total'  => (int) $row['total'],
+			'failed' => (int) $row['failed'],
+		];
+	}
+
+	return $map;
+}
+
+/**
  * Append an IN-clause fragment to an existing SQL where string.
  *
  * @param string $sql_where  SQL where fragment, updated in place.
@@ -183,6 +269,54 @@ function renderGroupConcat(string &$sql_where, string $sql_join, string $sql_fie
 }
 
 /**
+ * Build the additive (OR-combined) SQL predicate for the selected Events.
+ *
+ * Each event maps to a host-table predicate; a device matches when it satisfies
+ * any selected event. Triggered/muted sets come from the precomputed thold,
+ * servcheck and session mute id lists.
+ *
+ * @param array $events Validated event keys currently selected.
+ *
+ * @return string Parenthesised OR predicate, or '' when nothing is selected.
+ */
+function monitorEventFilterSql(array $events): string {
+	global $thold_hosts, $servcheck_hosts;
+
+	if (!cacti_sizeof($events)) {
+		return '';
+	}
+
+	$thold_ids     = (isset($thold_hosts) && cacti_sizeof($thold_hosts)) ? implode(',', array_map('intval', $thold_hosts)) : '0';
+	$servcheck_ids = (isset($servcheck_hosts) && cacti_sizeof($servcheck_hosts)) ? implode(',', array_map('intval', $servcheck_hosts)) : '0';
+	$muted         = (isset($_SESSION['monitor_muted_hosts']) && cacti_sizeof($_SESSION['monitor_muted_hosts'])) ? implode(',', array_map('intval', $_SESSION['monitor_muted_hosts'])) : '0';
+
+	$map = [
+		'down'         => "(h.status = 1 AND h.id NOT IN ($muted))",
+		'recovering'   => '(h.status = 2)',
+		'triggered'    => "(h.id IN ($thold_ids) AND h.id NOT IN ($muted))",
+		'down_ma'      => "(h.status = 1 AND h.id IN ($muted))",
+		'triggered_ma' => "(h.id IN ($thold_ids) AND h.id IN ($muted))",
+		'warn_ping'    => '(h.status = 3 AND h.monitor_warn > 0 AND h.cur_time > h.monitor_warn AND NOT (h.monitor_alert > 0 AND h.cur_time > h.monitor_alert))',
+		'alert_ping'   => '(h.status = 3 AND h.monitor_alert > 0 AND h.cur_time > h.monitor_alert)',
+		'failed_svc'   => "(h.id IN ($servcheck_ids))",
+	];
+
+	$preds = [];
+
+	foreach ($events as $event) {
+		if (isset($map[$event])) {
+			$preds[] = $map[$event];
+		}
+	}
+
+	if (!cacti_sizeof($preds)) {
+		return '';
+	}
+
+	return '(' . implode(' OR ', $preds) . ')';
+}
+
+/**
  * Build core monitor host query join/where fragments from current filters.
  *
  * @param string $sql_where SQL where fragment, updated in place.
@@ -195,6 +329,9 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 
 	if (get_request_var('crit') > 0) {
 		$awhere = 'h.monitor_criticality >= ' . get_request_var('crit');
+	} elseif (get_request_var('crit') == 0) {
+		// 'Not Set' pill / None selection: devices with no criticality assigned.
+		$awhere = 'h.monitor_criticality = 0';
 	} else {
 		$awhere = '';
 	}
@@ -208,7 +345,7 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 	}
 
 	if (get_request_var('rfilter') != '') {
-		$awhere .= ($awhere == '' ? '' : ' AND ') . " h.description RLIKE '" . get_request_var('rfilter') . "'";
+		$awhere .= ($awhere == '' ? '' : ' AND ') . " (h.description RLIKE '" . get_request_var('rfilter') . "' OR h.location RLIKE '" . get_request_var('rfilter') . "')";
 	}
 
 	if (get_request_var('grouping') == 'tree') {
@@ -237,37 +374,89 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 		}
 	}
 
+	// Multi-select Device Template filter (host_template_id IN list; 0 =
+	// Non-Templated). Empty selection means all templates.
+	if (get_request_var('grouping') == 'template') {
+		$tpl_raw = get_nfilter_request_var('template');
+
+		if (is_array($tpl_raw)) {
+			$tpls = $tpl_raw;
+		} elseif ($tpl_raw === '' || $tpl_raw === null) {
+			$tpls = [];
+		} else {
+			$tpls = explode(',', (string) $tpl_raw);
+		}
+
+		$tpls = array_map('intval', array_filter(array_map('trim', $tpls), static function ($t) {
+			return ctype_digit((string) $t);
+		}));
+
+		if (cacti_sizeof($tpls)) {
+			$awhere .= ($awhere == '' ? '' : ' AND ') . 'h.host_template_id IN (' . implode(',', $tpls) . ')';
+		}
+	}
+
+	// Additive Events filter (OR-combined) from the multi-select.
+	$events_raw = get_nfilter_request_var('events');
+
+	if (is_array($events_raw)) {
+		$events = $events_raw;
+	} elseif ($events_raw === '' || $events_raw === null) {
+		$events = [];
+	} else {
+		$events = array_map('trim', explode(',', (string) $events_raw));
+	}
+
+	$event_sql = monitorEventFilterSql($events);
+
+	if ($event_sql !== '') {
+		$awhere .= ($awhere != '' ? ' AND ' : '') . $event_sql;
+	}
+
 	if (!empty($awhere)) {
 		$awhere = ' AND ' . $awhere;
 	}
 
-	if (get_request_var('status') == '0') {
-		$sql_join  = '';
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = "on"
-			AND h.status < 3
-			AND h.deleted = ""
-			AND (h.availability_method > 0
-				OR h.snmp_version > 0
-				OR (h.cur_time >= h.monitor_warn AND h.monitor_warn > 0)
-				OR (h.cur_time >= h.monitor_alert AND h.monitor_alert > 0)
-			)' . $awhere;
-	} elseif (get_request_var('status') == '1' || get_request_var('status') == 2) {
+	if (get_request_var('status') == -2) {
+		// All Devices (monitored or not).
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
-		$servcheck_where = (isset($servcheck_hosts) && cacti_sizeof($servcheck_hosts)) ? '
-			OR h.id IN (' . implode(',', array_map('intval', $servcheck_hosts)) . ')' : '';
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.deleted = ""' . $awhere;
+	} elseif (get_request_var('status') == -3) {
+		// Devices not Monitored.
+		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
 		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = "on"
+			AND h.monitor = ""
+			AND h.deleted = ""' . $awhere;
+	} elseif (get_request_var('status') == -4) {
+		// Devices without Thresholds.
+		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
+
+		$sql_where = 'WHERE (h.disabled = ""
 			AND h.deleted = ""
-			AND (h.status < 3
-			OR ' . getTholdWhere() . '
-			OR ((h.availability_method > 0 OR h.snmp_version > 0)
-				AND ((h.cur_time > h.monitor_warn AND h.monitor_warn > 0)
-				OR (h.cur_time > h.monitor_alert AND h.monitor_alert > 0)))' . $servcheck_where . '
+			AND td.id IS NULL)' . $awhere;
+	} elseif (get_request_var('status') == -5 && api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php') && db_table_exists('plugin_servcheck_test')) {
+		// Devices without Service Checks (no enabled servcheck test matches the
+		// device hostname/ipaddress). Realm-gated server-side: hiding the scope
+		// option in monitor.php is not authorization, so a user without Service
+		// Check access cannot submit status=-5 to probe which devices have them.
+		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
+
+		$sql_where = 'WHERE h.disabled = ""
+			AND h.deleted = ""
+			AND NOT EXISTS (
+				SELECT 1 FROM plugin_servcheck_test AS sct
+				WHERE sct.enabled = "on"
+				AND (sct.hostname = h.hostname OR sct.ipaddress = h.hostname)
 			)' . $awhere;
-	} elseif (get_request_var('status') == -1) {
+	} else {
+		// All Monitored Devices (default scope, status -1). validateRequestVars()
+		// normalizes any legacy availability-status code (0/1/2/...) or other
+		// out-of-range value saved by an older release to -1 before we get here,
+		// so this branch only ever serves the -1 scope rather than silently
+		// broadening a stale status into All Monitored Devices.
 		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
 
 		$sql_where = 'WHERE h.disabled = ""
@@ -277,23 +466,6 @@ function renderWhereJoin(string &$sql_where, string &$sql_join): void {
 				OR ((td.thold_enabled="on" AND td.thold_alert > 0)
 				OR td.id IS NULL)
 			)' . $awhere;
-	} elseif (get_request_var('status') == -2) {
-		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.deleted = ""' . $awhere;
-	} elseif (get_request_var('status') == -3) {
-		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-
-		$sql_where = 'WHERE h.disabled = ""
-			AND h.monitor = ""
-			AND h.deleted = ""' . $awhere;
-	} else {
-		$sql_join  = 'LEFT JOIN thold_data AS td ON td.host_id=h.id';
-
-		$sql_where = 'WHERE (h.disabled = ""
-			AND h.deleted = ""
-			AND td.id IS NULL)' . $awhere;
 	}
 }
 

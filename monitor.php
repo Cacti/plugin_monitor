@@ -34,6 +34,7 @@ set_default_action();
 $start = microtime(true);
 
 $criticalities = [
+	-1 => __('All', 'monitor'),
 	0 => __('Disabled', 'monitor'),
 	1 => __('Low', 'monitor'),
 	2 => __('Medium', 'monitor'),
@@ -79,19 +80,40 @@ $classes = [
 ];
 
 $monitor_status = [
-	-2 => __('All Devices', 'monitor'),
 	-1 => __('All Monitored Devices', 'monitor'),
-	0  => __('Not Up', 'monitor'),
-	1  => __('Not Up or Triggered', 'monitor'),
-	2  => __('Not Up, Triggered or Breached', 'monitor'),
-	-4 => __('Devices without Thresholds', 'monitor'),
+	-2 => __('All Devices', 'monitor'),
 	-3 => __('Devices not Monitored', 'monitor'),
+	-4 => __('Devices without Thresholds', 'monitor'),
 ];
+
+// Only offer the service-check scope when the servcheck plugin is installed
+// and the user has access to it.
+if (api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
+	$monitor_status[-5] = __('Devices without Service Checks', 'monitor');
+}
+
+// Additive event classes for the multi-select Events filter and the Events
+// column pills. Keys are stable filter tokens; a device can match several.
+$monitor_events = [
+	'down'         => __('Down', 'monitor'),
+	'recovering'   => __('Recovering', 'monitor'),
+	'triggered'    => __('Triggered', 'monitor'),
+	'down_ma'      => __('Down (M/A)', 'monitor'),
+	'triggered_ma' => __('Triggered (M/A)', 'monitor'),
+	'warn_ping'    => __('Warn Ping', 'monitor'),
+	'alert_ping'   => __('Alert Ping', 'monitor'),
+];
+
+// Only offer the Failed Svc event when the servcheck plugin is installed and
+// the user has access to it; otherwise the service-check scope is always empty
+// and the option would only ever produce an empty result.
+if (api_plugin_is_enabled('servcheck') && api_plugin_user_realm_auth('servcheck_test.php')) {
+	$monitor_events['failed_svc'] = __('Failed Svc', 'monitor');
+}
 
 $monitor_view_type = [
 	'default'  => __('Default', 'monitor'),
 	'list'     => __('List', 'monitor'),
-	'names'    => __('Names only', 'monitor'),
 	'tiles'    => __('Tiles', 'monitor'),
 	'tilesadt' => __('Tiles & Time', 'monitor')
 ];
@@ -137,6 +159,18 @@ validateRequestVars();
 $thold_hosts = checkTholds();
 
 $servcheck_hosts = checkServchecks();
+
+// The per-host Thresholds / Service Checks pill counts are only rendered in the
+// List view, so skip these two full grouped scans on every other request
+// (tiles/cards, tooltip and dialog AJAX, saves, and card-order updates).
+$thold_counts     = [];
+$servcheck_counts = [];
+
+if (get_request_var('view') == 'list') {
+	$thold_counts = monitorTholdCounts();
+
+	$servcheck_counts = monitorServcheckCounts();
+}
 
 switch (get_nfilter_request_var('action')) {
 	case 'ajax_status':

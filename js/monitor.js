@@ -16,6 +16,17 @@ function setZoomErrorBackgrounds() {
 	}
 }
 
+// Multi-select filters (Events, Template) return an array when themed by
+// select2; a plain hidden input returns a comma string. Normalize to a comma
+// string for request/POST serialization.
+function serializeMultiVal(value) {
+	if (Array.isArray(value)) {
+		return value.join(',');
+	}
+
+	return value || '';
+}
+
 function setIntervalX(callback, delay, repetitions) {
 	let x = 0;
 	const intervalID = globalThis.setInterval(() => {
@@ -113,12 +124,24 @@ function openHostPanel(id) {
 
 	dlg.html(`<div class='monitorPanelLoading'>${monitorMessages.loading || 'Loading...'}</div>`);
 
+	const maxHeight = Math.max(360, $(globalThis).height() - 80);
+
 	dlg.dialog({
 		title: monitorMessages.deviceDetails || 'Device Details',
 		width: 720,
-		height: 620,
-		modal: true,
-		position: { at: 'center top+60px', of: globalThis }
+		height: 'auto',
+		maxHeight: maxHeight,
+		modal: false,
+		closeOnEscape: true,
+		position: { my: 'center top', at: 'center top+80', of: globalThis },
+		open() {
+			// Pause the refresh countdown so the page does not reload underneath
+			// the open dialog.
+			clearTimeout(myTimer);
+		},
+		close() {
+			myTimer = setTimeout(timeStep, 1000);
+		}
 	});
 
 	$.get(`monitor.php?action=ajax_hostpanel&header=false&id=${id}`, (data) => {
@@ -145,7 +168,7 @@ function applyFilter(action = '') {
 		strURL += `&grouping=${$('#grouping').val()}`;
 		strURL += `&tree=${$('#tree').val()}`;
 		strURL += `&site=${$('#site').val()}`;
-		strURL += `&template=${$('#template').val()}`;
+		strURL += `&template=${serializeMultiVal($('#template').val())}`;
 		strURL += `&view=${$('#view').val()}`;
 		strURL += `&rows=${$('#rows').val()}`;
 		strURL += `&crit=${$('#crit').val()}`;
@@ -154,6 +177,9 @@ function applyFilter(action = '') {
 		strURL += `&mute=${$('#mute').val()}`;
 		strURL += `&rfilter=${base64_encode($('#rfilter').val())}`;
 		strURL += `&status=${$('#status').val()}`;
+
+		const events = $('#events').val();
+		strURL += `&events=${events ? events.join(',') : ''}`;
 	}
 
 	loadIt(strURL);
@@ -168,7 +194,8 @@ function saveFilter() {
 		grouping: $('#grouping').val(),
 		tree: $('#tree').val(),
 		site: $('#site').val(),
-		template: $('#template').val(),
+		template: serializeMultiVal($('#template').val()),
+		events: serializeMultiVal($('#events').val()),
 		view: $('#view').val(),
 		rows: $('#rows').val(),
 		crit: $('#crit').val(),
@@ -197,7 +224,8 @@ function saveNewDashboard(action) {
 		grouping: $('#grouping').val(),
 		tree: $('#tree').val(),
 		site: $('#site').val(),
-		template: $('#template').val(),
+		template: serializeMultiVal($('#template').val()),
+		events: serializeMultiVal($('#events').val()),
 		view: $('#view').val(),
 		rows: $('#rows').val(),
 		crit: $('#crit').val(),
@@ -325,8 +353,27 @@ $(() => {
 		}
 	});
 
-	$('#refresh, #view, #rows, #trim, #crit, #grouping, #size, #status, #tree, #site, #template').change(() => {
+	$('#devices').click(() => {
+		document.location = urlPath + 'host.php';
+	});
+
+	$('#refresh, #view, #rows, #trim, #crit, #grouping, #size, #status, #tree, #site').change(() => {
 		applyFilter('change');
+	});
+
+	// Events and Template multi-selects: let the user tick several boxes with
+	// the dropdown staying open (reloading mid-selection would close it, since
+	// the filter is re-rendered), then apply once when the dropdown closes. A
+	// plain multiple select (no select2) has no dropdown to keep open, so it
+	// applies on change.
+	$('#events, #template').on('select2:close', () => {
+		applyFilter('change');
+	});
+
+	$('#events, #template').on('change', function () {
+		if (!$(this).data('select2')) {
+			applyFilter('change');
+		}
 	});
 
 	$('#dashboard').change(() => {
@@ -357,6 +404,50 @@ $(() => {
 	$(document).on('click', '.monitorActions', (event) => {
 		event.preventDefault();
 		openHostPanel($(event.currentTarget).data('id'));
+	});
+
+	$(document).on('click', '.monitorFilterPill', (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		const pill   = $(event.currentTarget);
+		const filter = pill.data('filter');
+		const value  = String(pill.data('value'));
+		const sel    = $('#' + filter);
+
+		if (!sel.length) {
+			return;
+		}
+
+		if (sel.prop('multiple')) {
+			// Additive multi-select (Events): toggle this value in or out of the
+			// current selection, sync the select2 widget without firing the
+			// generic change (which is debounced), then apply immediately.
+			let current = sel.val() || [];
+
+			if (current.indexOf(value) >= 0) {
+				current = current.filter((v) => v !== value);
+			} else {
+				current = current.concat([value]);
+			}
+
+			sel.val(current).trigger('change.select2');
+			applyFilter();
+		} else {
+			// Single-select (Criticality / Show): toggle on, or clear to default.
+			// The bound change handler applies the filter.
+			sel.val(String(sel.val()) === value ? '-1' : value).trigger('change');
+		}
+	});
+
+	// The filter pills carry role="button" and tabindex="0"; activate them from
+	// the keyboard (Enter / Space) by reusing the click handler above, so they
+	// are operable without a mouse.
+	$(document).on('keydown', '.monitorFilterPill', (event) => {
+		if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar' || event.keyCode === 13 || event.keyCode === 32) {
+			event.preventDefault();
+			$(event.currentTarget).trigger('click');
+		}
 	});
 
 	if ($.fn.sortable) {

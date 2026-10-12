@@ -29,6 +29,19 @@
 	justify-content: space-between;
 }
 
+/* When the server sets --monitor-title-ch (the longest trimmed description in
+   view), widen every tile title to it so long hostnames wrap within their own
+   tile instead of blending into neighbours. inline-block keeps the title
+   centred under the glyph (via the frame's text-align) in every view, and
+   max-width stops it overflowing a fixed-width tile. */
+.monitor_container[style*='--monitor-title-ch'] [class$='_title'] {
+	display: inline-block;
+	width: calc(var(--monitor-title-ch, 11) * 1ch + 8px) !important;
+	max-width: 100%;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+
 .monitor_sub_container {
 	display: flex;
 	flex-wrap: wrap;
@@ -79,8 +92,18 @@
 }
 
 .monitor_device_frame a {
-	padding: 3px;
+	padding: 3px 3px 8px;
 	display: block;
+}
+
+/* Uptime/time-in-state line under a tile hostname: normal weight (not bold),
+   pulled up tight to the hostname, with the frame padding below separating
+   rows. */
+.monitor_uptime {
+	display: block;
+	font-weight: normal;
+	line-height: 1.1;
+	margin-top: -2px;
 }
 
 /*
@@ -199,6 +222,42 @@
 .monitorStatus.deviceUnknown { background-color: #5f5f57; }
 .monitorStatus.deviceUnmonitored { background-color: #3f6a8a; }
 .monitorStatus.deviceServiceCheck { background-color: #157f87; }
+
+/* Clickable list-view pills (events, thresholds, service checks, criticality).
+   Share the status palette for event pills and a graduated, deliberately
+   non-alarming palette for criticality (no red for Mission Critical). */
+.monitorPill {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 10px;
+	color: #ffffff;
+	white-space: nowrap;
+	font-size: 11px;
+	line-height: 1.5;
+	margin: 1px;
+}
+
+.monitorFilterPill {
+	cursor: pointer;
+}
+
+.monitorPillMuted { background-color: #5f5f57; }
+.monitorPill.deviceDown { background-color: #a12820; }
+.monitorPill.deviceDownMuted { background-color: #93302a; }
+.monitorPill.deviceRecovering { background-color: #9a6a1a; }
+.monitorPill.deviceWarning { background-color: #7d6f18; }
+.monitorPill.deviceAlert { background-color: #86407a; }
+.monitorPill.deviceThreshold { background-color: #a85712; }
+.monitorPill.deviceThresholdMuted { background-color: #6a4a9c; }
+.monitorPill.deviceServiceCheck { background-color: #157f87; }
+
+/* Criticality: Not Set (grey) -> Low (blue) -> Medium (teal) -> High (amber)
+   -> Mission Critical (violet). */
+.monitorCrit0 { background-color: #5f5f57; }
+.monitorCrit1 { background-color: #3f6a8a; }
+.monitorCrit2 { background-color: #157f87; }
+.monitorCrit3 { background-color: #a85712; }
+.monitorCrit4 { background-color: #6a4a9c; }
 
 /* extra small styles */
 .monitor_exsmall {
@@ -548,17 +607,45 @@
 	font-size: 16px;
 }
 
+.monitorActions + .monitorActions {
+	margin-left: 8px;
+}
+
+/* Graphs action glyph (orange), matching the convention used by HMIB. */
+.monitorGraph {
+	color: #cc6600;
+}
+
 /* Device detail panels (intropage-style cards) in the Actions dialog */
 .monitorPanels {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+	/* Plain block stacking (not flex) so a card can never collapse to its
+	   min-content width inside the jQuery UI dialog content box. */
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Don't override the content box's overflow: the dialog sizes to its content
+   (height: auto in openHostPanel), so forcing overflow here created a scroll
+   box that fought the theme's own .ui-dialog .ui-dialog-content rules and
+   squashed the panels. Keep border-box only so padding can't overflow. */
+#monitorPanelDialog.ui-dialog-content,
+#monitorPanelDialog {
+	box-sizing: border-box;
 }
 
 .monitorPanel {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 10px;
 	border: 1px solid rgba(128, 128, 128, 0.35);
 	border-radius: 6px;
 	overflow: hidden;
+}
+
+.monitorPanel:last-child {
+	margin-bottom: 0;
 }
 
 .monitorPanelHeader {
@@ -643,34 +730,33 @@
 	color: gray;
 }
 
-/* Grouping card grid: responsive, flows full screen up to ~8 columns and
-   shrinks to fewer columns as the viewport narrows. Large groups span several
-   columns (see data-span) so their devices flow across the page. */
+/* Grouping card grid: a wrapping flexbox so cards always stretch to fill the
+   full horizontal space. A CSS grid was tried first, but Cacti renders this
+   content inside a shrink-to-fit `display:table` box (html_start_box with
+   $div=true), which breaks grid auto-fill track counting and clipped the cards
+   to roughly half the page. Flexbox grows each card to fill its row regardless
+   of that containing block. */
 .monitorGroupGrid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-	grid-auto-flow: row dense;
+	display: flex;
+	flex-wrap: wrap;
 	gap: 10px;
-	align-items: start;
+	align-items: flex-start;
 	width: 100%;
-	container-type: inline-size;
 }
 
-/* Cap each card's span to the number of 260px tracks the grid can actually
-   show at its current width (track + 10px gap), so a wide card never forces an
-   extra implicit track and horizontal overflow on narrow layouts. */
-@container (max-width: 529px) {
-	.monitorGroupCard { grid-column: auto !important; }
+.monitorGroupCard {
+	flex: 1 1 260px;
+	min-width: 260px;
+	box-sizing: border-box;
 }
 
-@container (min-width: 530px) and (max-width: 799px) {
-	.monitorGroupCard[data-span="3"],
-	.monitorGroupCard[data-span="4"] { grid-column: span 2 !important; }
-}
-
-@container (min-width: 800px) and (max-width: 1069px) {
-	.monitorGroupCard[data-span="4"] { grid-column: span 3 !important; }
-}
+/* A busier group (span 2) gets a wider basis and matching flex-grow so it takes
+   proportionally more room when sharing a row with smaller cards. The busiest
+   groups (span 3-4) take a full row of their own so their many tiles flow the
+   whole page width instead of being squeezed beside smaller cards. */
+.monitorGroupCard[data-span="2"] { flex-grow: 2; flex-basis: 530px; }
+.monitorGroupCard[data-span="3"],
+.monitorGroupCard[data-span="4"] { flex-basis: 100%; }
 
 .monitorGroupCard .monitorPanelBody {
 	padding: 6px;

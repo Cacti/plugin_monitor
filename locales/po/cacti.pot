@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Cacti Developers <developers@cacti.net>>\n"
+"Last-Translator: Cacti Developers <developers@cacti.net>\n"
 "Language-Team: Cacti Developers <developers@cacti.net>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -37,63 +37,6 @@ msgstr ""
 msgid "Monitored Devices"
 msgstr ""
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-msgid "Not Monitored Devices"
-msgstr ""
-
-#: includes/controller.php monitor.php
-msgid "All Devices"
-msgstr ""
-
-#: includes/controller.php monitor.php
-msgid "All Monitored Devices"
-msgstr ""
-
-#: includes/controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr ""
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr ""
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and All Criticalities"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of High Criticality or Higher"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of Mission Critical Status"
-msgstr ""
-
-#: includes/controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr ""
-
 #: includes/controller.php
 msgid "Unsaved"
 msgstr ""
@@ -102,8 +45,8 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
-#: includes/controller.php includes/render.php
-msgid "Status"
+#: includes/controller.php
+msgid "Show"
 msgstr ""
 
 #: includes/controller.php setup.php
@@ -112,10 +55,6 @@ msgstr ""
 
 #: includes/controller.php setup.php
 msgid "Grouping"
-msgstr ""
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
 msgstr ""
 
 #: includes/controller.php
@@ -176,6 +115,14 @@ msgstr ""
 msgid "%s Alerts for downed Devices"
 msgstr ""
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr ""
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 msgid "Criticality"
 msgstr ""
@@ -212,16 +159,20 @@ msgstr ""
 msgid "Sites"
 msgstr ""
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr ""
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
 msgstr ""
 
 #: includes/controller.php
 msgid "Template"
+msgstr ""
+
+#: includes/controller.php
+msgid "Templates"
+msgstr ""
+
+#: includes/controller.php
+msgid "Rows"
 msgstr ""
 
 #: includes/controller.php
@@ -256,6 +207,10 @@ msgstr ""
 
 #: includes/controller.php
 msgid "Search"
+msgstr ""
+
+#: includes/controller.php includes/render.php
+msgid "Events"
 msgstr ""
 
 #: includes/controller.php
@@ -294,11 +249,11 @@ msgstr ""
 msgid "Dashboard '%s' could not be Saved!"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Edit Device"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "View Graphs"
 msgstr ""
 
@@ -408,7 +363,7 @@ msgstr ""
 msgid "Unspecified"
 msgstr ""
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr ""
 
@@ -445,8 +400,12 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
+msgstr ""
+
+#: includes/controller.php
+msgid "Status"
 msgstr ""
 
 #: includes/controller.php includes/render.php monitor.php
@@ -457,12 +416,16 @@ msgstr ""
 msgid "Device Template"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Location"
 msgstr ""
 
 #: includes/controller.php
 msgid "Contact"
+msgstr ""
+
+#: includes/controller.php
+msgid "Notes"
 msgstr ""
 
 #: includes/controller.php
@@ -522,7 +485,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -531,11 +494,11 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Thresholds"
 msgstr ""
 
@@ -581,6 +544,34 @@ msgstr ""
 msgid "Just Up"
 msgstr ""
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr ""
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr ""
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr ""
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr ""
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr ""
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr ""
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 msgid "Actions"
 msgstr ""
@@ -590,7 +581,15 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-msgid "Hostname of device"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
 msgstr ""
 
 #: includes/render.php
@@ -598,11 +597,23 @@ msgid "ID"
 msgstr ""
 
 #: includes/render.php
-msgid "Length in Status"
+msgid "Cacti internal device id"
 msgstr ""
 
 #: includes/render.php
-msgid "Averages"
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
 msgstr ""
 
 #: includes/render.php
@@ -610,15 +621,75 @@ msgid "Warning"
 msgstr ""
 
 #: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
 msgid "Admin"
 msgstr ""
 
 #: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "Administrative monitor message shown while the device is Down or Recovering"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+msgid "Averages"
+msgstr ""
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr ""
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr ""
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr ""
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Not Set"
+msgstr ""
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
 msgstr ""
 
 #: monitor.php poller_functions.php setup.php
@@ -635,14 +706,6 @@ msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
-msgstr ""
-
-#: monitor.php
-msgid "Down"
-msgstr ""
-
-#: monitor.php
-msgid "Recovering"
 msgstr ""
 
 #: monitor.php
@@ -663,10 +726,6 @@ msgstr ""
 
 #: monitor.php
 msgid "Warning Ping"
-msgstr ""
-
-#: monitor.php
-msgid "Alert Ping"
 msgstr ""
 
 #: monitor.php
@@ -694,19 +753,23 @@ msgid "Zoom"
 msgstr ""
 
 #: monitor.php
-msgid "Not Up"
+msgid "All Monitored Devices"
 msgstr ""
 
 #: monitor.php
-msgid "Not Up or Triggered"
-msgstr ""
-
-#: monitor.php
-msgid "Not Up, Triggered or Breached"
+msgid "All Devices"
 msgstr ""
 
 #: monitor.php
 msgid "Devices not Monitored"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
 msgstr ""
 
 #: monitor.php setup.php
@@ -715,10 +778,6 @@ msgstr ""
 
 #: monitor.php setup.php
 msgid "List"
-msgstr ""
-
-#: monitor.php setup.php
-msgid "Names only"
 msgstr ""
 
 #: monitor.php setup.php
@@ -932,6 +991,10 @@ msgstr ""
 
 #: setup.php
 msgid "This is how monitor will render Devices."
+msgstr ""
+
+#: setup.php
+msgid "Names only"
 msgstr ""
 
 #: setup.php

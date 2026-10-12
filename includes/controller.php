@@ -208,7 +208,7 @@ function drawPage(): void {
 	$function = 'render' . ucfirst(get_request_var('grouping'));
 
 	if (function_exists($function) && get_request_var('view') != 'list') {
-		if (get_request_var('grouping') == 'default' || get_request_var('grouping') == 'site') {
+		if (get_request_var('grouping') == 'default') {
 			html_start_box(__('Monitored Devices', 'monitor'), '100%', true, 3, 'center', '');
 		} else {
 			html_start_box('', '100%', true, 3, 'center', '');
@@ -238,8 +238,6 @@ function drawPage(): void {
 			print "<audio id='audio' playsinline='' src='" . html_escape($config['url_path'] . 'plugins/monitor/sounds/' . $monitor_sound) . "'></audio>";
 		}
 	}
-
-	print '<div class="center monitorFooter">' . getFilterText() . '</div>';
 
 	bottom_footer();
 }
@@ -353,75 +351,6 @@ function unmuteUser(): void {
 }
 
 /**
- * Build footer text describing currently active monitor filters.
- *
- * @return string
- */
-function getFilterText(): string {
-	$filter = '<div class="center monitorFooterText">';
-
-	switch (get_request_var('status')) {
-		case '-4':
-			$filter .= __('Devices without Thresholds', 'monitor');
-
-			break;
-		case '-3':
-			$filter .= __('Not Monitored Devices', 'monitor');
-
-			break;
-		case '-2':
-			$filter .= __('All Devices', 'monitor');
-
-			break;
-		case '-1':
-			$filter .= __('All Monitored Devices', 'monitor');
-
-			break;
-		case '0':
-			$filter .= __('Monitored Devices either Down or Recovering', 'monitor');
-
-			break;
-		case '1':
-			$filter .= __('Monitored Devices either Down, Recovering, or with Triggered Thresholds', 'monitor');
-
-			break;
-		case '2':
-			$filter .= __('Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds', 'monitor');
-
-			break;
-		default:
-			$filter .= __('Unknown monitoring status (%s)', get_request_var('status'), 'monitor');
-	}
-
-	switch (get_request_var('crit')) {
-		case '0':
-			$filter .= __(', and All Criticalities', 'monitor');
-
-			break;
-		case '1':
-			$filter .= __(', and of Low Criticality or Higher', 'monitor');
-
-			break;
-		case '2':
-			$filter .= __(', and of Medium Criticality or Higher', 'monitor');
-
-			break;
-		case '3':
-			$filter .= __(', and of High Criticality or Higher', 'monitor');
-
-			break;
-		case '4':
-			$filter .= __(', and of Mission Critical Status', 'monitor');
-
-			break;
-	}
-
-	$filter .= __('</div><div class="center monitorFooterTextBold">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>', 'monitor');
-
-	return $filter;
-}
-
-/**
  * Render one filter dropdown (or hidden fallback input) for the monitor form.
  *
  * @param string     $id       Filter field id/name.
@@ -458,6 +387,95 @@ function drawFilterDropdown(string $id, string $title, array $settings = [], mix
 	} else {
 		print "<td style='display:none;'><input type='hidden' id='$id' value='" . html_escape($value) . "'></td>" . PHP_EOL;
 	}
+}
+
+/**
+ * Render a checkbox-style multi-select filter (Cacti 'N Selected' widget).
+ *
+ * @param string $id        Filter field id/name.
+ * @param string $title     Filter display title.
+ * @param array  $settings  Option map of value => label.
+ * @param array  $selected  Currently selected option values.
+ * @param string $countText Noun shown in the 'N Selected' widget label.
+ *
+ * @return void
+ */
+function drawFilterMultiselect(string $id, string $title, array $settings, array $selected, string $countText = ''): void {
+	if (!cacti_sizeof($settings)) {
+		return;
+	}
+
+	if ($countText === '') {
+		$countText = $title;
+	}
+
+	print '<td>' . html_escape($title) . '</td>';
+
+	// Cacti 1.2.32+ themes a multiple <select> into the checkbox 'N Selected'
+	// widget via the select2-multi-count class; older versions fall back to a
+	// plain multiple select.
+	$select_class = version_compare(CACTI_VERSION, '1.2.32', '>=') ? ' class="select2-multi-count"' : '';
+
+	print '<td><select id="' . $id . '" name="' . $id . '[]" multiple' . $select_class . ' data-selectCountText="' . html_escape($countText) . '" title="' . html_escape($title) . '">' . PHP_EOL;
+
+	foreach ($settings as $setting_value => $setting_name) {
+		$setting_selected = in_array((string) $setting_value, $selected, true) ? ' selected' : '';
+
+		print '<option value="' . html_escape($setting_value) . '"' . $setting_selected . '>' . html_escape($setting_name) . '</option>' . PHP_EOL;
+	}
+
+	print '</select></td>' . PHP_EOL;
+}
+
+/**
+ * Resolve the selected, validated Events filter tokens from the request.
+ *
+ * @return array List of valid event keys currently selected.
+ */
+function monitorGetSelectedEvents(): array {
+	global $monitor_events;
+
+	$raw = get_nfilter_request_var('events');
+
+	if (is_array($raw)) {
+		$keys = $raw;
+	} elseif ($raw === '' || $raw === null) {
+		return [];
+	} else {
+		$keys = explode(',', (string) $raw);
+	}
+
+	$keys = array_map('trim', $keys);
+
+	return array_values(array_intersect($keys, array_keys($monitor_events)));
+}
+
+/**
+ * Resolve the selected, validated Device Template tokens from the request.
+ *
+ * Templates are a multi-select (checkbox) filter like Events. Tokens are
+ * host_template_id values; 0 represents Non-Templated devices. Legacy
+ * single-select sentinels (-1 All) are dropped so an empty result means
+ * 'all templates'.
+ *
+ * @return array List of valid, non-negative template id tokens.
+ */
+function monitorGetSelectedTemplates(): array {
+	$raw = get_nfilter_request_var('template');
+
+	if (is_array($raw)) {
+		$keys = $raw;
+	} elseif ($raw === '' || $raw === null) {
+		return [];
+	} else {
+		$keys = explode(',', (string) $raw);
+	}
+
+	$keys = array_filter(array_map('trim', $keys), static function ($k) {
+		return ctype_digit((string) $k);
+	});
+
+	return array_values(array_map('strval', array_map('intval', $keys)));
 }
 
 /**
@@ -530,16 +548,11 @@ function monitorGetZoomDropdownState(bool &$dozoombgndcolor): array {
  *
  * @return void
  */
-function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_view_type, array $monitor_grouping, array $item_rows, mixed $mon_zoom_status): void {
+function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status, array $monitor_events, array $monitor_view_type, array $monitor_grouping, array $item_rows, mixed $mon_zoom_status): void {
 	drawFilterDropdown('dashboard', __('Layout', 'monitor'), $dashboards);
-	drawFilterDropdown('status', __('Status', 'monitor'), $monitor_status, $mon_zoom_status);
+	drawFilterDropdown('status', __('Show', 'monitor'), $monitor_status, $mon_zoom_status);
 	drawFilterDropdown('view', __('View', 'monitor'), $monitor_view_type);
 	drawFilterDropdown('grouping', __('Grouping', 'monitor'), $monitor_grouping);
-
-	// The Rows filter only applies to the List view; other views show all devices.
-	if (get_request_var('view') == 'list') {
-		drawFilterDropdown('rows', __('Devices', 'monitor'), $item_rows);
-	}
 
 	print '<td><span>' . PHP_EOL;
 	print '<input type="submit" value="' . __esc('Refresh', 'monitor') . '" id="go" title="' . __esc('Refresh the Device List', 'monitor') . '">' . PHP_EOL;
@@ -553,6 +566,11 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
 	}
 
 	print '<input type="button" value="' . (get_request_var('mute') == 'false' ? getMuteText() : getUnmuteText()) . '" id="sound" title="' . (get_request_var('mute') == 'false' ? __('%s Alert for downed Devices', getMuteText(), 'monitor') : __('%s Alerts for downed Devices', getUnmuteText(), 'monitor')) . '">' . PHP_EOL;
+
+	if (api_plugin_user_realm_auth('host.php')) {
+		print '<input type="button" value="' . __esc('Devices', 'monitor') . '" id="devices" title="' . __esc('Go to the Devices management page', 'monitor') . '">' . PHP_EOL;
+	}
+
 	print '<input id="downhosts" type="hidden" value="' . html_escape(get_request_var('downhosts')) . '"><input id="mute" type="hidden" value="' . html_escape(get_request_var('mute')) . '">' . PHP_EOL;
 	print '</span></td>';
 }
@@ -569,6 +587,8 @@ function monitorRenderPrimaryFilterRow(array $dashboards, array $monitor_status,
  * @return void
  */
 function monitorRenderGroupingDropdowns(array $classes, array $criticalities, array $monitor_trim, array $page_refresh_interval, mixed $mon_zoom_size): void {
+	global $item_rows;
+
 	drawFilterDropdown('crit', __('Criticality', 'monitor'), $criticalities);
 
 	if (get_request_var('view') != 'list') {
@@ -633,12 +653,17 @@ function monitorRenderGroupingDropdowns(array $classes, array $criticalities, ar
 		);
 
 		if (cacti_sizeof($templates_allowed)) {
-			$templates_prefix = [-1 => __('All Templates', 'monitor')];
-			$templates_suffix = [-2 => __('Non-Templated Devices', 'monitor')];
-			$templates        = $templates_prefix + $templates_allowed + $templates_suffix;
+			// 0 = Non-Templated devices (host_template_id = 0). No selection
+			// means all templates, so there is no 'All' checkbox.
+			$templates = [0 => __('Non-Templated Devices', 'monitor')] + $templates_allowed;
 		}
 
-		drawFilterDropdown('template', __('Template', 'monitor'), $templates);
+		drawFilterMultiselect('template', __('Template', 'monitor'), $templates, monitorGetSelectedTemplates(), __('Templates', 'monitor'));
+	}
+
+	// The Rows filter only applies to the List view; other views show all devices.
+	if (get_request_var('view') == 'list') {
+		drawFilterDropdown('rows', __('Rows', 'monitor'), $item_rows);
 	}
 
 	drawFilterDropdown('refresh', __('Refresh', 'monitor'), $page_refresh_interval);
@@ -659,7 +684,7 @@ function monitorRenderHiddenFilterInputs(): void {
 	}
 
 	if (get_request_var('grouping') != 'template') {
-		print '<td><input type="hidden" id="template" value="' . html_escape(get_request_var('template')) . '"></td>' . PHP_EOL;
+		print '<td><input type="hidden" id="template" value="' . html_escape(implode(',', monitorGetSelectedTemplates())) . '"></td>' . PHP_EOL;
 	}
 
 	if (get_request_var('view') == 'list') {
@@ -740,7 +765,7 @@ function monitorPrintJsBootstrap(array $config, string $mbcolor, string $monitor
  */
 function drawFilterAndStatus(): void {
 	global $config, $criticalities, $page_refresh_interval, $classes, $monitor_grouping;
-	global $monitor_view_type, $monitor_status, $monitor_trim;
+	global $monitor_view_type, $monitor_status, $monitor_events, $monitor_trim;
 	global $dozoombgndcolor, $dozoomrefresh, $zoom_hist_status, $zoom_hist_size, $mon_zoom_state;
 	global $new_form, $new_title, $item_rows;
 
@@ -757,6 +782,7 @@ function drawFilterAndStatus(): void {
 	monitorRenderPrimaryFilterRow(
 		monitorGetDashboardOptions(),
 		$monitor_status,
+		$monitor_events,
 		$monitor_view_type,
 		$monitor_grouping,
 		$item_rows,
@@ -770,6 +796,7 @@ function drawFilterAndStatus(): void {
 	print '<tr>' . PHP_EOL;
 	print '<td>' . __('Search', 'monitor') . '</td>';
 	print '<td><input type="text" size="30" id="rfilter" value="' . html_escape_request_var('rfilter') . '"></input></td>';
+	drawFilterMultiselect('events', __('Events', 'monitor'), $monitor_events, monitorGetSelectedEvents());
 	monitorRenderGroupingDropdowns($classes, $criticalities, $monitor_trim, $page_refresh_interval, $mon_zoom_size);
 	monitorRenderHiddenFilterInputs();
 
@@ -909,6 +936,14 @@ function saveSettings(): void {
 						set_user_setting('monitor_status', get_request_var('status'));
 
 						break;
+					case 'events':
+						set_user_setting('monitor_events', implode(',', monitorGetSelectedEvents()));
+
+						break;
+					case 'template':
+						set_user_setting('monitor_template', implode(',', monitorGetSelectedTemplates()));
+
+						break;
 					case 'tree':
 						set_user_setting('monitor_tree', get_request_var('tree'));
 
@@ -934,6 +969,8 @@ function saveSettings(): void {
 			'size'     => get_request_var('size'),
 			'trim'     => get_request_var('trim'),
 			'status'   => get_request_var('status'),
+			'events'   => implode(',', monitorGetSelectedEvents()),
+			'template' => implode(',', monitorGetSelectedTemplates()),
 			'tree'     => get_request_var('tree'),
 			'site'     => get_request_var('site'),
 		];
@@ -1045,6 +1082,12 @@ function validateRequestVars(bool $force = false): void {
 			'pageset' => true,
 			'default' => read_user_setting('monitor_status', '-1', $force)
 		],
+		'events' => [
+			'filter'  => FILTER_CALLBACK,
+			'pageset' => true,
+			'options' => ['options' => 'sanitize_search_string'],
+			'default' => read_user_setting('monitor_events', '', $force)
+		],
 		'tree' => [
 			'filter'  => FILTER_VALIDATE_INT,
 			'pageset' => true,
@@ -1056,9 +1099,10 @@ function validateRequestVars(bool $force = false): void {
 			'default' => read_user_setting('monitor_site', '-1', $force)
 		],
 		'template' => [
-			'filter'  => FILTER_VALIDATE_INT,
+			'filter'  => FILTER_CALLBACK,
 			'pageset' => true,
-			'default' => read_user_setting('monitor_template', '-1', $force)
+			'options' => ['options' => 'sanitize_search_string'],
+			'default' => read_user_setting('monitor_template', '', $force)
 		],
 		'id' => [
 			'filter'  => FILTER_VALIDATE_INT,
@@ -1081,6 +1125,15 @@ function validateRequestVars(bool $force = false): void {
 	];
 
 	validate_store_request_vars($filters, 'sess_monitor');
+
+	// Normalize any legacy or stale Status scope. Older releases stored
+	// availability-status codes (0, 1, 2, ...) in this field; those are no longer
+	// valid scopes, so map anything outside the current scope set to -1 (All
+	// Monitored Devices) rather than letting it fall through and silently broaden
+	// a saved layout's event scope on upgrade.
+	if (!in_array((int) get_request_var('status'), [-1, -2, -3, -4, -5], true)) {
+		set_request_var('status', '-1');
+	}
 	// ================= input validation =================
 }
 
@@ -1479,6 +1532,10 @@ function monitorPanelHostInfo(array $host, array $iclasses): string {
 
 	if (isset($host['snmp_sysContact']) && $host['snmp_sysContact'] != '') {
 		$body .= monitorPanelRow(__('Contact', 'monitor'), html_escape(monitorTrim($host['snmp_sysContact'])));
+	}
+
+	if (isset($host['notes']) && $host['notes'] != '') {
+		$body .= monitorPanelRow(__('Notes', 'monitor'), nl2br(html_escape($host['notes'])));
 	}
 
 	$body .= '</ul>';

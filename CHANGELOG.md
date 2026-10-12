@@ -2,6 +2,18 @@
 
 --- 3.0 ---
 
+* feature: Replace the single Status column/filter with a multi-select Events filter (additive) and an Events column that shows a short pill per active event (Down, Recovering, Triggered, Down/Triggered M/A, Warn/Alert Ping, Failed Svc), 'None' when clean; the Status scope dropdown now only selects All Monitored / All Devices / Not Monitored / Without Thresholds
+* bug: Centre the tile hostname under the glyph and keep it clickable in the Tiles & Time view
+* bug: Remove the 'Names only' View option from the dropdown (the renderer is retained for direct ?view=names use)
+* bug: Size grouping-card tiles to the longest visible host description so long hostnames no longer overlap neighbouring tiles
+* bug: Center the device Actions dialog, make it taller and scrollable so panel text is not cut off, and pause the page refresh countdown while it is open
+* bug: Remove the stray 'Monitored Devices' box header on the Site grouping so it matches the other groupings
+* feature: Add clickable List-view pills — Thresholds (breached / triggered / total), Service Checks (failed / total), Events, and a Criticality pill (including a 'Not Set' pill for unset devices) — that toggle the matching filter on and off
+* feature: Offer Warning Ping, Alert Ping and Service Check Failed as additive selections in the multi-select Events filter, and make the Criticality 'None' selection filter to devices with no criticality set
+* bug: Give the busiest grouping cards (many devices) a full row of their own so their tiles span the whole page instead of being squeezed to part of the width beside smaller cards
+* bug: Remove the filter status/criticality summary footer and the "Remember to first select eligible Devices" prompt from the Monitor board
+* bug: Lay the grouping cards out with a wrapping flexbox instead of a CSS grid so they always stretch to fill the full horizontal space; inside Cacti's shrink-to-fit html_start_box div the grid mis-counted its tracks and clipped the cards to roughly half the page width
+* bug: Default-order the Tree grouping cards by device count (busiest first) while still honouring any saved drag order
 * feature: Restructure plugin_monitor_dashboards to store filter state as a JSON `properties` object (migrating the legacy raw `url` into it and dropping the url column on upgrade), and construct dashboard URLs from that structure instead of persisting raw urls
 * feature: Render the Site and Device Template groupings as a responsive full-width grid of draggable card panels (up to 8 columns, shrinking on narrower screens) whose titles are coloured by each group's worst device status, persisting card order per dashboard or per user
 * bug: Let a grouping card with many devices span several grid columns so it flows across the page instead of stacking into one tall, narrow column that scrolls off the screen
