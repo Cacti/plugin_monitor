@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2026-10-06 10:18+0000\n"
 "Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
 "Language-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\n"
@@ -33,63 +33,6 @@ msgstr "Skapa ny instrumentpanel"
 msgid "Monitored Devices"
 msgstr "Övervakade enheter"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr "Enheter utan tröskelvärden"
-
-#: includes/controller.php
-msgid "Not Monitored Devices"
-msgstr "Ej övervakade enheter"
-
-#: includes/controller.php monitor.php
-msgid "All Devices"
-msgstr "Alla enheter"
-
-#: includes/controller.php monitor.php
-msgid "All Monitored Devices"
-msgstr "Alla övervakade enheter"
-
-#: includes/controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Övervakade enheter som antingen är nere eller återhämtar sig"
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har utlösta tröskelvärden"
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har överträdda eller utlösta tröskelvärden"
-
-#: includes/controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Okänd övervakningsstatus (%s)"
-
-#: includes/controller.php
-msgid ", and All Criticalities"
-msgstr "och alla kritiska punkter"
-
-#: includes/controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr "och av låg kritikalitet eller högre"
-
-#: includes/controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr "och av medelkritisk eller högre grad"
-
-#: includes/controller.php
-msgid ", and of High Criticality or Higher"
-msgstr "och som är mycket kritiska eller högre"
-
-#: includes/controller.php
-msgid ", and of Mission Critical Status"
-msgstr "och av Mission Critical Status"
-
-#: includes/controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\">Kom ihåg att först välja de enheter som ska övervakas på sidan Devices!</div></div></div>"
-
 #: includes/controller.php
 msgid "Unsaved"
 msgstr "Inte sparad"
@@ -98,9 +41,9 @@ msgstr "Inte sparad"
 msgid "Layout"
 msgstr "Layout"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "Status"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -109,10 +52,6 @@ msgstr "Visa"
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "Gruppering"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "Enheter"
 
 #: includes/controller.php
 msgid "Refresh"
@@ -172,6 +111,14 @@ msgstr "%s Varning för nedstängda enheter"
 msgid "%s Alerts for downed Devices"
 msgstr "%s Varningar för nedstängda enheter"
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Enheter"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 msgid "Criticality"
 msgstr "Kritiskhet"
@@ -208,17 +155,23 @@ msgstr "Enheter utanför platsen"
 msgid "Sites"
 msgstr "Webbsidor"
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr "Alla mallar"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
 msgstr "Icke-planerade enheter"
 
 #: includes/controller.php
 msgid "Template"
 msgstr "Mall"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "Mall"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 msgid " [ Filter Settings Saved ]"
@@ -256,6 +209,10 @@ msgstr "[ Visar endast de 30 första enheterna ]"
 msgid "Search"
 msgstr "Sök"
 
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
+
 #: includes/controller.php
 msgid "Mute"
 msgstr "Tysta"
@@ -292,11 +249,11 @@ msgstr "Instrumentpanelen '%s' har sparats!"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "Instrumentpanelen '%s' kunde inte sparas!"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Edit Device"
 msgstr "Redigera enhet"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "View Graphs"
 msgstr "Se grafer"
 
@@ -406,7 +363,7 @@ msgstr "Aldrig"
 msgid "Unspecified"
 msgstr "Ospecificerad"
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "Ingen"
 
@@ -445,9 +402,13 @@ msgstr ""
 msgid "Description"
 msgstr "Beskrivning"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "Värdnamn"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Status"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -457,7 +418,7 @@ msgstr "Webbplats"
 msgid "Device Template"
 msgstr "Enhetsmall"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -468,6 +429,10 @@ msgstr "Plats:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "Kontakt:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Anteckningar"
 
 #: includes/controller.php
 #, fuzzy
@@ -533,7 +498,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -542,11 +507,11 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "Utlöst"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "View Thresholds/Alerts"
 msgid "Thresholds"
@@ -598,6 +563,40 @@ msgstr "Okänd"
 msgid "Just Up"
 msgstr "Bara upp"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Nere"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Påväg upp"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Down (Muted/Acked)"
+msgid "Down (M/A)"
+msgstr "Ned (dämpad/förstärkt)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Triggered (Muted/Acked)"
+msgid "Triggered (M/A)"
+msgstr "Utlöst (Muted/Acked)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "Varning"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Varning Ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -609,36 +608,118 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-msgid "Hostname of device"
-msgstr "Enhetens värdnamn"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
 msgstr "ID"
 
 #: includes/render.php
-msgid "Length in Status"
-msgstr "Längd i status"
+msgid "Cacti internal device id"
+msgstr ""
 
 #: includes/render.php
-msgid "Averages"
-msgstr "Medelvärden"
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
 
 #: includes/render.php
 msgid "Warning"
 msgstr "Varning"
 
 #: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
 msgid "Admin"
 msgstr "Admin"
 
 #: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
-msgstr "Textkolumnen Monitor representerar ’Administratör’"
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "Anteckningar"
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Medelvärden"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr ""
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Längd i status"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr ""
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+#| msgid "Not Up"
+msgid "Not Set"
+msgstr "Uppe"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -655,14 +736,6 @@ msgstr "Hög"
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "Systemkritiskt"
-
-#: monitor.php
-msgid "Down"
-msgstr "Nere"
-
-#: monitor.php
-msgid "Recovering"
-msgstr "Påväg upp"
 
 #: monitor.php
 msgid "Up"
@@ -682,10 +755,6 @@ msgstr "Ingen tillgänglighetskontroll"
 
 #: monitor.php
 msgid "Warning Ping"
-msgstr "Varning Ping"
-
-#: monitor.php
-msgid "Alert Ping"
 msgstr "Varning Ping"
 
 #: monitor.php
@@ -713,20 +782,26 @@ msgid "Zoom"
 msgstr "Zooma"
 
 #: monitor.php
-msgid "Not Up"
-msgstr "Uppe"
+msgid "All Monitored Devices"
+msgstr "Alla övervakade enheter"
 
 #: monitor.php
-msgid "Not Up or Triggered"
-msgstr "Inte uppe eller utlöst"
-
-#: monitor.php
-msgid "Not Up, Triggered or Breached"
-msgstr "Inte uppe, utlöst eller utsatt för intrång"
+msgid "All Devices"
+msgstr "Alla enheter"
 
 #: monitor.php
 msgid "Devices not Monitored"
 msgstr "Ej övervakade enheter"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Enheter utan tröskelvärden"
+
+#: monitor.php
+#, fuzzy
+#| msgid "Devices without Thresholds"
+msgid "Devices without Service Checks"
+msgstr "Enheter utan tröskelvärden"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -735,10 +810,6 @@ msgstr "Standard"
 #: monitor.php setup.php
 msgid "List"
 msgstr "Lista"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr "Endast namn"
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -952,6 +1023,10 @@ msgstr "Standard med behörigheter"
 #: setup.php
 msgid "This is how monitor will render Devices."
 msgstr "Det är så här monitorn kommer att rendera enheter."
+
+#: setup.php
+msgid "Names only"
+msgstr "Endast namn"
 
 #: setup.php
 msgid "Tiles & Downtime"
@@ -1239,6 +1314,55 @@ msgstr "Du kan välja enhetsikon."
 #: setup.php
 msgid "Monitoring"
 msgstr "Övervakning"
+
+#~ msgid "Not Monitored Devices"
+#~ msgstr "Ej övervakade enheter"
+
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "Övervakade enheter som antingen är nere eller återhämtar sig"
+
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har utlösta tröskelvärden"
+
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "Övervakade enheter som antingen är nere, återhämtar sig eller har överträdda eller utlösta tröskelvärden"
+
+#, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "Okänd övervakningsstatus (%s)"
+
+#~ msgid ", and All Criticalities"
+#~ msgstr "och alla kritiska punkter"
+
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr "och av låg kritikalitet eller högre"
+
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr "och av medelkritisk eller högre grad"
+
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr "och som är mycket kritiska eller högre"
+
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr "och av Mission Critical Status"
+
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\">Kom ihåg att först välja de enheter som ska övervakas på sidan Devices!</div></div></div>"
+
+#~ msgid "All Templates"
+#~ msgstr "Alla mallar"
+
+#~ msgid "Hostname of device"
+#~ msgstr "Enhetens värdnamn"
+
+#~ msgid "Monitor Text Column represents 'Admin'"
+#~ msgstr "Textkolumnen Monitor representerar ’Administratör’"
+
+#~ msgid "Not Up or Triggered"
+#~ msgstr "Inte uppe eller utlöst"
+
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "Inte uppe, utlöst eller utsatt för intrång"
 
 #~ msgid "All Monitored"
 #~ msgstr "Alla övervakade"
