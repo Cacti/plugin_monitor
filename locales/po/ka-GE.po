@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cacti\n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2026-09-24 21:00+0000\n"
 "Last-Translator: Ekaterine papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <https://translate.cacti.net/projects/cacti/monitor/ka/>\n"
@@ -38,64 +38,6 @@ msgstr "ახალი სამუშაო დაფის შექმნა
 msgid "Monitored Devices"
 msgstr "მოწყობილობები მონიტორინგის ქვეშ"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "მოწყობილობები მონიტორინგის ქვეშ"
-
-#: includes/controller.php monitor.php
-msgid "All Devices"
-msgstr "ყველა მოწყობილობა"
-
-#: includes/controller.php monitor.php
-msgid "All Monitored Devices"
-msgstr "ყველა მოწყობილობა მონიტორინგის ქვეშ"
-
-#: includes/controller.php
-msgid "Monitored Devices either Down or Recovering"
-msgstr ""
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr ""
-
-#: includes/controller.php
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and All Criticalities"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of Low Criticality or Higher"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of Medium Criticality or Higher"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of High Criticality or Higher"
-msgstr ""
-
-#: includes/controller.php
-msgid ", and of Mission Critical Status"
-msgstr ""
-
-#: includes/controller.php
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr ""
-
 #: includes/controller.php
 msgid "Unsaved"
 msgstr "შეუნახავი"
@@ -104,9 +46,9 @@ msgstr "შეუნახავი"
 msgid "Layout"
 msgstr "განლაგება"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "სტატუსი"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -115,10 +57,6 @@ msgstr "ხედი"
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "დაჯგუფება"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "მოწყობილობები"
 
 #: includes/controller.php
 msgid "Refresh"
@@ -178,6 +116,14 @@ msgstr ""
 msgid "%s Alerts for downed Devices"
 msgstr ""
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "მოწყობილობები"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 msgid "Criticality"
 msgstr "კრიტიკულობა"
@@ -214,17 +160,23 @@ msgstr "არასაიტის მოწყობილობები"
 msgid "Sites"
 msgstr "საიტები"
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr "ყველა შაბლონი"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
 msgstr "არადაშაბლონებული მოწყობილობები"
 
 #: includes/controller.php
 msgid "Template"
 msgstr "ნიმუში"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "ნიმუში"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 msgid " [ Filter Settings Saved ]"
@@ -262,6 +214,10 @@ msgstr ""
 msgid "Search"
 msgstr "ძებნა"
 
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
+
 #: includes/controller.php
 msgid "Mute"
 msgstr "დადუმება"
@@ -298,11 +254,11 @@ msgstr ""
 msgid "Dashboard '%s' could not be Saved!"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Edit Device"
 msgstr "მოწყობილობის ჩასწორება"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "View Graphs"
 msgstr "გრაფიკების ნახვა"
 
@@ -412,7 +368,7 @@ msgstr "არასდროს"
 msgid "Unspecified"
 msgstr "მითითებული არაა"
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "არცერთი"
 
@@ -451,9 +407,13 @@ msgstr ""
 msgid "Description"
 msgstr "აღწერა"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "ჰოსტის სახელი"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "სტატუსი"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -463,7 +423,7 @@ msgstr "საიტი"
 msgid "Device Template"
 msgstr "მოწყობილობის შაბლონი"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -474,6 +434,10 @@ msgstr "მდებარეობა:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "კონტაქტი:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "შენიშვნები"
 
 #: includes/controller.php
 msgid "Host Information"
@@ -537,7 +501,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -546,11 +510,11 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "დატრიგერებულია"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "View Thresholds/Alerts"
 msgid "Thresholds"
@@ -602,6 +566,40 @@ msgstr "უცნობი"
 msgid "Just Up"
 msgstr "უბრალოდ მაღლა"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "გამორთ"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "მიმდინარეობს აღდგენა"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Down (Muted/Acked)"
+msgid "Down (M/A)"
+msgstr "გამორთ (დადუმებული/დადასტურებული)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Triggered (Muted/Acked)"
+msgid "Triggered (M/A)"
+msgstr "დატრიგერებულია (დადუმებულია/მიღებულია)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "გაფრთხილება"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "პინგის განგაში"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -613,15 +611,59 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-msgid "Hostname of device"
-msgstr "მოწყობილობის ჰოსტის სახელი"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
 msgstr "ID"
 
 #: includes/render.php
-msgid "Length in Status"
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Warning"
+msgstr "გაფრთხილება"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+msgid "Admin"
+msgstr "ადმინი"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
 msgstr ""
 
 #: includes/render.php
@@ -629,20 +671,58 @@ msgid "Averages"
 msgstr "საშუალოები"
 
 #: includes/render.php
-msgid "Warning"
-msgstr "გაფრთხილება"
-
-#: includes/render.php
-msgid "Admin"
-msgstr "ადმინი"
-
-#: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "შენიშვნები"
+msgid "Length in Status"
+msgstr ""
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr ""
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+#| msgid "Not Up"
+msgid "Not Set"
+msgstr "ჩართული არაა"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -659,14 +739,6 @@ msgstr "მაღალი"
 #: monitor.php poller_functions.php setup.php
 msgid "Mission Critical"
 msgstr "კრიტიკულად მნიშვნელოვანი"
-
-#: monitor.php
-msgid "Down"
-msgstr "გამორთ"
-
-#: monitor.php
-msgid "Recovering"
-msgstr "მიმდინარეობს აღდგენა"
 
 #: monitor.php
 msgid "Up"
@@ -687,10 +759,6 @@ msgstr "ხელმისაწვდომობის შემოწმე�
 #: monitor.php
 msgid "Warning Ping"
 msgstr "გაფრთხილების პინგი"
-
-#: monitor.php
-msgid "Alert Ping"
-msgstr "პინგის განგაში"
 
 #: monitor.php
 msgid "Service Check Failed"
@@ -717,21 +785,25 @@ msgid "Zoom"
 msgstr "მასშტაბი"
 
 #: monitor.php
-msgid "Not Up"
-msgstr "ჩართული არაა"
+msgid "All Monitored Devices"
+msgstr "ყველა მოწყობილობა მონიტორინგის ქვეშ"
 
 #: monitor.php
-msgid "Not Up or Triggered"
-msgstr ""
-
-#: monitor.php
-msgid "Not Up, Triggered or Breached"
-msgstr ""
+msgid "All Devices"
+msgstr "ყველა მოწყობილობა"
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "მოწყობილობის მონიტორინგის პარამეტრები"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -740,10 +812,6 @@ msgstr "ნაგულისხმევი"
 #: monitor.php setup.php
 msgid "List"
 msgstr "სია"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -956,6 +1024,10 @@ msgstr ""
 
 #: setup.php
 msgid "This is how monitor will render Devices."
+msgstr ""
+
+#: setup.php
+msgid "Names only"
 msgstr ""
 
 #: setup.php
@@ -1245,6 +1317,16 @@ msgstr ""
 #: setup.php
 msgid "Monitoring"
 msgstr "მონიტორინგი"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "მოწყობილობები მონიტორინგის ქვეშ"
+
+#~ msgid "All Templates"
+#~ msgstr "ყველა შაბლონი"
+
+#~ msgid "Hostname of device"
+#~ msgstr "მოწყობილობის ჰოსტის სახელი"
 
 #~ msgid "All Monitored"
 #~ msgstr "ყველა მონიტორინგის ქვეშ"
