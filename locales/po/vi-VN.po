@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-10 18:20-0400\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
 "PO-Revision-Date: 2020-12-28 20:15-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -36,75 +36,6 @@ msgstr "Tạo trang tổng quan mới"
 msgid "Monitored Devices"
 msgstr "Thiết bị được giám sát"
 
-#: includes/controller.php monitor.php
-msgid "Devices without Thresholds"
-msgstr ""
-
-#: includes/controller.php
-#, fuzzy
-msgid "Not Monitored Devices"
-msgstr "Thiết bị được giám sát"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Devices"
-msgstr "Thiết bị"
-
-#: includes/controller.php monitor.php
-#, fuzzy
-msgid "All Monitored Devices"
-msgstr "Tất cả các thiết bị được giám sát"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down or Recovering"
-msgstr "Các thiết bị được giám sát xuống hoặc khôi phục"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
-msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng kích hoạt"
-
-#: includes/controller.php
-#, fuzzy
-msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
-msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng vi phạm hoặc kích hoạt"
-
-#: includes/controller.php
-#, fuzzy, php-format
-msgid "Unknown monitoring status (%s)"
-msgstr "Trạng thái giám sát không xác định ( %s)"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and All Criticalities"
-msgstr "và tất cả các chỉ trích"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Low Criticality or Higher"
-msgstr "và có mức độ quan trọng thấp hoặc cao hơn"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Medium Criticality or Higher"
-msgstr "và có mức độ quan trọng trung bình trở lên"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of High Criticality or Higher"
-msgstr "và có tính phê phán cao hoặc cao hơn"
-
-#: includes/controller.php
-#, fuzzy
-msgid ", and of Mission Critical Status"
-msgstr "và về tình trạng quan trọng của nhiệm vụ"
-
-#: includes/controller.php
-#, fuzzy
-msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
-msgstr "</div><div class=\"center monitorFooterTextBold\"> Hãy nhớ trước tiên chọn Thiết bị đủ điều kiện để được Giám sát từ trang Thiết bị! </div>"
-
 #: includes/controller.php
 #, fuzzy
 msgid "Unsaved"
@@ -114,9 +45,9 @@ msgstr "Chưa được lưu"
 msgid "Layout"
 msgstr "Bố cục"
 
-#: includes/controller.php includes/render.php
-msgid "Status"
-msgstr "Trạng thái"
+#: includes/controller.php
+msgid "Show"
+msgstr ""
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -125,10 +56,6 @@ msgstr "Xem"
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "Nhóm"
-
-#: includes/controller.php includes/render.php
-msgid "Devices"
-msgstr "Thiết bị"
 
 #: includes/controller.php
 msgid "Refresh"
@@ -193,6 +120,14 @@ msgstr "%s Thông báo cho các thiết bị bị giảm"
 msgid "%s Alerts for downed Devices"
 msgstr "%s Cảnh báo cho các thiết bị bị giảm"
 
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Thiết bị"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr ""
+
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 #, fuzzy
 msgid "Criticality"
@@ -234,11 +169,7 @@ msgstr "Thiết bị không phải cây"
 msgid "Sites"
 msgstr "Websites"
 
-#: includes/controller.php
-msgid "All Templates"
-msgstr "Các mẫu"
-
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Non-Templated Devices"
 msgstr "Thiết bị không có khuôn mẫu"
@@ -246,6 +177,16 @@ msgstr "Thiết bị không có khuôn mẫu"
 #: includes/controller.php
 msgid "Template"
 msgstr "Mẫu"
+
+#: includes/controller.php
+#, fuzzy
+#| msgid "Template"
+msgid "Templates"
+msgstr "Mẫu"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr ""
 
 #: includes/controller.php
 #, fuzzy
@@ -282,6 +223,10 @@ msgstr ""
 #: includes/controller.php
 msgid "Search"
 msgstr "Tìm kiếm"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr ""
 
 #: includes/controller.php
 msgid "Mute"
@@ -321,12 +266,12 @@ msgstr "Trang tổng quan '%s' đã được Lưu!"
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "Không thể lưu trang tổng quan '%s'!"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Edit Device"
 msgstr "Chỉnh sửa thiết bị"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "View Graphs"
 msgstr "Xem đồ thị"
@@ -451,7 +396,7 @@ msgstr "Không bao giờ"
 msgid "Unspecified"
 msgstr ""
 
-#: includes/controller.php setup.php
+#: includes/controller.php includes/render.php setup.php
 msgid "None"
 msgstr "Không"
 
@@ -489,9 +434,13 @@ msgstr ""
 msgid "Description"
 msgstr "Mô tả"
 
-#: includes/controller.php includes/render.php poller_functions.php
+#: includes/controller.php poller_functions.php
 msgid "Hostname"
 msgstr "Tên máy chủ"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Trạng thái"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
@@ -502,7 +451,7 @@ msgstr "Trang"
 msgid "Device Template"
 msgstr "Mẫu thiết bị"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 #| msgid "Location:"
 msgid "Location"
@@ -513,6 +462,10 @@ msgstr "Địa điểm:"
 #| msgid "Contact:"
 msgid "Contact"
 msgstr "Liên hệ:"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Ghi chú"
 
 #: includes/controller.php
 #, fuzzy
@@ -576,7 +529,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 msgid "Service Checks"
 msgstr ""
 
@@ -585,12 +538,12 @@ msgstr ""
 msgid "Threshold %d"
 msgstr ""
 
-#: includes/controller.php monitor.php
+#: includes/controller.php includes/render.php monitor.php
 #, fuzzy
 msgid "Triggered"
 msgstr "Kích hoạt"
 
-#: includes/controller.php
+#: includes/controller.php includes/render.php
 #, fuzzy
 msgid "Thresholds"
 msgstr "Xem Ngưỡng"
@@ -642,6 +595,40 @@ msgstr "Không xác định"
 msgid "Just Up"
 msgstr "Chỉ cần lên"
 
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Xuống"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Recovering"
+msgstr "Phục hồi"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Down (M/A)"
+msgstr "Xuống (Tắt / Acked)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Triggered (M/A)"
+msgstr "Xuống (Tắt / Acked)"
+
+#: includes/render.php monitor.php
+#, fuzzy
+#| msgid "Warning"
+msgid "Warn Ping"
+msgstr "Cảnh báo"
+
+#: includes/render.php monitor.php
+#, fuzzy
+msgid "Alert Ping"
+msgstr "Thông báo Ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr ""
+
 #: includes/render.php
 #, fuzzy
 #| msgid "Location:"
@@ -653,12 +640,68 @@ msgid "Open the device detail panels"
 msgstr ""
 
 #: includes/render.php
-#, fuzzy
-msgid "Hostname of device"
-msgstr "Tên máy chủ của thiết bị"
+msgid "Device description as set on the Devices page"
+msgstr ""
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr ""
 
 #: includes/render.php
 msgid "ID"
+msgstr ""
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr ""
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr ""
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Cảnh báo"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr ""
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Quản trị viên"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr ""
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Averages"
+msgstr "Trung bình"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
 msgstr ""
 
 #: includes/render.php
@@ -667,25 +710,49 @@ msgid "Length in Status"
 msgstr "Độ dài trong trạng thái"
 
 #: includes/render.php
-#, fuzzy
-msgid "Averages"
-msgstr "Trung bình"
-
-#: includes/render.php
-msgid "Warning"
-msgstr "Cảnh báo"
-
-#: includes/render.php
-msgid "Admin"
-msgstr "Quản trị viên"
-
-#: includes/render.php
-msgid "Monitor Text Column represents 'Admin'"
+msgid "How long the device has been in its current status"
 msgstr ""
 
 #: includes/render.php
-msgid "Notes"
-msgstr "Ghi chú"
+msgid "Date and time the device last failed its availability check"
+msgstr ""
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr ""
+
+#: includes/render.php
+#, fuzzy
+msgid "Not Set"
+msgstr "Không lên"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr ""
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr ""
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr ""
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr ""
+
+#: monitor.php
+msgid "All"
+msgstr ""
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -703,15 +770,6 @@ msgstr "Cao"
 #, fuzzy
 msgid "Mission Critical"
 msgstr "Nhiệm vụ quan trọng"
-
-#: monitor.php
-msgid "Down"
-msgstr "Xuống"
-
-#: monitor.php
-#, fuzzy
-msgid "Recovering"
-msgstr "Phục hồi"
 
 #: monitor.php
 msgid "Up"
@@ -736,11 +794,6 @@ msgstr "Không có kiểm tra sẵn có"
 #, fuzzy
 msgid "Warning Ping"
 msgstr "Cảnh báo Ping"
-
-#: monitor.php
-#, fuzzy
-msgid "Alert Ping"
-msgstr "Thông báo Ping"
 
 #: monitor.php
 msgid "Service Check Failed"
@@ -768,23 +821,26 @@ msgstr "Phóng to"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up"
-msgstr "Không lên"
+msgid "All Monitored Devices"
+msgstr "Tất cả các thiết bị được giám sát"
 
 #: monitor.php
 #, fuzzy
-msgid "Not Up or Triggered"
-msgstr "Không lên hoặc kích hoạt"
-
-#: monitor.php
-#, fuzzy
-msgid "Not Up, Triggered or Breached"
-msgstr "Không lên, kích hoạt hoặc vi phạm"
+msgid "All Devices"
+msgstr "Thiết bị"
 
 #: monitor.php
 #, fuzzy
 msgid "Devices not Monitored"
 msgstr "Cài đặt giám sát thiết bị"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr ""
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr ""
 
 #: monitor.php setup.php
 msgid "Default"
@@ -793,10 +849,6 @@ msgstr "Mặc định"
 #: monitor.php setup.php
 msgid "List"
 msgstr "Danh sách"
-
-#: monitor.php setup.php
-msgid "Names only"
-msgstr ""
 
 #: monitor.php setup.php
 msgid "Tiles"
@@ -1051,6 +1103,10 @@ msgstr "Mặc định có quyền"
 #, fuzzy
 msgid "This is how monitor will render Devices."
 msgstr "Đây là cách màn hình sẽ hiển thị Thiết bị."
+
+#: setup.php
+msgid "Names only"
+msgstr ""
 
 #: setup.php
 #, fuzzy
@@ -1384,6 +1440,65 @@ msgstr ""
 #: setup.php
 msgid "Monitoring"
 msgstr "Giám sát"
+
+#, fuzzy
+#~ msgid "Not Monitored Devices"
+#~ msgstr "Thiết bị được giám sát"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down or Recovering"
+#~ msgstr "Các thiết bị được giám sát xuống hoặc khôi phục"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Triggered Thresholds"
+#~ msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng kích hoạt"
+
+#, fuzzy
+#~ msgid "Monitored Devices either Down, Recovering, or with Breached or Triggered Thresholds"
+#~ msgstr "Các thiết bị được giám sát xuống, khôi phục hoặc với Ngưỡng vi phạm hoặc kích hoạt"
+
+#, fuzzy, php-format
+#~ msgid "Unknown monitoring status (%s)"
+#~ msgstr "Trạng thái giám sát không xác định ( %s)"
+
+#, fuzzy
+#~ msgid ", and All Criticalities"
+#~ msgstr "và tất cả các chỉ trích"
+
+#, fuzzy
+#~ msgid ", and of Low Criticality or Higher"
+#~ msgstr "và có mức độ quan trọng thấp hoặc cao hơn"
+
+#, fuzzy
+#~ msgid ", and of Medium Criticality or Higher"
+#~ msgstr "và có mức độ quan trọng trung bình trở lên"
+
+#, fuzzy
+#~ msgid ", and of High Criticality or Higher"
+#~ msgstr "và có tính phê phán cao hoặc cao hơn"
+
+#, fuzzy
+#~ msgid ", and of Mission Critical Status"
+#~ msgstr "và về tình trạng quan trọng của nhiệm vụ"
+
+#, fuzzy
+#~ msgid "</div><div class=\"center monitorFooterTextBold\">Remember to first select eligible Devices to be Monitored from the Devices page!</div></div></div>"
+#~ msgstr "</div><div class=\"center monitorFooterTextBold\"> Hãy nhớ trước tiên chọn Thiết bị đủ điều kiện để được Giám sát từ trang Thiết bị! </div>"
+
+#~ msgid "All Templates"
+#~ msgstr "Các mẫu"
+
+#, fuzzy
+#~ msgid "Hostname of device"
+#~ msgstr "Tên máy chủ của thiết bị"
+
+#, fuzzy
+#~ msgid "Not Up or Triggered"
+#~ msgstr "Không lên hoặc kích hoạt"
+
+#, fuzzy
+#~ msgid "Not Up, Triggered or Breached"
+#~ msgstr "Không lên, kích hoạt hoặc vi phạm"
 
 #, fuzzy
 #~ msgid "All Monitored"
