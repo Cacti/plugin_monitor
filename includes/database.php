@@ -108,6 +108,26 @@ function monitor_dashboards_table_data(): array {
 }
 
 /**
+ * Returns a copy of a table definition with an array-valued 'primary'
+ * flattened to the backtick-joined scalar form api_plugin_db_table_create()
+ * expects. Down to this plugin's Cacti 1.2.29 compat floor that API
+ * interpolates $data['primary'] straight into PRIMARY KEY (`...`), so an
+ * array would render as PRIMARY KEY (`Array`) and fail the create. The array
+ * form is kept in the *_table_data() definitions for db_update_table().
+ *
+ * @param array<string,mixed> $data The table definition (array primary).
+ *
+ * @return array<string,mixed> The definition with a scalar primary key.
+ */
+function monitor_create_definition(array $data): array {
+	if (isset($data['primary']) && is_array($data['primary'])) {
+		$data['primary'] = implode('`,`', $data['primary']);
+	}
+
+	return $data;
+}
+
+/**
  * Parse a legacy dashboard url string (monitor.php?a=b&c=d) into the current
  * properties structure, a JSON object of the dashboard's filter variables.
  *
@@ -189,10 +209,10 @@ function monitor_disown_dashboards_table() {
  * @return void
  */
 function monitor_setup_table() {
-	api_plugin_db_table_create('monitor', 'plugin_monitor_notify_history', monitor_notify_history_table_data());
-	api_plugin_db_table_create('monitor', 'plugin_monitor_reboot_history', monitor_reboot_history_table_data());
-	api_plugin_db_table_create('monitor', 'plugin_monitor_uptime', monitor_uptime_table_data());
-	api_plugin_db_table_create('monitor', 'plugin_monitor_dashboards', monitor_dashboards_table_data());
+	api_plugin_db_table_create('monitor', 'plugin_monitor_notify_history', monitor_create_definition(monitor_notify_history_table_data()));
+	api_plugin_db_table_create('monitor', 'plugin_monitor_reboot_history', monitor_create_definition(monitor_reboot_history_table_data()));
+	api_plugin_db_table_create('monitor', 'plugin_monitor_uptime', monitor_create_definition(monitor_uptime_table_data()));
+	api_plugin_db_table_create('monitor', 'plugin_monitor_dashboards', monitor_create_definition(monitor_dashboards_table_data()));
 
 	/* dashboards holds user data: create it but do not record plugin ownership, so uninstall preserves it. */
 	monitor_disown_dashboards_table();
@@ -242,7 +262,7 @@ function monitor_upgrade_tables() {
 		if (db_table_exists($table)) {
 			db_update_table($table, $table_data);
 		} else {
-			api_plugin_db_table_create('monitor', $table, $table_data);
+			api_plugin_db_table_create('monitor', $table, monitor_create_definition($table_data));
 		}
 	}
 
