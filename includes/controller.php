@@ -259,7 +259,7 @@ function isMonitorAudible(): bool {
 function getMonitorSound(): string {
 	$sound = (string) read_user_setting('monitor_sound', read_config_option('monitor_sound'));
 	clearstatcache();
-	$file   = __DIR__ . '/sounds/' . $sound;
+	$file   = dirname(__DIR__) . '/sounds/' . $sound;
 	$exists = file_exists($file);
 
 	return $exists ? $sound : '';
