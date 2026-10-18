@@ -36,7 +36,7 @@
 * dev: Extract the status legend into a testable monitor_legend() helper in includes/functions.php and add unit coverage asserting the longest-label chip minimum
 * dev: Rename includes/db_functions.php to includes/functions.php and move bundled libraries under includes/
 * dev: Set the Cacti compatibility floor to 1.2.29
-* dev: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
+* dev: Pin the CI database image and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 --- 2.9 ---
 
