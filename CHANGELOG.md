@@ -1,7 +1,6 @@
 ## Changelog
 
 --- 3.0 ---
-* security: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 * bug: Restore alert audio for down and triggered devices; getMonitorSound() looked for sounds in includes/sounds/ after the controller moved, so the audio element was never rendered
 * feature: Replace the single Status column/filter with a multi-select Events filter (additive) and an Events column that shows a short pill per active event (Down, Recovering, Triggered, Down/Triggered M/A, Warn/Alert Ping, Failed Svc), 'None' when clean; the Status scope dropdown now only selects All Monitored / All Devices / Not Monitored / Without Thresholds
@@ -37,6 +36,7 @@
 * dev: Extract the status legend into a testable monitor_legend() helper in includes/functions.php and add unit coverage asserting the longest-label chip minimum
 * dev: Rename includes/db_functions.php to includes/functions.php and move bundled libraries under includes/
 * dev: Set the Cacti compatibility floor to 1.2.29
+* dev: Pin CI fixtures and shared test dependencies, disable persisted checkout credentials, and limit workflow permissions and runtime
 
 --- 2.9 ---
 
