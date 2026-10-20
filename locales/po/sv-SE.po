@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-10-20 16:24+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -963,7 +963,7 @@ msgstr "Uppdateringsintervall"
 
 #: setup.php
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr "Detta är den tid i sekunder som återstår innan sidan uppdateras.  (1–300)"
+msgstr "Detta är antalet sekunder innan sidan uppdateras. (1 till 300)"
 
 #: setup.php
 msgid "This is how monitor will Group Devices."
