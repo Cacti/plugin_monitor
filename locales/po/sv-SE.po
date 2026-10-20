@@ -1,17 +1,5 @@
 msgid ""
-msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-11 17:03-0400\n"
-"PO-Revision-Date: 2026-10-06 10:18+0000\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\n"
-"Language: sv-SE\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-10-20 08:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -43,7 +31,7 @@ msgstr "Layout"
 
 #: includes/controller.php
 msgid "Show"
-msgstr ""
+msgstr "Visa"
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -117,7 +105,7 @@ msgstr "Enheter"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
-msgstr ""
+msgstr "Gå till sidan för enhetshantering"
 
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 msgid "Criticality"
@@ -164,14 +152,12 @@ msgid "Template"
 msgstr "Mall"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Template"
 msgid "Templates"
-msgstr "Mall"
+msgstr "Mallar"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr ""
+msgstr "Rader"
 
 #: includes/controller.php
 msgid " [ Filter Settings Saved ]"
@@ -183,13 +169,11 @@ msgstr "Avbryt"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr ""
+msgstr "Läser in…"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
-#| msgid "Device Template"
 msgid "Device Detail Panels"
-msgstr "Enhetsmall"
+msgstr "Enhetsinformationspaneler"
 
 #: includes/controller.php
 #, php-format
@@ -211,7 +195,7 @@ msgstr "Sök"
 
 #: includes/controller.php includes/render.php
 msgid "Events"
-msgstr ""
+msgstr "Händelser"
 
 #: includes/controller.php
 msgid "Mute"
@@ -271,7 +255,7 @@ msgstr "Visa enhetens Syslog-poster"
 
 #: includes/controller.php
 msgid "View Failing Service Check"
-msgstr ""
+msgstr "Visa misslyckad tjänstekontroll"
 
 #: includes/controller.php
 msgid "Device Status Information"
@@ -341,7 +325,7 @@ msgstr "Agentens drifttid:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
-msgstr "Ej tillämpligt"
+msgstr "Inte tillämpligt"
 
 #: includes/controller.php
 msgid "Sys Description:"
@@ -369,34 +353,32 @@ msgstr "Ingen"
 
 #: includes/controller.php
 msgid "SNMP and Ping"
-msgstr ""
+msgstr "SNMP och ping"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Show Uptime"
 msgid "SNMP Uptime"
-msgstr "Visa drifttid"
+msgstr "SNMP-drifttid"
 
 #: includes/controller.php
 msgid "Ping"
-msgstr ""
+msgstr "Pingtest"
 
 #: includes/controller.php
 msgid "SNMP or Ping"
-msgstr ""
+msgstr "SNMP eller ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr ""
+msgstr "Hämta SysDesc med SNMP"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
-msgstr ""
+msgstr "Hämta nästa med SNMP"
 
 #: includes/controller.php
 #, php-format
 msgid "Method %d"
-msgstr ""
+msgstr "Metod %d"
 
 #: includes/controller.php includes/render.php poller_functions.php
 msgid "Description"
@@ -419,48 +401,37 @@ msgid "Device Template"
 msgstr "Enhetsmall"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
-#| msgid "Location:"
 msgid "Location"
-msgstr "Plats:"
+msgstr "Plats"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Contact:"
 msgid "Contact"
-msgstr "Kontakt:"
+msgstr "Kontakt"
 
 #: includes/controller.php
 msgid "Notes"
 msgstr "Anteckningar"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Device Status Information"
 msgid "Host Information"
-msgstr "Information om enhetsstatus"
+msgstr "Värdinformation"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Availability"
 msgid "Availability Method"
-msgstr "Åtkomstbarhet"
+msgstr "Tillgänglighetsmetod"
 
 #: includes/controller.php
-#, fuzzy, php-format
-#| msgid "%0.2d ms"
+#, php-format
 msgid "%0.2f ms"
-msgstr "%0.2d ms"
+msgstr "%0.2f ms"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Current Ping"
 msgid "Current / Average Ping"
-msgstr "Aktuell ping"
+msgstr "Aktuell / genomsnittlig ping"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr ""
+msgstr "Minsta / högsta ping"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
@@ -468,11 +439,11 @@ msgstr "Åtkomstbarhet"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
-msgstr ""
+msgstr "Totalt antal / misslyckade avläsningar"
 
 #: includes/controller.php
 msgid "In Current Status Since"
-msgstr ""
+msgstr "I nuvarande status sedan"
 
 #: includes/controller.php includes/render.php
 msgid "Last Fail"
@@ -480,7 +451,7 @@ msgstr "Sista misslyckandet"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr ""
+msgstr "Datainsamling"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -488,54 +459,48 @@ msgstr "Inaktiverad"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr ""
+msgstr "Fallerar"
 
 #: includes/controller.php
 msgid "Not tested"
-msgstr ""
+msgstr "Inte testad"
 
 #: includes/controller.php
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: includes/controller.php includes/render.php
 msgid "Service Checks"
-msgstr ""
+msgstr "Tjänstekontroller"
 
 #: includes/controller.php
 #, php-format
 msgid "Threshold %d"
-msgstr ""
+msgstr "Tröskel %d"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "Utlöst"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
-#| msgid "View Thresholds/Alerts"
 msgid "Thresholds"
-msgstr "Visa trösklar/varningar"
+msgstr "Trösklar"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
-msgstr ""
+msgstr "Inga syslogmeddelanden under den senaste timmen."
 
 #: includes/controller.php
 msgid "Syslog (last hour)"
-msgstr ""
+msgstr "Syslog (senaste timmen)"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "All Devices"
 msgid "Open Actual Device"
-msgstr "Alla enheter"
+msgstr "Öppna den faktiska enheten"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Device icon"
 msgid "Device Links"
-msgstr "Enhetsikon"
+msgstr "Enhetslänkar"
 
 #: includes/render.php
 msgid "Non-Site Device"
@@ -543,7 +508,7 @@ msgstr "Enhet utanför platsen"
 
 #: includes/render.php
 msgid "Root Branch"
-msgstr "Rot Gren"
+msgstr "Rotgren"
 
 #: includes/render.php
 #, php-format
@@ -561,7 +526,7 @@ msgstr "Okänd"
 
 #: includes/render.php
 msgid "Just Up"
-msgstr "Bara upp"
+msgstr "Nyss uppe"
 
 #: includes/render.php monitor.php
 msgid "Down"
@@ -569,55 +534,47 @@ msgstr "Nere"
 
 #: includes/render.php monitor.php
 msgid "Recovering"
-msgstr "Påväg upp"
+msgstr "Återhämtar sig"
 
 #: includes/render.php monitor.php
-#, fuzzy
-#| msgid "Down (Muted/Acked)"
 msgid "Down (M/A)"
-msgstr "Ned (dämpad/förstärkt)"
+msgstr "Nere (tystad/kvitterad)"
 
 #: includes/render.php monitor.php
-#, fuzzy
-#| msgid "Triggered (Muted/Acked)"
 msgid "Triggered (M/A)"
-msgstr "Utlöst (Muted/Acked)"
+msgstr "Utlöst (tystad/kvitterad)"
 
 #: includes/render.php monitor.php
-#, fuzzy
-#| msgid "Warning"
 msgid "Warn Ping"
-msgstr "Varning"
+msgstr "Varningsping"
 
 #: includes/render.php monitor.php
 msgid "Alert Ping"
-msgstr "Varning Ping"
+msgstr "Larmping"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr ""
+msgstr "Misslyckad tjänst"
 
 #: includes/render.php
-#, fuzzy
-#| msgid "Location:"
 msgid "Actions"
-msgstr "Plats:"
+msgstr "Åtgärder"
 
 #: includes/render.php
 msgid "Open the device detail panels"
-msgstr ""
+msgstr "Öppna enhetens informationspaneler"
 
 #: includes/render.php
 msgid "Device description as set on the Devices page"
-msgstr ""
+msgstr "Enhetsbeskrivning enligt sidan Enheter"
 
 #: includes/render.php
 msgid "Physical location recorded for the device"
-msgstr ""
+msgstr "Fysisk plats som har registrerats för enheten"
 
 #: includes/render.php
 msgid "Site the device is assigned to"
-msgstr ""
+msgstr "Plats som enheten har tilldelats"
 
 #: includes/render.php
 msgid "ID"
@@ -625,23 +582,23 @@ msgstr "ID"
 
 #: includes/render.php
 msgid "Cacti internal device id"
-msgstr ""
+msgstr "Cactis interna enhets-ID"
 
 #: includes/render.php
 msgid "Monitoring criticality assigned to the device"
-msgstr ""
+msgstr "Övervakningskritikalitet som har tilldelats enheten"
 
 #: includes/render.php
 msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
-msgstr ""
+msgstr "Aktiva händelser för enheten (nere, utlöst, varnings- eller larmping, misslyckad tjänst osv.). Klicka på en etikett för att lägga till eller ta bort händelsen från händelsefiltret"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
-msgstr ""
+msgstr "Överskridna, utlösta och totala tröskelvärden (tillägget Thold) för enheten. Klicka för att växla filtret för utlösta händelser"
 
 #: includes/render.php
 msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Misslyckade och totala tjänstekontroller (tillägget Servcheck) för enheten. Klicka för att växla filtret för misslyckade tjänster"
 
 #: includes/render.php
 msgid "Warning"
@@ -649,7 +606,7 @@ msgstr "Varning"
 
 #: includes/render.php
 msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
-msgstr ""
+msgstr "Tröskelvärden för varnings- och larmping (ms) som har konfigurerats för enheten. En avisering skickas när svarstiden passerar dem"
 
 #: includes/render.php
 msgid "Admin"
@@ -657,11 +614,11 @@ msgstr "Admin"
 
 #: includes/render.php
 msgid "Administrative monitor message shown while the device is Down or Recovering"
-msgstr ""
+msgstr "Administrativt övervakningsmeddelande som visas när enheten är nere eller återhämtar sig"
 
 #: includes/render.php
 msgid "Percentage of successful availability checks over the retained history"
-msgstr ""
+msgstr "Andel lyckade tillgänglighetskontroller i den bevarade historiken"
 
 #: includes/render.php
 msgid "Averages"
@@ -669,7 +626,7 @@ msgstr "Medelvärden"
 
 #: includes/render.php
 msgid "Current / average ping response time in milliseconds"
-msgstr ""
+msgstr "Aktuell och genomsnittlig svarstid för ping i millisekunder"
 
 #: includes/render.php
 msgid "Length in Status"
@@ -677,49 +634,47 @@ msgstr "Längd i status"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
-msgstr ""
+msgstr "Hur länge enheten har haft sin nuvarande status"
 
 #: includes/render.php
 msgid "Date and time the device last failed its availability check"
-msgstr ""
+msgstr "Datum och tid då enheten senast misslyckades med sin tillgänglighetskontroll"
 
 #: includes/render.php
 msgid "Filter by this criticality (click again to clear)"
-msgstr ""
+msgstr "Filtrera efter den här kritikaliteten (klicka igen för att rensa)"
 
 #: includes/render.php
 msgid "Criticality not set - click to filter unset devices (click again to clear)"
-msgstr ""
+msgstr "Kritikalitet är inte angiven. Klicka för att filtrera enheter utan kritikalitet och klicka igen för att rensa"
 
 #: includes/render.php
-#, fuzzy
-#| msgid "Not Up"
 msgid "Not Set"
-msgstr "Uppe"
+msgstr "Inte angiven"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
-msgstr ""
+msgstr "Klicka för att lägga till eller ta bort händelsen från filtret"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
-msgstr ""
+msgstr "Överskridna, utlösta och totala tröskelvärden. Klicka för att växla filtret för utlösta händelser"
 
 #: includes/render.php
 msgid "No thresholds defined for this device"
-msgstr ""
+msgstr "Inga tröskelvärden har definierats för enheten"
 
 #: includes/render.php
 msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Misslyckade och totala tjänstekontroller. Klicka för att växla filtret för misslyckade tjänster"
 
 #: includes/render.php
 msgid "No service checks defined for this device"
-msgstr ""
+msgstr "Inga tjänstekontroller har definierats för enheten"
 
 #: monitor.php
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -727,7 +682,7 @@ msgstr "Låg"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Medium"
-msgstr "Medium"
+msgstr "Medel"
 
 #: monitor.php poller_functions.php setup.php
 msgid "High"
@@ -759,7 +714,7 @@ msgstr "Varning Ping"
 
 #: monitor.php
 msgid "Service Check Failed"
-msgstr ""
+msgstr "Tjänstekontroll misslyckades"
 
 #: monitor.php
 msgid "Extra Small"
@@ -798,10 +753,8 @@ msgid "Devices without Thresholds"
 msgstr "Enheter utan tröskelvärden"
 
 #: monitor.php
-#, fuzzy
-#| msgid "Devices without Thresholds"
 msgid "Devices without Service Checks"
-msgstr "Enheter utan tröskelvärden"
+msgstr "Enheter utan tjänstekontroller"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -926,7 +879,7 @@ msgstr "%d år"
 
 #: setup.php
 msgid "Normal User"
-msgstr "Normal användare"
+msgstr "Vanlig användare"
 
 #: setup.php
 msgid "Monitor Settings"
@@ -1042,7 +995,7 @@ msgstr "Formatera fil som ska användas"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Välj den anpassade HTML-wrapper och CSS-filen som ska användas. Den här filen innehåller både html och CSS för att paketera runt din rapport. Om det innehåller mer än bara CSS, måste du placera en speciell <REPORT> tagga inuti filen. Denna formattag kommer att ersättas med rapportinnehållet. Dessa filer finns i katalogen &quot;format&quot;."
+msgstr "Välj den anpassade HTML-omslutningen och CSS-filen som ska användas. Filen innehåller HTML och CSS som omsluter rapporten. Om den innehåller mer än CSS måste du placera en särskild <REPORT>-tagg i filen. Formattaggen ersätts med rapportens innehåll. Filerna finns i katalogen ”formats”."
 
 #: setup.php
 msgid "Ping Threshold Notifications"
@@ -1079,7 +1032,7 @@ msgstr "Varje tillfälle"
 #: setup.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "Var %d minut"
+msgstr "Var %d:e minut"
 
 #: setup.php
 msgid "Every Hour"
@@ -1088,7 +1041,7 @@ msgstr "Varje timme"
 #: setup.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Varje %d timme"
+msgstr "Var %d:e timme"
 
 #: setup.php
 msgid "Reboot Notifications"
@@ -1148,7 +1101,7 @@ msgstr "E-postadresser för notifikation"
 
 #: setup.php
 msgid "From Name"
-msgstr "Från namn"
+msgstr "Avsändarnamn"
 
 #: setup.php
 msgid "Enter the Email Name to send the notifications from"
@@ -1164,7 +1117,7 @@ msgstr "Ange den e-postadress som meddelandet ska skickas från"
 
 #: setup.php
 msgid "Notification List"
-msgstr "Notifieringslista"
+msgstr "Aviseringslista"
 
 #: setup.php
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
