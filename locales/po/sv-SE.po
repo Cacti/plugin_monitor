@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-10-20 16:24+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-10-21 19:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -484,7 +484,7 @@ msgstr "Utlöst"
 
 #: includes/controller.php includes/render.php
 msgid "Thresholds"
-msgstr "Trösklar"
+msgstr "Tröskelvärden"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
@@ -650,7 +650,7 @@ msgstr "Kritikalitet är inte angiven. Klicka för att filtrera enheter utan kri
 
 #: includes/render.php
 msgid "Not Set"
-msgstr "Inte angiven"
+msgstr "Ej inställt"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
@@ -991,7 +991,7 @@ msgstr "Format för anmälningsrapport"
 
 #: setup.php
 msgid "Format File to Use"
-msgstr "Formatera fil som ska användas"
+msgstr "Formatfil att använda"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
@@ -1065,11 +1065,11 @@ msgstr "Om detta är markerat skickar systemet endast ett e-postmeddelande till 
 
 #: setup.php
 msgid "Include Threshold Alert Lists"
-msgstr "Inkludera tröskelvärden för varningslistor"
+msgstr "Inkludera aviseringslistor för tröskelvärden"
 
 #: setup.php
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "Bör tröskelvärden för varningslistor också få meddelanden"
+msgstr "Ska aviseringslistor för tröskelvärden också få meddelanden"
 
 #: setup.php
 msgid "Subject"
@@ -1077,7 +1077,7 @@ msgstr "Ämne"
 
 #: setup.php
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr "Ange ett ämne för återstartsmeddelandet för återstartsmeddelandet."
+msgstr "Ange ämnet för meddelandet om omstart."
 
 #: setup.php
 msgid "Cacti Device Reboot Notification"
@@ -1085,11 +1085,11 @@ msgstr "Meddelande om omstart av Cacti-enhet"
 
 #: setup.php
 msgid "Email Body"
-msgstr "E-post meddelandetext"
+msgstr "E-posttext"
 
 #: setup.php
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Ange en e-posttext som ska ingå i meddelandet om omstart.  För närvarande är den enda ersättningstagg som stöds och accepteras &#060;DETAILS&#062;"
+msgstr "Ange en e-posttext som ska ingå i meddelandet om omstart.  Endast ersättningstaggen &#060;DETAILS&#062; stöds för närvarande."
 
 #: setup.php
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
@@ -1097,7 +1097,7 @@ msgstr "<h1>Meddelande om omstart av monitor</h1><p>Följande enheter har starta
 
 #: setup.php
 msgid "Notification Email Addresses"
-msgstr "E-postadresser för notifikation"
+msgstr "E-postadresser för aviseringar"
 
 #: setup.php
 msgid "From Name"
@@ -1109,7 +1109,7 @@ msgstr "Ange det e-postnamn som aviseringarna ska skickas från"
 
 #: setup.php
 msgid "From Address"
-msgstr "Från adress"
+msgstr "Avsändaradress"
 
 #: setup.php
 msgid "Enter the Email Address to send the notification from"
@@ -1121,7 +1121,7 @@ msgstr "Aviseringslista"
 
 #: setup.php
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
-msgstr "Välj en aviseringslista nedan.  Alla e-postmeddelanden som prenumererar på aviseringslistan kommer att meddelas."
+msgstr "Välj en aviseringslista nedan. Alla e-postadresser som prenumererar på listan får ett meddelande."
 
 #: setup.php
 msgid "Email Addresses"
