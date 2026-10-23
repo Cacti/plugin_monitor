@@ -94,6 +94,29 @@ function monitorDashboardOwnedByUser(int $dashboard): bool {
 }
 
 /**
+ * Requested action, or '' when a state-changing action arrives without POST.
+ *
+ * csrf-magic only checks POST requests, so these actions must not run from a
+ * GET or the token check never sees them.
+ *
+ * @return string
+ */
+function monitorRequestAction(): string {
+	$action = get_nfilter_request_var('action');
+
+	if (!is_string($action)) {
+		return '';
+	}
+
+	if (in_array($action, ['save', 'saveDb', 'remove', 'ajax_mute_all', 'ajax_unmute_all', 'ajax_saveorder'], true)
+		&& ($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+		return '';
+	}
+
+	return $action;
+}
+
+/**
  * Persist a grouping's card ordering after a drag/drop reorder.
  *
  * Stores the ordered group id list in the dashboard's properties when the user
