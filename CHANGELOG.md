@@ -4,6 +4,7 @@
 
 * security: Require POST for the save, remove, mute and card-order actions so csrf-magic covers them, and only let a dashboard's owner save over it
 * security: Bind the plugin version lookup and the device_remove cleanup deletes as prepared statements instead of building them from the device list
+* bug: Escape the device description, location, site name and Monitor Text in the List view
 * bug: Restore alert audio for down and triggered devices; getMonitorSound() looked for sounds in includes/sounds/ after the controller moved, so the audio element was never rendered
 * feature: Replace the single Status column/filter with a multi-select Events filter (additive) and an Events column that shows a short pill per active event (Down, Recovering, Triggered, Down/Triggered M/A, Warn/Alert Ping, Failed Svc), 'None' when clean; the Status scope dropdown now only selects All Monitored / All Devices / Not Monitored / Without Thresholds
 * bug: Centre the tile hostname under the glyph and keep it clickable in the Tiles & Time view
