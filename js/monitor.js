@@ -182,7 +182,11 @@ function applyFilter(action = '') {
 		strURL += `&events=${events ? events.join(',') : ''}`;
 	}
 
-	loadIt(strURL);
+	if (action === 'ajax_mute_all' || action === 'ajax_unmute_all') {
+		postIt(strURL, { __csrf_magic: csrfMagicToken });
+	} else {
+		loadIt(strURL);
+	}
 }
 
 function saveFilter() {
@@ -242,8 +246,13 @@ function saveNewDashboard(action) {
 }
 
 function removeDashboard() {
-	const url = `monitor.php?action=remove&header=false&dashboard=${$('#dashboard').val()}`;
-	loadIt(url);
+	const post = {
+		action: 'remove',
+		dashboard: $('#dashboard').val(),
+		__csrf_magic: csrfMagicToken
+	};
+
+	postIt('monitor.php?header=false', post);
 }
 
 function loadIt(url) {

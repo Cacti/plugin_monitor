@@ -377,12 +377,24 @@ if (!function_exists('is_realm_allowed')) {
 
 if (!function_exists('raise_message')) {
 	function raise_message($id, $text = '', $level = 0) {
+		$GLOBALS['__test_messages'][] = array('id' => $id, 'text' => $text, 'level' => $level);
 	}
 }
 
 if (!function_exists('get_request_var')) {
 	function get_request_var($name) {
 		return $GLOBALS['__test_request'][$name] ?? '';
+	}
+}
+
+if (!function_exists('isset_request_var')) {
+	function isset_request_var($name) {
+		return isset($GLOBALS['__test_request'][$name]);
+	}
+}
+
+if (!function_exists('validate_store_request_vars')) {
+	function validate_store_request_vars($filters, $sess_prefix = '') {
 	}
 }
 
@@ -433,6 +445,8 @@ if (!function_exists('is_error_message')) {
 
 if (!function_exists('sql_save')) {
 	function sql_save($array, $table, $key = 'id') {
+		$GLOBALS['__test_db_calls'][] = array('fn' => 'sql_save', 'table' => $table, 'data' => $array);
+
 		return isset($array['id']) ? $array['id'] : 1;
 	}
 }
@@ -457,8 +471,16 @@ if (!defined('POLLER_VERBOSITY_NONE')) {
 	define('POLLER_VERBOSITY_NONE', 6);
 }
 
+if (!defined('FILTER_VALIDATE_IS_REGEX')) {
+	define('FILTER_VALIDATE_IS_REGEX', 99999);
+}
+
+if (!defined('MESSAGE_LEVEL_INFO')) {
+	define('MESSAGE_LEVEL_INFO', 1);
+}
+
 if (!defined('MESSAGE_LEVEL_ERROR')) {
-	define('MESSAGE_LEVEL_ERROR', 1);
+	define('MESSAGE_LEVEL_ERROR', 3);
 }
 
 if (!function_exists('plugin_test_read_source')) {

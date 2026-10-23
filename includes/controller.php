@@ -94,6 +94,29 @@ function monitorDashboardOwnedByUser(int $dashboard): bool {
 }
 
 /**
+ * Requested action, or '' when a state-changing action arrives without POST.
+ *
+ * csrf-magic only checks POST requests, so these actions must not run from a
+ * GET or the token check never sees them.
+ *
+ * @return string
+ */
+function monitorRequestAction(): string {
+	$action = get_nfilter_request_var('action');
+
+	if (!is_string($action)) {
+		return '';
+	}
+
+	if (in_array($action, ['save', 'saveDb', 'remove', 'ajax_mute_all', 'ajax_unmute_all', 'ajax_saveorder'], true)
+		&& ($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+		return '';
+	}
+
+	return $action;
+}
+
+/**
  * Persist a grouping's card ordering after a drag/drop reorder.
  *
  * Stores the ordered group id list in the dashboard's properties when the user
@@ -975,12 +998,7 @@ function saveSettings(): void {
 			'site'     => get_request_var('site'),
 		];
 
-		if (!isset_request_var('user')) {
-			$user = $_SESSION['sess_user_id'];
-		} else {
-			$user = get_request_var('user');
-		}
-
+		$user = $_SESSION['sess_user_id'];
 		$id   = get_request_var('dashboard');
 		$name = get_nfilter_request_var('name');
 
@@ -998,13 +1016,21 @@ function saveSettings(): void {
 		$save['user_id']    = $user;
 		$save['properties'] = json_encode($props);
 
-		$id = sql_save($save, 'plugin_monitor_dashboards');
+		$level = MESSAGE_LEVEL_INFO;
+
+		// sql_save() updates an existing id in place, so only the owner may target one.
+		if ($id > 0 && !monitorDashboardOwnedByUser($id)) {
+			$id    = 0;
+			$level = MESSAGE_LEVEL_ERROR;
+		} else {
+			$id = sql_save($save, 'plugin_monitor_dashboards');
+		}
 
 		if (!empty($id)) {
 			raise_message('monitorsaved', __('Dashboard \'%s\' has been Saved!', $name, 'monitor'), MESSAGE_LEVEL_INFO);
 			set_request_var('dashboard', $id);
 		} else {
-			raise_message('monitornotsaved', __('Dashboard \'%s\' could not be Saved!', $name, 'monitor'), MESSAGE_LEVEL_INFO);
+			raise_message('monitornotsaved', __('Dashboard \'%s\' could not be Saved!', $name, 'monitor'), $level);
 			set_request_var('dashboard', '0');
 		}
 	}

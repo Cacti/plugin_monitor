@@ -172,7 +172,7 @@ if (get_request_var('view') == 'list') {
 	$servcheck_counts = monitorServcheckCounts();
 }
 
-switch (get_nfilter_request_var('action')) {
+switch (monitorRequestAction()) {
 	case 'ajax_status':
 		ajaxStatus();
 
