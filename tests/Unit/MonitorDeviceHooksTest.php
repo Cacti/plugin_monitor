@@ -59,8 +59,26 @@ it('removes every per-device record on device_remove', function () {
 	expect($result)->toBe(array(3, 4));
 
 	foreach ($GLOBALS['__test_db_calls'] as $call) {
-		expect($call['sql'])->toContain('IN(3,4)');
+		expect($call['fn'])->toBe('db_execute_prepared');
+		expect($call['sql'])->toContain('IN (?,?)');
+		expect($call['params'])->toBe(array(3, 4));
 	}
+});
+
+it('binds device ids as integers on device_remove', function () {
+	monitor_device_remove(array('5', '6) OR 1=1 --'));
+
+	foreach ($GLOBALS['__test_db_calls'] as $call) {
+		expect($call['sql'])->not->toContain('OR 1=1');
+		expect($call['params'])->toBe(array(5, 6));
+	}
+});
+
+it('issues no delete on device_remove when no devices were removed', function () {
+	$result = monitor_device_remove(array());
+
+	expect($GLOBALS['__test_db_calls'])->toBeEmpty();
+	expect($result)->toBe(array());
 });
 
 it('adds the monitor breadcrumb entry without disturbing existing ones', function () {
