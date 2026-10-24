@@ -24,14 +24,20 @@
 
 /*
  * The List view hands device fields to form_selectable_cell(), which prints
- * its argument as-is, so renderHostList() has to escape them itself.
+ * its argument as-is, so renderHostList() passes plain device fields through the core escaping cell renderer.
  */
 
 beforeAll(function () {
 	// Same output as Cacti's lib/html_utility.php versions of these helpers.
 	if (!function_exists('form_selectable_cell')) {
 		function form_selectable_cell($contents, $id, $width = '', $style_or_class = '', $title = '') {
+			$trace = debug_backtrace(0, 2);
+			if (($trace[1]['function'] ?? '') === 'form_selectable_ecell') {
+				$GLOBALS['monitor_test_ecell_values'][] = $trace[1]['args'][0];
+			}
 			print "\t<td>" . $contents . "</td>\n";
+
+			return true;
 		}
 	}
 
@@ -45,6 +51,18 @@ beforeAll(function () {
 		function get_timeinstate($host) {
 			return '1m';
 		}
+	}
+
+	$source = file_get_contents($GLOBALS['config']['base_path'] . '/lib/html_utility.php');
+	if (!preg_match('/^function form_selectable_ecell\([^\n]*\n.*?^}/ms', $source, $definition)) {
+		throw new RuntimeException('Cannot load the core escaping cell renderer');
+	}
+	$path = tempnam(sys_get_temp_dir(), 'monitor-core-cell-');
+	try {
+		file_put_contents($path, '<?php ' . $definition[0]);
+		require $path;
+	} finally {
+		unlink($path);
 	}
 
 	require_once __DIR__ . '/../../includes/render.php';
@@ -72,7 +90,10 @@ it('escapes device fields in the list view', function () {
 		'availability'        => 100,
 	];
 
+	$GLOBALS['monitor_test_ecell_values'] = [];
 	$output = renderHostList($host);
+
+	expect($GLOBALS['monitor_test_ecell_values'])->toBe([$host['description'], $host['location'], $host['site_name'], $host['monitor_text']]);
 
 	expect($output)->toContain('&lt;b&gt;core&lt;/b&gt; &amp; &quot;edge&quot;');
 	expect($output)->toContain('&lt;i&gt;rack&lt;/i&gt; &amp; &apos;row&apos;');

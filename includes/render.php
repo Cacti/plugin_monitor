@@ -1377,7 +1377,7 @@ function renderHostList(array $host): string {
 	}
 
 	if ($host['status'] < 3 || $host['status'] == 5) {
-		$host_admin = html_escape($host['monitor_text']);
+		$host_admin = $host['monitor_text'];
 	} else {
 		$host_admin = '';
 	}
@@ -1463,9 +1463,9 @@ function renderHostList(array $host): string {
 	}
 
 	form_selectable_cell($actions, $host['id'], '1%', 'left');
-	form_selectable_cell(html_escape($host['description']), $host['id'], '', 'left');
-	form_selectable_cell(html_escape($host['location']), $host['id'], '', 'left');
-	form_selectable_cell(html_escape($host['site_name']), $host['id'], '', 'left');
+	form_selectable_ecell($host['description'], $host['id'], '', 'left');
+	form_selectable_ecell($host['location'], $host['id'], '', 'left');
+	form_selectable_ecell($host['site_name'], $host['id'], '', 'left');
 	form_selectable_cell($host['id'], $host['id'], '', 'left');
 	form_selectable_cell($host_crit, $host['id'], '', 'left');
 	form_selectable_cell($events_cell, $host['id'], '', 'center');
@@ -1479,7 +1479,7 @@ function renderHostList(array $host): string {
 	}
 
 	form_selectable_cell($host_warn, $host['id'], '', 'left');
-	form_selectable_cell($host_admin, $host['id'], '', 'white-space:pre-wrap;text-align:left');
+	form_selectable_ecell($host_admin, $host['id'], '', 'white-space:pre-wrap;text-align:left');
 	form_selectable_cell(round($host['availability'], 2) . ' %', $host['id'], '', 'right');
 	form_selectable_cell($host_avg, $host['id'], '', 'right');
 	form_selectable_cell($dt, $host['id'], '', 'right');
