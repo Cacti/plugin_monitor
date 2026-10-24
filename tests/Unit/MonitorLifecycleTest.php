@@ -97,7 +97,7 @@ it('skips the version check on pages that do not need it', function () {
 });
 
 it('updates the stored plugin_config version when it drifts', function () {
-	monitor_test_mock_db('db_fetch_cell', 'plugin_config', '0.0.0');
+	monitor_test_mock_db('db_fetch_cell_prepared', 'plugin_config', '0.0.0');
 
 	monitor_check_upgrade();
 
