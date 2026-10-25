@@ -14,6 +14,14 @@ version of Monitor included with Cacti 1.0 is almost unrecognizable from earlier
 versions of the plugin.  It's is essentially a finished project, though if there
 are any feature requests, we won't push them away.
 
+## Screenshot
+
+![Monitor board grouped by site](images/monitor-site-grouping.png)
+
+The Monitor board with devices grouped by site. A card takes the color of its
+worst device: here db-02 and print-01 are down and web-03 is recovering. The
+screenshot was taken on Cacti 1.2.32 with demo devices.
+
 ## Features
 
 * Data Center Dashboard
