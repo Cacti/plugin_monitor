@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-10-21 19:18+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-10-26 10:46+0000\nLast-Translator: Daniel Nylander <daniel@danielnylander.se>\nLanguage-Team: Swedish <https://translate.cacti.net/projects/cacti/monitor/sv/>\nLanguage: sv-SE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -11,7 +11,7 @@ msgstr "Instrumentpanel"
 
 #: includes/controller.php
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Ange instrumentpanelens namn och tryck sedan på \"Spara\" för att fortsätta, annars tryck på \"Avbryt"
+msgstr "Ange instrumentpanelens namn och tryck på ”Spara” för att fortsätta eller på ”Avbryt” för att avbryta"
 
 #: includes/controller.php
 msgid "Create New Dashboard"
@@ -83,7 +83,7 @@ msgstr "Byt namn på instrumentpanelen"
 
 #: includes/controller.php
 msgid "Delete"
-msgstr "Radera"
+msgstr "Ta bort"
 
 #: includes/controller.php
 msgid "Delete Dashboard"
@@ -133,7 +133,7 @@ msgstr "Träd"
 
 #: includes/controller.php
 msgid "All Sites"
-msgstr "Alla webbplatser"
+msgstr "Alla platser"
 
 #: includes/controller.php includes/render.php
 msgid "Non-Site Devices"
@@ -141,11 +141,11 @@ msgstr "Enheter utanför platsen"
 
 #: includes/controller.php
 msgid "Sites"
-msgstr "Webbsidor"
+msgstr "Platser"
 
 #: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
-msgstr "Icke-planerade enheter"
+msgstr "Enheter utan mall"
 
 #: includes/controller.php
 msgid "Template"
@@ -207,7 +207,7 @@ msgstr "Kvittera"
 
 #: includes/controller.php
 msgid "Un-Mute"
-msgstr "Avstängd"
+msgstr "Slå på ljud"
 
 #: includes/controller.php
 msgid "Reset"
@@ -221,7 +221,7 @@ msgstr "Instrumentpanel '%s' Borttagen."
 #: includes/controller.php
 #, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr "Dashboard '%s' ägs inte av dig."
+msgstr "Instrumentpanelen ”%s” ägs inte av dig."
 
 #: includes/controller.php
 #, php-format
@@ -267,7 +267,7 @@ msgstr "Enhet:"
 
 #: includes/controller.php
 msgid "Site:"
-msgstr "Webbplats:"
+msgstr "Plats:"
 
 #: includes/controller.php
 msgid "Location:"
@@ -283,15 +283,15 @@ msgstr "Status:"
 
 #: includes/controller.php
 msgid "Admin Note:"
-msgstr "Admin Notera:"
+msgstr "Administratörsanteckning:"
 
 #: includes/controller.php
 msgid "IP/Hostname:"
-msgstr "IP/Hostnamn:"
+msgstr "IP-adress/värdnamn:"
 
 #: includes/controller.php
 msgid "Curr/Avg:"
-msgstr "Kurva/Avg:"
+msgstr "Aktuellt/medel:"
 
 #: includes/controller.php includes/render.php
 #, php-format
@@ -313,7 +313,7 @@ msgstr "Sista misslyckandet:"
 
 #: includes/controller.php
 msgid "Time In State:"
-msgstr "Tid i staten:"
+msgstr "Tid i tillståndet:"
 
 #: includes/controller.php
 msgid "Availability:"
@@ -329,7 +329,7 @@ msgstr "Inte tillämpligt"
 
 #: includes/controller.php
 msgid "Sys Description:"
-msgstr "Sys Beskrivning:"
+msgstr "Systembeskrivning:"
 
 #: includes/controller.php
 msgid "Contact:"
@@ -394,7 +394,7 @@ msgstr "Status"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
-msgstr "Webbplats"
+msgstr "Plats"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Device Template"
@@ -435,7 +435,7 @@ msgstr "Minsta / högsta ping"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
-msgstr "Åtkomstbarhet"
+msgstr "Tillgänglighet"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
@@ -459,7 +459,7 @@ msgstr "Inaktiverad"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr "Fallerar"
+msgstr "Misslyckas"
 
 #: includes/controller.php
 msgid "Not tested"
@@ -630,7 +630,7 @@ msgstr "Aktuell och genomsnittlig svarstid för ping i millisekunder"
 
 #: includes/render.php
 msgid "Length in Status"
-msgstr "Längd i status"
+msgstr "Tid i nuvarande tillstånd"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
@@ -698,11 +698,11 @@ msgstr "Uppe"
 
 #: monitor.php
 msgid "Triggered (Muted/Acked)"
-msgstr "Utlöst (Muted/Acked)"
+msgstr "Utlöst (tystad/kvitterad)"
 
 #: monitor.php
 msgid "Down (Muted/Acked)"
-msgstr "Ned (dämpad/förstärkt)"
+msgstr "Nere (tystad/kvitterad)"
 
 #: monitor.php
 msgid "No Availability Check"
@@ -770,7 +770,7 @@ msgstr "Rutor"
 
 #: monitor.php
 msgid "Tiles & Time"
-msgstr "Plattor och tid"
+msgstr "Rutor och tid"
 
 #: monitor.php
 msgid "Full"
@@ -883,7 +883,7 @@ msgstr "Vanlig användare"
 
 #: setup.php
 msgid "Monitor Settings"
-msgstr "Inställningar för bildskärm"
+msgstr "Övervakningsinställningar"
 
 #: setup.php
 msgid "Alarm Sound"
@@ -907,7 +907,7 @@ msgstr "Visa ikonförklaring"
 
 #: setup.php
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "Markera detta för att visa en ikonförklaring på bildskärmen"
+msgstr "Markera för att visa en ikonförklaring i övervakningsvyn"
 
 #: setup.php
 msgid "Show Uptime"
@@ -915,7 +915,7 @@ msgstr "Visa drifttid"
 
 #: setup.php
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "Markera detta för att visa Uptime på monitorns display"
+msgstr "Markera för att visa drifttid i övervakningsvyn"
 
 #: setup.php
 msgid "Zoom to Errors"
@@ -923,7 +923,7 @@ msgstr "Zooma till fel"
 
 #: setup.php
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "Markera detta för att zooma till felaktiga objekt på bildskärmen"
+msgstr "Markera för att zooma till objekt med fel i övervakningsvyn"
 
 #: setup.php
 msgid "Zoom Background"
@@ -931,7 +931,7 @@ msgstr "Zoom bakgrund"
 
 #: setup.php
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr "Bakgrundsfärg för zoomade fel på bildskärmen"
+msgstr "Bakgrundsfärg för inzoomade fel i övervakningsvyn"
 
 #: setup.php
 msgid "Zoom Fontsize"
@@ -983,7 +983,7 @@ msgstr "Endast namn"
 
 #: setup.php
 msgid "Tiles & Downtime"
-msgstr "Plattor och nertill"
+msgstr "Rutor och nedtid"
 
 #: setup.php
 msgid "Notification Report Format"
@@ -1003,27 +1003,27 @@ msgstr "Meddelanden om ping-tröskelvärden"
 
 #: setup.php
 msgid "Warning Latency Notification"
-msgstr "Varning Latency Notification"
+msgstr "Varningsavisering för svarstid"
 
 #: setup.php
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Om en enhet har en Ping-latency för tur och retur som är högre än tröskelvärdet för Warning och högre än tröskelvärdet för Criticality nedan, kommer de som prenumererar på e-post till enheten att få ett e-postmeddelande.  Välj \"Disabled\" för att inaktivera.  Thold-tillägget krävs för att aktivera den här funktionen."
+msgstr "Om enhetens svarstid för ping överstiger varningströskeln och dess kritikalitet överstiger nivån nedan, skickas ett e-postmeddelande till enhetens prenumeranter. Välj ”Inaktiverad” för att stänga av funktionen. Tillägget Thold krävs för att aktivera funktionen."
 
 #: setup.php
 msgid "Alert Latency Notification"
-msgstr "Avisering om latenstid"
+msgstr "Larmavisering för svarstid"
 
 #: setup.php
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Om en enhet har en Ping-latency för tur och retur som är högre än tröskelvärdet för varning och högre än kriticitetsvärdet nedan, kommer de som prenumererar på e-post till enheten att få ett e-postmeddelande.  Välj \"Disabled\" för att inaktivera.  Thold-tillägget krävs för att aktivera den här funktionen."
+msgstr "Om enhetens svarstid för ping överstiger larmtröskeln och dess kritikalitet överstiger nivån nedan, skickas ett e-postmeddelande till enhetens prenumeranter. Välj ”Inaktiverad” för att stänga av funktionen. Tillägget Thold krävs för att aktivera funktionen."
 
 #: setup.php
 msgid "How Often to Resend Emails"
-msgstr "Hur ofta ska du skicka nya e-postmeddelanden"
+msgstr "Hur ofta e-postmeddelanden ska skickas på nytt"
 
 #: setup.php
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr "Hur ofta ska e-postmeddelanden skickas till abonnenter för dessa enheter om de överskrider sina tröskelvärden för latens"
+msgstr "Hur ofta e-postaviseringar ska skickas till prenumeranter när dessa enheters svarstider överskrider sina tröskelvärden"
 
 #: setup.php
 msgid "Every Occurrence"
@@ -1032,7 +1032,7 @@ msgstr "Varje tillfälle"
 #: setup.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "Var %d:e minut"
+msgstr "Med %d minuters mellanrum"
 
 #: setup.php
 msgid "Every Hour"
@@ -1041,7 +1041,7 @@ msgstr "Varje timme"
 #: setup.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "Var %d:e timme"
+msgstr "Med %d timmars mellanrum"
 
 #: setup.php
 msgid "Reboot Notifications"
@@ -1093,7 +1093,7 @@ msgstr "Ange en e-posttext som ska ingå i meddelandet om omstart.  Endast ersä
 
 #: setup.php
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
-msgstr "<h1>Meddelande om omstart av monitor</h1><p>Följande enheter har startats om.  Se detaljerna nedan för ytterligare information.</p><br><DETAILS>"
+msgstr "<h1>Monitor: meddelande om omstart</h1><p>Följande enheter har startats om. Se detaljerna nedan för mer information.</p><br><DETAILS>"
 
 #: setup.php
 msgid "Notification Email Addresses"
@@ -1210,7 +1210,7 @@ msgstr "Enhetskritikalitet"
 
 #: setup.php
 msgid "What is the Criticality of this Device."
-msgstr "Vad är det som är kritiskt med den här enheten."
+msgstr "Ange hur kritisk enheten är."
 
 #: setup.php
 msgid "Ping Warning Threshold"
@@ -1218,7 +1218,7 @@ msgstr "Tröskelvärde för pingvarning"
 
 #: setup.php
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Om latensen tur och retur via någon av de fördefinierade Cacti-pingmetoderna överstiger detta tröskelvärde, loggas en varning eller skickas ett e-postmeddelande beroende på inställningen Devices Criticality och Monitor.  Enheten är i millisekunder.  Inställning till 0 inaktiverar. Thold-tillägget krävs för att utnyttja den här funktionen."
+msgstr "Om svarstiden för någon av Cactis fördefinierade pingmetoder överstiger tröskelvärdet loggas en varning eller skickas ett e-postmeddelande, beroende på enhetens kritikalitet och inställningarna för Monitor. Tiden anges i millisekunder. Ange 0 för att stänga av funktionen. Tillägget Thold krävs för funktionen."
 
 #: setup.php
 msgid "milliseconds"
@@ -1226,35 +1226,35 @@ msgstr "millisekunder"
 
 #: setup.php
 msgid "Ping Alert Threshold"
-msgstr "Tröskelvärde för ping-varning"
+msgstr "Tröskelvärde för pinglarm"
 
 #: setup.php
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Om latensen tur och retur via någon av de fördefinierade Cacti-pingmetoderna överstiger detta tröskelvärde, loggas en varning eller skickas ett e-postmeddelande baserat på inställningen Devices Criticality och Monitor.  Enheten är i millisekunder.  Inställning till 0 inaktiverar. Thold-tillägget krävs för att utnyttja den här funktionen."
+msgstr "Om svarstiden för någon av Cactis fördefinierade pingmetoder överstiger tröskelvärdet loggas ett larm eller skickas ett e-postmeddelande, beroende på enhetens kritikalitet och inställningarna för Monitor. Tiden anges i millisekunder. Ange 0 för att stänga av funktionen. Tillägget Thold krävs för funktionen."
 
 #: setup.php
 msgid "Re-Baseline Warning"
-msgstr "Varning för ny baslinje"
+msgstr "Justera varningströskeln"
 
 #: setup.php
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
-msgstr "Den procentandel över den aktuella genomsnittliga pingtiden som ska betraktas som ett varningströskelvärde.  Om detta uppdateras kommer tröskelvärdet för pingvarning att justeras automatiskt."
+msgstr "Ange hur många procent över den aktuella genomsnittliga pingtiden varningströskeln ska ligga. När värdet ändras justeras tröskelvärdet för pingvarning automatiskt."
 
 #: setup.php
 msgid "Re-Baseline Alert"
-msgstr "Varning för ny baslinje"
+msgstr "Justera larmtröskeln"
 
 #: setup.php
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
-msgstr "Den procentandel över den aktuella genomsnittliga pingtiden som ska betraktas som ett tröskelvärde för varning.  Om detta uppdateras justeras tröskelvärdet för Ping-varning automatiskt."
+msgstr "Ange hur många procent över den aktuella genomsnittliga pingtiden larmtröskeln ska ligga. När värdet ändras justeras tröskelvärdet för pinglarm automatiskt."
 
 #: setup.php
 msgid "Down Device Message"
-msgstr "Meddelande om nedstängd enhet"
+msgstr "Meddelande om otillgänglig enhet"
 
 #: setup.php
 msgid "This is the message that will be displayed when this Device is reported as down."
-msgstr "Det här är det meddelande som visas när den här enheten rapporteras vara nere."
+msgstr "Meddelandet som visas när enheten rapporteras som otillgänglig."
 
 #: setup.php
 msgid "Device icon"
