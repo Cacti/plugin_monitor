@@ -531,14 +531,14 @@ function monitor_device_action_prepare($save) {
 
 		if ($action == 'monitor_enable' || $action == 'monitor_disable') {
 			if ($action == 'monitor_enable') {
-				$action_description = 'enable';
-			} elseif ($action == 'monitor_disable') {
-				$action_description = 'disable';
+				$action_description = __('Click \'Continue\' to enable monitoring on these Device(s)', 'monitor');
+			} else {
+				$action_description = __('Click \'Continue\' to disable monitoring on these Device(s)', 'monitor');
 			}
 
 			print "<tr>
 				<td colspan='2' class='even'>
-					<p>" . __('Click \'Continue\' to %s monitoring on these Device(s)', $action_description, 'monitor') . "</p>
+					<p>" . $action_description . "</p>
 					<p><div class='itemlist'><ul>" . $save['host_list'] . '</ul></div></p>
 				</td>
 			</tr>';
