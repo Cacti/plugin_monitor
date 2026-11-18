@@ -5,8 +5,8 @@ will alert you audibly and via Email when a Device or Devices go down.
 
 Some audio clips have been added to this plugin courtesy of SoundBible.com and
 are licensed under Creative Commons and other Free to use Licenses.  If you
-create an MP3 file called 'First Order Chorus.mp3' and place it in the sound
-folder, you may get a surprise if you choose to use it.
+choose the 'First Orders Suite.mp3' clip in the `sounds` directory, you may get
+a surprise.
 
 ## Versions and compatibility
 
@@ -56,7 +56,8 @@ before enabling Monitor. Use Cacti’s mail settings to verify notification deli
 To install the Monitor plugin, simply copy the plugin_monitor directory to
 Cacti's plugins directory and rename it to simply 'monitor'. Once you have done
 this, goto Cacti's Plugin Management page, Install and Enable Monitor. Once
-this is complete, you can grant users permission to view the Monitor tab.
+this is complete, you can grant users the 'View Monitoring Dashboard' realm
+permission to view the Monitor tab.
 
 It would be advisable to view Monitors email notification settings under
 Settings in Cacti.  Monitor is configured from the Monitor tab in Settings, and
@@ -65,7 +66,7 @@ includes a Device filter to show Devices of differing criticalities.
 
 ## Bugs and Feature Enhancements
 
-Bug and feature enhancements for the webseer plugin are handled in GitHub. If
+Bug and feature enhancements for the monitor plugin are handled in GitHub. If
 you find a first search the Cacti forums for a solution before creating an issue
 in GitHub.
 
