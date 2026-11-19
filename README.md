@@ -14,7 +14,7 @@ This README describes the `develop` source branch.
 
 | Code | Plugin version | Minimum Cacti declared in `INFO` |
 | --- | --- | --- |
-| [Source branch](INFO) | 3.0 | 1.2.29 |
+| [Source branch](https://github.com/Cacti/plugin_monitor/blob/develop/INFO) | 3.0 | 1.2.29 |
 | [Published v2.9](https://github.com/Cacti/plugin_monitor/releases/tag/v2.9) | 2.9 | 1.2.15 |
 
 Use the published release’s assets and tagged documentation when installing that
@@ -24,7 +24,7 @@ matches the release. Cacti’s own PHP and database requirements also apply.
 Install this plugin in **`<cacti-root>/plugins/monitor`**, using the directory
 name `monitor` rather than `plugin_monitor`.
 
-See [CHANGELOG.md](CHANGELOG.md) for the version history.
+See [CHANGELOG.md](https://github.com/Cacti/plugin_monitor/blob/develop/CHANGELOG.md) for the version history.
 
 ## Screenshot
 
