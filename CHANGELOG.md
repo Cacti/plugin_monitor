@@ -1,5 +1,8 @@
 ## Changelog
 
+Documentation update (unreleased): Refresh README release/source compatibility,
+installation guidance and source-checked behavior.
+
 --- 3.0 ---
 
 * security: Require POST for the save, remove, mute and card-order actions so csrf-magic covers them, and only let a dashboard's owner save over it

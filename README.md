@@ -5,14 +5,26 @@ will alert you audibly and via Email when a Device or Devices go down.
 
 Some audio clips have been added to this plugin courtesy of SoundBible.com and
 are licensed under Creative Commons and other Free to use Licenses.  If you
-create an MP3 file called 'First Order Chorus.mp3' and place it in the sound
-folder, you may get a surprise if you choose to use it.
+choose the 'First Orders Suite.mp3' clip in the `sounds` directory, you may get
+a surprise.
 
-The Monitor plugin has been around for well over a decade.  This very old plugin
-has recently gone through major recent enhancements through it's lifetime.  The
-version of Monitor included with Cacti 1.0 is almost unrecognizable from earlier
-versions of the plugin.  It's is essentially a finished project, though if there
-are any feature requests, we won't push them away.
+## Versions and compatibility
+
+This README describes the `develop` source branch.
+
+| Code | Plugin version | Minimum Cacti declared in `INFO` |
+| --- | --- | --- |
+| [Source branch](https://github.com/Cacti/plugin_monitor/blob/develop/INFO) | 3.0 | 1.2.29 |
+| [Published v2.9](https://github.com/Cacti/plugin_monitor/releases/tag/v2.9) | 2.9 | 1.2.15 |
+
+Use the published release’s assets and tagged documentation when installing that
+package. Branch code can include later changes, even when its version number
+matches the release. Cacti’s own PHP and database requirements also apply.
+
+Install this plugin in **`<cacti-root>/plugins/monitor`**, using the directory
+name `monitor` rather than `plugin_monitor`.
+
+See [CHANGELOG.md](https://github.com/Cacti/plugin_monitor/blob/develop/CHANGELOG.md) for the version history.
 
 ## Screenshot
 
@@ -34,12 +46,18 @@ screenshot was taken on Cacti 1.2.32 with demo devices.
 
 * Supports Monitoring Devices by Criticality
 
+## Requirements
+
+Install and enable **Thold 1.2.1 or later**, the dependency declared in `INFO`,
+before enabling Monitor. Use Cacti’s mail settings to verify notification delivery.
+
 ## Installation
 
 To install the Monitor plugin, simply copy the plugin_monitor directory to
 Cacti's plugins directory and rename it to simply 'monitor'. Once you have done
-this, goto Cacti's Plugin Management page, Install and Enable the webseer. Once
-this is complete, you can grant users permission to view the Monitor tab.
+this, goto Cacti's Plugin Management page, Install and Enable Monitor. Once
+this is complete, you can grant users the 'View Monitoring Dashboard' realm
+permission to view the Monitor tab.
 
 It would be advisable to view Monitors email notification settings under
 Settings in Cacti.  Monitor is configured from the Monitor tab in Settings, and
@@ -48,7 +66,7 @@ includes a Device filter to show Devices of differing criticalities.
 
 ## Bugs and Feature Enhancements
 
-Bug and feature enhancements for the webseer plugin are handled in GitHub. If
+Bug and feature enhancements for the monitor plugin are handled in GitHub. If
 you find a first search the Cacti forums for a solution before creating an issue
 in GitHub.
 
