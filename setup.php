@@ -939,8 +939,8 @@ function monitor_config_settings() {
 			'max_length'    => '255'
 		],
 		'monitor_list' => [
-			'friendly_name' => __('Notification List', 'thold'),
-			'description'   => __('Select a Notification List below.  All Emails subscribed to the notification list will be notified.', 'thold'),
+			'friendly_name' => __('Notification List', 'monitor'),
+			'description'   => __('Select a Notification List below.  All Emails subscribed to the notification list will be notified.', 'monitor'),
 			'method'        => 'drop_sql',
 			'sql'           => 'SELECT id, name FROM plugin_notification_lists ORDER BY name',
 			'default'       => '',
