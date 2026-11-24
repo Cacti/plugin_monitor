@@ -1268,6 +1268,14 @@ msgstr "Du kan välja enhetsikon."
 msgid "Monitoring"
 msgstr "Övervakning"
 
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Klicka på 'Fortsätt' för att aktivera övervakning för dessa enheter"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Klicka på 'Fortsätt' för att inaktivera övervakning för dessa enheter"
+
 #~ msgid "Not Monitored Devices"
 #~ msgstr "Ej övervakade enheter"
 

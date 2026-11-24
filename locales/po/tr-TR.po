@@ -14,26 +14,22 @@ msgstr ""
 "X-Generator: Weblate 4.8.1\n"
 
 #: includes/controller.php
-#, fuzzy
 msgid "New Dashboard"
-msgstr "Yeni Gösterge Tablosu"
+msgstr "Yeni Gösterge Paneli"
 
 #: includes/controller.php
 msgid "Dashboard"
 msgstr "Kontrol Paneli"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Gösterge Tablosu Adını girin ve ardından devam etmek için 'Kaydet'e basın, yoksa' İptal'e basın"
+msgstr "Gösterge Paneli Adını girin ve devam etmek için 'Kaydet'e, aksi halde 'İptal'e basın"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Create New Dashboard"
 msgstr "Yeni Gösterge Tablosu Oluştur"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Monitored Devices"
 msgstr "İzlenen Cihazlar"
 
@@ -47,7 +43,7 @@ msgstr "Düzen"
 
 #: includes/controller.php
 msgid "Show"
-msgstr ""
+msgstr "Göster"
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -62,24 +58,22 @@ msgid "Refresh"
 msgstr "Yenile"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Refresh the Device List"
-msgstr "Aygıt Listesini Yenile"
+msgstr "Cihaz Listesini Yenile"
 
 #: includes/controller.php
 msgid "Clear"
-msgstr ""
+msgstr "Temizle"
 
 #: includes/controller.php
 msgid "Clear the set filter"
-msgstr ""
+msgstr "Ayarlı filtreyi temizle"
 
 #: includes/controller.php
 msgid "Save"
 msgstr "Kaydet"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save Filter Settings"
 msgstr "Filtre Ayarlarını Kaydet"
 
@@ -88,7 +82,6 @@ msgid "New"
 msgstr "Yeni"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save New Dashboard"
 msgstr "Yeni Gösterge Tablosunu Kaydet"
 
@@ -97,28 +90,26 @@ msgid "Rename"
 msgstr "Yeniden Adlandır"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Rename Dashboard"
-msgstr "Gösterge Tablosunu Yeniden Adlandırın"
+msgstr "Gösterge Tablosunu Yeniden Adlandır"
 
 #: includes/controller.php
 msgid "Delete"
 msgstr "Sil"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Delete Dashboard"
 msgstr "Gösterge Tablosunu Sil"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alert for downed Devices"
-msgstr "Düşen Aygıtlar için %s Uyarısı"
+msgstr "Pasif Cihazlar için %s Uyarı"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alerts for downed Devices"
-msgstr "Düşen Aygıtlar için %s Uyarıları"
+msgstr "Pasif Cihazlar için %s Uyarı"
 
 #: includes/controller.php includes/render.php
 msgid "Devices"
@@ -126,12 +117,11 @@ msgstr "Cihazlar"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
-msgstr ""
+msgstr "Cihazlar yönetim sayfasına git"
 
 #: includes/controller.php includes/render.php poller_functions.php setup.php
-#, fuzzy
 msgid "Criticality"
-msgstr "Kritikliği"
+msgstr "Kritiklik"
 
 #: includes/controller.php
 msgid "Size"
@@ -142,12 +132,10 @@ msgid "Trim"
 msgstr "Motor"
 
 #: includes/controller.php
-#, fuzzy
 msgid "All Trees"
 msgstr "Tüm Ağaçlar"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Tree Devices"
 msgstr "Ağaç Dışı Cihazlar"
 
@@ -160,37 +148,33 @@ msgid "All Sites"
 msgstr "Tüm Siteler"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Site Devices"
-msgstr "Ağaç Dışı Cihazlar"
+msgstr "Site Dışı Cihazlar"
 
 #: includes/controller.php
 msgid "Sites"
 msgstr "Siteler"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Templated Devices"
-msgstr "Şablonsuz cihazlar"
+msgstr "Şablonsuz Cihazlar"
 
 #: includes/controller.php
 msgid "Template"
 msgstr "Şablon"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Template"
 msgid "Templates"
-msgstr "Şablon"
+msgstr "Şablonlar"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr ""
+msgstr "Satırlar"
 
 #: includes/controller.php
-#, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "[Filtre Ayarları Kaydedilmiş]"
+msgstr " [ Filtre Ayarları Kaydedildi ]"
 
 #: includes/controller.php
 msgid "Cancel"
@@ -198,26 +182,25 @@ msgstr "İptal"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr ""
+msgstr "Yükleniyor..."
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Device Detail Panels"
-msgstr "Cihaz Şablonu"
+msgstr "Cihaz Ayrıntı Panelleri"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[ <i id=\"timer\">% D</i> Saniyede Tekrar Yenile]"
+msgstr " [ <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Saniye İçinde Tekrar Yenile ]"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "İzleme Filtresi [Son Yenileme: %s]"
+msgstr "İzleme Filtresi [ Son Yenileme: %s ]"
 
 #: includes/controller.php
 msgid "[ Showing only first 30 Devices ]"
-msgstr ""
+msgstr "[ Yalnızca ilk 30 Cihaz gösteriliyor ]"
 
 #: includes/controller.php
 msgid "Search"
@@ -225,7 +208,7 @@ msgstr "Ara"
 
 #: includes/controller.php includes/render.php
 msgid "Events"
-msgstr ""
+msgstr "Olaylar"
 
 #: includes/controller.php
 msgid "Mute"
@@ -236,65 +219,58 @@ msgid "Acknowledge"
 msgstr "Kabul Et"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Un-Mute"
-msgstr "Un-Sessiz"
+msgstr "Sessizden Çıkar"
 
 #: includes/controller.php
 msgid "Reset"
 msgstr "Sıfırla"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' Removed."
-msgstr "Gösterge Tablosu '%s' Kaldırıldı."
+msgstr "'%s' Gösterge Tablosu Kaldırıldı."
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr "Gösterge tablosu '%s' size ait değil."
+msgstr "'%s' Gösterge Tablosu size ait değil."
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr "Gösterge Tablosu '%s' Kaydedildi!"
+msgstr "'%s' Gösterge Tablosu Kaydedildi!"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr "Gösterge Tablosu '%s' Kaydedilemedi!"
+msgstr "'%s' Gösterge Tablosu Kaydedilemedi!"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Edit Device"
 msgstr "Cihazı Düzenle"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "View Graphs"
 msgstr "Grafikleri Görüntüle"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Thresholds/Alerts"
-msgstr "Eşikleri Görüntüle"
+msgstr "Eşikleri/Uyarıları Görüntüle"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Alerts"
-msgstr "Syslog Uyarılarını Görüntüleme"
+msgstr "Cihaz Syslog Uyarılarını Görüntüle"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Entries"
-msgstr "Syslog Uyarılarını Görüntüleme"
+msgstr "Cihaz Syslog Kayıtlarını Görüntüle"
 
 #: includes/controller.php
 msgid "View Failing Service Check"
-msgstr ""
+msgstr "Başarısız Servis Kontrolünü Görüntüle"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Status Information"
 msgstr "Cihaz Durum Bilgisi"
 
@@ -303,69 +279,60 @@ msgid "Device:"
 msgstr "Cihaz:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Site:"
-msgstr "Site"
+msgstr "Site:"
 
 #: includes/controller.php
 msgid "Location:"
 msgstr "Konum:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Criticality:"
-msgstr "Kritikliği:"
+msgstr "Kritiklik:"
 
 #: includes/controller.php
 msgid "Status:"
 msgstr "Durum:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Admin Note:"
 msgstr "Yönetici Notu:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "IP/Hostname:"
-msgstr "IP / Hostname:"
+msgstr "IP/Ana Bilgisayar Adı:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Curr/Avg:"
-msgstr "Curr / Ort:"
+msgstr "Anlık/Ort:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d ms"
-msgstr "% d ms"
+msgstr "%d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Warn/Alert:"
-msgstr "/ Alert uyar:"
+msgstr "Uyarı/Alarm:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2d ms"
-msgstr "% 0.2d ms"
+msgstr "%0.2d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Last Fail:"
-msgstr "Son başarısız:"
+msgstr "Son Başarısızlık:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Time In State:"
-msgstr "Devlette Zaman:"
+msgstr "Durumda Geçen Süre:"
 
 #: includes/controller.php
 msgid "Availability:"
 msgstr "Kullanılabilirlik:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Agent Uptime:"
 msgstr "Ajan Çalışma Süresi:"
 
@@ -374,9 +341,8 @@ msgid "N/A"
 msgstr "Yok"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Sys Description:"
-msgstr "Sys açıklaması:"
+msgstr "Sistem Açıklaması:"
 
 #: includes/controller.php
 msgid "Contact:"
@@ -392,7 +358,7 @@ msgstr "Asla"
 
 #: includes/controller.php
 msgid "Unspecified"
-msgstr ""
+msgstr "Belirtilmemiş"
 
 #: includes/controller.php includes/render.php setup.php
 msgid "None"
@@ -400,33 +366,32 @@ msgstr "Yok"
 
 #: includes/controller.php
 msgid "SNMP and Ping"
-msgstr ""
+msgstr "SNMP ve Ping"
 
 #: includes/controller.php
-#, fuzzy
 msgid "SNMP Uptime"
-msgstr "Çalışma Süresini Göster"
+msgstr "SNMP Çalışma Süresi"
 
 #: includes/controller.php
 msgid "Ping"
-msgstr ""
+msgstr "Ping"
 
 #: includes/controller.php
 msgid "SNMP or Ping"
-msgstr ""
+msgstr "SNMP veya Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr ""
+msgstr "SNMP Get SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
-msgstr ""
+msgstr "SNMP Get Next"
 
 #: includes/controller.php
 #, php-format
 msgid "Method %d"
-msgstr ""
+msgstr "Yöntem %d"
 
 #: includes/controller.php includes/render.php poller_functions.php
 msgid "Description"
@@ -445,50 +410,44 @@ msgid "Site"
 msgstr "Site"
 
 #: includes/controller.php monitor.php setup.php
-#, fuzzy
 msgid "Device Template"
 msgstr "Cihaz Şablonu"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Location"
-msgstr "Konum:"
+msgstr "Konum"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Contact:"
 msgid "Contact"
-msgstr "İletişim:"
+msgstr "İletişim"
 
 #: includes/controller.php
 msgid "Notes"
 msgstr "Notlar"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Host Information"
-msgstr "Cihaz Durum Bilgisi"
+msgstr "Sunucu Bilgileri"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Availability"
 msgid "Availability Method"
-msgstr "Kullanılabilirlik"
+msgstr "Kullanılabilirlik Yöntemi"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2f ms"
-msgstr "% 0.2d ms"
+msgstr "%0.2f ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Current / Average Ping"
-msgstr "Mevcut Ping"
+msgstr "Anlık / Ortalama Ping"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr ""
+msgstr "Min / Maks Ping"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
@@ -496,20 +455,19 @@ msgstr "Kullanılabilirlik"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
-msgstr ""
+msgstr "Toplam / Başarısız Sorgulamalar"
 
 #: includes/controller.php
 msgid "In Current Status Since"
-msgstr ""
+msgstr "Mevcut Duruma Geçiş Zamanı"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Last Fail"
-msgstr "Son başarısız"
+msgstr "Son Başarısızlık"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr ""
+msgstr "Veri Koleksiyonu"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -517,160 +475,148 @@ msgstr "Devre dışı"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr ""
+msgstr "Başarısız Oluyor"
 
 #: includes/controller.php
 msgid "Not tested"
-msgstr ""
+msgstr "Test edilmedi"
 
 #: includes/controller.php
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 #: includes/controller.php includes/render.php
 msgid "Service Checks"
-msgstr ""
+msgstr "Servis Denetimleri"
 
 #: includes/controller.php
 #, php-format
 msgid "Threshold %d"
-msgstr ""
+msgstr "Eşik %d"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "Tetikleyici"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Thresholds"
-msgstr "Eşikleri Görüntüle"
+msgstr "Eşikler"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
-msgstr ""
+msgstr "Son bir saat içinde syslog iletisi yok."
 
 #: includes/controller.php
 msgid "Syslog (last hour)"
-msgstr ""
+msgstr "Syslog (son bir saat)"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Open Actual Device"
-msgstr "Cihazlar"
+msgstr "Gerçek Cihazı Aç"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Links"
-msgstr "Cihaz:"
+msgstr "Cihaz Bağlantıları"
 
 #: includes/render.php
-#, fuzzy
 msgid "Non-Site Device"
-msgstr "Ağaç Dışı Cihazlar"
+msgstr "Site Dışı Cihaz"
 
 #: includes/render.php
-#, fuzzy
 msgid "Root Branch"
-msgstr "Kök Şube"
+msgstr "Kök Dal"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Tree: %s"
 msgstr "Ağaç: %s"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Branch: %s"
-msgstr "Şube: %s"
+msgstr "Dal: %s"
 
 #: includes/render.php monitor.php
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
 #: includes/render.php
-#, fuzzy
 msgid "Just Up"
-msgstr "Sadece Yukarı"
+msgstr "Yeni Aktif"
 
 #: includes/render.php monitor.php
 msgid "Down"
 msgstr "Aşağı"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Recovering"
 msgstr "kurtarma"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Down (M/A)"
-msgstr "Aşağı (Sessiz / Acked)"
+msgstr "Pasif (S/O)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered (M/A)"
-msgstr "Aşağı (Sessiz / Acked)"
+msgstr "Tetiklendi (S/O)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 #| msgid "Warning"
 msgid "Warn Ping"
-msgstr "Uyarı"
+msgstr "Ping Uyarısı"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Alert Ping"
-msgstr "Uyarı Ping"
+msgstr "Uyarı Pingi"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr ""
+msgstr "Başarısız Servis"
 
 #: includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Actions"
-msgstr "Konum:"
+msgstr "Eylemler"
 
 #: includes/render.php
 msgid "Open the device detail panels"
-msgstr ""
+msgstr "Cihaz ayrıntı panellerini aç"
 
 #: includes/render.php
 msgid "Device description as set on the Devices page"
-msgstr ""
+msgstr "Cihazlar sayfasında ayarlandığı şekliyle cihaz açıklaması"
 
 #: includes/render.php
 msgid "Physical location recorded for the device"
-msgstr ""
+msgstr "Cihaz için kaydedilen fiziksel konum"
 
 #: includes/render.php
 msgid "Site the device is assigned to"
-msgstr ""
+msgstr "Cihazın atandığı site"
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: includes/render.php
 msgid "Cacti internal device id"
-msgstr ""
+msgstr "Cacti dahili cihaz kimliği"
 
 #: includes/render.php
 msgid "Monitoring criticality assigned to the device"
-msgstr ""
+msgstr "Cihaza atanan izleme kritikliği"
 
 #: includes/render.php
 msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
-msgstr ""
+msgstr "Cihazdaki etkin olaylar (Pasif, Tetiklenen, Uyarı/Alarm Ping, Başarısız Servis, ...); bu olayı Olaylar filtresine eklemek veya filtreden kaldırmak için bir etikete tıklayın"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
-msgstr ""
+msgstr "Cihazdaki İhlal Edilen / Tetiklenen / Toplam eşikler (thold eklentisi); Tetiklenen olay filtresini açıp kapatmak için tıklayın"
 
 #: includes/render.php
 msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Cihaz için başarısız / toplam servis kontrolü (servcheck eklentisi); Başarısız Servis olay filtresini açıp kapatmak için tıklayın"
 
 #: includes/render.php
 msgid "Warning"
@@ -678,7 +624,7 @@ msgstr "Uyarı"
 
 #: includes/render.php
 msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
-msgstr ""
+msgstr "Bu cihaz için yapılandırılan ping gecikmesi Uyarı / Alarm eşikleri (ms); yanıt süresi bu değerleri aştığında bildirim oluşturulur"
 
 #: includes/render.php
 msgid "Admin"
@@ -686,70 +632,67 @@ msgstr "Yönetici"
 
 #: includes/render.php
 msgid "Administrative monitor message shown while the device is Down or Recovering"
-msgstr ""
+msgstr "Cihaz Pasif veya Kurtarılıyor durumundayken gösterilen yönetici izleme mesajı"
 
 #: includes/render.php
 msgid "Percentage of successful availability checks over the retained history"
-msgstr ""
+msgstr "Saklanan geçmiş boyunca başarılı erişilebilirlik denetimlerinin yüzdesi"
 
 #: includes/render.php
-#, fuzzy
 msgid "Averages"
 msgstr "Ortalamalar"
 
 #: includes/render.php
 msgid "Current / average ping response time in milliseconds"
-msgstr ""
+msgstr "Milisaniye cinsinden geçerli / ortalama ping yanıt süresi"
 
 #: includes/render.php
-#, fuzzy
 msgid "Length in Status"
-msgstr "Durumdaki uzunluk"
+msgstr "Durumdaki Süre"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
-msgstr ""
+msgstr "Cihazın mevcut durumunda ne kadar süredir bulunduğu"
 
 #: includes/render.php
 msgid "Date and time the device last failed its availability check"
-msgstr ""
+msgstr "Cihazın erişilebilirlik kontrolünde en son başarısız olduğu tarih ve saat"
 
 #: includes/render.php
 msgid "Filter by this criticality (click again to clear)"
-msgstr ""
+msgstr "Bu kritiklik düzeyine göre filtrele (temizlemek için tekrar tıklayın)"
 
 #: includes/render.php
 msgid "Criticality not set - click to filter unset devices (click again to clear)"
-msgstr ""
+msgstr "Kritiklik ayarlanmamış - ayarlanmamış cihazları filtrelemek için tıklayın (temizlemek için tekrar tıklayın)"
 
 #: includes/render.php
-#, fuzzy
 msgid "Not Set"
-msgstr "Up değil"
+msgstr "Ayarlanmadı"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
-msgstr ""
+msgstr "Bu olayı filtreye eklemek veya filtreden kaldırmak için tıklayın"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
-msgstr ""
+msgstr "İhlal Edilen / Tetiklenen / Toplam eşikler - Tetiklenen olay filtresini açıp kapatmak için tıklayın"
 
 #: includes/render.php
 msgid "No thresholds defined for this device"
-msgstr ""
+msgstr "Bu cihaz için tanımlanmış eşik yok"
 
 #: includes/render.php
 msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Başarısız / Toplam servis kontrolü - Başarısız Servis olay filtresini açıp kapatmak için tıklayın"
 
 #: includes/render.php
 msgid "No service checks defined for this device"
-msgstr ""
+msgstr "Bu cihaz için tanımlanmış servis denetimi yok"
 
 #: monitor.php
 msgid "All"
-msgstr ""
+msgstr "Tümü"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -764,37 +707,32 @@ msgid "High"
 msgstr "Yüksek"
 
 #: monitor.php poller_functions.php setup.php
-#, fuzzy
 msgid "Mission Critical"
-msgstr "Kritik görev"
+msgstr "Kritik Görev"
 
 #: monitor.php
 msgid "Up"
 msgstr "Yukarı"
 
 #: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
-msgstr "Aşağı (Sessiz / Acked)"
+msgstr "Tetiklendi (Sessize Alındı/Onaylandı)"
 
 #: monitor.php
-#, fuzzy
 msgid "Down (Muted/Acked)"
-msgstr "Aşağı (Sessiz / Acked)"
+msgstr "Pasif (Sessiz/Onaylı)"
 
 #: monitor.php
-#, fuzzy
 msgid "No Availability Check"
-msgstr "Uygunluk Kontrolü Yok"
+msgstr "Erişilebilirlik Kontrolü Yok"
 
 #: monitor.php
-#, fuzzy
 msgid "Warning Ping"
 msgstr "Uyarı Pingi"
 
 #: monitor.php
 msgid "Service Check Failed"
-msgstr ""
+msgstr "Servis Denetimi Başarısız Oldu"
 
 #: monitor.php
 msgid "Extra Small"
@@ -817,27 +755,24 @@ msgid "Zoom"
 msgstr "Yakınlaştır"
 
 #: monitor.php
-#, fuzzy
 msgid "All Monitored Devices"
 msgstr "Tüm İzlenen Cihazlar"
 
 #: monitor.php
-#, fuzzy
 msgid "All Devices"
-msgstr "Cihazlar"
+msgstr "Tüm Cihazlar"
 
 #: monitor.php
-#, fuzzy
 msgid "Devices not Monitored"
-msgstr "Cihaz İzleme Ayarları"
+msgstr "İzlenmeyen Cihazlar"
 
 #: monitor.php
 msgid "Devices without Thresholds"
-msgstr ""
+msgstr "Eşiği Olmayan Cihazlar"
 
 #: monitor.php
 msgid "Devices without Service Checks"
-msgstr ""
+msgstr "Hizmet Denetimi Olmayan Cihazlar"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -852,46 +787,38 @@ msgid "Tiles"
 msgstr "Fayans"
 
 #: monitor.php
-#, fuzzy
 msgid "Tiles & Time"
-msgstr "Fayans ve zaman"
+msgstr "Kutucuklar ve Zaman"
 
 #: monitor.php
 msgid "Full"
 msgstr "Tam"
 
 #: monitor.php
-#, fuzzy
 msgid "10 Chars"
 msgstr "10 Karakter"
 
 #: monitor.php
-#, fuzzy
 msgid "20 Chars"
 msgstr "20 Karakter"
 
 #: monitor.php
-#, fuzzy
 msgid "30 Chars"
-msgstr "30 karakter"
+msgstr "30 Karakter"
 
 #: monitor.php
-#, fuzzy
 msgid "40 Chars"
-msgstr "40 karakter"
+msgstr "40 Karakter"
 
 #: monitor.php
-#, fuzzy
 msgid "50 Chars"
 msgstr "50 Karakter"
 
 #: monitor.php
-#, fuzzy
 msgid "75 Chars"
 msgstr "75 Karakter"
 
 #: monitor.php
-#, fuzzy
 msgid "100 Chars"
 msgstr "100 Karakter"
 
@@ -900,29 +827,25 @@ msgid "Description: "
 msgstr "Açıklama: "
 
 #: poller_functions.php
-#, fuzzy
 msgid "Hostname: "
-msgstr "Makine adı:"
+msgstr "Sunucu Adı: "
 
 #: poller_functions.php
-#, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr "Aşağıdaki rapor, ping gecikme eşiklerini tutmayan Cihazları tanımlayacaktır. Bu raporu, aşağıdaki URL’de bulunan Cacti sistemiyle ilişkili bir Cihaza abone olduğunuz için aldınız."
+msgstr "Aşağıdaki rapor, ping gecikme eşiklerini aşan cihazları belirleyecektir. Bu raporu, aşağıdaki URL'de bulunan Cacti sistemiyle ilişkili bir cihaza abone olduğunuz için alıyorsunuz."
 
 #: poller_functions.php
-#, fuzzy
 msgid "Cacti Monitoring Site"
-msgstr "İzleme Seçeneklerini Değiştir"
+msgstr "Cacti İzleme Sitesi"
 
 #: poller_functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
-msgstr "Cihaz eşiğinin üstünde ise her% d dakikada bir bildirim alırsınız."
+msgstr "Aygıt eşiğinin üzerindeyse her %d dakikada bir bildirim alırsınız."
 
 #: poller_functions.php
-#, fuzzy
 msgid "You will receive notifications every time the Device is above its threshold."
-msgstr "Cihaz her eşiğin üstünde olduğunda bildirim alacaksınız."
+msgstr "Cihaz eşiğinin üzerine her çıktığında bildirim alacaksınız."
 
 #: setup.php
 msgid "Any"
@@ -934,34 +857,28 @@ msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "Bu Cihazlarda %s izlemesi için 'Devam Et'i tıklayın."
 
 #: setup.php
-#, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
-msgstr "Aşağıdaki Cihazların İzleme ayarlarını değiştirmek için 'Devam Et'i tıklayın. Hangi sütunların güncelleneceğini belirtmek için 'Bu Alanı Güncelle' seçeneğini işaretlemeyi unutmayın."
+msgstr "Aşağıdaki Cihaz(lar)ın İzleme ayarlarını değiştirmek için 'Devam'a tıklayın. Hangi sütunların güncelleneceğini belirtmek için 'Bu Alanı Güncelle' seçeneğini işaretlemeyi unutmayın."
 
 #: setup.php
-#, fuzzy
 msgid "Update this Field"
 msgstr "Bu alanı güncelle"
 
 #: setup.php
-#, fuzzy
 msgid "Change Monitoring Options"
 msgstr "İzleme Seçeneklerini Değiştir"
 
 #: setup.php
-#, fuzzy
 msgid "Enable Monitoring"
 msgstr "İzlemeyi Etkinleştir"
 
 #: setup.php
-#, fuzzy
 msgid "Disable Monitoring"
 msgstr "İzlemeyi Devre Dışı Bırak"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinitely"
-msgstr "indefinately"
+msgstr "Süresiz olarak"
 
 #: setup.php
 #, php-format
@@ -983,72 +900,58 @@ msgid "Normal User"
 msgstr "Normal Kullanıcı"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Settings"
-msgstr "Monitör Ayarları"
+msgstr "İzleme Ayarları"
 
 #: setup.php
-#, fuzzy
 msgid "Alarm Sound"
-msgstr "Alarm sesi"
+msgstr "Alarm Sesi"
 
 #: setup.php
-#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
-msgstr "Bu bir Cihaz aşağı indiğinde çalınacak olan ses dosyasıdır."
+msgstr "Bu, bir cihaz pasif duruma geçtiğinde çalınacak ses dosyasıdır."
 
 #: setup.php
-#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr "Alarm sesi"
+msgstr "Alarm Sesini Döngüye Al"
 
 #: setup.php
-#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "Bu bir Cihaz aşağı indiğinde çalınacak olan ses dosyasıdır."
+msgstr "Bir Cihaz devre dışı kaldığında yukarıdaki sesi döngü halinde çal."
 
 #: setup.php
-#, fuzzy
 msgid "Show Icon Legend"
-msgstr "Simge Göstergesini Göster"
+msgstr "Simge Açıklamasını Göster"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "Monitör ekranında bir simge göstergesini göstermek için bunu kontrol edin"
+msgstr "İzleme ekranında simge açıklamasını göstermek için bunu işaretleyin"
 
 #: setup.php
-#, fuzzy
 msgid "Show Uptime"
 msgstr "Çalışma Süresini Göster"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "Monitör ekranında bir simge göstergesini göstermek için bunu kontrol edin"
+msgstr "İzleme ekranında Çalışma Süresini göstermek için bunu işaretleyin"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom to Errors"
-msgstr "Hataları Yakınlaştır"
+msgstr "Hatalara Yakınlaştır"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "Monitör ekranında bir simge göstergesini göstermek için bunu kontrol edin"
+msgstr "İzleme ekranında hatalı öğelere yakınlaştırmak için bunu işaretleyin"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Background"
 msgstr "Yakınlaştırma Arka Planı"
 
 #: setup.php
-#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr "Monitör ekranındaki Yakınlaştırılmış Hatalar için Arka Plan Rengi"
+msgstr "İzleme ekranındaki Yakınlaştırılmış Hatalar için Arka Plan Rengi"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Fontsize"
 msgstr "Yakınlaştırma Yazı Tipi Boyutu"
 
@@ -1057,110 +960,90 @@ msgid "Monitor"
 msgstr "İzleme"
 
 #: setup.php
-#, fuzzy
 msgid "Enable on new devices"
 msgstr "Yeni cihazlarda etkinleştir"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
 msgstr "Yeni cihazlar oluştururken izlemeyi otomatik olarak etkinleştirmek için bunu işaretleyin"
 
 #: setup.php
-#, fuzzy
 msgid "Notification/Reboot Log Retention"
-msgstr "Bildirim / Yeniden Başlatma Günlüğü Tutma"
+msgstr "Bildirim/Yeniden Başlatma Günlüğü Saklama Süresi"
 
 #: setup.php
-#, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
-msgstr "Bu gün sayısı için Bildirimi Sakla ve Günlükleri Yeniden Başlat."
+msgstr "Bildirim ve Yeniden Başlatma Günlüklerini bu gün sayısı boyunca sakla."
 
 #: setup.php
 msgid "Refresh Interval"
 msgstr "Yenileme aralığı"
 
 #: setup.php
-#, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr "Bu sayfa yenilenmeden önceki saniye cinsinden zamandır. (1 - 300)"
+msgstr "Bu, sayfanın yenilenmesinden önceki saniye cinsinden süredir. (1 - 300)"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will Group Devices."
-msgstr "Bu, Cihazların Grubu Nasıl İzleyeceğini Açıklar."
+msgstr "Bu, Monitor eklentisinin cihazları nasıl gruplayacağını belirler."
 
 #: setup.php
-#, fuzzy
 msgid "Default with permissions"
-msgstr "İzinleri olan varsayılan"
+msgstr "İzinlerle birlikte varsayılan"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will render Devices."
-msgstr "Bu, monitörün Aygıtları nasıl işleyeceğidir."
+msgstr "Bu, Monitor eklentisinin cihazları nasıl görüntüleyeceğini belirler."
 
 #: setup.php
 msgid "Names only"
-msgstr ""
+msgstr "Yalnızca adlar"
 
 #: setup.php
-#, fuzzy
 msgid "Tiles & Downtime"
-msgstr "Fayans ve Kapalı Kalma Süresi"
+msgstr "Kutucuklar ve Kapalı Kalma Süresi"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Report Format"
-msgstr "Bildirim Rapor Formatı"
+msgstr "Bildirim Rapor Biçimi"
 
 #: setup.php
-#, fuzzy
 msgid "Format File to Use"
 msgstr "Kullanılacak Dosyayı Biçimlendir"
 
 #: setup.php
-#, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Kullanılacak özel html sarıcısını ve CSS dosyasını seçin. Bu dosya, raporunuzu sarmak için hem html hem de CSS içeriyor. CSS'den daha fazlasını içeriyorsa, özel bir <REPORT> Dosyanın içindeki etiketi kullanın. Bu biçim etiketi rapor içeriği ile değiştirilecektir. Bu dosyalar 'formatları' dizininde bulunur."
+msgstr "Kullanılacak özel html sarıcısını ve CSS dosyasını seçin. Bu dosya, raporunuzu sarmak için hem html hem de CSS içeriyor. CSS&#39;den daha fazlasını içeriyorsa, özel bir <REPORT> Dosyanın içindeki etiketi kullanın. Bu biçim etiketi rapor içeriği ile değiştirilecektir. Bu dosyalar &#39;formatları&#39; dizininde bulunur."
 
 #: setup.php
-#, fuzzy
 msgid "Ping Threshold Notifications"
-msgstr "Ping Eşiği Bildirimleri"
+msgstr "Ping Eşik Bildirimleri"
 
 #: setup.php
-#, fuzzy
 msgid "Warning Latency Notification"
 msgstr "Uyarı Gecikme Bildirimi"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Bir Cihazın Uyarı Eşiğinin üzerinde ve aşağıdaki Kritikliğin üzerinde bir Gidiş-Dönme Ping Gecikmesi varsa, Cihaz'a e-posta gönderilmesi bir e-posta bildirimi alır. Devre dışı bırakmak için 'Disabled'ı seçin. Bu özelliği etkinleştirmek için Thold Plugin gereklidir."
+msgstr "Bir Cihazın Gidiş-Dönüş Ping Gecikmesi Uyarı Eşiğinin ve aşağıdaki Kritikliğin üzerindeyse, Cihaza abone olan e-posta adresleri bir e-posta bildirimi alır. Devre dışı bırakmak için 'Devre Dışı'nı seçin. Bu özelliği etkinleştirmek için Thold eklentisi gereklidir."
 
 #: setup.php
-#, fuzzy
 msgid "Alert Latency Notification"
 msgstr "Uyarı Gecikme Bildirimi"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Bir Cihazın Uyarı Eşiğinin üzerinde ve aşağıdaki Kritikliğin üzerinde bir Gidiş-Dönme Ping Gecikmesi varsa, Cihaz'a e-posta gönderilmesi bir e-posta bildirimi alır. Devre dışı bırakmak için 'Disabled'ı seçin. Bu özelliği etkinleştirmek için Thold Plugin gereklidir."
+msgstr "Bir Cihazın Gidiş-Dönüş Ping Gecikmesi Alarm Eşiğinin ve aşağıdaki Kritikliğin üzerindeyse, Cihaza abone olan e-posta adresleri bir e-posta bildirimi alır. Devre dışı bırakmak için 'Devre Dışı'nı seçin. Bu özelliği etkinleştirmek için Thold eklentisi gereklidir."
 
 #: setup.php
-#, fuzzy
 msgid "How Often to Resend Emails"
-msgstr "E-postaları Nasıl Tekrar Gönderirsiniz?"
+msgstr "E-postaların Ne Sıklıkla Yeniden Gönderileceği"
 
 #: setup.php
-#, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr "Gecikme eşiklerini aşıyorlarsa, bu Cihazlar için abonelere e-posta bildirimlerinin ne sıklıkla gönderilmesi gerektiği"
+msgstr "Bu Cihazlar gecikme eşiklerini aşıyorsa abonelere e-posta bildirimlerinin ne sıklıkla gönderilmesi gerektiği"
 
 #: setup.php
-#, fuzzy
 msgid "Every Occurrence"
 msgstr "Her Oluşum"
 
@@ -1174,74 +1057,63 @@ msgid "Every Hour"
 msgstr "Her Saat"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
-msgstr "Her% d saatte bir"
+msgstr "Her %d Saatte Bir"
 
 #: setup.php
-#, fuzzy
 msgid "Reboot Notifications"
-msgstr "Bildirimleri Yeniden Başlat"
+msgstr "Yeniden Başlatma Bildirimleri"
 
 #: setup.php
-#, fuzzy
 msgid "Send Reboot Notifications"
 msgstr "Yeniden Başlatma Bildirimleri Gönder"
 
 #: setup.php
-#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
-msgstr "Kullanıcılara Aygıt Yeniden Başlatma Bildirimleri gönderilmeli mi?"
+msgstr "Kullanıcılara Cihaz Yeniden Başlatma Bildirimleri gönderilsin mi?"
 
 #: setup.php
-#, fuzzy
 msgid "Send one Email to all addresses"
-msgstr "E-Posta Adres"
+msgstr "Tüm adreslere tek bir E-posta gönder"
 
 #: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
-msgstr ""
+msgstr "İşaretlenirse, sistem tüm adreslere yalnızca tek bir E-posta gönderecektir."
 
 #: setup.php
-#, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "Eşik Uyarı Listelerini Dahil Et"
 
 #: setup.php
-#, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "Eşik Uyarı Listeleri ayrıca bildirim almalı mı?"
+msgstr "Eşik Uyarı Listeleri de bildirim almalı mı?"
 
 #: setup.php
 msgid "Subject"
 msgstr "Konu"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr "Nofication Reboot Nofication (Yeniden Başlatma Onaylaması) için bir Reboot mesajı konusu girin."
+msgstr "Yeniden Başlatma Bildirimi için bir yeniden başlatma mesajı konusu girin."
 
 #: setup.php
-#, fuzzy
 msgid "Cacti Device Reboot Notification"
-msgstr "Kaktüsler Cihazı Yeniden Başlatma Nofication"
+msgstr "Cacti Cihaz Yeniden Başlatma Bildirimi"
 
 #: setup.php
 msgid "Email Body"
 msgstr "E-posta Gövdesi"
 
 #: setup.php
-#, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Bildirimi Yeniden Başlat mesajına dahil etmek için bir E-posta gövdesi girin. Şu anda, kabul edilen yalnızca desteklenen değiştirme etiketi &lt;DETAILS&gt;"
+msgstr "Yeniden Başlatma Bildirimi mesajına eklenecek bir e-posta gövdesi girin. Şu anda kabul edilen tek desteklenen değiştirme etiketi &#060;DETAILS&#062; şeklindedir"
 
 #: setup.php
-#, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
-msgstr "<h1> Yeniden Başlatma Bildirimini İzleme </h1><p> Aşağıdaki Aygıt Yeniden Başlatıldı. Ek bilgi için aşağıdaki ayrıntılara bakın. </p><br><DETAILS>"
+msgstr "<h1>İzleme Yeniden Başlatma Bildirimi</h1><p>Aşağıdaki Cihazlar Yeniden Başlatıldı. Ek bilgi için aşağıdaki ayrıntılara bakın.</p><br><DETAILS>"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Email Addresses"
 msgstr "Bildirim E-posta Adresleri"
 
@@ -1250,191 +1122,177 @@ msgid "From Name"
 msgstr "İsimden"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Name to send the notifications from"
-msgstr "Bildirim formunu göndermek için E-posta Adını girin"
+msgstr "Bildirimlerin gönderileceği E-posta Adını girin"
 
 #: setup.php
 msgid "From Address"
 msgstr "Adresinden"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Address to send the notification from"
-msgstr "Bildirimi göndermek için E-posta Adresini girin."
+msgstr "Bildirimin gönderileceği E-posta Adresini girin"
 
 #: setup.php
-#, fuzzy
 msgid "Notification List"
 msgstr "Bildirim Listesi"
 
 #: setup.php
-#, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
-msgstr "Aşağıdan bir Bildirim Listesi seçin. Bildirim listesine abone olan tüm e-postalara bildirilir."
+msgstr "Aşağıdan bir Bildirim Listesi seçin. Bildirim listesine abone olan tüm e-posta adreslerine bildirim gönderilecektir."
 
 #: setup.php
 msgid "Email Addresses"
 msgstr "E-Posta Adres"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
-msgstr "Yeniden başlatma olayından haberdar olmak için virgülle ayrılmış e-posta adresleri listesi girin."
+msgstr "Yeniden başlatma olayını bildirmek için virgülle ayrılmış bir e-posta adresleri listesi girin."
 
 #: setup.php
 msgid "Server"
-msgstr ""
+msgstr "Sunucu"
 
 #: setup.php
 msgid "Printer"
-msgstr ""
+msgstr "Yazıcı"
 
 #: setup.php
 msgid "Desktop PC"
-msgstr ""
+msgstr "Masaüstü Bilgisayar"
 
 #: setup.php
 msgid "Laptop/notebook"
-msgstr ""
+msgstr "Dizüstü bilgisayar"
 
 #: setup.php
 msgid "Wifi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: setup.php
 msgid "Wired network"
-msgstr ""
+msgstr "Kablolu ağ"
 
 #: setup.php
 msgid "Database"
-msgstr ""
+msgstr "Veritabanı"
 
 #: setup.php
 msgid "Clock"
-msgstr ""
+msgstr "Saat"
 
 #: setup.php
 msgid "Asterisk"
-msgstr ""
+msgstr "Asterisk"
 
 #: setup.php
 msgid "Harddisk"
-msgstr ""
+msgstr "Sabit Disk"
 
 #: setup.php
 msgid "Boxes"
-msgstr ""
+msgstr "Kutular"
 
 #: setup.php
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: setup.php
 msgid "Cloud"
-msgstr ""
+msgstr "Bulut"
 
 #: setup.php
-#, fuzzy
 msgid "Do not Change"
 msgstr "Değiştirme"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Percent Above Average"
-msgstr "% d Ortalamanın Üstünde Yüzde"
+msgstr "Ortalamanın Yüzde %d Üstünde"
 
 #: setup.php
-#, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "Cihaz İzleme Ayarları"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Device"
-msgstr "İzleme cihazı"
+msgstr "Cihazı İzle"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr "Bu Aygıtı Monitör Sekmesinde izlemek için bu kutuyu işaretleyin."
+msgstr "Bu cihazı İzleme sekmesinde izlemek için bu kutuyu işaretleyin."
 
 #: setup.php
-#, fuzzy
 msgid "Device Criticality"
 msgstr "Cihaz Kritikliği"
 
 #: setup.php
-#, fuzzy
 msgid "What is the Criticality of this Device."
-msgstr "Bu Cihazın Kritikliği Nedir?"
+msgstr "Bu Cihazın Kritiklik Düzeyi Nedir?"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Warning Threshold"
 msgstr "Ping Uyarı Eşiği"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Önceden tanımlanmış Cacti ping yöntemlerinden herhangi birinin üzerinden geçen gecikme süresi bu eşiğin üzerine çıkarsa, Cihaz Kritikliği ve İzleyici ayarına göre bir uyarı girin veya e-posta gönderin. Birim milisaniye cinsindendir. 0 olarak devre dışı bırakma. Thold Plugin bu işlevselliği kullanmak için gereklidir."
+msgstr "Önceden tanımlanmış Cacti ping yöntemlerinden herhangi biriyle ölçülen gidiş-dönüş gecikmesi bu eşiğin üzerine çıkarsa, Cihaz Kritikliği ve İzleme ayarına göre bir uyarı günlüğe kaydedilir veya e-posta gönderilir. Birim milisaniyedir. 0 olarak ayarlamak devre dışı bırakır. Bu işlevsellikten yararlanmak için Thold eklentisi gereklidir."
 
 #: setup.php
 msgid "milliseconds"
 msgstr "MiliSaniye"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Alert Threshold"
-msgstr "Ping Uyarısı Eşiği"
+msgstr "Ping Alarm Eşiği"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Önceden tanımlanmış Cacti ping yöntemlerinden herhangi birinin üzerinden geçen gecikme süresi bu eşiğin üzerine çıkarsa, Cihaz Kritikliği ve İzleyicisi ayarına göre bir uyarı girin veya bir e-posta gönderin. Birim milisaniye cinsindendir. 0 olarak devre dışı bırakma. Thold Plugin bu işlevselliği kullanmak için gereklidir."
+msgstr "Önceden tanımlanmış Cacti ping yöntemlerinden herhangi biriyle ölçülen gidiş-dönüş gecikmesi bu eşiğin üzerine çıkarsa, Cihaz Kritikliği ve İzleme ayarına göre bir alarm günlüğe kaydedilir veya e-posta gönderilir. Birim milisaniyedir. 0 olarak ayarlamak devre dışı bırakır. Bu işlevsellikten yararlanmak için Thold eklentisi gereklidir."
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Warning"
-msgstr "Yeniden Taban Çizgisi Uyarısı"
+msgstr "Temel Çizgiyi Yeniden Belirleme Uyarısı"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
-msgstr "Bir Uyarı Eşiğini dikkate almak için geçerli ortalama ping süresinin üzerindeki yüzde. Güncellenirse, bu otomatik olarak Ping Uyarı Eşiğini ayarlayacaktır."
+msgstr "Uyarı Eşiği olarak değerlendirilecek geçerli ortalama ping süresinin üzerindeki yüzde değeri. Güncellenirse, Ping Uyarı Eşiğini otomatik olarak ayarlar."
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Alert"
-msgstr "Yeniden Temel Uyarı"
+msgstr "Temel Çizgiyi Yeniden Belirleme Alarmı"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
-msgstr "Bir Uyarı Eşiğini dikkate almak için geçerli ortalama ping süresinin üzerindeki yüzde. Güncelleştirilirse, bu Ping Uyarısı Eşiğini otomatik olarak ayarlayacaktır."
+msgstr "Alarm Eşiği olarak değerlendirilecek geçerli ortalama ping süresinin üzerindeki yüzde değeri. Güncellenirse, Ping Alarm Eşiğini otomatik olarak ayarlar."
 
 #: setup.php
-#, fuzzy
 msgid "Down Device Message"
-msgstr "Aşağı Cihaz Mesajı"
+msgstr "Pasif Cihaz Mesajı"
 
 #: setup.php
-#, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
-msgstr "Bu, Cihaz aşağı olarak bildirildiğinde görüntülenecek mesajdır."
+msgstr "Bu, cihaz pasif olarak bildirildiğinde görüntülenecek iletidir."
 
 #: setup.php
-#, fuzzy
 msgid "Device icon"
-msgstr "Cihaz:"
+msgstr "Cihaz simgesi"
 
 #: setup.php
 msgid "You can select device icon."
-msgstr ""
+msgstr "Cihaz simgesi seçebilirsiniz."
 
 #: setup.php
 msgid "Monitoring"
 msgstr "İzleme"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Bu Cihaz(lar)da izlemeyi etkinleştirmek için 'Devam'a tıklayın"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Bu Cihaz(lar)da izlemeyi devre dışı bırakmak için 'Devam'a tıklayın"
 
 #, fuzzy
 #~ msgid "Not Monitored Devices"

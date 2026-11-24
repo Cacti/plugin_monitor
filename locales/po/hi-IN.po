@@ -13,34 +13,28 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 
 #: includes/controller.php
-#, fuzzy
 msgid "New Dashboard"
 msgstr "नया डैशबोर्ड"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Dashboard"
 msgstr "डैशबोर्ड"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "डैशबोर्ड नाम दर्ज करें और फिर जारी रखने के लिए 'सहेजें' दबाएं, अन्यथा 'रद्द करें' दबाएं"
+msgstr "डैशबोर्ड का नाम दर्ज करें और आगे बढ़ने के लिए 'सहेजें' दबाएं, अन्यथा 'रद्द करें' दबाएं"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Create New Dashboard"
-msgstr "नया डैशबोर्ड बनाएं"
+msgstr "नया डैशबोर्ड बनाएँ"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Monitored Devices"
-msgstr "मॉनिटर किए गए उपकरण"
+msgstr "मॉनिटर किए गए डिवाइस"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Unsaved"
-msgstr "न सहेजा गया"
+msgstr "सहेजा नहीं गया"
 
 #: includes/controller.php
 msgid "Layout"
@@ -48,14 +42,13 @@ msgstr "नक्शा"
 
 #: includes/controller.php
 msgid "Show"
-msgstr ""
+msgstr "दिखाना"
 
 #: includes/controller.php setup.php
 msgid "View"
 msgstr "देखें"
 
 #: includes/controller.php setup.php
-#, fuzzy
 msgid "Grouping"
 msgstr "समूहीकरण"
 
@@ -64,24 +57,22 @@ msgid "Refresh"
 msgstr "रीफ्रैश करो"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Refresh the Device List"
-msgstr "डिवाइस सूची को ताज़ा करें"
+msgstr "डिवाइस सूची रिफ्रेश करें"
 
 #: includes/controller.php
 msgid "Clear"
-msgstr ""
+msgstr "साफ़ करें"
 
 #: includes/controller.php
 msgid "Clear the set filter"
-msgstr ""
+msgstr "सेट किया गया फ़िल्टर साफ़ करें"
 
 #: includes/controller.php
 msgid "Save"
 msgstr "सेव करें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save Filter Settings"
 msgstr "फ़िल्टर सेटिंग्स सहेजें"
 
@@ -90,7 +81,6 @@ msgid "New"
 msgstr "नया"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save New Dashboard"
 msgstr "नया डैशबोर्ड सहेजें"
 
@@ -99,7 +89,6 @@ msgid "Rename"
 msgstr "नाम बदलें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Rename Dashboard"
 msgstr "डैशबोर्ड का नाम बदलें"
 
@@ -108,19 +97,18 @@ msgid "Delete"
 msgstr "हटाएं"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Delete Dashboard"
 msgstr "डैशबोर्ड हटाएं"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alert for downed Devices"
-msgstr "डाउन किए गए उपकरणों के लिए %s अलर्ट"
+msgstr "डाउन हुए डिवाइस के लिए %s अलर्ट"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alerts for downed Devices"
-msgstr "डाउन किए गए उपकरणों के लिए% अलर्ट"
+msgstr "डाउन हुए डिवाइस के लिए %s अलर्ट"
 
 #: includes/controller.php includes/render.php
 msgid "Devices"
@@ -128,73 +116,64 @@ msgstr "डिवाइस"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
-msgstr ""
+msgstr "डिवाइस प्रबंधन पृष्ठ पर जाएं"
 
 #: includes/controller.php includes/render.php poller_functions.php setup.php
-#, fuzzy
 msgid "Criticality"
-msgstr "निर्णायक मोड़"
+msgstr "गंभीरता"
 
 #: includes/controller.php
 msgid "Size"
 msgstr "आकार"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Trim"
 msgstr "ट्रिम"
 
 #: includes/controller.php
-#, fuzzy
 msgid "All Trees"
-msgstr "सभी पेड़"
+msgstr "सभी ट्री"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Tree Devices"
-msgstr "गैर-पेड़ उपकरण"
+msgstr "गैर-ट्री डिवाइस"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Tree"
-msgstr "वृक्षugiou"
+msgstr "ट्री"
 
 #: includes/controller.php
-#, fuzzy
 msgid "All Sites"
-msgstr "सभी पेड़"
+msgstr "सभी साइटें"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Site Devices"
-msgstr "गैर-पेड़ उपकरण"
+msgstr "गैर-साइट डिवाइस"
 
 #: includes/controller.php
 msgid "Sites"
-msgstr "साइटां"
+msgstr "साइटें"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Templated Devices"
-msgstr "गैर-अस्थायी उपकरण"
+msgstr "गैर-टेम्पलेटेड डिवाइस"
 
 #: includes/controller.php
 msgid "Template"
 msgstr "खाका"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Template"
 msgid "Templates"
-msgstr "खाका"
+msgstr "टेम्पलेट्स"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr ""
+msgstr "पंक्तियाँ"
 
 #: includes/controller.php
-#, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "[फ़िल्टर सेटिंग्स सहेजा गया]"
+msgstr " [ फ़िल्टर सेटिंग्स सहेजी गईं ]"
 
 #: includes/controller.php
 msgid "Cancel"
@@ -202,26 +181,25 @@ msgstr "कैंसिल करें"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr ""
+msgstr "लोड हो रहा है..."
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Device Detail Panels"
-msgstr "डिवाइस टेम्पलेट"
+msgstr "डिवाइस विवरण पैनल"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[ <i id=\"timer\">% D</i> सेकंड में फिर से ताज़ा करें]"
+msgstr " [ <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> सेकंड में पुनः रीफ़्रेश करें ]"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "फ़िल्टर फ़िल्टर करें [अंतिम ताज़ा करें: %s]"
+msgstr "मॉनिटर फ़िल्टर [ अंतिम रिफ़्रेश: %s ]"
 
 #: includes/controller.php
 msgid "[ Showing only first 30 Devices ]"
-msgstr ""
+msgstr "[ केवल पहले 30 डिवाइस दिखाए जा रहे हैं ]"
 
 #: includes/controller.php
 msgid "Search"
@@ -229,151 +207,131 @@ msgstr "खोजें"
 
 #: includes/controller.php includes/render.php
 msgid "Events"
-msgstr ""
+msgstr "घटनाक्रम"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Mute"
-msgstr "मूक"
+msgstr "म्यूट करें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Acknowledge"
-msgstr "स्वीकार करते हैं"
+msgstr "स्वीकार करें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Un-Mute"
-msgstr "संयुक्त राष्ट्र के म्यूट"
+msgstr "अनम्यूट करें"
 
 #: includes/controller.php
 msgid "Reset"
 msgstr "पुनः सेट करें"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' Removed."
-msgstr "डैशबोर्ड '%s' निकाला गया।"
+msgstr "डैशबोर्ड '%s' हटाया गया।"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' is not owned by you."
 msgstr "डैशबोर्ड '%s' आपके स्वामित्व में नहीं है।"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' has been Saved!"
 msgstr "डैशबोर्ड '%s' सहेजा गया है!"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "डैशबोर्ड '%s' सहेजा नहीं जा सका!"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Edit Device"
 msgstr "उपकरण संपादित करें"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "View Graphs"
 msgstr "रेखांकन देखें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Thresholds/Alerts"
-msgstr "थ्रेसहोल्ड देखें"
+msgstr "थ्रेसहोल्ड/अलर्ट देखें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Alerts"
-msgstr "Syslog अलर्ट देखें"
+msgstr "डिवाइस Syslog अलर्ट देखें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Entries"
-msgstr "Syslog अलर्ट देखें"
+msgstr "डिवाइस Syslog प्रविष्टियाँ देखें"
 
 #: includes/controller.php
 msgid "View Failing Service Check"
-msgstr ""
+msgstr "विफल सेवा जांच देखें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Status Information"
-msgstr "डिवाइस स्थिति की जानकारी"
+msgstr "डिवाइस स्थिति जानकारी"
 
 #: includes/controller.php
 msgid "Device:"
 msgstr "उपकरणः"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Site:"
-msgstr "साइट"
+msgstr "साइटः"
 
 #: includes/controller.php
 msgid "Location:"
 msgstr "स्थान:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Criticality:"
-msgstr "निर्णायक मोड़:"
+msgstr "गंभीरता:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Status:"
-msgstr "ऑर्डर स्थिति"
+msgstr "स्थिति:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Admin Note:"
 msgstr "व्यवस्थापक नोट:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "IP/Hostname:"
-msgstr "आईपी / होस्ट का नाम:"
+msgstr "IP/होस्टनाम:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Curr/Avg:"
-msgstr "कुर / औसत:"
+msgstr "वर्तमान/औसत:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d ms"
-msgstr "% d मि"
+msgstr "%d मिलीसेकंड"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Warn/Alert:"
-msgstr "चेतावनी दें / अलर्ट:"
+msgstr "चेतावनी/अलर्ट:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2d ms"
-msgstr "% 0.2d एमएस"
+msgstr "%0.2d मिलीसेकंड"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Last Fail:"
-msgstr "अंतिम विफल:"
+msgstr "अंतिम विफलता:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Time In State:"
-msgstr "राज्य में समय:"
+msgstr "स्थिति में समय:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Availability:"
-msgstr "उपलब्धता"
+msgstr "उपलब्धता:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Agent Uptime:"
 msgstr "एजेंट अपटाइम:"
 
@@ -382,7 +340,6 @@ msgid "N/A"
 msgstr "लागू नहीं"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Sys Description:"
 msgstr "Sys विवरण:"
 
@@ -391,9 +348,8 @@ msgid "Contact:"
 msgstr "संपर्क:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Notes:"
-msgstr "नोट"
+msgstr "नोट्स:"
 
 #: includes/controller.php includes/render.php
 msgid "Never"
@@ -401,7 +357,7 @@ msgstr "कभी नहीं"
 
 #: includes/controller.php
 msgid "Unspecified"
-msgstr ""
+msgstr "अनिर्दिष्ट"
 
 #: includes/controller.php includes/render.php setup.php
 msgid "None"
@@ -409,33 +365,32 @@ msgstr "कोई नहीं"
 
 #: includes/controller.php
 msgid "SNMP and Ping"
-msgstr ""
+msgstr "SNMP और पिंग"
 
 #: includes/controller.php
-#, fuzzy
 msgid "SNMP Uptime"
-msgstr "दिखावा करना"
+msgstr "SNMP अपटाइम"
 
 #: includes/controller.php
 msgid "Ping"
-msgstr ""
+msgstr "पिंग"
 
 #: includes/controller.php
 msgid "SNMP or Ping"
-msgstr ""
+msgstr "SNMP या पिंग"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr ""
+msgstr "SNMP Get SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
-msgstr ""
+msgstr "SNMP Get Next"
 
 #: includes/controller.php
 #, php-format
 msgid "Method %d"
-msgstr ""
+msgstr "विधि %d"
 
 #: includes/controller.php includes/render.php poller_functions.php
 msgid "Description"
@@ -443,61 +398,55 @@ msgstr "विवरण"
 
 #: includes/controller.php poller_functions.php
 msgid "Hostname"
-msgstr "होस्टनांऽ"
+msgstr "होस्टनाम"
 
 #: includes/controller.php
 msgid "Status"
-msgstr "ऑर्डर स्थिति"
+msgstr "स्थिति"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
 msgstr "साइट"
 
 #: includes/controller.php monitor.php setup.php
-#, fuzzy
 msgid "Device Template"
 msgstr "डिवाइस टेम्पलेट"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Location"
-msgstr "स्थान:"
+msgstr "स्थान"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Contact:"
 msgid "Contact"
-msgstr "संपर्क:"
+msgstr "संपर्क करें"
 
 #: includes/controller.php
 msgid "Notes"
 msgstr "नोट"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Host Information"
-msgstr "डिवाइस स्थिति की जानकारी"
+msgstr "होस्ट जानकारी"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Availability"
 msgid "Availability Method"
-msgstr "उपलब्धता"
+msgstr "उपलब्धता विधि"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2f ms"
-msgstr "% 0.2d एमएस"
+msgstr "%0.2f मिलीसेकंड"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Current / Average Ping"
-msgstr "वर्तमान पिंग"
+msgstr "वर्तमान / औसत पिंग"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr ""
+msgstr "न्यूनतम / अधिकतम पिंग"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
@@ -505,20 +454,19 @@ msgstr "उपलब्धता"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
-msgstr ""
+msgstr "कुल / विफल पोल"
 
 #: includes/controller.php
 msgid "In Current Status Since"
-msgstr ""
+msgstr "वर्तमान स्थिति कब से"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Last Fail"
-msgstr "अंतिम असफलता"
+msgstr "अंतिम विफलता"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr ""
+msgstr "डेटा संग्रहण"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -526,70 +474,64 @@ msgstr "अक्षम"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr ""
+msgstr "विफल हो रहा है"
 
 #: includes/controller.php
 msgid "Not tested"
-msgstr ""
+msgstr "परीक्षण नहीं किया गया"
 
 #: includes/controller.php
 msgid "OK"
-msgstr ""
+msgstr "ठीक है"
 
 #: includes/controller.php includes/render.php
 msgid "Service Checks"
-msgstr ""
+msgstr "सेवा जांच"
 
 #: includes/controller.php
 #, php-format
 msgid "Threshold %d"
-msgstr ""
+msgstr "थ्रेशोल्ड %d"
 
 #: includes/controller.php includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered"
-msgstr "उत्प्रेरित"
+msgstr "ट्रिगर किया गया"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Thresholds"
-msgstr "थ्रेसहोल्ड देखें"
+msgstr "थ्रेशहोल्ड"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
-msgstr ""
+msgstr "पिछले एक घंटे में कोई Syslog संदेश नहीं मिला।"
 
 #: includes/controller.php
 msgid "Syslog (last hour)"
-msgstr ""
+msgstr "Syslog (पिछला घंटा)"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Open Actual Device"
-msgstr "डिवाइस"
+msgstr "वास्तविक डिवाइस खोलें"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Links"
-msgstr "उपकरणः"
+msgstr "डिवाइस लिंक"
 
 #: includes/render.php
-#, fuzzy
 msgid "Non-Site Device"
-msgstr "गैर-पेड़ उपकरण"
+msgstr "गैर-साइट डिवाइस"
 
 #: includes/render.php
-#, fuzzy
 msgid "Root Branch"
-msgstr "जड़ शाखा"
+msgstr "रूट शाखा"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Tree: %s"
-msgstr "पेड़"
+msgstr "ट्री: %s"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Branch: %s"
 msgstr "शाखा: %s"
 
@@ -598,89 +540,82 @@ msgid "Unknown"
 msgstr "अज्ञात"
 
 #: includes/render.php
-#, fuzzy
 msgid "Just Up"
-msgstr "बस ऊपर"
+msgstr "अभी सक्रिय हुआ"
 
 #: includes/render.php monitor.php
 msgid "Down"
 msgstr "नीचे"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Recovering"
 msgstr "पुन: प्राप्त करना"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Down (M/A)"
-msgstr "डाउन (म्यूट / Acked)"
+msgstr "डाउन (M/A)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered (M/A)"
-msgstr "डाउन (म्यूट / Acked)"
+msgstr "ट्रिगर हुआ (M/A)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 #| msgid "Warning"
 msgid "Warn Ping"
-msgstr "चेतावनी"
+msgstr "चेतावनी पिंग"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Alert Ping"
 msgstr "अलर्ट पिंग"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr ""
+msgstr "विफल सेवा"
 
 #: includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Actions"
-msgstr "स्थान:"
+msgstr "कार्रवाइयाँ"
 
 #: includes/render.php
 msgid "Open the device detail panels"
-msgstr ""
+msgstr "डिवाइस विवरण पैनल खोलें"
 
 #: includes/render.php
 msgid "Device description as set on the Devices page"
-msgstr ""
+msgstr "डिवाइस पृष्ठ पर सेट किया गया डिवाइस विवरण"
 
 #: includes/render.php
 msgid "Physical location recorded for the device"
-msgstr ""
+msgstr "डिवाइस के लिए दर्ज किया गया भौतिक स्थान"
 
 #: includes/render.php
 msgid "Site the device is assigned to"
-msgstr ""
+msgstr "वह साइट जिसे डिवाइस असाइन किया गया है"
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: includes/render.php
 msgid "Cacti internal device id"
-msgstr ""
+msgstr "Cacti आंतरिक डिवाइस ID"
 
 #: includes/render.php
 msgid "Monitoring criticality assigned to the device"
-msgstr ""
+msgstr "डिवाइस को निर्दिष्ट मॉनिटरिंग गंभीरता"
 
 #: includes/render.php
 msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
-msgstr ""
+msgstr "डिवाइस पर सक्रिय ईवेंट (डाउन, ट्रिगर, चेतावनी/अलर्ट Ping, विफल सेवा, ...); ईवेंट फ़िल्टर से उस ईवेंट को जोड़ने या हटाने के लिए किसी पिल पर क्लिक करें"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
-msgstr ""
+msgstr "डिवाइस पर उल्लंघन किए गए / ट्रिगर किए गए / कुल थ्रेशोल्ड (Thold प्लगइन); ट्रिगर किए गए ईवेंट फ़िल्टर को टॉगल करने के लिए क्लिक करें"
 
 #: includes/render.php
 msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "डिवाइस के लिए विफल / कुल सेवा जांच (servcheck प्लगइन); विफल सेवा ईवेंट फ़िल्टर को टॉगल करने के लिए क्लिक करें"
 
 #: includes/render.php
 msgid "Warning"
@@ -688,79 +623,75 @@ msgstr "चेतावनी"
 
 #: includes/render.php
 msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
-msgstr ""
+msgstr "इस डिवाइस के लिए कॉन्फ़िगर किए गए पिंग विलंबता चेतावनी / अलर्ट थ्रेशोल्ड (ms); जब प्रतिक्रिया समय इन्हें पार करता है तो एक सूचना उत्पन्न होती है"
 
 #: includes/render.php
-#, fuzzy
 msgid "Admin"
 msgstr "व्यवस्थापक"
 
 #: includes/render.php
 msgid "Administrative monitor message shown while the device is Down or Recovering"
-msgstr ""
+msgstr "डिवाइस के डाउन या रिकवर होने के दौरान दिखाया जाने वाला प्रशासनिक मॉनिटर संदेश"
 
 #: includes/render.php
 msgid "Percentage of successful availability checks over the retained history"
-msgstr ""
+msgstr "रखे गए इतिहास में सफल उपलब्धता जांचों का प्रतिशत"
 
 #: includes/render.php
-#, fuzzy
 msgid "Averages"
 msgstr "औसत"
 
 #: includes/render.php
 msgid "Current / average ping response time in milliseconds"
-msgstr ""
+msgstr "मिलीसेकंड में वर्तमान / औसत पिंग प्रतिक्रिया समय"
 
 #: includes/render.php
-#, fuzzy
 msgid "Length in Status"
-msgstr "स्थिति में लंबाई"
+msgstr "स्थिति में अवधि"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
-msgstr ""
+msgstr "डिवाइस अपनी वर्तमान स्थिति में कितने समय से है"
 
 #: includes/render.php
 msgid "Date and time the device last failed its availability check"
-msgstr ""
+msgstr "दिनांक और समय जब डिवाइस की उपलब्धता जांच अंतिम बार विफल रही"
 
 #: includes/render.php
 msgid "Filter by this criticality (click again to clear)"
-msgstr ""
+msgstr "इस गंभीरता के अनुसार फ़िल्टर करें (साफ़ करने के लिए फिर से क्लिक करें)"
 
 #: includes/render.php
 msgid "Criticality not set - click to filter unset devices (click again to clear)"
-msgstr ""
+msgstr "गंभीरता सेट नहीं है - अनसेट डिवाइस फ़िल्टर करने के लिए क्लिक करें (साफ़ करने के लिए फिर से क्लिक करें)"
 
 #: includes/render.php
-#, fuzzy
 msgid "Not Set"
-msgstr "उठा नहीं"
+msgstr "सेट नहीं"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
-msgstr ""
+msgstr "इस ईवेंट को फ़िल्टर में जोड़ने या हटाने के लिए क्लिक करें"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
-msgstr ""
+msgstr "उल्लंघन किए गए / ट्रिगर किए गए / कुल थ्रेशोल्ड - ट्रिगर किए गए ईवेंट फ़िल्टर को टॉगल करने के लिए क्लिक करें"
 
 #: includes/render.php
 msgid "No thresholds defined for this device"
-msgstr ""
+msgstr "इस डिवाइस के लिए कोई थ्रेशोल्ड परिभाषित नहीं है"
 
 #: includes/render.php
 msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "विफल / कुल सेवा जांच - विफल सेवा ईवेंट फ़िल्टर को टॉगल करने के लिए क्लिक करें"
 
 #: includes/render.php
 msgid "No service checks defined for this device"
-msgstr ""
+msgstr "इस डिवाइस के लिए कोई सेवा जांच परिभाषित नहीं है"
 
 #: monitor.php
 msgid "All"
-msgstr ""
+msgstr "सभी"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -775,45 +706,38 @@ msgid "High"
 msgstr "उच्च"
 
 #: monitor.php poller_functions.php setup.php
-#, fuzzy
 msgid "Mission Critical"
-msgstr "महत्वपूर्ण मिशन"
+msgstr "अति महत्वपूर्ण (मिशन क्रिटिकल)"
 
 #: monitor.php
 msgid "Up"
 msgstr "ऊपर"
 
 #: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
-msgstr "डाउन (म्यूट / Acked)"
+msgstr "ट्रिगर हुआ (म्यूट/स्वीकृत)"
 
 #: monitor.php
-#, fuzzy
 msgid "Down (Muted/Acked)"
-msgstr "डाउन (म्यूट / Acked)"
+msgstr "डाउन (म्यूट/स्वीकृत)"
 
 #: monitor.php
-#, fuzzy
 msgid "No Availability Check"
 msgstr "कोई उपलब्धता जाँच नहीं"
 
 #: monitor.php
-#, fuzzy
 msgid "Warning Ping"
 msgstr "चेतावनी पिंग"
 
 #: monitor.php
 msgid "Service Check Failed"
-msgstr ""
+msgstr "सेवा जांच विफल रही"
 
 #: monitor.php
-#, fuzzy
 msgid "Extra Small"
-msgstr "अतिरिक्त छोटे"
+msgstr "अतिरिक्त छोटा"
 
 #: monitor.php
-#, fuzzy
 msgid "Small"
 msgstr "छोटा"
 
@@ -822,36 +746,32 @@ msgid "Large"
 msgstr "विशाल"
 
 #: monitor.php
-#, fuzzy
 msgid "Extra Large"
-msgstr "अतिरिक्त छोटे"
+msgstr "अतिरिक्त बड़ा"
 
 #: monitor.php
 msgid "Zoom"
 msgstr "ज़ूम करो"
 
 #: monitor.php
-#, fuzzy
 msgid "All Monitored Devices"
-msgstr "सभी मॉनिटर किए गए उपकरण"
+msgstr "सभी मॉनिटर किए गए डिवाइस"
 
 #: monitor.php
-#, fuzzy
 msgid "All Devices"
-msgstr "डिवाइस"
+msgstr "सभी डिवाइस"
 
 #: monitor.php
-#, fuzzy
 msgid "Devices not Monitored"
-msgstr "डिवाइस मॉनिटरिंग सेटिंग्स"
+msgstr "मॉनिटर न किए गए डिवाइस"
 
 #: monitor.php
 msgid "Devices without Thresholds"
-msgstr ""
+msgstr "बिना थ्रेशोल्ड वाले डिवाइस"
 
 #: monitor.php
 msgid "Devices without Service Checks"
-msgstr ""
+msgstr "बिना सेवा जांच (Service Checks) वाले डिवाइस"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -862,88 +782,73 @@ msgid "List"
 msgstr "सूची"
 
 #: monitor.php setup.php
-#, fuzzy
 msgid "Tiles"
 msgstr "टाइल्स"
 
 #: monitor.php
-#, fuzzy
 msgid "Tiles & Time"
-msgstr "टाइलें और समय"
+msgstr "टाइल्स और समय"
 
 #: monitor.php
-#, fuzzy
 msgid "Full"
-msgstr "पूर्ण"
+msgstr "पूरा नाम"
 
 #: monitor.php
-#, fuzzy
 msgid "10 Chars"
-msgstr "10 शुल्क"
+msgstr "10 अक्षर"
 
 #: monitor.php
-#, fuzzy
 msgid "20 Chars"
-msgstr "20 शुल्क"
+msgstr "20 अक्षर"
 
 #: monitor.php
-#, fuzzy
 msgid "30 Chars"
-msgstr "30 शुल्क"
+msgstr "30 अक्षर"
 
 #: monitor.php
-#, fuzzy
 msgid "40 Chars"
-msgstr "40 शुल्क"
+msgstr "40 अक्षर"
 
 #: monitor.php
-#, fuzzy
 msgid "50 Chars"
-msgstr "50 शुल्क"
+msgstr "50 अक्षर"
 
 #: monitor.php
-#, fuzzy
 msgid "75 Chars"
-msgstr "75 शुल्क"
+msgstr "75 अक्षर"
 
 #: monitor.php
-#, fuzzy
 msgid "100 Chars"
-msgstr "100 शुल्क"
+msgstr "100 अक्षर"
 
 #: poller_functions.php
-#, fuzzy
 msgid "Description: "
-msgstr "विवरण"
+msgstr "विवरण: "
 
 #: poller_functions.php
-#, fuzzy
 msgid "Hostname: "
-msgstr "#-#-#-#-# balsa.HEAD.hi.po (Balsa 2.x) #-#-#-#-# उपयोगकर्ता का नाम #-#-#-#-# eel.HEAD.hi.po (eel VERSION) #-#-#-#-# उपयोगकर्ता का नाम: (_U)"
+msgstr "होस्टनाम: "
 
 #: poller_functions.php
-#, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr "निम्नलिखित रिपोर्ट उन उपकरणों की पहचान करेगी, जिन्होंने अपने पिंग लेटेंसी थ्रेसहोल्ड को ग्रहण किया है। जब आप नीचे दिए गए URL पर स्थित Cacti सिस्टम से संबंधित डिवाइस के लिए सब्सक्राइब किए जाते हैं, तब से आप यह रिपोर्ट प्राप्त कर रहे हैं।"
+msgstr "निम्नलिखित रिपोर्ट उन डिवाइस की पहचान करेगी जिन्होंने अपने पिंग लेटेंसी थ्रेशहोल्ड को पार कर लिया है। आप यह रिपोर्ट इसलिए प्राप्त कर रहे हैं क्योंकि आप नीचे दिए गए URL पर स्थित Cacti सिस्टम से जुड़े एक डिवाइस की सदस्यता लिए हुए हैं।"
 
 #: poller_functions.php
-#, fuzzy
 msgid "Cacti Monitoring Site"
-msgstr "मॉनिटरिंग विकल्प बदलें"
+msgstr "Cacti मॉनिटरिंग साइट"
 
 #: poller_functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
-msgstr "यदि डिवाइस इसकी सीमा से ऊपर है, तो आपको हर% d मिनट पर सूचनाएं प्राप्त होंगी।"
+msgstr "यदि डिवाइस अपने थ्रेशोल्ड से ऊपर है, तो आपको हर %d मिनट में सूचनाएं प्राप्त होंगी।"
 
 #: poller_functions.php
-#, fuzzy
 msgid "You will receive notifications every time the Device is above its threshold."
-msgstr "डिवाइस की दहलीज से ऊपर होने पर आपको हर बार सूचनाएं प्राप्त होंगी।"
+msgstr "जब भी डिवाइस अपनी सीमा (threshold) से ऊपर होगा, आपको हर बार सूचनाएं प्राप्त होंगी।"
 
 #: setup.php
 msgid "Any"
-msgstr "कोई भी@ label"
+msgstr "कोई भी"
 
 #: setup.php
 #, fuzzy, php-format
@@ -951,515 +856,442 @@ msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "इन डिवाइसों पर %s निगरानी के लिए 'जारी रखें' पर क्लिक करें"
 
 #: setup.php
-#, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
-msgstr "निम्न डिवाइस (ओं) के लिए निगरानी सेटिंग्स बदलने के लिए 'जारी रखें' पर क्लिक करें। कौन सा कॉलम अपडेट करना है, यह इंगित करने के लिए 'इस क्षेत्र को अपडेट करें' की जाँच करना याद रखें।"
+msgstr "निम्नलिखित डिवाइस के लिए निगरानी सेटिंग्स बदलने के लिए 'जारी रखें' पर क्लिक करें। किन कॉलम को अपडेट करना है, यह बताने के लिए 'इस फ़ील्ड को अपडेट करें' को चुनना न भूलें।"
 
 #: setup.php
-#, fuzzy
 msgid "Update this Field"
 msgstr "इस फील्ड को अपडेट करें"
 
 #: setup.php
-#, fuzzy
 msgid "Change Monitoring Options"
 msgstr "मॉनिटरिंग विकल्प बदलें"
 
 #: setup.php
-#, fuzzy
 msgid "Enable Monitoring"
 msgstr "मॉनिटरिंग सक्षम करें"
 
 #: setup.php
-#, fuzzy
 msgid "Disable Monitoring"
-msgstr "निगरानी अक्षम करें"
+msgstr "मॉनिटरिंग अक्षम करें"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinitely"
-msgstr "अनिश्चित काल"
+msgstr "अनिश्चित काल तक"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d महीना"
+msgstr "%d महीना"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d माह"
+msgstr "%d महीने"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d वष"
+msgstr "%d वर्ष"
 
 #: setup.php
 msgid "Normal User"
 msgstr "सामान्य उपयोगकर्ता"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Settings"
 msgstr "मॉनिटर सेटिंग्स"
 
 #: setup.php
-#, fuzzy
 msgid "Alarm Sound"
-msgstr "सचेतक ध्वनि"
+msgstr "अलार्म ध्वनि"
 
 #: setup.php
-#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
-msgstr "यह वह साउंड फाइल है जो किसी डिवाइस के डाउन होने पर चलाया जाएगा।"
+msgstr "यह वह ध्वनि फ़ाइल है जो किसी डिवाइस के डाउन होने पर चलाई जाएगी।"
 
 #: setup.php
-#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr "सचेतक ध्वनि"
+msgstr "अलार्म ध्वनि दोहराएँ"
 
 #: setup.php
-#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "यह वह साउंड फाइल है जो किसी डिवाइस के डाउन होने पर चलाया जाएगा।"
+msgstr "जब कोई डिवाइस डाउन हो जाए, तो उपरोक्त ध्वनि को लूप में चलाएं।"
 
 #: setup.php
-#, fuzzy
 msgid "Show Icon Legend"
-msgstr "आइकॉन लीजेंड दिखाएं"
+msgstr "आइकन लेजेंड दिखाएँ"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "मॉनिटर प्रदर्शन पर एक आइकन किंवदंती दिखाने के लिए इसे जांचें"
+msgstr "मॉनिटर डिस्प्ले पर आइकन लेजेंड दिखाने के लिए इसे चुनें"
 
 #: setup.php
-#, fuzzy
 msgid "Show Uptime"
-msgstr "दिखावा करना"
+msgstr "अपटाइम दिखाएं"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "मॉनिटर प्रदर्शन पर एक आइकन किंवदंती दिखाने के लिए इसे जांचें"
+msgstr "मॉनिटर डिस्प्ले पर अपटाइम दिखाने के लिए इसे चिह्नित करें"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom to Errors"
-msgstr "त्रुटियों को ज़ूम करें"
+msgstr "त्रुटियों पर ज़ूम करें"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "मॉनिटर प्रदर्शन पर एक आइकन किंवदंती दिखाने के लिए इसे जांचें"
+msgstr "मॉनिटर डिस्प्ले पर त्रुटि वाले आइटम पर ज़ूम करने के लिए इसे चिह्नित करें"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Background"
 msgstr "ज़ूम पृष्ठभूमि"
 
 #: setup.php
-#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr "मॉनिटर प्रदर्शन पर ज़ूम की गई त्रुटियों के लिए पृष्ठभूमि का रंग"
+msgstr "Monitor डिस्प्ले पर ज़ूम की गई त्रुटियों के लिए पृष्ठभूमि का रंग"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Fontsize"
-msgstr "ज़ूम फ़ॉन्ट्स"
+msgstr "ज़ूम फ़ॉन्ट आकार"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor"
 msgstr "मॉनिटर"
 
 #: setup.php
-#, fuzzy
 msgid "Enable on new devices"
-msgstr "नए उपकरणों पर सक्षम करें"
+msgstr "नए डिवाइस पर सक्षम करें"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
-msgstr "नए डिवाइस बनाते समय निगरानी को स्वचालित रूप से सक्षम करने के लिए इसे जांचें"
+msgstr "नए डिवाइस बनाते समय स्वचालित रूप से निगरानी सक्षम करने के लिए इसे चुनें"
 
 #: setup.php
-#, fuzzy
 msgid "Notification/Reboot Log Retention"
-msgstr "अधिसूचना / रिबूट लॉग रिटेंशन"
+msgstr "अधिसूचना/रीबूट लॉग प्रतिधारण"
 
 #: setup.php
-#, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
-msgstr "इस संख्या के लिए अधिसूचना और रिबूट लॉग रखें।"
+msgstr "अधिसूचना और रीबूट लॉग को इतने दिनों तक रखें।"
 
 #: setup.php
 msgid "Refresh Interval"
 msgstr "अंतराल ताज़ा करें"
 
 #: setup.php
-#, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr "पृष्ठ रीफ़्रेश होने से पहले सेकंड में यह समय है। (1 - 300)"
+msgstr "यह पृष्ठ रीफ़्रेश होने से पहले सेकंड में समय है। (1 - 300)"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will Group Devices."
-msgstr "इस प्रकार मॉनिटर ग्रुप डिवाइसेस होगा।"
+msgstr "मॉनिटर डिवाइस को इस प्रकार समूहीकृत करेगा।"
 
 #: setup.php
-#, fuzzy
 msgid "Default with permissions"
 msgstr "अनुमतियों के साथ डिफ़ॉल्ट"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will render Devices."
-msgstr "यह है कि मॉनिटर डिवाइसेस को कैसे रेंडर करेगा।"
+msgstr "मॉनिटर डिवाइस को इस प्रकार रेंडर करेगा।"
 
 #: setup.php
 msgid "Names only"
-msgstr ""
+msgstr "केवल नाम"
 
 #: setup.php
-#, fuzzy
 msgid "Tiles & Downtime"
-msgstr "टाइलें और डाउनटाइम"
+msgstr "टाइल्स और डाउनटाइम"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Report Format"
 msgstr "अधिसूचना रिपोर्ट प्रारूप"
 
 #: setup.php
-#, fuzzy
 msgid "Format File to Use"
 msgstr "प्रारूप फ़ाइल का उपयोग करने के लिए"
 
 #: setup.php
-#, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "उपयोग करने के लिए कस्टम HTML आवरण और सीएसएस फ़ाइल चुनें। इस फ़ाइल में HTML और CSS दोनों शामिल हैं जो आपकी रिपोर्ट के आसपास हैं। यदि इसमें केवल CSS से अधिक है, तो आपको एक विशेष स्थान देने की आवश्यकता है <REPORT> फ़ाइल के अंदर टैग। इस प्रारूप टैग को रिपोर्ट सामग्री द्वारा बदल दिया जाएगा। ये फाइलें 'फॉर्मेट' डायरेक्टरी में स्थित हैं।"
+msgstr "उपयोग करने के लिए कस्टम HTML आवरण और सीएसएस फ़ाइल चुनें। इस फ़ाइल में HTML और CSS दोनों शामिल हैं जो आपकी रिपोर्ट के आसपास हैं। यदि इसमें बस CSS से अधिक है, तो आपको एक विशेष स्थान रखने की आवश्यकता है <REPORT> फ़ाइल के अंदर टैग। इस प्रारूप टैग को रिपोर्ट सामग्री द्वारा बदल दिया जाएगा। ये फाइलें &#39;फॉर्मेट&#39; डायरेक्टरी में स्थित हैं।"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Threshold Notifications"
 msgstr "पिंग थ्रेसहोल्ड सूचनाएं"
 
 #: setup.php
-#, fuzzy
 msgid "Warning Latency Notification"
 msgstr "चेतावनी विलंबता अधिसूचना"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "यदि किसी डिवाइस में वार्निंग थ्रेशोल्ड के ऊपर और नीचे की समालोचना के ऊपर एक राउंड ट्रिप पिंग लेटेंसी है, तो डिवाइस को ईमेल सब्सक्राइब करने पर ईमेल नोटिफिकेशन प्राप्त होगा। अक्षम करने के लिए 'अक्षम' का चयन करें। इस सुविधा को सक्षम करने के लिए Thold Plugin आवश्यक है।"
+msgstr "यदि किसी डिवाइस की राउंड ट्रिप पिंग विलंबता चेतावनी सीमा और नीचे दी गई गंभीरता से अधिक है, तो डिवाइस के लिए सदस्यता लेने वाले ईमेल पतों पर एक ईमेल सूचना प्राप्त होगी। अक्षम करने के लिए 'अक्षम' चुनें। इस सुविधा को सक्षम करने के लिए Thold प्लगइन आवश्यक है।"
 
 #: setup.php
-#, fuzzy
 msgid "Alert Latency Notification"
-msgstr "अलर्ट लेटेंसी नोटिफिकेशन"
+msgstr "अलर्ट विलंबता अधिसूचना"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "अगर किसी डिवाइस में अलर्ट थ्रेशोल्ड के ऊपर और नीचे क्रिटिसिटी के ऊपर एक राउंड ट्रिप पिंग लेटेंसी है, तो डिवाइस को ईमेल सब्मिट करने पर ईमेल नोटिफिकेशन मिलेगा। अक्षम करने के लिए 'अक्षम' का चयन करें। इस सुविधा को सक्षम करने के लिए Thold Plugin आवश्यक है।"
+msgstr "यदि किसी डिवाइस की राउंड ट्रिप पिंग विलंबता अलर्ट सीमा और नीचे दी गई गंभीरता से अधिक है, तो डिवाइस के लिए सदस्यता लेने वाले ईमेल पतों पर एक ईमेल सूचना प्राप्त होगी। अक्षम करने के लिए 'अक्षम' चुनें। इस सुविधा को सक्षम करने के लिए Thold प्लगइन आवश्यक है।"
 
 #: setup.php
-#, fuzzy
 msgid "How Often to Resend Emails"
-msgstr "कितनी बार ईमेल को फिर से भेजें"
+msgstr "ईमेल कितनी बार फिर से भेजें"
 
 #: setup.php
-#, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr "इन उपकरणों के लिए ग्राहकों को ईमेल सूचनाएँ कितनी बार भेजी जानी चाहिए, यदि वे उनकी विलंबता सीमा से अधिक हों"
+msgstr "यदि ये उपकरण अपनी विलंबता सीमा से अधिक हो जाते हैं, तो ग्राहकों को ईमेल सूचनाएँ कितनी बार भेजी जानी चाहिए"
 
 #: setup.php
-#, fuzzy
 msgid "Every Occurrence"
-msgstr "हर घटना"
+msgstr "प्रत्येक घटना"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Minutes"
-msgstr "प्रत्येक% d मिनट"
+msgstr "प्रत्येक %d मिनट"
 
 #: setup.php
-#, fuzzy
 msgid "Every Hour"
 msgstr "प्रत्येक घंटे"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
-msgstr "हर द% ख ड"
+msgstr "प्रत्येक %d घंटे"
 
 #: setup.php
-#, fuzzy
 msgid "Reboot Notifications"
-msgstr "रिबूट सूचनाएं"
+msgstr "रीबूट सूचनाएं"
 
 #: setup.php
-#, fuzzy
 msgid "Send Reboot Notifications"
-msgstr "रिबूट सूचनाएं भेजें"
+msgstr "रीबूट सूचनाएं भेजें"
 
 #: setup.php
-#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
-msgstr "क्या डिवाइस रिबूट अधिसूचना उपयोगकर्ताओं को भेजी जानी चाहिए?"
+msgstr "क्या उपयोगकर्ताओं को डिवाइस रीबूट सूचनाएँ भेजी जानी चाहिए?"
 
 #: setup.php
-#, fuzzy
 msgid "Send one Email to all addresses"
-msgstr "ईमेल पता"
+msgstr "सभी पतों पर एक ईमेल भेजें"
 
 #: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
-msgstr ""
+msgstr "यदि चयनित है, तो सिस्टम सभी पतों पर केवल एक ही ईमेल भेजेगा।"
 
 #: setup.php
-#, fuzzy
 msgid "Include Threshold Alert Lists"
-msgstr "थ्रेशोल्ड अलर्ट लिस्ट शामिल करें"
+msgstr "थ्रेशोल्ड अलर्ट सूचियाँ शामिल करें"
 
 #: setup.php
-#, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "क्या थ्रेसहोल्ड अलर्ट सूचियों को भी अधिसूचना प्राप्त करनी चाहिए"
+msgstr "क्या थ्रेशोल्ड अलर्ट सूचियों को भी सूचना प्राप्त होनी चाहिए"
 
 #: setup.php
 msgid "Subject"
 msgstr "विषय"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr "रिबूट नोफिकेशन के लिए एक रिबूट संदेश विषय दर्ज करें।"
+msgstr "रीबूट अधिसूचना के लिए रीबूट संदेश का विषय दर्ज करें।"
 
 #: setup.php
-#, fuzzy
 msgid "Cacti Device Reboot Notification"
-msgstr "कैक्टि डिवाइस रिबूट नोफिकेशन"
+msgstr "Cacti डिवाइस रीबूट सूचना"
 
 #: setup.php
-#, fuzzy
 msgid "Email Body"
 msgstr "ईमेल बॉडी"
 
 #: setup.php
-#, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "रिबूट अधिसूचना संदेश में शामिल करने के लिए एक ईमेल निकाय दर्ज करें। वर्तमान में, एकमात्र समर्थित प्रतिस्थापन टैग स्वीकार किया गया है &lt;विवरण&gt;"
+msgstr "रीबूट अधिसूचना संदेश में शामिल करने के लिए ईमेल का मुख्य भाग दर्ज करें। वर्तमान में, एकमात्र समर्थित प्रतिस्थापन टैग &#060;DETAILS&#062; है"
 
 #: setup.php
-#, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
-msgstr "<h1> मॉनिटर रिबूट अधिसूचना </h1><p> निम्नलिखित डिवाइस रिबूट किए गए थे। अतिरिक्त जानकारी के लिए नीचे दिए गए विवरण देखें। </p><br><DETAILS>"
+msgstr "<h1>मॉनिटर रीबूट सूचना</h1><p>निम्नलिखित डिवाइस रीबूट किए गए थे। अतिरिक्त जानकारी के लिए नीचे दिए गए विवरण देखें।</p><br><DETAILS>"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Email Addresses"
 msgstr "अधिसूचना ईमेल पते"
 
 #: setup.php
-#, fuzzy
 msgid "From Name"
 msgstr "नाम से"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Name to send the notifications from"
-msgstr "नोटिफिकेशन फॉर्म भेजने के लिए ईमेल नाम दर्ज करें"
+msgstr "वह ईमेल नाम दर्ज करें जिससे अधिसूचनाएं भेजनी हैं"
 
 #: setup.php
-#, fuzzy
 msgid "From Address"
-msgstr "इस पते से"
+msgstr "प्रेषक पता"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Address to send the notification from"
-msgstr "से अधिसूचना भेजने के लिए ईमेल पता दर्ज करें"
+msgstr "वह ईमेल पता दर्ज करें जिससे अधिसूचना भेजनी है"
 
 #: setup.php
-#, fuzzy
 msgid "Notification List"
-msgstr "अधिसूचना सूची"
+msgstr "सूचना सूची"
 
 #: setup.php
-#, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
-msgstr "नीचे एक अधिसूचना सूची का चयन करें। अधिसूचना सूची में शामिल सभी ईमेल को अधिसूचित किया जाएगा।"
+msgstr "नीचे एक सूचना सूची चुनें। सूचना सूची की सदस्यता लेने वाले सभी ईमेल को सूचित किया जाएगा।"
 
 #: setup.php
-#, fuzzy
 msgid "Email Addresses"
-msgstr "ईमेल पता"
+msgstr "ईमेल पते"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
-msgstr "रीबूट ईवेंट की सूचना देने के लिए ईमेल पतों की अल्पविराम सीमांकित सूची दर्ज करें।"
+msgstr "रीबूट घटना की सूचना देने के लिए ईमेल पतों की अल्पविराम-सीमांकित सूची दर्ज करें।"
 
 #: setup.php
 msgid "Server"
-msgstr ""
+msgstr "सर्वर"
 
 #: setup.php
 msgid "Printer"
-msgstr ""
+msgstr "प्रिंटर"
 
 #: setup.php
 msgid "Desktop PC"
-msgstr ""
+msgstr "डेस्कटॉप PC"
 
 #: setup.php
 msgid "Laptop/notebook"
-msgstr ""
+msgstr "लैपटॉप/नोटबुक"
 
 #: setup.php
 msgid "Wifi"
-msgstr ""
+msgstr "वाई-फ़ाई"
 
 #: setup.php
 msgid "Wired network"
-msgstr ""
+msgstr "वायर्ड नेटवर्क"
 
 #: setup.php
 msgid "Database"
-msgstr ""
+msgstr "डाटाबेस"
 
 #: setup.php
 msgid "Clock"
-msgstr ""
+msgstr "घड़ी"
 
 #: setup.php
 msgid "Asterisk"
-msgstr ""
+msgstr "एस्टेरिस्क (Asterisk)"
 
 #: setup.php
 msgid "Harddisk"
-msgstr ""
+msgstr "हार्ड डिस्क"
 
 #: setup.php
 msgid "Boxes"
-msgstr ""
+msgstr "बॉक्स"
 
 #: setup.php
 msgid "Phone"
-msgstr ""
+msgstr "फ़ोन"
 
 #: setup.php
 msgid "Cloud"
-msgstr ""
+msgstr "क्लाउड"
 
 #: setup.php
-#, fuzzy
 msgid "Do not Change"
-msgstr "कभी मत बदलना"
+msgstr "परिवर्तन न करें"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Percent Above Average"
-msgstr "औसत से ऊपर% d प्रतिशत"
+msgstr "औसत से %d प्रतिशत अधिक"
 
 #: setup.php
-#, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "डिवाइस मॉनिटरिंग सेटिंग्स"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Device"
-msgstr "मॉनिटर डिवाइस"
+msgstr "डिवाइस मॉनिटर करें"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr "इस डिवाइस को मॉनिटर टैब पर मॉनिटर करने के लिए इस बॉक्स को देखें।"
+msgstr "मॉनिटर टैब पर इस डिवाइस की निगरानी करने के लिए इस बॉक्स को चुनें।"
 
 #: setup.php
-#, fuzzy
 msgid "Device Criticality"
-msgstr "डिवाइस की आलोचना"
+msgstr "डिवाइस गंभीरता"
 
 #: setup.php
-#, fuzzy
 msgid "What is the Criticality of this Device."
-msgstr "इस डिवाइस की आलोचना क्या है।"
+msgstr "इस डिवाइस की गंभीरता (Criticality) क्या है।"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Warning Threshold"
 msgstr "पिंग चेतावनी थ्रेसहोल्ड"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "यदि पूर्व-निर्धारित कैक्टि पिंग विधियों में से किसी के माध्यम से राउंड-ट्रिप विलंबता इस सीमा से ऊपर उठती है, तो डिवाइसेस क्रिटिसिटी और मॉनिटर सेटिंग के आधार पर एक चेतावनी लॉग करें या ईमेल भेजें। इकाई मिलीसेकंड में है। 0 अस्तबल में सेट करना। इस कार्यशीलता का लाभ उठाने के लिए थ्रिल प्लगिन की आवश्यकता होती है।"
+msgstr "यदि किसी पूर्वनिर्धारित Cacti पिंग विधि के माध्यम से राउंड-ट्रिप विलंबता इस थ्रेशोल्ड से ऊपर जाती है, तो डिवाइस की गंभीरता और मॉनिटर सेटिंग के आधार पर चेतावनी लॉग करें या ईमेल भेजें। इसकी इकाई मिलीसेकंड में है। 0 पर सेट करने से यह अक्षम हो जाता है। इस कार्यक्षमता का उपयोग करने के लिए Thold प्लगइन आवश्यक है।"
 
 #: setup.php
-#, fuzzy
 msgid "milliseconds"
-msgstr "मिलीसेकेंड"
+msgstr "मिलीसेकंड"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Alert Threshold"
 msgstr "पिंग अलर्ट थ्रेसहोल्ड"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "यदि किसी पूर्वनिर्धारित कैक्टि पिंग विधियों के माध्यम से गोल-यात्रा विलंबता इस दहलीज से ऊपर उठती है, तो एक चेतावनी लॉग करें या डिवाइसेस क्रिटिसिटी और मॉनिटर सेटिंग के आधार पर ईमेल भेजें। इकाई मिलीसेकंड में है। 0 अस्तबल में सेट करना। इस कार्यशीलता का लाभ उठाने के लिए थ्रिल प्लगिन की आवश्यकता होती है।"
+msgstr "यदि किसी पूर्वनिर्धारित Cacti पिंग विधि के माध्यम से राउंड-ट्रिप विलंबता इस थ्रेशोल्ड से ऊपर जाती है, तो डिवाइस की गंभीरता और मॉनिटर सेटिंग के आधार पर अलर्ट लॉग करें या ईमेल भेजें। इसकी इकाई मिलीसेकंड में है। 0 पर सेट करने से यह अक्षम हो जाता है। इस कार्यक्षमता का उपयोग करने के लिए Thold प्लगइन आवश्यक है।"
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Warning"
-msgstr "फिर से आधारभूत चेतावनी"
+msgstr "री-बेसलाइन चेतावनी"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
-msgstr "चेतावनी थ्रेसहोल्ड पर विचार करने के लिए वर्तमान औसत पिंग समय के ऊपर प्रतिशत। यदि अद्यतन किया जाता है, तो यह स्वचालित रूप से पिंग चेतावनी थ्रेसहोल्ड को समायोजित करेगा।"
+msgstr "चेतावनी थ्रेशहोल्ड मानने के लिए वर्तमान औसत पिंग समय से ऊपर का प्रतिशत। यदि इसे अपडेट किया जाता है, तो यह स्वचालित रूप से पिंग चेतावनी थ्रेशहोल्ड को समायोजित कर देगा।"
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Alert"
 msgstr "री-बेसलाइन अलर्ट"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
-msgstr "अलर्ट थ्रेसहोल्ड पर विचार करने के लिए वर्तमान औसत पिंग समय से ऊपर प्रतिशत। यदि अद्यतन किया जाता है, तो यह स्वचालित रूप से पिंग अलर्ट थ्रेसहोल्ड को समायोजित करेगा।"
+msgstr "अलर्ट थ्रेशहोल्ड मानने के लिए वर्तमान औसत पिंग समय से ऊपर का प्रतिशत। यदि इसे अपडेट किया जाता है, तो यह स्वचालित रूप से पिंग अलर्ट थ्रेशहोल्ड को समायोजित कर देगा।"
 
 #: setup.php
-#, fuzzy
 msgid "Down Device Message"
-msgstr "डिवाइस संदेश नीचे"
+msgstr "डाउन डिवाइस संदेश"
 
 #: setup.php
-#, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
-msgstr "यह संदेश है जो इस उपकरण के नीचे बताए जाने पर प्रदर्शित किया जाएगा।"
+msgstr "यह वह संदेश है जो इस डिवाइस के डाउन होने की रिपोर्ट मिलने पर प्रदर्शित किया जाएगा।"
 
 #: setup.php
-#, fuzzy
 msgid "Device icon"
-msgstr "उपकरणः"
+msgstr "डिवाइस आइकन"
 
 #: setup.php
 msgid "You can select device icon."
-msgstr ""
+msgstr "आप डिवाइस आइकन चुन सकते हैं।"
 
 #: setup.php
-#, fuzzy
 msgid "Monitoring"
 msgstr "निगरानी"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "इन डिवाइस पर मॉनिटरिंग सक्षम करने के लिए 'जारी रखें' पर क्लिक करें"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "इन डिवाइस पर मॉनिटरिंग अक्षम करने के लिए 'जारी रखें' पर क्लिक करें"
 
 #, fuzzy
 #~ msgid "Not Monitored Devices"

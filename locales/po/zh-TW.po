@@ -14,18 +14,16 @@ msgstr ""
 "X-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
-#, fuzzy
 msgid "New Dashboard"
-msgstr "新儀表板"
+msgstr "新增儀表板"
 
 #: includes/controller.php
 msgid "Dashboard"
 msgstr "控制台"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "輸入儀表板名稱，然後按“保存”繼續，否則按“取消”"
+msgstr "輸入儀表板名稱，然後按下「儲存」繼續，或按下「取消」"
 
 #: includes/controller.php
 msgid "Create New Dashboard"
@@ -36,9 +34,8 @@ msgid "Monitored Devices"
 msgstr "監控的設備"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Unsaved"
-msgstr "未保存"
+msgstr "未儲存"
 
 #: includes/controller.php
 msgid "Layout"
@@ -46,26 +43,23 @@ msgstr "佈局"
 
 #: includes/controller.php
 msgid "Show"
-msgstr ""
+msgstr "顯示"
 
 #: includes/controller.php setup.php
-#, fuzzy
 msgid "View"
-msgstr "查看"
+msgstr "檢視"
 
 #: includes/controller.php setup.php
 msgid "Grouping"
 msgstr "商品群組"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Refresh"
 msgstr "重新整理"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Refresh the Device List"
-msgstr "刷新設備列表"
+msgstr "重新整理裝置清單"
 
 #: includes/controller.php
 msgid "Clear"
@@ -73,161 +67,139 @@ msgstr "清除"
 
 #: includes/controller.php
 msgid "Clear the set filter"
-msgstr ""
+msgstr "清除已設定的篩選器"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save"
 msgstr "儲存"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save Filter Settings"
-msgstr "保存過濾器設置"
+msgstr "儲存篩選器設定"
 
 #: includes/controller.php
-#, fuzzy
 msgid "New"
 msgstr "新增"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save New Dashboard"
-msgstr "保存新儀錶盤"
+msgstr "儲存新儀表板"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Rename"
 msgstr "重新命名"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Rename Dashboard"
-msgstr "重命名儀表板"
+msgstr "重新命名儀表板"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Delete"
 msgstr "刪除"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Delete Dashboard"
 msgstr "刪除儀表板"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alert for downed Devices"
-msgstr "％s已停止設備的警報"
+msgstr "%s 個已離線裝置的警報"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alerts for downed Devices"
-msgstr "％s已停機設備的警報"
+msgstr "%s 個已離線裝置的警報"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Devices"
-msgstr "設備"
+msgstr "裝置"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
-msgstr ""
+msgstr "前往「裝置」管理頁面"
 
 #: includes/controller.php includes/render.php poller_functions.php setup.php
-#, fuzzy
 msgid "Criticality"
-msgstr "臨界"
+msgstr "重要程度"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Size"
-msgstr "尺寸"
+msgstr "大小"
 
 #: includes/controller.php
 msgid "Trim"
 msgstr "特林"
 
 #: includes/controller.php
-#, fuzzy
 msgid "All Trees"
-msgstr "所有樹木"
+msgstr "所有樹狀目錄"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Tree Devices"
-msgstr "非樹設備"
+msgstr "非樹狀目錄裝置"
 
 #: includes/controller.php monitor.php setup.php
-#, fuzzy
 msgid "Tree"
-msgstr "樹"
+msgstr "樹狀目錄"
 
 #: includes/controller.php
 msgid "All Sites"
 msgstr "所有網站"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Site Devices"
-msgstr "非樹設備"
+msgstr "非站台裝置"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Sites"
-msgstr "網站"
+msgstr "站台"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Templated Devices"
-msgstr "非模板化設備"
+msgstr "非範本化裝置"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Template"
-msgstr "模板"
+msgstr "範本"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Templates"
-msgstr "模板"
+msgstr "範本"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr ""
+msgstr "列數"
 
 #: includes/controller.php
-#, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "[已保存過濾器設置]"
+msgstr " [ 已儲存篩選器設定 ]"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Cancel"
 msgstr "取消"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr ""
+msgstr "正在載入..."
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Device Detail Panels"
-msgstr "設備模板"
+msgstr "裝置詳細資訊面板"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[再次刷新<i id=\"timer\">％d</i>秒]"
+msgstr " [ 將於 <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> 秒後再次重新整理 ]"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "監控過濾器[上次刷新：％s]"
+msgstr "監控篩選器 [ 上次重新整理：%s ]"
 
 #: includes/controller.php
 msgid "[ Showing only first 30 Devices ]"
-msgstr ""
+msgstr "[ 僅顯示前 30 個裝置 ]"
 
 #: includes/controller.php
 msgid "Search"
@@ -235,7 +207,7 @@ msgstr "搜尋"
 
 #: includes/controller.php includes/render.php
 msgid "Events"
-msgstr ""
+msgstr "事件"
 
 #: includes/controller.php
 msgid "Mute"
@@ -246,461 +218,407 @@ msgid "Acknowledge"
 msgstr "確認"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Un-Mute"
 msgstr "取消靜音"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Reset"
-msgstr "重置"
+msgstr "重設"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' Removed."
-msgstr "儀表板'%s'已刪除。"
+msgstr "已移除儀表板 '%s'。"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' is not owned by you."
-msgstr "儀表板“ %s”不歸您所有。"
+msgstr "儀表板 '%s' 不屬於您。"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr "儀表板“ %s”已保存！"
+msgstr "已儲存儀表板 '%s'！"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr "儀表板“ %s”無法保存！"
+msgstr "無法儲存儀表板 '%s'！"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Edit Device"
-msgstr "編輯設備"
+msgstr "編輯裝置"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "View Graphs"
-msgstr "查看圖表"
+msgstr "檢視圖表"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Thresholds/Alerts"
-msgstr "查看閾值"
+msgstr "檢視閾值／警示"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Alerts"
-msgstr "查看Syslog警報"
+msgstr "檢視裝置 Syslog 警示"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Entries"
-msgstr "查看Syslog警報"
+msgstr "檢視裝置 Syslog 項目"
 
 #: includes/controller.php
 msgid "View Failing Service Check"
-msgstr ""
+msgstr "檢視失敗的服務檢查"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Status Information"
-msgstr "設備狀態信息"
+msgstr "裝置狀態資訊"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device:"
 msgstr "裝置："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Site:"
-msgstr "網站："
+msgstr "站台："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Location:"
-msgstr "地點:"
+msgstr "位置："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Criticality:"
-msgstr "重要性："
+msgstr "重要程度："
 
 #: includes/controller.php
 msgid "Status:"
 msgstr "狀態："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Admin Note:"
-msgstr "管理員注意："
+msgstr "管理員備註："
 
 #: includes/controller.php
-#, fuzzy
 msgid "IP/Hostname:"
-msgstr "IP /主機名："
+msgstr "IP/主機名稱："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Curr/Avg:"
-msgstr "CURR /平均："
+msgstr "目前/平均："
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d ms"
-msgstr "％d ms"
+msgstr "%d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Warn/Alert:"
-msgstr "警告/警報："
+msgstr "警告／警示："
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2d ms"
-msgstr "％0.2d ms"
+msgstr "%0.2d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Last Fail:"
-msgstr "最後的失敗："
+msgstr "上次失敗："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Time In State:"
-msgstr "國家時間："
+msgstr "處於狀態時間："
 
 #: includes/controller.php
 msgid "Availability:"
 msgstr "可用性："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Agent Uptime:"
-msgstr "代理正常運行時間"
+msgstr "代理程式運作時間："
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
 msgstr "N/A"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Sys Description:"
 msgstr "系統描述："
 
 #: includes/controller.php
-#, fuzzy
 msgid "Contact:"
-msgstr "聯繫方式："
+msgstr "聯絡資訊："
 
 #: includes/controller.php
 msgid "Notes:"
 msgstr "筆記："
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Never"
 msgstr "從不"
 
 #: includes/controller.php
 msgid "Unspecified"
-msgstr ""
+msgstr "未指定"
 
 #: includes/controller.php includes/render.php setup.php
-#, fuzzy
 msgid "None"
 msgstr "無"
 
 #: includes/controller.php
 msgid "SNMP and Ping"
-msgstr ""
+msgstr "SNMP 與 Ping"
 
 #: includes/controller.php
-#, fuzzy
 msgid "SNMP Uptime"
-msgstr "顯示正常運行時間"
+msgstr "SNMP 運作時間"
 
 #: includes/controller.php
 msgid "Ping"
-msgstr ""
+msgstr "Ping"
 
 #: includes/controller.php
 msgid "SNMP or Ping"
-msgstr ""
+msgstr "SNMP 或 Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr ""
+msgstr "SNMP Get SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
-msgstr ""
+msgstr "SNMP Get Next"
 
 #: includes/controller.php
 #, php-format
 msgid "Method %d"
-msgstr ""
+msgstr "方法 %d"
 
 #: includes/controller.php includes/render.php poller_functions.php
-#, fuzzy
 msgid "Description"
 msgstr "描述"
 
 #: includes/controller.php poller_functions.php
-#, fuzzy
 msgid "Hostname"
 msgstr "主機名稱"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Status"
 msgstr "狀態"
 
 #: includes/controller.php includes/render.php monitor.php
-#, fuzzy
 msgid "Site"
-msgstr "網站"
+msgstr "站台"
 
 #: includes/controller.php monitor.php setup.php
-#, fuzzy
 msgid "Device Template"
-msgstr "設備模板"
+msgstr "裝置範本"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Location"
-msgstr "地點:"
+msgstr "位置"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Contact"
-msgstr "聯繫方式："
+msgstr "聯絡資訊"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Notes"
 msgstr "備註"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Host Information"
-msgstr "設備狀態信息"
+msgstr "主機資訊"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Availability Method"
-msgstr "可用性"
+msgstr "可用性檢查方法"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2f ms"
-msgstr "％0.2d ms"
+msgstr "%0.2f ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Current / Average Ping"
-msgstr "目前的Ping"
+msgstr "目前 / 平均 Ping"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr ""
+msgstr "最小 / 最大 Ping"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Availability"
 msgstr "可用性"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
-msgstr ""
+msgstr "總計 / 失敗輪詢次數"
 
 #: includes/controller.php
 msgid "In Current Status Since"
-msgstr ""
+msgstr "目前狀態起始時間"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Last Fail"
-msgstr "最後的失敗"
+msgstr "上次失敗"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr ""
+msgstr "資料收集"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
-#, fuzzy
 msgid "Disabled"
-msgstr "停用"
+msgstr "已停用"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr ""
+msgstr "失敗中"
 
 #: includes/controller.php
 msgid "Not tested"
-msgstr ""
+msgstr "未測試"
 
 #: includes/controller.php
 msgid "OK"
-msgstr ""
+msgstr "正常"
 
 #: includes/controller.php includes/render.php
 msgid "Service Checks"
-msgstr ""
+msgstr "服務檢查"
 
 #: includes/controller.php
 #, php-format
 msgid "Threshold %d"
-msgstr ""
+msgstr "閾值 %d"
 
 #: includes/controller.php includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered"
-msgstr "觸發"
+msgstr "已觸發"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Thresholds"
-msgstr "查看閾值"
+msgstr "閾值"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
-msgstr ""
+msgstr "過去一小時內沒有 syslog 訊息。"
 
 #: includes/controller.php
 msgid "Syslog (last hour)"
-msgstr ""
+msgstr "Syslog (過去一小時)"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Open Actual Device"
-msgstr "設備"
+msgstr "開啟實際裝置"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Links"
-msgstr "裝置："
+msgstr "裝置連結"
 
 #: includes/render.php
-#, fuzzy
 msgid "Non-Site Device"
-msgstr "非樹設備"
+msgstr "非站台裝置"
 
 #: includes/render.php
-#, fuzzy
 msgid "Root Branch"
-msgstr "根科"
+msgstr "根分支"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Tree: %s"
-msgstr "樹"
+msgstr "樹狀目錄：%s"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Branch: %s"
-msgstr "分支：％s"
+msgstr "分支：%s"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Unknown"
 msgstr "未知"
 
 #: includes/render.php
-#, fuzzy
 msgid "Just Up"
-msgstr "剛起來"
+msgstr "剛恢復運作"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Down"
-msgstr "向下"
+msgstr "離線"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Recovering"
 msgstr "正在復原"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Down (M/A)"
-msgstr "向下（靜音/罷工）"
+msgstr "離線 (靜音/已確認)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered (M/A)"
-msgstr "向下（靜音/罷工）"
+msgstr "已觸發 (M/A)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Warn Ping"
-msgstr "警告"
+msgstr "警告 Ping"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Alert Ping"
-msgstr "警報Ping"
+msgstr "警報 Ping"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr ""
+msgstr "失敗服務"
 
 #: includes/render.php
-#, fuzzy
 msgid "Actions"
-msgstr "地點:"
+msgstr "動作"
 
 #: includes/render.php
 msgid "Open the device detail panels"
-msgstr ""
+msgstr "開啟裝置詳細資訊面板"
 
 #: includes/render.php
 msgid "Device description as set on the Devices page"
-msgstr ""
+msgstr "在裝置頁面上設定的裝置描述"
 
 #: includes/render.php
 msgid "Physical location recorded for the device"
-msgstr ""
+msgstr "為裝置記錄的實體位置"
 
 #: includes/render.php
 msgid "Site the device is assigned to"
-msgstr ""
+msgstr "裝置所指派的站台"
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: includes/render.php
 msgid "Cacti internal device id"
-msgstr ""
+msgstr "Cacti 內部裝置 ID"
 
 #: includes/render.php
 msgid "Monitoring criticality assigned to the device"
-msgstr ""
+msgstr "指派給裝置的監控重要程度"
 
 #: includes/render.php
 msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
-msgstr ""
+msgstr "裝置上的作用中事件（離線、已觸發、警告/警示 Ping、服務失敗等）；按一下膠囊標籤即可在「事件」篩選器中新增或移除該事件"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
-msgstr ""
+msgstr "裝置上已超過閾值 / 已觸發 / 總計閾值（thold 外掛程式）；按一下即可切換「已觸發」事件篩選器"
 
 #: includes/render.php
 msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "裝置的失敗 / 總計服務檢查數 (servcheck 外掛程式)；按一下即可切換「失敗服務」事件篩選條件"
 
 #: includes/render.php
-#, fuzzy
 msgid "Warning"
 msgstr "警告"
 
 #: includes/render.php
 msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
-msgstr ""
+msgstr "為此裝置設定的 Ping 延遲警告 / 警示閾值（毫秒）；當回應時間超過這些閾值時會發出通知"
 
 #: includes/render.php
 msgid "Admin"
@@ -708,70 +626,67 @@ msgstr "管理員"
 
 #: includes/render.php
 msgid "Administrative monitor message shown while the device is Down or Recovering"
-msgstr ""
+msgstr "當裝置處於離線或復原中狀態時顯示的管理員監視訊息"
 
 #: includes/render.php
 msgid "Percentage of successful availability checks over the retained history"
-msgstr ""
+msgstr "在保留的歷史記錄期間內，可用性檢查成功的百分比"
 
 #: includes/render.php
-#, fuzzy
 msgid "Averages"
 msgstr "平均值"
 
 #: includes/render.php
 msgid "Current / average ping response time in milliseconds"
-msgstr ""
+msgstr "目前 / 平均 Ping 回應時間（毫秒）"
 
 #: includes/render.php
-#, fuzzy
 msgid "Length in Status"
-msgstr "狀態長度"
+msgstr "狀態持續時間"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
-msgstr ""
+msgstr "裝置處於目前狀態的時間長度"
 
 #: includes/render.php
 msgid "Date and time the device last failed its availability check"
-msgstr ""
+msgstr "裝置上次可用性檢查失敗的日期與時間"
 
 #: includes/render.php
 msgid "Filter by this criticality (click again to clear)"
-msgstr ""
+msgstr "依此嚴重程度篩選 (再按一下即可清除)"
 
 #: includes/render.php
 msgid "Criticality not set - click to filter unset devices (click again to clear)"
-msgstr ""
+msgstr "未設定重要性 - 按一下以篩選未設定的裝置（再按一次即可清除）"
 
 #: includes/render.php
-#, fuzzy
 msgid "Not Set"
-msgstr "不起來"
+msgstr "未設定"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
-msgstr ""
+msgstr "按一下以從篩選器新增或移除此事件"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
-msgstr ""
+msgstr "已違反 / 已觸發 / 總閾值數 - 按一下以切換「已觸發」事件篩選器"
 
 #: includes/render.php
 msgid "No thresholds defined for this device"
-msgstr ""
+msgstr "此裝置未定義任何閾值"
 
 #: includes/render.php
 msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "失敗 / 總計服務檢查數 - 按一下即可切換「失敗服務」事件篩選條件"
 
 #: includes/render.php
 msgid "No service checks defined for this device"
-msgstr ""
+msgstr "未為此裝置定義服務檢查"
 
 #: monitor.php
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -786,38 +701,32 @@ msgid "High"
 msgstr "高"
 
 #: monitor.php poller_functions.php setup.php
-#, fuzzy
 msgid "Mission Critical"
 msgstr "關鍵任務"
 
 #: monitor.php
-#, fuzzy
 msgid "Up"
-msgstr "向上"
+msgstr "運作中"
 
 #: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
-msgstr "向下（靜音/罷工）"
+msgstr "已觸發（已靜音／已確認）"
 
 #: monitor.php
-#, fuzzy
 msgid "Down (Muted/Acked)"
-msgstr "向下（靜音/罷工）"
+msgstr "離線 (靜音/已確認)"
 
 #: monitor.php
-#, fuzzy
 msgid "No Availability Check"
 msgstr "無可用性檢查"
 
 #: monitor.php
-#, fuzzy
 msgid "Warning Ping"
-msgstr "警告Ping"
+msgstr "警告 Ping"
 
 #: monitor.php
 msgid "Service Check Failed"
-msgstr ""
+msgstr "服務檢查失敗"
 
 #: monitor.php
 msgid "Extra Small"
@@ -836,32 +745,28 @@ msgid "Extra Large"
 msgstr "超大"
 
 #: monitor.php
-#, fuzzy
 msgid "Zoom"
 msgstr "縮放"
 
 #: monitor.php
-#, fuzzy
 msgid "All Monitored Devices"
-msgstr "所有受監控的設備"
+msgstr "所有受監控的裝置"
 
 #: monitor.php
-#, fuzzy
 msgid "All Devices"
-msgstr "設備"
+msgstr "所有裝置"
 
 #: monitor.php
-#, fuzzy
 msgid "Devices not Monitored"
-msgstr "設備監控設置"
+msgstr "未監控的裝置"
 
 #: monitor.php
 msgid "Devices without Thresholds"
-msgstr ""
+msgstr "沒有閾值的裝置"
 
 #: monitor.php
 msgid "Devices without Service Checks"
-msgstr ""
+msgstr "沒有服務檢查的裝置"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -876,80 +781,67 @@ msgid "Tiles"
 msgstr "瓷磚"
 
 #: monitor.php
-#, fuzzy
 msgid "Tiles & Time"
-msgstr "瓷磚和時間"
+msgstr "圖磚與時間"
 
 #: monitor.php
 msgid "Full"
 msgstr "完整"
 
 #: monitor.php
-#, fuzzy
 msgid "10 Chars"
-msgstr "10個字符"
+msgstr "10 個字元"
 
 #: monitor.php
-#, fuzzy
 msgid "20 Chars"
-msgstr "20個字符"
+msgstr "20 個字元"
 
 #: monitor.php
-#, fuzzy
 msgid "30 Chars"
-msgstr "30個字符"
+msgstr "30 個字元"
 
 #: monitor.php
-#, fuzzy
 msgid "40 Chars"
-msgstr "40個字符"
+msgstr "40 個字元"
 
 #: monitor.php
-#, fuzzy
 msgid "50 Chars"
-msgstr "50個字符"
+msgstr "50 個字元"
 
 #: monitor.php
-#, fuzzy
 msgid "75 Chars"
-msgstr "75個字符"
+msgstr "75 個字元"
 
 #: monitor.php
-#, fuzzy
 msgid "100 Chars"
-msgstr "100個字符"
+msgstr "100 個字元"
 
 #: poller_functions.php
 msgid "Description: "
 msgstr "描述："
 
 #: poller_functions.php
-#, fuzzy
 msgid "Hostname: "
 msgstr "主機名稱："
 
 #: poller_functions.php
-#, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr "以下報告將識別已超過其ping延遲閾值的設備。您收到此報告，因為您訂閱了與位於以下URL的Cacti系統相關聯的設備。"
+msgstr "以下報告將列出已超過 Ping 延遲閾值的裝置。您之所以會收到此報告，是因為您訂閱了與位於下方 URL 的 Cacti 系統相關聯的裝置。"
 
 #: poller_functions.php
-#, fuzzy
 msgid "Cacti Monitoring Site"
-msgstr "更改監控選項"
+msgstr "Cacti 監控站台"
 
 #: poller_functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
-msgstr "如果設備高於其閾值，您將每隔％d分鐘收到通知。"
+msgstr "如果裝置高於其閾值，您將每隔 %d 分鐘收到通知。"
 
 #: poller_functions.php
-#, fuzzy
 msgid "You will receive notifications every time the Device is above its threshold."
-msgstr "每次設備高於其閾值時，您都會收到通知。"
+msgstr "每次裝置高於其閾值時，您都會收到通知。"
 
 #: setup.php
-#, fuzzy
 msgid "Any"
 msgstr "任何"
 
@@ -959,510 +851,442 @@ msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "點擊“繼續”以對這些設備進行％s監控"
 
 #: setup.php
-#, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
-msgstr "單擊“繼續”以更改以下設備的監控設置。請記得選中“更新此字段”以指明要更新的列。"
+msgstr "按一下「繼續」以變更下列裝置的監控設定。請記得勾選「更新此欄位」，以指定要更新哪些欄位。"
 
 #: setup.php
-#, fuzzy
 msgid "Update this Field"
-msgstr "更新此字段"
+msgstr "更新此欄位"
 
 #: setup.php
-#, fuzzy
 msgid "Change Monitoring Options"
-msgstr "更改監控選項"
+msgstr "變更監控選項"
 
 #: setup.php
 msgid "Enable Monitoring"
 msgstr "啟用監控"
 
 #: setup.php
-#, fuzzy
 msgid "Disable Monitoring"
-msgstr "禁用監控"
+msgstr "停用監控"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinitely"
-msgstr "無限期地"
+msgstr "無限期"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "%d月"
+msgstr "%d 個月"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "%d個月"
+msgstr "%d 個月"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "%d年"
+msgstr "%d 年"
 
 #: setup.php
-#, fuzzy
 msgid "Normal User"
-msgstr "普通用戶"
+msgstr "一般使用者"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Settings"
-msgstr "監控設置"
+msgstr "監控設定"
 
 #: setup.php
-#, fuzzy
 msgid "Alarm Sound"
-msgstr "鬧鈴聲"
+msgstr "警報音效"
 
 #: setup.php
-#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
-msgstr "這是設備發生故障時播放的聲音文件。"
+msgstr "這是裝置離線時將會播放的音效檔案。"
 
 #: setup.php
-#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr "鬧鈴聲"
+msgstr "循環播放警報音效"
 
 #: setup.php
-#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "這是設備發生故障時播放的聲音文件。"
+msgstr "當裝置離線時循環播放上述音效。"
 
 #: setup.php
-#, fuzzy
 msgid "Show Icon Legend"
-msgstr "顯示圖標圖例"
+msgstr "顯示圖示圖例"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
+msgstr "勾選此項目以在 Monitor 顯示畫面上顯示圖示圖例"
 
 #: setup.php
-#, fuzzy
 msgid "Show Uptime"
-msgstr "顯示正常運行時間"
+msgstr "顯示運作時間"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
+msgstr "勾選此項目以在 Monitor 顯示畫面上顯示運作時間"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom to Errors"
-msgstr "放大到錯誤"
+msgstr "縮放至錯誤項目"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "選中此選項可在監視器顯示屏上顯示圖標圖例"
+msgstr "勾選此項目以在 Monitor 顯示畫面上縮放至發生錯誤的項目"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Background"
 msgstr "縮放背景"
 
 #: setup.php
-#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr "監視器顯示屏上縮放錯誤的背景顏色"
+msgstr "Monitor 顯示畫面上縮放錯誤的背景色彩"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Fontsize"
-msgstr "縮放字體"
+msgstr "縮放字型大小"
 
 #: setup.php
 msgid "Monitor"
 msgstr "監控"
 
 #: setup.php
-#, fuzzy
 msgid "Enable on new devices"
-msgstr "在新設備上啟用"
+msgstr "在新裝置上啟用"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
-msgstr "選中此選項可在創建新設備時自動啟用監控"
+msgstr "勾選此項目以在建立新裝置時自動啟用監控"
 
 #: setup.php
-#, fuzzy
 msgid "Notification/Reboot Log Retention"
 msgstr "通知/重新啟動日誌保留"
 
 #: setup.php
-#, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
-msgstr "保持通知並重新啟動日誌這幾天。"
+msgstr "保留通知與重新啟動日誌的天數。"
 
 #: setup.php
-#, fuzzy
 msgid "Refresh Interval"
-msgstr "刷新間隔"
+msgstr "重新整理間隔"
 
 #: setup.php
-#, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr "這是頁面刷新前的秒數。 （1  -  300）"
+msgstr "這是頁面重新整理前的秒數。(1 - 300)"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will Group Devices."
-msgstr "這就是監視器組設備的方式。"
+msgstr "這是 Monitor 將裝置分組的方式。"
 
 #: setup.php
-#, fuzzy
 msgid "Default with permissions"
-msgstr "默認有權限"
+msgstr "預設（含權限）"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will render Devices."
-msgstr "這是監視器呈現設備的方式。"
+msgstr "這是 Monitor 呈現裝置的方式。"
 
 #: setup.php
 msgid "Names only"
-msgstr ""
+msgstr "僅顯示名稱"
 
 #: setup.php
-#, fuzzy
 msgid "Tiles & Downtime"
-msgstr "瓷磚和停機時間"
+msgstr "圖磚與停機時間"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Report Format"
 msgstr "通知報告格式"
 
 #: setup.php
-#, fuzzy
 msgid "Format File to Use"
-msgstr "格式化文件以使用"
+msgstr "要使用的格式檔案"
 
 #: setup.php
-#, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "選擇要使用的自定義html包裝器和CSS文件。此文件包含用於包裝報表的html和CSS。如果它不僅包含CSS，那麼您需要放置一個特殊的<REPORT>標籤裡面的文件。此格式標記將替換為報告內容。這些文件位於“formats”目錄中。"
+msgstr "選擇要使用的自訂 HTML 包裝與 CSS 檔案。此檔案包含用於包覆報表的 HTML 與 CSS。若檔案內容不僅止於 CSS，您必須在檔案內放入一個特殊的 <REPORT> 標籤，此格式標籤將會被替換為報表內容。這些檔案位於「formats」目錄中。"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Threshold Notifications"
-msgstr "Ping閾值通知"
+msgstr "Ping 閾值通知"
 
 #: setup.php
-#, fuzzy
 msgid "Warning Latency Notification"
-msgstr "警告延遲通知"
+msgstr "延遲警告通知"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "如果設備的巡航Ping延遲高於警告閾值且高於以下嚴重性，則訂閱設備的電子郵件將收到電子郵件通知。選擇“已禁用”以禁用。需要Thold插件才能啟用此功能。"
+msgstr "如果裝置的來回 Ping 延遲高於警告閾值且高於下方的嚴重性等級，訂閱該裝置的電子郵件將會收到電子郵件通知。選擇「已停用」即可停用。需要 Thold 外掛程式才能啟用此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "Alert Latency Notification"
 msgstr "警報延遲通知"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "如果設備的響鈴Ping延遲高於警報閾值且高於以下嚴重性，則訂閱設備的電子郵件將收到電子郵件通知。選擇“已禁用”以禁用。需要Thold插件才能啟用此功能。"
+msgstr "如果裝置的來回 Ping 延遲高於警報閾值且高於下方的嚴重性等級，訂閱該裝置的電子郵件將會收到電子郵件通知。選擇「已停用」即可停用。需要 Thold 外掛程式才能啟用此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "How Often to Resend Emails"
-msgstr "重發電子郵件的頻率"
+msgstr "重新傳送電子郵件的頻率"
 
 #: setup.php
-#, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr "如果電子郵件通知超過其延遲閾值，應該多久向這些設備的訂閱者發送通知"
+msgstr "若這些裝置超過其延遲閾值，應多久向訂閱者發送一次電子郵件通知"
 
 #: setup.php
-#, fuzzy
 msgid "Every Occurrence"
-msgstr "每次出現"
+msgstr "每次發生"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Minutes"
 msgstr "每 %d 分鐘"
 
 #: setup.php
-#, fuzzy
 msgid "Every Hour"
-msgstr "每隔一小時"
+msgstr "每小時"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
-msgstr "每個 %d 小時"
+msgstr "每 %d 小時"
 
 #: setup.php
-#, fuzzy
 msgid "Reboot Notifications"
 msgstr "重新啟動通知"
 
 #: setup.php
-#, fuzzy
 msgid "Send Reboot Notifications"
-msgstr "發送重啟通知"
+msgstr "傳送重新啟動通知"
 
 #: setup.php
-#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
-msgstr "是否應將設備重新啟動通知發送給用戶？"
+msgstr "是否應將裝置重新啟動通知傳送給使用者？"
 
 #: setup.php
-#, fuzzy
 msgid "Send one Email to all addresses"
-msgstr "電子郵件信箱"
+msgstr "將單封電子郵件傳送給所有位址"
 
 #: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
-msgstr ""
+msgstr "如果勾選，系統將只發送一封電子郵件給所有位址。"
 
 #: setup.php
-#, fuzzy
 msgid "Include Threshold Alert Lists"
-msgstr "包括閾值警報列表"
+msgstr "包含閾值警報清單"
 
 #: setup.php
-#, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "閾值警報列表是否也會收到通知"
+msgstr "閾值警報清單是否也應接收通知"
 
 #: setup.php
-#, fuzzy
 msgid "Subject"
 msgstr "主旨"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr "輸入Reboot Nofication的Reboot消息主題。"
+msgstr "輸入重新啟動通知的重新啟動訊息主旨。"
 
 #: setup.php
-#, fuzzy
 msgid "Cacti Device Reboot Notification"
-msgstr "仙人掌設備重啟Nofication"
+msgstr "Cacti 裝置重新開機通知"
 
 #: setup.php
 msgid "Email Body"
 msgstr "郵件內文"
 
 #: setup.php
-#, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "輸入要包含在“重新啟動通知”消息中的電子郵件正文。目前，唯一支持的替換標籤是&lt;DETAILS&gt;"
+msgstr "輸入要包含在重新啟動通知訊息中的電子郵件內文。目前唯一支援的取代標籤為 &#060;DETAILS&#062;"
 
 #: setup.php
-#, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
-msgstr "<h1>監控重啟通知</h1><p>以下設備已重新啟動。有關其他信息，請參閱以下詳細</p><br><DETAILS>"
+msgstr "<h1>Monitor 重新開機通知</h1><p>下列裝置已重新開機。請參閱下方詳細資訊以了解更多內容。</p><br><DETAILS>"
 
 #: setup.php
 msgid "Notification Email Addresses"
 msgstr "電子郵件通知地址"
 
 #: setup.php
-#, fuzzy
 msgid "From Name"
 msgstr "寄件者名稱"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Name to send the notifications from"
-msgstr "輸入電子郵件名稱以發送通知表單"
+msgstr "輸入寄送通知的電子郵件寄件者名稱"
 
 #: setup.php
 msgid "From Address"
 msgstr "寄件者電子郵件地址"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Address to send the notification from"
-msgstr "輸入電子郵件地址以發送通知"
+msgstr "輸入寄送通知的寄件者電子郵件地址"
 
 #: setup.php
-#, fuzzy
 msgid "Notification List"
 msgstr "通知清單"
 
 #: setup.php
-#, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
-msgstr "選擇下面的通知列表。訂閱通知列表的所有電子郵件都將收到通知。"
+msgstr "請在下方選擇通知清單。所有訂閱該通知清單的電子郵件都將收到通知。"
 
 #: setup.php
 msgid "Email Addresses"
 msgstr "電子郵件信箱"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
-msgstr "輸入逗號分隔的電子郵件地址列表以通知重新啟動事件。"
+msgstr "輸入以逗號分隔的電子郵件地址清單，以通知重新啟動事件。"
 
 #: setup.php
 msgid "Server"
-msgstr ""
+msgstr "伺服器"
 
 #: setup.php
 msgid "Printer"
-msgstr ""
+msgstr "印表機"
 
 #: setup.php
 msgid "Desktop PC"
-msgstr ""
+msgstr "桌上型電腦"
 
 #: setup.php
 msgid "Laptop/notebook"
-msgstr ""
+msgstr "筆記型電腦"
 
 #: setup.php
 msgid "Wifi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: setup.php
 msgid "Wired network"
-msgstr ""
+msgstr "有線網路"
 
 #: setup.php
 msgid "Database"
-msgstr ""
+msgstr "資料庫"
 
 #: setup.php
 msgid "Clock"
-msgstr ""
+msgstr "時鐘"
 
 #: setup.php
 msgid "Asterisk"
-msgstr ""
+msgstr "星號"
 
 #: setup.php
 msgid "Harddisk"
-msgstr ""
+msgstr "硬碟"
 
 #: setup.php
 msgid "Boxes"
-msgstr ""
+msgstr "方塊"
 
 #: setup.php
 msgid "Phone"
-msgstr ""
+msgstr "電話"
 
 #: setup.php
 msgid "Cloud"
-msgstr ""
+msgstr "雲端"
 
 #: setup.php
-#, fuzzy
 msgid "Do not Change"
-msgstr "不要換"
+msgstr "不要變更"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Percent Above Average"
-msgstr "％d％平均值以上"
+msgstr "高於平均值百分之 %d"
 
 #: setup.php
-#, fuzzy
 msgid "Device Monitoring Settings"
-msgstr "設備監控設置"
+msgstr "裝置監控設定"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Device"
-msgstr "監控設備"
+msgstr "監控裝置"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr "選中此框以在“監視器”選項卡上監視此設備。"
+msgstr "勾選此方塊即可在「監控」分頁上監控此裝置。"
 
 #: setup.php
-#, fuzzy
 msgid "Device Criticality"
-msgstr "設備嚴重性"
+msgstr "裝置重要程度"
 
 #: setup.php
-#, fuzzy
 msgid "What is the Criticality of this Device."
-msgstr "這個設備的重要性是什麼？"
+msgstr "此裝置的重要性為何。"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Warning Threshold"
-msgstr "Ping警告閾值"
+msgstr "Ping 警告閾值"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "如果通過任何預定義的Cacti ping方法的往返延遲超過此閾值，請根據“設備嚴重性和監視器”設置記錄警告或發送電子郵件。單位是毫秒。設置為0禁用。 Thold插件需要利用此功能。"
+msgstr "如果透過任何預定義的 Cacti ping 方法測得的往返延遲高於此閾值，將依據裝置關鍵性與 Monitor 設定記錄警告或發送電子郵件。單位為毫秒。設為 0 表示停用。必須安裝 Thold 外掛程式才能使用此功能。"
 
 #: setup.php
 msgid "milliseconds"
 msgstr "毫秒"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Alert Threshold"
-msgstr "Ping警報閾值"
+msgstr "Ping 警報閾值"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "如果通過任何預定義的Cacti ping方法的往返延遲超過此閾值，請記錄警報或根據“設備嚴重性和監視器”設置發送電子郵件。單位是毫秒。設置為0禁用。 Thold插件需要利用此功能。"
+msgstr "如果透過任何預定義的 Cacti ping 方法測得的往返延遲高於此閾值，將依據裝置關鍵性與 Monitor 設定記錄警報或發送電子郵件。單位為毫秒。設為 0 表示停用。必須安裝 Thold 外掛程式才能使用此功能。"
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Warning"
-msgstr "重新基線警告"
+msgstr "重新基準線警告"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
-msgstr "高於當前平均ping時間的百分比，以考慮警告閾值。如果更新，這將自動調整Ping警告閾值。"
+msgstr "高於目前平均 Ping 時間多少百分比時視為警告閾值。如果更新此值，將會自動調整 Ping 警告閾值。"
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Alert"
-msgstr "重新基線警報"
+msgstr "重新基準線警報"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
-msgstr "高於當前平均ping時間的百分比，以考慮警報閾值。如果更新，這將自動調整Ping警報閾值。"
+msgstr "高於目前平均 Ping 時間多少百分比時視為警報閾值。如果更新此值，將會自動調整 Ping 警報閾值。"
 
 #: setup.php
-#, fuzzy
 msgid "Down Device Message"
-msgstr "關閉設備消息"
+msgstr "裝置離線訊息"
 
 #: setup.php
-#, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
-msgstr "這是將此設備報告為關閉時將顯示的消息。"
+msgstr "這是當此裝置回報為離線時將會顯示的訊息。"
 
 #: setup.php
-#, fuzzy
 msgid "Device icon"
-msgstr "裝置："
+msgstr "裝置圖示"
 
 #: setup.php
 msgid "You can select device icon."
-msgstr ""
+msgstr "您可以選擇裝置圖示。"
 
 #: setup.php
 msgid "Monitoring"
 msgstr "監控"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "按一下「繼續」以啟用這些裝置的監控"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "按一下「繼續」以停用這些裝置的監控"
 
 #, fuzzy
 #~ msgid "Not Monitored Devices"

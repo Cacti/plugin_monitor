@@ -13,33 +13,28 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 
 #: includes/controller.php
-#, fuzzy
 msgid "New Dashboard"
-msgstr "Trang tổng quan mới"
+msgstr "Bảng điều khiển mới"
 
 #: includes/controller.php
 msgid "Dashboard"
 msgstr "Bảng điều khiển"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Nhập Tên trang tổng quan và sau đó nhấn 'Lưu' để tiếp tục, nếu không nhấn 'Hủy'"
+msgstr "Nhập tên bảng tổng quan rồi nhấn 'Lưu' để tiếp tục, hoặc nhấn 'Hủy'"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Create New Dashboard"
 msgstr "Tạo trang tổng quan mới"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Monitored Devices"
 msgstr "Thiết bị được giám sát"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Unsaved"
-msgstr "Chưa được lưu"
+msgstr "Chưa lưu"
 
 #: includes/controller.php
 msgid "Layout"
@@ -47,7 +42,7 @@ msgstr "Bố cục"
 
 #: includes/controller.php
 msgid "Show"
-msgstr ""
+msgstr "Hiển thị"
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -62,24 +57,22 @@ msgid "Refresh"
 msgstr "Làm mới"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Refresh the Device List"
 msgstr "Làm mới danh sách thiết bị"
 
 #: includes/controller.php
 msgid "Clear"
-msgstr ""
+msgstr "Xóa"
 
 #: includes/controller.php
 msgid "Clear the set filter"
-msgstr ""
+msgstr "Xóa bộ lọc đã thiết lập"
 
 #: includes/controller.php
 msgid "Save"
 msgstr "Lưu"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save Filter Settings"
 msgstr "Lưu cài đặt bộ lọc"
 
@@ -88,7 +81,6 @@ msgid "New"
 msgstr "Mới"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save New Dashboard"
 msgstr "Lưu trang tổng quan mới"
 
@@ -97,28 +89,26 @@ msgid "Rename"
 msgstr "Đổi tên"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Rename Dashboard"
-msgstr "Đổi tên Trang tổng quan"
+msgstr "Đổi tên trang tổng quan"
 
 #: includes/controller.php
 msgid "Delete"
 msgstr "Xóa"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Delete Dashboard"
 msgstr "Xóa trang tổng quan"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alert for downed Devices"
-msgstr "%s Thông báo cho các thiết bị bị giảm"
+msgstr "%s cảnh báo cho các thiết bị ngừng hoạt động"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alerts for downed Devices"
-msgstr "%s Cảnh báo cho các thiết bị bị giảm"
+msgstr "%s cảnh báo cho các thiết bị ngừng hoạt động"
 
 #: includes/controller.php includes/render.php
 msgid "Devices"
@@ -126,31 +116,27 @@ msgstr "Thiết bị"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
-msgstr ""
+msgstr "Đi tới trang quản lý Thiết bị"
 
 #: includes/controller.php includes/render.php poller_functions.php setup.php
-#, fuzzy
 msgid "Criticality"
-msgstr "Quan trọng"
+msgstr "Mức độ nghiêm trọng"
 
 #: includes/controller.php
 msgid "Size"
 msgstr "Kích thước"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Trim"
-msgstr "Xén"
+msgstr "Cắt bớt"
 
 #: includes/controller.php
-#, fuzzy
 msgid "All Trees"
 msgstr "Tất cả các cây"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Tree Devices"
-msgstr "Thiết bị không phải cây"
+msgstr "Thiết bị không thuộc cây"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Tree"
@@ -161,37 +147,33 @@ msgid "All Sites"
 msgstr "Tất cả các trang web"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Site Devices"
-msgstr "Thiết bị không phải cây"
+msgstr "Các thiết bị không thuộc địa điểm"
 
 #: includes/controller.php
 msgid "Sites"
 msgstr "Websites"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Templated Devices"
-msgstr "Thiết bị không có khuôn mẫu"
+msgstr "Thiết bị không theo mẫu"
 
 #: includes/controller.php
 msgid "Template"
 msgstr "Mẫu"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Template"
 msgid "Templates"
-msgstr "Mẫu"
+msgstr "Giao diện"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr ""
+msgstr "Hàng"
 
 #: includes/controller.php
-#, fuzzy
 msgid " [ Filter Settings Saved ]"
-msgstr "[Đã lưu cài đặt bộ lọc]"
+msgstr " [ Đã lưu cài đặt bộ lọc ]"
 
 #: includes/controller.php
 msgid "Cancel"
@@ -199,26 +181,25 @@ msgstr "Hủy"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr ""
+msgstr "Đang tải..."
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Device Detail Panels"
-msgstr "Mẫu thiết bị"
+msgstr "Bảng chi tiết thiết bị"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
-msgstr "[Làm mới lại sau <i id=\"timer\">% d</i> giây]"
+msgstr " [ Làm mới lại sau <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> giây ]"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Bộ lọc màn hình [Làm mới lần cuối: %s]"
+msgstr "Bộ lọc giám sát [ Làm mới lần cuối: %s ]"
 
 #: includes/controller.php
 msgid "[ Showing only first 30 Devices ]"
-msgstr ""
+msgstr "[ Chỉ hiển thị 30 thiết bị đầu tiên ]"
 
 #: includes/controller.php
 msgid "Search"
@@ -226,77 +207,69 @@ msgstr "Tìm kiếm"
 
 #: includes/controller.php includes/render.php
 msgid "Events"
-msgstr ""
+msgstr "Sự kiện"
 
 #: includes/controller.php
 msgid "Mute"
 msgstr "Tắt tiếng"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Acknowledge"
-msgstr "Công nhận"
+msgstr "Xác nhận"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Un-Mute"
-msgstr "Không tắt tiếng"
+msgstr "Bật âm thanh"
 
 #: includes/controller.php
 msgid "Reset"
 msgstr "Đặt lại"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' Removed."
-msgstr "Trang tổng quan '%s' đã bị xóa."
+msgstr "Trang tổng quan '%s' đã được xóa."
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' is not owned by you."
 msgstr "Trang tổng quan '%s' không thuộc sở hữu của bạn."
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' has been Saved!"
-msgstr "Trang tổng quan '%s' đã được Lưu!"
+msgstr "Trang tổng quan '%s' đã được lưu!"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' could not be Saved!"
 msgstr "Không thể lưu trang tổng quan '%s'!"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Edit Device"
 msgstr "Chỉnh sửa thiết bị"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "View Graphs"
 msgstr "Xem đồ thị"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Thresholds/Alerts"
-msgstr "Xem Ngưỡng"
+msgstr "Xem Ngưỡng/Cảnh báo"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Alerts"
-msgstr "Xem cảnh báo nhật ký hệ thống"
+msgstr "Xem cảnh báo Syslog của thiết bị"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Entries"
-msgstr "Xem cảnh báo nhật ký hệ thống"
+msgstr "Xem mục nhập Syslog của thiết bị"
 
 #: includes/controller.php
 msgid "View Failing Service Check"
-msgstr ""
+msgstr "Xem kiểm tra dịch vụ đang lỗi"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Status Information"
 msgstr "Thông tin trạng thái thiết bị"
 
@@ -305,80 +278,70 @@ msgid "Device:"
 msgstr "Thiết bị:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Site:"
-msgstr "Trang"
+msgstr "Địa điểm:"
 
 #: includes/controller.php
 msgid "Location:"
 msgstr "Địa điểm:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Criticality:"
-msgstr "Tính quan trọng:"
+msgstr "Mức độ nghiêm trọng:"
 
 #: includes/controller.php
 msgid "Status:"
 msgstr "Trạng thái:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Admin Note:"
-msgstr "Lưu ý của quản trị viên:"
+msgstr "Ghi chú quản trị viên:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "IP/Hostname:"
-msgstr "IP / Tên máy chủ:"
+msgstr "IP/Tên máy chủ:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Curr/Avg:"
-msgstr "Curr / Trung bình:"
+msgstr "Hiện tại/TB:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d ms"
-msgstr "% d ms"
+msgstr "%d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Warn/Alert:"
-msgstr "Cảnh báo / Cảnh báo:"
+msgstr "Cảnh báo/Báo động:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2d ms"
-msgstr "% 0,2đ ms"
+msgstr "%0.2d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Last Fail:"
-msgstr "Thất bại cuối cùng:"
+msgstr "Lần lỗi gần nhất:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Time In State:"
-msgstr "Thời gian ở bang:"
+msgstr "Thời gian ở trạng thái:"
 
 #: includes/controller.php
 msgid "Availability:"
 msgstr "Khả dụng:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Agent Uptime:"
-msgstr "Thời gian hoạt động của đại lý:"
+msgstr "Thời gian hoạt động của Agent:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
 msgstr "N/A"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Sys Description:"
-msgstr "Mô tả Sys:"
+msgstr "Mô tả hệ thống:"
 
 #: includes/controller.php
 msgid "Contact:"
@@ -394,7 +357,7 @@ msgstr "Không bao giờ"
 
 #: includes/controller.php
 msgid "Unspecified"
-msgstr ""
+msgstr "Không xác định"
 
 #: includes/controller.php includes/render.php setup.php
 msgid "None"
@@ -402,33 +365,32 @@ msgstr "Không"
 
 #: includes/controller.php
 msgid "SNMP and Ping"
-msgstr ""
+msgstr "SNMP và Ping"
 
 #: includes/controller.php
-#, fuzzy
 msgid "SNMP Uptime"
-msgstr "Hiển thị thời gian hoạt động"
+msgstr "Thời gian hoạt động của SNMP"
 
 #: includes/controller.php
 msgid "Ping"
-msgstr ""
+msgstr "Ping"
 
 #: includes/controller.php
 msgid "SNMP or Ping"
-msgstr ""
+msgstr "SNMP hoặc Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr ""
+msgstr "SNMP Get SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
-msgstr ""
+msgstr "SNMP Get Next"
 
 #: includes/controller.php
 #, php-format
 msgid "Method %d"
-msgstr ""
+msgstr "Phương thức %d"
 
 #: includes/controller.php includes/render.php poller_functions.php
 msgid "Description"
@@ -447,50 +409,44 @@ msgid "Site"
 msgstr "Trang"
 
 #: includes/controller.php monitor.php setup.php
-#, fuzzy
 msgid "Device Template"
 msgstr "Mẫu thiết bị"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Location"
-msgstr "Địa điểm:"
+msgstr "Vị trí"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Contact:"
 msgid "Contact"
-msgstr "Liên hệ:"
+msgstr "Liên hệ"
 
 #: includes/controller.php
 msgid "Notes"
 msgstr "Ghi chú"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Host Information"
-msgstr "Thông tin trạng thái thiết bị"
+msgstr "Thông tin máy chủ"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Availability"
 msgid "Availability Method"
-msgstr "Tình trạng"
+msgstr "Phương pháp sẵn có"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2f ms"
-msgstr "% 0,2đ ms"
+msgstr "%0.2f ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Current / Average Ping"
-msgstr "Ping hiện tại"
+msgstr "Ping hiện tại / Trung bình"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr ""
+msgstr "Ping tối thiểu / tối đa"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
@@ -498,20 +454,19 @@ msgstr "Tình trạng"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
-msgstr ""
+msgstr "Tổng số / Lượt thăm dò thất bại"
 
 #: includes/controller.php
 msgid "In Current Status Since"
-msgstr ""
+msgstr "Ở trạng thái hiện tại từ"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Last Fail"
-msgstr "Thất bại cuối cùng"
+msgstr "Lần lỗi gần nhất"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr ""
+msgstr "Thu thập dữ liệu"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -519,161 +474,148 @@ msgstr "Vô hiệu hóa"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr ""
+msgstr "Đang lỗi"
 
 #: includes/controller.php
 msgid "Not tested"
-msgstr ""
+msgstr "Chưa được kiểm tra"
 
 #: includes/controller.php
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: includes/controller.php includes/render.php
 msgid "Service Checks"
-msgstr ""
+msgstr "Kiểm tra dịch vụ"
 
 #: includes/controller.php
 #, php-format
 msgid "Threshold %d"
-msgstr ""
+msgstr "Ngưỡng %d"
 
 #: includes/controller.php includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered"
-msgstr "Kích hoạt"
+msgstr "Đã kích hoạt"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Thresholds"
-msgstr "Xem Ngưỡng"
+msgstr "Ngưỡng"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
-msgstr ""
+msgstr "Không có thông báo Syslog nào trong giờ qua."
 
 #: includes/controller.php
 msgid "Syslog (last hour)"
-msgstr ""
+msgstr "Syslog (giờ qua)"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Open Actual Device"
-msgstr "Thiết bị"
+msgstr "Mở thiết bị thực tế"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Links"
-msgstr "Thiết bị:"
+msgstr "Liên kết thiết bị"
 
 #: includes/render.php
-#, fuzzy
 msgid "Non-Site Device"
-msgstr "Thiết bị không phải cây"
+msgstr "Thiết bị không thuộc địa điểm"
 
 #: includes/render.php
-#, fuzzy
 msgid "Root Branch"
-msgstr "Chi nhánh gốc"
+msgstr "Nhánh gốc"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Tree: %s"
-msgstr "Cây"
+msgstr "Cây: %s"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Branch: %s"
-msgstr "Chi nhánh: %s"
+msgstr "Nhánh: %s"
 
 #: includes/render.php monitor.php
 msgid "Unknown"
 msgstr "Không xác định"
 
 #: includes/render.php
-#, fuzzy
 msgid "Just Up"
-msgstr "Chỉ cần lên"
+msgstr "Vừa hoạt động trở lại"
 
 #: includes/render.php monitor.php
 msgid "Down"
 msgstr "Xuống"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Recovering"
 msgstr "Phục hồi"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Down (M/A)"
-msgstr "Xuống (Tắt / Acked)"
+msgstr "Ngừng hoạt động (M/A)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered (M/A)"
-msgstr "Xuống (Tắt / Acked)"
+msgstr "Đã kích hoạt (Tắt tiếng/Đã xác nhận)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 #| msgid "Warning"
 msgid "Warn Ping"
-msgstr "Cảnh báo"
+msgstr "Ping cảnh báo"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Alert Ping"
-msgstr "Thông báo Ping"
+msgstr "Ping cảnh báo"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr ""
+msgstr "DV thất bại"
 
 #: includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Actions"
-msgstr "Địa điểm:"
+msgstr "Hành động"
 
 #: includes/render.php
 msgid "Open the device detail panels"
-msgstr ""
+msgstr "Mở các bảng chi tiết thiết bị"
 
 #: includes/render.php
 msgid "Device description as set on the Devices page"
-msgstr ""
+msgstr "Mô tả thiết bị như đã thiết lập trên trang Thiết bị"
 
 #: includes/render.php
 msgid "Physical location recorded for the device"
-msgstr ""
+msgstr "Vị trí vật lý được ghi nhận cho thiết bị"
 
 #: includes/render.php
 msgid "Site the device is assigned to"
-msgstr ""
+msgstr "Địa điểm mà thiết bị được gán vào"
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: includes/render.php
 msgid "Cacti internal device id"
-msgstr ""
+msgstr "ID thiết bị nội bộ của Cacti"
 
 #: includes/render.php
 msgid "Monitoring criticality assigned to the device"
-msgstr ""
+msgstr "Mức độ quan trọng giám sát được gán cho thiết bị"
 
 #: includes/render.php
 msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
-msgstr ""
+msgstr "Các sự kiện đang hoạt động trên thiết bị (Ngừng hoạt động, Đã kích hoạt ngưỡng, Cảnh báo/Báo động Ping, Lỗi dịch vụ, ...); nhấp vào nhãn để thêm hoặc xóa sự kiện đó khỏi bộ lọc Sự kiện"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
-msgstr ""
+msgstr "Số ngưỡng Vi phạm / Đã kích hoạt / Tổng số (plugin Thold) trên thiết bị; nhấp để bật/tắt bộ lọc sự kiện Đã kích hoạt"
 
 #: includes/render.php
 msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Số kiểm tra dịch vụ Thất bại / Tổng số (plugin servcheck) cho thiết bị; nhấp để bật/tắt bộ lọc sự kiện DV thất bại"
 
 #: includes/render.php
 msgid "Warning"
@@ -681,7 +623,7 @@ msgstr "Cảnh báo"
 
 #: includes/render.php
 msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
-msgstr ""
+msgstr "Ngưỡng Cảnh báo / Báo động độ trễ Ping (ms) được cấu hình cho thiết bị này; thông báo sẽ được tạo khi thời gian phản hồi vượt qua các ngưỡng này"
 
 #: includes/render.php
 msgid "Admin"
@@ -689,70 +631,67 @@ msgstr "Quản trị viên"
 
 #: includes/render.php
 msgid "Administrative monitor message shown while the device is Down or Recovering"
-msgstr ""
+msgstr "Thông báo giám sát quản trị hiển thị khi thiết bị Ngừng hoạt động hoặc Đang khôi phục"
 
 #: includes/render.php
 msgid "Percentage of successful availability checks over the retained history"
-msgstr ""
+msgstr "Tỷ lệ phần trăm các lần kiểm tra tính khả dụng thành công trong lịch sử được lưu giữ"
 
 #: includes/render.php
-#, fuzzy
 msgid "Averages"
 msgstr "Trung bình"
 
 #: includes/render.php
 msgid "Current / average ping response time in milliseconds"
-msgstr ""
+msgstr "Thời gian phản hồi ping hiện tại / trung bình tính bằng mili giây"
 
 #: includes/render.php
-#, fuzzy
 msgid "Length in Status"
-msgstr "Độ dài trong trạng thái"
+msgstr "Thời gian trong trạng thái"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
-msgstr ""
+msgstr "Thời gian thiết bị ở trạng thái hiện tại"
 
 #: includes/render.php
 msgid "Date and time the device last failed its availability check"
-msgstr ""
+msgstr "Ngày và giờ thiết bị không đạt kiểm tra khả dụng lần gần nhất"
 
 #: includes/render.php
 msgid "Filter by this criticality (click again to clear)"
-msgstr ""
+msgstr "Lọc theo mức độ nghiêm trọng này (nhấp lại để xóa bộ lọc)"
 
 #: includes/render.php
 msgid "Criticality not set - click to filter unset devices (click again to clear)"
-msgstr ""
+msgstr "Chưa đặt mức độ nghiêm trọng - nhấp để lọc các thiết bị chưa thiết lập (nhấp lại để xóa bộ lọc)"
 
 #: includes/render.php
-#, fuzzy
 msgid "Not Set"
-msgstr "Không lên"
+msgstr "Chưa thiết lập"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
-msgstr ""
+msgstr "Nhấp để thêm hoặc xóa sự kiện này khỏi bộ lọc"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
-msgstr ""
+msgstr "Số ngưỡng Vi phạm / Đã kích hoạt / Tổng số - nhấp để bật/tắt bộ lọc sự kiện Đã kích hoạt"
 
 #: includes/render.php
 msgid "No thresholds defined for this device"
-msgstr ""
+msgstr "Chưa có ngưỡng nào được định nghĩa cho thiết bị này"
 
 #: includes/render.php
 msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Số kiểm tra dịch vụ Thất bại / Tổng số - nhấp để bật/tắt bộ lọc sự kiện DV thất bại"
 
 #: includes/render.php
 msgid "No service checks defined for this device"
-msgstr ""
+msgstr "Chưa có kiểm tra dịch vụ nào được định nghĩa cho thiết bị này"
 
 #: monitor.php
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -767,37 +706,32 @@ msgid "High"
 msgstr "Cao"
 
 #: monitor.php poller_functions.php setup.php
-#, fuzzy
 msgid "Mission Critical"
-msgstr "Nhiệm vụ quan trọng"
+msgstr "Trọng yếu"
 
 #: monitor.php
 msgid "Up"
 msgstr "Lên trên"
 
 #: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
-msgstr "Xuống (Tắt / Acked)"
+msgstr "Đã kích hoạt (Đã tắt tiếng/Đã xác nhận)"
 
 #: monitor.php
-#, fuzzy
 msgid "Down (Muted/Acked)"
-msgstr "Xuống (Tắt / Acked)"
+msgstr "Ngừng hoạt động (Đã tắt âm/Đã xác nhận)"
 
 #: monitor.php
-#, fuzzy
 msgid "No Availability Check"
-msgstr "Không có kiểm tra sẵn có"
+msgstr "Không kiểm tra tính khả dụng"
 
 #: monitor.php
-#, fuzzy
 msgid "Warning Ping"
-msgstr "Cảnh báo Ping"
+msgstr "Ping cảnh báo"
 
 #: monitor.php
 msgid "Service Check Failed"
-msgstr ""
+msgstr "Kiểm tra dịch vụ thất bại"
 
 #: monitor.php
 msgid "Extra Small"
@@ -820,27 +754,24 @@ msgid "Zoom"
 msgstr "Phóng to"
 
 #: monitor.php
-#, fuzzy
 msgid "All Monitored Devices"
-msgstr "Tất cả các thiết bị được giám sát"
+msgstr "Tất cả thiết bị được giám sát"
 
 #: monitor.php
-#, fuzzy
 msgid "All Devices"
-msgstr "Thiết bị"
+msgstr "Thiết bị có sẵn"
 
 #: monitor.php
-#, fuzzy
 msgid "Devices not Monitored"
-msgstr "Cài đặt giám sát thiết bị"
+msgstr "Thiết bị không được giám sát"
 
 #: monitor.php
 msgid "Devices without Thresholds"
-msgstr ""
+msgstr "Thiết bị chưa có Ngưỡng"
 
 #: monitor.php
 msgid "Devices without Service Checks"
-msgstr ""
+msgstr "Thiết bị chưa có kiểm tra dịch vụ"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -855,46 +786,38 @@ msgid "Tiles"
 msgstr "Gạch"
 
 #: monitor.php
-#, fuzzy
 msgid "Tiles & Time"
-msgstr "Gạch &amp; Thời gian"
+msgstr "Ô hiển thị & Thời gian"
 
 #: monitor.php
 msgid "Full"
 msgstr "Đầy đủ"
 
 #: monitor.php
-#, fuzzy
 msgid "10 Chars"
 msgstr "10 ký tự"
 
 #: monitor.php
-#, fuzzy
 msgid "20 Chars"
 msgstr "20 ký tự"
 
 #: monitor.php
-#, fuzzy
 msgid "30 Chars"
 msgstr "30 ký tự"
 
 #: monitor.php
-#, fuzzy
 msgid "40 Chars"
 msgstr "40 ký tự"
 
 #: monitor.php
-#, fuzzy
 msgid "50 Chars"
 msgstr "50 ký tự"
 
 #: monitor.php
-#, fuzzy
 msgid "75 Chars"
 msgstr "75 ký tự"
 
 #: monitor.php
-#, fuzzy
 msgid "100 Chars"
 msgstr "100 ký tự"
 
@@ -903,29 +826,25 @@ msgid "Description: "
 msgstr "Mô tả: "
 
 #: poller_functions.php
-#, fuzzy
 msgid "Hostname: "
-msgstr "Tên máy:"
+msgstr "Tên máy chủ: "
 
 #: poller_functions.php
-#, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr "Báo cáo sau đây sẽ xác định các Thiết bị đã làm lu mờ ngưỡng độ trễ ping của chúng. Bạn đang nhận được báo cáo này vì bạn đã đăng ký Thiết bị được liên kết với hệ thống Cacti được đặt tại URL sau đây."
+msgstr "Báo cáo sau đây sẽ xác định các thiết bị đã vượt quá ngưỡng độ trễ ping. Bạn nhận được báo cáo này vì bạn đã đăng ký theo dõi một thiết bị liên kết với hệ thống Cacti tại URL bên dưới."
 
 #: poller_functions.php
-#, fuzzy
 msgid "Cacti Monitoring Site"
-msgstr "Thay đổi tùy chọn giám sát"
+msgstr "Trang giám sát Cacti"
 
 #: poller_functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
-msgstr "Bạn sẽ nhận được thông báo mỗi% d phút nếu Thiết bị vượt quá ngưỡng của nó."
+msgstr "Bạn sẽ nhận được thông báo mỗi %d phút nếu Thiết bị vượt quá ngưỡng."
 
 #: poller_functions.php
-#, fuzzy
 msgid "You will receive notifications every time the Device is above its threshold."
-msgstr "Bạn sẽ nhận được thông báo mỗi khi Thiết bị vượt quá ngưỡng của nó."
+msgstr "Bạn sẽ nhận được thông báo mỗi khi thiết bị vượt quá ngưỡng của nó."
 
 #: setup.php
 msgid "Any"
@@ -937,316 +856,263 @@ msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "Nhấp vào 'Tiếp tục' để theo dõi %s trên các Thiết bị này"
 
 #: setup.php
-#, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
-msgstr "Nhấp vào 'Tiếp tục' để thay đổi cài đặt Giám sát cho (các) Thiết bị sau. Hãy nhớ kiểm tra 'Cập nhật trường này' để cho biết cột nào sẽ cập nhật."
+msgstr "Nhấp vào 'Tiếp tục' để thay đổi cài đặt Giám sát cho (các) Thiết bị sau. Hãy nhớ đánh dấu 'Cập nhật trường này' để chỉ định các cột cần cập nhật."
 
 #: setup.php
-#, fuzzy
 msgid "Update this Field"
 msgstr "Cập nhật trường này"
 
 #: setup.php
-#, fuzzy
 msgid "Change Monitoring Options"
 msgstr "Thay đổi tùy chọn giám sát"
 
 #: setup.php
-#, fuzzy
 msgid "Enable Monitoring"
-msgstr "Cho phép giám sát"
+msgstr "Bật giám sát"
 
 #: setup.php
-#, fuzzy
 msgid "Disable Monitoring"
-msgstr "Vô hiệu hóa giám sát"
+msgstr "Tắt giám sát"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinitely"
-msgstr "Vô định"
+msgstr "Vô thời hạn"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Month"
-msgstr "% d tháng"
+msgstr "%d Tháng"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Months"
-msgstr "% d tháng"
+msgstr "%d Tháng"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Year"
-msgstr "% d Năm"
+msgstr "%d Năm"
 
 #: setup.php
 msgid "Normal User"
 msgstr "Người dùng bình thường"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Settings"
-msgstr "Cài đặt màn hình"
+msgstr "Cài đặt giám sát"
 
 #: setup.php
-#, fuzzy
 msgid "Alarm Sound"
-msgstr "Âm thanh báo động"
+msgstr "Âm thanh cảnh báo"
 
 #: setup.php
-#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
-msgstr "Đây là tệp âm thanh sẽ được phát khi Thiết bị gặp sự cố."
+msgstr "Đây là tệp âm thanh sẽ được phát khi một Thiết bị ngừng hoạt động."
 
 #: setup.php
-#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr "Âm thanh báo động"
+msgstr "Lặp lại âm thanh cảnh báo"
 
 #: setup.php
-#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "Đây là tệp âm thanh sẽ được phát khi Thiết bị gặp sự cố."
+msgstr "Phát lặp lại âm thanh trên khi Thiết bị ngừng hoạt động."
 
 #: setup.php
-#, fuzzy
 msgid "Show Icon Legend"
-msgstr "Hiển thị biểu tượng huyền thoại"
+msgstr "Hiển thị chú giải biểu tượng"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "Kiểm tra điều này để hiển thị một chú giải biểu tượng trên màn hình Màn hình"
+msgstr "Chọn mục này để hiển thị chú giải biểu tượng trên màn hình Monitor"
 
 #: setup.php
-#, fuzzy
 msgid "Show Uptime"
 msgstr "Hiển thị thời gian hoạt động"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "Kiểm tra điều này để hiển thị một chú giải biểu tượng trên màn hình Màn hình"
+msgstr "Chọn mục này để hiển thị Thời gian hoạt động trên màn hình Monitor"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom to Errors"
-msgstr "Phóng to lỗi"
+msgstr "Thu phóng tới lỗi"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "Kiểm tra điều này để hiển thị một chú giải biểu tượng trên màn hình Màn hình"
+msgstr "Chọn mục này để thu phóng các mục bị lỗi trên màn hình Monitor"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Background"
-msgstr "Thu phóng nền"
+msgstr "Nền thu phóng"
 
 #: setup.php
-#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr "Màu nền cho các lỗi đã thu phóng trên màn hình Màn hình"
+msgstr "Màu nền cho các lỗi được thu phóng trên màn hình Monitor"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Fontsize"
-msgstr "Zoom Fontsize"
+msgstr "Cỡ chữ thu phóng"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor"
 msgstr "Giám sát"
 
 #: setup.php
-#, fuzzy
 msgid "Enable on new devices"
-msgstr "Bật trên thiết bị mới"
+msgstr "Bật trên các thiết bị mới"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
-msgstr "Kiểm tra điều này để tự động cho phép giám sát khi tạo thiết bị mới"
+msgstr "Chọn mục này để tự động bật giám sát khi tạo thiết bị mới"
 
 #: setup.php
-#, fuzzy
 msgid "Notification/Reboot Log Retention"
-msgstr "Thông báo / Khởi động lại lưu giữ nhật ký"
+msgstr "Lưu giữ nhật ký thông báo/khởi động lại"
 
 #: setup.php
-#, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
-msgstr "Giữ Nhật ký thông báo và khởi động lại cho số ngày này."
+msgstr "Lưu giữ nhật ký thông báo và khởi động lại trong số ngày này."
 
 #: setup.php
 msgid "Refresh Interval"
 msgstr "Thời gian cập nhật"
 
 #: setup.php
-#, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr "Đây là thời gian tính bằng giây trước khi trang làm mới. (1 - 300)"
+msgstr "Đây là thời gian tính bằng giây trước khi trang tự làm mới. (1 - 300)"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will Group Devices."
-msgstr "Đây là cách màn hình sẽ Nhóm Thiết bị."
+msgstr "Đây là cách trình giám sát sẽ nhóm các Thiết bị."
 
 #: setup.php
-#, fuzzy
 msgid "Default with permissions"
-msgstr "Mặc định có quyền"
+msgstr "Mặc định theo quyền hạn"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will render Devices."
-msgstr "Đây là cách màn hình sẽ hiển thị Thiết bị."
+msgstr "Đây là cách trình giám sát sẽ hiển thị các Thiết bị."
 
 #: setup.php
 msgid "Names only"
-msgstr ""
+msgstr "Chỉ tên"
 
 #: setup.php
-#, fuzzy
 msgid "Tiles & Downtime"
-msgstr "Gạch &amp; Thời gian chết"
+msgstr "Ô hiển thị & Thời gian ngừng hoạt động"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Report Format"
 msgstr "Định dạng báo cáo thông báo"
 
 #: setup.php
-#, fuzzy
 msgid "Format File to Use"
 msgstr "Định dạng tệp để sử dụng"
 
 #: setup.php
-#, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Chọn trình bao bọc html và tệp CSS tùy chỉnh để sử dụng. Tệp này chứa cả html và CSS để bao quanh báo cáo của bạn. Nếu nó chứa nhiều hơn chỉ đơn giản là CSS, bạn cần đặt một đặc biệt <REPORT> thẻ bên trong của tập tin. Thẻ định dạng này sẽ được thay thế bởi nội dung báo cáo. Các tệp này được đặt trong thư mục 'định dạng'."
+msgstr "Chọn trình bao bọc html và tệp CSS tùy chỉnh để sử dụng. Tệp này chứa cả html và CSS để bao quanh báo cáo của bạn. Nếu nó chứa nhiều hơn chỉ đơn giản là CSS, bạn cần đặt một đặc biệt <REPORT> thẻ bên trong của tập tin. Thẻ định dạng này sẽ được thay thế bởi nội dung báo cáo. Các tệp này được đặt trong thư mục &#39;định dạng&#39;."
 
 #: setup.php
-#, fuzzy
 msgid "Ping Threshold Notifications"
 msgstr "Thông báo ngưỡng Ping"
 
 #: setup.php
-#, fuzzy
 msgid "Warning Latency Notification"
 msgstr "Thông báo độ trễ cảnh báo"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Nếu Thiết bị có Độ trễ Ping Chuyến đi khứ hồi trên Ngưỡng cảnh báo và trên Mức quan trọng bên dưới, đăng ký email vào Thiết bị sẽ nhận được thông báo email. Chọn 'Đã tắt' để Tắt. Plugin Thold được yêu cầu để kích hoạt tính năng này."
+msgstr "Nếu một thiết bị có độ trễ ping khứ hồi vượt quá Ngưỡng cảnh báo (Warning) và vượt quá mức Độ nghiêm trọng bên dưới, các email đã đăng ký theo dõi thiết bị sẽ nhận được thông báo qua email. Chọn 'Tắt' để vô hiệu hóa. Cần có plugin Thold để bật tính năng này."
 
 #: setup.php
-#, fuzzy
 msgid "Alert Latency Notification"
-msgstr "Thông báo độ trễ thông báo"
+msgstr "Thông báo độ trễ cảnh báo"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Nếu Thiết bị có Độ trễ Ping Chuyến đi khứ hồi trên Ngưỡng cảnh báo và trên Mức quan trọng bên dưới, đăng ký email vào Thiết bị sẽ nhận được thông báo qua email. Chọn 'Đã tắt' để Tắt. Plugin Thold được yêu cầu để kích hoạt tính năng này."
+msgstr "Nếu một thiết bị có độ trễ ping khứ hồi vượt quá Ngưỡng cảnh báo (Alert) và vượt quá mức Độ nghiêm trọng bên dưới, các email đã đăng ký theo dõi thiết bị sẽ nhận được thông báo qua email. Chọn 'Tắt' để vô hiệu hóa. Cần có plugin Thold để bật tính năng này."
 
 #: setup.php
-#, fuzzy
 msgid "How Often to Resend Emails"
 msgstr "Tần suất gửi lại email"
 
 #: setup.php
-#, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr "Tần suất email nên được gửi đến người đăng ký cho các Thiết bị này nếu chúng vượt quá ngưỡng trễ"
+msgstr "Tần suất gửi thông báo qua email cho người đăng ký đối với các thiết bị này nếu chúng vượt quá ngưỡng độ trễ"
 
 #: setup.php
-#, fuzzy
 msgid "Every Occurrence"
-msgstr "Mỗi lần xuất hiện"
+msgstr "Mỗi lần xảy ra"
 
 #: setup.php
 #, php-format
 msgid "Every %d Minutes"
-msgstr "Mỗi% d Phút"
+msgstr "Mỗi %d phút"
 
 #: setup.php
-#, fuzzy
 msgid "Every Hour"
 msgstr "Mỗi tiếng"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "Every %d Hours"
-msgstr "Mỗi% d giờ"
+msgstr "Mỗi %d giờ"
 
 #: setup.php
-#, fuzzy
 msgid "Reboot Notifications"
 msgstr "Thông báo khởi động lại"
 
 #: setup.php
-#, fuzzy
 msgid "Send Reboot Notifications"
 msgstr "Gửi thông báo khởi động lại"
 
 #: setup.php
-#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
-msgstr "Có nên gửi Thông báo khởi động lại thiết bị cho người dùng?"
+msgstr "Có gửi thông báo khởi động lại thiết bị cho người dùng không?"
 
 #: setup.php
-#, fuzzy
 msgid "Send one Email to all addresses"
-msgstr "Địa chỉ Email"
+msgstr "Gửi một email tới tất cả địa chỉ"
 
 #: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
-msgstr ""
+msgstr "Nếu được chọn, hệ thống sẽ chỉ gửi một email tới tất cả các địa chỉ."
 
 #: setup.php
-#, fuzzy
 msgid "Include Threshold Alert Lists"
 msgstr "Bao gồm danh sách cảnh báo ngưỡng"
 
 #: setup.php
-#, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "Danh sách cảnh báo ngưỡng cũng sẽ nhận được thông báo"
+msgstr "Danh sách cảnh báo ngưỡng có nhận thông báo luôn không"
 
 #: setup.php
 msgid "Subject"
 msgstr "Tiêu đề"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr "Nhập một chủ đề tin nhắn Reboot cho Reboot Nofication."
+msgstr "Nhập tiêu đề thông báo cho thông báo khởi động lại."
 
 #: setup.php
-#, fuzzy
 msgid "Cacti Device Reboot Notification"
-msgstr "Thiết bị khởi động lại Cacti"
+msgstr "Thông báo khởi động lại thiết bị Cacti"
 
 #: setup.php
 msgid "Email Body"
 msgstr "Nội dung Email"
 
 #: setup.php
-#, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Nhập nội dung Email để đưa vào thông báo Khởi động lại. Hiện tại, thẻ thay thế được hỗ trợ duy nhất được chấp nhận là &lt;CHI TIẾT&gt;"
+msgstr "Nhập nội dung email để đưa vào thông báo khởi động lại. Hiện tại, thẻ thay thế duy nhất được hỗ trợ là &#060;DETAILS&#062;"
 
 #: setup.php
-#, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
-msgstr "<h1> Giám sát thông báo khởi động lại </h1><p> Các thiết bị sau đây đã được khởi động lại. Xem chi tiết dưới đây để biết thêm thông tin. </p><br><DETAILS>"
+msgstr "<h1>Thông báo khởi động lại từ Monitor</h1><p>Các thiết bị sau đây đã được khởi động lại. Xem chi tiết bên dưới để biết thêm thông tin.</p><br><DETAILS>"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Email Addresses"
 msgstr "Địa chỉ Email thông báo"
 
@@ -1255,191 +1121,177 @@ msgid "From Name"
 msgstr "Tên người gửi"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Name to send the notifications from"
-msgstr "Nhập tên email để gửi mẫu thông báo"
+msgstr "Nhập tên hiển thị email dùng để gửi thông báo"
 
 #: setup.php
 msgid "From Address"
 msgstr "Email người gửi"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Address to send the notification from"
-msgstr "Nhập địa chỉ email để gửi thông báo từ"
+msgstr "Nhập địa chỉ email dùng để gửi thông báo"
 
 #: setup.php
-#, fuzzy
 msgid "Notification List"
 msgstr "Danh sách thông báo"
 
 #: setup.php
-#, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
-msgstr "Chọn một danh sách thông báo dưới đây. Tất cả các Email đăng ký vào danh sách thông báo sẽ được thông báo."
+msgstr "Chọn một danh sách thông báo bên dưới. Tất cả các email đã đăng ký vào danh sách thông báo sẽ nhận được thông báo."
 
 #: setup.php
 msgid "Email Addresses"
 msgstr "Địa chỉ Email"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
-msgstr "Nhập danh sách địa chỉ Email được phân cách bằng dấu phẩy để thông báo về sự kiện khởi động lại."
+msgstr "Nhập danh sách địa chỉ email phân cách bằng dấu phẩy để thông báo khi có sự kiện khởi động lại."
 
 #: setup.php
 msgid "Server"
-msgstr ""
+msgstr "Máy chủ"
 
 #: setup.php
 msgid "Printer"
-msgstr ""
+msgstr "Máy in"
 
 #: setup.php
 msgid "Desktop PC"
-msgstr ""
+msgstr "Máy tính để bàn"
 
 #: setup.php
 msgid "Laptop/notebook"
-msgstr ""
+msgstr "Máy tính xách tay"
 
 #: setup.php
 msgid "Wifi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: setup.php
 msgid "Wired network"
-msgstr ""
+msgstr "Mạng có dây"
 
 #: setup.php
 msgid "Database"
-msgstr ""
+msgstr "Cơ sở dữ liệu"
 
 #: setup.php
 msgid "Clock"
-msgstr ""
+msgstr "Đồng hồ"
 
 #: setup.php
 msgid "Asterisk"
-msgstr ""
+msgstr "Asterisk"
 
 #: setup.php
 msgid "Harddisk"
-msgstr ""
+msgstr "Ổ cứng"
 
 #: setup.php
 msgid "Boxes"
-msgstr ""
+msgstr "Ô trạng thái"
 
 #: setup.php
 msgid "Phone"
-msgstr ""
+msgstr "Điện thoại"
 
 #: setup.php
 msgid "Cloud"
-msgstr ""
+msgstr "Đám mây"
 
 #: setup.php
-#, fuzzy
 msgid "Do not Change"
-msgstr "Đừng thay đổi"
+msgstr "Không thay đổi"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Percent Above Average"
-msgstr "% d Phần trăm trên trung bình"
+msgstr "Cao hơn trung bình %d phần trăm"
 
 #: setup.php
-#, fuzzy
 msgid "Device Monitoring Settings"
 msgstr "Cài đặt giám sát thiết bị"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Device"
-msgstr "Thiết bị giám sát"
+msgstr "Giám sát thiết bị"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr "Chọn hộp này để theo dõi Thiết bị này trên Tab Màn hình."
+msgstr "Chọn hộp này để giám sát Thiết bị này trên tab Monitor."
 
 #: setup.php
-#, fuzzy
 msgid "Device Criticality"
-msgstr "Thiết bị quan trọng"
+msgstr "Mức độ quan trọng của thiết bị"
 
 #: setup.php
-#, fuzzy
 msgid "What is the Criticality of this Device."
-msgstr "Tính quan trọng của thiết bị này là gì."
+msgstr "Mức độ quan trọng của thiết bị này là gì."
 
 #: setup.php
-#, fuzzy
 msgid "Ping Warning Threshold"
 msgstr "Ngưỡng cảnh báo Ping"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Nếu độ trễ chuyến đi khứ hồi thông qua bất kỳ phương pháp ping Cacti được xác định trước nào vượt quá ngưỡng này, hãy ghi lại cảnh báo hoặc gửi email dựa trên cài đặt Giám sát và Thiết bị quan trọng. Đơn vị tính bằng mili giây. Đặt thành 0 vô hiệu hóa. Plugin Thold được yêu cầu để tận dụng chức năng này."
+msgstr "Nếu độ trễ khứ hồi qua bất kỳ phương thức ping Cacti được cấu hình sẵn nào vượt quá ngưỡng này, hệ thống sẽ ghi cảnh báo mức Warning hoặc gửi email dựa trên cài đặt Độ nghiêm trọng của thiết bị và Monitor. Đơn vị tính bằng mili giây. Đặt thành 0 để tắt. Cần có plugin Thold để sử dụng chức năng này."
 
 #: setup.php
 msgid "milliseconds"
 msgstr "mini giây"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Alert Threshold"
-msgstr "Ngưỡng cảnh báo Ping"
+msgstr "Ngưỡng báo động Ping"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Nếu độ trễ chuyến đi khứ hồi thông qua bất kỳ phương pháp ping Cacti được xác định trước nào vượt quá ngưỡng này, hãy ghi lại cảnh báo hoặc gửi email dựa trên cài đặt Giám sát và Thiết bị quan trọng. Đơn vị tính bằng mili giây. Đặt thành 0 vô hiệu hóa. Plugin Thold được yêu cầu để tận dụng chức năng này."
+msgstr "Nếu độ trễ khứ hồi qua bất kỳ phương thức ping Cacti được cấu hình sẵn nào vượt quá ngưỡng này, hệ thống sẽ ghi cảnh báo mức Alert hoặc gửi email dựa trên cài đặt Độ nghiêm trọng của thiết bị và Monitor. Đơn vị tính bằng mili giây. Đặt thành 0 để tắt. Cần có plugin Thold để sử dụng chức năng này."
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Warning"
-msgstr "Cảnh báo lại đường cơ sở"
+msgstr "Cảnh báo thiết lập lại đường cơ sở"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
-msgstr "Tỷ lệ phần trăm trên thời gian ping trung bình hiện tại để xem xét Ngưỡng cảnh báo. Nếu được cập nhật, điều này sẽ tự động điều chỉnh Ngưỡng cảnh báo Ping."
+msgstr "Tỷ lệ phần trăm vượt trên thời gian ping trung bình hiện tại để xem xét là Ngưỡng cảnh báo sớm. Nếu được cập nhật, giá trị này sẽ tự động điều chỉnh Ngưỡng cảnh báo sớm Ping."
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Alert"
-msgstr "Thông báo lại đường cơ sở"
+msgstr "Báo động thiết lập lại đường cơ sở"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
-msgstr "Tỷ lệ phần trăm trên thời gian ping trung bình hiện tại để xem xét Ngưỡng cảnh báo. Nếu được cập nhật, điều này sẽ tự động điều chỉnh Ngưỡng cảnh báo Ping."
+msgstr "Tỷ lệ phần trăm vượt trên thời gian ping trung bình hiện tại để xem xét là Ngưỡng cảnh báo. Nếu được cập nhật, giá trị này sẽ tự động điều chỉnh Ngưỡng cảnh báo Ping."
 
 #: setup.php
-#, fuzzy
 msgid "Down Device Message"
-msgstr "Thông báo thiết bị xuống"
+msgstr "Thông báo thiết bị ngừng hoạt động"
 
 #: setup.php
-#, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
-msgstr "Đây là thông báo sẽ được hiển thị khi Thiết bị này được báo cáo là không hoạt động."
+msgstr "Đây là thông báo sẽ hiển thị khi Thiết bị này được báo cáo là ngừng hoạt động."
 
 #: setup.php
-#, fuzzy
 msgid "Device icon"
-msgstr "Thiết bị:"
+msgstr "Biểu tượng thiết bị"
 
 #: setup.php
 msgid "You can select device icon."
-msgstr ""
+msgstr "Bạn có thể chọn biểu tượng thiết bị."
 
 #: setup.php
 msgid "Monitoring"
 msgstr "Giám sát"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Nhấp 'Tiếp tục' để bật giám sát trên (các) thiết bị này"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Nhấp 'Tiếp tục' để tắt giám sát trên (các) thiết bị này"
 
 #, fuzzy
 #~ msgid "Not Monitored Devices"

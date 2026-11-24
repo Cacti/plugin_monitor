@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 23:00+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Ukrainian\n"
+"Language: uk-UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Нова інформаційна панель"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Інформаційна панель"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Введіть назву інформаційної панелі та натисніть 'Зберегти' для продовження або 'Скасувати'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Створити нову інформаційну панель"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Пристрої під моніторингом"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Не збережено"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Макет"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Показати"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Перегляд"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Групування"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Оновити"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Оновити список пристроїв"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Очистити"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Очистити встановлений фільтр"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Зберегти"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Зберегти налаштування фільтра"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Новий"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Зберегти нову інформаційну панель"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Перейменувати"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Перейменувати дашборд"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Видалити"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Видалити дашборд"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s сповіщення про недоступні пристрої"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s сповіщень про недоступні пристрої"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Пристрої"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Перейти на сторінку керування пристроями"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Критичність"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Розмір"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Обрізати"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Усі дерева"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Пристрої поза деревом"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Дерево"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Усі майданчики"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Пристрої поза сайтами"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Сайти"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Пристрої без шаблону"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Шаблон"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Шаблон"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Рядки"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Налаштування фільтра збережено ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Завантаження..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Панелі деталей пристрою"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Наступне оновлення через <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> секунд ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Фільтр монітора [ Останнє оновлення: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Показано лише перші 30 пристроїв ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Пошук"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Події"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Вимкнути звук"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Підтвердити"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Увімкнути звук"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Скинути"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Інформаційну панель '%s' видалено."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Інформаційна панель '%s' не належить вам."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Інформаційну панель '%s' збережено!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Не вдалося зберегти інформаційну панель '%s'!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Редагувати пристрій"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Переглянути графіки"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Перегляд порогів/сповіщень"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Перегляд сповіщень Syslog пристрою"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Перегляд записів Syslog пристрою"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Перегляд несправної перевірки сервісу"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Відомості про стан пристрою"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "пристрій:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Сайт:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Розташування:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Критичність:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Статус:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Примітка адміністратора:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Ім'я хоста:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Поточн./Середн.:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d мс"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Попередження/Сповіщення:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d мс"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Останній збій:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Час у стані:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Доступність:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Час роботи агента:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "(відсутній)"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Системний опис:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Контакти:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Примітки:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Ніколи"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Не вказано"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Немає"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP і Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "SNMP Uptime"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP або Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "Отримання SNMP SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP Get Next"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Метод %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Опис"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Ім'я хоста"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Статус"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Вузол"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Шаблон пристрою"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Місцезнаходження"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Контакти"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Нотатки"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Інформація про хост"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Метод доступності"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f мс"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Поточний / середній Ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Мін. / Макс. Ping"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Доступність"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Усього / невдалих опитувань"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "У поточному стані з"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Останній збій"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Збір даних"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Вимкнен"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Збій"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Не перевірено"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "OK"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Перевірки сервісів"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Поріг %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Спрацювало"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Пороги"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "За останню годину повідомлень syslog не було."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (остання година)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Відкрити фактичний пристрій"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Посилання пристрою"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Пристрій поза сайтом"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Коренева гілка"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Дерево: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Гілка: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Щойно став доступним"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Оффлайн"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Відновлення"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Недоступний (П/П)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Спрацювало (Вимк./Підтв.)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Попередження Ping"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Сповіщення Ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Невдалі сервіси"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Дії"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Відкрити панелі подробиць пристрою"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Опис пристрою, заданий на сторінці «Пристрої»"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Фізичне розташування, записане для пристрою"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Майданчик, до якого призначено пристрій"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "Внутрішній ID пристрою Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Критичність моніторингу, призначена пристрою"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Активні події на пристрої (Недоступний, Спрацювало, Попередження/Тривога Ping, Збій служби, ...); натисніть на мітку, щоб додати або видалити цю подію з фільтра подій"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Порушені / Спрацьовані / Усього порогів (плагін Thold) на пристрої; натисніть, щоб перемкнути фільтр спрацьованих подій"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Невдалі / усього перевірок сервісів (плагін ServCheck) для пристрою; натисніть, щоб перемкнути фільтр подій «Невдалі сервіси»"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Застереження"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Пороги попередження / тривоги затримки Ping (мс), налаштовані для цього пристрою; сповіщення надсилається, коли час відгуку перевищує їх"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Адміністратор"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Адміністративне повідомлення моніторингу, що показується, коли пристрій недоступний або відновлюється"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Відсоток успішних перевірок доступності за збережену історію"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Середні значення"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Поточний / середній час відповіді ping у мілісекундах"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Тривалість у стані"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Як довго пристрій перебуває у поточному стані"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Дата й час останньої невдалої перевірки доступності пристрою"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Фільтрувати за цим рівнем критичності (натисніть ще раз, щоб очистити)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Критичність не задано — натисніть, щоб відфільтрувати пристрої без критичності (натисніть ще раз, щоб очистити)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Не встановлено"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Натисніть, щоб додати або видалити цю подію з фільтра"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Порушені / Спрацьовані / Усього порогів — натисніть, щоб перемкнути фільтр спрацьованих подій"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Для цього пристрою не визначено порогів"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Невдалі / усього перевірок сервісів — натисніть, щоб перемкнути фільтр подій «Невдалі сервіси»"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Для цього пристрою не визначено перевірок служб"
+
+#: monitor.php
+msgid "All"
+msgstr "Всі"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Низький"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Середній"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Високий"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Критично важливий"
+
+#: monitor.php
+msgid "Up"
+msgstr "Онлайн"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Спрацювало (Звук вимкнено/Підтверджено)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Недоступний (Приглушено/Підтверджено)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Без перевірки доступності"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Попередження Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Перевірка сервісу не пройдена"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Дуже малий"
+
+#: monitor.php
+msgid "Small"
+msgstr "Малий"
+
+#: monitor.php
+msgid "Large"
+msgstr "Великий"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Дуже великий"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Збільшити"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Усі пристрої під моніторингом"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Усі пристрої"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Пристрої без моніторингу"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Пристрої без порогів"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Пристрої без перевірок сервісів"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Список"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Плитки"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Плитки та час"
+
+#: monitor.php
+msgid "Full"
+msgstr "Повний"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "10 символів"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "20 символів"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "30 символів"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "40 символів"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "50 символів"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "75 символів"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "100 символів"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Опис: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Ім'я хоста: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "У наведеному нижче звіті вказано пристрої, які перевищили порогові значення затримки ping. Ви отримали цей звіт, оскільки підписані на пристрій, пов'язаний із системою Cacti за наведеною нижче URL-адресою."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Сайт моніторингу Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Ви отримуватимете сповіщення кожні %d хвилин, якщо значення пристрою перевищує свій поріг."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Ви отримуватимете сповіщення щоразу, коли значення пристрою перевищує свій поріг."
+
+#: setup.php
+msgid "Any"
+msgstr "Будь-який"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Натисніть 'Продовжити', щоб увімкнути моніторинг для цих пристроїв"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Натисніть 'Продовжити', щоб вимкнути моніторинг для цих пристроїв"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Натисніть 'Продовжити', щоб змінити налаштування моніторингу для наведених нижче пристроїв. Не забудьте встановити прапорець 'Оновити це поле', щоб вказати, які стовпці слід оновити."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Оновіть це поле"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Змінити параметри моніторингу"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Увімкнути моніторинг"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Вимкнути моніторинг"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Безстроково"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Місяць"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Місяців"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d Рік"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Звичайний користувач"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Налаштування монітора"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Звук тривоги"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Це звуковий файл, який відтворюватиметься, коли пристрій стає недоступним."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Зациклити звук тривоги"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Відтворювати зазначений вище звук циклічно, коли пристрій стає недоступним."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Показати легенду піктограм"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Позначте цей прапорець, щоб відображати легенду піктограм на екрані Monitor"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Показати час безперервної роботи"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Позначте цей прапорець, щоб відображати час безперервної роботи (Uptime) на екрані Monitor"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Масштабувати до помилок"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Позначте цей прапорець, щоб масштабувати елементи з помилками на екрані Monitor"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Тло масштабування"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Колір фону для збільшених помилок на екрані Monitor"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Розмір шрифту при масштабуванні"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Монітор"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Увімкнути для нових пристроїв"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Позначте цей прапорець, щоб автоматично вмикати моніторинг під час створення нових пристроїв"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Зберігання журналу сповіщень/перезавантажень"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Зберігати журнали сповіщень і перезавантажень протягом зазначеної кількості днів."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Інтервал оновлення"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Це час у секундах до оновлення сторінки. (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Так плагін Monitor групуватиме пристрої."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Типово з правами доступу"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Так плагін Monitor відображатиме пристрої."
+
+#: setup.php
+msgid "Names only"
+msgstr "Лише назви"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Плитки та час простою"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Формат звіту сповіщень"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Відформатуйте файл для використання"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Виберіть спеціальну оболонку html і файл CSS для використання. Цей файл містить як html, так і CSS, щоб охопити ваш звіт. Якщо він містить більше, ніж просто CSS, вам потрібно розмістити спеціальний<REPORT> тег всередині файлу. Цей тег формату буде замінено вмістом звіту. Ці файли знаходяться в каталозі «формати»."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Сповіщення про пороги Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Сповіщення про попередження затримки"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Якщо затримка двостороннього пінгу (Round Trip Ping Latency) пристрою перевищує поріг попередження (Warning Threshold) та критичність нижче, підписники цього пристрою отримають сповіщення електронною поштою. Виберіть «Вимкнено», щоб вимкнути. Для увімкнення цієї функції потрібен плагін Thold."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Сповіщення про затримку"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Якщо затримка двостороннього пінгу (Round Trip Ping Latency) пристрою перевищує поріг тривоги (Alert Threshold) та критичність нижче, підписники цього пристрою отримають сповіщення електронною поштою. Виберіть «Вимкнено», щоб вимкнути. Для увімкнення цієї функції потрібен плагін Thold."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Як часто повторно надсилати електронні листи"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Як часто надсилати сповіщення електронною поштою підписникам для цих пристроїв, якщо вони перевищують пороги затримки"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Кожного разу"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Кожні %d хвилин"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Кожну годину"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Кожні %d годин"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Сповіщення про перезавантаження"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Надсилати сповіщення про перезавантаження"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Чи надсилати користувачам сповіщення про перезавантаження пристроїв?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Надсилати один email на всі адреси"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Якщо позначено, система надішле лише один електронний лист на всі адреси."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Включити списки порогових сповіщень"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Чи повинні списки порогових сповіщень також отримувати повідомлення"
+
+#: setup.php
+msgid "Subject"
+msgstr "Тема"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Введіть тему повідомлення про перезавантаження для сповіщення про перезавантаження."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Сповіщення Cacti про перезавантаження пристрою"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Текст листа"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Введіть текст електронного листа для включення в повідомлення про перезавантаження. Наразі єдиним підтримуваним тегом підстановки є &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Сповіщення про перезавантаження Monitor</h1><p>Наведені нижче пристрої було перезавантажено. Додаткову інформацію див. у деталях нижче.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Електронні адреси для сповіщень"
+
+#: setup.php
+msgid "From Name"
+msgstr "Від імені"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Введіть ім'я відправника електронної пошти для сповіщень"
+
+#: setup.php
+msgid "From Address"
+msgstr "Адреса відправника"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Введіть адресу електронної пошти відправника сповіщень"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Список сповіщень"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Виберіть список сповіщень нижче. Усі адреси електронної пошти, підписані на цей список, отримають сповіщення."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Адреси електронної пошти"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Введіть список адрес електронної пошти через кому для сповіщення про подію перезавантаження."
+
+#: setup.php
+msgid "Server"
+msgstr "Сервер"
+
+#: setup.php
+msgid "Printer"
+msgstr "Принтер"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Настільний ПК"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Ноутбук"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wi-Fi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Дротова мережа"
+
+#: setup.php
+msgid "Database"
+msgstr "База даних"
+
+#: setup.php
+msgid "Clock"
+msgstr "Годинник"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Жорсткий диск"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Блоки"
+
+#: setup.php
+msgid "Phone"
+msgstr "Телефон"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Хмара"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Не змінювати"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "На %d відсотків вище середнього"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Налаштування моніторингу пристрою"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Моніторинг пристрою"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Позначте цей прапорець, щоб відстежувати цей пристрій на вкладці Monitor."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Критичність пристрою"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Яка критичність цього пристрою."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Поріг попередження Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Якщо затримка двостороннього пінгу будь-яким із попередньо визначених методів пінгу Cacti перевищує цей поріг, записати попередження в журнал або надіслати електронний лист залежно від критичності пристроїв та налаштувань Monitor. Одиниця вимірювання — мілісекунди. Значення 0 вимикає перевірку. Для використання цієї функції потрібен плагін Thold."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "мілісекунд"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Поріг тривоги Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Якщо затримка двостороннього пінгу будь-яким із попередньо визначених методів пінгу Cacti перевищує цей поріг, записати тривогу в журнал або надіслати електронний лист залежно від критичності пристроїв та налаштувань Monitor. Одиниця вимірювання — мілісекунди. Значення 0 вимикає перевірку. Для використання цієї функції потрібен плагін Thold."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Перевизначення базової лінії попередження"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Відсоток перевищення поточного середнього часу пінгу, що вважається порогом попередження. Після оновлення автоматично скоригує поріг попередження пінгу."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Перевизначення базової лінії тривоги"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Відсоток перевищення поточного середнього часу пінгу, що вважається порогом тривоги. Після оновлення автоматично скоригує поріг тривоги пінгу."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Повідомлення про недоступний пристрій"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Це повідомлення, яке відображатиметься, коли цей пристрій повідомлятиметься як недоступний."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Піктограма пристрою"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Ви можете вибрати значок пристрою."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Моніторинг"
+

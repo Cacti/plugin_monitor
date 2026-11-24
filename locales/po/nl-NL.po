@@ -14,7 +14,6 @@ msgstr ""
 "X-Generator: Weblate 4.8.1\n"
 
 #: includes/controller.php
-#, fuzzy
 msgid "New Dashboard"
 msgstr "Nieuw dashboard"
 
@@ -23,22 +22,18 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
-msgstr "Voer de Dashboard-naam in en druk op 'Opslaan' om door te gaan, of druk op 'Annuleren'"
+msgstr "Voer de dashboardnaam in en druk op 'Opslaan' om door te gaan, of druk op 'Annuleren'"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Create New Dashboard"
-msgstr "Maak een nieuw dashboard"
+msgstr "Nieuw dashboard aanmaken"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Monitored Devices"
 msgstr "Bewaakte apparaten"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Unsaved"
 msgstr "Niet opgeslagen"
 
@@ -48,7 +43,7 @@ msgstr "Layout"
 
 #: includes/controller.php
 msgid "Show"
-msgstr ""
+msgstr "Toon"
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -63,24 +58,22 @@ msgid "Refresh"
 msgstr "Vernieuwen"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Refresh the Device List"
-msgstr "De lijst met apparaten vernieuwen"
+msgstr "Apparatenlijst vernieuwen"
 
 #: includes/controller.php
 msgid "Clear"
-msgstr ""
+msgstr "Wissen"
 
 #: includes/controller.php
 msgid "Clear the set filter"
-msgstr ""
+msgstr "Ingesteld filter wissen"
 
 #: includes/controller.php
 msgid "Save"
 msgstr "Opslaan"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save Filter Settings"
 msgstr "Filterinstellingen opslaan"
 
@@ -89,37 +82,34 @@ msgid "New"
 msgstr "Nieuw"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Save New Dashboard"
-msgstr "Bewaar nieuw dashboard"
+msgstr "Nieuw dashboard opslaan"
 
 #: includes/controller.php
 msgid "Rename"
 msgstr "Hernoem"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Rename Dashboard"
-msgstr "Hernoem Dashboard"
+msgstr "Dashboard hernoemen"
 
 #: includes/controller.php
 msgid "Delete"
 msgstr "Verwijderen"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Delete Dashboard"
 msgstr "Dashboard verwijderen"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alert for downed Devices"
-msgstr "%s Waarschuwing voor downed Devices"
+msgstr "%s waarschuwing voor uitgevallen apparaten"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%s Alerts for downed Devices"
-msgstr "%s Waarschuwingen voor downed Devices"
+msgstr "%s waarschuwingen voor uitgevallen apparaten"
 
 #: includes/controller.php includes/render.php
 msgid "Devices"
@@ -127,12 +117,11 @@ msgstr "Apparaten"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
-msgstr ""
+msgstr "Ga naar de beheerpagina Apparaten"
 
 #: includes/controller.php includes/render.php poller_functions.php setup.php
-#, fuzzy
 msgid "Criticality"
-msgstr "Kritisch"
+msgstr "Kritikaliteit"
 
 #: includes/controller.php
 msgid "Size"
@@ -143,14 +132,12 @@ msgid "Trim"
 msgstr "Trim"
 
 #: includes/controller.php
-#, fuzzy
 msgid "All Trees"
 msgstr "Alle bomen"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Tree Devices"
-msgstr "Niet-Boom Apparaten"
+msgstr "Apparaten buiten structuur"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Tree"
@@ -161,32 +148,29 @@ msgid "All Sites"
 msgstr "Alle sites"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Site Devices"
-msgstr "Niet-Boom Apparaten"
+msgstr "Apparaten zonder site"
 
 #: includes/controller.php
 msgid "Sites"
 msgstr "Locaties"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Non-Templated Devices"
-msgstr "Niet-gememplateerde apparaten"
+msgstr "Apparaten zonder sjabloon"
 
 #: includes/controller.php
 msgid "Template"
 msgstr "Template"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Template"
 msgid "Templates"
-msgstr "Template"
+msgstr "Sjablonen"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr ""
+msgstr "Rijen"
 
 #: includes/controller.php
 msgid " [ Filter Settings Saved ]"
@@ -198,13 +182,12 @@ msgstr "Annuleer"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr ""
+msgstr "Laden..."
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 #| msgid "Device Template"
 msgid "Device Detail Panels"
-msgstr "Apparaattemplate"
+msgstr "Apparaatdetailpanelen"
 
 #: includes/controller.php
 #, php-format
@@ -212,13 +195,13 @@ msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"
 msgstr " [ Opnieuw verversen in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconden ]"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Monitor Filter [ Last Refresh: %s ]"
-msgstr "Monitorfilter [ Laatste verversing: %s ]"
+msgstr "Monitorfilter [ Laatst vernieuwd: %s ]"
 
 #: includes/controller.php
 msgid "[ Showing only first 30 Devices ]"
-msgstr ""
+msgstr "[ Alleen de eerste 30 apparaten worden getoond ]"
 
 #: includes/controller.php
 msgid "Search"
@@ -226,7 +209,7 @@ msgstr "Zoeken"
 
 #: includes/controller.php includes/render.php
 msgid "Events"
-msgstr ""
+msgstr "Gebeurtenissen"
 
 #: includes/controller.php
 msgid "Mute"
@@ -237,7 +220,6 @@ msgid "Acknowledge"
 msgstr "Erkennen"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Un-Mute"
 msgstr "Dempen opheffen"
 
@@ -246,58 +228,52 @@ msgid "Reset"
 msgstr "Reset"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' Removed."
 msgstr "Dashboard '%s' verwijderd."
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' is not owned by you."
 msgstr "Dashboard '%s' is niet uw eigendom."
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' has been Saved!"
 msgstr "Dashboard '%s' is opgeslagen!"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "Dashboard '%s' could not be Saved!"
-msgstr "Dashboard '%s' kan niet worden opgeslagen!"
+msgstr "Dashboard '%s' kon niet worden opgeslagen!"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Edit Device"
 msgstr "Wijzig apparaat"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "View Graphs"
 msgstr "Toon grafieken"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Thresholds/Alerts"
-msgstr "Bekijk Drempels"
+msgstr "Drempelwaarden/meldingen bekijken"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Alerts"
-msgstr "Bekijk Syslog Alerts"
+msgstr "Syslog-meldingen van apparaat bekijken"
 
 #: includes/controller.php
-#, fuzzy
 msgid "View Device Syslog Entries"
-msgstr "Bekijk Syslog Alerts"
+msgstr "Syslog-vermeldingen van apparaat bekijken"
 
 #: includes/controller.php
 msgid "View Failing Service Check"
-msgstr ""
+msgstr "Falende servicecontrole bekijken"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Status Information"
-msgstr "Informatie over de status van het apparaat"
+msgstr "Apparaatstatusinformatie"
 
 #: includes/controller.php
 msgid "Device:"
@@ -312,71 +288,62 @@ msgid "Location:"
 msgstr "Locatie:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Criticality:"
-msgstr "Kritisch:"
+msgstr "Kritikaliteit:"
 
 #: includes/controller.php
 msgid "Status:"
 msgstr "Status:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Admin Note:"
-msgstr "Admin Opmerking:"
+msgstr "Beheerdersnotitie:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "IP/Hostname:"
 msgstr "IP/Hostnaam:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Curr/Avg:"
-msgstr "Kelving/Avg:"
+msgstr "Huidig/Gem.:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d ms"
 msgstr "%d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Warn/Alert:"
-msgstr "Waarschuwing/Alarm:"
+msgstr "Waarschuwing/Melding:"
 
 #: includes/controller.php includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2d ms"
 msgstr "%0.2d ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Last Fail:"
 msgstr "Laatste mislukking:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Time In State:"
-msgstr "Tijd in staat:"
+msgstr "Tijd in status:"
 
 #: includes/controller.php
 msgid "Availability:"
 msgstr "Beschikbaarheid:"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Agent Uptime:"
-msgstr "Agent Uptime:"
+msgstr "Agent-uptime:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
 msgstr "N/B"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Sys Description:"
-msgstr "Sys Beschrijving:"
+msgstr "Systeembeschrijving:"
 
 #: includes/controller.php
 msgid "Contact:"
@@ -392,7 +359,7 @@ msgstr "Nooit"
 
 #: includes/controller.php
 msgid "Unspecified"
-msgstr ""
+msgstr "Niet opgegeven"
 
 #: includes/controller.php includes/render.php setup.php
 msgid "None"
@@ -400,33 +367,32 @@ msgstr "Geen"
 
 #: includes/controller.php
 msgid "SNMP and Ping"
-msgstr ""
+msgstr "SNMP en Ping"
 
 #: includes/controller.php
-#, fuzzy
 msgid "SNMP Uptime"
-msgstr "Toon uptime"
+msgstr "SNMP uptime"
 
 #: includes/controller.php
 msgid "Ping"
-msgstr ""
+msgstr "Ping"
 
 #: includes/controller.php
 msgid "SNMP or Ping"
-msgstr ""
+msgstr "SNMP of Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr ""
+msgstr "SNMP Get SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
-msgstr ""
+msgstr "SNMP Get Next"
 
 #: includes/controller.php
 #, php-format
 msgid "Method %d"
-msgstr ""
+msgstr "Methode %d"
 
 #: includes/controller.php includes/render.php poller_functions.php
 msgid "Description"
@@ -449,45 +415,40 @@ msgid "Device Template"
 msgstr "Apparaattemplate"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Location"
-msgstr "Locatie:"
+msgstr "Locatie"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Contact:"
 msgid "Contact"
-msgstr "Contactpersoon:"
+msgstr "Contactgegevens"
 
 #: includes/controller.php
 msgid "Notes"
 msgstr "Notities"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Host Information"
-msgstr "Informatie over de status van het apparaat"
+msgstr "Hostinformatie"
 
 #: includes/controller.php
-#, fuzzy
 #| msgid "Availability"
 msgid "Availability Method"
-msgstr "Beschikbaarheid"
+msgstr "Beschikbaarheid van methode"
 
 #: includes/controller.php
-#, fuzzy, php-format
+#, php-format
 msgid "%0.2f ms"
-msgstr "%0.2d ms"
+msgstr "%0.2f ms"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Current / Average Ping"
-msgstr "Huidige Ping"
+msgstr "Huidige / gemiddelde ping"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr ""
+msgstr "Min / Max ping"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
@@ -495,20 +456,19 @@ msgstr "Beschikbaarheid"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
-msgstr ""
+msgstr "Totaal / Mislukte polls"
 
 #: includes/controller.php
 msgid "In Current Status Since"
-msgstr ""
+msgstr "In huidige status sinds"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Last Fail"
 msgstr "Laatste mislukking"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr ""
+msgstr "Data verzameling"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
@@ -516,69 +476,64 @@ msgstr "Uitgeschakeld"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr ""
+msgstr "Falend"
 
 #: includes/controller.php
 msgid "Not tested"
-msgstr ""
+msgstr "Niet getest"
 
 #: includes/controller.php
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: includes/controller.php includes/render.php
 msgid "Service Checks"
-msgstr ""
+msgstr "Servicecontroles"
 
 #: includes/controller.php
 #, php-format
 msgid "Threshold %d"
-msgstr ""
+msgstr "Drempelwaarde %d"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "Geactiveerd"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
 msgid "Thresholds"
-msgstr "Bekijk Drempels"
+msgstr "Drempelwaarden"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
-msgstr ""
+msgstr "Geen syslog-berichten in het afgelopen uur."
 
 #: includes/controller.php
 msgid "Syslog (last hour)"
-msgstr ""
+msgstr "Syslog (afgelopen uur)"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Open Actual Device"
-msgstr "Apparaten"
+msgstr "Werkelijk apparaat openen"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Links"
-msgstr "Apparaat:"
+msgstr "Apparaatlinks"
 
 #: includes/render.php
-#, fuzzy
 msgid "Non-Site Device"
-msgstr "Niet-Boom Apparaten"
+msgstr "Apparaat zonder site"
 
 #: includes/render.php
-#, fuzzy
 msgid "Root Branch"
-msgstr "Voeg menu toe"
+msgstr "Hoofdtak"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Tree: %s"
-msgstr "Boom: %s"
+msgstr "Boomstructuur: %s"
 
 #: includes/render.php
-#, fuzzy, php-format
+#, php-format
 msgid "Branch: %s"
 msgstr "Tak: %s"
 
@@ -587,9 +542,8 @@ msgid "Unknown"
 msgstr "Onbekend"
 
 #: includes/render.php
-#, fuzzy
 msgid "Just Up"
-msgstr "Gewoon omhoog"
+msgstr "Zojuist actief"
 
 #: includes/render.php monitor.php
 msgid "Down"
@@ -600,75 +554,70 @@ msgid "Recovering"
 msgstr "Herstellende"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Down (M/A)"
-msgstr "Omlaag (gedempt/gecontroleerd)"
+msgstr "Inactief (G/B)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Triggered (M/A)"
-msgstr "Omlaag (gedempt/gecontroleerd)"
+msgstr "Geactiveerd (G/B)"
 
 #: includes/render.php monitor.php
-#, fuzzy
 #| msgid "Warning"
 msgid "Warn Ping"
-msgstr "Waarschuwing"
+msgstr "Waarschuwingsping"
 
 #: includes/render.php monitor.php
-#, fuzzy
 msgid "Alert Ping"
 msgstr "Waarschuwingsping"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr ""
+msgstr "Mislukte svc"
 
 #: includes/render.php
-#, fuzzy
 #| msgid "Location:"
 msgid "Actions"
-msgstr "Locatie:"
+msgstr "Acties"
 
 #: includes/render.php
 msgid "Open the device detail panels"
-msgstr ""
+msgstr "Apparaatdetailpanelen openen"
 
 #: includes/render.php
 msgid "Device description as set on the Devices page"
-msgstr ""
+msgstr "Apparaatbeschrijving zoals ingesteld op de pagina Apparaten"
 
 #: includes/render.php
 msgid "Physical location recorded for the device"
-msgstr ""
+msgstr "Fysieke locatie vastgelegd voor het apparaat"
 
 #: includes/render.php
 msgid "Site the device is assigned to"
-msgstr ""
+msgstr "Locatie waaraan het apparaat is toegewezen"
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: includes/render.php
 msgid "Cacti internal device id"
-msgstr ""
+msgstr "Interne Cacti-apparaat-ID"
 
 #: includes/render.php
 msgid "Monitoring criticality assigned to the device"
-msgstr ""
+msgstr "Monitoringkritikaliteit toegewezen aan het apparaat"
 
 #: includes/render.php
 msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
-msgstr ""
+msgstr "Actieve gebeurtenissen op het apparaat (Inactief, Geactiveerd, Waarschuwing/Alarm Ping, Mislukte service, ...); klik op een label om die gebeurtenis toe te voegen aan of te verwijderen uit het Gebeurtenissen-filter"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
-msgstr ""
+msgstr "Overschreden / Geactiveerde / Totale drempelwaarden (Thold-plugin) op het apparaat; klik om het filter voor geactiveerde gebeurtenissen aan/uit te zetten"
 
 #: includes/render.php
 msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Mislukte / totale servicecontroles (servcheck-plug-in) voor het apparaat; klik om het gebeurtenisfilter Mislukte svc in of uit te schakelen"
 
 #: includes/render.php
 msgid "Warning"
@@ -676,7 +625,7 @@ msgstr "Waarschuwing"
 
 #: includes/render.php
 msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
-msgstr ""
+msgstr "Waarschuwings- / alarmeringsdrempelwaarden voor pinglatentie (ms) die voor dit apparaat zijn geconfigureerd; er wordt een melding verzonden wanneer de responstijd deze overschrijdt"
 
 #: includes/render.php
 msgid "Admin"
@@ -684,71 +633,68 @@ msgstr "Beheerder"
 
 #: includes/render.php
 msgid "Administrative monitor message shown while the device is Down or Recovering"
-msgstr ""
+msgstr "Beheerdersmelding getoond terwijl het apparaat Inactief is of aan het herstellen is"
 
 #: includes/render.php
 msgid "Percentage of successful availability checks over the retained history"
-msgstr ""
+msgstr "Percentage geslaagde beschikbaarheidscontroles over de bewaarde geschiedenis"
 
 #: includes/render.php
-#, fuzzy
 msgid "Averages"
 msgstr "Gemiddelden"
 
 #: includes/render.php
 msgid "Current / average ping response time in milliseconds"
-msgstr ""
+msgstr "Huidige / gemiddelde ping-responstijd in milliseconden"
 
 #: includes/render.php
-#, fuzzy
 msgid "Length in Status"
-msgstr "Lengte in status"
+msgstr "Duur in status"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
-msgstr ""
+msgstr "Hoe lang het apparaat zich in de huidige status bevindt"
 
 #: includes/render.php
 msgid "Date and time the device last failed its availability check"
-msgstr ""
+msgstr "Datum en tijd waarop de beschikbaarheidscontrole van het apparaat voor het laatst mislukte"
 
 #: includes/render.php
 msgid "Filter by this criticality (click again to clear)"
-msgstr ""
+msgstr "Filteren op deze kritiekheid (klik nogmaals om te wissen)"
 
 #: includes/render.php
 msgid "Criticality not set - click to filter unset devices (click again to clear)"
-msgstr ""
+msgstr "Kritiekheid niet ingesteld - klik om niet-ingestelde apparaten te filteren (klik opnieuw om te wissen)"
 
 #: includes/render.php
-#, fuzzy
 #| msgid "Not Up"
 msgid "Not Set"
-msgstr "Niet online"
+msgstr "Niet ingesteld"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
-msgstr ""
+msgstr "Klik om deze gebeurtenis toe te voegen aan of te verwijderen uit het filter"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
-msgstr ""
+msgstr "Overschreden / Geactiveerde / Totale drempelwaarden - klik om het filter voor geactiveerde gebeurtenissen aan/uit te zetten"
 
 #: includes/render.php
 msgid "No thresholds defined for this device"
-msgstr ""
+msgstr "Geen drempelwaarden gedefinieerd voor dit apparaat"
 
 #: includes/render.php
 msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "Mislukte / totale servicecontroles - klik om het gebeurtenisfilter Mislukte svc in of uit te schakelen"
 
 #: includes/render.php
 msgid "No service checks defined for this device"
-msgstr ""
+msgstr "Geen servicecontroles gedefinieerd voor dit apparaat"
 
 #: monitor.php
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -763,37 +709,32 @@ msgid "High"
 msgstr "Hoog"
 
 #: monitor.php poller_functions.php setup.php
-#, fuzzy
 msgid "Mission Critical"
-msgstr "Missie Kritisch"
+msgstr "Bedrijfskritisch"
 
 #: monitor.php
 msgid "Up"
 msgstr "Online"
 
 #: monitor.php
-#, fuzzy
 msgid "Triggered (Muted/Acked)"
-msgstr "Omlaag (gedempt/gecontroleerd)"
+msgstr "Geactiveerd (Gedempt/Bevestigd)"
 
 #: monitor.php
-#, fuzzy
 msgid "Down (Muted/Acked)"
-msgstr "Omlaag (gedempt/gecontroleerd)"
+msgstr "Inactief (Gedempt/Bevestigd)"
 
 #: monitor.php
-#, fuzzy
 msgid "No Availability Check"
-msgstr "Geen ping of SNMP beschikbaarheidscontrole in gebruik"
+msgstr "Geen beschikbaarheidscontrole"
 
 #: monitor.php
-#, fuzzy
 msgid "Warning Ping"
 msgstr "Waarschuwingsping"
 
 #: monitor.php
 msgid "Service Check Failed"
-msgstr ""
+msgstr "Servicecontrole mislukt"
 
 #: monitor.php
 msgid "Extra Small"
@@ -816,27 +757,24 @@ msgid "Zoom"
 msgstr "Zoom"
 
 #: monitor.php
-#, fuzzy
 msgid "All Monitored Devices"
 msgstr "Alle bewaakte apparaten"
 
 #: monitor.php
-#, fuzzy
 msgid "All Devices"
-msgstr "Apparaten"
+msgstr "All Devices"
 
 #: monitor.php
-#, fuzzy
 msgid "Devices not Monitored"
-msgstr "Apparaatmonitoring Instellingen"
+msgstr "Niet-gemonitorde apparaten"
 
 #: monitor.php
 msgid "Devices without Thresholds"
-msgstr ""
+msgstr "Apparaten zonder drempelwaarden"
 
 #: monitor.php
 msgid "Devices without Service Checks"
-msgstr ""
+msgstr "Apparaten zonder servicecontroles"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -851,46 +789,38 @@ msgid "Tiles"
 msgstr "Tegels"
 
 #: monitor.php
-#, fuzzy
 msgid "Tiles & Time"
-msgstr "Tegels & Tijd"
+msgstr "Tegels en tijd"
 
 #: monitor.php
 msgid "Full"
 msgstr "Volledig"
 
 #: monitor.php
-#, fuzzy
 msgid "10 Chars"
 msgstr "10 tekens"
 
 #: monitor.php
-#, fuzzy
 msgid "20 Chars"
 msgstr "20 tekens"
 
 #: monitor.php
-#, fuzzy
 msgid "30 Chars"
 msgstr "30 tekens"
 
 #: monitor.php
-#, fuzzy
 msgid "40 Chars"
 msgstr "40 tekens"
 
 #: monitor.php
-#, fuzzy
 msgid "50 Chars"
 msgstr "50 tekens"
 
 #: monitor.php
-#, fuzzy
 msgid "75 Chars"
 msgstr "75 tekens"
 
 #: monitor.php
-#, fuzzy
 msgid "100 Chars"
 msgstr "100 tekens"
 
@@ -903,24 +833,21 @@ msgid "Hostname: "
 msgstr "Hostname:"
 
 #: poller_functions.php
-#, fuzzy
 msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
-msgstr "In het volgende rapport worden apparaten geïdentificeerd waarvan de pinglatentiedrempels zijn overschreden. U ontvangt dit rapport omdat u bent geabonneerd op een apparaat dat is gekoppeld aan het Cacti-systeem en zich bevindt op de volgende URL hieronder."
+msgstr "In het volgende rapport worden apparaten weergegeven die hun ping-latentiedrempelwaarden hebben overschreden. U ontvangt dit rapport omdat u bent geabonneerd op een apparaat dat is gekoppeld aan het Cacti-systeem op de onderstaande URL."
 
 #: poller_functions.php
-#, fuzzy
 msgid "Cacti Monitoring Site"
-msgstr "Opties voor wijzigingsbewaking"
+msgstr "Cacti-monitoringsite"
 
 #: poller_functions.php
-#, fuzzy, php-format
+#, php-format
 msgid "You will receive notifications every %d minutes if the Device is above its threshold."
-msgstr "U ontvangt elke %d minuten een melding als het apparaat zich boven de drempelwaarde bevindt."
+msgstr "U ontvangt elke %d minuten een melding als het apparaat boven de drempelwaarde komt."
 
 #: poller_functions.php
-#, fuzzy
 msgid "You will receive notifications every time the Device is above its threshold."
-msgstr "U ontvangt meldingen telkens wanneer het apparaat zich boven de drempelwaarde bevindt."
+msgstr "U ontvangt meldingen telkens wanneer het apparaat boven de drempelwaarde komt."
 
 #: setup.php
 msgid "Any"
@@ -932,33 +859,28 @@ msgid "Click 'Continue' to %s monitoring on these Device(s)"
 msgstr "Klik op 'Doorgaan' om %s monitoring op deze Apparaten uit te voeren"
 
 #: setup.php
-#, fuzzy
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
-msgstr "Klik op 'Doorgaan' om de bewakingsinstellingen voor de volgende apparaten te wijzigen. Vergeet niet om 'Update this field' aan te vinken om aan te geven welke kolommen moeten worden bijgewerkt."
+msgstr "Klik op 'Doorgaan' om de monitoringsinstellingen voor de volgende apparaten te wijzigen. Vergeet niet 'Dit veld bijwerken' aan te vinken om aan te geven welke kolommen moeten worden bijgewerkt."
 
 #: setup.php
 msgid "Update this Field"
 msgstr "Dit veld bijwerken"
 
 #: setup.php
-#, fuzzy
 msgid "Change Monitoring Options"
-msgstr "Opties voor wijzigingsbewaking"
+msgstr "Monitoringsopties wijzigen"
 
 #: setup.php
-#, fuzzy
 msgid "Enable Monitoring"
-msgstr "Toezicht mogelijk maken"
+msgstr "Monitoring inschakelen"
 
 #: setup.php
-#, fuzzy
 msgid "Disable Monitoring"
-msgstr "Bewaking uitschakelen"
+msgstr "Monitoring uitschakelen"
 
 #: setup.php
-#, fuzzy
 msgid "Indefinitely"
-msgstr "Onbepaald"
+msgstr "Voor onbepaalde tijd"
 
 #: setup.php
 #, php-format
@@ -980,184 +902,150 @@ msgid "Normal User"
 msgstr "Particulier"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Settings"
-msgstr "Monitor instellingen"
+msgstr "Monitor-instellingen"
 
 #: setup.php
-#, fuzzy
 msgid "Alarm Sound"
 msgstr "Alarmgeluid"
 
 #: setup.php
-#, fuzzy
 msgid "This is the sound file that will be played when a Device goes down."
-msgstr "Dit is het geluidsbestand dat wordt afgespeeld wanneer een apparaat naar beneden gaat."
+msgstr "Dit is het geluidsbestand dat wordt afgespeeld wanneer een apparaat uitvalt."
 
 #: setup.php
-#, fuzzy
 msgid "Loop Alarm Sound"
-msgstr "Alarmgeluid"
+msgstr "Alarmgeluid herhalen"
 
 #: setup.php
-#, fuzzy
 msgid "Play the above sound on a loop when a Device goes down."
-msgstr "Dit is het geluidsbestand dat wordt afgespeeld wanneer een apparaat naar beneden gaat."
+msgstr "Speel het bovenstaande geluid herhaald af wanneer een apparaat inactief wordt."
 
 #: setup.php
-#, fuzzy
 msgid "Show Icon Legend"
-msgstr "Toon pictogram Legende"
+msgstr "Pictogramlegenda weergeven"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "Controleer dit om een pictogrammenlegende op het beeldscherm weer te geven"
+msgstr "Vink dit aan om een pictogramlegenda weer te geven in de Monitor-weergave"
 
 #: setup.php
-#, fuzzy
 msgid "Show Uptime"
-msgstr "Toon uptime"
+msgstr "Uptime weergeven"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "Controleer dit om een pictogrammenlegende op het beeldscherm weer te geven"
+msgstr "Vink dit aan om de uptime weer te geven in de Monitor-weergave"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom to Errors"
-msgstr "Zoom in op fouten"
+msgstr "Inzoomen op fouten"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "Controleer dit om een pictogrammenlegende op het beeldscherm weer te geven"
+msgstr "Vink dit aan om in te zoomen op items met fouten in de Monitor-weergave"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Background"
-msgstr "Zoom achtergrond"
+msgstr "Zoom-achtergrond"
 
 #: setup.php
-#, fuzzy
 msgid "Background Color for Zoomed Errors on the Monitor display"
-msgstr "Achtergrondkleur voor ingezoomde fouten op de monitor"
+msgstr "Achtergrondkleur voor ingezoomde fouten in de Monitor-weergave"
 
 #: setup.php
-#, fuzzy
 msgid "Zoom Fontsize"
-msgstr "Zoom lettergrootte"
+msgstr "Zoom-lettergrootte"
 
 #: setup.php
 msgid "Monitor"
 msgstr "Beeldscherm"
 
 #: setup.php
-#, fuzzy
 msgid "Enable on new devices"
 msgstr "Inschakelen op nieuwe apparaten"
 
 #: setup.php
-#, fuzzy
 msgid "Check this to automatically enable monitoring when creating new devices"
-msgstr "Controleer dit om de bewaking automatisch in te schakelen bij het maken van nieuwe apparaten"
+msgstr "Vink dit aan om monitoring automatisch in te schakelen bij het aanmaken van nieuwe apparaten"
 
 #: setup.php
-#, fuzzy
 msgid "Notification/Reboot Log Retention"
-msgstr "Notificatie/Reboot Logboekbehoud"
+msgstr "Bewaartermijn voor meldings-/herstartlogboek"
 
 #: setup.php
-#, fuzzy
 msgid "Keep Notification and Reboot Logs for this number of days."
-msgstr "Bewaar de Notificatie en Herstart logboeken voor dit aantal dagen."
+msgstr "Bewaar de meldings- en herstartlogboeken voor dit aantal dagen."
 
 #: setup.php
 msgid "Refresh Interval"
 msgstr "Vernieuwingsinterval"
 
 #: setup.php
-#, fuzzy
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
-msgstr "Dit is de tijd in seconden voordat de pagina wordt ververst.  (1 - 300)"
+msgstr "Dit is de tijd in seconden voordat de pagina wordt vernieuwd. (1 - 300)"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will Group Devices."
-msgstr "Dit is hoe de monitor Group Devices zal monitoren."
+msgstr "Dit bepaalt hoe Monitor apparaten groepeert."
 
 #: setup.php
-#, fuzzy
 msgid "Default with permissions"
-msgstr "Standaard met permissies"
+msgstr "Standaard met rechten"
 
 #: setup.php
-#, fuzzy
 msgid "This is how monitor will render Devices."
-msgstr "Dit is hoe de monitor Apparaten weergeeft."
+msgstr "Dit bepaalt hoe Monitor apparaten weergeeft."
 
 #: setup.php
 msgid "Names only"
-msgstr ""
+msgstr "Alleen namen"
 
 #: setup.php
-#, fuzzy
 msgid "Tiles & Downtime"
-msgstr "Tegels & Stilstand"
+msgstr "Tegels en uitvaltijd"
 
 #: setup.php
-#, fuzzy
 msgid "Notification Report Format"
-msgstr "Notificatie Rapportformaat"
+msgstr "Rapportformaat voor meldingen"
 
 #: setup.php
-#, fuzzy
 msgid "Format File to Use"
 msgstr "Bestand formatteren om te gebruiken"
 
 #: setup.php
-#, fuzzy
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
 msgstr "Kies de aangepaste html wrapper en CSS-bestand om te gebruiken.  Dit bestand bevat zowel html als CSS om uw rapport in te pakken.  Als het meer bevat dan alleen CSS, moet je een speciale <REPORT> tag in het bestand plaatsen.  Deze format tag wordt vervangen door de inhoud van het rapport.  Deze bestanden bevinden zich in de map 'formaten'."
 
 #: setup.php
-#, fuzzy
 msgid "Ping Threshold Notifications"
-msgstr "Ping Threshold Kennisgevingen"
+msgstr "Meldingen voor pingdrempelwaarde"
 
 #: setup.php
-#, fuzzy
 msgid "Warning Latency Notification"
-msgstr "Waarschuwing Laattijdige waarschuwing"
+msgstr "Waarschuwingsmelding latentie"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Als een Apparaat een Round Trip Ping Latency heeft boven de Waarschuwingsdrempel en boven de Criticality hieronder, dan ontvangt u een e-mailbericht als u zich op het Apparaat aanmeldt.  Selecteer 'Uitgeschakeld' om uit te schakelen.  De Thold Plugin is nodig om deze functie in te schakelen."
+msgstr "Als een apparaat een round-trip ping-latentie heeft boven de waarschuwingsdrempelwaarde en boven de onderstaande kritiekheid, ontvangen e-mailabonnees van het apparaat een e-mailmelding. Selecteer 'Uitgeschakeld' om uit te schakelen. De Thold-plug-in is vereist om deze functie in te schakelen."
 
 #: setup.php
-#, fuzzy
 msgid "Alert Latency Notification"
-msgstr "Waarschuwing latentiemelding"
+msgstr "Melding waarschuwingslatentie"
 
 #: setup.php
-#, fuzzy
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
-msgstr "Als een Apparaat een Round Trip Ping Latency heeft boven de Alert Threshold en boven de Criticality hieronder, dan zal het aanmelden van e-mails aan het Apparaat een e-mailnotificatie ontvangen.  Selecteer 'Uitgeschakeld' om uit te schakelen.  De Thold Plugin is nodig om deze functie in te schakelen."
+msgstr "Als een apparaat een round-trip ping-latentie heeft boven de alarmdrempelwaarde en boven de onderstaande kritiekheid, ontvangen e-mailabonnees van het apparaat een e-mailmelding. Selecteer 'Uitgeschakeld' om uit te schakelen. De Thold-plug-in is vereist om deze functie in te schakelen."
 
 #: setup.php
-#, fuzzy
 msgid "How Often to Resend Emails"
-msgstr "Hoe vaak e-mailberichten opnieuw verzenden"
+msgstr "Frequentie voor opnieuw verzenden van e-mails"
 
 #: setup.php
-#, fuzzy
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr "Hoe vaak moeten e-mailberichten voor deze apparaten naar abonnees worden verzonden als ze hun latentiedrempels overschrijden"
+msgstr "Hoe vaak moeten e-mailmeldingen naar abonnees worden verzonden voor deze apparaten als ze hun latentiedrempelwaarden overschrijden"
 
 #: setup.php
-#, fuzzy
 msgid "Every Occurrence"
 msgstr "Elke gebeurtenis"
 
@@ -1176,66 +1064,56 @@ msgid "Every %d Hours"
 msgstr "Iedere %d uren"
 
 #: setup.php
-#, fuzzy
 msgid "Reboot Notifications"
-msgstr "Herstart meldingen"
+msgstr "Meldingen bij herstart"
 
 #: setup.php
-#, fuzzy
 msgid "Send Reboot Notifications"
-msgstr "Verstuur herstart meldingen"
+msgstr "Herstartmeldingen verzenden"
 
 #: setup.php
-#, fuzzy
 msgid "Should Device Reboot Notifications be sent to users?"
-msgstr "Moeten Device Reboot Notificaties naar gebruikers worden verzonden?"
+msgstr "Moeten meldingen voor het opnieuw opstarten van apparaten naar gebruikers worden verzonden?"
 
 #: setup.php
-#, fuzzy
 msgid "Send one Email to all addresses"
-msgstr "E-mailadressen"
+msgstr "Eén e-mail naar alle adressen verzenden"
 
 #: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
-msgstr ""
+msgstr "Indien aangevinkt verzendt het systeem slechts één e-mail naar alle adressen."
 
 #: setup.php
-#, fuzzy
 msgid "Include Threshold Alert Lists"
-msgstr "Omvat drempelwaarschuwingslijsten"
+msgstr "Drempelwaarde-alarmlijsten opnemen"
 
 #: setup.php
-#, fuzzy
 msgid "Should Threshold Alert Lists also receive Notification"
-msgstr "Mochten er ook drempelwaarschuwingslijsten worden aangemeld"
+msgstr "Moeten lijsten voor drempelwaardewaarschuwingen ook meldingen ontvangen"
 
 #: setup.php
 msgid "Subject"
 msgstr "Onderwerp"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a Reboot message subject for the Reboot Notification."
-msgstr "Voer een onderwerp in voor het onderwerp van het bericht Herstart Nofication."
+msgstr "Voer een onderwerp in voor de herstartmelding."
 
 #: setup.php
-#, fuzzy
 msgid "Cacti Device Reboot Notification"
-msgstr "Cactusapparaat Herstart Noficatie"
+msgstr "Cacti-melding voor herstart van apparaat"
 
 #: setup.php
 msgid "Email Body"
 msgstr "E-mail inhoud"
 
 #: setup.php
-#, fuzzy
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Voer een e-mailbericht in om op te nemen in het bericht Herstartingsmelding.  De enige ondersteunde vervangende tag die momenteel wordt geaccepteerd is &#060;DETAILS&#062;"
+msgstr "Voer de e-mailtekst in voor het bericht van de herstartmelding. Momenteel is &#060;DETAILS&#062; de enige ondersteunde vervangingstag."
 
 #: setup.php
-#, fuzzy
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
-msgstr "<h1>Monitor Reboot Notification</h1><p><p>De volgende apparaten zijn opnieuw opgestart.  Zie de details hieronder voor meer informatie.</p><br><DETAILS>"
+msgstr "<h1>Monitor herstartmelding</h1><p>De volgende apparaten zijn opnieuw opgestart. Zie de details hieronder voor meer informatie.</p><br><DETAILS>"
 
 #: setup.php
 msgid "Notification Email Addresses"
@@ -1246,191 +1124,177 @@ msgid "From Name"
 msgstr "Afzender naam"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Name to send the notifications from"
-msgstr "Voer de naam van de e-mail in om het meldingsformulier te verzenden"
+msgstr "Voer de afzendernaam in waarmee de meldingen worden verzonden"
 
 #: setup.php
 msgid "From Address"
 msgstr "Van adres"
 
 #: setup.php
-#, fuzzy
 msgid "Enter the Email Address to send the notification from"
-msgstr "Voer het e-mailadres in om de kennisgeving te verzenden van"
+msgstr "Voer het e-mailadres in als afzender van de melding"
 
 #: setup.php
 msgid "Notification List"
 msgstr "Notificatielijst"
 
 #: setup.php
-#, fuzzy
 msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
-msgstr "Selecteer hieronder een notificatielijst.  Alle e-mails die zijn ingeschreven op de notificatielijst worden op de hoogte gebracht."
+msgstr "Selecteer hieronder een meldingslijst. Alle e-mailadressen die op de meldingslijst zijn geabonneerd, worden op de hoogte gebracht."
 
 #: setup.php
 msgid "Email Addresses"
 msgstr "E-mailadressen"
 
 #: setup.php
-#, fuzzy
 msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
-msgstr "Voer een door komma's afgebakende lijst met e-mailadressen in om u te informeren over een herstartgebeurtenis."
+msgstr "Voer een door komma's gescheiden lijst met e-mailadressen in die bij een herstart moeten worden geïnformeerd."
 
 #: setup.php
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 #: setup.php
 msgid "Printer"
-msgstr ""
+msgstr "Printer"
 
 #: setup.php
 msgid "Desktop PC"
-msgstr ""
+msgstr "Desktop-pc"
 
 #: setup.php
 msgid "Laptop/notebook"
-msgstr ""
+msgstr "Laptop/notebook"
 
 #: setup.php
 msgid "Wifi"
-msgstr ""
+msgstr "Wifi"
 
 #: setup.php
 msgid "Wired network"
-msgstr ""
+msgstr "Bekabeld netwerk"
 
 #: setup.php
 msgid "Database"
-msgstr ""
+msgstr "Database"
 
 #: setup.php
 msgid "Clock"
-msgstr ""
+msgstr "Klok"
 
 #: setup.php
 msgid "Asterisk"
-msgstr ""
+msgstr "Asterisk"
 
 #: setup.php
 msgid "Harddisk"
-msgstr ""
+msgstr "Harde schijf"
 
 #: setup.php
 msgid "Boxes"
-msgstr ""
+msgstr "Vakken"
 
 #: setup.php
 msgid "Phone"
-msgstr ""
+msgstr "Telefoon"
 
 #: setup.php
 msgid "Cloud"
-msgstr ""
+msgstr "Cloud"
 
 #: setup.php
-#, fuzzy
 msgid "Do not Change"
-msgstr "Niet veranderen"
+msgstr "Niet wijzigen"
 
 #: setup.php
-#, fuzzy, php-format
+#, php-format
 msgid "%d Percent Above Average"
-msgstr "%d Percentage Bovengemiddeld"
+msgstr "%d procent boven gemiddeld"
 
 #: setup.php
-#, fuzzy
 msgid "Device Monitoring Settings"
-msgstr "Apparaatmonitoring Instellingen"
+msgstr "Instellingen voor apparaatmonitoring"
 
 #: setup.php
-#, fuzzy
 msgid "Monitor Device"
-msgstr "Monitor Apparaat"
+msgstr "Apparaat monitoren"
 
 #: setup.php
-#, fuzzy
 msgid "Check this box to monitor this Device on the Monitor Tab."
-msgstr "Vink dit vakje aan om dit apparaat op het tabblad Monitor te controleren."
+msgstr "Vink dit vakje aan om dit apparaat te bewaken op het tabblad Monitor."
 
 #: setup.php
-#, fuzzy
 msgid "Device Criticality"
-msgstr "Apparaatkritiek"
+msgstr "Apparaatkritikaliteit"
 
 #: setup.php
-#, fuzzy
 msgid "What is the Criticality of this Device."
-msgstr "Wat is de kriticiteit van dit apparaat."
+msgstr "Wat is de kritikaliteit van dit apparaat."
 
 #: setup.php
-#, fuzzy
 msgid "Ping Warning Threshold"
-msgstr "Ping Waarschuwingsdrempel"
+msgstr "Waarschuwingsdrempelwaarde voor ping"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Als de round-trip latency via een van de voorgedefinieerde Cacti ping methoden boven deze drempel komt, log dan een waarschuwing in of stuur een e-mail op basis van de instelling Devices Criticality and Monitor.  De eenheid is in milliseconden.  Instellen op 0 schakelt uit. De Thold Plugin is nodig om deze functionaliteit te benutten."
+msgstr "Als de round-trip latentie via een van de vooraf gedefinieerde Cacti-pingmethoden boven deze drempelwaarde komt, log dan een waarschuwing of stuur een e-mail op basis van de instelling voor apparaatkritiekheid en Monitor. De eenheid is milliseconden. Instellen op 0 schakelt dit uit. De Thold-plug-in is vereist om deze functionaliteit te gebruiken."
 
 #: setup.php
-#, fuzzy
 msgid "milliseconds"
 msgstr "milliseconden"
 
 #: setup.php
-#, fuzzy
 msgid "Ping Alert Threshold"
-msgstr "Ping Alert Drempelwaarde"
+msgstr "Drempelwaarde voor pingmelding"
 
 #: setup.php
-#, fuzzy
 msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
-msgstr "Als de round-trip latency via een van de vooraf gedefinieerde Cacti ping methoden boven deze drempel komt, log dan een waarschuwing in of stuur een e-mail op basis van de instelling Devices Criticality and Monitor.  De eenheid is in milliseconden.  Instellen op 0 schakelt uit. De Thold Plugin is nodig om deze functionaliteit te benutten."
+msgstr "Als de round-trip latentie via een van de vooraf gedefinieerde Cacti-pingmethoden boven deze drempelwaarde komt, log dan een alarm of stuur een e-mail op basis van de instelling voor apparaatkritiekheid en Monitor. De eenheid is milliseconden. Instellen op 0 schakelt dit uit. De Thold-plug-in is vereist om deze functionaliteit te gebruiken."
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Warning"
-msgstr "Re-Basislijn Waarschuwing"
+msgstr "Waarschuwing voor nieuwe basislijn"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
-msgstr "Het percentage boven de huidige gemiddelde ping-tijd om een waarschuwingsdrempel te overwegen.  Indien bijgewerkt, zal deze automatisch de Ping Warning Threshold aanpassen."
+msgstr "Het percentage boven de huidige gemiddelde ping-tijd dat als waarschuwingsdrempelwaarde wordt beschouwd. Als dit wordt bijgewerkt, wordt de ping-waarschuwingsdrempelwaarde automatisch aangepast."
 
 #: setup.php
-#, fuzzy
 msgid "Re-Baseline Alert"
-msgstr "Re-Baseline Alert"
+msgstr "Melding voor nieuwe basislijn"
 
 #: setup.php
-#, fuzzy
 msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
-msgstr "Het percentage boven de huidige gemiddelde ping-tijd om een alarmdrempel te overwegen.  Als deze wordt bijgewerkt, wordt de drempelwaarde voor pingwaarschuwingen automatisch aangepast."
+msgstr "Het percentage boven de huidige gemiddelde ping-tijd dat als alarmdrempelwaarde wordt beschouwd. Als dit wordt bijgewerkt, wordt de ping-alarmdrempelwaarde automatisch aangepast."
 
 #: setup.php
-#, fuzzy
 msgid "Down Device Message"
-msgstr "Bericht over het apparaat omlaag"
+msgstr "Bericht bij inactief apparaat"
 
 #: setup.php
-#, fuzzy
 msgid "This is the message that will be displayed when this Device is reported as down."
-msgstr "Dit is het bericht dat wordt weergegeven wanneer dit apparaat als down wordt gerapporteerd."
+msgstr "Dit is het bericht dat wordt weergegeven wanneer dit apparaat als inactief wordt gerapporteerd."
 
 #: setup.php
-#, fuzzy
 msgid "Device icon"
-msgstr "Apparaat:"
+msgstr "Apparaatpictogram"
 
 #: setup.php
 msgid "You can select device icon."
-msgstr ""
+msgstr "U kunt een apparaatpictogram selecteren."
 
 #: setup.php
 msgid "Monitoring"
 msgstr "Monitoring"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Klik op 'Doorgaan' om monitoring voor deze apparaten in te schakelen"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Klik op 'Doorgaan' om monitoring voor deze apparaten uit te schakelen"
 
 #, fuzzy
 #~ msgid "Not Monitored Devices"
