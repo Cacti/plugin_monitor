@@ -101,6 +101,12 @@ if (!function_exists('get_selected_theme')) {
 	}
 }
 
+if (!function_exists('get_current_page')) {
+	function get_current_page() {
+		return $GLOBALS['__test_current_page'] ?? '';
+	}
+}
+
 if (!function_exists('monitor_test_mock_db')) {
 	function monitor_test_mock_db($fn, $match, $result) {
 		$GLOBALS['__test_db_fixtures'][] = array('fn' => $fn, 'match' => $match, 'result' => $result);

@@ -850,8 +850,11 @@ msgid "Any"
 msgstr ""
 
 #: setup.php
-#, php-format
-msgid "Click 'Continue' to %s monitoring on these Device(s)"
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr ""
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
 msgstr ""
 
 #: setup.php
