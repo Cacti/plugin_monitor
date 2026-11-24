@@ -162,7 +162,7 @@ function monitor_device_table_bottom() {
 	];
 
 	if (version_compare(CACTI_VERSION, '1.3.0', '<')) {
-		$select = '<td>' . __('Criticality') . '</td><td><select id="criticality">';
+		$select = '<td>' . __('Criticality', 'monitor') . '</td><td><select id="criticality">';
 
 		foreach ($criticalities as $index => $crit) {
 			if ($index == get_request_var('criticality')) {
@@ -713,7 +713,7 @@ function monitor_config_settings() {
 	];
 
 	if (function_exists('auth_augment_roles')) {
-		auth_augment_roles(__('Normal User'), ['monitor.php']);
+		auth_augment_roles(__('Normal User', 'monitor'), ['monitor.php']);
 	}
 
 	$tabs_graphs += ['monitor' => __('Monitor Settings', 'monitor')];

@@ -6,8 +6,8 @@
 */
 
 /*
- * Unit coverage for monitor_config_settings() in setup.php, including
- * verification that monitor_list labels register under the monitor domain.
+ * Unit coverage for monitor_config_settings() in setup.php. Text domain usage
+ * is covered for the whole plugin by I18nTextDomainTest.php.
  */
 
 beforeAll(function () {
@@ -37,12 +37,4 @@ it('registers the monitor settings tab including monitor_list', function () {
 	expect($settings['monitor'])->toHaveKey('monitor_list');
 	expect($settings['monitor']['monitor_list']['friendly_name'])->toBe('Notification List');
 	expect($settings['monitor']['monitor_list']['description'])->toContain('Notification List');
-});
-
-it('uses the monitor text domain for monitor_list labels in setup.php', function () {
-	$source = plugin_test_read_source('setup.php');
-
-	expect($source)->toContain("__('Notification List', 'monitor')");
-	expect($source)->not->toContain("__('Notification List', 'thold')");
-	expect($source)->not->toContain("'thold'");
 });
