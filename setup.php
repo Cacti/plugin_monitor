@@ -713,7 +713,7 @@ function monitor_config_settings() {
 	];
 
 	if (function_exists('auth_augment_roles')) {
-		auth_augment_roles(__('Normal User', 'monitor'), ['monitor.php']);
+		auth_augment_roles(__('Normal User'), ['monitor.php']);
 	}
 
 	$tabs_graphs += ['monitor' => __('Monitor Settings', 'monitor')];

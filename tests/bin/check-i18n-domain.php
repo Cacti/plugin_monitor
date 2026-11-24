@@ -146,7 +146,7 @@ if (!function_exists('i18n_domain_offenders')) {
 			} elseif (count($arguments[$wanted]) !== 1 || !is_array($arguments[$wanted][0]) || $arguments[$wanted][0][0] !== T_CONSTANT_ENCAPSED_STRING) {
 				$reason = 'text domain is not a string literal';
 			} elseif (substr($arguments[$wanted][0][1], 1, -1) !== $domain) {
-				$reason = "text domain is " . $arguments[$wanted][0][1] . ", expected '" . $domain . "'";
+				$reason = 'text domain is ' . $arguments[$wanted][0][1] . ", expected '" . $domain . "'";
 			}
 
 			if ($reason !== null) {

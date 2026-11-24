@@ -5,7 +5,7 @@ installation guidance and source-checked behavior.
 
 --- 3.0 ---
 
-* issue#292: Use the `'monitor'` gettext text domain for the `monitor_list` setting labels in `setup.php` instead of `'thold'`, pass it to the Criticality and Normal User labels in `setup.php` that had no domain, add a test that every translation helper call passes the plugin text domain, refresh `locales/po/cacti.pot` to match current PHP source strings, and remove orphan `locales/LC_MESSAGES/ka.mo`
+* issue#292: Use the `'monitor'` gettext text domain for the `monitor_list` setting labels in `setup.php` instead of `'thold'`, pass it to the Criticality label in `setup.php` that had no domain, add a test that every translation helper call passes the plugin text domain, refresh `locales/po/cacti.pot` to match current PHP source strings, and remove orphan `locales/LC_MESSAGES/ka.mo`
 * security: Require POST for the save, remove, mute and card-order actions so csrf-magic covers them, and only let a dashboard's owner save over it
 * security: Bind the plugin version lookup and the device_remove cleanup deletes as prepared statements instead of building them from the device list
 * bug: Escape the device description, location, site name and Monitor Text in the List view
