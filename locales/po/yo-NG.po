@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Yoruba\n"
+"Language: yo-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Pátákó Iṣẹ́ Tuntun"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Pátákó Àkóso"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Tẹ Orúkọ Pátákó Ìṣàkóso náà lẹ́yìn náà tẹ 'Fipamọ́' láti tẹ̀síwájú, bí bẹ́ẹ̀ kọ́ tẹ 'Fagilé'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Ṣẹ̀dá Pátákó Àkóso Tuntun"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Àwọn Ẹ̀rọ Tí A Ń Ṣàbójútó"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Àìfipamọ́"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Ìṣètò ojú-ìwé"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Fi Hàn"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Wò ó"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Ìkójọpọ̀ Ẹgbẹ́"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Sọdọ̀tun"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Sọ Àtòjọ Ẹ̀rọ Di Ọ̀tun"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Nu Kúrò"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Nu àlẹ̀mọ́ tí a ṣètò"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Fipamọ́"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Fipamọ́ Àwọn Ètò Àlẹ̀mọ́"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Tuntun"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Fipamọ́ Pátákó Ìṣàkóso Tuntun"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Tún sọ orúkọ"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Tún Pátákó Ìṣàkóso Sọ Lórúkọ"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Pa rẹ́"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Pa Pátákó Ìwòran Rẹ́"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "Ìkìlọ̀ %s fún Àwọn Ẹ̀rọ tí kò ṣiṣẹ́"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "Àwọn Ìkìlọ̀ %s fún Àwọn Ẹ̀rọ tí kò ṣiṣẹ́"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Àwọn Ẹ̀rọ"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Lọ sí ojú-ewé ìṣàkóso Àwọn Ẹ̀rọ"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Ìwọ̀n Pàtàkì"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Ìwọ̀n"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Gé kúrò"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Gbogbo Àwọn Igi"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Àwọn Ẹ̀rọ Tí Kò Sí Nínú Igi"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Igi"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Gbogbo Àwọn Ibùdó"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Àwọn Ẹ̀rọ Tí Kò Sí Ní Ibùdó"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Àwọn Ibùdó"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Àwọn Ẹ̀rọ Tí Kò Ní Àdàkọ"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Àdàkọ"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Àwọn Àdàkọ"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Àwọn Ìlà"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ A Ti Fipamọ́ Àwọn Ètò Àlẹ̀mọ́ ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Fagilé"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Ń gbé wọlé..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Àwọn Pánẹ́lì Àlàyé Kíkún Ẹ̀rọ"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Tún Sọ Dọ̀tun Nínú Ìṣẹ́jú-àáyá <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Àlẹ̀mọ́ Àbójútó [ Ìtúnṣe Tuntun Tó Kẹ́yìn: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Ń fi Àwọn Ẹ̀rọ 30 àkọ́kọ́ nìkan hàn ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Ṣàwárí"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Àwọn Ìṣẹ̀lẹ̀"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Dákẹ́"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Jẹ́wọ́"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Mú Ìdákẹ́ Kúrò"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Tún Tò"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "A ti yọ Pátákó Àkóso '%s' kúrò."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Pátákó Àkóso '%s' kì í ṣe tirẹ."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "A ti fipamọ́ Pátákó Àkóso '%s'!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "A kò lè fipamọ́ Pátákó Àkóso '%s'!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Ṣàtúnṣe Ẹ̀rọ"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Wo Àwọn Gíráàfù"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Wo Àwọn Àlà/Ìtanijí"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Wo Àwọn Ìtanijí Syslog Ẹ̀rọ"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Wo Àwọn Àkọsílẹ̀ Syslog Ẹ̀rọ"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Wo Àyẹ̀wò Iṣẹ́ Tó Ń Kùnà"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Àlàyé Ipò Ẹ̀rọ"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Ẹ̀rọ:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Ibùdó:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Ibùdó:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Ìwọ̀n Pàtàkì:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Ipò:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Àkọsílẹ̀ Olùṣàkóso:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Orúkọ Olùgbàlejò:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Lọ́wọ́lọ́wọ́/Àròpọ̀:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Ìkìlọ̀/Ìtajì:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Ìkùnà Tó Kẹ́yìn:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Àkókò Nínú Ipò:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Wíwànílẹ̀:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Àkókò Ìṣiṣẹ́ Aṣojú:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Kò Sí"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Àpèjúwe Sys:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Olùbásọ̀rọ̀:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Àwọn Àkọsílẹ̀:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Kò ṣẹlẹ̀ rí"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Àìsọpàtó"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Kò Sí"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP àti Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "Àkókò Ìṣiṣẹ́ SNMP"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP tàbí Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "SNMP Gba SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP Gba Tókàn"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Ọ̀nà %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Àpèjúwe"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Orúkọ Olùgbàlejò"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Ipò"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Ibùdó"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Àwòkọ Ẹ̀rọ"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Ibùdó"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Olùbásọ̀rọ̀"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Àwọn Àkọsílẹ̀"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Àlàyé Olùgbàlejò"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Ọ̀nà Ìṣàyẹ̀wò Wíwà"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping Lọ́wọ́lọ́wọ́ / Àròpọ̀"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Ping Tó Kéré Jù / Tó Pọ̀ Jù"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Wíwà-lárọ̀ọ́wọ́tó"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Àpapọ̀ / Àwọn Ìṣàyẹ̀wò Tó Kùnà"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "Ní Ipò Lọ́wọ́lọ́wọ́ Láti"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Ìkùnà Tó Kẹ́yìn"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Ìkójọpọ̀ Dátà"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Àìṣiṣẹ́"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Ń kùnà"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Kò dán wò"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "Ó dára"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Àwọn Àyẹ̀wò Iṣẹ́"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Àlà %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Ti Ṣokùnfà"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Àwọn Àlà"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Kò sí àwọn ìránṣẹ́ syslog ní wákàtí tó kọjá."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (wákàtí tó kọjá)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Ṣí Ẹ̀rọ Gangan"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Àwọn Ìsopọ̀ Ẹ̀rọ"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Ẹ̀rọ Tí Kò Sí Ní Ibùdó"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Ẹ̀ka Gbòǹgbò"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Igi: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Ẹ̀ka: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Àìmọ̀"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Ṣẹ̀ṣẹ̀ Dìde"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Kò Ṣiṣẹ́"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Ń Bọ̀ sípò"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Kò ṣiṣẹ́ (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Ti Ṣokùnfà (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Ìkìlọ̀ Ping"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Ping Ìfiyèsí"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Iṣẹ́ Tó Kùnà"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Àwọn Ìgbésẹ̀"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Ṣí àwọn pánẹ́lì àlàyé kíkún ẹ̀rọ"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Àpèjúwe ẹ̀rọ gẹ́gẹ́ bí a ṣe ṣètò rẹ̀ lórí ojú-ìwé Àwọn Ẹ̀rọ"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Ipò gidi tí a kọ sílẹ̀ fún Ẹ̀rọ náà"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Ibùdó tí a yan Ẹ̀rọ náà sí"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "ID ẹ̀rọ inú Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Ìwọ̀n pàtàkì àbójútó tí a yàn fún ẹ̀rọ náà"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Àwọn ìṣẹ̀lẹ̀ tó ń ṣiṣẹ́ lórí ẹ̀rọ náà (Wálẹ̀, Tí a mú ṣiṣẹ́, Ping Ìkìlọ̀/Ìtànijí, Iṣẹ́ Kùnà, ...); tẹ bọ́tìnì kékeré láti fi ìṣẹ̀lẹ̀ yẹn kún tàbí yọ ọ́ kúrò nínú àlẹ̀mọ́ Àwọn Ìṣẹ̀lẹ̀"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Àwọn àlà tí ó rékọjá / tí a mú ṣiṣẹ́ / àpapọ̀ (àfikún thold) lórí ẹ̀rọ náà; tẹ̀ láti yí àlẹ̀mọ́ ìṣẹ̀lẹ̀ Tí a mú ṣiṣẹ́ padà"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Àwọn àyẹ̀wò iṣẹ́ tí ó kùnà / Àpapọ̀ (àfikún servcheck) fún ẹ̀rọ náà; tẹ̀ láti yí àlẹ̀mọ́ ìṣẹ̀lẹ̀ Iṣẹ́ Tó Kùnà padà"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Ìkìlọ̀"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Àwọn àlà Ìkìlọ̀ / Ìtanijí ìdádúró Ping (ms) tí a ṣètò fún Ẹ̀rọ yìí; ìfitọ́nilétí yóò jáde nígbà tí àkókò ìdáhùn bá ré kọjá wọn"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Olùṣàkóso"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Ìránṣẹ́ àmójútó ìṣàkóso tí a fi hàn nígbà tí ẹ̀rọ náà bá Wálẹ̀ tàbí tí ó ń Gbàpadà"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Ìdá ọgọ́rùn-ún àwọn àyẹ̀wò wíwàlẹ̀ tí ó yọrí sí rere ní gbogbo ìtàn tí a tọ́jú"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Àwọn Ìpíndọ́gba"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Àkókò ìdáhùn ping lọ́wọ́lọ́wọ́ / àròpọ̀ ní mílísẹ́kọ́ndù"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Gígùn nínú Ipò"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Ìgbà tí ẹ̀rọ náà ti wà ní ipò rẹ̀ lọ́wọ́lọ́wọ́"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Ọjọ́ àti àkókò tí ẹ̀rọ náà kùnà àyẹ̀wò wíwà rẹ̀ kẹ́yìn"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Ṣe àlẹ̀mọ́ nípasẹ̀ ìṣe-pàtàkì yìí (tẹ̀ ẹ́ lẹ́ẹ̀kan sí i láti mú kúrò)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "A kò tíì ṣètò ìwọ̀n pàtàkì - tẹ̀ ẹ́ láti ṣàlẹ̀mọ́ àwọn ẹ̀rọ tí a kò ṣètò (tẹ̀ ẹ́ lẹ́ẹ̀kan sí i láti pa rẹ́)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Kò Tíì Jẹ́ Ṣíṣètò"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Tẹ láti fi ìṣẹ̀lẹ̀ yìí kún un tàbí yọ ọ́ kúrò nínú àlẹ̀mọ́ náà"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Àwọn àlà tí ó rékọjá / tí a mú ṣiṣẹ́ / àpapọ̀ - tẹ̀ láti yí àlẹ̀mọ́ ìṣẹ̀lẹ̀ Tí a mú ṣiṣẹ́ padà"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Kò sí àwọn àlà tí a ṣàlàyé fún ẹ̀rọ yìí"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Àwọn àyẹ̀wò iṣẹ́ tí ó kùnà / Àpapọ̀ - tẹ̀ láti yí àlẹ̀mọ́ ìṣẹ̀lẹ̀ Iṣẹ́ Tó Kùnà padà"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Kò sí àwọn àyẹ̀wò iṣẹ́ tí a ṣàlàyé fún ẹ̀rọ yìí"
+
+#: monitor.php
+msgid "All"
+msgstr "Gbogbo"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Kéré"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Agbedeméjì"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Gíga"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Pàtàkì Jùlọ fún Iṣẹ́"
+
+#: monitor.php
+msgid "Up"
+msgstr "Ń Ṣiṣẹ́"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Ti Ṣokùnfà (Dákẹ́/Jẹ́wọ́)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Kò ṣiṣẹ́ (Ti dákẹ́/Ti jẹ́wọ́)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Kò Sí Àyẹ̀wò Wíwàníbẹ̀"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Ping Ìkìlọ̀"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Àyẹ̀wò Iṣẹ́ Kùnà"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Kéré Púpọ̀"
+
+#: monitor.php
+msgid "Small"
+msgstr "Kékeré"
+
+#: monitor.php
+msgid "Large"
+msgstr "Ńlá"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Tóbi Púpọ̀"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Ìsúnmọ́"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Gbogbo Àwọn Ẹ̀rọ Tí A Ń Bójú Tó"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Gbogbo Àwọn Ẹ̀rọ"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Àwọn Ẹ̀rọ tí A kò Ṣàbójútó"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Àwọn Ẹ̀rọ láìsí Àlà"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Àwọn Ẹ̀rọ láìsí Àyẹ̀wò Iṣẹ́"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Àìyípadà"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Àtòjọ"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Àwọn Táìlì"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Àwọn Táìlì & Àkókò"
+
+#: monitor.php
+msgid "Full"
+msgstr "Kíkún"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "Àmì-ìkọ̀wé 10"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "Àmì-ìkọ̀wé 20"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "Àmì-ìkọ̀wé 30"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "Àmì-ìkọ̀wé 40"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "Àmì-ìkọ̀wé 50"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "Àmì-ìkọ̀wé 75"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "Àmì-ìkọ̀wé 100"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Àpèjúwe: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Orúkọ olùgbàlejò: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Ìjábọ̀ wọ̀nyí yóò ṣàfihàn Àwọn Ẹ̀rọ tí wọ́n ti kọjá àlà ìdádúró ping wọn.  O ń gba ìjábọ̀ yìí nítorí pé o ṣe ìforúkọsílẹ̀ fún Ẹ̀rọ kan tí ó ní í ṣe pẹ̀lú ètò Cacti tí ó wà ní URL ìsàlẹ̀ yìí."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Ibùdó Àbójútó Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Ìwọ yóò máa gba àwọn ìfitọ́nilétí ní gbogbo ìṣẹ́jú %d bí Ẹ̀rọ náà bá kọjá àlà rẹ̀."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Ìwọ yóò máa gba àwọn ìfitọ́nilétí ní gbogbo ìgbà tí Ẹ̀rọ náà bá kọjá àlà rẹ̀."
+
+#: setup.php
+msgid "Any"
+msgstr "Èyíkéyìí"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Tẹ 'Tẹ̀síwájú' láti mú kí àbójútó ṣiṣẹ́ lórí Àwọn Ẹ̀rọ wọ̀nyí"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Tẹ 'Tẹ̀síwájú' láti ṣe àìṣiṣẹ́ àbójútó lórí Àwọn Ẹ̀rọ wọ̀nyí"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Tẹ 'Tẹ̀síwájú' láti Yí àwọn ètò Ìṣọ́ padà fún Ẹ̀rọ wọ̀nyí. Rántí láti yẹ 'Ṣe àfúnni àyè yìí' wò láti tọ́ka sí àwọn ọ̀wọ̀n tí a ó ṣe àtúnṣe."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Sọ Ààyè Yìí Di Ọ̀tun"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Yí Àwọn Àṣàyàn Ìṣàkíyèsí Padà"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Mú Àbójútó ṣiṣẹ́"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Ṣe àìṣiṣẹ́ Ìṣàbójútó"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Láìlópin"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "Oṣù %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Oṣù %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Ọdún %d"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Olùlò Déédéé"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Àwọn Ètò Àbójútó"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Ohùn Ìtanijì"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Èyí ni fáìlì ohùn tí yóò ṣiṣẹ́ nígbà tí Ẹ̀rọ kan bá dáwọ́ ṣiṣẹ́."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Tún Ohùn Ìtanijí Kọ Lọ́pọ̀ Ìgbà"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Ṣe ohùn òkè yìí ní àyíká léraléra nígbà tí Ẹ̀rọ kan bá lọ sílẹ̀."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Ṣàfihàn Àlàyé Àwọn Àmì"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Fi àmì sí èyí láti fi àlàyé àwòrán àmì hàn lórí ìfihàn Àkíyèsí"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Ṣàfihàn Àkókò Ìṣiṣẹ́"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Fi àmì sí èyí láti fi Àkókò Ìṣiṣẹ́ hàn lórí ìfihàn Àkíyèsí"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Sún mọ́ Àwọn Àṣìṣe"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Fi àmì sí èyí láti sún mọ́ àwọn ohun tí ó ní àṣìṣe lórí ìfihàn Àkíyèsí"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Ìpìlẹ̀ Ìsúnmọ́"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Àwọ̀ Ẹ̀yìn fún Àwọn Àṣìṣe Tí A Sún Mọ́ lórí ìfihàn Monitor"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Ìwọ̀n Lẹ́tà Ìsúnmọ́"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Àbójútó"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Mú ṣiṣẹ́ lórí àwọn ẹ̀rọ tuntun"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Fi àmì sí èyí láti mú ìṣàkíyèsí ṣiṣẹ́ fúnra rẹ̀ nígbà tí o bá ń ṣẹ̀dá Àwọn Ẹ̀rọ tuntun"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Ìtọ́jú Àkọsílẹ̀ Ìfitọ́nilétí/Àtúnbẹ̀rẹ̀"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Pa Àwọn Àkọsílẹ̀ Ìfitónilétí àti Àtúntànṣe mọ́ fún iye ọjọ́ yìí."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Ààrin Ìsọdọ̀tun"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Èyí ni àkókò ní ìṣẹ́jú-àáyá kí ojú-ewé tó tún sọ ara rẹ̀ dọ̀tun. (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Èyí ni bí monitor yóò ṣe Pín Àwọn Ẹ̀rọ sí ẹgbẹ́."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Àìyípadà pẹ̀lú àwọn àṣẹ"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Èyí ni bí monitor yóò ṣe ṣàfihàn Àwọn Ẹ̀rọ."
+
+#: setup.php
+msgid "Names only"
+msgstr "Àwọn orúkọ nìkan"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Àwọn Táìlì & Àkókò Àìṣiṣẹ́"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Ìrísí Ìròyìn Ìfitọ́nilétí"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Fáìlì Ìṣètò-ìrísí Láti Lò"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Yan àpò html àdáni àti fáìlì CSS láti lò.  Fáìlì yìí ní html àti CSS méjèèjì láti wé yí ìjábọ̀ rẹ ká.  Tí ó bá ní ju CSS lásán lọ, o nílò láti fi àmì <REPORT> pàtàkì kan sínú fáìlì náà.  Àkóónú ìjábọ̀ náà yóò rọ́pò àmì ìṣètò-ìrísí yìí.  Àwọn fáìlì wọ̀nyí wà nínú àtòjọ-fáìlì 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Àwọn Ìfitọ́nilétí Àlà Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Ìfitónilétí Ìdádúró Ìkìlọ̀"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Bí Ẹ̀rọ kan bá ní Ìfàsẹ́yìn Ping Àlọ-Àbọ̀ tí ó ga ju Àlà Ìkìlọ̀ lọ tí ó sì ga ju Ìpele Pàtàkì nísàlẹ̀ lọ, àwọn ímeèlì tí ó forúkọsílẹ̀ sí Ẹ̀rọ náà yóò gba ìfitónilétí ímeèlì.  Yan 'Àìṣiṣẹ́' láti Mú Kúrò.  A nílò Àfikún Thold láti mú ẹ̀yà yìí ṣiṣẹ́."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Ìfitọ́nilétí Ìdádúró Ìfiyèsí"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Bí Ẹ̀rọ kan bá ní Ìfàsẹ́yìn Ping Àlọ-Àbọ̀ tí ó ga ju Àlà Ìtajì lọ tí ó sì ga ju Ìpele Pàtàkì nísàlẹ̀ lọ, àwọn ímeèlì tí ó forúkọsílẹ̀ sí Ẹ̀rọ náà yóò gba ìfitónilétí ímeèlì.  Yan 'Àìṣiṣẹ́' láti Mú Kúrò.  A nílò Àfikún Thold láti mú ẹ̀yà yìí ṣiṣẹ́."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Ìgbàgbà Láti Tún Àwọn Ímeèlì Ránṣẹ́"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Ìgbà mélòó ni ó yẹ kí a máa fi àwọn ìfitónilétí ímeèlì ránṣẹ́ sí àwọn olùforúkọsílẹ̀ fún Àwọn Ẹ̀rọ wọ̀nyí bí wọ́n bá ré àwọn àlà ìfàsẹ́yìn wọn kọjá"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Gbogbo Ìṣẹ̀lẹ̀"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Ní Gbogbo Ìṣẹ́jú %d"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Ní Gbogbo Wákàtí"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Ní Gbogbo Wákàtí %d"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Àwọn Ìfitónilétí Àtúnbẹ̀rẹ̀"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Fi Àwọn Ìfitónilétí Àtúnbẹ̀rẹ̀ Ránṣẹ́"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Ṣé kí a fi Àwọn Ìfitónilétí Àtúntàn Ẹ̀rọ ránṣẹ́ sí àwọn olùlò?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Fi Ímeèlì kan ránṣẹ́ sí gbogbo àdírẹ́sì"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Bí a bá fọwọ́ sí i, ètò yóò fi Ímeèlì kan ṣoṣo ránṣẹ́ sí gbogbo àwọn àdírẹ́sì."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Fi Àwọn Àtòjọ Ìtanijí Àlà Kún un"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Ṣé kí Àwọn Àtòjọ Ìfitónilétí Àlà tún gba Ìfitónilétí"
+
+#: setup.php
+msgid "Subject"
+msgstr "Kókó-ọ̀rọ̀"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Tẹ kókó-ọ̀rọ̀ ìránṣẹ́ Àtúntàn fún Ìfitónilétí Àtúntàn."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Ìfitónilétí Àtúntàn Ẹ̀rọ Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Ara Ímeèlì"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Tẹ ara Ímeèlì kan láti fi sínú ìránṣẹ́ Ìfitónilétí Àtúntàn.  Lọ́wọ́lọ́wọ́, àmì ìrọ́pò kan ṣoṣo tí a gbà wọlé ni &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Ìfitónilétí Àtúnbẹ̀rẹ̀ Olùṣọ́</h1><p>Àwọn Ẹ̀rọ wọ̀nyí ti Tún bẹ̀rẹ̀. Wo àlàyé ní ìsàlẹ̀ fún àfikún ìròyìn.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Àwọn Àdírẹ́sì Ímeèlì Ìfitọ́nilétí"
+
+#: setup.php
+msgid "From Name"
+msgstr "Orúkọ Olùfiránṣẹ́"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Tẹ Orúkọ Ímeèlì láti fi àwọn ìfitónilétí ránṣẹ́ láti ibẹ̀"
+
+#: setup.php
+msgid "From Address"
+msgstr "Àdírẹ́sì Olùfiránṣẹ́"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Tẹ Àdírẹ́sì Ímeèlì láti fi ìfitónilétí ránṣẹ́ láti ibẹ̀"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Àtòjọ Ìfitónilétí"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Yan Àkójọ Ìfitónilétí ní ìsàlẹ̀.  Gbogbo Àwọn Ímeèlì tí wọ́n forúkọ sílẹ̀ sí àkójọ ìfitónilétí ni a ó fi tó létí."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Àwọn Àdírẹ́sì Ímeèlì"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Tẹ àtòkọ àwọn àdírẹ́sì Ímeèlì tí a fi kọ́mà ya sọ́tọ̀ láti fi ìṣẹ̀lẹ̀ àtúntàn tó ni létí."
+
+#: setup.php
+msgid "Server"
+msgstr "Sáfà"
+
+#: setup.php
+msgid "Printer"
+msgstr "Ẹ̀rọ Ìtẹ̀wé"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Kọ̀ǹpútà Orí Tábìlì"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Kọ̀mpútà alágbèéká"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Nẹ́tíwọ́ọ̀kì oníwáyà"
+
+#: setup.php
+msgid "Database"
+msgstr "Ibùdó Dátà"
+
+#: setup.php
+msgid "Clock"
+msgstr "Aago"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Àmì Ìràwọ̀"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Àwo Líle"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Àwọn Àpótí"
+
+#: setup.php
+msgid "Phone"
+msgstr "Fóònù"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Àwọsánmọ̀"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Má ṣe Yí padà"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "Ìdá Ọgọ́rùn-ún %d Lókè Ìpíndọ́gba"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Àwọn Ètò Àbójútó Ẹ̀rọ"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Ṣe Àbójútó Ẹ̀rọ"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Fi àmì sí àpótí yìí láti ṣàkíyèsí Ẹ̀rọ yìí lórí Táàbù Àkíyèsí."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Ìjẹ́pàtàkì Ẹ̀rọ"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Kí ni Pàtàkì Ẹ̀rọ yìí."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Àlà Ìkìlọ̀ Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Tí àkókò ìdáhùn àyíká-ìrìn nípasẹ̀ èyíkéyìí nínú àwọn ọ̀nà ping Cacti tí a ti ṣètò tẹ́lẹ̀ bá ga ju Àlà yìí lọ, kọ Ìkìlọ̀ sílẹ̀ tàbí fi Ímeèlì ránṣẹ́ ní ìbámu pẹ̀lú Pàtàkì Àwọn Ẹ̀rọ àti ètò Àbójútó. Ìwọ̀n rẹ̀ wà ní ìdá-ẹgbẹ̀rún ìṣẹ́jú-àáyá (milliseconds). Fífisí 0 sọ ọ́ di Àìṣiṣẹ́. A nílò Àfikún Thold láti lo iṣẹ́ yìí."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "milisẹ́kọ́ǹdù"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Àlà Ìtanijí Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Tí àkókò ìdáhùn àyíká-ìrìn nípasẹ̀ èyíkéyìí nínú àwọn ọ̀nà ping Cacti tí a ti ṣètò tẹ́lẹ̀ bá ga ju Àlà yìí lọ, kọ ìtanijí sílẹ̀ tàbí fi Ímeèlì kan ránṣẹ́ ní ìbámu pẹ̀lú Pàtàkì Àwọn Ẹ̀rọ àti ètò Àbójútó. Ìwọ̀n rẹ̀ wà ní ìdá-ẹgbẹ̀rún ìṣẹ́jú-àáyá (milliseconds). Fífisí 0 sọ ọ́ di Àìṣiṣẹ́. A nílò Àfikún Thold láti lo iṣẹ́ yìí."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Ìkìlọ̀ Àtún-Ìpìlẹ̀"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Ìdá ọgọ́rùn-ún lókè àkókò ìpìngì ìpíndọ́gba lọ́wọ́lọ́wọ́ láti kà sí Àlà Ìkìlọ̀.  Tí a bá ṣàtúnṣe rẹ̀, èyí yóò ṣàtúnṣe Àlà Ìkìlọ̀ Ping láìfọwọ́yí."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Ìtànjí Àtún-Ìpìlẹ̀"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Ìdá ọgọ́rùn-ún lókè àkókò ìpìngì ìpíndọ́gba lọ́wọ́lọ́wọ́ láti kà sí Àlà Ìtanijí.  Tí a bá ṣàtúnṣe rẹ̀, èyí yóò ṣàtúnṣe Àlà Ìtanijí Ping láìfọwọ́yí."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Ìránṣẹ́ Ẹ̀rọ Tí Kò Ṣiṣẹ́"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Èyí ni ìránṣẹ́ tí yóò hàn nígbà tí a bá ròyìn pé Ẹ̀rọ yìí kò ṣiṣẹ́."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Àmì-àwòrán ẹ̀rọ"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "O lè yan àmì ẹ̀rọ."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Ìṣàbójútó"
+

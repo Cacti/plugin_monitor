@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Hausa\n"
+"Language: ha-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Sabon Allon Kulawa"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Allon Kulawa"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Shigar da Sunan Allon Kulawa sannan ka danna 'Ajiye' don ci gaba, ko kuma ka danna 'Soke'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Ƙirƙiri Sabon Allon Kulawa"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Na'urorin da Ake Sa Ido a Kai"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Ba a ajiye ba"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Tsari"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Nuna"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Duba"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Ƙungiyantarwa"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Sabunta"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Sabunta Jerin Na'urori"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Share"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Share tacewar da aka saita"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Ajiye"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Ajiye Saitunan Tacewa"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Sabo"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Ajiye Sabon Allon Kulawa"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Sake Suna"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Sake Sanya Sunan Allon Bayanai"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Share"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Share Allon Aiki"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "Faɗakarwa %s don Na'urorin da suka daina aiki"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "Saƙonnin faɗakarwa %s don Na'urorin da suka daina aiki"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Na'urori"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Je zuwa shafin sarrafa Na'urori"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Matsayin Tsanani"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Girma"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Yanke"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Duk Bishiyoyi"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Na'urorin Da Ba Na Bishiya Ba"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Bishiya"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Dukkan Wurare"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Na'urorin Da Ba Na Wuri Ba"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Wurare"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Na'urori Marasa Samfuri"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Samfuri"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Samfura"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Layuka"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ An Ajiye Saitunan Tacewa ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Soke"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Ana lodawa..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Ɓangarorin Cikakken Bayanin Na'ura"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Sake Sabuntawa Cikin <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Daƙiƙoƙi ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Tacewar Sa Ido [ Sabuntawa ta Ƙarshe: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Ana nuna Na'urori 30 na farko kaɗai ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Bincika"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Abubuwan da Suka Faru"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Kashe ƙara"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Tabbatar da sani"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Cire Shuru"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Sake Saitawa"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "An cire Allon Kulawa '%s'."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Ba kai ne mamallakin Allon Kulawa '%s' ba."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "An Ajiye Allon Kulawa '%s'!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Ba a iya Ajiye Allon Kulawa '%s' ba!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Gyara Na'ura"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Duba Jadawali"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Duba Iyakoki/Faɗakarwa"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Duba Faɗakarwar Syslog na Na'ura"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Duba Shigarwar Syslog na Na'ura"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Duba Binciken Sabis Mai Gazawa"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Bayanin Matsayin Na'ura"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Na'ura:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Wuri:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Wuri:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Matsayin Tsanani:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Matsayi:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Bayanin Mai Gudanarwa:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Sunan Mai Masauki:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Yanzu/Matsakaici:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Gargaɗi/Faɗakarwa:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Gazawa Ta Ƙarshe:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Lokaci a Matsayi:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Samuwa:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Lokacin Aikin Wakili:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Babu"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Bayanin Tsari:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Tuntuɓa:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Bayanai:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Ba a Taɓa Ba"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Ba a ƙayyade ba"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Babu"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP da Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "Lokacin Aiki na SNMP"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP ko Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "Sami SysDesc na SNMP"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "Sami Na Gaba na SNMP"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Hanya %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Bayani"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Sunan Mai Masauki"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Matsayi"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Wuri"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Samfurin Na'ura"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Wuri"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Tuntuɓa"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Bayanai"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Bayanin Mai Masauki"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Hanyar Gano Samuwa"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping na Yanzu / Matsakaici"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Mafi Ƙanƙanta / Mafi Yawa na Ping"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Samuwa"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Jimillar / Tattara Bayanai da Suka Kasa"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "A Matsayin Yanzu Tun"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Gazawa Ta Ƙarshe"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Tattara Bayanai"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "An kashe"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Yana kasawa"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Ba a gwada ba"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "To"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Bincike-binciken Sabis"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Iyaka %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "An tada"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Iyakoki"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Babu saƙonnin Syslog a cikin sa'ar da ta gabata."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (sa'ar da ta gabata)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Buɗe Na'urar ta Gaske"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Hanyoyin Haɗin Na'ura"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Na'urar Da Ba Ta Wuri Ba"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Reshen Tushe"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Bishiya: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Reshe: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Ba a sani ba"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Ya Tashi Yanzu"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Ba Ya Aiki"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Yana Farfaɗowa"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Ba Ya Aiki (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "An tada (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Gargaɗin Ping"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Ping na Faɗakarwa"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Sabis da ya Kasa"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Ayyuka"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Buɗe faifan cikakken bayanin na'ura"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Bayanin na'ura kamar yadda aka saita a shafin Na'urori"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Wurin zahiri da aka yi wa na'urar rajista"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Wurin da aka keɓe wa na'urar"
+
+#: includes/render.php
+msgid "ID"
+msgstr "Lambar ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "ID na na'ura na cikin gida na Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Muhimmancin sa ido da aka sanya wa na'urar"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Al'amura masu aiki a kan na'urar (A Kashe, An Tada, Ping na Gargaɗi/Faɗakarwa, Sabis Ya Gagara, ...); danna alamar zaɓi don ƙara ko cire wannan al'amari daga tacewar Al'amura"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "An Keta / An Tada / Jimlar iyakoki (ƙarin thold) a kan na'ura; danna don sauya tacewar al'amarin da aka tada"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Binciken sabis da suka kasa / Jimilla (ƙarin servcheck) na na'urar; danna don sauya tacewar lamarin Sabis da ya Kasa"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Gargaɗi"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Iyakokin Gargaɗi / Faɗakarwa na jinkirin Ping (ms) da aka saita don wannan Na'ura; ana tayar da sanarwa idan lokacin amsawa ya wuce su"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Mai Gudanarwa"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Saƙon kulawar gudanarwa da ake nunawa yayin da na'urar ke a Kashe ko take Farfaɗowa"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Kashi cikin ɗari na binciken samuwa da suka yi nasara a cikin tarihin da aka riƙe"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Matsakaita"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Lokacin amsawar ping na yanzu / matsakaici a cikin millisekon"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Tsawo a Matsayi"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Tsawon lokacin da na'ura ta kasance a matsayinta na yanzu"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Kwanan wata da lokacin da na'ura ta ƙarshe ta kasa binciken samuwarta"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Tacewa ta wannan muhimmanci (danna kuma don sharewa)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Ba a saita matsayin tsanani ba - danna don tace na'urorin da ba a saita ba (sake dannawa don sharewa)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Ba a Saita Ba"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Danna don ƙara ko cire wannan lamari daga tacewar"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "An Keta / An Tada / Jimlar iyakoki - danna don sauya tacewar al'amarin da aka tada"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Babu iyakoki da aka bayyana don wannan na'urar"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Binciken sabis da suka kasa / Jimilla - danna don sauya tacewar lamarin Sabis da ya Kasa"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Ba a bayyana binciken sabis don wannan na'urar ba"
+
+#: monitor.php
+msgid "All"
+msgstr "Duka"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Ƙasa"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Matsakaici"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Mai Yawa"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Mai Muhimmanci Sosai"
+
+#: monitor.php
+msgid "Up"
+msgstr "Yana Aiki"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "An tada (An yi shiru/An tabbatar)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Ba Ya Aiki (An Yi Shiru/An Karɓa)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Babu Binciken Samuwa"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Gargaɗin Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Binciken Sabis Ya Kasa"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Ƙarami Sosai"
+
+#: monitor.php
+msgid "Small"
+msgstr "Ƙarami"
+
+#: monitor.php
+msgid "Large"
+msgstr "Babba"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Babba Sosai"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Zuƙowa"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Dukkan Na'urorin da ake Sa Ido a Kansu"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Dukan Na'urori"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Na'urorin da ba a Sa Ido a Kansu ba"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Na'urori marasa Iyakoki"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Na'urori marasa Binciken Sabis"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Na Asali"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Jeri"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Fale-fale"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Fale-fale da Lokaci"
+
+#: monitor.php
+msgid "Full"
+msgstr "Cikakke"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "Haruffa 10"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "Haruffa 20"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "Haruffa 30"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "Haruffa 40"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "Haruffa 50"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "Haruffa 75"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "Haruffa 100"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Bayani: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Sunan Mai Masauki: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Wannan rahoto na gaba zai gano Na'urori waɗanda suka wuce iyakokin jinkirin ping nasu. Kana karɓar wannan rahoton ne saboda ka yi rajista ga wata Na'ura da ke da alaƙa da tsarin Cacti da ke a wannan adireshin URL da ke ƙasa."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Wurin Sa Ido na Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Za ka riƙa karɓar sanarwa duk bayan mintuna %d idan Na'ura ta wuce iyakarta."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Za ka riƙa karɓar sanarwa duk lokacin da Na'ura ta wuce iyakarta."
+
+#: setup.php
+msgid "Any"
+msgstr "Kowane"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Danna 'Ci gaba' don kunna sa ido a kan waɗannan Na'ura/Na'urori"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Danna 'Ci gaba' don kashe sa ido a kan waɗannan Na'ura/Na'urori"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Danna 'Ci gaba' don Canja saitunan Kulawa na Na'ura(ori) na gaba. Ka tuna ka duba 'Sabunta wannan Filin' don nuna waɗanne shafuka za a sabunta."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Sabunta wannan Filin"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Sauya Zaɓuɓɓukan Kulawa"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Kunna Sa Ido"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Kashe Sa Ido"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Ba tare da iyaka ba"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "Wata %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Watanni %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Shekara %d"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Mai Amfani na Yau da Kullum"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Saitunan Sa Ido"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Sautin Ƙararrawa"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Wannan shi ne fayil ɗin sauti da za a kunna idan Na'ura ta daina aiki."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Maimaita Sautin Ƙararrawa"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Kunna sautin da ke sama a maimaita lokacin da Na'ura ta daina aiki."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Nuna Fassarar Alamomi"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Yi alama a nan don nuna maɓallin bayanin alamomi a allon Kulawa"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Nuna Lokacin Aiki"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Yi alama a nan don nuna Lokacin Aiki a allon Kulawa"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Zuƙo zuwa Kurakurai"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Yi alama a nan don faɗaɗa abubuwan da ke da kuskure a allon Kulawa"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Bangon Zuƙowa"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Launin Bango don Kurakuran da Aka Faɗaɗa a Allon Monitor"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Girman Rubutun Zuƙowa"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Sa Ido"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Kunna a sababbin na'urori"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Yi alama a nan don kunna kulawa ta atomatik yayin ƙirƙirar sababbin na'urori"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Adana Rajistar Sanarwa/Sake Kunna"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Ajiye Rajistan Sanarwa da Sake Kunna na wannan adadin kwanaki."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Tazarar Sabuntawa"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Wannan shi ne lokaci a cikin daƙiƙa kafin shafin ya sabunta kansa.  (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Wannan ita ce hanyar da mai saka idanu zai Rarraba Na'urori zuwa rukuni."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Na asali tare da izini"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Wannan ita ce hanyar da mai saka idanu zai nuna Na'urori."
+
+#: setup.php
+msgid "Names only"
+msgstr "Sunaye kaɗai"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Fale-fale da Lokacin Katsewa"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Tsarin Rahoton Sanarwa"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Fayil ɗin Tsari da Za a Yi Amfani da Shi"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Zaɓi fayil ɗin murfin html da CSS na musamman da za a yi amfani da shi. Wannan fayil ɗin yana ƙunshe da html da CSS don kewaye rahotonku. Idan ya ƙunshi fiye da CSS kawai, kuna buƙatar sanya alamar <REPORT> ta musamman a cikin fayil ɗin. Za a maye gurbin wannan alamar tsarin da abun cikin rahoton. Waɗannan fayilolin suna cikin kundin 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Sanarwar Iyakar Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Sanarwar Jinkiri na Gargaɗi"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Idan Na'ura tana da Jinkirin Ping na Zagaye sama da Iyakar Gargaɗi kuma sama da Matsanancin Hali da ke ƙasa, imel ɗin da aka yi rajista ga Na'urar za su karɓi sanarwar imel.  Zaɓi 'An kashe' don Kashewa.  Ana buƙatar Kari na Thold don kunna wannan fasalin."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Sanarwar Jinkiri na Faɗakarwa"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Idan Na'ura tana da Jinkirin Ping na Zagaye sama da Iyakar Faɗakarwa kuma sama da Matsanancin Hali da ke ƙasa, imel ɗin da aka yi rajista ga Na'urar za su karɓi sanarwar imel.  Zaɓi 'An kashe' don Kashewa.  Ana buƙatar Kari na Thold don kunna wannan fasalin."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Sau Nawa Za a Sake Aika Imel"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Sau nawa ya kamata a aika da sanarwar imel ga masu karɓar saƙo game da waɗannan Na'urori idan sun wuce iyakokin jinkirinsu"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Duk Lokacin da Ya Faru"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Kowane Minti %d"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Kowace Awa"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Kowace Awa %d"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Sanarwar sake kunnawa"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Aika Sanarwar Sake Kunna Na'ura"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Shin za a aika Sanarwar Sake Kunna Na'ura zuwa ga masu amfani?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Aika Imel ɗaya zuwa ga duk adiresoshi"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Idan an zaɓa, tsarin zai aika Imel guda ɗaya kawai zuwa duk adiresoshin."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Haɗa Jerin Faɗakarwar Iyaka"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Shin Jerin Faɗakarwar Iyaka su ma su karɓi Sanarwa"
+
+#: setup.php
+msgid "Subject"
+msgstr "Taken Saƙo"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Shigar da jigon saƙon Sake Kunna don Sanarwar Sake Kunna."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Sanarwar Sake Kunna Na'urar Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Jikin Imel"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Shigar da jikin Imel don haɗawa a cikin saƙon Sanarwar Sake Kunna. A halin yanzu, alamar maye gurbi ɗaya tilo da aka yarda da ita ita ce &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Sanarwar Sake Kunna Mai Kulawa</h1><p>An sake kunna waɗannan Na'urorin.  Duba bayanai a ƙasa don ƙarin bayani.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Adiresoshin Imel na Sanarwa"
+
+#: setup.php
+msgid "From Name"
+msgstr "Sunan Mai Aikawa"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Shigar da Sunan Imel don aika sanarwar daga gare shi"
+
+#: setup.php
+msgid "From Address"
+msgstr "Adireshin Mai Aikawa"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Shigar da Adireshin Imel don aika sanarwar daga gare shi"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Jerin Sanarwa"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Zaɓi Jerin Sanarwa a ƙasa.  Duk Imel da ke cikin jerin sanarwar za su karɓi sanarwa."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Adiresoshin Imel"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Shigar da jerin adiresoshin Imel da aka raba da waƙafi don sanar da su game da sake kunna na'ura."
+
+#: setup.php
+msgid "Server"
+msgstr "Saba"
+
+#: setup.php
+msgid "Printer"
+msgstr "Na'urar bugawa"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Kwamfutar Tebur"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Kwamfutar tafi-da-gidanka"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Hanyar sadarwa mai waya"
+
+#: setup.php
+msgid "Database"
+msgstr "Rumbun Bayanai"
+
+#: setup.php
+msgid "Clock"
+msgstr "Agogo"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Alamar tauraro"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Rumbun Ajiya"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Akwatuna"
+
+#: setup.php
+msgid "Phone"
+msgstr "Waya"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Girgije"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Kada a Canza"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d Kashi Sama da Matsakaici"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Saitunan Kula da Na'ura"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Sa Ido kan Na'ura"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Yi alama a wannan akwatin don kula da wannan Na'ura a shafin Kulawa."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Muhimmancin Na'ura"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Menene Muhimmancin wannan Na'ura."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Iyakar Gargaɗi ta Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Idan jinkirin zagayowar sigina ta kowace hanyar ping ta Cacti da aka riga aka ƙayyade ya haura sama da wannan iyaka, rubuta gargaɗi ko aika imel bisa ga Muhimmancin Na'urori da saitin Kulawa. Ma'aunin yana cikin milliseconds. Saita zuwa 0 yana kashewa. Ana buƙatar Plugin na Thold don amfani da wannan fasali."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "milisakan"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Iyakar Faɗakarwa ta Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Idan jinkirin zagayowar sigina ta kowace hanyar ping ta Cacti da aka riga aka ƙayyade ya haura sama da wannan iyaka, rubuta faɗakarwa ko aika imel bisa ga Muhimmancin Na'urori da saitin Kulawa. Ma'aunin yana cikin milliseconds. Saita zuwa 0 yana kashewa. Ana buƙatar Plugin na Thold don amfani da wannan fasali."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Gargaɗin sake saita ma'auni"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Kashi bisa ɗari sama da matsakaicin lokacin ping na yanzu don ɗauka a matsayin Iyakar Gargaɗi.  Idan aka sabunta, wannan zai daidaita Iyakar Gargaɗin Ping ta atomatik."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Faɗakarwar sake saita ma'auni"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Kashi bisa ɗari sama da matsakaicin lokacin ping na yanzu don ɗauka a matsayin Iyakar Faɗakarwa.  Idan aka sabunta, wannan zai daidaita Iyakar Faɗakarwar Ping ta atomatik."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Saƙon Na'ura da Ta Daina Aiki"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Wannan shi ne saƙon da za a nuna idan aka ba da rahoton cewa wannan Na'ura ta daina aiki."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Alamar na'ura"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Za ka iya zaɓar alamar na'ura."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Sa ido"
+

@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Kinyarwanda\n"
+"Language: rw-RW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Imbonerahamwe Nshya"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Ikibaho cy'ibikorwa"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Andika Izina ry'Imbonerahamwe ngenzuzi hanyuma ukande 'Bika' kugira ngo ukomeze, bitabaye ibyo ukande 'Hagarika'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Kora Ikibaho Gishya"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Ibikoresho bigenzurwa"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Ntibyabitswe"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Imigaragarire"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Erekana"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Reba"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Gushyira mu matsinda"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Vugurura"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Vugurura Urutonde rw'Ibikoresho"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Siba"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Kuraho akayunguruzo kashyizweho"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Bika"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Bika Amagenamiterere y'Akayunguruzo"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Gishya"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Bika Imbonerahamwe Nshya"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Hindura izina"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Hindura Izina ry'Ikibaho"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Siba"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Siba Imbonerahamwe"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "Impuruza %s y'Ibikoresho byazimye"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "Impuruza %s z'Ibikoresho byazimye"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Ibikoresho"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Jya ku rupapuro rw'imicungire y'Ibikoresho"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Uburemere"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Ingano"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Gukata"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Ibiti byose"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Ibikoresho bitari mu Giti"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Igiti"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Ahantu Hose"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Ibikoresho bitagira Ahantu"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Ahantu"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Ibikoresho bitagira Inyandikorugero"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Inyandikorugero"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Inyandikorugero"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Imirongo"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Amagenamiterere y'akayunguruzo yabitswe ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Hagarika"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Birimo gupakira..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Ibice by'ibisobanuro birambuye by'Igikoresho"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Ongera uvugurure mu masegonda <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Akayunguruzo ko kugenzura [ Ivugurura rya nyuma: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Herekanwa gusa Ibikoresho 30 bya mbere ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Shakisha"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Ibyabaye"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Cecekesha"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Emeza ko wabibonye"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Kura mu guceceka"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Subiza ku mwimerere"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Ikibaho cy'ibikorwa '%s' cyasibwe."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Ikibaho cy'ibikorwa '%s' si icyawe."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Ikibaho cy'ibikorwa '%s' cyabitswe!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Ikibaho cy'ibikorwa '%s' nticyashoboye kubikwa!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Hindura igikoresho"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Kureba Ibishushanyo"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Reba inzego ntarengwa/impuruza"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Reba impuruza za Syslog z'igikoresho"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Reba ibyinjijwe muri Syslog by'igikoresho"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Reba igenzura rya serivisi ryananiranye"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Amakuru y'Imiterere y'Igikoresho"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Igikoresho:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Ahantu:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Ahantu:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Uburemere:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Imiterere:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Icyitonderwa cy'Umuyobozi:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Izina rya Mwakirizi:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Ubu/Impuzandengo:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Iburira/Impuruza:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Inshuro ya nyuma byanze:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Igihe mu Miterere:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Kuboneka:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Igihe umufasha amaze akora:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Ntibihari"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Ibisobanuro bya sisitemu:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Uwo babaza:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Ibisobanuro:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Nta na rimwe"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Bitagenwe"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Nta na kimwe"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP na Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "Igihe SNMP imaze ikora"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP cyangwa Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "SNMP Kubona SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP Kubona Ibikurikira"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Uburyo %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Ibisobanuro"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Izina ku muyoboro"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Imiterere"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Ahantu"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Inyandikorugero y'igikoresho"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Ahantu"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Uwo kuvugana na we"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Ibisobanuro"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Amakuru ya Mwakirizi"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Uburyo bwo kuboneka"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping y'ubu / Impuzandengo"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Ping ntoya / nini cyane"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Kuboneka"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Ikusanyamakuru Ryose / Ibyananiranye"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "Mu Miterere Iriho Guhera"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Inshuro ya nyuma byanze"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Ikusanya ry'amakuru"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Byahagaritswe"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Birimo kunanirwa"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Ntibyageragejwe"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "Emeza"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Amagenzura ya serivisi"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Urwego ntarengwa %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Byatewe imbarutso"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Inzego ntarengwa"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Nta butumwa bwa syslog mu isaha ishize."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (isaha ishize)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Fungura Igikoresho nyacyo"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Imiyoboro y'Igikoresho"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Igikoresho kitagira Ahantu"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Ishami shingiro"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Igiti: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Ishami: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Ntibizwi"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Ikimara gukora"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Ntigikora"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Kirimo gusubira mu buryo"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Yahagaze (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Byatewe imbarutso (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Ping y'iburira"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Ping y'Integuza"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Serivisi yanze"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Ibikorwa"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Fungura ibice by'ibisobanuro birambuye by'igikoresho"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Ibisobanuro by'igikoresho nk'uko byashyizweho ku rupapuro rw'Ibikoresho"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Ahantu nyaho handitswe ku gikoresho"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Ahantu igikoresho cyashyizweho"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "ID y'imbere y'igikoresho cya Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Ubukana bw'igenzura bwaherewe igikoresho"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Ibikorwa biriho ku gikoresho (Byahagaze, Byakanguwe, Ping y'iburira/itabaza, Serivisi yananiwe, ...); kanda akamenyetso kugira ngo wongereho cyangwa ukureho icyo gikorwa mu kayunguruzo k'Ibikorwa"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Inzego ntarengwa zarenze / zakanguwe / zose (umugereka wa thold) ku gikoresho; kanda kugira ngo ufungure cyangwa ufunge akayunguruzo k'ibikorwa byakanguwe"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Igenzura rya serivisi ryanze / Yose hamwe (umugereka wa servcheck) ku gikoresho; kanda kugira ngo uhindure akayunguruzo k'ibikorwa bya Serivisi yanze"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Iburira"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Inzego ntarengwa z'ubukererwe bwa Ping z'Iburira / Integuza (ms) zashyizweho kuri iki gikoresho; imenyesha ritangwa igihe igihe cy'igisubizo kizirenze"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Umuyobozi"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Ubutumwa bw'ubugenzuzi bw'ubuyobozi bugaragara igihe igikoresho cyahagaze cyangwa kirimo kigaruka"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Ijanisha ry'igenzura ryagenze neza ry'iboneka mu mateka abitswe"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Impuzandengo"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Igihe cyo gusubiza cya ping y'ubu / impuzandengo mu milisegonda"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Uburebure mu Miterere"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Igihe igikoresho kimaze mu miterere yacyo iriho ubu"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Itariki n'isaha Igikoresho cyaherukiyeho gutsindwa isuzuma ry'uburyo kiboneka"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Yungurura hakurikijwe ubu buremere (kanda nanone kugira ngo usibe)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Uburemere ntibwashyizweho - kanda uyungurure Ibikoresho bitabufite (ongera ukande ubikureho)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Ntibyashyizweho"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Kanda kugira ngo wongereho cyangwa ukureho iki gikorwa mu kayunguruzo"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Inzego ntarengwa zarenze / zakanguwe / zose - kanda kugira ngo ufungure cyangwa ufunge akayunguruzo k'ibikorwa byakanguwe"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Nta nzego ntarengwa zashyizweho kuri iki gikoresho"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Igenzura rya serivisi ryanze / Yose hamwe - kanda kugira ngo uhindure akayunguruzo k'ibikorwa bya Serivisi yanze"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Nta igenzura rya serivisi ryashyizweho kuri iki gikoresho"
+
+#: monitor.php
+msgid "All"
+msgstr "Byose"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Hasi"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Biringaniye"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Hejuru"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Byihutirwa cyane"
+
+#: monitor.php
+msgid "Up"
+msgstr "Kirakora"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Byatewe imbarutso (Byacecekeshejwe/Byemejwe)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Yahagaze (Yacecekeshejwe/Yemejwe)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Nta Genzura ry'Uboneka"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Ping y'iburira"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Igenzura rya serivisi ryanze"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Gito cyane"
+
+#: monitor.php
+msgid "Small"
+msgstr "Gito"
+
+#: monitor.php
+msgid "Large"
+msgstr "Kinini"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Kinini cyane"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Kwegera (Zoom)"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Ibikoresho Byose Bigenzurwa"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Ibikoresho Byose"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Ibikoresho Bitagenzurwa"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Ibikoresho bitagira Inzego ntarengwa"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Ibikoresho bitagira Igenzura rya Serivisi"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Mburabuzi"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Urutonde"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Utudirishya"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Utudirishya n'Igihe"
+
+#: monitor.php
+msgid "Full"
+msgstr "Byuzuye"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "Inyuguti 10"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "Inyuguti 20"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "Inyuguti 30"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "Inyuguti 40"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "Inyuguti 50"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "Inyuguti 75"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "Inyuguti 100"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Ibisobanuro: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Izina rya Mwakirizi: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Raporo ikurikira izagaragaza Ibikoresho byarengeje urwego ntarengwa rw'ubukererwe bwa ping. Uri kwakira iyi raporo kuko wiyandikishije ku Gikoresho gifitanye isano na sisitemu ya Cacti iri kuri URL ikurikira hasi."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Ahantu h'Igenzura ha Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Uzajya wakira imenyesha buri minota %d niba Igikoresho kiri hejuru y'urwego ntarengwa rwacyo."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Uzajya wakira imenyesha igihe cyose Igikoresho kiri hejuru y'urwego ntarengwa rwacyo."
+
+#: setup.php
+msgid "Any"
+msgstr "Icyo ari cyo cyose"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Kanda 'Komeza' kugira ngo ufungure ikurikirana kuri iki Gikoresho/ibi Bikoresho"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Kanda 'Komeza' kugira ngo uhagarike ikurikirana kuri iki Gikoresho/ibi Bikoresho"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Kanda 'Komeza' kugira ngo uhindure amagenamiterere y'ikurikirana ku Bikoresho bikurikira. Ibuka gushyira akamenyetso kuri 'Vugurura iki gice' kugira ngo ugaragaze inkingi zo kuvugurura."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Vugurura uyu mwanya"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Hindura amahitamo yo kugenzura"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Fungura Igenzura"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Hagarika Igenzura"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Mu buryo butagira iherezo"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "Ukwezi %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Amezi %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Umwaka %d"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Ukoresha Usanzwe"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Amagenamiterere y'igenzura"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Ijwi ry'Impuruza"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Iyi ni dosiye y'ijwi izakinwa igihe Igikoresho gihagaze."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Subiramo ijwi ry'impuruza"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Kina iri jwi riri hejuru risubiramo igihe Igikoresho kigiye hasi."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Erekana ibisobanuro by'udushusho"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Hitamo ibi kugira ngo werekane ibisobanuro by'udushushanyo ku mwanya wo kugenzura"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Erekana igihe gikora"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Hitamo ibi kugira ngo werekane Igihe cyo gukora ku mwanya wo kugenzura"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Kwegereza ku Makosa"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Hitamo ibi kugira ngo wegereze ibintu bifite amakosa ku mwanya wo kugenzura"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Imbuganyuma yo Gukuza"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Ibara ry'inyuma ry'Amakosa yongerewe ubunini ku mugaragazo wa Monitor"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Ingano y'Inyuguti mu Gukuza"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Genzura"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Fungura ku bikoresho bishya"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Hitamo ibi kugira ngo ufungure mu buryo bwikora igenzura igihe uhanga ibikoresho bishya"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Igumishwa ry'inyandiko z'imenyesha/kongera gutangira"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Bika inyandiko z'imenyekanisha n'iz'itangira bundi bushya mu gihe cy'iyi minsi."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Intera yo kuvugurura"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Iki ni igihe mu masegonda mbere y'uko urupapuro ruvugururwa.  (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Uku ni ko igenzura rizashyira Ibikoresho mu matsinda."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Mburabuzi ifite uburenganzira"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Uku ni ko igenzura rizagaragaza Ibikoresho."
+
+#: setup.php
+msgid "Names only"
+msgstr "Amazina gusa"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Utudirishya n'Igihe cyo Guhagarara"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Imiterere ya raporo y'imenyesha"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Idosiye y'imiterere yo gukoresha"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Hitamo idosiye yihariye ya html n'iya CSS yo gukoresha.  Iyi dosiye irimo byombi, html na CSS, byo gukikiza raporo yawe.  Niba irimo ibirenze CSS gusa, ugomba gushyira akamenyetso kihariye <REPORT> imbere muri iyo dosiye.  Aka kamenyetso k'imiterere kazasimburwa n'ibikubiye muri raporo.  Izi dosiye ziherereye mu bubiko bwa 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Imenyesha ry'Urwego ntarengwa rwa Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Imenyesha ry'iburira ku bukererwe"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Niba Igikoresho gifite Ubukererwe bwa Ping yo Kugenda no Kugaruka burenze Urwego ntarengwa rw'Iburira kandi burenze Ubukana buri hasi, imeyili ziyandikishije ku Gikoresho zizabona imenyesha rya imeyili.  Hitamo 'Byahagaritswe' kugira ngo uhagarike.  Umugereka wa Thold urakenewe kugira ngo ufungure iyi mikorere."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Imenyesha ry'ubukererwe bw'Integuza"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Niba Igikoresho gifite Ubukererwe bwa Ping yo Kugenda no Kugaruka burenze Urwego ntarengwa rw'Impuruza kandi burenze Ubukana buri hasi, imeyili ziyandikishije ku Gikoresho zizabona imenyesha rya imeyili.  Hitamo 'Byahagaritswe' kugira ngo uhagarike.  Umugereka wa Thold urakenewe kugira ngo ufungure iyi mikorere."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Inshuro zo Kongera Kohereza Imeyili"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Ni kangahe amamenyesha ya imeyili agomba kohererezwa abiyandikishije kuri ibi Bikoresho igihe birengeje urwego ntarengwa rw'ubukererwe"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Buri gihe bibaye"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Buri minota %d"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Buri saha"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Buri masaha %d"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Amenyeshwa yo kongera gutangiza"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Ohereza Imenyekanisha ry'Itangira Rishya"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Ese imenyesha ry'itangira bushya ry'Igikoresho ryohererezwa abakoresha?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Ohereza Imeyili imwe kuri aderesi zose"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Niba bihiswemo, sisitemu izohereza Imeyili imwe gusa kuri aderesi zose."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Shyiramo Intonde z'Impuruza z'Urwego ntarengwa"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Ese intonde z'impuruza z'Urwego ntarengwa na zo zigomba guhabwa imenyesha"
+
+#: setup.php
+msgid "Subject"
+msgstr "Insanganyamatsiko"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Andika umutwe w'ubutumwa bwo gutangira bundi bushya ku imenyekanisha ryo gutangira bundi bushya."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Imenyesha ryo kongera gutangiza Igikoresho cya Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Umubiri w'Imeyili"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Andika igihimba cy'Imeyili kugira ngo gishyirwe mu butumwa bw'imenyekanisha ryo gutangira bundi bushya. Ubu, etiketi yonyine y'isimbuza yemewe ni &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Imenyekanisha ryo Kongera Gutangiza rya Monitor</h1><p>Ibikoresho bikurikira byongeye gutangizwa.  Reba ibisobanuro birambuye hepfo ku yandi makuru.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Aderesi za imeyili z'imenyesha"
+
+#: setup.php
+msgid "From Name"
+msgstr "Izina ry'ohereza"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Andika Izina ry'Imeyili ryo koherezaho amamenyekanisha"
+
+#: setup.php
+msgid "From Address"
+msgstr "Aderesi y'ohereza"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Andika Aderesi y'Imeyili yo koherezaho imenyekanisha"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Urutonde rw'abamenyeshwa"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Hitamo Urutonde rw'Imenyekanisha hasi aha.  Imeyili zose ziyandikishije ku rutonde rw'imenyekanisha zizamenyeshwa."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Aderesi z'Imeyili"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Andika urutonde rw'aderesi z'Imeyili zitandukanyijwe n'akitso kugira ngo zimenyeshwe igikorwa cyo gutangira bundi bushya."
+
+#: setup.php
+msgid "Server"
+msgstr "Seriveri"
+
+#: setup.php
+msgid "Printer"
+msgstr "Imashini icapisha"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Mudasobwa yo ku meza"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Mudasobwa igendanwa/notebook"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Murandasi ikoresha insinga"
+
+#: setup.php
+msgid "Database"
+msgstr "Ububiko bw'amakuru"
+
+#: setup.php
+msgid "Clock"
+msgstr "Isaha"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Akanyenyeri"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Disiki ikomeye"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Udusanduku"
+
+#: setup.php
+msgid "Phone"
+msgstr "Telefone"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Igicu"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Ntuhindure"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d ku ijana hejuru y'impuzandengo"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Amagenamiterere y'ikurikirana ry'Igikoresho"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Genzura Igikoresho"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Hitamo aka gasanduku kugira ngo ugenzure iki Gikoresho ku gice cya Monitor."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Uburemere bw'Igikoresho"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Urwego rw'uburemere bw'iki Gikoresho ni uruhe."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Urwego ntarengwa rw'Iburira rwa Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Niba igihe cyo kugenda no kugaruka hakoreshejwe bumwe mu buryo bwa ping bwa Cacti bwateganyijwe kirenze uru rwego ntarengwa, andika iburira mu nyandiko y'ibikorwa cyangwa wohereze Imeyili ukurikije uburemere bw'Ibikoresho n'igenamiterere ryo Kugenzura. Igipimo ni muri milisegonda. Gushyira kuri 0 birabihagarika. Umugereka wa Thold urakenewe kugira ngo ukoreshe iyi mikorere."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "milisegonda"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Urwego ntarengwa rw'integuza ya Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Niba igihe cyo kugenda no kugaruka hakoreshejwe bumwe mu buryo bwa ping bwa Cacti bwateganyijwe kirenze uru rwego ntarengwa, andika impuruza mu nyandiko y'ibikorwa cyangwa wohereze Imeyili ukurikije uburemere bw'Ibikoresho n'igenamiterere ryo Kugenzura. Igipimo ni muri milisegonda. Gushyira kuri 0 birabihagarika. Umugereka wa Thold urakenewe kugira ngo ukoreshe iyi mikorere."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Iburira ryo gusubiramo urufatiro"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Ijanisha riri hejuru y'igihe mpuzandengo cya ping kiriho ubu kugira ngo rifatwe nk'Urwego ntarengwa rw'Iburira.  Iyo bivuguruwe, ibi bihita bihindura ku buryo bwikora Urwego ntarengwa rw'Iburira rya Ping."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Impuruza yo gusubiramo urufatiro"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Ijanisha riri hejuru y'igihe mpuzandengo cya ping kiriho ubu kugira ngo rifatwe nk'Urwego ntarengwa rw'Impuruza.  Iyo bivuguruwe, ibi bihita bihindura ku buryo bwikora Urwego ntarengwa rw'Impuruza ya Ping."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Ubutumwa bw'Igikoresho cyahagaze"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Ubu ni ubutumwa buzagaragara igihe iki Gikoresho cyatangajwe ko cyahagaze."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Agashusho k'igikoresho"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Ushobora guhitamo agashushondanga k'igikoresho."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Igenzura"
+

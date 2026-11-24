@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Malagasy\n"
+"Language: mg-MG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Tabilao fanaraha-maso vaovao"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Takelaka fanaraha-maso"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Ampidiro ny Anaran'ny Tabilao Fanaraha-maso ary tsindrio ny 'Tehirizo' raha hanohy, na tsindrio ny 'Foano'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Mamorona tabilao vaovao"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Fitaovana arahi-maso"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Tsy voatahiry"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Lamin'endrika"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Asehoy"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Jereo"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Fampivondronana"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Havaozy"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Havaozy ny lisitry ny Fitaovana"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Fafao"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Esory ny Sivana napetraka"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Tehirizo"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Tehirizo ny Fandrindrana Sivana"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Vaovao"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Tehirizo ny Tabilao Vaovao"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Ovao anarana"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Ovao ny anaran'ny takelaka fanaraha-maso"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Fafao"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Fafao ny Tabilao"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Fanairana ho an'ny Fitaovana tsy mandeha"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Fanairana ho an'ny Fitaovana tsy mandeha"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Fitaovana"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Mandehana any amin'ny pejy fitantanana ny Fitaovana"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Haavon'ny maha-zava-dehibe"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Habe"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Manapaka sisiny"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Hazo rehetra"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Fitaovana tsy ao anaty hazo"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Hazo"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Toerana rehetra"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Fitaovana tsy ao anaty toerana"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Toerana"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Fitaovana tsy manana modely"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Modely"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Modely"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Andalana"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Voatahiry ny fandrindrana ny sivana ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Foano"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Mampiditra..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Takelaka antsipirian'ny fitaovana"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Havaozina indray afaka <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Segondra ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Sivan'ny fanaraha-maso [ Fanavaozana farany: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Fitaovana 30 voalohany ihany no aseho ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Fikarohana"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Zava-nitranga"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Atao mangina"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Katoavy"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Esory ny fanginana"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Averina amin'ny laoniny"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Voafafa ny takelaka fanaraha-maso '%s'."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Tsy anao ny takelaka fanaraha-maso '%s'."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Voatahiry ny takelaka fanaraha-maso '%s'!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Tsy voatahiry ny takelaka fanaraha-maso '%s'!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Ahitsio ny Fitaovana"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Hijery tabilao"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Jereo ny Fetra/Fampandrenesana"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Jereo ny fampandrenesana Syslog an'ny Fitaovana"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Jereo ny fidirana Syslog an'ny Fitaovana"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Jereo ny fanamarinana serivisy tsy mandeha"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Fampahalalana momba ny satan'ny fitaovana"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Fitaovana:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Toerana:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Toerana:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Haavon'ny maha-zava-dehibe:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Sata:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Fanamarihan'ny mpitantana:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Anaran'ny Mpampiantrano:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Ank./Sal.:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Fampitandremana/Fanairana:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Tsy fahombiazana farany:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Fotoana tao amin'ny sata:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Fahafahana miasa:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Fotoana niasan'ny mpandraharaha:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Tsy misy"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Famaritana ny rafitra:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Fifandraisana:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Naoty:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Tsy mihitsy"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Tsy voafaritra"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Tsy misy"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP sy Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "Faharetan'ny SNMP"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP na Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "Fakana SysDesc SNMP"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "Fakana manaraka SNMP"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Fomba %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Famaritana"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Anaran'ny mpampiantrano"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Sata"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Toerana"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Modely fitaovana"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Toerana"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Fifandraisana"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Fanamarihana"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Mombamomba ny Mpampiantrano"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Fomba fanamarinana fahafahana miasa"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping ankehitriny / salanisa"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Ping kely indrindra / lehibe indrindra"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Fahafahana mifandray"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Fitambarany / Fanontaniana tsy nahomby"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "Ao amin'ny Sata Ankehitriny Hatramin'ny"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Tsy fahombiazana farany"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Fanangonana tahiry"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Tsy mavitrika"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Tsy mahomby"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Tsy notsapaina"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "Eny"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Fanamarinana tolotra"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Fetra %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Voahetsika"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Fetra"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Tsy misy hafatra syslog tao anatin'ny adiny iray farany."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (adiny iray farany)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Sokafy ny Fitaovana tena izy"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Rohin'ny fitaovana"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Fitaovana tsy ao anaty toerana"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Sampana fototra"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Hazo: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Sampana: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Tsy fantatra"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Vao tafaverina"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Tsy mandeha"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Miverina amin'ny laoniny"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Maty (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Voahetsika (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Ping fampitandremana"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Ping fampandrenesana"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Serivisy tsy nahomby"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Hetsika"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Sokafy ny tontonana antsipirian'ny Fitaovana"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Famaritana ny fitaovana araka ny voafaritra ao amin'ny pejy Fitaovana"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Toerana ara-batana voarakitra ho an'ny Fitaovana"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Toerana nanendrena ny fitaovana"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "ID fitaovana anatiny Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Ny hamafin'ny fanaraha-maso nomena ny fitaovana"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Hetsika mavitrika eo amin'ny Fitaovana (Maty, Voatarika, Fampitandremana/Fanairana Ping, Tolotra tsy nahomby, ...); tsindrio ny bokotra iray mba hanampiana na hanesorana izany hetsika izany ao amin'ny sivana Hetsika"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Fetra nihoatra / voatosika / manontolo (plugin thold) amin'ny fitaovana; tsindrio hanova ny sivana hetsika Voatosika"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Fanamarinana serivisy tsy nahomby / manontolo (plugin servcheck) ho an'ny fitaovana; tsindrio mba hanova ny sivana hetsika Serivisy tsy nahomby"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Fampitandremana"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Fetra Fampitandremana / fampandrenesana ho an'ny fahatarana Ping (ms) voarindra ho an'ity Fitaovana ity; alefa ny fampahafantarana rehefa mihoatra azy ireo ny fotoana famaliana"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Mpitantana"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Hafatra fanaraha-maso ara-pitantanana aseho raha mbola maty na miverina amin'ny laoniny ny Fitaovana"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Isan-jaton'ny fanamarinana fahafahana miasa nahomby tao anatin'ny tantara voatahiry"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Salanisa"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Fotoana famalian'ny ping ankehitriny / salanisa amin'ny milisegondra"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Halava ao amin'ny Sata"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Ny faharetan'ny Fitaovana tao amin'ny sata misy azy ankehitriny"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Daty sy ora farany tsy nahombiazan'ny fanamarinana ny fahafahan'ny fitaovana miasa"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Sivana araka ity haavon'ny maha-zava-dehibe ity (tsindrio indray raha hanadio)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Tsy voafaritra ny haavon'ny maha-zava-dehibe - tsindrio hanivanana ny Fitaovana tsy voafaritra (tsindrio indray hanadiovana)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Tsy voafaritra"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Tsindrio mba hanampy na hanala ity hetsika ity amin'ny sivana"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Fetra nihoatra / voatosika / manontolo - tsindrio hanova ny sivana hetsika Voatosika"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Tsy misy fetra voafaritra ho an'ity fitaovana ity"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Fanamarinana serivisy tsy nahomby / manontolo - tsindrio mba hanova ny sivana hetsika Serivisy tsy nahomby"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Tsy misy fanamarinana serivisy voafaritra ho an'ity fitaovana ity"
+
+#: monitor.php
+msgid "All"
+msgstr "Rehetra"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Ambany"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Antonony"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Avo"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Tena iankinan'ny asa"
+
+#: monitor.php
+msgid "Up"
+msgstr "Mandeha"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Voahetsika (Nampanginina/Nekena)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Maty (Nampanginina/Nankatoavina)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Tsy misy fanamarinana fahafahana miasa"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Ping fampitandremana"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Tsy nahomby ny fanamarinana tolotra"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Kely indrindra"
+
+#: monitor.php
+msgid "Small"
+msgstr "Kely"
+
+#: monitor.php
+msgid "Large"
+msgstr "Lehibe"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Lehibe indrindra"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Fanalehibeazana"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Fitaovana arahi-maso rehetra"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Fitaovana rehetra"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Fitaovana tsy arahi-maso"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Fitaovana tsy misy Fetra"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Fitaovana tsy misy fanamarinana tolotra"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Voafaritra mialoha"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Lisitra"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Takelaka"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Takelaka sy Fotoana"
+
+#: monitor.php
+msgid "Full"
+msgstr "Feno"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "Tarehintsoratra 10"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "Tarehintsoratra 20"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "Tarehintsoratra 30"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "Tarehintsoratra 40"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "Tarehintsoratra 50"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "Tarehintsoratra 75"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "Tarehintsoratra 100"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Famaritana: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Anaran'ny mpampiantrano: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Ity tatitra manaraka ity dia hamantatra ireo Fitaovana izay nihoatra ny fetran'ny fahataran'ny ping. Mahazo ity tatitra ity ianao satria nisoratra anarana amin'ny Fitaovana iray mifandray amin'ny rafitra Cacti hita ao amin'ity URL eto ambany ity."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Toerana Fanaraha-maso Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Hahazo fampahafantarana isaky ny %d minitra ianao raha mihoatra ny fetrany ny Fitaovana."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Hahazo fampahafantarana isaky ny mihoatra ny fetrany ny Fitaovana ianao."
+
+#: setup.php
+msgid "Any"
+msgstr "Na inona na inona"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Tsindrio ny 'Tohizo' mba hampavitrika ny fanaraha-maso amin'ireto Fitaovana ireto"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Tsindrio ny 'Tohizo' mba hampitsahatra ny fanaraha-maso amin'ireto Fitaovana ireto"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Tsindrio ny 'Tohizo' mba hanovana ny fandrindrana fanaraha-maso ho an'ireto Fitaovana manaraka ireto. Tsarovy ny manamarika ny 'Havaozy ity saha ity' hanondroana izay tsanganana havaozina."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Hanavao ity saha ity"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Ovao ny safidin'ny fanaraha-maso"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Alefaso ny fanaraha-maso"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Ataovy tsy mavitrika ny fanaraha-maso"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Mandritra ny fotoana tsy voafetra"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Volana"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Volana"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d taona"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Mpampiasa tsotra"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Fandrindrana ny fanaraha-maso"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Feon'ny fanairana"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Ity no rakitra feo halefa rehefa maty ny Fitaovana iray."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Averimbereno ny feon'ny fanairana"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Alefaso miverimberina ny feo etsy ambony rehefa maty ny Fitaovana iray."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Asehoy ny fanazavana sary famantarana"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Mariho ity mba hampisehoana fanazavana marika kisary kely eo amin'ny efijery Monitor"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Asehoy ny fotoana niasana"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Mariho ity mba hampisehoana ny Uptime eo amin'ny efijery Monitor"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Hanitatra mankany amin'ny Hadisoana"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Mariho ity mba hanalehibeazana ny singa misy hadisoana eo amin'ny efijery Monitor"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Lafin'ny Fampitomboana"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Lokon'ny lafika ho an'ny hadisoana nohalehibeazina amin'ny efijery Monitor"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Haben'ny Soratra amin'ny Fampitomboana"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Fanaraha-maso"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Ataovy mavitrika amin'ny fitaovana vaovao"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Mariho ity mba hampavitrika ho azy ny fanaraha-maso rehefa mamorona fitaovana vaovao"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Fitahirizana ny rakitra fampandrenesana/fanombohana indray"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Tehirizo mandritra izay andro izay ny firaketana fampandrenesana sy famerenana mandeha."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Elanelam-potoana fanavaozana"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Ity no fotoana amin'ny segondra alohan'ny hanavaozana ny pejy. (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Toy izao no fomba hanasokajian'ny mpanara-maso ny Fitaovana."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Mahazatra miaraka amin'ny alalana"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Toy izao no fomba hampisehoan'ny mpanara-maso ny Fitaovana."
+
+#: setup.php
+msgid "Names only"
+msgstr "Anarana ihany"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Takelaka sy Fotoana fijanonana"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Endriky ny tatitra fampandrenesana"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Rakitra endrika hampiasaina"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Safidio ny rakitra fonony html namboarina sy CSS hampiasaina. Ity rakitra ity dia misy html sy CSS hamonosana ny tatitrao. Raha mihoatra noho ny CSS tsotra no ao anatiny dia mila mametraka marika manokana <REPORT> ao anatin'ny rakitra ianao. Io marika endrika io dia hosoloina ny votoatin'ny tatitra. Ireo rakitra ireo dia ao amin'ny lahatahiry 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Fampahafantarana ny Fetra Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Fampahafantarana fahatarana fampitandremana"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Raha manana fahatarana Ping miverina ambony noho ny Fetra Fampitandremana sy ambony noho ny Fahamatorana eto ambany ny Fitaovana iray, dia hahazo fampandrenesana amin'ny mailaka ireo mailaka misoratra anarana amin'ilay Fitaovana. Safidio ny 'Tsy mavitrika' hanajanona izany. Ilaina ny plugin Thold mba hampavitrika ity endri-javatra ity."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Fampandrenesana momba ny fahatarana"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Raha manana fahatarana Ping miverina ambony noho ny Fetra Fanairana sy ambony noho ny Fahamatorana eto ambany ny Fitaovana iray, dia hahazo fampandrenesana amin'ny mailaka ireo mailaka misoratra anarana amin'ilay Fitaovana. Safidio ny 'Tsy mavitrika' hanajanona izany. Ilaina ny plugin Thold mba hampavitrika ity endri-javatra ity."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Impiry no handefa indray ny Mailaka"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Impiry no tokony handefasana fampandrenesana amin'ny mailaka ho an'ny mpanjifa momba ireo Fitaovana ireo raha mihoatra ny Fetra fahatarany izy ireo"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Isaky ny fisehoana"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Isaky ny %d minitra"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Isan'ora"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Isaky ny %d ora"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Fampandrenesana fanombohana indray"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Mandefa fampandrenesana famerenana mandeha"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Tokony halefa any amin'ny mpampiasa ve ny fampandrenesana momba ny famerenana mandeha ny fitaovana?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Mandefa Mailaka iray ho an'ny adiresy rehetra"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Raha voamarika dia handefa Mailaka iray ihany ho an'ny adiresy rehetra ny rafitra."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Ampidiro ny Lisitry ny Fanairana Fetra"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Tokony hahazo fampandrenesana ihany koa ve ny lisitry ny fampandrenesana fetra"
+
+#: setup.php
+msgid "Subject"
+msgstr "Lohahevitra"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Ampidiro ny lohahevitry ny hafatra Famerenana Mandeha ho an'ny Fampandrenesana Famerenana Mandeha."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Fampahafantarana fanombohana indray ny Fitaovana Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Vatan'ny mailaka"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Ampidiro ny vatan'ny Mailaka hampidirina ao amin'ny hafatra Fampandrenesana Famerenana Mandeha.  Amin'izao fotoana izao, ny hany marika fanoloana ekena dia &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Fampandrenesana famerenana mandeha avy amin'ny Monitor</h1><p>Naverina nandeha ireto Fitaovana manaraka ireto. Jereo ny antsipiriany eto ambany raha mila fanazavana fanampiny.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Adiresy mailaka fampandrenesana"
+
+#: setup.php
+msgid "From Name"
+msgstr "Anaran'ny mpandefa"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Ampidiro ny Anaran'ny Mailaka handefasana ny fampandrenesana"
+
+#: setup.php
+msgid "From Address"
+msgstr "Adiresin'ny mpandefa"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Ampidiro ny Adiresy Mailaka handefasana ny fampandrenesana"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Lisitry ny Fampandrenesana"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Misafidiana Lisitra fampandrenesana eto ambany.  Hampandrenesina ny Mailaka rehetra nisoratra anarana ao amin'ny lisitra fampandrenesana."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Adiresy mailaka"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Ampidiro lisitry ny adiresy Mailaka sarahin'ny faingo hampahafantarina ny fisehoan'ny famerenana mandeha."
+
+#: setup.php
+msgid "Server"
+msgstr "Mpizara"
+
+#: setup.php
+msgid "Printer"
+msgstr "Mpanonta"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Solosaina birao"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Solosaina finday"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Tambajotra misy tariby"
+
+#: setup.php
+msgid "Database"
+msgstr "Tahirinkevitra"
+
+#: setup.php
+msgid "Clock"
+msgstr "Famantaranandro"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Kapila mafy"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Boaty"
+
+#: setup.php
+msgid "Phone"
+msgstr "Telefaona"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Rahona"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Aza ovaina"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d Isan-jato ambonin'ny salanisa"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Fandrindrana fanaraha-maso fitaovana"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Araho maso ny fitaovana"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Mariho ity boaty ity mba hanaraha-maso ity Fitaovana ity ao amin'ny vakizoro Monitor."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Maha-zava-dehibe ny fitaovana"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Inona ny maha-zava-dehibe ity Fitaovana ity."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Fetra Fampitandremana Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Raha mihoatra an'io Fetra io ny fahatarana mandroso sy miverina amin'ny iray amin'ireo fomba ping Cacti voafaritra mialoha, dia raketo ny fampitandremana na mandefasa mailaka mifototra amin'ny Fandrindrana Fanaraha-maso sy ny Fahamatoran'ny Fitaovana. Milisegondra ny singa. Ny fametrahana azy ho 0 dia mampiato izany. Ilaina ny Thold Plugin mba hampiasana ity fiasa ity."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "milisegondra"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Fetra fampandrenesana Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Raha mihoatra an'io Fetra io ny fahatarana mandroso sy miverina amin'ny iray amin'ireo fomba ping Cacti voafaritra mialoha, dia raketo ny fanairana na mandefasa mailaka mifototra amin'ny Fandrindrana Fanaraha-maso sy ny Fahamatoran'ny Fitaovana. Milisegondra ny singa. Ny fametrahana azy ho 0 dia mampiato izany. Ilaina ny Thold Plugin mba hampiasana ity fiasa ity."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Fampitandremana fari-pamaritana vaovao"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Ny isan-jato mihoatra ny salan'isan'ny fotoana ping ankehitriny izay heverina ho Fetra Fampitandremana. Raha havaozina ity, dia hanitsy ho azy ny Fetra Fampitandremana Ping."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Fampandrenesana fari-pamaritana vaovao"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Ny isan-jato mihoatra ny salan'isan'ny fotoana ping ankehitriny izay heverina ho Fetra Fanairana. Raha havaozina ity, dia hanitsy ho azy ny Fetra Fanairana Ping."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Hafatra rehefa maty ny Fitaovana"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Ity no hafatra haseho rehefa taterina ho maty ity Fitaovana ity."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Sary famantarana ny fitaovana"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Afaka misafidy ny sary famantarana ny fitaovana ianao."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Fanaraha-maso"
+

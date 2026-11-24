@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Xhosa\n"
+"Language: xh-ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Ideshibhodi eNtsha"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Ideshibhodi"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Faka iGama leBhodi yoLawulo uze ucinezele u-'Gcina' ukuze uqhubeke, kungenjalo cofa u-'Rhoxisa'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Yenza iDeshibhodi eNtsha"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Izixhobo eziBekwe iliso"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Ayigcinwanga"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Uyilo"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Bonisa"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Jonga"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Ukuqokelela ngamaqela"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Hlaziya"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Hlaziya uLuhlu lweZixhobo"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Sula"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Sula isihluzi esimiselweyo"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Gcina"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Gcina Iisetingi zeSihluzi"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Entsha"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Gcina iDeshibhodi eNtsha"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Thiya ngokutsha"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Thiya kwakhona iDeshibhodi"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Cima"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Cima i-Dashboard"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Isaziso seZixhobo eziwileyo"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Izaziso zeZixhobo eziwileyo"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Izixhobo"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Yiya kwiphepha lolawulo Lwezixhobo"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Ubucayi"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Ubungakanani"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Nqumla"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Yonke Imithi"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Izixhobo Ezingekho Emthini"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Umthi"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Zonke iZiza"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Izixhobo Ezingekho Kwisiza"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Iisayithi"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Izixhobo EzingenaTempleyiti"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Itempleyiti"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Iitempleyiti"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Imiqolo"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Iisetingi Zesihluzi Zigciniwe ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Rhoxisa"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Iyalayisha..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Iiphaneli zeeNkcukacha zeSixhobo"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Hlaziya Kwakhona kwimizuzwana eyi-<i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Isihluzi sokuBeka iliso [ Uhlaziyo lokuGqibela: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Kuboniswa kuphela iZixhobo ezingama-30 zokuqala ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Khangela"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Iziganeko"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Thulisa"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Vuma"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Susa uKuthulisa"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Seta kwakhona"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Ideshibhodi '%s' isusiwe."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Ideshibhodi '%s' ayiyiyo eyakho."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Ideshibhodi '%s' igciniwe!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Ideshibhodi '%s' ayikwazanga ukugcinwa!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Hlela iSixhobo"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Jonga iiGrafu"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Jonga imiDa/iziLumkiso"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Jonga iziLumkiso ze-Syslog zeSixhobo"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Jonga amaNgeno e-Syslog eSixhobo"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Jonga uHlolisiso lweNkonzo oluSilelayo"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Ulwazi loBume beSixhobo"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Isixhobo:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Isiza:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Indawo:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Ubucayi:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Ubume:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Inqaku loMlawuli:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "I-IP/Igama lehosti:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Okwangoku/Umyinge:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Isilumkiso/Isaziso:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Ukusilela kokugqibela:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Ixesha kwiSimo:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Ukufumaneka:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Ixesha lokuSebenza lwe-Ejenti:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Akusebenzi"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Inkcazelo ye-Sys:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Uqhagamshelwano:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Amanqaku:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Nakanye"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Akuchazwanga"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Akukho"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "I-SNMP kunye ne-Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "I-SNMP Uptime"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "I-Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "I-SNMP okanye i-Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "Ukufumana i-SysDesc nge-SNMP"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "Ukufumana oLulandelayo kwe-SNMP"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Indlela %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Inkcazo"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Igama Lomamkeli"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Ubume"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Isiza"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Itempleyithi Yesixhobo"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Indawo"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Uqhagamshelwano"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Amanqaku"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Ulwazi lweHosti"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Indlela Yokufumaneka"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "I-Ping yaNgoku / yoMyinge"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Ubuncinci / Ubuninzi be-Ping"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Ukufumaneka"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "IiPolls ziZonke / eziSileleyo"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "Kubume baNgoku Ukususela"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Ukusilela kokugqibela"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Ukuqokelelwa Kwedatha"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Icinyiwe"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Iyasilela"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Ayivavanywanga"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "Kulungile"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Uhlolo lweeNkonzo"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Umda %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Ivuselelwe"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Imida"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Akukho miyalezo ye-syslog kwiyure edlulileyo."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (iyure yokugqibela)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Vula Isixhobo Ngokwaso"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Amakhonkco eSixhobo"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Isixhobo Esingekho Kwisiza"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Isebe leNgcambu"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Umthi: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Isebe: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Akwaziwa"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Isanda kuVuka"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Phantsi"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Siyachacha"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Iphantsi (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Ivuselelwe (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "I-Ping yeSilumkiso"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "I-Ping yeSaziso"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "I-Svc esileleyo"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Izenzo"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Vula iiphaneli zeenkcukacha zesixhobo"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Inkcazelo yesixhobo njengoko isetiwe kwiphepha leZixhobo"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Indawo ebonakalayo erekhodelwe isixhobo"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Isiza esabelwe kuso isixhobo"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "I-id yesixhobo sangaphakathi se-Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Ubunzulu bokubeka iliso obabelwe isixhobo"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Iziganeko ezisebenzayo kwisixhobo (Icimile, Iqalisiwe, Isilumkiso/Isaziso se-Ping, Inkonzo eSileleyo, ...); cofa ipilisi ukuze wongeze okanye ususe eso siganeko kwisihluzi seZiganeko"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Imida eyaphuliweyo / echukunyisiweyo / iyonke (i-plugin ye-thold) kwisixhobo; cofa ukutshintsha isihluzi sesiganeko esichukunyisiweyo"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Iitshekhi zenkonzo ezisileleyo / zizonke (iplagini ye-servcheck) zesixhobo; cofa ukutshintsha isihluzi sesiganeko se-Svc esileleyo"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Isilumkiso"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Imida ye-Ping latency yeSilumkiso / yeSivuso (ms) eyenzelwe esi sixhobo; isaziso siyaphakanyiswa xa ixesha lokuphendula liyigqitha"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Umlawuli"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Umyalezo wokubeka esweni wolawulo oboniswayo ngelixa isixhobo siCimile okanye siBuyela ebuMeni"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Ipesenti yovavanyo lokufumaneka oluyimpumelelo kwimbali egciniweyo"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Imindilili"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Ixesha lokuphendula le-ping langoku / lomyinge ngee-millisecond"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Ubude kuBume"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Ixesha isixhobo ebesikulo ubume baso bangoku"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Umhla nexesha apho isixhobo siye asaphumelela ngokugqibela kuvavanyo lwaso lokufumaneka"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Hluza ngolu bunzima (cofa kwakhona ukuze ucoce)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Ubucayi abusetwanga - cofa ukuhluza izixhobo ezingasetwanga (cofa kwakhona ukucima)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Ayicwangciswanga"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Cofa ukuze wongeze okanye ususe esi siganeko kwisihluzi"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Imida eyaphuliweyo / echukunyisiweyo / iyonke - cofa ukutshintsha isihluzi sesiganeko esichukunyisiweyo"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Akukho mida ichaziweyo kwesi sixhobo"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Iitshekhi zenkonzo ezisileleyo / zizonke - cofa ukutshintsha isihluzi sesiganeko se-Svc esileleyo"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Akukho zihlolo zenkonzo zichaziweyo kwesi sixhobo"
+
+#: monitor.php
+msgid "All"
+msgstr "Konke"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Phantsi"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Phakathi"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Phezulu"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Kubaluleke Kakhulu"
+
+#: monitor.php
+msgid "Up"
+msgstr "Phezulu"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Ivuselelwe (Ithulisiwe/Ivunywe)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Iphantsi (Ithulisiwe/Ivunyiwe)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Akukho hlolo lokuFumaneka"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "I-Ping yeSilumkiso"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Uhlolo lweNkonzo Aluphumelelanga"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Encinci Kakhulu"
+
+#: monitor.php
+msgid "Small"
+msgstr "Ncinci"
+
+#: monitor.php
+msgid "Large"
+msgstr "Enkulu"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Enkulu Kakhulu"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Ukusondeza"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Zonke iZixhobo eziBekwe eSweni"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Zonke iziXhobo"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Izixhobo ezingaJongwanga"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Izixhobo ezingenaMida"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Izixhobo ezingenawo uHlolo lweNkonzo"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Okungagqibekanga"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Uluhlu"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Iithayile"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Iithayile kunye neXesha"
+
+#: monitor.php
+msgid "Full"
+msgstr "Epheleleyo"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "Oonobumba abali-10"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "Oonobumba abangama-20"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "Oonobumba abangama-30"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "Oonobumba abangama-40"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "Oonobumba abangama-50"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "Oonobumba abangama-75"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "Oonobumba abayi-100"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Inkcazelo: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Igama lehosti: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Le ngxelo ilandelayo iya kuchonga Izixhobo ezigqithe kwimida yazo yokulibaziseka kwe-ping.  Ufumana le ngxelo kuba ubhalisele Isixhobo esinxulumene nenkqubo ye-Cacti ekule URL ilandelayo ngezantsi."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Isiza sokuJonga se-Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Uza kufumana izaziso rhoqo emva kwemizuzu engama-%d ukuba iSixhobo singaphezu komda waso."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Uza kufumana izaziso ngalo lonke ixesha iSixhobo singaphezu komda waso."
+
+#: setup.php
+msgid "Any"
+msgstr "Nayiphi na"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Cofa u-'Qhubeka' ukuze uvule ukubeka esweni kwezi Zixhobo"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Cofa u-'Qhubeka' ukuze ucime ukubeka esweni kwezi Zixhobo"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Cofa u-'Qhubeka' ukuze uTshintshe iisetingi zokuJonga zesi Sixhobo (ezi Zixhobo) zilandelayo. Khumbula ukukhangela u-'Hlaziya le Ndima' ukubonisa ukuba zeziphi iikholam emazihlaziywe."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Hlaziya le Ndima"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Tshintsha iiNdlela zokuBeka iliso"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Vula ukuBeka iLiso"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Cima Ukujongwa"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Ngokungenasiphelo"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "Inyanga eyi-%d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Iinyanga ezi-%d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Unyaka oyi-%d"
+
+#: setup.php
+msgid "Normal User"
+msgstr "UMsebenzisi oQhelekileyo"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Iisetingi zokuBeka iliso"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Isandi se-Alamu"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Le yifayile yesandi eza kudlalwa xa Isixhobo siphantsi."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Phindaphinda isandi se-Alamu"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Dlala isandi esingasentla ngokuphindaphindiweyo xa Isixhobo sisihla."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Bonisa iNkcazo yee-Ayikhoni"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Phawula oku ukuze ubonise isichazi se-ayikhoni kumboniso wokuBeka iliso"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Bonisa iXesha lokuSebenza"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Phawula oku ukuze ubonise i-Uptime kumboniso wokuBeka iliso"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Sondeza kwiimpazamo"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Phawula oku ukuze usondeze kwizinto ezinempazamo kumboniso wokuBeka iliso"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Imvelaphi yokuSondeza"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Umbala ongasemva weeMpazamo eziSondeziweyo kumboniso weMonitha"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Ubungakanani beFonti yokuSondeza"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Beka iliso"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Vula kwizixhobo ezitsha"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Phawula oku ukuze uvule ngokuzenzekelayo ukubeka iliso xa usenza izixhobo ezitsha"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Ukugcinwa Kwelogi Yesaziso/Yokuqalisa Kwakhona"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Gcina iilogi zeZaziso kunye nokuQalisa ngokutsha eli nani leentsuku."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Ixesha loHlaziyo"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Eli lixesha ngemizuzwana phambi kokuba iphepha lihlaziywe.  (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Le yindlela i-monitor eza kuQokelela ngayo Izixhobo."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Okungagqibekanga okuneemvume"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Le yindlela i-monitor eza kubonisa ngayo Izixhobo."
+
+#: setup.php
+msgid "Names only"
+msgstr "Amagama kuphela"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Iithayile kunye neXesha lokungasebenzi"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Ifomathi Yengxelo Yesaziso"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Ifayile yeFomathi eza kuSetyenziswa"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Khetha ifayile yokusonga ye-html elungiselelweyo kunye ne-CSS oza kuyisebenzisa.  Le fayile iqulethe zombini i-html ne-CSS zokusonga ingxelo yakho.  Ukuba iqulethe okungaphezulu kwe-CSS nje, kufuneka ubeke ithegi ekhethekileyo <REPORT> ngaphakathi kwefayile.  Le thegi yefomathi iya kuthatyathelwa indawo ngumxholo wengxelo.  Ezi fayile zikwifolda ethi 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Izaziso Zomda we-Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Isaziso soLibaziseko lweSilumkiso"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ukuba Isixhobo sinoKulibaziseka kwe-Ping yoHambo oluJikelezayo ngaphezu koMda weSilumkiso nangaphezu koBuzaza obungezantsi, ii-imeyile ezibhalisele Isixhobo ziya kufumana isaziso se-imeyile.  Khetha u-'Icinyiwe' ukuze ucime.  Iplagin ye-Thold iyafuneka ukuze uvule esi sici."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Ukwazisa ngoLibaziseko lweSaziso"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ukuba Isixhobo sinoKulibaziseka kwe-Ping yoHambo oluJikelezayo ngaphezu koMda we-Alert nangaphezu koBuzaza obungezantsi, ii-imeyile ezibhalisele Isixhobo ziya kufumana isaziso se-imeyile.  Khetha u-'Icinyiwe' ukuze ucime.  Iplagin ye-Thold iyafuneka ukuze uvule esi sici."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Zithunyelwa Kangaphi Ii-imeyile Kwakhona"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Zimele zithunyelwe kangaphi izaziso ze-imeyile kubabhalisi bezi Zixhobo ukuba zigqitha imida yazo yokulibaziseka"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Kwisihlandlo Ngasinye"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Rhoqo emva kwemizuzu eyi-%d"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Iyure nganye"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Rhoqo emva kweeyure eziyi-%d"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Izaziso zokuQalisa kwakhona"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Thumela iZaziso zokuQalisa ngokuTsha"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Ngaba iZaziso zokuQalisa kwakhona kweSixhobo kufuneka zithunyelwe kubasebenzisi?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Thumela I-imeyile enye kuzo zonke iidilesi"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Ukuba ikhethiwe, inkqubo iya kuthumela I-imeyile enye kuphela kuzo zonke iidilesi."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Bandakanya iiListi zeZivusi zeMida"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Ngaba iZintlu zee-Alethi zoMda kufuneka zifumane kwakhona iSaziso"
+
+#: setup.php
+msgid "Subject"
+msgstr "Umxholo"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Faka isihloko somyalezo wokuQalisa kwakhona seSaziso sokuQalisa kwakhona."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Isaziso sokuQala kwaKhona kweSixhobo se-Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Umzimba we-imeyile"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Faka umzimba we-imeyile oza kufakwa kumyalezo weSaziso sokuQalisa kwakhona.  Okwangoku, kuphela ithegi yokutshintsha exhaswayo eyamkelekileyo ngu-&#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Isaziso Sokuqalisa Kwakhona kweMonitor</h1><p>Ezi zixhobo zilandelayo ziqaliswe kwakhona. Jonga iinkcukacha ezingezantsi ukuze ufumane ulwazi olongezelelweyo.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Iidilesi ze-imeyile Zezaziso"
+
+#: setup.php
+msgid "From Name"
+msgstr "Igama loMthumeli"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Faka iGama le-imeyile oza kuthumela izaziso kulo"
+
+#: setup.php
+msgid "From Address"
+msgstr "Idilesi Yomthumeli"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Faka iDilesi ye-imeyile oza kuthumela isaziso kuyo"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Uluhlu lweZaziso"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Khetha uLuhlu lweZaziso ngezantsi. Zonke ii-imeyile ezibhalisele uluhlu lwezaziso ziya kwaziswa."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Iidilesi ze-imeyile"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Faka uluhlu olwahlulwe ngekoma lweedilesi ze-imeyile zokwazisa ngesiganeko sokuqalisa kwakhona."
+
+#: setup.php
+msgid "Server"
+msgstr "Iseva"
+
+#: setup.php
+msgid "Printer"
+msgstr "Umshicileli"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Ikhompyutha yedesktop"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Ilaptop/inowuthbhukhi"
+
+#: setup.php
+msgid "Wifi"
+msgstr "I-Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Inethiwekhi eneentambo"
+
+#: setup.php
+msgid "Database"
+msgstr "Uvimba wedatha"
+
+#: setup.php
+msgid "Clock"
+msgstr "Iwotshi"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "I-Asterisk"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Idiski eqinileyo"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Iibhokisi"
+
+#: setup.php
+msgid "Phone"
+msgstr "Ifowuni"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Ilifu"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Ungatshintshi"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "Ipesenti ezi-%d Ngaphezu koMndilili"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Iisetingi zokuHlola iSixhobo"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Beka iliso kwiSixhobo"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Phawula le bhokisi ukubeka iliso kwesi Sixhobo kwiThebhu yokuBeka iliso."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Ukubaluleka kweSixhobo"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Lithini iNqanaba lokuBaluleka kwesi Sixhobo."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Umda Wesilumkiso se-Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ukuba ukulibaziseka kokuhamba nokubuya ngeendlela ze-ping ze-Cacti ezichazwe kwangaphambili kunyuka ngaphezulu kwalo mda, loga isilumkiso okanye uthumele i-imeyile ngokusekelwe kuBubaluleki beZixhobo kunye nesetingi yoMonitha. Iyunithi ikwii-milliseconds. Ukucwangcisa ku-0 kuyacima. I-Thold Plugin iyafuneka ukuze usebenzise lo msebenzi."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "ii-millisecond"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Umda Wesivuso se-Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ukuba ukulibaziseka kokuhamba nokubuya ngeendlela ze-ping ze-Cacti ezichazwe kwangaphambili kunyuka ngaphezulu kwalo mda, loga i-alert okanye uthumele i-imeyile ngokusekelwe kuBubaluleki beZixhobo kunye nesetingi yoMonitha. Iyunithi ikwii-milliseconds. Ukucwangcisa ku-0 kuyacima. I-Thold Plugin iyafuneka ukuze usebenzise lo msebenzi."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Isilumkiso soMgangatho oSiseko kwakhona"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Ipesenti engaphezulu kwexesha langoku le-ping eliqhelekileyo ukuze ithathwe njengoMda weSilumkiso. Ukuba ihlaziyiwe, oku kuya kulungelelanisa ngokuzenzekelayo uMda weSilumkiso we-Ping."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "I-Alati yoMgangatho oSiseko kwakhona"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Ipesenti engaphezulu kwexesha langoku le-ping eliqhelekileyo ukuze ithathwe njengoMda we-Alert. Ukuba ihlaziyiwe, oku kuya kulungelelanisa ngokuzenzekelayo uMda we-Alert we-Ping."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Umyalezo weSixhobo Esiphantsi"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Lo ngumyalezo oza kuboniswa xa esi Sixhobo sixelwa njengesiphantsi."
+
+#: setup.php
+msgid "Device icon"
+msgstr "I-ayikhoni yesixhobo"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Ungakhetha i-ayikhoni yesixhobo."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Ukubeka iliso"
+

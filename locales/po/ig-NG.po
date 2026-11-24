@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Igbo\n"
+"Language: ig-NG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Bọọdụ Njikwa Ọhụrụ"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Bọọdụ njikwa"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Tinye Aha Dashboard wee pịa 'Chekwaa' iji gaa n'ihu, ma ọ bụghị ya pịa 'Kagbuo'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Mepụta Bọọdụ Nchịkwa Ọhụrụ"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Ngwaọrụ A Na-eleba Anya"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Echekwaghị"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Nhazi ihu"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Gosi"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Lelee"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Nkpokọta Otu"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Megharịa"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Mee Ka Ndepụta Ngwaọrụ Dị Ọhụrụ"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Kpochapụ"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Kpochapụ nzacha e debere"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Chekwaa"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Chekwaa Ntọala Nzacha"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Ọhụrụ"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Chekwaa Dashboard Ọhụrụ"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Gbanwee aha"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Gbanwee Aha Dashboard"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Hichapụ"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Hichapụ Ogwe Nchịkwa"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "Ọkwa %s maka Ngwaọrụ dara ada"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "Ọkwa %s maka Ngwaọrụ dara ada"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Ngwaọrụ"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Gaa na ibe njikwa Ngwaọrụ"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Ọkwa dị oke mkpa"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Nha"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Kwụchaa"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Osisi Nile"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Ngwaọrụ Na-abụghị Nke Osisi"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Osisi"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Saịtị Niile"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Ngwaọrụ Na-abụghị Nke Saịtị"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Saịtị"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Ngwaọrụ Na-enweghị Nlereanya"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Nlereanya"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Nlereanya Gasị"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Ahịrị"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Echekwara Ntọala Nzacha ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Kagbuo"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Na-ebudata..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Ogwe Nkọwa Ngwaọrụ"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Megharịa Ọzọ n'ime Sekọnd <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Nzacha Nleba Anya [ Mmelite Ikpeazụ: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Na-egosi naanị Ngwaọrụ 30 mbụ ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Chọọ"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Ihe Omume"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Mechie Olu"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Kwenye"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Wepụ Mgbochi Ụda"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Tọgharịa"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Ewepụla Bọọdụ njikwa '%s'."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Ọ bụghị gị nwe Bọọdụ njikwa '%s'."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Echekwala Bọọdụ njikwa '%s'!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Enweghị ike Ịchekwa Bọọdụ njikwa '%s'!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Dezie Ngwaọrụ"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Lee Eserese"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Lee Ọnụ ụzọ Gasị/Ọkwa"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Lee Ịdọ aka ná ntị Syslog nke Ngwaọrụ"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Lee Ntinye Syslog nke Ngwaọrụ"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Lee Nnyocha Ọrụ Na-ada Ada"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Ozi Ọnọdụ Ngwaọrụ"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Ngwaọrụ:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Saịtị:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Ebe:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Ọkwa dị oke mkpa:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Ọnọdụ:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Ndetu Onye Nchịkwa:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Aha Onye nnabata:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Ugbu a/Nkezi:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Ịdọ aka ná ntị/Ọkwa:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Ọdịda Ikpeazụ:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Oge Nọrọ n'Ọnọdụ:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Nnọdị:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Oge Ọrụ Onye Nnọchiteanya:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Ọ dịghị"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Nkọwa Sys:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Onye mkpọtụrụ:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Ndetu:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Ọ dịtụbeghị"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Akọwapụtaghị ya"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Ọ Dịghị Nke Ọ Bụla"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP na Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "Oge Ọrụ SNMP"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP ma ọ bụ Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "SNMP Nweta SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP Nweta Nke Ọzọ"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Ụzọ %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Nkọwa"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Aha Host"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Ọnọdụ"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Saịtị"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Ụkpụrụ Ngwaọrụ"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Ebe Ọ Nọ"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Onye Nkpọtụrụ"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Ndetu"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Ozi Onye nnabata"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Ụzọ Nnweta"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping Ugbu a / Nkezi"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Ping Kachasị Nta / Kachasị Ukwuu"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Nnweta"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Mkpokọta / Polls dara ada"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "N'Ọnọdụ Ugbu a Kemgbe"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Ọdịda Ikpeazụ"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Nchịkọta Data"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Gbanyụrụ"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Na-ada"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Anwaleghị ya"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "Ọ dị mma"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Nnyocha Ọrụ Gasị"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Ọnụ ụzọ %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Akpaliri"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Ọnụ ụzọ Gasị"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Enweghị ozi syslog n'ime otu awa gara aga."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (elekere gara aga)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Mepee Ngwaọrụ N'ezie"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Njikọ Ngwaọrụ"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Ngwaọrụ Na-abụghị Nke Saịtị"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Alaka Mgbọrọgwụ"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Osisi: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Alaka: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Amaghị"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Biliri Ugbu a"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Dara ada"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Na-agbake"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Adịghị arụ ọrụ (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Akpaliri (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Ping Ịdọ Aka Ná Ntị"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Ịma ọkwa Ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Ọrụ Dara"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Omume"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Mepee ogwe nkọwa ngwaọrụ"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Nkọwa ngwaọrụ dị ka e si tọọ ya na ibe Ngwaọrụ"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Ebe anụ ahụ e dekọrọ maka ngwaọrụ ahụ"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Saịtị e kenyere ngwaọrụ ahụ"
+
+#: includes/render.php
+msgid "ID"
+msgstr "Njirimara"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "ID ngwaọrụ ime nke Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Ọkwa mkpa nleba anya e kenyere ngwaọrụ ahụ"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Mmemme na-arụ ọrụ na ngwaọrụ ahụ (Adịghị arụ ọrụ, Kpalitere, Ịdọ aka ná ntị/Mkpọsa Ping, Ọrụ Kụrụ Afọ n'Ala, ...); pịa mkpụrụ ahụ iji tinye ma ọ bụ wepụ mmemme ahụ na nzacha Mmemme"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Ọnụ ụzọ emebiri / kpalitere / niile (ngwa mgbakwunye thold) dị na ngwaọrụ ahụ; pịa iji gbanwee nzacha ihe omume Kpalitere"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Nlele ọrụ dara / Mkpokọta (ngwa mgbakwunye servcheck) maka ngwaọrụ ahụ; pịa iji gbanye ma ọ bụ gbanyụọ nzacha mmemme Ọrụ Dara"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Ịdọ aka ná ntị"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Ọnụ ụzọ Ịdọ aka ná ntị / Mkpu nkwụsị ping (ms) ahaziri maka ngwaọrụ a; a na-ebuli ọkwa mgbe oge nzaghachi gafere ha"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Onye nchịkwa"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Ozi nlekọta nchịkwa a na-egosi mgbe ngwaọrụ ahụ adịghị arụ ọrụ ma ọ bụ na-agbake"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Pasentị nlele nnweta gara nke ọma n'ime akụkọ ihe mere eme e chekwara"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Nkezi Gasị"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Oge nzaghachi ping ugbu a / nkezi na milisekọnd"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Ogologo n'Ọnọdụ"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Ogologo oge ole Ngwaọrụ nọrọla n'ọnọdụ ya ugbu a"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Ụbọchị na oge ngwaọrụ ahụ dara nlele nnweta ya n'oge ikpeazụ"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Zaa site na mkpa a (pịa ọzọ ka ihichapụ)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Etinyeghị ọkwa dị oke mkpa - pịa iji tinye nzacha na ngwaọrụ ndị etinyeghị (pịa ọzọ iji kpochapụ)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Atọghị"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Pịa iji tinye ma ọ bụ wepụ ihe omume a na nzacha"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Ọnụ ụzọ emebiri / kpalitere / niile - pịa iji gbanwee nzacha ihe omume Kpalitere"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Enweghị ọnụ ụzọ akọwapụtara maka ngwaọrụ a"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Nlele ọrụ dara / Mkpokọta - pịa iji gbanye ma ọ bụ gbanyụọ nzacha mmemme Ọrụ Dara"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Enweghị nlele ọrụ akọwapụtara maka ngwaọrụ a"
+
+#: monitor.php
+msgid "All"
+msgstr "Niile"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Dị ala"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Ọkara"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Dị Elu"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Dị Mkpa Karịsịa"
+
+#: monitor.php
+msgid "Up"
+msgstr "Na-arụ ọrụ"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Akpaliri (Emechiri olu/Ekwetara)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Adịghị arụ ọrụ (Dajụrụ/Akwadoro)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Enweghị Nlele Nnweta"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Ping Ịdọ Aka Ná Ntị"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Nnyocha Ọrụ Kụrụ Afọ n'Ala"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Obere nke ukwuu"
+
+#: monitor.php
+msgid "Small"
+msgstr "Obere"
+
+#: monitor.php
+msgid "Large"
+msgstr "Nnukwu"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Nnukwu nke ukwuu"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Mbugharị"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Ngwaọrụ Niile A Na-elekọta"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Ngwaọrụ Niile"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Ngwaọrụ ndị a na-enyochaghị"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Ngwaọrụ na-enweghị Ọnụ ụzọ"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Ngwaọrụ na-enweghị Nnyocha Ọrụ"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Nke Ndabere"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Ndepụta"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Taịlị"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Taịlị & Oge"
+
+#: monitor.php
+msgid "Full"
+msgstr "Zuru ezu"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "Mkpụrụedemede 10"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "Mkpụrụedemede 20"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "Mkpụrụedemede 30"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "Mkpụrụedemede 40"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "Mkpụrụedemede 50"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "Mkpụrụedemede 75"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "Mkpụrụedemede 100"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Nkọwa: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Aha Onye nnabata: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Mkpesa na-esonụ ga-achọpụta Ngwaọrụ ndị karịrị ọnụ ụzọ igbu oge ping ha.  Ị na-anata mkpesa a ebe ọ bụ na ị debanyere aha na Ngwaọrụ jikọtara ya na usoro Cacti dị na URL dị n'okpuru."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Saịtị Nlekọta Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Ị ga-anata ọkwa kwa nkeji %d ọ bụla ma ọ bụrụ na Ngwaọrụ ahụ gafere ọnụ ụzọ ya."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Ị ga-anata ọkwa oge ọ bụla Ngwaọrụ ahụ gafere ọnụ ụzọ ya."
+
+#: setup.php
+msgid "Any"
+msgstr "Ọ Bụla"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Pịa 'Gaa n'ihu' iji gbanye nlekọta na Ngwaọrụ ndị a"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Pịa 'Gaa n'ihu' iji gbanyụọ nlekọta na Ngwaọrụ ndị a"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Pịa 'Gaa n'ihu' iji Gbanwee ntọala Nlekọta maka Ngwaọrụ ndị na-esonụ. Cheta ịhọrọ 'Melite Ogige a' iji gosi kọlụm ndị a ga-emelite."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Melite Oghere a"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Gbanwee Nhọrọ Nleba Anya"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Gbanye Nlekọta"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Gbanyụọ Nnyocha"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Na-enweghị njedebe"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "Ọnwa %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Ọnwa %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Afọ %d"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Onye Ọrụ Nkịtị"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Ntọala Nleba Anya"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Ụda Oti"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Nke a bụ faịlụ ụda a ga-akpọ mgbe Ngwaọrụ dara."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Megharịa Ụda Mkpu"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Kpọọ ụda dị n'elu ugboro ugboro mgbe Ngwaọrụ dara."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Gosi Nkọwa Akara Ngosi"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Kaa akara a iji gosi nkọwa akara ngosi na ngosi Nleba Anya"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Gosi Oge Ọrụ"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Kaa akara a iji gosi Oge Ọrụ na ngosi Nleba Anya"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Bugharịa gaa na Njehie"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Kaa akara a iji bugharịa gaa na ihe nwere njehie na ngosi Nleba Anya"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Ndabere Mbugharị"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Agba Azụ maka Mperi Ebulitere na ngosi Nleba anya"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Oke Mkpụrụedemede Mbugharị"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Nleba Anya"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Gbanye na ngwaọrụ ọhụrụ"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Kaa akara a iji gbanye nleba anya na akpaghị aka mgbe ị na-eke ngwaọrụ ọhụrụ"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Nchekwa Ndekọ Ọkwa/Mmaliteghachi"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Debe Ndekọ Ọkwa na Mmalitegharị maka ọnụọgụgụ ụbọchị ndị a."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Oge Mmelite"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Nke a bụ oge n'ime sekọnd tupu peeji ahụ emegharịa.  (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Nke a bụ otu monitor ga-esi chịkọta Ngwaọrụ n'otu."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Nke ndabara nwere ikike"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Nke a bụ otu monitor ga-esi gosi Ngwaọrụ."
+
+#: setup.php
+msgid "Names only"
+msgstr "Naanị aha"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Taịlị & Oge Nkwụsị"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Ụdị Akụkọ Ọkwa"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Faịlụ Nhazi A Ga-eji"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Họrọ faịlụ mkpuchi html ahaziri na CSS a ga-eji. Faịlụ a nwere ma html ma CSS iji kechie akụkọ gị. Ọ bụrụ na o nwere ihe karịrị naanị CSS, ị kwesịrị itinye mkpado <REPORT> pụrụ iche n'ime faịlụ ahụ. A ga-eji ọdịnaya akụkọ dochie mkpado nhazi a. Faịlụ ndị a dị na ndekọ 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Ọkwa Ọnụ ụzọ Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Ọkwa Igbu Oge Ịdọ Aka Ná Ntị"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ọ bụrụ na Ngwaọrụ nwere Igbu Oge Njem Ping gburugburu karịrị Ọnụ ụzọ Ịdọ aka ná ntị ma karịa Oke Mkpa dị n'okpuru, ozi-e ndị debanyere aha na Ngwaọrụ ga-enweta ọkwa ozi-e.  Họrọ 'Gbanyụrụ' iji Gbanyụọ.  A chọrọ Ngwa Mgbakwunye Thold iji mee ka atụmatụ a rụọ ọrụ."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Ọkwa Igbu Oge Ịma ọkwa"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ọ bụrụ na Ngwaọrụ nwere Igbu Oge Njem Ping gburugburu karịrị Ọnụ ụzọ Mkpesa ma karịa Oke Mkpa dị n'okpuru, ozi-e ndị debanyere aha na Ngwaọrụ ga-enweta ọkwa ozi-e.  Họrọ 'Gbanyụrụ' iji Gbanyụọ.  A chọrọ Ngwa Mgbakwunye Thold iji mee ka atụmatụ a rụọ ọrụ."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Ugboro Ole a ga-ezighachi Ozi-e"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Ugboro ole ka a ga-ezigara ndị debanyere aha ọkwa ozi-e maka Ngwaọrụ ndị a ma ọ bụrụ na ha karịrị ọnụ ụzọ igbu oge ha"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Oge Ọ Bụla O Mere"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Nkeji %d Ọ bụla"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Elekere Ọ bụla"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Elekere %d Ọ bụla"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Ọkwa Maliteghachi"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Ziga Ọkwa Mmaliteghachi"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Ekwesịrị izigara ndị ọrụ Ọkwa Mmalitegharị Ngwaọrụ?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Ziga otu Ozi-e na adreesị niile"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Ọ bụrụ na akaa ya, sistemụ ga-eziga otu Ozi-e naanị na adreesị niile."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Tinye Ndepụta Mgbama Ọnụ ụzọ"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Ndepụta Ọkwa Ọnụ ụzọ ọ kwesịrị ịnata Ọkwa"
+
+#: setup.php
+msgid "Subject"
+msgstr "Isiokwu"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Tinye isiokwu ozi Nmalitegharị maka Ọkwa Nmalitegharị."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Ọkwa Mmalitegharị Ngwaọrụ Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Ahụ Ozi-e"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Tinye ahụ Ozi-e ka etinye na ozi Ọkwa Nmalitegharị.  Ugbu a, naanị mkpado nnọchi a na-akwado bụ &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Ọkwa Mmalitegharị Nlekọta</h1><p>Ngwaọrụ ndị a malitegharịrị.  Lee nkọwa n'okpuru maka ozi ndị ọzọ.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Adreesị Ozi-e nke Ọkwa"
+
+#: setup.php
+msgid "From Name"
+msgstr "Site na Aha"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Tinye Aha Ozi-e nke a ga-esi na ya ziga ọkwa ndị ahụ"
+
+#: setup.php
+msgid "From Address"
+msgstr "Adreesị Onye Nzipu"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Tinye Adreesị Ozi-e nke a ga-esi na ya ziga ọkwa ahụ"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Ndepụta Ọkwa"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Họrọ Ndepụta Ọkwa n'okpuru. A ga-eziga ọkwa na Ozi-e niile debanyere aha na ndepụta ọkwa ahụ."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Adreesị Ozi-e"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Tinye ndepụta adreesị Ozi-e nke rịkọm kewara iji gwa maka ihe omume nmalitegharị."
+
+#: setup.php
+msgid "Server"
+msgstr "Sava"
+
+#: setup.php
+msgid "Printer"
+msgstr "Igwe nbipụta"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Kọmputa Desktọpụ"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Laptọọpụ/notebook"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Netwọkụ nwere eriri"
+
+#: setup.php
+msgid "Database"
+msgstr "Ebe nchekwa data"
+
+#: setup.php
+msgid "Clock"
+msgstr "Elekere"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Diski ike"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Igbe Gasị"
+
+#: setup.php
+msgid "Phone"
+msgstr "Ekwentị"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Igwe ojii"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Agbanwela"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "Pasentị %d Karịrị Nkezi"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Ntọala Nleba Anya Ngwaọrụ"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Leba Ngwaọrụ Anya"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Kaa akara n'igbe a iji leba Ngwaọrụ a anya na Taabụ Nleba Anya."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Mkpa Ngwaọrụ"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Kedu Ọkwa Mkpa nke Ngwaọrụ a."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Ọnụ ụzọ Ịdọ aka ná ntị Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ọ bụrụ na nkwụsị njem gaa-alọghachi site na ụzọ ping Cacti ọ bụla akọwapụtara tupu oge eruo gafee ọnụ ụzọ a, dekọọ ịdọ aka ná ntị ma ọ bụ zipụ ozi-e dabere na Ọnọdụ Mkpa nke Ngwaọrụ na ntọala Nlekọta.  Ngalaba ya bụ na millisecond.  Ịtọ ya ka ọ bụrụ 0 na-agbanyụ ya. Achọrọ Thold Plugin iji jiri ọrụ a mee ihe."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "milisekọnd"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Ọnụ ụzọ Mkpu Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ọ bụrụ na nkwụsị njem gaa-alọghachi site na ụzọ ping Cacti ọ bụla akọwapụtara tupu oge eruo gafee ọnụ ụzọ a, dekọọ mkpu ma ọ bụ zipụ ozi-e dabere na Ọnọdụ Mkpa nke Ngwaọrụ na ntọala Nlekọta.  Ngalaba ya bụ na millisecond.  Ịtọ ya ka ọ bụrụ 0 na-agbanyụ ya. Achọrọ Thold Plugin iji jiri ọrụ a mee ihe."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Ịdọ aka ná ntị Ntọala Ọhụrụ"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Pasentị karịrị nkezi oge ping dị ugbu a iji were ya dịka Ọnụ ụzọ Ịdọ aka ná ntị. Ọ bụrụ na e melite ya, nke a ga-edozi Ọnụ ụzọ Ịdọ aka ná ntị Ping na-akpaghị aka."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Mkpọsa Ntọala Ọhụrụ"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Pasentị karịrị nkezi oge ping dị ugbu a iji were ya dịka Ọnụ ụzọ Mkpu. Ọ bụrụ na e melite ya, nke a ga-edozi Ọnụ ụzọ Mkpu Ping na-akpaghị aka."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Ozi Ngwaọrụ Adịghị Arụ Ọrụ"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Nke a bụ ozi a ga-egosipụta mgbe a kọrọ na Ngwaọrụ a dara."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Akara ngwaọrụ"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Ị nwere ike họrọ akara ngosi ngwaọrụ."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Nleba Anya"
+

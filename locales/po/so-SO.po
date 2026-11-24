@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Somali\n"
+"Language: so-SO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Sabuurad Cusub"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Guddiga Xogta"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Geli Magaca Guddiga Xogta ka dibna riix 'Keydi' si aad u sii waddo, haddii kale riix 'Jooji'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Abuur Sabuuradda Cusub"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Aaladaha La Kormeero"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Aan la keydin"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Qaabeynta"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Muuji"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Eeg"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Kooxaynta"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Cusboonaysii"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Cusbooneysii Liiska Qalabka"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Nadiifi"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Nadiifi shaandheeyaha la dejiyay"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Keydi"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Keydi Dejinta Shaandheeyaha"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Cusub"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Keydi Shaashadda Xogta Cusub"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Dib u magacow"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Dib u magacow Sabuuradda"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Tirtir"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Tirtir Dashboard-ka"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Digniin Aaladaha dhacay"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Digniino Aaladaha dhacay"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Aaladaha"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Tag bogga maaraynta Aaladaha"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Muhiimadda"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Cabbirka"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Jarid"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Dhammaan Geedaha"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Aaladaha Aan Geed Ku Jirin"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Geed"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Dhammaan Goobaha"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Aaladaha Aan Goob Lahayn"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Goobaha"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Aaladaha Aan Qaab-dhismeed Lahayn"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Qaab-dhismeed"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Qaab-dhismeedyada"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Safafka"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Dejinta Shaandheeyaha waa la keydiyay ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Jooji"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Waa la soo dejinayaa..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Guddiga Faahfaahinta Qalabka"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Dib u cusboonaysii <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Ilbiriqsi gudahood ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Shaandheeyaha Kormeerka [ Cusboonaysiintii Ugu Dambaysay: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Waxaa la muujinayaa kaliya 30-ka Aaladaha ee ugu horreeya ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Raadi"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Dhacdooyinka"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Aamusi"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Qiro"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Ka qaad aamusnaanta"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Dib u deji"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Guddiga Xogta '%s' waa laga saaray."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Guddiga Xogta '%s' adigu ma lihid."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Guddiga Xogta '%s' waa la keydiyay!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Guddiga Xogta '%s' lama keydin karin!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Wax ka beddel Qalabka"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Eeg Jaantusyada"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Eeg Xadadka/Digniinaha"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Eeg Digniinaha Syslog ee Qalabka"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Eeg Gelitaannada Syslog ee Qalabka"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Eeg Hubinta Adeegga Fashilmaya"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Macluumaadka Xaaladda Qalabka"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Aalad:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Goobta:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Goobta:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Muhiimadda:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Xaaladda:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Ogeysiiska Maamulaha:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Magaca Martigeliyaha:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Hadda/Celcelis:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Digniin/Ogeysiis:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Fashilkii Ugu Dambeeyay:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Waqtiga Xaaladda Ku Jiray:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Helitaanka:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Waqtiga Shaqada Wakiilka:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Ma khuseyso"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Sharaxaadda Nidaamka:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Xiriirka:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Qoraallo:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Marna"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Aan la cayimin"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Midna"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP iyo Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "Waqtiga Shaqeynta SNMP"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP ama Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "SNMP Hel SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP Hel Kan Xiga"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Habka %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Sharaxaadda"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Magaca Martigeliyaha"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Xaaladda"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Goob"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Qaabka Aaladda"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Goobta"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Xiriirka"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Qoraallo"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Macluumaadka Martigeliyaha"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Habka Helitaanka"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping Hadda / Celcelis"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Ping Ugu Yar / Ugu Badan"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Helitaanka"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Wadarta / Xog-uruurinta Fashilantay"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "Xaaladda Hadda Laga Bilaabo"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Fashilkii Ugu Dambeeyay"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Ururinta Xogta"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "La joojiyay"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Fashilmaya"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Lama tijaabin"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "Hagaag"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Hubinnada Adeegga"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Xadka %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "La kiciyay"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Xadadka"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Ma jiraan wax farriimo syslog ah saacaddii u dambaysay."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (saacaddii u dambeysay)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Fur Qalabka Rasmiga ah"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Xiriirrada Qalabka"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Qalab Aan Goob Lahayn"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Laanta Xididka"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Geedka: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Laanta: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Aan la aqoon"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Hadda Kacay"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Ma shaqeynayo"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Soo Kabanaysa"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Maqan (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "La kiciyay (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Digniinta Ping"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Ping-ga Feejignaanta"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Adeeg Fashilmay"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Ficillada"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Fur guddiyada faahfaahinta qalabka"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Sharaxaadda qalabka sida loogu dejiyay bogga Aaladaha"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Goobta jireed ee loo diiwaangeliyay Qalabka"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Goobta loo qoondeeyay Qalabka"
+
+#: includes/render.php
+msgid "ID"
+msgstr "Aqoonsiga"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "Aqoonsiga qalabka gudaha ee Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Muhiimadda kormeerka ee loo qoondeeyay qalabka"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Dhacdooyinka firfircoon ee qalabka (Dhaadhacay, La kiciyay, Digniin/Ogeysiis Ping, Adeeggu fashilmay, ...); guji batoonka si aad ugu darto ama uga saarto dhacdadaas Shaandheeyaha Dhacdooyinka"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Xadadka la jebiyay / la kiciyay / wadarta guud (plugin-ka thold) ee Qalabka; guji si aad u beddesho shaandheeyaha dhacdada La kiciyay"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Hubinta adeegga ee fashilantay / Wadarta (kordhinta servcheck) ee qalabka; guji si aad u beddesho shaandheeyaha dhacdada Adeeg Fashilmay"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Digniin"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Xadka Digniin / Qaylo-dhaan ee daahitaanka Ping (ms) ee loo habeeyay Qalabkan; ogeysiis ayaa la soo saaraa marka wakhtiga jawaabtu ka gudbo"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Maamule"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Farriinta kormeerka maamulka ee muuqata inta qalabku Dhaadhacay ama Soo kabanayo"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Boqolleyda hubinta helitaanka guulaystay muddada taariikhda la hayo"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Celcelisyada"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Waqtiga jawaabta ping ee hadda / celcelis ahaan millisekan ahaan"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Dhererka Xaaladda"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Muddo intee le'eg ayuu qalabku ku jiray xaaladdiisa hadda"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Taariikhda iyo waqtiga uu qalabku markii ugu dambaysay ku fashilmay hubinta helitaankiisa"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Ku shaandhee heerkan muhiimadda ah (mar kale guji si aad u nadiifiso)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Muhiimadda lama dejin - guji si aad u shaandheyso aaladaha aan la dejin (mar kale guji si aad u tirtirto)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Lama Dejin"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Guji si aad ugu darto ama uga saarto dhacdadan shaandheeyaha"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Xadadka la jebiyay / la kiciyay / wadarta guud - guji si aad u beddesho shaandheeyaha dhacdada La kiciyay"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Ma jiraan xadka loo qeexay qalabkan"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Hubinta adeegga ee fashilantay / Wadarta - guji si aad u beddesho shaandheeyaha dhacdada Adeeg Fashilmay"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Wax hubin adeeg ah looma qeexin qalabkan"
+
+#: monitor.php
+msgid "All"
+msgstr "Dhammaan"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Hoose"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Dhexdhexaad"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Sare"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Hawlgal Muhiim ah"
+
+#: monitor.php
+msgid "Up"
+msgstr "Shaqeynaya"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "La kiciyay (La aamusiyay/La aqoonsaday)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Maqan (La aamusiyay/La aqoonsaday)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Ma Jiro Hubin Helitaanka ah"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Digniinta Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Hubinta Adeegga way Fashilantay"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Aad u Yar"
+
+#: monitor.php
+msgid "Small"
+msgstr "Yar"
+
+#: monitor.php
+msgid "Large"
+msgstr "Weyn"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Aad u Weyn"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Soo-dhaweyn"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Dhammaan Aaladaha La Kormeero"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Dhammaan Qalabka"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Aaladaha aan La Kormeereyn"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Aaladaha aan lahayn Xadadka"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Aaladaha aan lahayn Hubinta Adeegga"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Asal ah"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Liis"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Teelooyinka"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Teelooyinka & Waqtiga"
+
+#: monitor.php
+msgid "Full"
+msgstr "Dhammaystiran"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "10 Xaraf"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "20 Xaraf"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "30 Xaraf"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "40 Xaraf"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "50 Xaraf"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "75 Xaraf"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "100 Xaraf"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Sharaxaad: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Magaca martigeliyaha: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Warbixinta soo socota waxay aqoonsan doontaa Aaladaha dhaafay xadka daahitaanka ping-kooda.  Waxaad helaysaa warbixintan maadaama aad iska diiwaangelisay Qalab la xidhiidha nidaamka Cacti ee ku yaalla URL-ka hoose."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Goobta Kormeerka Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Waxaad heli doontaa ogeysiisyo %d daqiiqo kasta haddii Qalabku ka sarreeyo xadkiisa."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Waxaad heli doontaa ogeysiisyo mar kasta oo Qalabku ka sarreeyo xadkiisa."
+
+#: setup.php
+msgid "Any"
+msgstr "Mid kasta"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Guji 'Sii wad' si aad u hawlgeliso kormeerka Qalab(yadan)"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Guji 'Sii wad' si aad u joojiso kormeerka Qalab(yadan)"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Guji 'Sii wad' si aad u Beddesho dejinta Kormeerka ee Qalabka/Aaladaha soo socda. Xusuusnow inaad calaamadayso 'Cusboonaysii Goobtan' si aad u tilmaanto tiirarka la cusboonaysiinayo."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Cusboonaysii Goobtan"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Beddel Ikhtiyaarrada Kormeerka"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Hawlgeli Kormeerka"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Jooji Kormeerka"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Si aan xad lahayn"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "%d Bil"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d Bilood"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d Sano"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Isticmaale Caadi ah"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Dejinta Kormeerka"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Codka Qaylo-dhaanta"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Kani waa faylka codka ee la shidi doono marka Qalab uu damo."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Ku Celi Codka Digniinta"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Si joogto ah u shid codka sare marka Qalab dhaco."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Muuji Sharaxaadda Astaamaha"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Calaamadee tan si aad uga muujiso furaha calaamadaha bandhigga Kormeerka"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Muuji Waqtiga Shaqeynta"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Calaamadee tan si aad uga muujiso Waqtiga Shaqada bandhigga Kormeerka"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Ku soo dhawee Khaladaadka"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Calaamadee tan si aad ugu dhowaato walxaha khaladka leh ee ku yaal bandhigga Kormeerka"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Asalka Soo-dhaweynta"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Midabka Gadaasha ee Khaladaadka la weyneeyay ee shaashadda Kormeerka"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Cabbirka Farta Soo-dhaweynta"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Kormeer"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Ka hawlgeli aaladaha cusub"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Calaamadee tan si aad si toos ah ugu hawlgeliso kormeerka marka aad abuurayso aaladaha cusub"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Haynta Diiwaanka Ogeysiiska/Dib-u-bilowga"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "U hay diiwaannada Ogeysiiska iyo Dib-u-bilowga tirada maalmahan."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Muddada Cusboonaysiinta"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Kani waa wakhtiga ilbiriqsiyada ah ka hor inta uusan boggu dib isu cusboonaysiin.  (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Tani waa sida kormeerehu u Kooxayn doono Aaladaha."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "U-dhignaanta caadiga ah oo leh oggolaanshooyin"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Tani waa sida kormeerehu u soo bandhigi doono Aaladaha."
+
+#: setup.php
+msgid "Names only"
+msgstr "Magacyada oo keliya"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Teelooyinka & Waqtiga Joogsiga"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Qaabka Warbixinta Ogeysiiska"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Faylka Qaabaynta ee la Adeegsanayo"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Dooro faylka duubaha html-ka gaarka ah iyo CSS ee la adeegsanayo. Faylkani wuxuu ka kooban yahay html iyo CSS si uu u duubo warbixintaada. Haddii uu ka kooban yahay wax ka badan CSS oo keliya, waxaad u baahan tahay inaad faylka dhexdiisa geliso summad gaar ah oo <REPORT> ah. Summaddan qaabaynta waxaa lagu beddeli doonaa waxa ku jira warbixinta. Faylashani waxay ku yaallaan galka 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Ogeysiisyada Xadka Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Ogeysiiska Daahitaanka Digniinta"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Haddii Qalabku leeyahay Dib-u-dhaca Ping ee Safarka Wareegga ah oo ka sarreeya Xadka Digniinta iyo kan ka sarreeya Halista hoose, iimayllada ku xiran Qalabka waxay heli doonaan ogeysiis iimayl ah.  Dooro 'La joojiyay' si aad u Joojiso.  Plugin-ka Thold ayaa loo baahan yahay si loo hawlgeliyo habkan."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Ogeysiiska Daahitaanka Feejignaanta"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Haddii Qalabku leeyahay Dib-u-dhaca Ping ee Safarka Wareegga ah oo ka sarreeya Xadka Digniinta Culus iyo kan ka sarreeya Halista hoose, iimayllada ku xiran Qalabka waxay heli doonaan ogeysiis iimayl ah.  Dooro 'La joojiyay' si aad u Joojiso.  Plugin-ka Thold ayaa loo baahan yahay si loo hawlgeliyo habkan."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Inta Jeer ee Dib Loo Diro Iimayllada"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Intee jeer ayaa ogeysiisyada iimaylka loo diri doonaa macaamiisha Aaladahan haddii ay ka gudbaan xadadka dib-u-dhaca"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Dhacdo kasta"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "%d Daqiiqo Kasta"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Saacad Kasta"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "%d Saacadood Kasta"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Ogeysiisyada Dib-u-bilowga"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Dir Ogeysiisyada Dib-u-bilowga"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Ma in Ogeysiisyada Dib-u-bilowga Qalabka loo diro isticmaalayaasha?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "U dir hal Iimayl dhammaan cinwaannada"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Haddii la calaamadeeyo, nidaamku wuxuu u diri doonaa hal Iimayl oo keliya dhammaan ciwaannada."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Ku dar Liisaska Qaylo-dhaanta Xadka"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Ma in Liisaska Digniinta Xadka sidoo kale helaan Ogeysiis"
+
+#: setup.php
+msgid "Subject"
+msgstr "Mawduuc"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Geli mawduuca fariinta Dib-u-bilowga ee Ogeysiiska Dib-u-bilowga."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Ogeysiiska Dib-u-bilowga Qalabka Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Nuxurka Iimaylka"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Geli jirka Iimaylka si loogu daro fariinta Ogeysiiska Dib-u-bilowga. Waqtigan xaadirka ah, sumadda beddelka ah ee keliya ee la taageero waa &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Ogeysiiska Dib-u-bilowga Kormeeraha</h1><p>Aaladahan soo socda ayaa dib loo bilaabay.  Ka eeg faahfaahinta hoose si aad u hesho macluumaad dheeraad ah.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Cinwaannada Iimaylka Ogeysiiska"
+
+#: setup.php
+msgid "From Name"
+msgstr "Magaca Diraha"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Geli Magaca Iimaylka laga dirayo ogeysiisyada"
+
+#: setup.php
+msgid "From Address"
+msgstr "Cinwaanka Diraha"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Geli Ciwaanka Iimaylka laga dirayo ogeysiiska"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Liiska Ogeysiiska"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Hoos ka dooro Liiska Ogeysiiska. Dhammaan Iimayllada ku qoran liiska ogeysiiska waa la ogeysiin doonaa."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Ciwaannada Iimaylka"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Geli liis cinwaanno Iimayl ah oo hakad lagu kala saaray si loogu wargeliyo dhacdada dib-u-bilowga."
+
+#: setup.php
+msgid "Server"
+msgstr "Adeegge"
+
+#: setup.php
+msgid "Printer"
+msgstr "Daabacaha"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Kombuyuutarka Miiska"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Laabtoob/notebook"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Shabakad fiilo leh"
+
+#: setup.php
+msgid "Database"
+msgstr "Kaydka Xogta"
+
+#: setup.php
+msgid "Clock"
+msgstr "Saacad"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Saxanka adag"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Sanduuqyada"
+
+#: setup.php
+msgid "Phone"
+msgstr "Telefoon"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Daruur"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Ha Beddelin"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d Boqolkiiba Ka Sarreeya Celceliska"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Dejinta Kormeerka Qalabka"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Kormeer Qalab"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Calaamadee sanduuqan si aad u kormeertid Qalabkan bogga Kormeerka."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Muhiimadda Qalabka"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Waa maxay heerka muhiimadda Qalabkan."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Xadka Digniinta Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Haddii daahitaanka wareegga-buuxa ee mid ka mid ah hababka ping ee Cacti ee horay loo qeexay uu ka bato xadkan, diiwaangeli Digniin ama dir Iimayl iyadoo lagu salaynayo Muhiimadda Aaladaha iyo dejinta Kormeerka. Halbeeggu waa milliseken. U dejinta 0 way joojisaa. Thold Plugin ayaa loo baahan yahay si looga faa'iidaysto shaqadan."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "milliseken"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Xadka Qaylo-dhaanta Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Haddii daahitaanka wareegga-buuxa ee mid ka mid ah hababka ping ee Cacti ee horay loo qeexay uu ka bato xadkan, diiwaangeli qaylo-dhaan ama dir Iimayl iyadoo lagu salaynayo Muhiimadda Aaladaha iyo dejinta Kormeerka. Halbeeggu waa milliseken. U dejinta 0 way joojisaa. Thold Plugin ayaa loo baahan yahay si looga faa'iidaysto shaqadan."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Digniin Dib-u-dejinta Aasaaska"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Boqolkiiba ka sarreeya celceliska waqtiga ping ee hadda si loogu tixgeliyo Xadka Digniinta.  Haddii la cusboonaysiiyo, tani waxay si toos ah u hagaajin doontaa Xadka Digniinta ee Ping."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Ogeysiiska Dib-u-dejinta Aasaaska"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Boqolkiiba ka sarreeya celceliska waqtiga ping ee hadda si loogu tixgeliyo Xadka Digniinta Sare.  Haddii la cusboonaysiiyo, tani waxay si toos ah u hagaajin doontaa Xadka Digniinta Sare ee Ping."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Farriinta Qalabka Maqan"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Tani waa fariinta la soo bandhigi doono marka Qalabkan la soo sheego inuu dansan yahay."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Astaanta qalabka"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Waxaad dooran kartaa astaanta Qalabka."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Kormeerka"
+
