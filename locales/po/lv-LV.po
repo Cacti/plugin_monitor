@@ -885,8 +885,15 @@ msgid "Any"
 msgstr "Jebkuru"
 
 #: setup.php
-#, php-format
-msgid "Click 'Continue' to %s monitoring on these Device(s)"
+#, fuzzy
+#| msgid "Click 'Continue' to %s monitoring on these Device(s)"
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Noklikšķiniet 'Turpināt', lai %s uzraudzītu šo(-īs) ierīci(-es)"
+
+#: setup.php
+#, fuzzy
+#| msgid "Click 'Continue' to %s monitoring on these Device(s)"
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
 msgstr "Noklikšķiniet 'Turpināt', lai %s uzraudzītu šo(-īs) ierīci(-es)"
 
 #: setup.php
