@@ -4,19 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: monitor on cacti 1.1.34\n"
-"Report-Msgid-Bugs-To: developers@cacti.net\n"
-"POT-Creation-Date: 2026-10-11 17:03-0400\n"
-"PO-Revision-Date: 2024-06-23 04:08+0000\n"
-"Last-Translator: tql <fttx31@126.com>\n"
-"Language-Team: Chinese (Simplified) <http://translate.cacti.net/projects/cacti/monitor/zh_Hans/>\n"
-"Language: zh-CN\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1\n"
+msgstr "Project-Id-Version: monitor on cacti 1.1.34\nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Simplified Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hans/>\nLanguage: zh-CN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -24,7 +12,7 @@ msgstr "新仪表盘"
 
 #: includes/controller.php
 msgid "Dashboard"
-msgstr "仪表盘"
+msgstr "仪表板"
 
 #: includes/controller.php
 msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
@@ -48,7 +36,7 @@ msgstr "布局"
 
 #: includes/controller.php
 msgid "Show"
-msgstr ""
+msgstr "显示"
 
 #: includes/controller.php setup.php
 msgid "View"
@@ -68,11 +56,11 @@ msgstr "刷新设备列表"
 
 #: includes/controller.php
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: includes/controller.php
 msgid "Clear the set filter"
-msgstr ""
+msgstr "清除已设置的筛选条件"
 
 #: includes/controller.php
 msgid "Save"
@@ -122,7 +110,7 @@ msgstr "设备"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
-msgstr ""
+msgstr "转到设备管理页面"
 
 #: includes/controller.php includes/render.php poller_functions.php setup.php
 msgid "Criticality"
@@ -169,14 +157,12 @@ msgid "Template"
 msgstr "模板"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Template"
 msgid "Templates"
 msgstr "模板"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr ""
+msgstr "行数"
 
 #: includes/controller.php
 msgid " [ Filter Settings Saved ]"
@@ -188,13 +174,11 @@ msgstr "取消"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr ""
+msgstr "正在加载..."
 
 #: includes/controller.php includes/render.php
-#, fuzzy
-#| msgid "Device Template"
 msgid "Device Detail Panels"
-msgstr "设备模板"
+msgstr "设备详情面板"
 
 #: includes/controller.php
 #, php-format
@@ -216,7 +200,7 @@ msgstr "搜索"
 
 #: includes/controller.php includes/render.php
 msgid "Events"
-msgstr ""
+msgstr "事件"
 
 #: includes/controller.php
 msgid "Mute"
@@ -276,7 +260,7 @@ msgstr "查看设备系统日志条目"
 
 #: includes/controller.php
 msgid "View Failing Service Check"
-msgstr ""
+msgstr "查看失败的服务检查"
 
 #: includes/controller.php
 msgid "Device Status Information"
@@ -374,34 +358,32 @@ msgstr "无"
 
 #: includes/controller.php
 msgid "SNMP and Ping"
-msgstr ""
+msgstr "SNMP 和 Ping"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Show Uptime"
 msgid "SNMP Uptime"
-msgstr "显示运行时间"
+msgstr "SNMP 运行时间"
 
 #: includes/controller.php
 msgid "Ping"
-msgstr ""
+msgstr "Ping"
 
 #: includes/controller.php
 msgid "SNMP or Ping"
-msgstr ""
+msgstr "SNMP 或 Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr ""
+msgstr "SNMP 获取 SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
-msgstr ""
+msgstr "SNMP Get Next"
 
 #: includes/controller.php
 #, php-format
 msgid "Method %d"
-msgstr ""
+msgstr "方法 %d"
 
 #: includes/controller.php includes/render.php poller_functions.php
 msgid "Description"
@@ -424,48 +406,37 @@ msgid "Device Template"
 msgstr "设备模板"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
-#| msgid "Location:"
 msgid "Location"
-msgstr "位置："
+msgstr "位置"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Contact:"
 msgid "Contact"
-msgstr "联系："
+msgstr "联系人"
 
 #: includes/controller.php
 msgid "Notes"
 msgstr "注释"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Device Status Information"
 msgid "Host Information"
-msgstr "设备状态信息"
+msgstr "主机信息"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Availability"
 msgid "Availability Method"
-msgstr "可用性"
+msgstr "可用性方法"
 
 #: includes/controller.php
-#, fuzzy, php-format
-#| msgid "%0.2d ms"
+#, php-format
 msgid "%0.2f ms"
-msgstr "%0.2d ms"
+msgstr "%0.2f 毫秒"
 
 #: includes/controller.php
-#, fuzzy
-#| msgid "Current Ping"
 msgid "Current / Average Ping"
-msgstr "当前 Ping"
+msgstr "当前 / 平均 Ping"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr ""
+msgstr "最小 / 最大 Ping"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
@@ -473,11 +444,11 @@ msgstr "可用性"
 
 #: includes/controller.php
 msgid "Total / Failed Polls"
-msgstr ""
+msgstr "总轮询 / 失败轮询次数"
 
 #: includes/controller.php
 msgid "In Current Status Since"
-msgstr ""
+msgstr "当前状态起始时间"
 
 #: includes/controller.php includes/render.php
 msgid "Last Fail"
@@ -485,60 +456,56 @@ msgstr "上次失败"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr ""
+msgstr "数据采集"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
-msgstr "已禁用"
+msgstr "禁用"
 
 #: includes/controller.php
 msgid "Failing"
-msgstr ""
+msgstr "失败"
 
 #: includes/controller.php
 msgid "Not tested"
-msgstr ""
+msgstr "未测试"
 
 #: includes/controller.php
 msgid "OK"
-msgstr ""
+msgstr "确定"
 
 #: includes/controller.php includes/render.php
 msgid "Service Checks"
-msgstr ""
+msgstr "服务检查"
 
 #: includes/controller.php
 #, php-format
 msgid "Threshold %d"
-msgstr ""
+msgstr "阈值 %d"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
 msgstr "已触发"
 
 #: includes/controller.php includes/render.php
-#, fuzzy
-#| msgid "View Thresholds/Alerts"
 msgid "Thresholds"
-msgstr "查看阈值/警报"
+msgstr "阈值"
 
 #: includes/controller.php
 msgid "No syslog messages in the last hour."
-msgstr ""
+msgstr "过去一小时内没有 Syslog 消息。"
 
 #: includes/controller.php
 msgid "Syslog (last hour)"
-msgstr ""
+msgstr "Syslog（最近 1 小时）"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Open Actual Device"
-msgstr "设备"
+msgstr "打开实际设备"
 
 #: includes/controller.php
-#, fuzzy
 msgid "Device Links"
-msgstr "设备图标大小"
+msgstr "设备链接"
 
 #: includes/render.php
 msgid "Non-Site Device"
@@ -575,22 +542,16 @@ msgid "Recovering"
 msgstr "恢复"
 
 #: includes/render.php monitor.php
-#, fuzzy
-#| msgid "Down (Muted/Acked)"
 msgid "Down (M/A)"
-msgstr "宕机（静音/确认）"
+msgstr "宕机 (M/A)"
 
 #: includes/render.php monitor.php
-#, fuzzy
-#| msgid "Triggered (Muted/Acked)"
 msgid "Triggered (M/A)"
-msgstr "触发（静音/确认）"
+msgstr "已触发 (静音/确认)"
 
 #: includes/render.php monitor.php
-#, fuzzy
-#| msgid "Warning"
 msgid "Warn Ping"
-msgstr "警告"
+msgstr "Ping 警告"
 
 #: includes/render.php monitor.php
 msgid "Alert Ping"
@@ -598,53 +559,51 @@ msgstr "警报 Ping"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr ""
+msgstr "服务失败"
 
 #: includes/render.php
-#, fuzzy
-#| msgid "Location:"
 msgid "Actions"
-msgstr "位置："
+msgstr "操作"
 
 #: includes/render.php
 msgid "Open the device detail panels"
-msgstr ""
+msgstr "打开设备详情面板"
 
 #: includes/render.php
 msgid "Device description as set on the Devices page"
-msgstr ""
+msgstr "在“设备”页面上设置的设备描述"
 
 #: includes/render.php
 msgid "Physical location recorded for the device"
-msgstr ""
+msgstr "为设备记录的物理位置"
 
 #: includes/render.php
 msgid "Site the device is assigned to"
-msgstr ""
+msgstr "设备所属的站点"
 
 #: includes/render.php
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: includes/render.php
 msgid "Cacti internal device id"
-msgstr ""
+msgstr "Cacti 内部设备 ID"
 
 #: includes/render.php
 msgid "Monitoring criticality assigned to the device"
-msgstr ""
+msgstr "分配给设备的监控关键性"
 
 #: includes/render.php
 msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
-msgstr ""
+msgstr "设备上的活动事件（宕机、已触发、警告/告警 Ping、服务失败等）；点击胶囊标签可从事件筛选器中添加或移除该事件"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
-msgstr ""
+msgstr "设备上的已越限 / 已触发 / 总阈值数（thold 插件）；点击可切换已触发事件筛选器"
 
 #: includes/render.php
 msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "设备的失败 / 总服务检查数（servcheck 插件）；点击以切换“服务失败”事件筛选器"
 
 #: includes/render.php
 msgid "Warning"
@@ -652,7 +611,7 @@ msgstr "警告"
 
 #: includes/render.php
 msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
-msgstr ""
+msgstr "为此设备配置的 Ping 延迟警告/告警阈值（ms）；当响应时间超过阈值时将发出通知"
 
 #: includes/render.php
 msgid "Admin"
@@ -660,11 +619,11 @@ msgstr "管理员"
 
 #: includes/render.php
 msgid "Administrative monitor message shown while the device is Down or Recovering"
-msgstr ""
+msgstr "设备处于宕机或恢复中状态时显示的管理员监控消息"
 
 #: includes/render.php
 msgid "Percentage of successful availability checks over the retained history"
-msgstr ""
+msgstr "保留历史记录中可用性检查成功的百分比"
 
 #: includes/render.php
 msgid "Averages"
@@ -672,58 +631,55 @@ msgstr "平均值"
 
 #: includes/render.php
 msgid "Current / average ping response time in milliseconds"
-msgstr ""
+msgstr "当前/平均 Ping 响应时间（毫秒）"
 
 #: includes/render.php
-#, fuzzy
 msgid "Length in Status"
-msgstr "状态长度"
+msgstr "状态持续时间"
 
 #: includes/render.php
 msgid "How long the device has been in its current status"
-msgstr ""
+msgstr "设备处于当前状态的持续时间"
 
 #: includes/render.php
 msgid "Date and time the device last failed its availability check"
-msgstr ""
+msgstr "设备上次可用性检查失败的日期和时间"
 
 #: includes/render.php
 msgid "Filter by this criticality (click again to clear)"
-msgstr ""
+msgstr "按此严重程度筛选（再次点击可清除）"
 
 #: includes/render.php
 msgid "Criticality not set - click to filter unset devices (click again to clear)"
-msgstr ""
+msgstr "未设置重要级别 - 点击可筛选未设置的设备（再次点击清除筛选）"
 
 #: includes/render.php
-#, fuzzy
-#| msgid "Not Up"
 msgid "Not Set"
-msgstr "不在线"
+msgstr "未设置"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
-msgstr ""
+msgstr "点击以从筛选器中添加或移除此事件"
 
 #: includes/render.php
 msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
-msgstr ""
+msgstr "已越限 / 已触发 / 总阈值数 - 点击可切换已触发事件筛选器"
 
 #: includes/render.php
 msgid "No thresholds defined for this device"
-msgstr ""
+msgstr "未为此设备定义阈值"
 
 #: includes/render.php
 msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
-msgstr ""
+msgstr "失败 / 总服务检查数 - 点击以切换“服务失败”事件筛选器"
 
 #: includes/render.php
 msgid "No service checks defined for this device"
-msgstr ""
+msgstr "未为此设备定义服务检查"
 
 #: monitor.php
 msgid "All"
-msgstr ""
+msgstr "所有"
 
 #: monitor.php poller_functions.php setup.php
 msgid "Low"
@@ -763,7 +719,7 @@ msgstr "警告Ping"
 
 #: monitor.php
 msgid "Service Check Failed"
-msgstr ""
+msgstr "服务检查失败"
 
 #: monitor.php
 msgid "Extra Small"
@@ -790,22 +746,20 @@ msgid "All Monitored Devices"
 msgstr "所有受监控的设备"
 
 #: monitor.php
-#, fuzzy
 msgid "All Devices"
-msgstr "设备"
+msgstr "所有设备"
 
 #: monitor.php
-#, fuzzy
 msgid "Devices not Monitored"
-msgstr "设备监控设置"
+msgstr "未监控的设备"
 
 #: monitor.php
 msgid "Devices without Thresholds"
-msgstr ""
+msgstr "没有阈值的设备"
 
 #: monitor.php
 msgid "Devices without Service Checks"
-msgstr ""
+msgstr "没有服务检查的设备"
 
 #: monitor.php setup.php
 msgid "Default"
@@ -882,12 +836,15 @@ msgstr "每当设备超过其阈值时，您都会收到通知。"
 
 #: setup.php
 msgid "Any"
-msgstr "所有"
+msgstr "任何"
 
 #: setup.php
-#, php-format
-msgid "Click 'Continue' to %s monitoring on these Device(s)"
-msgstr "点击“继续”即可在这些设备上进行 %s监控"
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "点击“继续”将启用这些设备的监控"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "点击“继续”将禁用这些设备的监控"
 
 #: setup.php
 msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
@@ -916,12 +873,12 @@ msgstr "无限期地"
 #: setup.php
 #, php-format
 msgid "%d Month"
-msgstr "%d 月"
+msgstr "%d 个月"
 
 #: setup.php
 #, php-format
 msgid "%d Months"
-msgstr "%d 月"
+msgstr "%d 个月"
 
 #: setup.php
 #, php-format
@@ -1030,7 +987,7 @@ msgstr "这是监视器如何呈现设备。"
 
 #: setup.php
 msgid "Names only"
-msgstr ""
+msgstr "仅名称"
 
 #: setup.php
 msgid "Tiles & Downtime"
@@ -1046,7 +1003,7 @@ msgstr "格式化文件以使用"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "选择要使用的自定义html包装和CSS文件。此文件同时包含html和CSS，用于包装您的报告。如果它包含的不仅仅是CSS，则需要在文件中放置一个特殊的＜REPORT＞标记。此格式标记将被报告内容替换。这些文件位于“formats”目录中。"
+msgstr "择要使用的自定义html包装器和CSS文件. 该文件包含html和CSS.以包装您的报告.如果它包含的不仅仅是CSS.你需要在文件中放置一个特殊的<REPORT>标签.此格式标签将被报告内容替换. 这些文件位于'formats'目录."
 
 #: setup.php
 msgid "Ping Threshold Notifications"
@@ -1074,7 +1031,7 @@ msgstr "多久重新发送电子邮件"
 
 #: setup.php
 msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
-msgstr "如果电子邮件通知超过其延迟阈值，则应将电子邮件通知发送给这些主机的订阅者"
+msgstr "如果这些设备超出其延迟阈值，应每隔多久向订阅者发送一次电子邮件通知"
 
 #: setup.php
 msgid "Every Occurrence"
@@ -1092,7 +1049,7 @@ msgstr "每隔一小时"
 #: setup.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "每隔%d小时"
+msgstr "每 %d 小时"
 
 #: setup.php
 msgid "Reboot Notifications"
@@ -1107,13 +1064,12 @@ msgid "Should Device Reboot Notifications be sent to users?"
 msgstr "设备重新启动通知是否被发送给用户?"
 
 #: setup.php
-#, fuzzy
 msgid "Send one Email to all addresses"
-msgstr "电子邮件地址"
+msgstr "向所有地址发送一封电子邮件"
 
 #: setup.php
 msgid "If checked, the system will send one Email only to all addresses."
-msgstr ""
+msgstr "如果选中，系统将向所有地址仅发送一封电子邮件。"
 
 #: setup.php
 msgid "Include Threshold Alert Lists"
@@ -1185,55 +1141,55 @@ msgstr "输入以逗号分隔的电子邮件地址列表，以通知重新启动
 
 #: setup.php
 msgid "Server"
-msgstr ""
+msgstr "服务器"
 
 #: setup.php
 msgid "Printer"
-msgstr ""
+msgstr "打印机"
 
 #: setup.php
 msgid "Desktop PC"
-msgstr ""
+msgstr "台式机"
 
 #: setup.php
 msgid "Laptop/notebook"
-msgstr ""
+msgstr "笔记本电脑"
 
 #: setup.php
 msgid "Wifi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: setup.php
 msgid "Wired network"
-msgstr ""
+msgstr "有线网络"
 
 #: setup.php
 msgid "Database"
-msgstr ""
+msgstr "数据库"
 
 #: setup.php
 msgid "Clock"
-msgstr ""
+msgstr "时钟"
 
 #: setup.php
 msgid "Asterisk"
-msgstr ""
+msgstr "Asterisk"
 
 #: setup.php
 msgid "Harddisk"
-msgstr ""
+msgstr "硬盘"
 
 #: setup.php
 msgid "Boxes"
-msgstr ""
+msgstr "方框"
 
 #: setup.php
 msgid "Phone"
-msgstr ""
+msgstr "电话"
 
 #: setup.php
 msgid "Cloud"
-msgstr ""
+msgstr "云"
 
 #: setup.php
 msgid "Do not Change"
@@ -1309,13 +1265,12 @@ msgid "This is the message that will be displayed when this Device is reported a
 msgstr "这是在此设备报告为关闭时将显示的消息。"
 
 #: setup.php
-#, fuzzy
 msgid "Device icon"
-msgstr "设备图标大小"
+msgstr "设备图标"
 
 #: setup.php
 msgid "You can select device icon."
-msgstr ""
+msgstr "您可以选择设备图标。"
 
 #: setup.php
 msgid "Monitoring"
