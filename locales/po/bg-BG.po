@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:22+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/monitor/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Bulgarian <https://translate.cacti.net/projects/cacti/monitor/bg/>\nLanguage: bg-BG\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -43,7 +43,7 @@ msgstr "Групиране"
 
 #: includes/controller.php
 msgid "Refresh"
-msgstr "Обновяване"
+msgstr "Опресняване"
 
 #: includes/controller.php
 msgid "Refresh the Device List"
@@ -325,7 +325,7 @@ msgstr "Време на работа на агента:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
-msgstr "Няма"
+msgstr "Неприложимо"
 
 #: includes/controller.php
 msgid "Sys Description:"
@@ -357,7 +357,7 @@ msgstr "SNMP и Ping"
 
 #: includes/controller.php
 msgid "SNMP Uptime"
-msgstr "SNMP Uptime"
+msgstr "SNMP време на работа"
 
 #: includes/controller.php
 msgid "Ping"
@@ -369,7 +369,7 @@ msgstr "SNMP или Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "SNMP извличане на SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -455,7 +455,7 @@ msgstr "Събиране на данни"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
-msgstr "деактивиран"
+msgstr "Изключен"
 
 #: includes/controller.php
 msgid "Failing"
@@ -534,7 +534,7 @@ msgstr "Надолу"
 
 #: includes/render.php monitor.php
 msgid "Recovering"
-msgstr "Възстановяване"
+msgstr "Възстановява се"
 
 #: includes/render.php monitor.php
 msgid "Down (M/A)"
@@ -550,11 +550,11 @@ msgstr "Предупредителен Ping"
 
 #: includes/render.php monitor.php
 msgid "Alert Ping"
-msgstr "Предупредителен Ping"
+msgstr "Алармен Ping"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr "Неуспешна усл."
+msgstr "Неуспешна услуга"
 
 #: includes/render.php
 msgid "Actions"
@@ -650,7 +650,7 @@ msgstr "Критичността не е зададена - натиснете �
 
 #: includes/render.php
 msgid "Not Set"
-msgstr "Не е зададено"
+msgstr "Не е избран"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
@@ -831,7 +831,7 @@ msgstr "Ще получавате известия всеки път, когат
 
 #: setup.php
 msgid "Any"
-msgstr "Всички"
+msgstr "Всеки"
 
 #: setup.php
 msgid "Click 'Continue' to enable monitoring on these Device(s)"
