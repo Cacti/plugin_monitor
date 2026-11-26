@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/monitor/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Turkish <https://translate.cacti.net/projects/cacti/monitor/tr/>\nLanguage: tr-TR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -325,7 +325,7 @@ msgstr "Ajan Çalışma Süresi:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
-msgstr "Yok"
+msgstr "Geçerli Değil"
 
 #: includes/controller.php
 msgid "Sys Description:"
@@ -369,7 +369,7 @@ msgstr "SNMP veya Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "SNMP ile SysDesc Al"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -550,7 +550,7 @@ msgstr "Ping Uyarısı"
 
 #: includes/render.php monitor.php
 msgid "Alert Ping"
-msgstr "Uyarı Pingi"
+msgstr "Alarm Pingi"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
@@ -650,7 +650,7 @@ msgstr "Kritiklik ayarlanmamış - ayarlanmamış cihazları filtrelemek için t
 
 #: includes/render.php
 msgid "Not Set"
-msgstr "Ayarlanmadı"
+msgstr "Seçilmedi"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
@@ -994,7 +994,7 @@ msgstr "Bildirim Rapor Biçimi"
 
 #: setup.php
 msgid "Format File to Use"
-msgstr "Kullanılacak Biçim Dosyası"
+msgstr "Kullanılacak Dosyayı Biçimlendir"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
@@ -1014,7 +1014,7 @@ msgstr "Bir Cihazın Gidiş-Dönüş Ping Gecikmesi Uyarı Eşiğinin ve aşağ�
 
 #: setup.php
 msgid "Alert Latency Notification"
-msgstr "Uyarı Gecikme Bildirimi"
+msgstr "Alarm Gecikme Bildirimi"
 
 #: setup.php
 msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
@@ -1213,7 +1213,7 @@ msgstr "Cihaz Kritikliği"
 
 #: setup.php
 msgid "What is the Criticality of this Device."
-msgstr "Bu Cihazın Kritiklik Düzeyi Nedir?"
+msgstr "Bu cihazın kritiklik düzeyini belirler."
 
 #: setup.php
 msgid "Ping Warning Threshold"
