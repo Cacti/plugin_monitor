@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Chinese (Traditional Han script) <https://translate.cacti.net/projects/cacti/monitor/zh_Hant/>\nLanguage: zh-TW\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -35,7 +35,7 @@ msgstr "顯示"
 
 #: includes/controller.php setup.php
 msgid "View"
-msgstr "檢視"
+msgstr "查看"
 
 #: includes/controller.php setup.php
 msgid "Grouping"
@@ -101,7 +101,7 @@ msgstr "%s 個已離線裝置的警報"
 
 #: includes/controller.php includes/render.php
 msgid "Devices"
-msgstr "裝置"
+msgstr "設備"
 
 #: includes/controller.php
 msgid "Go to the Devices management page"
@@ -113,7 +113,7 @@ msgstr "重要程度"
 
 #: includes/controller.php
 msgid "Size"
-msgstr "大小"
+msgstr "尺寸"
 
 #: includes/controller.php
 msgid "Trim"
@@ -129,7 +129,7 @@ msgstr "非樹狀目錄裝置"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Tree"
-msgstr "樹狀目錄"
+msgstr "樹"
 
 #: includes/controller.php
 msgid "All Sites"
@@ -141,7 +141,7 @@ msgstr "非站台裝置"
 
 #: includes/controller.php
 msgid "Sites"
-msgstr "站台"
+msgstr "網站"
 
 #: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
@@ -149,15 +149,15 @@ msgstr "非範本化裝置"
 
 #: includes/controller.php
 msgid "Template"
-msgstr "範本"
+msgstr "模板"
 
 #: includes/controller.php
 msgid "Templates"
-msgstr "範本"
+msgstr "模板"
 
 #: includes/controller.php
 msgid "Rows"
-msgstr "列數"
+msgstr "行"
 
 #: includes/controller.php
 msgid " [ Filter Settings Saved ]"
@@ -211,7 +211,7 @@ msgstr "取消靜音"
 
 #: includes/controller.php
 msgid "Reset"
-msgstr "重設"
+msgstr "重置"
 
 #: includes/controller.php
 #, php-format
@@ -235,11 +235,11 @@ msgstr "無法儲存儀表板 '%s'！"
 
 #: includes/controller.php includes/render.php
 msgid "Edit Device"
-msgstr "編輯裝置"
+msgstr "編輯設備"
 
 #: includes/controller.php includes/render.php
 msgid "View Graphs"
-msgstr "檢視圖表"
+msgstr "查看圖表"
 
 #: includes/controller.php
 msgid "View Thresholds/Alerts"
@@ -267,11 +267,11 @@ msgstr "裝置："
 
 #: includes/controller.php
 msgid "Site:"
-msgstr "站台："
+msgstr "網站:"
 
 #: includes/controller.php
 msgid "Location:"
-msgstr "位置："
+msgstr "地點:"
 
 #: includes/controller.php
 msgid "Criticality:"
@@ -333,7 +333,7 @@ msgstr "系統描述："
 
 #: includes/controller.php
 msgid "Contact:"
-msgstr "聯絡資訊："
+msgstr "聯繫方式:"
 
 #: includes/controller.php
 msgid "Notes:"
@@ -357,7 +357,7 @@ msgstr "SNMP 與 Ping"
 
 #: includes/controller.php
 msgid "SNMP Uptime"
-msgstr "SNMP 運作時間"
+msgstr "SNMP正常運行時間"
 
 #: includes/controller.php
 msgid "Ping"
@@ -369,7 +369,7 @@ msgstr "SNMP 或 Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "透過 SNMP 取得 SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -394,19 +394,19 @@ msgstr "狀態"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Site"
-msgstr "站台"
+msgstr "網站"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Device Template"
-msgstr "裝置範本"
+msgstr "設備模板"
 
 #: includes/controller.php includes/render.php
 msgid "Location"
-msgstr "位置"
+msgstr "地點"
 
 #: includes/controller.php
 msgid "Contact"
-msgstr "聯絡資訊"
+msgstr "聯絡"
 
 #: includes/controller.php
 msgid "Notes"
@@ -418,7 +418,7 @@ msgstr "主機資訊"
 
 #: includes/controller.php
 msgid "Availability Method"
-msgstr "可用性檢查方法"
+msgstr "可用性方法"
 
 #: includes/controller.php
 #, php-format
@@ -451,11 +451,11 @@ msgstr "上次失敗"
 
 #: includes/controller.php
 msgid "Data Collection"
-msgstr "資料收集"
+msgstr "數據採集"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
-msgstr "已停用"
+msgstr "停用"
 
 #: includes/controller.php
 msgid "Failing"
@@ -513,7 +513,7 @@ msgstr "根分支"
 #: includes/render.php
 #, php-format
 msgid "Tree: %s"
-msgstr "樹狀目錄：%s"
+msgstr "樹狀圖: %s"
 
 #: includes/render.php
 #, php-format
@@ -530,7 +530,7 @@ msgstr "剛恢復運作"
 
 #: includes/render.php monitor.php
 msgid "Down"
-msgstr "離線"
+msgstr "向下"
 
 #: includes/render.php monitor.php
 msgid "Recovering"
@@ -650,7 +650,7 @@ msgstr "未設定重要性 - 按一下以篩選未設定的裝置（再按一次
 
 #: includes/render.php
 msgid "Not Set"
-msgstr "未設定"
+msgstr "未選擇"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
@@ -694,7 +694,7 @@ msgstr "關鍵任務"
 
 #: monitor.php
 msgid "Up"
-msgstr "運作中"
+msgstr "向上"
 
 #: monitor.php
 msgid "Triggered (Muted/Acked)"
@@ -742,7 +742,7 @@ msgstr "所有受監控的裝置"
 
 #: monitor.php
 msgid "All Devices"
-msgstr "所有裝置"
+msgstr "所有設備"
 
 #: monitor.php
 msgid "Devices not Monitored"
@@ -847,7 +847,7 @@ msgstr "按一下「繼續」以變更下列裝置的監控設定。請記得勾
 
 #: setup.php
 msgid "Update this Field"
-msgstr "更新此欄位"
+msgstr "更新此字段"
 
 #: setup.php
 msgid "Change Monitoring Options"
@@ -868,21 +868,21 @@ msgstr "無限期"
 #: setup.php
 #, php-format
 msgid "%d Month"
-msgstr "%d 個月"
+msgstr "%d月"
 
 #: setup.php
 #, php-format
 msgid "%d Months"
-msgstr "%d 個月"
+msgstr "%d個月"
 
 #: setup.php
 #, php-format
 msgid "%d Year"
-msgstr "%d 年"
+msgstr "%d年"
 
 #: setup.php
 msgid "Normal User"
-msgstr "一般使用者"
+msgstr "普通用戶"
 
 #: setup.php
 msgid "Monitor Settings"
@@ -962,7 +962,7 @@ msgstr "保留通知與重新啟動日誌的天數。"
 
 #: setup.php
 msgid "Refresh Interval"
-msgstr "重新整理間隔"
+msgstr "刷新間隔"
 
 #: setup.php
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
@@ -998,7 +998,7 @@ msgstr "要使用的格式檔案"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "選擇要使用的自訂 HTML 包裝與 CSS 檔案。此檔案包含用於包覆報表的 HTML 與 CSS。若檔案內容不僅止於 CSS，您必須在檔案內放入一個特殊的 <REPORT> 標籤，此格式標籤將會被替換為報表內容。這些檔案位於「formats」目錄中。"
+msgstr "選擇要使用的自定義html包裝器和CSS文件。此文件包含用於包裝報表的html和CSS。如果它不僅包含CSS，那麼您需要放置一個特殊的<REPORT>標籤裡面的文件。此格式標記將替換為報告內容。這些文件位於“formats”目錄中。"
 
 #: setup.php
 msgid "Ping Threshold Notifications"
@@ -1039,12 +1039,12 @@ msgstr "每 %d 分鐘"
 
 #: setup.php
 msgid "Every Hour"
-msgstr "每小時"
+msgstr "每隔一小時"
 
 #: setup.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "每 %d 小時"
+msgstr "每個 %d 小時"
 
 #: setup.php
 msgid "Reboot Notifications"
