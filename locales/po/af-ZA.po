@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Afrikaans\n"
+"Language: af-ZA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Nuwe paneelbord"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Kontroleskerm"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Voer die Kontroleskermnaam in en druk dan 'Stoor' om voort te gaan, anders druk 'Kanselleer'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Skep nuwe paneelbord"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Gemoniteerde toestelle"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Ongestoor"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Uitleg"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Wys"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Bekyk"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Groepering"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Verfris"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Verfris die toestellys"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Maak skoon"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Maak die gestelde filter skoon"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Stoor"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Stoor filterinstellings"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Nuut"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Stoor nuwe kontroleskerm"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Hernoem"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Hernoem paneelbord"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Skrap"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Skrap Paneelbord"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s Alarm vir aflyn Toestelle"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s Alarms vir aflyn Toestelle"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Toestelle"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Gaan na die Toestelle-bestuursbladsy"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Kritikaliteit"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Grootte"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Snoei"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Alle bome"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Nie-boomtoestelle"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Boom"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Alle terreine"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Nie-terreintoestelle"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Terreine"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Nie-sjabloontoestelle"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Sjabloon"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Sjablone"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Rye"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Filterinstellings gestoor ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Kanselleer"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Laai tans..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Toestelbesonderhedepanele"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Verfris weer oor <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> sekondes ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Monitorfilter [ Laaste verversing: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Wys slegs die eerste 30 Toestelle ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Soek"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Gebeurtenisse"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Demp"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Erken"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Ontdemp"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Stel terug"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Kontroleskerm '%s' verwyder."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Kontroleskerm '%s' behoort nie aan jou nie."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Kontroleskerm '%s' is gestoor!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Kontroleskerm '%s' kon nie gestoor word nie!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Redigeer toestel"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Bekyk grafieke"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Bekyk drempels/waarskuwings"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Bekyk toestel-Syslog-waarskuwings"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Bekyk toestel-Syslog-inskrywings"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Bekyk mislukte dienskontrole"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Toestelstatusinligting"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Toestel:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Werf:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Ligging:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Kritikaliteit:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Status:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Admin-nota:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Gasheernaam:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Huid./Gem.:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Waarskuwing/Alarm:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Laaste mislukking:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Tyd in toestand:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Beskikbaarheid:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Agent-bedryfstyd:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N.v.t"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Stelselbeskrywing:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Kontak:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Notas:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Nooit"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Ongespesifiseer"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Geen"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP en Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "SNMP-looptyd"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP of Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "SNMP Kry SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP Kry Volgende"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Metode %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Beskrywing"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Gasheernaam"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Status"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Terrein"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Toestelsjabloon"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Ligging"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Kontak"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Notas"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Gasheerinligting"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Beskikbaarheidsmetode"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Huidige / Gemiddelde Ping"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Min / Maks Ping"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Beskikbaarheid"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Totale / Mislukte peilings"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "In Huidige Status Sedert"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Laaste mislukking"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Dataversameling"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Gedeaktiveer"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Misluk tans"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Nie getoets nie"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "OK"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Dienskontroles"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Drempel %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Uitgelok"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Drempels"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Geen syslog-boodskappe in die afgelope uur nie."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (afgelope uur)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Maak werklike toestel oop"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Toestelskakels"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Nie-terreintoestel"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Worteltak"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Boom: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Tak: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Pas op"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Af"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Herstel tans"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Af (G/B)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Uitgelok (D/E)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Waarskuwings-ping"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Alarm-ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Mislukte diens"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Aksies"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Maak die toestelbesonderhede-panele oop"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Toestelbeskrywing soos op die Toestelle-bladsy gestel"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Fisiese ligging wat vir die toestel aangeteken is"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Terrein waaraan die toestel toegewys is"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "Interne Cacti-toestel-ID"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Moniteringskritiekheid aan die toestel toegewys"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Aktiewe gebeurtenisse op die toestel (Af, Geaktiveer, Waarskuwing-/Alarm-ping, Mislukte diens, ...); klik op 'n merker om daardie gebeurtenis by die Gebeurtenisse-filter te voeg of daaruit te verwyder"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Oorskry / Uitgelos / Totale drempels (thold-inprop) op die toestel; klik om die Uitgeloste gebeurtenisfilter te wissel"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Mislukte / Totale dienskontroles (servcheck-inprop) vir die toestel; klik om die Mislukte diens-gebeurtenisfilter te wissel"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Waarskuwing"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Ping-latensie Waarskuwing- / Alarmdrempels (ms) wat vir hierdie toestel opgestel is; 'n kennisgewing word geopper wanneer die reaksietyd dit oorskry"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Admin"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Administratiewe monitorboodskap wat gewys word terwyl die toestel Af is of Herstel"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Persentasie suksesvolle beskikbaarheidskontroles oor die behoue geskiedenis"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Gemiddeldes"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Huidige / gemiddelde ping-reaksietyd in millisekondes"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Lengte in status"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Hoe lank die toestel reeds in sy huidige status is"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Datum en tyd waarop die toestel se beskikbaarheidskontrole laas misluk het"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Filter volgens hierdie kritiekheid (klik weer om skoon te maak)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Kritikaliteit nie gestel nie - klik om ongestelde toestelle te filter (klik weer om skoon te maak)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Nie gestel nie"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Klik om hierdie gebeurtenis by die filter te voeg of daarvan te verwyder"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Oorskry / Uitgelos / Totale drempels - klik om die Uitgeloste gebeurtenisfilter te wissel"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Geen drempels vir hierdie toestel gedefinieer nie"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Mislukte / Totale dienskontroles - klik om die Mislukte diens-gebeurtenisfilter te wissel"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Geen dienskontroles vir hierdie toestel gedefinieer nie"
+
+#: monitor.php
+msgid "All"
+msgstr "Almal"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Laag"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Medium"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Hoog"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Missiekritiek"
+
+#: monitor.php
+msgid "Up"
+msgstr "Op"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Uitgelok (Gedemp/Erken)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Af (Gedemp/Bevestig)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Geen beskikbaarheidstoets nie"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Waarskuwings-ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Dienskontrole het misluk"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Ekstra klein"
+
+#: monitor.php
+msgid "Small"
+msgstr "Klein"
+
+#: monitor.php
+msgid "Large"
+msgstr "Groot"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Ekstra groot"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Zoem"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Alle gemonitorde toestelle"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Alle toestelle"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Toestelle wat nie gemonitor word nie"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Toestelle sonder Drempels"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Toestelle sonder Dienskontroles"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Verstek"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Lys"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Teëls"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Teëls en tyd"
+
+#: monitor.php
+msgid "Full"
+msgstr "Volledig"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "10 Karakters"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "20 Karakters"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "30 Karakters"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "40 Karakters"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "50 Karakters"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "75 Karakters"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "100 Karakters"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Beskrywing: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Gasheernaam: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Die volgende verslag sal Toestelle identifiseer wat hul ping-latensiedrempels oorskry het. Jy ontvang hierdie verslag omdat jy ingeteken is op 'n Toestel wat gekoppel is aan die Cacti-stelsel by die volgende URL hieronder."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Cacti-moniteringsterrein"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Jy sal elke %d minute kennisgewings ontvang indien die Toestel bo sy drempel is."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Jy sal elke keer kennisgewings ontvang wanneer die Toestel bo sy drempel is."
+
+#: setup.php
+msgid "Any"
+msgstr "Enige"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Klik 'Gaan voort' om monitering op hierdie Toestel(le) te aktiveer"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Klik 'Gaan voort' om monitering op hierdie Toestel(le) te deaktiveer"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Klik 'Gaan voort' om die moniteringsinstellings vir die volgende Toestel(le) te verander. Onthou om 'Dateer hierdie veld op' te merk om aan te dui watter kolomme opgedateer moet word."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Dateer hierdie veld op"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Verander Moniteringopsies"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Aktiveer monitering"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Deaktiveer monitering"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Vir onbepaalde tyd"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "%d maand"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d maande"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d jaar"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Gewone gebruiker"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Monitorinstellings"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Alarmklank"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Dit is die klanklêer wat gespeel sal word wanneer 'n Toestel afgaan."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Herhaal alarmklank"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Speel die bostaande klank in 'n lus wanneer 'n Toestel afgaan."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Wys ikoonlegende"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Merk dit om 'n ikoonlegende op die Moniteerskerm te wys"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Wys bedryfstyd"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Merk dit om Bedryfstyd op die Moniteerskerm te wys"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Zoem na Foute"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Merk dit om in te zoem op items met foute op die Moniteerskerm"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Zoem-agtergrond"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Agtergrondkleur vir vergrote foute op die Monitorskerm"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Zoem-lettergrootte"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Monitor"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Aktiveer op nuwe toestelle"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Merk dit om monitering outomaties te aktiveer wanneer nuwe toestelle geskep word"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Behoud van kennisgewing-/herbeginlogboeke"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Behou kennisgewing- en herlaailogboeke vir hierdie aantal dae."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Verfrisinterval"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Dit is die tyd in sekondes voordat die bladsy verfris. (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Dit is hoe monitor Toestelle sal Groepeer."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Verstek met toestemmings"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Dit is hoe monitor Toestelle sal weergee."
+
+#: setup.php
+msgid "Names only"
+msgstr "Slegs name"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Teëls en aftyd"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Kennisgewingverslagformaat"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Formaatlêer om te gebruik"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Kies die pasgemaakte HTML-omhulsel en CSS-lêer om te gebruik. Hierdie lêer bevat beide HTML en CSS om rondom u verslag te draai. As dit meer as net CSS bevat, moet u 'n spesiale <REPORT>-merker binne die lêer plaas. Hierdie formaatmerker sal deur die verslaginhoud vervang word. Hierdie lêers is in die 'formats'-gids geleë."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Ping-drempelkennisgewings"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Waarskuwing-latensiekennisgewing"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "As 'n Toestel 'n retoer-pinglatensie bo die Waarskuwingdrempel en bo die onderstaande kritiese vlak het, sal e-posadresse wat op die Toestel ingeteken is, 'n e-poskennisgewing ontvang.  Kies 'Gedeaktiveer' om te deaktiveer.  Die Thold-inprop is nodig om hierdie funksie te aktiveer."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Alarm-latensiekennisgewing"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "As 'n Toestel 'n retoer-pinglatensie bo die Alarmdrempel en bo die onderstaande kritiese vlak het, sal e-posadresse wat op die Toestel ingeteken is, 'n e-poskennisgewing ontvang.  Kies 'Gedeaktiveer' om te deaktiveer.  Die Thold-inprop is nodig om hierdie funksie te aktiveer."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Hoe gereeld om e-posse weer te stuur"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Hoe gereeld moet e-poskennisgewings aan intekenare vir hierdie Toestelle gestuur word as hulle hul latensiedrempels oorskry"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Elke voorval"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Elke %d minute"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Elke uur"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Elke %d ure"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Herbegin-kennisgewings"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Stuur Herbegin-kennisgewings"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Moet Toestel-herlaaikennisgewings aan gebruikers gestuur word?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Stuur een E-pos aan alle adresse"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Indien gemerk, sal die stelsel slegs een E-pos aan alle adresse stuur."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Sluit Drempelalarmlyste in"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Moet Drempel-alarmlyste ook kennisgewings ontvang"
+
+#: setup.php
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Voer 'n Herbegin-boodskaponderwerp vir die Herbegin-kennisgewing in."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Cacti-toestelherbeginkennisgewing"
+
+#: setup.php
+msgid "Email Body"
+msgstr "E-posinhoud"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Voer 'n E-posliggaam in om in die Herbegin-kennisgewingsboodskap in te sluit. Tans is die enigste ondersteunde vervangingmerker wat aanvaar word &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Monitor-herlaaikennisgewing</h1><p>Die volgende Toestelle is herlaai.  Sien besonderhede hieronder vir bykomende inligting.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Kennisgewing-e-posadresse"
+
+#: setup.php
+msgid "From Name"
+msgstr "Van-naam"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Voer die E-posnaam in vanwaar die kennisgewings gestuur moet word"
+
+#: setup.php
+msgid "From Address"
+msgstr "Van-adres"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Voer die E-posadres in vanwaar die kennisgewing gestuur moet word"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Kennisgewingslys"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Kies 'n Kennisgewinglys hieronder.  Alle E-posse wat op die kennisgewinglys ingeteken is, sal in kennis gestel word."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "E-posadresse"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Voer 'n kommageskeide lys van E-posadresse in om van 'n herbegingebeurtenis in kennis te stel."
+
+#: setup.php
+msgid "Server"
+msgstr "Bediener"
+
+#: setup.php
+msgid "Printer"
+msgstr "Drukker"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Werkskermrekenaar"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Skootrekenaar"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wi-Fi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Bedrade netwerk"
+
+#: setup.php
+msgid "Database"
+msgstr "Databasis"
+
+#: setup.php
+msgid "Clock"
+msgstr "Horlosie"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Hardeskyf"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Kassies"
+
+#: setup.php
+msgid "Phone"
+msgstr "Telefoon"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Wolk"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Moenie verander nie"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d persent bo gemiddeld"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Toestelmonitering-instellings"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Moniteer toestel"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Merk hierdie blokkie om hierdie Toestel op die Moniteer-oortjie te monitor."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Toestelkritikaliteit"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Wat is die kritiekheid van hierdie toestel."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Ping-waarskuwingsdrempel"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Indien die heen-en-weer-vertraging via enige van die vooraf gedefinieerde Cacti-pingmetodes bo hierdie drempel styg, teken 'n waarskuwing aan of stuur 'n e-pos gebaseer op die Toestel se Kritiesheid- en Monitor-instelling.  Die eenheid is in millisekondes.  Deur dit op 0 te stel, word dit gedeaktiveer. Die Thold-inprop word vereis om hierdie funksionaliteit te gebruik."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "millisekondes"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Ping-alarmdrempel"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Indien die heen-en-weer-vertraging via enige van die vooraf gedefinieerde Cacti-pingmetodes bo hierdie drempel styg, teken 'n alarm aan of stuur 'n e-pos gebaseer op die Toestel se Kritiesheid- en Monitor-instelling.  Die eenheid is in millisekondes.  Deur dit op 0 te stel, word dit gedeaktiveer. Die Thold-inprop word vereis om hierdie funksionaliteit te gebruik."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Herbasislyn-waarskuwing"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Die persentasie bo die huidige gemiddelde ping-tyd om as 'n Waarskuwingsdrempel te beskou.  Indien bygewerk, sal dit die Ping-waarskuwingsdrempel outomaties aanpas."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Herbasislyn-alarm"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Die persentasie bo die huidige gemiddelde ping-tyd om as 'n Alarmdrempel te beskou.  Indien bygewerk, sal dit die Ping-alarmdrempel outomaties aanpas."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Boodskap vir toestel af"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Dit is die boodskap wat vertoon sal word wanneer hierdie Toestel as af aangemeld word."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Toestelikoon"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Jy kan 'n toestelikoon kies."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Monitering"
+

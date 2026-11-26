@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Swahili\n"
+"Language: sw-KE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Dashibodi Mpya"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Dashibodi"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Ingiza Jina la Dashibodi kisha ubonyeze 'Hifadhi' ili kuendelea, vinginevyo bonyeza 'Ghairi'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Unda Dashibodi Mpya"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Vifaa Vinavyofuatiliwa"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Haijahifadhiwa"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Mpangilio"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Onyesha"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Tazama"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Upangaji wa Vikundi"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Onyesha Upya"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Onyesha Upya Orodha ya Vifaa"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Futa"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Safisha kichujio kilichowekwa"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Hifadhi"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Hifadhi Mipangilio ya Kichujio"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Mpya"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Hifadhi Dashibodi Mpya"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Badili jina"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Badilisha Jina la Dashibodi"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Futa"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Futa Dashibodi"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "Tahadhari %s ya Vifaa vilivyozimika"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "Tahadhari %s za Vifaa vilivyozimika"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Vifaa"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Nenda kwenye ukurasa wa usimamizi wa Vifaa"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Umuhimu"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Ukubwa"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Punguza"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Miti Yote"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Vifaa Visivyo kwenye Mti"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Mti"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Maeneo Yote"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Vifaa Visivyo vya Eneo"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Maeneo"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Vifaa Visivyo na Kiolezo"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Kiolezo"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Violezo"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Safu Mlalo"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Mipangilio ya Kichujio Imehifadhiwa ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Ghairi"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Inapakia..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Paneli za Maelezo ya Kifaa"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Onyesha Upya Tena baada ya Sekunde <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Kichujio cha Ufuatiliaji [ Usasishaji wa Mwisho: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Inaonyesha Vifaa 30 vya kwanza pekee ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Tafuta"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Matukio"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Nyamazisha"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Thibitisha"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Ondoa Kimya"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Weka Upya"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Dashibodi '%s' Imeondolewa."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Dashibodi '%s' haimilikiwi nawe."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Dashibodi '%s' Imehifadhiwa!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Dashibodi '%s' haikuweza Kuhifadhiwa!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Hariri Kifaa"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Tazama Grafu"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Tazama Vizingiti/Arifa"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Tazama Arifa za Syslog za Kifaa"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Tazama Maingizo ya Syslog ya Kifaa"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Tazama Ukaguzi wa Huduma Unaoshindwa"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Taarifa ya Hali ya Kifaa"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Kifaa:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Eneo:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Mahali:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Umuhimu:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Hali:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Dokezo la Msimamizi:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Jina la Kipangishi:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Sasa/Wastani:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d ms"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Onyo/Tahadhari:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d ms"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Kushindwa kwa Mwisho:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Muda Katika Hali:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Upatikanaji:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Muda wa Kufanya Kazi wa Wakala:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Haipatikani"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Maelezo ya Mfumo:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Mawasiliano:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Maelezo:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Kamwe"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Haijabainishwa"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Hakuna"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP na Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "Muda wa Utendaji wa SNMP"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Ping"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP au Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "SNMP Get SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP Get Next"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Mbinu %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Maelezo"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Jina la Mpangishi"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Hali"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Eneo"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Kiolezo cha Kifaa"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Mahali"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Mawasiliano"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Maelezo"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Taarifa za Kipangishi"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Mbinu ya Upatikanaji"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f ms"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping ya Sasa / Wastani"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Ping ya Chini / Juu Zaidi"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Upatikanaji"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Jumla / Ukusanyaji Ulioshindwa"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "Katika Hali ya Sasa Tangu"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Kushindwa kwa Mwisho"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Ukusanyaji wa Data"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Imezimwa"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Inashindwa"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Haijajaribiwa"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "Sawa"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Ukaguzi wa Huduma"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Kizingiti %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Imechochewa"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Vizingiti"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Hakuna ujumbe wa Syslog katika saa iliyopita."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (saa iliyopita)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Fungua Kifaa Halisi"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Viungo vya Kifaa"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Kifaa Kisicho cha Eneo"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Tawi Kuu"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Mti: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Tawi: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Haijulikani"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Imewaka Hivi Punde"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Chini"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Inarejea"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Haipatikani (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Imechochewa (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Ping ya Onyo"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Ping ya Tahadhari"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Huduma Iliyoshindwa"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Vitendo"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Fungua paneli za maelezo ya kifaa"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Maelezo ya kifaa kama yalivyowekwa kwenye ukurasa wa Vifaa"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Eneo halisi lililorekodiwa kwa kifaa"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Eneo ambalo kifaa kimegawiwa"
+
+#: includes/render.php
+msgid "ID"
+msgstr "Kitambulisho"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "Kitambulisho cha ndani cha kifaa cha Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Umuhimu wa ufuatiliaji uliopewa kifaa"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Matukio hai kwenye kifaa (Chini, Limechochewa, Ping ya Onyo/Tahadhari, Huduma Iliyoshindwa, ...); bofya kidonge ili kuongeza au kuondoa tukio hilo kwenye kichujio cha Matukio"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Vizingiti vilivyokiukwa / vilivyoanzishwa / jumla (programu-jalizi ya thold) kwenye kifaa; bofya ili kugeuza kichujio cha tukio lililoanzishwa"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Ukaguzi wa huduma ulioshindwa / Jumla (programu-jalizi ya servcheck) kwa kifaa; bofya ili kugeuza kichujio cha tukio la Huduma Iliyoshindwa"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Onyo"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Vizingiti vya Onyo / Tahadhari ya ucheleweshaji wa Ping (ms) vilivyosanidiwa kwa kifaa hiki; arifa hutolewa wakati muda wa majibu unavivuka"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Msimamizi"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Ujumbe wa ufuatiliaji wa usimamizi unaoonyeshwa wakati kifaa kiko Chini au Kinarejea"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Asilimia ya ukaguzi wa upatikanaji uliofanikiwa katika historia iliyohifadhiwa"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Wastani"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Muda wa majibu ya ping wa sasa / wastani kwa milisekunde"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Urefu katika Hali"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Muda ambao kifaa kimekuwa katika hali yake ya sasa"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Tarehe na saa ambapo kifaa kilishindwa ukaguzi wake wa upatikanaji mara ya mwisho"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Chuja kulingana na umuhimu huu (bofya tena ili kuondoa)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Umuhimu haujawekwa - bofya ili kuchuja vifaa ambavyo havijawekwa (bofya tena ili kuondoa)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Haijawekwa"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Bofya ili kuongeza au kuondoa tukio hili kutoka kwenye kichujio"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Vizingiti vilivyokiukwa / vilivyoanzishwa / jumla - bofya ili kugeuza kichujio cha tukio lililoanzishwa"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Hakuna vizingiti vilivyobainishwa kwa kifaa hiki"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Ukaguzi wa huduma ulioshindwa / Jumla - bofya ili kugeuza kichujio cha tukio la Huduma Iliyoshindwa"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Hakuna ukaguzi wa huduma uliobainishwa kwa kifaa hiki"
+
+#: monitor.php
+msgid "All"
+msgstr "Zote"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Chini"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Wastani"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Juu"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Muhimu Sana kwa Shughuli"
+
+#: monitor.php
+msgid "Up"
+msgstr "Juu"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Imechochewa (Imenyamazishwa/Imethibitishwa)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Haipatikani (Imenyamazishwa/Imethibitishwa)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Hakuna Ukaguzi wa Upatikanaji"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Ping ya Onyo"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Ukaguzi wa Huduma Umeshindwa"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Ndogo Zaidi"
+
+#: monitor.php
+msgid "Small"
+msgstr "Ndogo"
+
+#: monitor.php
+msgid "Large"
+msgstr "Kubwa"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Kubwa Zaidi"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Kuza"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Vifaa Vyote Vinavyofuatiliwa"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Vifaa Vyote"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Vifaa Visivyofuatiliwa"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Vifaa visivyo na Vizingiti"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Vifaa visivyo na Ukaguzi wa Huduma"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Chaguo-msingi"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Orodha"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Vigae"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Vigae na Muda"
+
+#: monitor.php
+msgid "Full"
+msgstr "Kamili"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "Vibambo 10"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "Vibambo 20"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "Vibambo 30"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "Vibambo 40"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "Vibambo 50"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "Vibambo 75"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "Vibambo 100"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Maelezo: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Jina la kipangishi: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Ripoti ifuatayo itatambua Vifaa ambavyo vimepita vizingiti vyake vya muda wa kusubiri wa ping.  Unapokea ripoti hii kwa kuwa umejisajili kwenye Kifaa kinachohusiana na mfumo wa Cacti ulio katika URL ifuatayo hapa chini."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Eneo la Ufuatiliaji la Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Utapokea arifa kila baada ya dakika %d ikiwa Kifaa kiko juu ya kizingiti chake."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Utapokea arifa kila wakati Kifaa kinapokuwa juu ya kizingiti chake."
+
+#: setup.php
+msgid "Any"
+msgstr "Yoyote"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Bofya 'Endelea' ili kuwasha ufuatiliaji kwenye Kifaa/Vifaa hivi"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Bofya 'Endelea' ili kuzima ufuatiliaji kwenye Kifaa/Vifaa hivi"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Bofya 'Endelea' ili Kubadilisha mipangilio ya Ufuatiliaji kwa Kifaa/Vifaa vifuatavyo. Kumbuka kuteua 'Sasisha Sehemu hii' ili kuonyesha ni safu wima zipi za kusasisha."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Sasisha Sehemu Hii"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Badilisha Chaguo za Ufuatiliaji"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Washa Ufuatiliaji"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Zima Ufuatiliaji"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Bila kikomo cha muda"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "Mwezi %d"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "Miezi %d"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "Mwaka %d"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Mtumiaji wa Kawaida"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Mipangilio ya Ufuatiliaji"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Sauti ya Kengele"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Hii ni faili ya sauti itakayochezwa Kifaa kinapokuwa hakipatikani."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Rudia Sauti ya Kengele"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Cheza sauti iliyo hapo juu kwa kujirudia wakati Kifaa kinapozima."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Onyesha Ufafanuzi wa Aikoni"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Tiki hii ili kuonyesha ufunguo wa aikoni kwenye onyesho la Ufuatiliaji"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Onyesha Muda wa Kufanya Kazi"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Tiki hii ili kuonyesha Muda wa Kufanya Kazi kwenye onyesho la Ufuatiliaji"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Kuza kwenye Hitilafu"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Tiki hii ili kukuza vipengee vyenye hitilafu kwenye onyesho la Ufuatiliaji"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Mandharinyuma ya Kuza"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Rangi ya Mandharinyuma kwa Hitilafu Zilizokuzwa kwenye onyesho la Kifuatiliaji"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Ukubwa wa Herufi wa Kuza"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Fuatilia"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Washa kwenye vifaa vipya"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Tiki hii ili kuwasha ufuatiliaji kiotomatiki unapounda vifaa vipya"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Uhifadhi wa Kumbukumbu za Arifa/Kuwasha Upya"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Tunza Kumbukumbu za Arifa na Kuwasha Upya kwa idadi hii ya siku."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Muda wa Kuonyesha Upya"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Huu ni muda katika sekunde kabla ya ukurasa kuonyeshwa upya. (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Hivi ndivyo kifuatiliaji kitakavyopanga Vifaa katika makundi."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Chaguo-msingi na ruhusa"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Hivi ndivyo kifuatiliaji kitakavyoonyesha Vifaa."
+
+#: setup.php
+msgid "Names only"
+msgstr "Majina pekee"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Vigae na Muda wa Kutofanya Kazi"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Muundo wa Ripoti ya Arifa"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Faili la Umbizo la Kutumia"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Chagua kifungio maalum cha html na faili la CSS la kutumia.  Faili hili lina html na CSS za kufunga ripoti yako.  Ikiwa lina zaidi ya CSS pekee, unahitaji kuweka lebo maalum ya <REPORT> ndani ya faili.  Lebo hii ya umbizo itabadilishwa na maudhui ya ripoti.  Faili hizi ziko katika saraka ya 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Arifa za Kizingiti cha Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Arifa ya Ucheleweshaji wa Onyo"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ikiwa Kifaa kina Muda wa Kusubiri wa Ping wa Kwenda na Kurudi juu ya Kizingiti cha Onyo na juu ya Umuhimu ulio hapa chini, barua pepe zilizojisajili kwenye Kifaa zitapokea arifa ya barua pepe.  Chagua 'Imezimwa' ili Kuzima.  Programu-jalizi ya Thold inahitajika ili kuwezesha kipengele hiki."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Arifa ya Uchelewaji wa Tahadhari"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ikiwa Kifaa kina Muda wa Kusubiri wa Ping wa Kwenda na Kurudi juu ya Kizingiti cha Tahadhari na juu ya Umuhimu ulio hapa chini, barua pepe zilizojisajili kwenye Kifaa zitapokea arifa ya barua pepe.  Chagua 'Imezimwa' ili Kuzima.  Programu-jalizi ya Thold inahitajika ili kuwezesha kipengele hiki."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Marudio ya Kutuma Tena Barua Pepe"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Je, arifa za barua pepe zinapaswa kutumwa mara ngapi kwa waliojisajili kwa Vifaa hivi ikiwa vinazidi vizingiti vyake vya muda wa kusubiri"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "Kila Tukio"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Kila Dakika %d"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Kila Saa"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Kila Saa %d"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Arifa za Kuwasha Upya"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Tuma Arifa za Kuwasha Upya"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Je, Arifa za Kuanza Upya kwa Kifaa zitumwe kwa watumiaji?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Tuma Barua Pepe moja kwa anwani zote"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Ikichaguliwa, mfumo utatuma Barua Pepe moja tu kwa anwani zote."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Jumuisha Orodha za Tahadhari za Vizingiti"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Je, Orodha za Tahadhari za Kizingiti nazo zipokee Arifa"
+
+#: setup.php
+msgid "Subject"
+msgstr "Mada"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Ingiza mada ya ujumbe wa Kuwasha Upya kwa Arifa ya Kuwasha Upya."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Arifa ya Kuwashwa Upya kwa Kifaa cha Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Mwili wa Barua Pepe"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Ingiza mwili wa Barua Pepe wa kujumuisha katika ujumbe wa Arifa ya Kuwasha Upya.  Kwa sasa, lebo pekee ya ubadilishaji inayotumika inayokubalika ni &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Arifa ya Kuanza Upya kwa Ufuatiliaji</h1><p>Vifaa vifuatavyo vilianzishwa upya. Tazama maelezo hapa chini kwa taarifa zaidi.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Anwani za Barua Pepe za Arifa"
+
+#: setup.php
+msgid "From Name"
+msgstr "Jina la Mtumaji"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Ingiza Jina la Barua Pepe la kutuma arifa kutoka kwalo"
+
+#: setup.php
+msgid "From Address"
+msgstr "Anwani ya Mtumaji"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Ingiza Anwani ya Barua Pepe ya kutuma arifa kutoka kwayo"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Orodha ya Arifa"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Chagua Orodha ya Arifa hapa chini. Barua Pepe zote zilizosajiliwa kwenye orodha ya arifa zitapokea arifa."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Anwani za Barua Pepe"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Ingiza orodha ya anwani za Barua Pepe zilizotenganishwa kwa koma za kuarifu kuhusu tukio la kuwasha upya."
+
+#: setup.php
+msgid "Server"
+msgstr "Seva"
+
+#: setup.php
+msgid "Printer"
+msgstr "Printa"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Kompyuta ya Mezani"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Kompyuta mpakato/notibuku"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Wifi"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Mtandao wa waya"
+
+#: setup.php
+msgid "Database"
+msgstr "Hifadhidata"
+
+#: setup.php
+msgid "Clock"
+msgstr "Saa"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Alama ya nyota"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Diski kuu"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Visanduku"
+
+#: setup.php
+msgid "Phone"
+msgstr "Simu"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Wingu"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Usibadilishe"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "Asilimia %d Juu ya Wastani"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Mipangilio ya Ufuatiliaji wa Kifaa"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Fuatilia Kifaa"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Tiki kisanduku hiki kufuatilia Kifaa hiki kwenye Kichupo cha Ufuatiliaji."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Umuhimu wa Kifaa"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Umuhimu wa Kifaa hiki ni upi."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Kizingiti cha Onyo la Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ikiwa muda wa kwenda na kurudi kupitia mojawapo ya mbinu za ping za Cacti zilizobainishwa awali utazidi kizingiti hiki, andika onyo kwenye kumbukumbu au tuma barua pepe kulingana na Umuhimu wa Vifaa na mpangilio wa Ufuatiliaji. Kipimo ni milisekunde. Kuweka 0 huzima. Programu-jalizi ya Thold inahitajika ili kutumia kipengele hiki."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "milisekunde"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Kizingiti cha Tahadhari ya Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ikiwa muda wa kwenda na kurudi kupitia mojawapo ya mbinu za ping za Cacti zilizobainishwa awali utazidi kizingiti hiki, andika tahadhari kwenye kumbukumbu au tuma barua pepe kulingana na Umuhimu wa Vifaa na mpangilio wa Ufuatiliaji. Kipimo ni milisekunde. Kuweka 0 huzima. Programu-jalizi ya Thold inahitajika ili kutumia kipengele hiki."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Onyo la Kuweka Msingi Upya"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Asilimia juu ya muda wa sasa wa wastani wa ping ya kuzingatiwa kama Kizingiti cha Onyo. Ikisasishwa, hii itarekebisha Kizingiti cha Onyo la Ping kiotomatiki."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Arifa ya Kuweka Msingi Upya"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Asilimia juu ya muda wa sasa wa wastani wa ping ya kuzingatiwa kama Kizingiti cha Tahadhari. Ikisasishwa, hii itarekebisha Kizingiti cha Tahadhari ya Ping kiotomatiki."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Ujumbe wa Kifaa Kisichopatikana"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Huu ndio ujumbe utakaoonyeshwa Kifaa hiki kinaporipotiwa kuwa hakipatikani."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Aikoni ya kifaa"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Unaweza kuchagua aikoni ya kifaa."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Ufuatiliaji"
+

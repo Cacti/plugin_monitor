@@ -1,0 +1,1289 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-24 19:00+0000\n"
+"Last-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\n"
+"Language-Team: Arabic (Egypt)\n"
+"Language: ar-EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "لوحة معلومات جديدة"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "لوحة المؤشرات"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "أدخل اسم لوحة المعلومات ثم اضغط على 'حفظ' للمتابعة، أو اضغط على 'إلغاء'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "إنشاء لوحة معلومات جديدة"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "الأجهزة المراقَبة"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "غير محفوظ"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "التصميم"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "عرض"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "عرض"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "التجميع"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "تحديث"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "تحديث قائمة الأجهزة"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "مسح"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "مسح الفلتر المعيّن"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "حفظ"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "حفظ إعدادات التصفية"
+
+#: includes/controller.php
+msgid "New"
+msgstr "جديد"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "حفظ لوحة معلومات جديدة"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "إعادة التسمية"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "إعادة تسمية لوحة المعلومات"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "حذف"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "حذف لوحة المعلومات"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s تنبيه للأجهزة المتوقفة"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s تنبيهات للأجهزة المتوقفة"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "الأجهزة"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "انتقل إلى صفحة إدارة الأجهزة"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "درجة الأهمية"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "مداخل خلفية الحجم"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "اقتضب"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "جميع الأشجار"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "الأجهزة خارج الشجرة"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "شجرة"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "جميع المواقع"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "الأجهزة خارج الموقع"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "المواقع"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "الأجهزة بدون قوالب"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "قالب"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "القوالب"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "الصفوف"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ تم حفظ إعدادات الفلتر ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "جارٍ التحميل..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "لوحات تفاصيل الجهاز"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ التحديث مرة أخرى خلال <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> ثانية ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "فلتر المراقبة [ آخر تحديث: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ عرض أول 30 جهازًا فقط ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "بحث"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "الفعاليات"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "كتم"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "اعترف"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "إلغاء الكتم"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "تمت إزالة لوحة المعلومات '%s'."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "لوحة المعلومات '%s' ليست مملوكة لك."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "تم حفظ لوحة المعلومات '%s'!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "تعذر حفظ لوحة المعلومات '%s'!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "تحرير الجهاز"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "عرض الرسوم البيانية"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "عرض العتبات/التنبيهات"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "عرض تنبيهات Syslog للجهاز"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "عرض إدخالات Syslog للجهاز"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "عرض فحص الخدمة الفاشل"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "معلومات حالة الجهاز"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "الجهاز:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "الموقع:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "موقعك:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "درجة الأهمية:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "الحالة:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "ملاحظة المسؤول:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "عنوان IP/اسم المستضيف:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "الحالي/المتوسط:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d جزء من الثانية"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "تحذير/تنبيه:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d مللي ثانية"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "آخر فشل:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "الوقت في الحالة:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "التوفر:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "مدة تشغيل الوكيل:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "N/A"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "وصف النظام:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "بيانتت اتصال:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "ملاحظات:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "أبدا"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "غير محدد"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "لا شيء"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP و Ping"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "وقت تشغيل SNMP"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "بينج (أمر)"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP أو Ping"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "جلب SysDesc عبر SNMP"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "استعلام SNMP Get Next"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "الطريقة %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "الوصف"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "اسم الخادم"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "الحالة"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "موضع، موقع، مقر"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "قالب الجهاز"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "الموقع"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "الملاحظات"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "معلومات المستضيف Host"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "طريقة التوفر"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f مللي ثانية"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Ping الحالي / المتوسط"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "أدنى / أقصى استجابة Ping"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "متوفر"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "إجمالي / فشل عمليات الاستفتاء"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "في الحالة الحالية منذ"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "آخر فشل"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "جمع البيانات"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "معطل"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "فاشل"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "لم يتم اختباره"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "موافق"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "فحوصات الخدمات"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "العتبة %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "تشغيل"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "العتبات"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "لا توجد رسائل Syslog خلال الساعة الأخيرة."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (آخر ساعة)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "فتح الجهاز الفعلي"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "روابط الجهاز"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "جهاز خارج الموقع"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "الفرع الجذري"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "شجرة: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "الفرع: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "غير معروف"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "عاد للعمل للتو"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "متوقف"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "يستردّ"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "متوقف (مكتوم/تم الإقرار)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "مُطلَق (M/A)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "تحذير Ping"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "تنبيه Ping"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "الخدمة الفاشلة"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "أفعال"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "فتح لوحات تفاصيل الجهاز"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "وصف الجهاز كما هو محدد في صفحة الأجهزة"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "الموقع الفعلي المسجل للجهاز"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "الموقع المعيّن له الجهاز"
+
+#: includes/render.php
+msgid "ID"
+msgstr "الهویة الشخصیة"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "معرّف الجهاز الداخلي في Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "أهمية المراقبة المعيّنة للجهاز"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "الأحداث النشطة على الجهاز (متوقف، مُفعّل، تحذير/تنبيه Ping، فشل خدمة، ...)؛ انقر على شارة لإضافة هذا الحدث إلى فلتر الأحداث أو إزالته منه"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "العتبات المتجاوزة / المُطلَقة / الإجمالية (ملحق thold) على الجهاز؛ انقر لتبديل فلتر الأحداث المُطلَقة"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "فحوصات الخدمة الفاشلة / الإجمالية (إضافة servcheck) للجهاز؛ انقر لتبديل فلتر حدث الخدمة الفاشلة"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "تحذير"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "عتبات التحذير / التنبيه لزمن استجابة Ping (مللي ثانية) المكونة لهذا الجهاز؛ يتم إصدار إشعار عندما يتجاوز زمن الاستجابة هذه العتبات"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "تمت إضافة المشرف"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "رسالة المراقبة الإدارية المعروضة أثناء توقف الجهاز أو استعادته"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "نسبة فحوصات التوفر الناجحة خلال السجل المحتفظ به"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "المتوسطات"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "زمن استجابة Ping الحالي / المتوسط بالمللي ثانية"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "المدة في الحالة"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "المدة التي قضاها الجهاز في حالته الحالية"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "تاريخ ووقت آخر فشل للجهاز في فحص التوافر"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "فلترة حسب درجة الأهمية هذه (انقر مرة أخرى للمسح)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "درجة الأهمية غير محددة - انقر لفلترة الأجهزة غير المحددة (انقر مرة أخرى للمسح)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "غير معيّن"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "انقر لإضافة هذا الحدث إلى الفلتر أو إزالته منه"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "العتبات المتجاوزة / المُطلَقة / الإجمالية - انقر لتبديل فلتر الأحداث المُطلَقة"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "لم يتم تعريف أي عتبات لهذا الجهاز"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "فحوصات الخدمة الفاشلة / الإجمالية - انقر لتبديل فلتر حدث الخدمة الفاشلة"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "لم يتم تعريف أي فحوصات خدمة لهذا الجهاز"
+
+#: monitor.php
+msgid "All"
+msgstr "الكل"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "منخفض"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "متوسط"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "عالي"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "بالغ الأهمية"
+
+#: monitor.php
+msgid "Up"
+msgstr "أعلى"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "مُطلَق (مكتوم/تم الإقرار)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "متوقف (مكتوم/تم الإقرار به)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "لا يوجد فحص للتوافر"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "تحذير Ping"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "فشل فحص الخدمة"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "صغير جداً"
+
+#: monitor.php
+msgid "Small"
+msgstr "صغير"
+
+#: monitor.php
+msgid "Large"
+msgstr "كبير"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "كبير جداً"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "تكبير"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "جميع الأجهزة المراقبة"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "جميع الاجهزة"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "الأجهزة غير المراقبة"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "الأجهزة بدون العتبات"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "الأجهزة بدون فحوصات الخدمة"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "الافتراضي"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "قائمة"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "البلاط"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "المربعات والوقت"
+
+#: monitor.php
+msgid "Full"
+msgstr "كامل"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "10 أحرف"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "20 حرفًا"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "30 حرفًا"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "40 حرفًا"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "50 حرفًا"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "75 حرفًا"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "100 حرف"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "الوصف: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "اسم المستضيف: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "سيحدد التقرير التالي الأجهزة التي تجاوزت عتبات زمن استجابة ping الخاصة بها. أنت تتلقى هذا التقرير لأنك مشترك في جهاز مرتبط بنظام Cacti الموجود على عنوان URL التالي أدناه."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "موقع مراقبة Cacti"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "ستتلقى إشعارات كل %d دقيقة إذا تجاوز الجهاز العتبة الخاصة به."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "ستتلقى إشعارات في كل مرة يتجاوز فيها الجهاز العتبة الخاصة به."
+
+#: setup.php
+msgid "Any"
+msgstr "الجميع"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "انقر على 'إستمرار' لتفعيل المراقبة على هذا الجهاز (هذه الأجهزة)"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "انقر على 'إستمرار' لتعطيل المراقبة على هذا الجهاز (هذه الأجهزة)"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "انقر على 'إستمرار' لتغيير إعدادات المراقبة للجهاز/الأجهزة التالية. تذكّر تحديد 'تحديث هذا الحقل' للإشارة إلى الأعمدة المراد تحديثها."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "قم بتحديث هذا الحقل"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "تغيير خيارات المراقبة"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "تفعيل المراقبة"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "تعطيل المراقبة"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "إلى ما لا نهاية"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "%d شهر"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d أشهر"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d سنة"
+
+#: setup.php
+msgid "Normal User"
+msgstr "المستخدم العادي"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "إعدادات المراقبة"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "صوت الإنذار"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "هذا هو الملف الصوتي الذي سيتم تشغيله عند توقف جهاز."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "تكرار صوت الإنذار"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "تشغيل الصوت أعلاه بشكل متكرر عند تعطل جهاز."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "إظهار وسيلة إيضاح الأيقونات"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "حدّد هذا الخيار لإظهار دليل الأيقونات في شاشة المراقبة"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "إظهار وقت التشغيل"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "حدّد هذا الخيار لإظهار وقت التشغيل (Uptime) في شاشة المراقبة"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "تكبير على الأخطاء"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "حدّد هذا الخيار للتكبير على العناصر التي بها أخطاء في شاشة المراقبة"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "خلفية التكبير"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "لون الخلفية للأخطاء المكبّرة في شاشة المراقبة"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "حجم خط التكبير"
+
+#: setup.php
+msgid "Monitor"
+msgstr "مراقبة"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "تفعيل على الأجهزة الجديدة"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "حدّد هذا الخيار لتفعيل المراقبة تلقائيًا عند إنشاء أجهزة جديدة"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "الاحتفاظ بسجل الإشعارات/إعادة التشغيل"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "الاحتفاظ بسجلات الإشعارات وإعادة التشغيل لهذا العدد من الأيام."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "الفاصل الزمني للتحديث"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "هذا هو الوقت بالثواني قبل تحديث الصفحة. (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "هذه هي الطريقة التي سيقوم بها المراقب بتجميع الأجهزة."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "الافتراضي مع الأذونات"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "هذه هي الطريقة التي سيقوم بها المراقب بعرض الأجهزة."
+
+#: setup.php
+msgid "Names only"
+msgstr "الأسماء فقط"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "المربعات ووقت التوقف"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "تنسيق تقرير الإشعارات"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "تنسيق ملف للاستخدام"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "اختر ملف html المخصص وملف CSS لاستخدامه. يحتوي هذا الملف على كل من html و CSS للتفاف حول تقريرك. إذا كان يحتوي على أكثر من مجرد CSS ، فستحتاج إلى وضع خاص <REPORT> علامة داخل الملف. سيتم استبدال علامة التنسيق هذه بمحتوى التقرير. توجد هذه الملفات في دليل &quot;التنسيقات&quot;."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "إشعارات عتبة Ping"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "إشعار تحذير زمن الاستجابة"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "إذا كان زمن استجابة Ping ذهاباً وإياباً لجهاز يتجاوز عتبة التحذير ويتجاوز مستوى الحرج أدناه، فستتلقى عناوين البريد الإلكتروني المشتركة في الجهاز إشعاراً عبر البريد الإلكتروني. اختر 'معطل' للتعطيل. يلزم وجود إضافة Thold لتفعيل هذه الميزة."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "إشعار زمن تأخير التنبيه"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "إذا كان زمن استجابة Ping ذهاباً وإياباً لجهاز يتجاوز عتبة التنبيه ويتجاوز مستوى الحرج أدناه، فستتلقى عناوين البريد الإلكتروني المشتركة في الجهاز إشعاراً عبر البريد الإلكتروني. اختر 'معطل' للتعطيل. يلزم وجود إضافة Thold لتفعيل هذه الميزة."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "معدل إعادة إرسال رسائل البريد الإلكتروني"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "كم مرة يجب إرسال إشعارات البريد الإلكتروني إلى المشتركين لهذه الأجهزة إذا كانت تتجاوز عتبات زمن الوصول الخاصة بها"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "كل حدوث"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "كل %d دقيقة"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "كل ساعة"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "كل %d ساعة"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "إشعارات إعادة التشغيل"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "إرسال إشعارات إعادة التشغيل"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "هل يجب إرسال إشعارات إعادة تشغيل الجهاز إلى المستخدمين؟"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "إرسال بريد إلكتروني واحد إلى جميع العناوين"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "إذا تم تحديده، فسيرسل النظام رسالة بريد إلكتروني واحدة فقط إلى جميع العناوين."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "تضمين قوائم تنبيهات العتبة"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "هل يجب أن تتلقى قوائم تنبيهات العتبة الإشعارات أيضًا"
+
+#: setup.php
+msgid "Subject"
+msgstr "الموضوع"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "أدخل موضوع رسالة إعادة التشغيل لإشعار إعادة التشغيل."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "إشعار إعادة تشغيل جهاز Cacti"
+
+#: setup.php
+msgid "Email Body"
+msgstr "هيئة البريد الإلكتروني"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "أدخل نص البريد الإلكتروني لتضمينه في رسالة إشعار إعادة التشغيل. حالياً، علامة الاستبدال الوحيدة المدعومة هي &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>إشعار إعادة تشغيل المراقب</h1><p>تمت إعادة تشغيل الأجهزة التالية. راجع التفاصيل أدناه للحصول على معلومات إضافية.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "عناوين البريد الإلكتروني للإشعارات"
+
+#: setup.php
+msgid "From Name"
+msgstr "اسم النموذج"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "أدخل اسم البريد الإلكتروني الذي سيتم إرسال الإشعارات منه"
+
+#: setup.php
+msgid "From Address"
+msgstr "كعنوان للبريد"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "أدخل عنوان البريد الإلكتروني الذي سيتم إرسال الإشعار منه"
+
+#: setup.php
+msgid "Notification List"
+msgstr "قائمة الإشعارات"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "اختر قائمة إشعارات أدناه. سيتم إخطار جميع عناوين البريد الإلكتروني المشتركة في قائمة الإشعارات."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "عنواين البريد الالكترونى"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "أدخل قائمة مفصولة بفواصل لعناوين البريد الإلكتروني للإبلاغ عن حدث إعادة التشغيل."
+
+#: setup.php
+msgid "Server"
+msgstr "الخادم"
+
+#: setup.php
+msgid "Printer"
+msgstr "طابعة"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "كمبيوتر مكتبي"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "كمبيوتر محمول / نوتبوك"
+
+#: setup.php
+msgid "Wifi"
+msgstr "واي فاي"
+
+#: setup.php
+msgid "Wired network"
+msgstr "شبكة سلكية"
+
+#: setup.php
+msgid "Database"
+msgstr "قاعدة البيانات"
+
+#: setup.php
+msgid "Clock"
+msgstr "الساعة"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "القرص الصلب"
+
+#: setup.php
+msgid "Boxes"
+msgstr "مربعات"
+
+#: setup.php
+msgid "Phone"
+msgstr "الهاتف"
+
+#: setup.php
+msgid "Cloud"
+msgstr "السحابة"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "عدم التغيير"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d بالمائة فوق المتوسط"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "إعدادات مراقبة الجهاز"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "مراقبة جهاز"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "حدّد هذا المربع لمراقبة هذا الجهاز في علامة تبويب المراقبة."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "درجة أهمية الجهاز"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "ما مدى أهمية هذا الجهاز."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "عتبة تحذير Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "إذا ارتفع زمن استجابة Ping ذهاباً وإياباً عبر أي من طرق Ping المحددة مسبقاً في Cacti فوق هذه العتبة، فقم بتسجيل تحذير أو إرسال بريد إلكتروني بناءً على مستوى حرج الأجهزة وإعداد المراقبة. الوحدة هي بالمللي ثانية. التعيين على 0 يعطل الميزة. يلزم وجود إضافة Thold للاستفادة من هذه الوظيفة."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "ميلي ثانية"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "عتبة تنبيه Ping"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "إذا ارتفع زمن استجابة Ping ذهاباً وإياباً عبر أي من طرق Ping المحددة مسبقاً في Cacti فوق هذه العتبة، فقم بتسجيل تنبيه أو إرسال بريد إلكتروني بناءً على مستوى حرج الأجهزة وإعداد المراقبة. الوحدة هي بالمللي ثانية. التعيين على 0 يعطل الميزة. يلزم وجود إضافة Thold للاستفادة من هذه الوظيفة."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "تحذير إعادة تعيين خط الأساس"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "النسبة المئوية فوق متوسط وقت ping الحالي التي تُعتبر عتبة تحذير. في حال التحديث، سيؤدي ذلك تلقائيًا إلى تعديل عتبة تحذير Ping."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "تنبيه إعادة تعيين خط الأساس"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "النسبة المئوية فوق متوسط وقت ping الحالي التي تُعتبر عتبة تنبيه. في حال التحديث، سيؤدي ذلك تلقائيًا إلى تعديل عتبة تنبيه Ping."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "رسالة الجهاز المتوقف"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "هذه هي الرسالة التي ستُعرض عند الإبلاغ عن توقف هذا الجهاز."
+
+#: setup.php
+msgid "Device icon"
+msgstr "أيقونة الجهاز"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "يمكنك تحديد أيقونة الجهاز."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "التوقعات"
+
