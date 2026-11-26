@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: French <https://translate.cacti.net/projects/cacti/monitor/fr/>\nLanguage: fr-FR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: French <https://translate.cacti.net/projects/cacti/monitor/fr/>\nLanguage: fr-FR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -357,7 +357,7 @@ msgstr "SNMP et Ping"
 
 #: includes/controller.php
 msgid "SNMP Uptime"
-msgstr "SNMP Uptime"
+msgstr "Temps de fonctionnement SNMP"
 
 #: includes/controller.php
 msgid "Ping"
@@ -369,7 +369,7 @@ msgstr "SNMP ou Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "Obtenir SysDesc SNMP"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
