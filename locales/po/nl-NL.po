@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/monitor/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Dutch <https://translate.cacti.net/projects/cacti/monitor/nl/>\nLanguage: nl-NL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -117,7 +117,7 @@ msgstr "Grootte"
 
 #: includes/controller.php
 msgid "Trim"
-msgstr "Trim"
+msgstr "Inkorten"
 
 #: includes/controller.php
 msgid "All Trees"
@@ -369,7 +369,7 @@ msgstr "SNMP of Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "SNMP SysDesc ophalen"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -513,7 +513,7 @@ msgstr "Hoofdtak"
 #: includes/render.php
 #, php-format
 msgid "Tree: %s"
-msgstr "Boomstructuur: %s"
+msgstr "Boom: %s"
 
 #: includes/render.php
 #, php-format
@@ -550,7 +550,7 @@ msgstr "Waarschuwingsping"
 
 #: includes/render.php monitor.php
 msgid "Alert Ping"
-msgstr "Waarschuwingsping"
+msgstr "Alarmping"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
@@ -742,7 +742,7 @@ msgstr "Alle bewaakte apparaten"
 
 #: monitor.php
 msgid "All Devices"
-msgstr "All Devices"
+msgstr "Alle apparaten"
 
 #: monitor.php
 msgid "Devices not Monitored"
@@ -831,7 +831,7 @@ msgstr "U ontvangt meldingen telkens wanneer het apparaat boven de drempelwaarde
 
 #: setup.php
 msgid "Any"
-msgstr "Alle"
+msgstr "Elke"
 
 #: setup.php
 msgid "Click 'Continue' to enable monitoring on these Device(s)"
@@ -1092,7 +1092,7 @@ msgstr "E-mail inhoud"
 
 #: setup.php
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Voer de e-mailtekst in voor het bericht van de herstartmelding. Momenteel is &#060;DETAILS&#062; de enige ondersteunde vervangingstag."
+msgstr "Voer de e-mailtekst in voor het bericht van de herstartmelding. Momenteel is &#060;DETAILS&#062; de enige ondersteunde vervangingstag"
 
 #: setup.php
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
@@ -1269,7 +1269,7 @@ msgstr "U kunt een apparaatpictogram selecteren."
 
 #: setup.php
 msgid "Monitoring"
-msgstr "Monitoring"
+msgstr "Bewaking"
 
 #, fuzzy
 #~ msgid "Not Monitored Devices"
