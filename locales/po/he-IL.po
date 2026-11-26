@@ -998,7 +998,7 @@ msgstr "פורמט קובץ לשימוש"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "בחר את עטיפת ה- HTML המותאמת אישית ואת קובץ ה- CSS לשימוש. קובץ זה מכיל הן HTML והן CSS לעטוף את הדוח שלך. אם הוא מכיל יותר מ CSS פשוט, אתה צריך מקום מיוחד <REPORT> בתוך הקובץ. תג פורמט זה יוחלף בתוכן הדוח. קבצים אלה נמצאים בספריה &#39;פורמטים&#39;."
+msgstr "בחר את עטיפת ה- HTML המותאמת אישית ואת קובץ ה- CSS לשימוש. קובץ זה מכיל הן HTML והן CSS לעטוף את הדוח שלך. אם הוא מכיל יותר מ CSS פשוט, אתה צריך מקום מיוחד <REPORT> בתוך הקובץ. תג פורמט זה יוחלף בתוכן הדוח. קבצים אלה נמצאים בספריה 'פורמטים'."
 
 #: setup.php
 msgid "Ping Threshold Notifications"

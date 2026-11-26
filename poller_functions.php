@@ -496,7 +496,7 @@ function buildPingNotificationIntro(mixed $freq): array {
 	$body     = '<h1>' . __(MONITOR_PING_NOTIFICATION_SUBJECT, 'monitor') . '</h1>' . PHP_EOL;
 	$body_txt = __(MONITOR_PING_NOTIFICATION_SUBJECT, 'monitor') . PHP_EOL;
 
-	$message = __('The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below.');
+	$message = __('The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below.', 'monitor');
 
 	$body .= '<p>' . $message . '</p>' . PHP_EOL;
 	$body_txt .= $message . PHP_EOL;

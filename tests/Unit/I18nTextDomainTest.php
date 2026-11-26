@@ -34,8 +34,6 @@ it('passes the monitor text domain to every translation helper call', function (
 	$known = [
 		// nav bar and list labels with no domain (one is the core 'Devices' label)
 		'includes/render.php' => 2,
-		// report e-mail paragraph
-		'poller_functions.php' => 1,
 		// core role name passed to auth_augment_roles()
 		'setup.php' => 1,
 	];
