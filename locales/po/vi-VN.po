@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Vietnamese <https://translate.cacti.net/projects/cacti/monitor/vi/>\nLanguage: vi-VN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Vietnamese <https://translate.cacti.net/projects/cacti/monitor/vi/>\nLanguage: vi-VN\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -129,7 +129,7 @@ msgstr "Thiết bị không thuộc cây"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Tree"
-msgstr "Cây thân gỗ"
+msgstr "Cây"
 
 #: includes/controller.php
 msgid "All Sites"
@@ -141,7 +141,7 @@ msgstr "Các thiết bị không thuộc địa điểm"
 
 #: includes/controller.php
 msgid "Sites"
-msgstr "Websites"
+msgstr "Các địa điểm"
 
 #: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
@@ -345,7 +345,7 @@ msgstr "Không bao giờ"
 
 #: includes/controller.php
 msgid "Unspecified"
-msgstr "Không xác định"
+msgstr "Không được chỉ định"
 
 #: includes/controller.php includes/render.php setup.php
 msgid "None"
@@ -369,7 +369,7 @@ msgstr "SNMP hoặc Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "Lấy SysDesc qua SNMP"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -742,7 +742,7 @@ msgstr "Tất cả thiết bị được giám sát"
 
 #: monitor.php
 msgid "All Devices"
-msgstr "Thiết bị có sẵn"
+msgstr "Tất cả thiết bị"
 
 #: monitor.php
 msgid "Devices not Monitored"
