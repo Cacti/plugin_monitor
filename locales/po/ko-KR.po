@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Korean <https://translate.cacti.net/projects/cacti/monitor/ko/>\nLanguage: ko-KR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Korean <https://translate.cacti.net/projects/cacti/monitor/ko/>\nLanguage: ko-KR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -369,7 +369,7 @@ msgstr "SNMP 또는 Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "SNMP로 SysDesc 가져오기"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -910,7 +910,7 @@ msgstr "아이콘 범례 표시"
 
 #: setup.php
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "모니터 화면에 아이콘 범례를 표시하려면 이 옵션을 선택하십시오."
+msgstr "모니터 화면에 아이콘 범례를 표시하려면 이 옵션을 선택하십시오"
 
 #: setup.php
 msgid "Show Uptime"
@@ -918,7 +918,7 @@ msgstr "가동 시간 표시"
 
 #: setup.php
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "모니터 화면에 가동 시간(Uptime)을 표시하려면 이 옵션을 선택하십시오."
+msgstr "모니터 화면에 가동 시간(Uptime)을 표시하려면 이 옵션을 선택하십시오"
 
 #: setup.php
 msgid "Zoom to Errors"
@@ -926,7 +926,7 @@ msgstr "오류로 확대"
 
 #: setup.php
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "모니터 화면에서 오류가 발생한 항목을 확대 표시하려면 이 옵션을 선택하십시오."
+msgstr "모니터 화면에서 오류가 발생한 항목을 확대 표시하려면 이 옵션을 선택하십시오"
 
 #: setup.php
 msgid "Zoom Background"
@@ -950,7 +950,7 @@ msgstr "새 장치에서 활성화"
 
 #: setup.php
 msgid "Check this to automatically enable monitoring when creating new devices"
-msgstr "새 장치를 생성할 때 모니터링을 자동으로 활성화하려면 이 옵션을 선택하십시오."
+msgstr "새 장치를 생성할 때 모니터링을 자동으로 활성화하려면 이 옵션을 선택하십시오"
 
 #: setup.php
 msgid "Notification/Reboot Log Retention"
