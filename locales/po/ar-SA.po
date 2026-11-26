@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:22+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/monitor/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Arabic (Saudi Arabia) <https://translate.cacti.net/projects/cacti/monitor/ar_SA/>\nLanguage: ar-SA\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -43,7 +43,7 @@ msgstr "التجميع"
 
 #: includes/controller.php
 msgid "Refresh"
-msgstr "تحديث"
+msgstr "إنعاش"
 
 #: includes/controller.php
 msgid "Refresh the Device List"
@@ -513,7 +513,7 @@ msgstr "الفرع الجذري"
 #: includes/render.php
 #, php-format
 msgid "Tree: %s"
-msgstr "شجرة: %s"
+msgstr "الشجرة: %s"
 
 #: includes/render.php
 #, php-format
@@ -650,7 +650,7 @@ msgstr "الأهمية غير محددة - انقر لتصفية الأجهزة 
 
 #: includes/render.php
 msgid "Not Set"
-msgstr "غير مضبوط"
+msgstr "غير معين"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
@@ -1044,7 +1044,7 @@ msgstr "كل ساعة"
 #: setup.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "كل %d ساعة"
+msgstr "كل %d ساعات"
 
 #: setup.php
 msgid "Reboot Notifications"
