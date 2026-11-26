@@ -13,6 +13,10 @@
 */
 
 beforeAll(function () {
+	if (!defined('MONITOR_PING_NOTIFICATION_SUBJECT')) {
+		define('MONITOR_PING_NOTIFICATION_SUBJECT', 'Cacti Monitor Plugin Ping Threshold Notification');
+	}
+
 	require_once __DIR__ . '/../../poller_functions.php';
 });
 

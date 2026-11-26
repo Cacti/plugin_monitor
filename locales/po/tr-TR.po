@@ -1092,7 +1092,7 @@ msgstr "E-posta Gövdesi"
 
 #: setup.php
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Yeniden Başlatma Bildirimi mesajına eklenecek bir e-posta gövdesi girin. Şu anda kabul edilen tek desteklenen değiştirme etiketi &#060;DETAILS&#062; şeklindedir"
+msgstr "Yeniden Başlatma Bildirimi mesajına eklenecek bir e-posta gövdesi girin. Şu anda kabul edilen tek desteklenen değiştirme etiketi: &#060;DETAILS&#062;"
 
 #: setup.php
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"

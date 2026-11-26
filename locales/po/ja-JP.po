@@ -1092,7 +1092,7 @@ msgstr "Eメールの本文"
 
 #: setup.php
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "再起動通知メッセージに含めるメール本文を入力してください。現在サポートされている置換タグは &#060;DETAILS&#062; のみです。"
+msgstr "再起動通知メッセージに含めるメール本文を入力してください。現在サポートされている唯一の置換タグは &#060;DETAILS&#062;"
 
 #: setup.php
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
