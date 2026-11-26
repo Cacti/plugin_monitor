@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/monitor/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Hebrew (Israel) <https://translate.cacti.net/projects/cacti/monitor/he_IL/>\nLanguage: he-IL\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -267,7 +267,7 @@ msgstr "התקן:"
 
 #: includes/controller.php
 msgid "Site:"
-msgstr "אתר"
+msgstr "אתר:"
 
 #: includes/controller.php
 msgid "Location:"
@@ -325,7 +325,7 @@ msgstr "זמן פעילות הסוכן:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
-msgstr "לא זמין"
+msgstr "לא רלוונטי"
 
 #: includes/controller.php
 msgid "Sys Description:"
@@ -455,7 +455,7 @@ msgstr "איסוף נתונים"
 
 #: includes/controller.php monitor.php poller_functions.php setup.php
 msgid "Disabled"
-msgstr "לא זמין"
+msgstr "מושבת"
 
 #: includes/controller.php
 msgid "Failing"
@@ -831,7 +831,7 @@ msgstr "תקבל התראות בכל פעם שההתקן נמצא מעל לסף 
 
 #: setup.php
 msgid "Any"
-msgstr "הכל"
+msgstr "כלשהו"
 
 #: setup.php
 msgid "Click 'Continue' to enable monitoring on these Device(s)"
