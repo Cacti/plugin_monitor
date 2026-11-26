@@ -1,0 +1,1287 @@
+# Serbian translation for Cacti.
+# Copyright (C) 2004-2026 The Cacti Group
+# This file is distributed under the same license as the Cacti package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cacti\n"
+"Report-Msgid-Bugs-To: developers@cacti.net\n"
+"POT-Creation-Date: 2026-10-11 17:03-0400\n"
+"PO-Revision-Date: 2026-11-26 18:57+0000\n"
+"Last-Translator: Thomas Vincent <thomasvincent@gmail.com>\n"
+"Language-Team: Serbian <developers@cacti.net>\n"
+"Language: sr-RS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#: includes/controller.php
+msgid "New Dashboard"
+msgstr "Нова контролна табла"
+
+#: includes/controller.php
+msgid "Dashboard"
+msgstr "Контролна табла"
+
+#: includes/controller.php
+msgid "Enter the Dashboard Name and then press 'Save' to continue, else press 'Cancel'"
+msgstr "Унесите назив контролне табле, а затим притисните 'Сачувај' да бисте наставили, или притисните 'Откажи'"
+
+#: includes/controller.php
+msgid "Create New Dashboard"
+msgstr "Креирај нову контролну таблу"
+
+#: includes/controller.php includes/render.php
+msgid "Monitored Devices"
+msgstr "Надгледани уређаји"
+
+#: includes/controller.php
+msgid "Unsaved"
+msgstr "Несачувано"
+
+#: includes/controller.php
+msgid "Layout"
+msgstr "Распоред"
+
+#: includes/controller.php
+msgid "Show"
+msgstr "Прикажи"
+
+#: includes/controller.php setup.php
+msgid "View"
+msgstr "Прикажи"
+
+#: includes/controller.php setup.php
+msgid "Grouping"
+msgstr "Груписање"
+
+#: includes/controller.php
+msgid "Refresh"
+msgstr "Освежи"
+
+#: includes/controller.php
+msgid "Refresh the Device List"
+msgstr "Освежи листу уређаја"
+
+#: includes/controller.php
+msgid "Clear"
+msgstr "Очисти"
+
+#: includes/controller.php
+msgid "Clear the set filter"
+msgstr "Очисти постављени филтер"
+
+#: includes/controller.php
+msgid "Save"
+msgstr "Сачувај"
+
+#: includes/controller.php
+msgid "Save Filter Settings"
+msgstr "Сачувај подешавања филтера"
+
+#: includes/controller.php
+msgid "New"
+msgstr "Ново"
+
+#: includes/controller.php
+msgid "Save New Dashboard"
+msgstr "Сачувај нову контролну таблу"
+
+#: includes/controller.php
+msgid "Rename"
+msgstr "Преименуј"
+
+#: includes/controller.php
+msgid "Rename Dashboard"
+msgstr "Преименуј контролну таблу"
+
+#: includes/controller.php
+msgid "Delete"
+msgstr "Обриши"
+
+#: includes/controller.php
+msgid "Delete Dashboard"
+msgstr "Обриши контролну таблу"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alert for downed Devices"
+msgstr "%s упозорење за недоступне уређаје"
+
+#: includes/controller.php
+#, php-format
+msgid "%s Alerts for downed Devices"
+msgstr "%s упозорења за недоступне уређаје"
+
+#: includes/controller.php includes/render.php
+msgid "Devices"
+msgstr "Уређаји"
+
+#: includes/controller.php
+msgid "Go to the Devices management page"
+msgstr "Иди на страницу за управљање уређајима"
+
+#: includes/controller.php includes/render.php poller_functions.php setup.php
+msgid "Criticality"
+msgstr "Критичност"
+
+#: includes/controller.php
+msgid "Size"
+msgstr "Величина"
+
+#: includes/controller.php
+msgid "Trim"
+msgstr "Скрати"
+
+#: includes/controller.php
+msgid "All Trees"
+msgstr "Сва стабла"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Tree Devices"
+msgstr "Уређаји ван стабла"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Tree"
+msgstr "Стабло"
+
+#: includes/controller.php
+msgid "All Sites"
+msgstr "Све локације"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Site Devices"
+msgstr "Уређаји ван локације"
+
+#: includes/controller.php
+msgid "Sites"
+msgstr "Локације"
+
+#: includes/controller.php includes/render.php
+msgid "Non-Templated Devices"
+msgstr "Уређаји без шаблона"
+
+#: includes/controller.php
+msgid "Template"
+msgstr "Шаблон"
+
+#: includes/controller.php
+msgid "Templates"
+msgstr "Шаблони"
+
+#: includes/controller.php
+msgid "Rows"
+msgstr "Редови"
+
+#: includes/controller.php
+msgid " [ Filter Settings Saved ]"
+msgstr " [ Подешавања филтера су сачувана ]"
+
+#: includes/controller.php
+msgid "Cancel"
+msgstr "Откажи"
+
+#: includes/controller.php
+msgid "Loading..."
+msgstr "Учитавање..."
+
+#: includes/controller.php includes/render.php
+msgid "Device Detail Panels"
+msgstr "Панели са детаљима уређаја"
+
+#: includes/controller.php
+#, php-format
+msgid " [ Refresh Again in <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> Seconds ]"
+msgstr " [ Поновно освежавање за <i style=\"padding:0px !important;margin:0px;\" id=\"timer\">%d</i> секунди ]"
+
+#: includes/controller.php
+#, php-format
+msgid "Monitor Filter [ Last Refresh: %s ]"
+msgstr "Филтер надзора [ Последње освежавање: %s ]"
+
+#: includes/controller.php
+msgid "[ Showing only first 30 Devices ]"
+msgstr "[ Приказује се само првих 30 уређаја ]"
+
+#: includes/controller.php
+msgid "Search"
+msgstr "Претражи"
+
+#: includes/controller.php includes/render.php
+msgid "Events"
+msgstr "Догађаји"
+
+#: includes/controller.php
+msgid "Mute"
+msgstr "Утишај"
+
+#: includes/controller.php
+msgid "Acknowledge"
+msgstr "Потврди"
+
+#: includes/controller.php
+msgid "Un-Mute"
+msgstr "Укини утишавање"
+
+#: includes/controller.php
+msgid "Reset"
+msgstr "Ресетуј"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' Removed."
+msgstr "Контролна табла '%s' је уклоњена."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' is not owned by you."
+msgstr "Контролна табла '%s' није у вашем власништву."
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' has been Saved!"
+msgstr "Контролна табла '%s' је сачувана!"
+
+#: includes/controller.php
+#, php-format
+msgid "Dashboard '%s' could not be Saved!"
+msgstr "Контролна табла '%s' није могла бити сачувана!"
+
+#: includes/controller.php includes/render.php
+msgid "Edit Device"
+msgstr "Уреди уређај"
+
+#: includes/controller.php includes/render.php
+msgid "View Graphs"
+msgstr "Преглед графикона"
+
+#: includes/controller.php
+msgid "View Thresholds/Alerts"
+msgstr "Прикажи прагове/аларме"
+
+#: includes/controller.php
+msgid "View Device Syslog Alerts"
+msgstr "Прикажи Syslog аларме уређаја"
+
+#: includes/controller.php
+msgid "View Device Syslog Entries"
+msgstr "Прикажи Syslog ставке уређаја"
+
+#: includes/controller.php
+msgid "View Failing Service Check"
+msgstr "Прикажи неуспелу проверу сервиса"
+
+#: includes/controller.php
+msgid "Device Status Information"
+msgstr "Информације о статусу уређаја"
+
+#: includes/controller.php
+msgid "Device:"
+msgstr "Уређај:"
+
+#: includes/controller.php
+msgid "Site:"
+msgstr "Локација:"
+
+#: includes/controller.php
+msgid "Location:"
+msgstr "Локација:"
+
+#: includes/controller.php
+msgid "Criticality:"
+msgstr "Критичност:"
+
+#: includes/controller.php
+msgid "Status:"
+msgstr "Статус:"
+
+#: includes/controller.php
+msgid "Admin Note:"
+msgstr "Напомена администратора:"
+
+#: includes/controller.php
+msgid "IP/Hostname:"
+msgstr "IP/Назив хоста:"
+
+#: includes/controller.php
+msgid "Curr/Avg:"
+msgstr "Тренутно/Просек:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%d ms"
+msgstr "%d мс"
+
+#: includes/controller.php
+msgid "Warn/Alert:"
+msgstr "Упозорење/Аларм:"
+
+#: includes/controller.php includes/render.php
+#, php-format
+msgid "%0.2d ms"
+msgstr "%0.2d мс"
+
+#: includes/controller.php
+msgid "Last Fail:"
+msgstr "Последњи неуспех:"
+
+#: includes/controller.php
+msgid "Time In State:"
+msgstr "Време у стању:"
+
+#: includes/controller.php
+msgid "Availability:"
+msgstr "Доступност:"
+
+#: includes/controller.php
+msgid "Agent Uptime:"
+msgstr "Време рада агента:"
+
+#: includes/controller.php includes/render.php
+msgid "N/A"
+msgstr "Н/Д"
+
+#: includes/controller.php
+msgid "Sys Description:"
+msgstr "Опис система:"
+
+#: includes/controller.php
+msgid "Contact:"
+msgstr "Контакт:"
+
+#: includes/controller.php
+msgid "Notes:"
+msgstr "Напомене:"
+
+#: includes/controller.php includes/render.php
+msgid "Never"
+msgstr "Никада"
+
+#: includes/controller.php
+msgid "Unspecified"
+msgstr "Неодређено"
+
+#: includes/controller.php includes/render.php setup.php
+msgid "None"
+msgstr "Ниједан"
+
+#: includes/controller.php
+msgid "SNMP and Ping"
+msgstr "SNMP и пинг"
+
+#: includes/controller.php
+msgid "SNMP Uptime"
+msgstr "SNMP време рада"
+
+#: includes/controller.php
+msgid "Ping"
+msgstr "Пинг"
+
+#: includes/controller.php
+msgid "SNMP or Ping"
+msgstr "SNMP или пинг"
+
+#: includes/controller.php
+msgid "SNMP Get SysDesc"
+msgstr "SNMP преузми SysDesc"
+
+#: includes/controller.php
+msgid "SNMP Get Next"
+msgstr "SNMP преузми следеће"
+
+#: includes/controller.php
+#, php-format
+msgid "Method %d"
+msgstr "Метод %d"
+
+#: includes/controller.php includes/render.php poller_functions.php
+msgid "Description"
+msgstr "Опис"
+
+#: includes/controller.php poller_functions.php
+msgid "Hostname"
+msgstr "Име домаћина"
+
+#: includes/controller.php
+msgid "Status"
+msgstr "Статус"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Site"
+msgstr "Локација"
+
+#: includes/controller.php monitor.php setup.php
+msgid "Device Template"
+msgstr "Шаблон уређаја"
+
+#: includes/controller.php includes/render.php
+msgid "Location"
+msgstr "Локација"
+
+#: includes/controller.php
+msgid "Contact"
+msgstr "Контакт"
+
+#: includes/controller.php
+msgid "Notes"
+msgstr "Напомене"
+
+#: includes/controller.php
+msgid "Host Information"
+msgstr "Информације о хосту"
+
+#: includes/controller.php
+msgid "Availability Method"
+msgstr "Метод провере доступности"
+
+#: includes/controller.php
+#, php-format
+msgid "%0.2f ms"
+msgstr "%0.2f мс"
+
+#: includes/controller.php
+msgid "Current / Average Ping"
+msgstr "Тренутни / Просечни пинг"
+
+#: includes/controller.php
+msgid "Min / Max Ping"
+msgstr "Мин / Макс пинг"
+
+#: includes/controller.php includes/render.php
+msgid "Availability"
+msgstr "Доступност"
+
+#: includes/controller.php
+msgid "Total / Failed Polls"
+msgstr "Укупно / Неуспешних упита"
+
+#: includes/controller.php
+msgid "In Current Status Since"
+msgstr "У тренутном статусу од"
+
+#: includes/controller.php includes/render.php
+msgid "Last Fail"
+msgstr "Последњи неуспех"
+
+#: includes/controller.php
+msgid "Data Collection"
+msgstr "Прикупљање података"
+
+#: includes/controller.php monitor.php poller_functions.php setup.php
+msgid "Disabled"
+msgstr "Онемогућено"
+
+#: includes/controller.php
+msgid "Failing"
+msgstr "Неуспешно"
+
+#: includes/controller.php
+msgid "Not tested"
+msgstr "Није тестирано"
+
+#: includes/controller.php
+msgid "OK"
+msgstr "У реду"
+
+#: includes/controller.php includes/render.php
+msgid "Service Checks"
+msgstr "Провере сервиса"
+
+#: includes/controller.php
+#, php-format
+msgid "Threshold %d"
+msgstr "Праг %d"
+
+#: includes/controller.php includes/render.php monitor.php
+msgid "Triggered"
+msgstr "Активирано"
+
+#: includes/controller.php includes/render.php
+msgid "Thresholds"
+msgstr "Прагови"
+
+#: includes/controller.php
+msgid "No syslog messages in the last hour."
+msgstr "Нема Syslog порука у последњем сату."
+
+#: includes/controller.php
+msgid "Syslog (last hour)"
+msgstr "Syslog (последњи сат)"
+
+#: includes/controller.php
+msgid "Open Actual Device"
+msgstr "Отвори стварни уређај"
+
+#: includes/controller.php
+msgid "Device Links"
+msgstr "Везе уређаја"
+
+#: includes/render.php
+msgid "Non-Site Device"
+msgstr "Уређај ван локације"
+
+#: includes/render.php
+msgid "Root Branch"
+msgstr "Корена грана"
+
+#: includes/render.php
+#, php-format
+msgid "Tree: %s"
+msgstr "Стабло: %s"
+
+#: includes/render.php
+#, php-format
+msgid "Branch: %s"
+msgstr "Грана: %s"
+
+#: includes/render.php monitor.php
+msgid "Unknown"
+msgstr "Непознато"
+
+#: includes/render.php
+msgid "Just Up"
+msgstr "Управо доступан"
+
+#: includes/render.php monitor.php
+msgid "Down"
+msgstr "Недоступан"
+
+#: includes/render.php monitor.php
+msgid "Recovering"
+msgstr "Опоравак"
+
+#: includes/render.php monitor.php
+msgid "Down (M/A)"
+msgstr "Недоступан (М/А)"
+
+#: includes/render.php monitor.php
+msgid "Triggered (M/A)"
+msgstr "Активиран (М/А)"
+
+#: includes/render.php monitor.php
+msgid "Warn Ping"
+msgstr "Пинг упозорење"
+
+#: includes/render.php monitor.php
+msgid "Alert Ping"
+msgstr "Пинг аларм"
+
+#: includes/render.php monitor.php
+msgid "Failed Svc"
+msgstr "Неуспео сервис"
+
+#: includes/render.php
+msgid "Actions"
+msgstr "Радње"
+
+#: includes/render.php
+msgid "Open the device detail panels"
+msgstr "Отвори панеле са детаљима уређаја"
+
+#: includes/render.php
+msgid "Device description as set on the Devices page"
+msgstr "Опис уређаја како је подешен на страници Уређаји"
+
+#: includes/render.php
+msgid "Physical location recorded for the device"
+msgstr "Физичка локација забележена за уређај"
+
+#: includes/render.php
+msgid "Site the device is assigned to"
+msgstr "Локација којој је уређај додељен"
+
+#: includes/render.php
+msgid "ID"
+msgstr "ID"
+
+#: includes/render.php
+msgid "Cacti internal device id"
+msgstr "Интерни ID уређаја у систему Cacti"
+
+#: includes/render.php
+msgid "Monitoring criticality assigned to the device"
+msgstr "Критичност надзора додељена уређају"
+
+#: includes/render.php
+msgid "Active events on the device (Down, Triggered, Warn/Alert Ping, Failed Svc, ...); click a pill to add or remove that event from the Events filter"
+msgstr "Активни догађаји на уређају (Недоступан, Активиран, Пинг упозорење/аларм, Неуспео сервис, ...); кликните на ознаку да додате или уклоните тај догађај из филтера Догађаји"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds (thold plugin) on the device; click to toggle the Triggered event filter"
+msgstr "Прекршени / Активирани / Укупни прагови (прикључак Thold) на уређају; кликните да укључите или искључите филтер догађаја Активиран"
+
+#: includes/render.php
+msgid "Failed / Total service checks (servcheck plugin) for the device; click to toggle the Failed Svc event filter"
+msgstr "Неуспеле / Укупне провере сервиса (прикључак ServCheck) за уређај; кликните да укључите или искључите филтер догађаја Неуспео сервис"
+
+#: includes/render.php
+msgid "Warning"
+msgstr "Упозорење"
+
+#: includes/render.php
+msgid "Ping latency Warning / Alert thresholds (ms) configured for this device; a notification is raised when the response time crosses them"
+msgstr "Прагови упозорења / аларма кашњења пинга (мс) подешени за овај уређај; обавештење се генерише када их време одзива пређе"
+
+#: includes/render.php
+msgid "Admin"
+msgstr "Администратор"
+
+#: includes/render.php
+msgid "Administrative monitor message shown while the device is Down or Recovering"
+msgstr "Администраторска порука надзора која се приказује док је уређај Недоступан или у Опоравку"
+
+#: includes/render.php
+msgid "Percentage of successful availability checks over the retained history"
+msgstr "Проценат успешних провера доступности током сачуване историје"
+
+#: includes/render.php
+msgid "Averages"
+msgstr "Просеци"
+
+#: includes/render.php
+msgid "Current / average ping response time in milliseconds"
+msgstr "Тренутно / просечно време одзива пинга у милисекундама"
+
+#: includes/render.php
+msgid "Length in Status"
+msgstr "Трајање у статусу"
+
+#: includes/render.php
+msgid "How long the device has been in its current status"
+msgstr "Колико дуго је уређај у свом тренутном статусу"
+
+#: includes/render.php
+msgid "Date and time the device last failed its availability check"
+msgstr "Датум и време када уређај последњи пут није прошао проверу доступности"
+
+#: includes/render.php
+msgid "Filter by this criticality (click again to clear)"
+msgstr "Филтрирај по овој критичности (кликните поново да поништите)"
+
+#: includes/render.php
+msgid "Criticality not set - click to filter unset devices (click again to clear)"
+msgstr "Критичност није подешена - кликните да филтрирате неподешене уређаје (кликните поново да поништите)"
+
+#: includes/render.php
+msgid "Not Set"
+msgstr "Није постављено"
+
+#: includes/render.php
+msgid "Click to add or remove this event from the filter"
+msgstr "Кликните да додате или уклоните овај догађај из филтера"
+
+#: includes/render.php
+msgid "Breached / Triggered / Total thresholds - click to toggle the Triggered event filter"
+msgstr "Прекршени / Активирани / Укупни прагови - кликните да укључите или искључите филтер догађаја Активиран"
+
+#: includes/render.php
+msgid "No thresholds defined for this device"
+msgstr "Нема дефинисаних прагова за овај уређај"
+
+#: includes/render.php
+msgid "Failed / Total service checks - click to toggle the Failed Svc event filter"
+msgstr "Неуспеле / Укупне провере сервиса - кликните да укључите или искључите филтер догађаја Неуспео сервис"
+
+#: includes/render.php
+msgid "No service checks defined for this device"
+msgstr "Нема дефинисаних провера сервиса за овај уређај"
+
+#: monitor.php
+msgid "All"
+msgstr "Све"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Low"
+msgstr "Низак"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Medium"
+msgstr "Средње"
+
+#: monitor.php poller_functions.php setup.php
+msgid "High"
+msgstr "Висок"
+
+#: monitor.php poller_functions.php setup.php
+msgid "Mission Critical"
+msgstr "Критичан за мисију"
+
+#: monitor.php
+msgid "Up"
+msgstr "Доступан"
+
+#: monitor.php
+msgid "Triggered (Muted/Acked)"
+msgstr "Активиран (Утишан/Потврђен)"
+
+#: monitor.php
+msgid "Down (Muted/Acked)"
+msgstr "Недоступан (Утишан/Потврђен)"
+
+#: monitor.php
+msgid "No Availability Check"
+msgstr "Без провере доступности"
+
+#: monitor.php
+msgid "Warning Ping"
+msgstr "Пинг упозорење"
+
+#: monitor.php
+msgid "Service Check Failed"
+msgstr "Провера сервиса није успела"
+
+#: monitor.php
+msgid "Extra Small"
+msgstr "Веома мали"
+
+#: monitor.php
+msgid "Small"
+msgstr "Мали"
+
+#: monitor.php
+msgid "Large"
+msgstr "Велики"
+
+#: monitor.php
+msgid "Extra Large"
+msgstr "Веома велики"
+
+#: monitor.php
+msgid "Zoom"
+msgstr "Увећање"
+
+#: monitor.php
+msgid "All Monitored Devices"
+msgstr "Сви надгледани уређаји"
+
+#: monitor.php
+msgid "All Devices"
+msgstr "Сви уређаји"
+
+#: monitor.php
+msgid "Devices not Monitored"
+msgstr "Уређаји који се не надгледају"
+
+#: monitor.php
+msgid "Devices without Thresholds"
+msgstr "Уређаји без прагова"
+
+#: monitor.php
+msgid "Devices without Service Checks"
+msgstr "Уређаји без провера сервиса"
+
+#: monitor.php setup.php
+msgid "Default"
+msgstr "Подразумевано"
+
+#: monitor.php setup.php
+msgid "List"
+msgstr "Листа"
+
+#: monitor.php setup.php
+msgid "Tiles"
+msgstr "Плочице"
+
+#: monitor.php
+msgid "Tiles & Time"
+msgstr "Плочице и време"
+
+#: monitor.php
+msgid "Full"
+msgstr "Комплетно"
+
+#: monitor.php
+msgid "10 Chars"
+msgstr "10 знакова"
+
+#: monitor.php
+msgid "20 Chars"
+msgstr "20 знакова"
+
+#: monitor.php
+msgid "30 Chars"
+msgstr "30 знакова"
+
+#: monitor.php
+msgid "40 Chars"
+msgstr "40 знакова"
+
+#: monitor.php
+msgid "50 Chars"
+msgstr "50 знакова"
+
+#: monitor.php
+msgid "75 Chars"
+msgstr "75 знакова"
+
+#: monitor.php
+msgid "100 Chars"
+msgstr "100 знакова"
+
+#: poller_functions.php
+msgid "Description: "
+msgstr "Опис: "
+
+#: poller_functions.php
+msgid "Hostname: "
+msgstr "Назив хоста: "
+
+#: poller_functions.php
+msgid "The following report will identify Devices that have eclipsed their ping latency thresholds.  You are receiving this report since you are subscribed to a Device associated with the Cacti system located at the following URL below."
+msgstr "Следећи извештај ће приказати уређаје који су премашили своје прагове кашњења пинга. Овај извештај добијате јер сте пријављени на уређај повезан са Cacti системом који се налази на следећој URL адреси испод."
+
+#: poller_functions.php
+msgid "Cacti Monitoring Site"
+msgstr "Cacti сајт за надгледање"
+
+#: poller_functions.php
+#, php-format
+msgid "You will receive notifications every %d minutes if the Device is above its threshold."
+msgstr "Добијаћете обавештења сваких %d минута ако је уређај изнад свог прага."
+
+#: poller_functions.php
+msgid "You will receive notifications every time the Device is above its threshold."
+msgstr "Добијаћете обавештења сваки пут када је уређај изнад свог прага."
+
+#: setup.php
+msgid "Any"
+msgstr "Било који"
+
+#: setup.php
+msgid "Click 'Continue' to enable monitoring on these Device(s)"
+msgstr "Кликните на 'Настави' да бисте омогућили надгледање за овај/ове уређај(е)"
+
+#: setup.php
+msgid "Click 'Continue' to disable monitoring on these Device(s)"
+msgstr "Кликните на 'Настави' да бисте онемогућили надгледање за овај/ове уређај(е)"
+
+#: setup.php
+msgid "Click 'Continue' to Change the Monitoring settings for the following Device(s). Remember to check 'Update this Field' to indicate which columns to update."
+msgstr "Кликните на 'Настави' да бисте променили подешавања надгледања за следећи/следеће уређај(е). Не заборавите да означите 'Ажурирај ово поље' да бисте назначили које колоне треба ажурирати."
+
+#: setup.php
+msgid "Update this Field"
+msgstr "Ажурирај ово поље"
+
+#: setup.php
+msgid "Change Monitoring Options"
+msgstr "Промени опције надгледања"
+
+#: setup.php
+msgid "Enable Monitoring"
+msgstr "Омогући надгледање"
+
+#: setup.php
+msgid "Disable Monitoring"
+msgstr "Онемогући надгледање"
+
+#: setup.php
+msgid "Indefinitely"
+msgstr "Неограничено"
+
+#: setup.php
+#, php-format
+msgid "%d Month"
+msgstr "%d месец"
+
+#: setup.php
+#, php-format
+msgid "%d Months"
+msgstr "%d месеци"
+
+#: setup.php
+#, php-format
+msgid "%d Year"
+msgstr "%d година"
+
+#: setup.php
+msgid "Normal User"
+msgstr "Обичан корисник"
+
+#: setup.php
+msgid "Monitor Settings"
+msgstr "Подешавања монитора"
+
+#: setup.php
+msgid "Alarm Sound"
+msgstr "Звук аларма"
+
+#: setup.php
+msgid "This is the sound file that will be played when a Device goes down."
+msgstr "Ово је звучна датотека која ће се репродуковати када уређај постане недоступан."
+
+#: setup.php
+msgid "Loop Alarm Sound"
+msgstr "Понављај звук аларма"
+
+#: setup.php
+msgid "Play the above sound on a loop when a Device goes down."
+msgstr "Репродукуј горњи звук у петљи када уређај постане недоступан."
+
+#: setup.php
+msgid "Show Icon Legend"
+msgstr "Прикажи легенду икона"
+
+#: setup.php
+msgid "Check this to show an icon legend on the Monitor display"
+msgstr "Означите ово да бисте приказали легенду икона на приказу Монитора"
+
+#: setup.php
+msgid "Show Uptime"
+msgstr "Прикажи време непрекидног рада"
+
+#: setup.php
+msgid "Check this to show Uptime on the Monitor display"
+msgstr "Означите ово да бисте приказали време непрекидног рада на приказу Монитора"
+
+#: setup.php
+msgid "Zoom to Errors"
+msgstr "Увећај грешке"
+
+#: setup.php
+msgid "Check this to zoom to errored items on the Monitor display"
+msgstr "Означите ово да бисте увећали ставке са грешкама на приказу Монитора"
+
+#: setup.php
+msgid "Zoom Background"
+msgstr "Позадина увећања"
+
+#: setup.php
+msgid "Background Color for Zoomed Errors on the Monitor display"
+msgstr "Боја позадине за увећане грешке на приказу Монитора"
+
+#: setup.php
+msgid "Zoom Fontsize"
+msgstr "Величина фонта при увећању"
+
+#: setup.php
+msgid "Monitor"
+msgstr "Монитор"
+
+#: setup.php
+msgid "Enable on new devices"
+msgstr "Омогући на новим уређајима"
+
+#: setup.php
+msgid "Check this to automatically enable monitoring when creating new devices"
+msgstr "Означите ово да бисте аутоматски омогућили надгледање приликом креирања нових уређаја"
+
+#: setup.php
+msgid "Notification/Reboot Log Retention"
+msgstr "Чување дневника обавештења/поновног покретања"
+
+#: setup.php
+msgid "Keep Notification and Reboot Logs for this number of days."
+msgstr "Чувај дневнике обавештења и поновног покретања оволико дана."
+
+#: setup.php
+msgid "Refresh Interval"
+msgstr "Интервал освежавања"
+
+#: setup.php
+msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
+msgstr "Ово је време у секундама пре него што се страница освежи. (1 - 300)"
+
+#: setup.php
+msgid "This is how monitor will Group Devices."
+msgstr "Ово одређује како ће Монитор груписати уређаје."
+
+#: setup.php
+msgid "Default with permissions"
+msgstr "Подразумевано са дозволама"
+
+#: setup.php
+msgid "This is how monitor will render Devices."
+msgstr "Ово одређује како ће Монитор приказивати уређаје."
+
+#: setup.php
+msgid "Names only"
+msgstr "Само називи"
+
+#: setup.php
+msgid "Tiles & Downtime"
+msgstr "Плочице и време застоја"
+
+#: setup.php
+msgid "Notification Report Format"
+msgstr "Формат извештаја обавештења"
+
+#: setup.php
+msgid "Format File to Use"
+msgstr "Датотека формата за коришћење"
+
+#: setup.php
+msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
+msgstr "Изаберите датотеку прилагођеног html омотача и CSS-а коју желите да користите. Ова датотека садржи и html и CSS који окружују ваш извештај. Ако садржи више од самог CSS-а, потребно је да у датотеку поставите посебну ознаку <REPORT>. Ова ознака формата биће замењена садржајем извештаја. Те датотеке се налазе у директоријуму 'formats'."
+
+#: setup.php
+msgid "Ping Threshold Notifications"
+msgstr "Обавештења о прагу пинга"
+
+#: setup.php
+msgid "Warning Latency Notification"
+msgstr "Обавештење о упозорењу за кашњење"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Warning Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ако уређај има повратно кашњење пинга изнад прага упозорења и изнад нивоа критичности испод, пријављене адресе е-поште за тај уређај ће добити обавештење е-поштом. Изаберите 'Онемогућено' да бисте онемогућили. За омогућавање ове функције потребан је додатак Thold."
+
+#: setup.php
+msgid "Alert Latency Notification"
+msgstr "Обавештење о узбуни за кашњење"
+
+#: setup.php
+msgid "If a Device has a Round Trip Ping Latency above the Alert Threshold and above the Criticality below, subscribing emails to the Device will receive an email notification.  Select 'Disabled' to Disable.  The Thold Plugin is required to enable this feature."
+msgstr "Ако уређај има повратно кашњење пинга изнад прага узбуне и изнад нивоа критичности испод, пријављене адресе е-поште за тај уређај ће добити обавештење е-поштом. Изаберите 'Онемогућено' да бисте онемогућили. За омогућавање ове функције потребан је додатак Thold."
+
+#: setup.php
+msgid "How Often to Resend Emails"
+msgstr "Колико често поново слати е-пошту"
+
+#: setup.php
+msgid "How often should emails notifications be sent to subscribers for these Devices if they are exceeding their latency thresholds"
+msgstr "Колико често треба слати обавештења е-поштом претплатницима за ове уређаје ако премашују своје прагове кашњења"
+
+#: setup.php
+msgid "Every Occurrence"
+msgstr "При свакој појави"
+
+#: setup.php
+#, php-format
+msgid "Every %d Minutes"
+msgstr "Сваких %d минута"
+
+#: setup.php
+msgid "Every Hour"
+msgstr "Сваког сата"
+
+#: setup.php
+#, php-format
+msgid "Every %d Hours"
+msgstr "Сваких %d сати"
+
+#: setup.php
+msgid "Reboot Notifications"
+msgstr "Обавештења о поновном покретању"
+
+#: setup.php
+msgid "Send Reboot Notifications"
+msgstr "Шаљи обавештења о поновном покретању"
+
+#: setup.php
+msgid "Should Device Reboot Notifications be sent to users?"
+msgstr "Да ли корисницима треба слати обавештења о поновном покретању уређаја?"
+
+#: setup.php
+msgid "Send one Email to all addresses"
+msgstr "Пошаљи једну е-поруку на све адресе"
+
+#: setup.php
+msgid "If checked, the system will send one Email only to all addresses."
+msgstr "Ако је означено, систем ће послати само једну е-поруку на све адресе."
+
+#: setup.php
+msgid "Include Threshold Alert Lists"
+msgstr "Укључи листе упозорења прагова"
+
+#: setup.php
+msgid "Should Threshold Alert Lists also receive Notification"
+msgstr "Да ли листе упозорења прагова такође треба да приме обавештење"
+
+#: setup.php
+msgid "Subject"
+msgstr "Предмет"
+
+#: setup.php
+msgid "Enter a Reboot message subject for the Reboot Notification."
+msgstr "Унесите наслов поруке о поновном покретању за обавештење о поновном покретању."
+
+#: setup.php
+msgid "Cacti Device Reboot Notification"
+msgstr "Cacti обавештење о поновном покретању уређаја"
+
+#: setup.php
+msgid "Email Body"
+msgstr "Тело е-поруке"
+
+#: setup.php
+msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
+msgstr "Унесите тело е-поруке које ће бити укључено у поруку обавештења о поновном покретању. Тренутно је једина подржана ознака за замену која се прихвата &#060;DETAILS&#062;"
+
+#: setup.php
+msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
+msgstr "<h1>Обавештење надзора о поновном покретању</h1><p>Следећи уређаји су поново покренути. Погледајте детаље испод за додатне информације.</p><br><DETAILS>"
+
+#: setup.php
+msgid "Notification Email Addresses"
+msgstr "Адресе е-поште за обавештења"
+
+#: setup.php
+msgid "From Name"
+msgstr "Име пошиљаоца"
+
+#: setup.php
+msgid "Enter the Email Name to send the notifications from"
+msgstr "Унесите име за е-пошту са које се шаљу обавештења"
+
+#: setup.php
+msgid "From Address"
+msgstr "Адреса пошиљаоца"
+
+#: setup.php
+msgid "Enter the Email Address to send the notification from"
+msgstr "Унесите адресу е-поште са које се шаље обавештење"
+
+#: setup.php
+msgid "Notification List"
+msgstr "Листа обавештења"
+
+#: setup.php
+msgid "Select a Notification List below.  All Emails subscribed to the notification list will be notified."
+msgstr "Изаберите листу за обавештења испод. Све адресе е-поште пријављене на листу за обавештења биће обавештене."
+
+#: setup.php
+msgid "Email Addresses"
+msgstr "Адресе е-поште"
+
+#: setup.php
+msgid "Enter a comma delimited list of Email addresses to inform of a reboot event."
+msgstr "Унесите листу адреса е-поште раздвојених зарезом које треба обавестити о догађају поновног покретања."
+
+#: setup.php
+msgid "Server"
+msgstr "Сервер"
+
+#: setup.php
+msgid "Printer"
+msgstr "Штампач"
+
+#: setup.php
+msgid "Desktop PC"
+msgstr "Стони рачунар"
+
+#: setup.php
+msgid "Laptop/notebook"
+msgstr "Лаптоп/преносни рачунар"
+
+#: setup.php
+msgid "Wifi"
+msgstr "Бежична мрежа"
+
+#: setup.php
+msgid "Wired network"
+msgstr "Жичана мрежа"
+
+#: setup.php
+msgid "Database"
+msgstr "База података"
+
+#: setup.php
+msgid "Clock"
+msgstr "Сат"
+
+#: setup.php
+msgid "Asterisk"
+msgstr "Звездица"
+
+#: setup.php
+msgid "Harddisk"
+msgstr "Чврсти диск"
+
+#: setup.php
+msgid "Boxes"
+msgstr "Кутије"
+
+#: setup.php
+msgid "Phone"
+msgstr "Телефон"
+
+#: setup.php
+msgid "Cloud"
+msgstr "Облак"
+
+#: setup.php
+msgid "Do not Change"
+msgstr "Не мењај"
+
+#: setup.php
+#, php-format
+msgid "%d Percent Above Average"
+msgstr "%d процената изнад просека"
+
+#: setup.php
+msgid "Device Monitoring Settings"
+msgstr "Подешавања надзора уређаја"
+
+#: setup.php
+msgid "Monitor Device"
+msgstr "Надзири уређај"
+
+#: setup.php
+msgid "Check this box to monitor this Device on the Monitor Tab."
+msgstr "Означите ово поље да бисте надзирали овај уређај на картици Надзор."
+
+#: setup.php
+msgid "Device Criticality"
+msgstr "Критичност уређаја"
+
+#: setup.php
+msgid "What is the Criticality of this Device."
+msgstr "Која је критичност овог уређаја."
+
+#: setup.php
+msgid "Ping Warning Threshold"
+msgstr "Праг упозорења за пинг"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log a warning or send email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ако повратно кашњење путем било које од унапред дефинисаних Cacti метода пинга пређе овај праг, забележи упозорење или пошаљи е-поруку на основу критичности уређаја и подешавања надзора. Јединица је у милисекундама. Постављање на 0 онемогућава ову опцију. Додатак Thold је потребан за коришћење ове функционалности."
+
+#: setup.php
+msgid "milliseconds"
+msgstr "милисекунди"
+
+#: setup.php
+msgid "Ping Alert Threshold"
+msgstr "Праг узбуне за пинг"
+
+#: setup.php
+msgid "If the round-trip latency via any of the predefined Cacti ping methods raises above this threshold, log an alert or send an email based upon the Devices Criticality and Monitor setting.  The unit is in milliseconds.  Setting to 0 disables. The Thold Plugin is required to leverage this functionality."
+msgstr "Ако повратно кашњење путем било које од унапред дефинисаних Cacti метода пинга пређе овај праг, забележи узбуну или пошаљи е-поруку на основу критичности уређаја и подешавања надзора. Јединица је у милисекундама. Постављање на 0 онемогућава ову опцију. Додатак Thold је потребан за коришћење ове функционалности."
+
+#: setup.php
+msgid "Re-Baseline Warning"
+msgstr "Поновно одређивање основне вредности упозорења"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Warning Threshold.  If updated, this will automatically adjust the Ping Warning Threshold."
+msgstr "Проценат изнад тренутног просечног времена пинга који се сматра прагом упозорења. Ако се ажурира, ово ће аутоматски прилагодити праг упозорења за пинг."
+
+#: setup.php
+msgid "Re-Baseline Alert"
+msgstr "Поновно одређивање основне вредности узбуне"
+
+#: setup.php
+msgid "The percentage above the current average ping time to consider a Alert Threshold.  If updated, this will automatically adjust the Ping Alert Threshold."
+msgstr "Проценат изнад тренутног просечног времена пинга који се сматра прагом узбуне. Ако се ажурира, ово ће аутоматски прилагодити праг узбуне за пинг."
+
+#: setup.php
+msgid "Down Device Message"
+msgstr "Порука за недоступан уређај"
+
+#: setup.php
+msgid "This is the message that will be displayed when this Device is reported as down."
+msgstr "Ово је порука која ће бити приказана када се овај уређај пријави као недоступан."
+
+#: setup.php
+msgid "Device icon"
+msgstr "Икона уређаја"
+
+#: setup.php
+msgid "You can select device icon."
+msgstr "Можете изабрати икону уређаја."
+
+#: setup.php
+msgid "Monitoring"
+msgstr "Надзор"
