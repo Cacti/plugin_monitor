@@ -998,7 +998,7 @@ msgstr "Kullanılacak Dosyayı Biçimlendir"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Kullanılacak özel html sarıcısını ve CSS dosyasını seçin. Bu dosya, raporunuzu sarmak için hem html hem de CSS içeriyor. CSS&#39;den daha fazlasını içeriyorsa, özel bir <REPORT> Dosyanın içindeki etiketi kullanın. Bu biçim etiketi rapor içeriği ile değiştirilecektir. Bu dosyalar &#39;formatları&#39; dizininde bulunur."
+msgstr "Kullanılacak özel html sarıcısını ve CSS dosyasını seçin. Bu dosya, raporunuzu sarmak için hem html hem de CSS içeriyor. CSS'den daha fazlasını içeriyorsa, özel bir <REPORT> Dosyanın içindeki etiketi kullanın. Bu biçim etiketi rapor içeriği ile değiştirilecektir. Bu dosyalar 'formatları' dizininde bulunur."
 
 #: setup.php
 msgid "Ping Threshold Notifications"

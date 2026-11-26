@@ -998,7 +998,7 @@ msgstr "Định dạng tệp để sử dụng"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "Chọn trình bao bọc html và tệp CSS tùy chỉnh để sử dụng. Tệp này chứa cả html và CSS để bao quanh báo cáo của bạn. Nếu nó chứa nhiều hơn chỉ đơn giản là CSS, bạn cần đặt một đặc biệt <REPORT> thẻ bên trong của tập tin. Thẻ định dạng này sẽ được thay thế bởi nội dung báo cáo. Các tệp này được đặt trong thư mục &#39;định dạng&#39;."
+msgstr "Chọn trình bao bọc html và tệp CSS tùy chỉnh để sử dụng. Tệp này chứa cả html và CSS để bao quanh báo cáo của bạn. Nếu nó chứa nhiều hơn chỉ đơn giản là CSS, bạn cần đặt một đặc biệt <REPORT> thẻ bên trong của tập tin. Thẻ định dạng này sẽ được thay thế bởi nội dung báo cáo. Các tệp này được đặt trong thư mục 'định dạng'."
 
 #: setup.php
 msgid "Ping Threshold Notifications"

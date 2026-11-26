@@ -169,7 +169,7 @@ msgstr "कैंसिल करें"
 
 #: includes/controller.php
 msgid "Loading..."
-msgstr "लोड हो रहा है..।"
+msgstr "लोड हो रहा है..."
 
 #: includes/controller.php includes/render.php
 msgid "Device Detail Panels"
@@ -998,7 +998,7 @@ msgstr "प्रारूप फ़ाइल का उपयोग करन�
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
-msgstr "उपयोग करने के लिए कस्टम HTML आवरण और सीएसएस फ़ाइल चुनें। इस फ़ाइल में HTML और CSS दोनों शामिल हैं जो आपकी रिपोर्ट के आसपास हैं। यदि इसमें बस CSS से अधिक है, तो आपको एक विशेष स्थान रखने की आवश्यकता है <REPORT> फ़ाइल के अंदर टैग। इस प्रारूप टैग को रिपोर्ट सामग्री द्वारा बदल दिया जाएगा। ये फाइलें &#39;फॉर्मेट&#39; डायरेक्टरी में स्थित हैं।"
+msgstr "उपयोग करने के लिए कस्टम HTML आवरण और सीएसएस फ़ाइल चुनें। इस फ़ाइल में HTML और CSS दोनों शामिल हैं जो आपकी रिपोर्ट के आसपास हैं। यदि इसमें बस CSS से अधिक है, तो आपको एक विशेष स्थान रखने की आवश्यकता है <REPORT> फ़ाइल के अंदर टैग। इस प्रारूप टैग को रिपोर्ट सामग्री द्वारा बदल दिया जाएगा। ये फाइलें 'फॉर्मेट' डायरेक्टरी में स्थित हैं।"
 
 #: setup.php
 msgid "Ping Threshold Notifications"
