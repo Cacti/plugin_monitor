@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/monitor/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Japanese <https://translate.cacti.net/projects/cacti/monitor/ja/>\nLanguage: ja-JP\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=1; plural=0;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -910,7 +910,7 @@ msgstr "アイコンの凡例を表示"
 
 #: setup.php
 msgid "Check this to show an icon legend on the Monitor display"
-msgstr "監視画面にアイコンの凡例を表示するには、これをチェックします。"
+msgstr "監視画面にアイコンの凡例を表示するには、これをチェックします"
 
 #: setup.php
 msgid "Show Uptime"
@@ -918,7 +918,7 @@ msgstr "稼働時間を表示"
 
 #: setup.php
 msgid "Check this to show Uptime on the Monitor display"
-msgstr "監視画面に稼働時間を表示するには、これをチェックします。"
+msgstr "監視画面に稼働時間を表示するには、これをチェックします"
 
 #: setup.php
 msgid "Zoom to Errors"
@@ -926,7 +926,7 @@ msgstr "エラーにズーム"
 
 #: setup.php
 msgid "Check this to zoom to errored items on the Monitor display"
-msgstr "監視画面でエラーが発生した項目にズームするには、これをチェックします。"
+msgstr "監視画面でエラーが発生した項目にズームするには、これをチェックします"
 
 #: setup.php
 msgid "Zoom Background"
@@ -950,7 +950,7 @@ msgstr "新しいデバイスで有効にする"
 
 #: setup.php
 msgid "Check this to automatically enable monitoring when creating new devices"
-msgstr "新しいデバイスを作成するときに監視を自動的に有効にするには、これをチェックします。"
+msgstr "新しいデバイスを作成するときに監視を自動的に有効にするには、これをチェックします"
 
 #: setup.php
 msgid "Notification/Reboot Log Retention"
@@ -962,7 +962,7 @@ msgstr "通知ログおよび再起動ログを指定した日数保持します
 
 #: setup.php
 msgid "Refresh Interval"
-msgstr "リフレッシュ間隔"
+msgstr "更新間隔"
 
 #: setup.php
 msgid "This is the time in seconds before the page refreshes.  (1 - 300)"
@@ -1044,7 +1044,7 @@ msgstr "1時間ごと"
 #: setup.php
 #, php-format
 msgid "Every %d Hours"
-msgstr "%d時間ごと"
+msgstr "%d 時間ごと"
 
 #: setup.php
 msgid "Reboot Notifications"
