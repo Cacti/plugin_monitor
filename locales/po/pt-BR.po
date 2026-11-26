@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Brazil) <https://translate.cacti.net/projects/cacti/monitor/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Portuguese (Brazil) <https://translate.cacti.net/projects/cacti/monitor/pt_BR/>\nLanguage: pt-BR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n > 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -43,7 +43,7 @@ msgstr "Agrupamento"
 
 #: includes/controller.php
 msgid "Refresh"
-msgstr "Atualizar"
+msgstr "Recarregar"
 
 #: includes/controller.php
 msgid "Refresh the Device List"
@@ -141,7 +141,7 @@ msgstr "Dispositivos sem site"
 
 #: includes/controller.php
 msgid "Sites"
-msgstr "Sites"
+msgstr "Locais"
 
 #: includes/controller.php includes/render.php
 msgid "Non-Templated Devices"
@@ -369,7 +369,7 @@ msgstr "SNMP ou Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "Obter SysDesc via SNMP"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -398,7 +398,7 @@ msgstr "Site"
 
 #: includes/controller.php monitor.php setup.php
 msgid "Device Template"
-msgstr "Modelo de dispositivo"
+msgstr "Modelo do dispositivo"
 
 #: includes/controller.php includes/render.php
 msgid "Location"
@@ -431,7 +431,7 @@ msgstr "Ping atual / médio"
 
 #: includes/controller.php
 msgid "Min / Max Ping"
-msgstr "Ping mín. / máx."
+msgstr "Ping mínimo / máximo"
 
 #: includes/controller.php includes/render.php
 msgid "Availability"
@@ -650,7 +650,7 @@ msgstr "Criticidade não definida - clique para filtrar dispositivos sem critici
 
 #: includes/render.php
 msgid "Not Set"
-msgstr "Não definido"
+msgstr "Não selecionado"
 
 #: includes/render.php
 msgid "Click to add or remove this event from the filter"
@@ -994,7 +994,7 @@ msgstr "Formato do relatório de notificação"
 
 #: setup.php
 msgid "Format File to Use"
-msgstr "Formatar arquivo para usar"
+msgstr "Arquivo de formato a usar"
 
 #: setup.php
 msgid "Choose the custom html wrapper and CSS file to use.  This file contains both html and CSS to wrap around your report.  If it contains more than simply CSS, you need to place a special <REPORT> tag inside of the file.  This format tag will be replaced by the report content.  These files are located in the 'formats' directory."
