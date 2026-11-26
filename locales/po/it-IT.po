@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:23+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Italian <https://translate.cacti.net/projects/cacti/monitor/it/>\nLanguage: it-IT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Italian <https://translate.cacti.net/projects/cacti/monitor/it/>\nLanguage: it-IT\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -43,7 +43,7 @@ msgstr "Raggruppa"
 
 #: includes/controller.php
 msgid "Refresh"
-msgstr "Aggiorna"
+msgstr "Ricarica"
 
 #: includes/controller.php
 msgid "Refresh the Device List"
@@ -369,7 +369,7 @@ msgstr "SNMP o Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "Recupera SysDesc via SNMP"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -742,7 +742,7 @@ msgstr "Tutti i dispositivi monitorati"
 
 #: monitor.php
 msgid "All Devices"
-msgstr "Dispositivi"
+msgstr "Tutti i dispositivi"
 
 #: monitor.php
 msgid "Devices not Monitored"
@@ -766,7 +766,7 @@ msgstr "Lista"
 
 #: monitor.php setup.php
 msgid "Tiles"
-msgstr "Tiles"
+msgstr "Riquadri"
 
 #: monitor.php
 msgid "Tiles & Time"
