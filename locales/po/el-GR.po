@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:22+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/monitor/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: Greek <https://translate.cacti.net/projects/cacti/monitor/el/>\nLanguage: el-GR\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -325,7 +325,7 @@ msgstr "Χρόνος λειτουργίας παράγοντα:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
-msgstr "Μη Διαθέσιμο"
+msgstr "Μη Εφαρμόσιμο"
 
 #: includes/controller.php
 msgid "Sys Description:"
@@ -369,7 +369,7 @@ msgstr "SNMP ή Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "Λήψη SysDesc μέσω SNMP"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -480,7 +480,7 @@ msgstr "Όριο %d"
 
 #: includes/controller.php includes/render.php monitor.php
 msgid "Triggered"
-msgstr "Ενεργοποιημένο"
+msgstr "Πυροδοτήθηκε"
 
 #: includes/controller.php includes/render.php
 msgid "Thresholds"
@@ -554,7 +554,7 @@ msgstr "Συναγερμός Ping"
 
 #: includes/render.php monitor.php
 msgid "Failed Svc"
-msgstr "Αποτυχία υπ."
+msgstr "Αποτυχία υπηρεσίας"
 
 #: includes/render.php
 msgid "Actions"
