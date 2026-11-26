@@ -1,5 +1,5 @@
 msgid ""
-msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-25 02:22+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/monitor/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
+msgstr "Project-Id-Version: \nReport-Msgid-Bugs-To: developers@cacti.net\nPOT-Creation-Date: 2026-10-11 17:03-0400\nPO-Revision-Date: 2026-11-26 03:18+0000\nLast-Translator: Thomas Vincent <balder.infuser.6n@icloud.com>\nLanguage-Team: German <https://translate.cacti.net/projects/cacti/monitor/de/>\nLanguage: de-DE\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=n != 1;\nX-Generator: Weblate 5.11.4\n"
 
 #: includes/controller.php
 msgid "New Dashboard"
@@ -43,7 +43,7 @@ msgstr "Gruppieren"
 
 #: includes/controller.php
 msgid "Refresh"
-msgstr "Aktualisieren"
+msgstr "Neu laden"
 
 #: includes/controller.php
 msgid "Refresh the Device List"
@@ -325,7 +325,7 @@ msgstr "Agent-Betriebszeit:"
 
 #: includes/controller.php includes/render.php
 msgid "N/A"
-msgstr "Nicht verfügbar"
+msgstr "Nicht zutreffend"
 
 #: includes/controller.php
 msgid "Sys Description:"
@@ -369,7 +369,7 @@ msgstr "SNMP oder Ping"
 
 #: includes/controller.php
 msgid "SNMP Get SysDesc"
-msgstr "SNMP Get SysDesc"
+msgstr "SNMP-Abfrage SysDesc"
 
 #: includes/controller.php
 msgid "SNMP Get Next"
@@ -1092,7 +1092,7 @@ msgstr "E-Mail-Inhalt"
 
 #: setup.php
 msgid "Enter an Email body to include in the Reboot Notification message.  Currently, the only supported replacement tag accepted is &#060;DETAILS&#062;"
-msgstr "Geben Sie einen E-Mail-Text ein, der in die Neustart-Benachrichtigung aufgenommen werden soll. Derzeit wird nur das Ersetzungs-Tag &#060;DETAILS&#062; unterstützt."
+msgstr "Geben Sie einen E-Mail-Text ein, der in die Neustart-Benachrichtigung aufgenommen werden soll. Derzeit wird nur das Ersetzungs-Tag &#060;DETAILS&#062; unterstützt"
 
 #: setup.php
 msgid "<h1>Monitor Reboot Notification</h1><p>The following Device's were Rebooted.  See details below for additional information.</p><br><DETAILS>"
@@ -1213,7 +1213,7 @@ msgstr "Gerätekritikalität"
 
 #: setup.php
 msgid "What is the Criticality of this Device."
-msgstr "Welche Kritikalität hat dieses Gerät?"
+msgstr "Kritikalität dieses Geräts."
 
 #: setup.php
 msgid "Ping Warning Threshold"
@@ -1269,7 +1269,7 @@ msgstr "Sie können ein Gerätesymbol auswählen."
 
 #: setup.php
 msgid "Monitoring"
-msgstr "Monitoring"
+msgstr "Überwachung"
 
 #, fuzzy
 #~ msgid "Not Monitored Devices"
